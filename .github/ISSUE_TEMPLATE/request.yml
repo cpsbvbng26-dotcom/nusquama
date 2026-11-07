@@ -1,0 +1,38 @@
+name: 削除・訂正・辞退の求め
+description: 名簿からの辞退、自分についての記載の訂正や削除、権利を侵す内容の削除などを求める。無償。
+title: "求め：<求めの種類>"
+labels: ["求め"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        この issue は公開されます。問題の個人情報そのものを書き写さず、どこにあるかだけを書いてください。
+        公開の場で書けない事情があるときは、種類で「非公開の連絡を求める」を選び、ほかは空のままにしてください。
+        費用はかかりません。手順は「削除・訂正・辞退の求め」の規程にあります。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 求めの種類
+      options:
+        - 騎士の名簿からの辞退
+        - 自分についての記載の訂正・削除
+        - 自分の個人情報の削除
+        - 自分の権利を侵す内容の削除
+        - 実在の何かと誤認されるおそれがある表現の修正
+        - 非公開の連絡を求める
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: どこにあるか
+      description: 頁の URL か、リポジトリのファイル名と行。個人情報そのものは書かない。
+    validations:
+      required: false
+  - type: textarea
+    id: what
+    attributes:
+      label: 何を求めるか
+      description: 短くてかまいません。辞退に理由は要りません。
+    validations:
+      required: false
