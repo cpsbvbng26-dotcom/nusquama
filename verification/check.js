@@ -109,6 +109,10 @@ console.log('\n7. アイコン');
   ok('どの頁もアイコンを指す', B.SOURCES.every(([, d]) => /rel="icon" href="[^"]*favicon\.svg"/.test(read('site/' + d)) && /rel="apple-touch-icon"/.test(read('site/' + d))));
 }
 
+console.log('\n8. Search Console の所有者の確認');
+ok('トップの頁に google-site-verification の meta がある（受け取った値のまま）',
+  read('site/index.html').includes('<meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">') && B.GOOGLE_SITE_VERIFICATION === 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8');
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
