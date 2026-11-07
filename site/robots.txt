@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nusquama.vercel.app/sitemap.xml
