@@ -131,6 +131,13 @@ console.log('\n7. アイコン');
   }
   const ico = fs.readFileSync(path.join(ROOT, 'assets', 'favicon.ico'));
   ok('favicon.ico が 16・32・48 px を収める', ico.readUInt16LE(4) === 3 && [0, 1, 2].map((i) => ico.readUInt8(6 + 16 * i)).join() === '16,32,48');
+  const F = require('../tools/favicon.js');
+  const fav = read('assets/favicon.svg');
+  ok('favicon.svg は正方形で、国章から tools/favicon.js が作ったものそのまま（Google の検索結果は正方形を求める）',
+    fav.includes('viewBox="0 0 ' + F.SIDE + ' ' + F.SIDE + '"') && fav === F.square(read('assets/emblem.svg')));
+  ok('どの頁も 48 の倍数の正方形の PNG（192 px）を指し、サイト名を og:site_name で出す',
+    B.SOURCES.every(([s, d]) => read('site/' + d).includes('icon-192.png" sizes="192x192" type="image/png">')
+      && read('site/' + d).includes('<meta property="og:site_name" content="' + (s.endsWith('.en.md') ? 'Nusquama' : '無何有騎士王国ヌスクァマ') + '">')));
   ok('どの頁もアイコンを指す', B.SOURCES.every(([, d]) => /rel="icon" href="[^"]*favicon\.svg"/.test(read('site/' + d)) && /rel="apple-touch-icon"/.test(read('site/' + d))));
 }
 
