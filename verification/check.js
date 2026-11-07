@@ -196,6 +196,45 @@ console.log('\n12. 受付と安全の知らせ');
   ok('求めの規程が様式と SECURITY.md へつなぐ', rq.includes('template=request.yml') && rq.includes('[安全の問題の知らせ方](../SECURITY.md)'));
 }
 
+console.log('\n13. リンク切れ（リポジトリの中を指すもの）');
+{
+  const docs = ['README.md', 'KNIGHTS.md', 'ERRATA.md', 'SECURITY.md', ...fs.readdirSync(path.join(ROOT, 'policies')).filter((f) => f.endsWith('.md')).map((f) => 'policies/' + f)];
+  const ymls = fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f);
+  const heads = (f) => read(f).split('\n').filter((l) => /^#{2,3} /.test(l)).map((l) => l.replace(/^#+ /, ''));
+  const exists = (rel) => fs.existsSync(path.join(ROOT, rel));
+  const bad = [];
+  let n = 0;
+  const absolute = (u, from) => {
+    let m;
+    if ((m = /^https:\/\/github\.com\/cpsbvbng26-dotcom\/nusquama\/blob\/main\/([^?#)\s]+)/.exec(u))) { n++; if (!exists(decodeURIComponent(m[1]))) bad.push(from + ' → ' + u); }
+    else if ((m = /^https:\/\/github\.com\/cpsbvbng26-dotcom\/nusquama\/issues\/new\?template=([\w.-]+)/.exec(u))) { n++; if (!exists('.github/ISSUE_TEMPLATE/' + m[1])) bad.push(from + ' → ' + u); }
+    else if ((m = /^https:\/\/nusquama\.vercel\.app\/([^?#)\s]*)/.exec(u))) { n++; if (!exists('site/' + (m[1] || 'index.html'))) bad.push(from + ' → ' + u); }
+  };
+  for (const f of docs) {
+    const t = read(f);
+    for (const m of t.matchAll(/\]\(([^)\s]+)\)(?:の?「([^」]+)」)?/g)) {
+      const [, href, sec] = m;
+      if (/^https?:/.test(href)) { absolute(href, f); continue; }
+      if (/^(mailto:|#)/.test(href)) continue;
+      n++;
+      const target = path.posix.normalize(path.posix.join(path.posix.dirname(f), href.split('#')[0]));
+      if (!exists(target)) { bad.push(f + ' → ' + href); continue; }
+      if (sec && target.endsWith('.md') && !heads(target).includes(sec)) bad.push(f + ' → ' + href + '「' + sec + '」');
+    }
+    for (const m of t.matchAll(/<(https:\/\/[^>\s]+)>/g)) absolute(m[1], f);
+  }
+  for (const f of ymls) for (const m of read(f).matchAll(/https:\/\/[^\s"')]+/g)) absolute(m[0], f);
+  ok('リポジトリの中とサイトを指すリンクと節（' + n + ' 件）が、どれも実在する', n > 0 && bad.length === 0, bad.join(' / '));
+}
+
+console.log('\n14. GitHub Actions の版');
+{
+  const wf = fs.readdirSync(path.join(ROOT, '.github', 'workflows')).map((f) => read('.github/workflows/' + f)).join('\n');
+  const old = [...wf.matchAll(/uses: (actions\/(?:checkout|setup-node)@v(\d+))/g)].filter((m) => Number(m[2]) < 5).map((m) => m[1]);
+  ok('checkout と setup-node は Node.js 24 で動く v5 以上', old.length === 0, old.join(', '));
+  ok('Dependabot が GitHub Actions の版を見る', /package-ecosystem: github-actions/.test(read('.github/dependabot.yml')));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
