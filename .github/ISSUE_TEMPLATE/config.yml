@@ -1,1 +1,8 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
+contact_links:
+  - name: 規程（利用規約・免責事項・個人情報の取り扱いなど）
+    url: https://nusquama.vercel.app/policies/terms.html
+    about: 願い出や求めの前に読む規程の一覧です。
+  - name: 安全の問題の知らせ方（SECURITY.md）
+    url: https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/SECURITY.md
+    about: サイトの不具合や個人情報の露出は、詳細を公開の issue に書かず、ここの手順で知らせます。

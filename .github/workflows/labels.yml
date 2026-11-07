@@ -1,0 +1,22 @@
+name: ラベル
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/labels.yml']
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  labels:
+    name: 様式が使うラベルをそろえる
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh label create "叙任" --color c9a227 --description "騎士の叙任の願い出" --force
+          gh label create "求め" --color 14213d --description "削除・訂正・辞退の求め" --force
