@@ -35,7 +35,7 @@ console.log('\n2. どの頁も創作だと断る');
   const readme = read('README.md');
   ok('README の冒頭が、創作であること・無関係であること・効力がないことを断る',
     readme.indexOf('> これは創作であり、遊びです。') > 0 && readme.indexOf('> これは創作であり、遊びです。') < readme.indexOf('## ')
-    && readme.includes('いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく') && readme.includes('ここで授ける称号に、法的な効力はありません。'));
+    && readme.includes('いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく') && readme.includes('ここで授ける称号に、法的な効力はありません。') && readme.includes('> 悪意はなく、法令を守って運営しています。'));
   for (const [src, dst] of B.SOURCES.concat([['', '404.html']])) {
     const html = read('site/' + dst);
     const has = dst === 'index.html' ? html.includes('これは創作であり、遊びです。') : html.includes('<p class="notice">' + B.NOTICE + '</p>');
@@ -58,6 +58,8 @@ console.log('\n3. 規程の約束（消せば落ちる）');
       '運営者の整理では、上のどの法令についても、要件に当たる事実がありません。', 'ただし、これは法的な保証ではありません。前提となる事実が変われば、結論も変わります。'],
   };
   must['policies/terms.md'].push('通貨・点数・引換券・電子的な価値・旅券・身分証・証明書のどれも発行しません。', 'ヌスクァマは、勲章・記章・制服・証書などの物を作らず、配りません。');
+  for (const f of ['policies/terms.md', 'policies/legality.md']) must[f].push('ヌスクァマに悪意はありません。人をだますことも、誰かを害することも、目的にしていません。', '運営者は、日本の法令と、使っているサービスの規約を守って運営します。', '適法かどうか迷う事柄は、行わないほうを選びます。');
+  must['policies/disclaimer.md'].push('ヌスクァマに悪意はありません。人をだますことも、誰かを害することも、目的にしていません。');
   must['policies/knighting.md'].push('叙任では、任命書・証書・記章などの書面や物を発行しません。名簿にアカウント名を載せるだけです。');
   must['policies/disclaimer.md'].push('法令ごとの整理は[適法性の説明](./legality.md)にあります。弁護士の確認は受けていません。');
   for (const [f, list] of Object.entries(must)) {
