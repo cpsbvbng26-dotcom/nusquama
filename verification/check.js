@@ -52,7 +52,11 @@ console.log('\n3. 規程の約束（消せば落ちる）');
       '紛争は、示談による解決を優先します。', '相手方から示談の申し出があれば、運営者は誠実に応じます。',
       '示談で解決しない紛争は、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の専属的合意管轄裁判所とします。'],
     'policies/disclaimer.md': ['国際法上の国家ではなく、国家としての承認を求めず、どの国の領土も主張しません。', '叙任は、現実の栄誉の授与ではありません。', 'アーサー王伝説を題材とする小説・映画・ゲーム・アニメなどの作品と、その権利者', 'Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。'],
-    'policies/privacy.md': ['サイトは、cookie を使わず、アクセス解析も広告も置いていません。', '本名・住所・所属・連絡先は求めません。', '13 歳未満の人は、叙任を願い出ることができません。'],
+    'policies/privacy.md': ['サイトは、cookie を使わず、アクセス解析も広告も置いていません。', '本名・住所・所属・連絡先は求めません。', '16 歳未満の人は、叙任を願い出ることができません。',
+      'ただし、訂正へのリンクの先に本名や所属が書かれている場合は、名簿と issue によって、アカウント名とその人が結び付いて公開されます。',
+      '米国には、日本の個人情報保護法に当たる、個人情報を包括して扱う連邦の法律はありません。',
+      '保有個人データの開示と利用停止にも応じます。',
+      'issue は、削除の求めがあれば、運営者が issue を削除するか、本文を空にしたうえで編集の履歴からも前の版を消します。'],
     'policies/knighting.md': ['叙任は無償です。', '騎士は、いつでも名簿からの辞退を求めることができます。理由は要りません。', '運営者は、訂正の中身が正しいかどうかを判断しません。'],
     'policies/requests.md': ['名簿からの辞退は、理由を問わず応じます。', '費用はかかりません。'],
     'policies/names.md': ['特定の作品・団体・人物の名を借りたものではありません。', '実在の国家・王室・騎士団・勲章・大学・企業の紋章や記章を写したものではありません。'],
@@ -64,6 +68,16 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/terms.md'].push('通貨・点数・引換券・電子的な価値・旅券・身分証・証明書のどれも発行しません。', 'ヌスクァマは、勲章・記章・制服・証書などの物を作らず、配りません。');
   for (const f of ['policies/terms.md', 'policies/legality.md']) must[f].push('ヌスクァマに悪意はありません。人をだますことも、誰かを害することも、目的にしていません。', '運営者は、日本の法令と、使っているサービスの規約を守って運営します。', '適法かどうか迷う事柄は、行わないほうを選びます。');
   must['policies/disclaimer.md'].push('ヌスクァマに悪意はありません。人をだますことも、誰かを害することも、目的にしていません。');
+  must['policies/disclaimer.md'].push('この頁は、[利用規約](./terms.md)の一部です。',
+    '日本の消費者契約法が適用される場合は、前の文を適用しません。そのときは、軽過失による損害を含め、同法と民法の定めるとおり責任を負います。',
+    '法令が免除や制限を認めない責任を、免除したり制限したりするものではありません。');
+  must['policies/terms.md'].push('これは、消費者や日本国外の人が、法令によって別の裁判所で訴える権利を奪うものではありません。',
+    'この規約のどの定めも、法令が制限を認めない権利を制限しません。',
+    '読む人や騎士に不利になる変更は、変える内容と効力の生じる日を、効力の生じる前にこの頁で示します。');
+  must['policies/legality.md'].push('- 16 歳未満の人と、住んでいる国の法令が私人の授ける騎士の称号を禁じている人の願い出は受けない。',
+    '- お金や品物を受け取らない。何も売らず、寄付を受けず、広告を出さない。', '- 通貨・旅券・身分証・証明書を発行しない。');
+  must['policies/knighting.md'].push('16 歳未満の人は願い出ることができません。', '- 様式の誓いのすべてに印があること。',
+    '住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。');
   must['policies/knighting.md'].push('叙任では、任命書・証書・記章などの書面や物を発行しません。名簿にアカウント名を載せるだけです。');
   must['policies/disclaimer.md'].push('法令ごとの整理は[適法性の説明](./legality.md)にあります。弁護士の確認は受けていません。');
   for (const [f, list] of Object.entries(must)) {
@@ -102,10 +116,10 @@ console.log('\n6. 叙任の様式の誓い');
 {
   const y = read('.github/ISSUE_TEMPLATE/knighting.yml');
   const oaths = ['訂正したのは、自分自身の誤りです。', '称号に法的な効力も現実の栄誉もないことを分かっています。', '履歴書・論文・名刺・公的な書類には書きません（基本法第八条）。',
-    '叙任のために、誰にも何も支払いません（基本法第六条）。', '13 歳以上です。', '利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、同意します'];
+    '叙任のために、誰にも何も支払いません（基本法第六条）。', '16 歳以上です。', '住んでいる国の法令は、私人の授ける騎士の称号を受けることや使うことを禁じていません。', '利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、願い出の日の版に同意します'];
   const miss = oaths.filter((x) => !y.includes(x));
   ok('誓いがそろい、どれも必須である', miss.length === 0 && (y.match(/required: true/g) || []).length >= oaths.length + 2, miss.join(' / '));
-  ok('本名・住所・所属を書かないよう求めている', y.includes('本名・住所・所属は書かないでください。'));
+  ok('本名・住所・所属・連絡先を書かないよう求め、リンクの先から身元が分かることを知らせる', y.includes('本名・住所・所属・連絡先は書かないでください。') && y.includes('訂正へのリンクの先に本名や所属が書かれていると、このアカウントとその人が結び付いて公開されます。'));
 }
 
 console.log('\n7. アイコン');
@@ -188,7 +202,7 @@ console.log('\n12. 受付と安全の知らせ');
   const rq = read('policies/requests.md');
   const kinds = ((/## 求めることができるもの\n\n([\s\S]*?)\n\n/.exec(rq) || [])[1] || '').split('\n').filter((l) => l.startsWith('- '));
   const opts = [...req.matchAll(/^        - (.+)$/gm)].map((m) => m[1]);
-  ok('求めの様式の種類が、規程の「求めることができるもの」（' + kinds.length + ' 件）と非公開の連絡を覆う', kinds.length === 5 && opts.length === kinds.length + 1 && opts.includes('非公開の連絡を求める'), opts.join(' / '));
+  ok('求めの様式の種類が、規程の「求めることができるもの」（' + kinds.length + ' 件）と非公開の連絡を覆う', kinds.length === 6 && opts.length === kinds.length + 1 && opts.includes('非公開の連絡を求める'), opts.join(' / '));
   const sec = read('SECURITY.md');
   ok('SECURITY.md が冒頭で創作だと断り、非公開の手順へ案内する', sec.includes('> これは創作であり、遊びです。') && sec.includes('template=request.yml') && sec.includes('「非公開の連絡を求める」'));
   const days = (s) => (/(\d+) 日以内に答える/.exec(s) || [])[1];
@@ -254,7 +268,7 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
     'policies/terms.en.md': ['It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
-    'policies/disclaimer.en.md': ['Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
+    'policies/disclaimer.en.md': ['Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
     'policies/legality.en.md': ['This page sets out the operator\'s understanding; it is neither legal advice nor a guarantee.', 'It has not been reviewed by a lawyer.', 'This is not a legal guarantee. If the facts relied on change, so does the conclusion.'],
   };
   for (const [f, list] of Object.entries(mustEn)) {
