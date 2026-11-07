@@ -157,6 +157,45 @@ console.log('\n10. 王の正誤表');
   ok('README と名称と権利が正誤表へつなぐ', readme.includes('[王の正誤表](ERRATA.md)') && read('policies/names.md').includes('[王の正誤表](../ERRATA.md)'));
 }
 
+console.log('\n11. 配色（WCAG の比）');
+{
+  const css = (/<style>([\s\S]*?)<\/style>/.exec(read('site/index.html')) || [])[1] || '';
+  const tok = (s) => Object.fromEntries([...(s || '').matchAll(/--(\w+): (#[0-9a-f]{6})/g)].map((m) => [m[1], m[2]]));
+  const light = tok((/^:root \{([^}]*)\}/m.exec(css) || [])[1]);
+  const dark = tok((/prefers-color-scheme: dark\) \{ :root \{([^}]*)\}/.exec(css) || [])[1]);
+  const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+  const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+  const TEXT = [['fg', 'bg'], ['muted', 'bg'], ['accent', 'bg'], ['fg', 'notice'], ['accent', 'notice'], ['muted', 'notice']];
+  const RING = [['gold', 'bg'], ['gold', 'notice']];
+  for (const [name, t] of [['明るい配色', light], ['暗い配色', dark]]) {
+    const low = TEXT.filter(([f, b]) => !(t[f] && t[b] && ratio(t[f], t[b]) >= 4.5)).map(([f, b]) => f + '/' + b);
+    ok(name + '：文字と背景の組（' + TEXT.length + ' 組）がどれも 4.5:1 以上', Object.keys(t).length > 0 && low.length === 0, low.join(', '));
+    const lowRing = RING.filter(([f, b]) => !(t[f] && t[b] && ratio(t[f], t[b]) >= 3)).map(([f, b]) => f + '/' + b);
+    ok(name + '：フォーカスの枠と背景の組（' + RING.length + ' 組）がどれも 3:1 以上', lowRing.length === 0, lowRing.join(', '));
+  }
+  const literal = css.replace(/^:root \{[^}]*\}/m, '').replace(/prefers-color-scheme: dark\) \{ :root \{[^}]*\}/, '').match(/#[0-9a-fA-F]{3,8}\b/g) || [];
+  ok('色はすべて二つの配色の変数から取る（地の色を書き込んでいない）', literal.length === 0, literal.join(' '));
+}
+
+console.log('\n12. 受付と安全の知らせ');
+{
+  const cfg = read('.github/ISSUE_TEMPLATE/config.yml');
+  const req = read('.github/ISSUE_TEMPLATE/request.yml');
+  const labels = read('.github/workflows/labels.yml');
+  ok('様式を使わない issue を開けない', /^blank_issues_enabled: false$/m.test(cfg));
+  const used = ['knighting.yml', 'request.yml'].flatMap((f) => JSON.parse((/^labels: (\[.*\])$/m.exec(read('.github/ISSUE_TEMPLATE/' + f)) || [, '[]'])[1]));
+  ok('様式が使うラベル（' + used.length + ' 個）を、ラベルの workflow がそろえる', used.length > 0 && used.every((l) => labels.includes('gh label create "' + l + '"')), used.join(','));
+  const rq = read('policies/requests.md');
+  const kinds = ((/## 求めることができるもの\n\n([\s\S]*?)\n\n/.exec(rq) || [])[1] || '').split('\n').filter((l) => l.startsWith('- '));
+  const opts = [...req.matchAll(/^        - (.+)$/gm)].map((m) => m[1]);
+  ok('求めの様式の種類が、規程の「求めることができるもの」（' + kinds.length + ' 件）と非公開の連絡を覆う', kinds.length === 5 && opts.length === kinds.length + 1 && opts.includes('非公開の連絡を求める'), opts.join(' / '));
+  const sec = read('SECURITY.md');
+  ok('SECURITY.md が冒頭で創作だと断り、非公開の手順へ案内する', sec.includes('> これは創作であり、遊びです。') && sec.includes('template=request.yml') && sec.includes('「非公開の連絡を求める」'));
+  const days = (s) => (/(\d+) 日以内に答える/.exec(s) || [])[1];
+  ok('答えるまでの日数が、SECURITY.md と規程で同じ（' + days(rq) + ' 日）', days(rq) && days(sec) === days(rq));
+  ok('求めの規程が様式と SECURITY.md へつなぐ', rq.includes('template=request.yml') && rq.includes('[安全の問題の知らせ方](../SECURITY.md)'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
