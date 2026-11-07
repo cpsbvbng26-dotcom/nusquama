@@ -22,12 +22,16 @@ const GOOGLE_SITE_VERIFICATION = 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8';
 
 /* 頁の元。README がトップ、名簿、王の正誤表、規程。 */
 const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality'];
+/* 英語の訳がある規程。日本語の版を正とする。 */
+const EN = ['terms', 'disclaimer', 'legality'];
 const SOURCES = [['README.md', 'index.html'], ['KNIGHTS.md', 'knights.html'], ['ERRATA.md', 'errata.html']]
-  .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']));
+  .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']))
+  .concat(EN.map((p) => ['policies/' + p + '.en.md', 'policies/' + p + '.en.html']));
 const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png'];
 
 /* どの頁にも先頭に出す断り。README の冒頭と同じ内容である。 */
 const NOTICE = 'これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。';
+const NOTICE_EN = 'This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.';
 
 /* 文書の安全のヘッダー。<meta> では出せない frame-ancestors などを Vercel に出させる。 */
 const HEADERS = [{
@@ -166,9 +170,16 @@ function page(srcRel, outRel) {
   const url = BASE + (outRel === 'index.html' ? '' : outRel);
   const desc = outRel === 'index.html' ? 'どこにもない国の、誰でもない王。誤りは守り、己を治める。創作であり、遊びです。' : firstParagraph(md.replace(/^# .*$/m, '').replace(/^最終更新.*$/m, '')) || h1;
   const csp = `default-src 'none'; style-src '${STYLE_HASH}'; img-src 'self'; base-uri 'none'; form-action 'none'`;
-  const links = [['index.html', 'トップ'], ['knights.html', '騎士の名簿'], ['errata.html', '王の正誤表']].concat(POLICIES.map((p) => ['policies/' + p + '.html', (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, 'policies', p + '.md'), 'utf8')) || [])[1]]));
+  const en = srcRel.endsWith('.en.md');
+  const h1of = (rel) => (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, rel), 'utf8')) || [])[1];
+  const slug = (/^policies\/(\w+)(?:\.en)?\.md$/.exec(srcRel) || [])[1];
+  const twin = slug && EN.includes(slug) ? 'policies/' + slug + (en ? '.html' : '.en.html') : null;
+  const links = en
+    ? [['index.html', 'Top (Japanese)']].concat(EN.map((p) => ['policies/' + p + '.en.html', h1of('policies/' + p + '.en.md')]), [[twin, '日本語']])
+    : [['index.html', 'トップ'], ['knights.html', '騎士の名簿'], ['errata.html', '王の正誤表']].concat(POLICIES.map((p) => ['policies/' + p + '.html', h1of('policies/' + p + '.md')]), twin ? [[twin, 'English']] : []);
+  const alternate = twin ? `<link rel="alternate" hreflang="${en ? 'ja' : 'en'}" href="${BASE + twin}">\n` : '';
   return `<!doctype html>
-<html lang="ja">
+<html lang="${en ? 'en' : 'ja'}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -177,7 +188,7 @@ function page(srcRel, outRel) {
 <meta name="description" content="${esc(desc)}">
 <meta name="google-site-verification" content="${GOOGLE_SITE_VERIFICATION}">
 <link rel="canonical" href="${url}">
-<link rel="icon" href="${pre}favicon.svg" type="image/svg+xml">
+${alternate}<link rel="icon" href="${pre}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${pre}favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="${pre}apple-touch-icon.png">
 <meta property="og:type" content="website">
@@ -189,15 +200,16 @@ function page(srcRel, outRel) {
 <style>${STYLE}</style>
 </head>
 <body>
-<a class="skip" href="#main">本文へ</a>
+<a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
 <header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a></header>
 <main id="main">
-${outRel === 'index.html' ? '' : `<p class="notice">${esc(NOTICE)}</p>\n`}${markdown(md, srcRel, outRel)}
+${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${markdown(md, srcRel, outRel)}
 </main>
 <footer>
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
-<p>文と国章は CC BY 4.0 です。この頁は、リポジトリの ${esc(srcRel)} から生成しています。</p>
-<p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
+${en ? `<p>Text and emblem: CC BY 4.0. This page is generated from ${esc(srcRel)} in the repository. The Japanese version governs.</p>
+<p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>` : `<p>文と国章は CC BY 4.0 です。この頁は、リポジトリの ${esc(srcRel)} から生成しています。</p>
+<p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>`}
 </footer>
 </body>
 </html>
@@ -229,7 +241,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { GOOGLE_SITE_VERIFICATION, build, SOURCES, POLICIES, ASSETS, NOTICE, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { GOOGLE_SITE_VERIFICATION, build, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
