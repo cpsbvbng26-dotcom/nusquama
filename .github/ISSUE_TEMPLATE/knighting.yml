@@ -7,7 +7,8 @@ body:
     attributes:
       value: |
         この国は創作であり、遊びです。実在の国家・王室・騎士団・叙勲とは関係がなく、ここで授ける称号に法的な効力はありません。
-        叙任は無償です。本名・住所・所属は書かないでください。この issue は公開されます。
+        叙任は無償です。本名・住所・所属・連絡先は書かないでください。この issue は公開されます。
+        訂正へのリンクの先に本名や所属が書かれていると、このアカウントとその人が結び付いて公開されます。
   - type: input
     id: correction
     attributes:
@@ -36,7 +37,9 @@ body:
           required: true
         - label: 叙任のために、誰にも何も支払いません（基本法第六条）。
           required: true
-        - label: 13 歳以上です。GitHub のアカウント名・訂正へのリンク・書いた説明が公開され、騎士の名簿に載ること、それらが GitHub と Vercel（どちらも米国）で扱われることに同意します。
+        - label: 16 歳以上です。GitHub のアカウント名・訂正へのリンク・書いた説明が公開され、騎士の名簿に載ること、それらが GitHub と Vercel（どちらも米国）で扱われることに同意します。
           required: true
-        - label: 利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、同意します（https://github.com/cpsbvbng26-dotcom/nusquama/tree/main/policies）。
+        - label: 住んでいる国の法令は、私人の授ける騎士の称号を受けることや使うことを禁じていません。
+          required: true
+        - label: 利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、願い出の日の版に同意します（https://github.com/cpsbvbng26-dotcom/nusquama/tree/main/policies）。
           required: true
