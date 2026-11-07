@@ -36,3 +36,7 @@ body:
           required: true
         - label: 叙任のために、誰にも何も支払いません（基本法第六条）。
           required: true
+        - label: 13 歳以上です。GitHub のアカウント名・訂正へのリンク・書いた説明が公開され、騎士の名簿に載ること、それらが GitHub と Vercel（どちらも米国）で扱われることに同意します。
+          required: true
+        - label: 利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、同意します（https://github.com/cpsbvbng26-dotcom/nusquama/tree/main/policies）。
+          required: true
