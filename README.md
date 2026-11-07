@@ -4,8 +4,10 @@
 > ヌスクァマは国家ではなく、領土・国民・通貨・旅券を持ちません。
 > いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく、それらを名乗るものでも、それらに代わるものでもありません。
 > ここで授ける称号に、法的な効力はありません。
+>
+> 詳しくは[利用規約](policies/terms.md)と[免責事項](policies/disclaimer.md)にあります。
 
-![国章](emblem.svg)
+![国章](assets/emblem.svg)
 
 **国是**：Errata servo, me ipsum rego. ―― 誤りは守り、己を治める。
 
@@ -95,7 +97,7 @@
 ## 騎士になるには
 
 1. 自分の誤りを一つ、公に訂正する。論文の正誤表でも、ブログの追記でも、コードの修正でもよい。
-2. その訂正への公開のリンクを添えて、[叙任の願い出](../../issues/new?template=knighting.yml)の様式で issue を開く。
+2. その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
 3. 王が訂正を確かめ、[正誤表騎士団の名簿](KNIGHTS.md)に名を加える。
 
 費用はかからない。本名も、住所も、所属も書かなくてよい。GitHub のアカウント名で足りる。
@@ -108,6 +110,19 @@
 | 日付 | 出来事 |
 | --- | --- |
 | 2026-11-07 | 建国。基本法と十則を定め、国章を描く |
+
+---
+
+## 規程
+
+- [利用規約](policies/terms.md)
+- [免責事項](policies/disclaimer.md)
+- [個人情報の取り扱い](policies/privacy.md)
+- [叙任の規程](policies/knighting.md)
+- [削除・訂正・辞退の求め](policies/requests.md)
+- [名称と権利](policies/names.md)
+
+サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 
 ---
 
