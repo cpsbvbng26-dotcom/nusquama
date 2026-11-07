@@ -5,7 +5,7 @@ Last updated: 2026-11-08.
 This is an English translation. The [Japanese version](./disclaimer.md) governs; if the two differ, the Japanese version applies.
 
 This page gathers in one place what Nusquama does not promise and what Nusquama is not.
-The binding text is the [Terms of Use](./terms.en.md). Where this page and the Terms differ, the Terms apply.
+This page is part of the [Terms of Use](./terms.en.md). Where this page and the main text of the Terms differ, the main text of the Terms applies.
 
 ## A work of fiction
 
@@ -55,9 +55,10 @@ The law-by-law analysis is in the [Legality Statement](./legality.en.md). It has
 
 ## Liability
 
-Nusquama is a free work of fiction, and the operator accepts no liability, to the extent the law allows, for damage arising from use of the site or the repository.
-Where the Japanese Consumer Contract Act applies, the operator is liable, as that Act provides, for damage the operator causes through the operator's own negligence.
-Nothing here excludes or limits liability for intent or gross negligence, or any liability the law does not allow to be excluded or limited.
+Nusquama is a free work of fiction.
+Except in cases of intent or gross negligence, the operator accepts no liability for damage arising from use of the site or the repository.
+Where the Japanese Consumer Contract Act applies, the previous sentence does not apply. In that case the operator is liable as that Act and the Civil Code provide, including for damage caused by slight negligence.
+Nothing here excludes or limits any liability the law does not allow to be excluded or limited.
 
 ## How this was made
 
