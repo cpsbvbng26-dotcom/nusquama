@@ -20,9 +20,9 @@ const NAME = '無何有騎士王国ヌスクァマ';
 /* Google Search Console の所有者の確認（URL プレフィックスのプロパティ、HTML タグの方法）。値は王から受け取ったもの。 */
 const GOOGLE_SITE_VERIFICATION = 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8';
 
-/* 頁の元。README がトップ、名簿、規程。 */
+/* 頁の元。README がトップ、名簿、王の正誤表、規程。 */
 const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality'];
-const SOURCES = [['README.md', 'index.html'], ['KNIGHTS.md', 'knights.html']]
+const SOURCES = [['README.md', 'index.html'], ['KNIGHTS.md', 'knights.html'], ['ERRATA.md', 'errata.html']]
   .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']));
 const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png'];
 
@@ -166,7 +166,7 @@ function page(srcRel, outRel) {
   const url = BASE + (outRel === 'index.html' ? '' : outRel);
   const desc = outRel === 'index.html' ? 'どこにもない国の、誰でもない王。誤りは守り、己を治める。創作であり、遊びです。' : firstParagraph(md.replace(/^# .*$/m, '').replace(/^最終更新.*$/m, '')) || h1;
   const csp = `default-src 'none'; style-src '${STYLE_HASH}'; img-src 'self'; base-uri 'none'; form-action 'none'`;
-  const links = [['index.html', 'トップ'], ['knights.html', '騎士の名簿']].concat(POLICIES.map((p) => ['policies/' + p + '.html', (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, 'policies', p + '.md'), 'utf8')) || [])[1]]));
+  const links = [['index.html', 'トップ'], ['knights.html', '騎士の名簿'], ['errata.html', '王の正誤表']].concat(POLICIES.map((p) => ['policies/' + p + '.html', (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, 'policies', p + '.md'), 'utf8')) || [])[1]]));
   return `<!doctype html>
 <html lang="ja">
 <head>
