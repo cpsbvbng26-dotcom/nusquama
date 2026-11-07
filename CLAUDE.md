@@ -12,6 +12,7 @@
 6. `assets/` は手で置いたもの。国章を変えたら `node tools/icons.js`（要 playwright）でアイコンを描き直す。
 7. 規程の約束の文は `verification/check.js` が固めている。弱めない。
 8. Claude を騎士・王・著者にしない。
+9. 利用規約・免責事項・適法性の説明には英語の訳（`policies/*.en.md`）がある。日本語の版が正。日本語を直したら同じ日に英語も直す（最終更新の日と節の数がずれると検査が落ちる）。
 
 ```
 node build.js

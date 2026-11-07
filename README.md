@@ -132,6 +132,8 @@
 - [名称と権利](policies/names.md)
 - [適法性の説明](policies/legality.md)
 
+English (translation; the Japanese version governs): [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Legality Statement](policies/legality.en.md)
+
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 
 ## ほかの場所
