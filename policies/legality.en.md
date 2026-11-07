@@ -14,6 +14,7 @@ This page sets out the operator's understanding; it is neither legal advice nor 
 It has not been reviewed by a lawyer.
 The statutes are summarised, not quoted, and the law names are given in common English renderings.
 The summaries were checked on 2026-11-08 against the current texts obtained from the e-Gov law API. The articles checked are listed in each heading.
+The texts were obtained by querying the e-Gov law API (v1) from GitHub Actions.
 The original texts can be read on [e-Gov Laws Search](https://laws.e-gov.go.jp/) (in Japanese).
 If the law or the facts change, this page will be revised.
 
@@ -34,8 +35,9 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - It issues no currency, passports, identity documents or certificates.
 - It receives no money or goods. It sells nothing, takes no donations and shows no advertising.
 - It makes and hands out no physical decorations, badges or uniforms.
-- Its titles are words inside the fiction, used only in the repository and on the site.
-- The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes.
+- Its titles are words inside the fiction, used only in the repository, on the site, and in the MicroWiki article the King wrote himself.
+- The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
+- It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - Every page states that it is fiction and unrelated to anything real.
 
 ## Law by law
@@ -72,7 +74,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 
 - **Elements, in summary**: a seller or service provider selling goods or services door to door, by mail order, by telephone solicitation and so on (Act on Specified Commercial Transactions). A business making representations about its own goods or services that mislead people into thinking they are much better or more favourable than they are (premiums and representations act). In a contract between a consumer and a person acting as a business, a clause that fully excludes the business's liability for damages, among others, is void (Consumer Contract Act).
 - **Nusquama's facts**: it sells nothing, shows no advertising and runs no business.
-- **Why the law does not apply**: the transactions these laws assume do not exist. In case the Consumer Contract Act ever applies, the "Liability" section of the [Disclaimer](./disclaimer.en.md) is not written in a way that Articles 8 and 10 would make void: it excludes no liability in full and does not limit liability for intent or gross negligence.
+- **Why the law does not apply**: the transactions these laws assume do not exist. In case the Consumer Contract Act ever applies, the "Liability" section of the [Disclaimer](./disclaimer.en.md) says that the exclusion does not apply and that the operator is liable, including for slight negligence. Article 8(1) of that Act voids full exclusions of liability, and Article 8(3) voids partial exclusions that do not make clear they apply only to slight negligence. The Disclaimer falls under neither.
 - **Rules that keep this true**: Terms of Use, "Fees".
 
 ### Currency and means of payment (Payment Services Act, Article 3)
@@ -92,7 +94,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 ### Copyright (Copyright Act, Articles 21 and 23)
 
 - **Elements, in summary**: reproducing a work, or transmitting it to the public (including making it transmittable), which the author has the exclusive right to do, without permission.
-- **Nusquama's facts**: the text and the emblem are the operator's own. Utopia and the Zhuangzi are named only as sources of the names, and none of their text is copied. Both are long out of copyright.
+- **Nusquama's facts**: the text and the emblem were written with Claude Code at the operator's request and checked by the operator. No one else's work is copied. Utopia and the Zhuangzi are named only as sources of the names, and none of their text is copied. Both are long out of copyright.
 - **Why the law does not apply**: no one else's work is reproduced.
 - **Rules that keep this true**: Names and Rights (in Japanese); Requests for Removal, Correction or Withdrawal (requests to remove content that infringes a right; in Japanese).
 
@@ -112,14 +114,15 @@ The analysis below rests on the following facts. Each can be checked in the publ
 
 ### Laws outside Japan
 
-- Nusquama is a non-profit work of fiction run from Japan. It does no business, no trade and no solicitation in any country.
-- Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
+- Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
+- Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom (the repository and the site) and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
+- For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. This was confirmed from secondary sources; the original text was not checked. Applications from people living in such countries are not accepted (Knighting Rules, "Who may apply"; in Japanese).
 - The operator has not checked the laws of other countries one by one.
 
 ### The terms of the services used
 
 - **GitHub**: the repository and issues are used in line with GitHub's terms. Nothing they forbid is placed there.
-- **Vercel**: the site is served on Vercel's Hobby plan, which is limited to personal or non-commercial use. Nusquama is non-commercial and meets that condition.
+- **Vercel**: the site is served on Vercel's Hobby plan, which is limited to personal, non-commercial use. Nusquama is non-commercial and meets that condition.
 
 ## Conclusion
 
