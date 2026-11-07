@@ -21,7 +21,7 @@ const NAME = '無何有騎士王国ヌスクァマ';
 const GOOGLE_SITE_VERIFICATION = 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8';
 
 /* 頁の元。README がトップ、名簿、規程。 */
-const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names'];
+const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality'];
 const SOURCES = [['README.md', 'index.html'], ['KNIGHTS.md', 'knights.html']]
   .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']));
 const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png'];
