@@ -54,7 +54,12 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     'policies/knighting.md': ['叙任は無償です。', '騎士は、いつでも名簿からの辞退を求めることができます。理由は要りません。', '運営者は、訂正の中身が正しいかどうかを判断しません。'],
     'policies/requests.md': ['名簿からの辞退は、理由を問わず応じます。', '費用はかかりません。'],
     'policies/names.md': ['特定の作品・団体・人物の名を借りたものではありません。', '実在の国家・王室・騎士団・勲章・大学・企業の紋章や記章を写したものではありません。'],
+    'policies/legality.md': ['この頁は、運営者の理解を書いたもので、法的な助言でも保証でもありません。', '弁護士の確認は受けていません。',
+      '運営者の整理では、上のどの法令についても、要件に当たる事実がありません。', 'ただし、これは法的な保証ではありません。前提となる事実が変われば、結論も変わります。'],
   };
+  must['policies/terms.md'].push('通貨・点数・引換券・電子的な価値・旅券・身分証・証明書のどれも発行しません。', 'ヌスクァマは、勲章・記章・制服・証書などの物を作らず、配りません。');
+  must['policies/knighting.md'].push('叙任では、任命書・証書・記章などの書面や物を発行しません。名簿にアカウント名を載せるだけです。');
+  must['policies/disclaimer.md'].push('法令ごとの整理は[適法性の説明](./legality.md)にあります。弁護士の確認は受けていません。');
   for (const [f, list] of Object.entries(must)) {
     const t = read(f);
     const miss = list.filter((x) => !t.includes(x));
@@ -112,6 +117,25 @@ console.log('\n7. アイコン');
 console.log('\n8. Search Console の所有者の確認');
 ok('トップの頁に google-site-verification の meta がある（受け取った値のまま）',
   read('site/index.html').includes('<meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">') && B.GOOGLE_SITE_VERIFICATION === 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8');
+
+console.log('\n9. 適法性の説明が指す先は実在し、前提の事実は崩れていない');
+{
+  const t = read('policies/legality.md');
+  const readme = read('README.md');
+  const refs = [...t.matchAll(/\]\(\.\/(\w+)\.md\)(?:「([^」]+)」)?/g)];
+  const bad = refs.filter(([, f, sec]) => !fs.existsSync(path.join(ROOT, 'policies', f + '.md')) || (sec && !read('policies/' + f + '.md').includes('\n## ' + sec + '\n')))
+    .map(([m]) => m);
+  ok('規程への参照（' + refs.length + ' 件）が、実在する頁と節を指す', refs.length > 0 && bad.length === 0, bad.join(' / '));
+  const lawArts = [...t.matchAll(/王国基本法((?:第[一二三四五六七八九十]+条・?)+)/g)].flatMap((m) => [...m[1].matchAll(/第([一二三四五六七八九十]+)条/g)].map((x) => x[1]));
+  ok('引いた基本法の条（' + new Set(lawArts).size + ' 条）が README にある', lawArts.length > 0 && lawArts.every((a) => readme.includes('**第' + a + '条（')), lawArts.join(','));
+  ok('引いた十則の五が README にある', !t.includes('十則の五') || readme.includes('五　金を取るな。'));
+  const pay = /paypal|stripe\.com|patreon|ko-fi|buymeacoffee|fanbox|gumroad|opencollective|github\.com\/sponsors|booth\.pm/i;
+  const files = ['README.md', 'KNIGHTS.md', ...B.POLICIES.map((p) => 'policies/' + p + '.md'), '.github/ISSUE_TEMPLATE/knighting.yml',
+    ...walk(path.join(ROOT, 'site')).filter((x) => x.endsWith('.html')).map((x) => 'site/' + x)];
+  const hit = files.filter((f) => pay.test(read(f)));
+  ok('お金を受け取る導線がどこにもない（' + files.length + ' ファイル）', hit.length === 0 && !fs.existsSync(path.join(ROOT, '.github', 'FUNDING.yml')), hit.join(', '));
+  ok('利用規約と免責事項が適法性の説明へつなぐ', read('policies/terms.md').includes('[適法性の説明](./legality.md)') && read('policies/disclaimer.md').includes('[適法性の説明](./legality.md)'));
+}
 
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
