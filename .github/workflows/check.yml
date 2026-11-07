@@ -13,7 +13,7 @@ jobs:
     name: 生成物・断り・規程の約束・外への要求・ヘッダー・誓い・アイコン
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v5
         with:
           node-version: 22
