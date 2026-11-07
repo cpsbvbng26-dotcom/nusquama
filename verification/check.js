@@ -141,6 +141,20 @@ console.log('\n9. 適法性の説明が指す先は実在し、前提の事実�
   ok('利用規約と免責事項が適法性の説明へつなぐ', read('policies/terms.md').includes('[適法性の説明](./legality.md)') && read('policies/disclaimer.md').includes('[適法性の説明](./legality.md)'));
 }
 
+console.log('\n10. 王の正誤表');
+{
+  const t = read('ERRATA.md');
+  const readme = read('README.md');
+  const rows = t.split('\n').filter((l) => /^\| \d+ \|/.test(l)).map((l) => l.split(' | ').map((c) => c.replace(/^\| |\s\|$/g, '')));
+  ok('冒頭で創作だと断る', t.includes('> これは創作であり、遊びです。'));
+  ok('番が 1 から欠けずに続き（' + rows.length + ' 件）、どれにも記した日がある',
+    rows.length > 0 && rows.every((r, i) => r[0] === String(i + 1) && /^\d{4}-\d{2}-\d{2}$/.test(r[1])));
+  const frozen = rows.filter((r) => r[2].startsWith('建国の宣言'));
+  const gone = frozen.filter((r) => !readme.includes(r[3]));
+  ok('建国の宣言の誤り（' + frozen.length + ' 件）は、宣言の中にそのまま残っている（凍った文を書き換えていない）', gone.length === 0, gone.map((r) => r[0]).join(','));
+  ok('README と名称と権利が正誤表へつなぐ', readme.includes('[王の正誤表](ERRATA.md)') && read('policies/names.md').includes('[王の正誤表](../ERRATA.md)'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
