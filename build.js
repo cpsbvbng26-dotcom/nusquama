@@ -17,6 +17,8 @@ const OUT = path.join(ROOT, 'site');
 const BASE = 'https://nusquama.vercel.app/';
 const REPO = 'https://github.com/cpsbvbng26-dotcom/nusquama';
 const NAME = '無何有騎士王国ヌスクァマ';
+/* Google Search Console の所有者の確認（URL プレフィックスのプロパティ、HTML タグの方法）。値は王から受け取ったもの。 */
+const GOOGLE_SITE_VERIFICATION = 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8';
 
 /* 頁の元。README がトップ、名簿、規程。 */
 const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names'];
@@ -173,6 +175,7 @@ function page(srcRel, outRel) {
 <meta http-equiv="Content-Security-Policy" content="${csp}">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
+<meta name="google-site-verification" content="${GOOGLE_SITE_VERIFICATION}">
 <link rel="canonical" href="${url}">
 <link rel="icon" href="${pre}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${pre}favicon.ico" sizes="16x16 32x32 48x48">
@@ -226,7 +229,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { build, SOURCES, POLICIES, ASSETS, NOTICE, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { GOOGLE_SITE_VERIFICATION, build, SOURCES, POLICIES, ASSETS, NOTICE, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
