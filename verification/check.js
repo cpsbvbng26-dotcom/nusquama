@@ -38,7 +38,7 @@ console.log('\n2. どの頁も創作だと断る');
     && readme.includes('いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく') && readme.includes('ここで授ける称号に、法的な効力はありません。') && readme.includes('> 悪意はなく、法令を守って運営しています。'));
   for (const [src, dst] of B.SOURCES.concat([['', '404.html']])) {
     const html = read('site/' + dst);
-    const has = dst === 'index.html' ? html.includes('これは創作であり、遊びです。') : html.includes('<p class="notice">' + B.NOTICE + '</p>');
+    const has = dst === 'index.html' ? html.includes('これは創作であり、遊びです。') : html.includes('<p class="notice">' + (dst.endsWith('.en.html') ? B.NOTICE_EN : B.NOTICE) + '</p>');
     ok(dst + ' に創作だという断りがある', has);
   }
   ok('KNIGHTS.md の冒頭も断る', read('KNIGHTS.md').includes('> これは創作であり、遊びです。'));
@@ -83,7 +83,7 @@ for (const f of walk(path.join(ROOT, 'site')).filter((x) => x.endsWith('.html'))
   const html = read('site/' + f);
   const csp = (/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/.exec(html) || [])[1] || '';
   const loads = [...html.matchAll(/<(?:img|script|link|iframe|source)\b[^>]*(?:src|href)="(https?:)?\/\/[^"]*"/g)].map((m) => m[0])
-    .filter((t) => !/<link rel="canonical"/.test(t) && !/<a /.test(t));
+    .filter((t) => !/<link rel="(?:canonical|alternate)"/.test(t) && !/<a /.test(t));
   ok(f + '：CSP が default-src none で、unsafe-inline を使わず、外から何も読み込まない',
     csp.startsWith("default-src 'none'") && !csp.includes('unsafe-inline') && !/<script/.test(html) && loads.length === 0, loads.join(' '));
 }
@@ -233,6 +233,35 @@ console.log('\n14. GitHub Actions の版');
   const old = [...wf.matchAll(/uses: (actions\/(?:checkout|setup-node)@v(\d+))/g)].filter((m) => Number(m[2]) < 5).map((m) => m[1]);
   ok('checkout と setup-node は Node.js 24 で動く v5 以上', old.length === 0, old.join(', '));
   ok('Dependabot が GitHub Actions の版を見る', /package-ecosystem: github-actions/.test(read('.github/dependabot.yml')));
+}
+
+console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
+{
+  const date = (s, re) => (re.exec(s) || [])[1];
+  const count = (s, re) => (s.match(re) || []).length;
+  for (const p of B.EN) {
+    const ja = read('policies/' + p + '.md'), en = read('policies/' + p + '.en.md');
+    const html = read('site/policies/' + p + '.en.html'), jaHtml = read('site/policies/' + p + '.html');
+    ok(p + '.en.md：日本語の版を正とすると断り、その版へつなぐ', en.includes('This is an English translation. The [Japanese version](./' + p + '.md) governs; if the two differ, the Japanese version applies.'));
+    const dj = date(ja, /^最終更新：(\d{4}-\d{2}-\d{2})。$/m), de = date(en, /^Last updated: (\d{4}-\d{2}-\d{2})\.$/m);
+    ok(p + '.en.md：最終更新の日が日本語の版と同じ（' + dj + '）', dj && dj === de, de);
+    ok(p + '.en.md：節の数が日本語の版と同じ（## ' + count(ja, /^## /gm) + '、### ' + count(ja, /^### /gm) + '）',
+      count(ja, /^## /gm) === count(en, /^## /gm) && count(ja, /^### /gm) === count(en, /^### /gm));
+    ok(p + '.en.html：lang が en で、日本語の頁と互いに hreflang で指し合う',
+      html.includes('<html lang="en">') && html.includes('hreflang="ja" href="' + B.BASE + 'policies/' + p + '.html"') && jaHtml.includes('hreflang="en" href="' + B.BASE + 'policies/' + p + '.en.html"'));
+  }
+  const mustEn = {
+    'policies/terms.en.md': ['It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
+      'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
+      'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
+    'policies/disclaimer.en.md': ['Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
+    'policies/legality.en.md': ['This page sets out the operator\'s understanding; it is neither legal advice nor a guarantee.', 'It has not been reviewed by a lawyer.', 'This is not a legal guarantee. If the facts relied on change, so does the conclusion.'],
+  };
+  for (const [f, list] of Object.entries(mustEn)) {
+    const miss = list.filter((x) => !read(f).includes(x));
+    ok(f + ' の約束がそろっている（' + list.length + ' 文）', miss.length === 0, miss.join(' / '));
+  }
+  ok('README が英語版のすべてへつなぐ', B.EN.every((p) => read('README.md').includes('(policies/' + p + '.en.md)')));
 }
 
 console.log('\n' + '-'.repeat(56));
