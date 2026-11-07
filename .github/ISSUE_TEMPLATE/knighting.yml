@@ -1,0 +1,38 @@
+name: 叙任の願い出
+description: 自分の誤りを一つ公に訂正した人が、正誤表騎士団への叙任を願い出る。無償。創作の中のことで、法的な効力はない。
+title: "叙任：<GitHub のアカウント名>"
+labels: ["叙任"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        この国は創作であり、遊びです。実在の国家・王室・騎士団・叙勲とは関係がなく、ここで授ける称号に法的な効力はありません。
+        叙任は無償です。本名・住所・所属は書かないでください。この issue は公開されます。
+  - type: input
+    id: correction
+    attributes:
+      label: 訂正への公開のリンク
+      description: 自分の誤りを公に訂正したものへのリンク。論文の正誤表、ブログの追記、コードの修正、どれでもよい。
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 何を誤り、どう正したか
+      description: 一、二文で足ります。他人の個人情報を書かないでください。
+    validations:
+      required: true
+  - type: checkboxes
+    id: oath
+    attributes:
+      label: 誓い
+      options:
+        - label: 訂正したのは、自分自身の誤りです。
+          required: true
+        - label: この国が創作であり、称号に法的な効力も現実の栄誉もないことを分かっています。
+          required: true
+        - label: 騎士の称号は、この国の中でだけ使います。履歴書・論文・名刺・公的な書類には書きません（基本法第八条）。
+          required: true
+        - label: 叙任のために、誰にも何も支払いません（基本法第六条）。
+          required: true
