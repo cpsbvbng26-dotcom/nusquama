@@ -83,6 +83,10 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいる人に限ります。国籍は問いません。', '日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。');
   must['policies/terms.md'].push('予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいる人に限ります。国籍は問いません');
   must['policies/legality.md'].push('- 2026-11-22 から、願い出は日本に住む人に限る。国籍は問わない。');
+  /* 事実でない印。してはいけないことに挙げ、知った時点で名簿から外し、信頼して受けたこと・公開に残ること・違約金を求めないことを書く。 */
+  must['policies/terms.md'].push('- 願い出の様式で、事実でないことに印を付けること。', '印が事実でないと分かったときは、運営者は、知った時点で名簿から名を外します。',
+    '運営者は、印を信頼して受け、確かめません。', '願い出た人に、違約金や、法令が定める以上の損害の賠償を求めることはありません。',
+    '予告：2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります');
   // 確かめないことを確かめていると読ませない。国籍・年齢・住む国は本人の申告で、身分証は取らない。
   must['policies/knighting.md'].push('運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。',
     'ヌスクァマは国籍を与えません。騎士は国民ではありません。', '年齢と住んでいる国は、様式の誓いへの印による本人の申告で受けます。');
@@ -301,7 +305,7 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
       html.includes('<html lang="en">') && html.includes('hreflang="ja" href="' + B.BASE + 'policies/' + p + '.html"') && jaHtml.includes('hreflang="en" href="' + B.BASE + 'policies/' + p + '.en.html"'));
   }
   const mustEn = {
-    'policies/terms.en.md': ['Notice: from 2026-11-22, only people who live in Japan may apply for knighthood, whatever their nationality', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
+    'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan may apply for knighthood, whatever their nationality', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
     'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
