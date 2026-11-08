@@ -38,6 +38,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - Its titles are words inside the fiction, used only in the repository, on the site, and in the MicroWiki article the King wrote himself.
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
+- It collects no documents to check nationality, age, country of residence or real name. Age and country of residence are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
 
 ## Law by law
@@ -116,7 +117,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 
 - Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
 - Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom (the repository and the site) and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
-- For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. This was confirmed from secondary sources; the original text was not checked. Applications from people living in such countries are not accepted (Knighting Rules, "Who may apply"; in Japanese).
+- For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. This was confirmed from secondary sources; the original text was not checked. Applications from people living in such countries are not accepted (Knighting Rules, "Who may apply"; in Japanese). The country of residence is taken from the applicant's own declaration and is not checked (Knighting Rules, "What is not checked"; in Japanese).
 - The operator has not checked the laws of other countries one by one.
 
 ### The terms of the services used
