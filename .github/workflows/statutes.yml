@@ -1,8 +1,9 @@
 name: 条文と規約の見張り
 
 # 週に一度、適法性の説明が拠る条文（e-Gov 法令 API）と、GitHub の規約（github/site-policy）を取り寄せ、
-# verification/statutes.json に記した値と比べる。違えば issue を開き、元に戻れば閉じる。
-# PR では比べて表示するだけで、issue は開かない。鍵は要らない。
+# verification/statutes.json に記した値と比べる。違えば、差分を付けた PR を statutes/record から作る。
+# 運営者がラベル「記す」を付けると record.yml が記す。取り寄せに失敗すれば issue を開き、元に戻れば閉じる。
+# PR では比べて表示するだけ。鍵は要らない。
 on:
   schedule:
     - cron: '23 3 * * 2'
@@ -11,8 +12,9 @@ on:
     paths: ['tools/statutes.js', 'verification/statutes.json', '.github/workflows/statutes.yml']
 
 permissions:
-  contents: read
+  contents: write
   issues: write
+  pull-requests: write
 
 jobs:
   watch:
