@@ -80,11 +80,12 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     '住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。');
   must['policies/knighting.md'].push('叙任では、任命書・証書・記章などの書面や物を発行しません。名簿にアカウント名を載せるだけです。');
   /* 2026-11-22 から、願い出は日本に住む人に限る。国籍は問わない。利用規約で予告する（不利な変更は効力の前に示す）。 */
-  must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいる人に限ります。国籍は問いません。', '日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。');
-  must['policies/terms.md'].push('予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいる人に限ります。国籍は問いません');
-  must['policies/legality.md'].push('- 2026-11-22 から、願い出は日本に住む人に限る。国籍は問わない。');
+  must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません。', '日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。',
+    '日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。', '旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。');
+  must['policies/terms.md'].push('予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません');
+  must['policies/legality.md'].push('- 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。国籍は問わない。', '旅行・出張・留学などで日本の外にいるあいだの願い出も受けない');
   /* 気づくことができた事柄を見落とさない。リンク先にはっきり書かれた住む国や年齢は、尋ねてから決める。 */
-  must['policies/knighting.md'].push('- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、16 歳未満であることが、はっきり書かれていないこと。', 'ただし、訂正のリンク先にはっきり書かれていることは、見落としません。',
+  must['policies/knighting.md'].push('- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、16 歳未満であることが、はっきり書かれていないこと。', 'ただし、訂正のリンク先にはっきり書かれていることは、見落としません。',
     '- 願い出の条件（年齢・住んでいる国）に当たらないことが、訂正のリンク先からはっきり読めるもの。');
   must['policies/legality.md'].push('- 本人の申告は確かめないが、訂正のリンク先に日本の外に住むことや 16 歳未満であることがはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。');
   /* 事実でない印。してはいけないことに挙げ、知った時点で名簿から外し、信頼して受けたこと・公開に残ること・違約金を求めないことを書く。 */
@@ -93,8 +94,8 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     '予告：2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります');
   // 確かめないことを確かめていると読ませない。国籍・年齢・住む国は本人の申告で、身分証は取らない。
   must['policies/knighting.md'].push('運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。',
-    'ヌスクァマは国籍を与えません。騎士は国民ではありません。', '年齢と住んでいる国は、様式の誓いへの印による本人の申告で受けます。');
-  must['policies/legality.md'].push('- 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢と住んでいる国は、様式の誓いによる本人の申告で受ける。');
+    'ヌスクァマは国籍を与えません。騎士は国民ではありません。', '年齢・住んでいる国・願い出のときにいる国は、様式の誓いへの印による本人の申告で受けます。');
+  must['policies/legality.md'].push('- 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国は、様式の誓いによる本人の申告で受ける。');
   // 国際法上の国家ではないこと。国籍を与えないので、誰の国籍も変えないこと。
   must['policies/terms.md'].push('国際法上の国家ではなく、国家としての承認を求めず、どの国とも外交の関係を結びません。');
   must['policies/legality.md'].push('- **当てはまらない理由**：取る「外国の国籍」がないので、叙任によって誰の国籍も変わらない。どの国の国籍法についても同じである。');
@@ -154,7 +155,7 @@ console.log('\n6. 叙任の様式の誓い');
   const oaths = ['訂正したのは、自分自身の誤りです。', '称号に法的な効力も現実の栄誉もないことを分かっています。', '履歴書・論文・名刺・公的な書類には書きません（基本法第八条）。',
     '叙任のために、誰にも何も支払いません（基本法第六条）。', '16 歳以上です。', '住んでいる国の法令は、私人の授ける騎士の称号を受けることや使うことを禁じていません。', '利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、願い出の日の版に同意します'];
   const miss = oaths.filter((x) => !y.includes(x));
-  ok('様式が、日本に住んでいることの印を求め、その日と国籍を問わないことを書く', y.includes('- label: 日本に住んでいます（2026-11-22 から、この印のない願い出は受けません。国籍は問いません）。'));
+  ok('様式が、日本に住んでいて、いま日本にいることの印を求め、その日と国籍を問わないことを書く', y.includes('- label: 日本に住んでいて、いま日本にいます（旅行・出張・留学などで日本の外にいるあいだは願い出られません。2026-11-22 から、この印のない願い出は受けません。国籍は問いません）。'));
   ok('誓いがそろい、どれも必須である', miss.length === 0 && (y.match(/required: true/g) || []).length >= oaths.length + 2, miss.join(' / '));
   ok('本名・住所・所属・連絡先を書かないよう求め、リンクの先から身元が分かることを知らせる', y.includes('本名・住所・所属・連絡先は書かないでください。') && y.includes('訂正へのリンクの先に本名や所属が書かれていると、このアカウントとその人が結び付いて公開されます。'));
 }
@@ -309,7 +310,7 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
       html.includes('<html lang="en">') && html.includes('hreflang="ja" href="' + B.BASE + 'policies/' + p + '.html"') && jaHtml.includes('hreflang="en" href="' + B.BASE + 'policies/' + p + '.en.html"'));
   }
   const mustEn = {
-    'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan may apply for knighthood, whatever their nationality', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
+    'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
     'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
