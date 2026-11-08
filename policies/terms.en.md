@@ -31,7 +31,7 @@ When it is unclear whether something is lawful, the operator chooses not to do i
 Nusquama's titles (Knight-King, knight, member of the Order of Errata) are words inside a work of fiction.
 None of them is a title set by the law of any country, and none carries legal effect, status or privileges.
 The titles are used only inside the kingdom.
-Inside the kingdom means this repository, the site, and the articles the operator wrote to introduce Nusquama (listed in the [README](../README.md), in Japanese, under "ほかの場所").
+Inside the kingdom means this repository, the site, and the articles and posts the operator wrote to introduce Nusquama (listed in the [README](../README.md), in Japanese, under "ほかの場所").
 Nusquama makes and hands out no physical decorations, insignia, uniforms or certificates.
 The titles must not be used in a way that could be mistaken for an official post, court rank, decoration, academic degree or any other title set by law.
 Nusquama's titles must not be written on a CV, a paper, a business card, an official document, in commerce or in advertising.
