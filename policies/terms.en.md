@@ -7,7 +7,8 @@ This is an English translation. The [Japanese version](./terms.md) governs; if t
 ## Who these terms cover
 
 These terms cover everyone who reads Nusquama's site and repository, everyone who applies for knighting, and everyone whose name is on the roll of knights.
-Using the site or the repository means accepting these terms.
+A person who applies for knighting agrees to these terms in the application form, in their version of the day.
+Reading the site or the repository is not taken as agreement to anything; for readers, these terms describe how Nusquama works, and the law decides what each side owes.
 The [Disclaimer](./disclaimer.en.md), the Privacy Notice, the Knighting Rules, the Requests for Removal, Correction or Withdrawal, and the Names and Rights page are also part of these terms. Those pages are in Japanese only.
 The reasons the operator believes Nusquama breaks no law are set out, law by law, in the [Legality Statement](./legality.en.md). The Legality Statement is not part of these terms; it explains the operator's understanding.
 
