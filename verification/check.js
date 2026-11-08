@@ -92,6 +92,8 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/names.md'].push('CC BY 4.0 が許すのは、著作権の及ぶ範囲のことだけです。商標などのほかの権利や、ほかの法令による制限には及びません。');
   must['policies/legality.md'].push('- **他人が書いたもの**：issue には、願い出た人や求めた人が文を書く。他人の名誉や個人情報を害する記載が書かれたときは、判断の前にただちに外す。');
   must['policies/disclaimer.md'].push('法令ごとの整理は[適法性の説明](./legality.md)にあります。弁護士の確認は受けていません。');
+  /* README「ほかの場所」に挙げていない投稿や発言は、この国の中に入らない。運営者のほかの活動とも関係がない。 */
+  must['policies/disclaimer.md'].push('そこに挙げていない投稿や発言は、運営者が書いたものでも、この国の中に入りません。', 'ヌスクァマの規程はそこに及ばず、そこでの言葉はヌスクァマの約束ではありません。', 'その活動の中で、ヌスクァマの称号を使うことはありません。ヌスクァマも、その活動を推薦しません。');
   // 同じ名を使う者と紛れさせない。名は一般の語に由来し、誰かの名を借りていない。
   must['policies/disclaimer.md'].push('- 「ヌスクァマ」「Nusquama」「ネモ」「Nemo」など、同じ名や似た名を使う音楽グループ・作品・団体・人・商品');
   for (const [f, list] of Object.entries(must)) {
@@ -289,7 +291,7 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
     'policies/terms.en.md': ['It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
-    'policies/disclaimer.en.md': ['Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
+    'policies/disclaimer.en.md': ['A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
     'policies/legality.en.md': ['This page sets out the operator\'s understanding; it is neither legal advice nor a guarantee.', 'It has not been reviewed by a lawyer.', 'This is not a legal guarantee. If the facts relied on change, so does the conclusion.',
       'It collects no documents to check nationality, age, country of residence or real name.'],
   };
