@@ -72,7 +72,7 @@ The [Disclaimer](./disclaimer.en.md) has the details.
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
 A change that is unfavourable to readers or knights will be shown on this page, with its content and the date it takes effect, before it takes effect.
-Notice: from 2026-11-22, only people who live in Japan may apply for knighthood, whatever their nationality (Knighting Rules, "Who may apply"; in Japanese).
+Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality (Knighting Rules, "Who may apply"; in Japanese).
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
