@@ -43,5 +43,7 @@ body:
           required: true
         - label: 住んでいる国の法令は、私人の授ける騎士の称号を受けることや使うことを禁じていません。
           required: true
+        - label: 日本に住んでいます（2026-11-22 から、この印のない願い出は受けません。国籍は問いません）。
+          required: false
         - label: 利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、願い出の日の版に同意します（https://github.com/cpsbvbng26-dotcom/nusquama/tree/main/policies）。
           required: true
