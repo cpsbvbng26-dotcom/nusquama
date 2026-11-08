@@ -104,6 +104,8 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/disclaimer.md'].push('そこに挙げていない投稿や発言は、運営者が書いたものでも、この国の中に入りません。', 'ヌスクァマの規程はそこに及ばず、そこでの言葉はヌスクァマの約束ではありません。', 'その活動の中で、ヌスクァマの称号を使うことはありません。ヌスクァマも、その活動を推薦しません。');
   // 同じ名を使う者と紛れさせない。名は一般の語に由来し、誰かの名を借りていない。
   must['policies/disclaimer.md'].push('- 「ヌスクァマ」「Nusquama」「ネモ」「Nemo」など、同じ名や似た名を使う音楽グループ・作品・団体・人・商品');
+  /* 独自のドメインを取る予定はない。ほかのドメインで名乗るサイトとは関係がない。 */
+  must['policies/disclaimer.md'].push('ヌスクァマは、独自のドメインを取る予定がありません。サイトは https://nusquama.vercel.app/ だけです。', 'ほかのドメインにある、ヌスクァマや Nusquama を名乗るサイトは、この国の中に入らず、運営者とも関係がありません。');
   for (const [f, list] of Object.entries(must)) {
     const t = read(f);
     const miss = list.filter((x) => !t.includes(x));
@@ -111,6 +113,7 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     ok(f + ' に最終更新の日がある', /^最終更新：\d{4}-\d{2}-\d{2}。$/m.test(t));
   }
   const readme = read('README.md');
+  ok('README が、独自のドメインを取る予定がないと書く', readme.includes('独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。'));
   ok('README が規程のすべてへつなぐ', B.POLICIES.every((p) => readme.includes('(policies/' + p + '.md)')));
   ok('基本法の第一条・第六条・第八条が残り、改正で削らないと書いてある',
     readme.includes('**第一条（創作であること）**') && readme.includes('**第六条（叙任）**') && readme.includes('**第八条（称号を使う場所）**') && readme.includes('ただし、第一条・第六条・第八条は削らない。'));
@@ -301,7 +304,7 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
     'policies/terms.en.md': ['Notice: from 2026-11-22, only people who live in Japan may apply for knighthood, whatever their nationality', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
-    'policies/disclaimer.en.md': ['A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
+    'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
     'policies/legality.en.md': ['This page sets out the operator\'s understanding; it is neither legal advice nor a guarantee.', 'It has not been reviewed by a lawyer.', 'This is not a legal guarantee. If the facts relied on change, so does the conclusion.',
       'It collects no documents to check nationality, age, country of residence or real name.'],
   };

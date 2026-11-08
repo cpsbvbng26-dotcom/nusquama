@@ -140,6 +140,7 @@
 English (translation; the Japanese version governs): [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Legality Statement](policies/legality.en.md)
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
+独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
 
 ## ほかの場所
 
