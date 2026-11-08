@@ -141,7 +141,7 @@ English (translation; the Japanese version governs): [Terms of Use](policies/ter
 
 ## ほかの場所
 
-- MicroWiki（日本語版）：[ヌスクァマ](https://jp.micronations.wiki/wiki/%E3%83%8C%E3%82%B9%E3%82%AF%E3%82%A1%E3%83%9E)。2026-11-08（日本時間）に、王が自ら書いた記事です。MicroWiki は自称国家の記事を集める wiki で、記事があることは承認や登録を意味しません。
+- MicroWiki（日本語版）：[Nusquama](https://jp.micronations.wiki/wiki/Nusquama)。2026-11-08（日本時間）に、王が自ら書いた記事です。記事の名は、のちにほかの編集者が「ヌスクァマ」から「Nusquama」に移しました。もとの名の所在は、この記事へ転送されます。MicroWiki は自称国家の記事を集める wiki で、記事があることは承認や登録を意味しません。
 
 ---
 
