@@ -34,6 +34,14 @@ Nusquama has no relation to any of the following.
 - Anyone who publishes or adapts Thomas More's Utopia or Jules Verne's Twenty Thousand Leagues Under the Seas
 - Any music group, work, organisation, person or product that uses the same name as Nusquama or Nemo, or a similar one
 
+## Statements outside the kingdom
+
+Inside the kingdom means only this repository, the site, and the articles and posts listed in the README under "ほかの場所", as the Terms of Use set out under the handling of titles.
+A post or statement not listed there is outside the kingdom, even if the operator wrote it.
+The rules of Nusquama do not reach it, and what is said there is not a promise of Nusquama.
+Nusquama has no relation to the operator's other activities either.
+The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.
+
 Where the words "Nusquama", "Nemo" and "Mukau" come from is written on the Names and Rights page (in Japanese). None of them shows a tie to any particular work or organisation.
 
 ## Applications for knighting
