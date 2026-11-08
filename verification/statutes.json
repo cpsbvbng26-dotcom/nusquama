@@ -229,6 +229,14 @@
       "article": "11",
       "title": "民事訴訟法",
       "sha256": "b9967be9f0ed5984dc85ca051417756c44f58da96d9a00ef45b80526d0b75fb5"
+    },
+    {
+      "name": "国籍法",
+      "label": "第11条",
+      "law_id": "325AC0000000147",
+      "article": "11",
+      "title": null,
+      "sha256": null
     }
   ],
   "policies": [
