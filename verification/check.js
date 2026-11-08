@@ -371,7 +371,7 @@ console.log('\n17. 条文と規約の見張り');
   const have = new Set(S.statutes.map((e) => e.name + ' ' + e.article));
   const miss = [...cited].filter((c) => !have.has(c));
   ok('適法性の説明が挙げた条（' + cited.size + '）は、すべて見張りの表にある', cited.size >= 20 && miss.length === 0, miss.join(' / '));
-  const unrec = S.statutes.filter((e) => !/^[0-9a-f]{64}$/.test(e.sha256 || '') || !e.title || !/^\d{3}AC\d{10}$/.test(e.law_id)).map((e) => e.name + ' ' + e.label);
+  const unrec = S.statutes.filter((e) => !/^[0-9a-f]{64}$/.test(e.sha256 || '') || !e.title || !/^\d{3}(?:AC\d{10}|CO\d{10}|M\d{11})$/.test(e.law_id)).map((e) => e.name + ' ' + e.label);
   ok('見張りの表のすべての条（' + S.statutes.length + '）に、法令番号・法令名・条文の SHA-256 が記してある', unrec.length === 0, unrec.join(' / '));
   ok('GitHub の規約（' + S.policies.length + '）に、最新のコミットが記してある', S.policies.length >= 2 && S.policies.every((p) => /^[0-9a-f]{40}$/.test(p.commit || '')));
   const wf = read('.github/workflows/statutes.yml');
@@ -380,6 +380,25 @@ console.log('\n17. 条文と規約の見張り');
   ok('見張りが開く issue のラベルを、ラベルの仕事が作る', S.labels.every((l) => read('.github/workflows/labels.yml').includes('gh label create "' + l + '"')));
   ok('適法性の説明が、見張りのことを書いている（日本語と英語）',
     leg.includes('審査は一度きりではありません。') && read('policies/legality.en.md').includes('The review is not done once only.'));
+}
+
+console.log('\n18. 義務を項ごとに規程の文と結ぶ表');
+{
+  const T = JSON.parse(read('verification/duties.json'));
+  const S = JSON.parse(read('verification/statutes.json'));
+  const miss = [];
+  for (const u of T.duties) {
+    if (!(u.by || []).length) miss.push(u.law + '第' + u.article + '条：結ぶ文がない');
+    for (const b of u.by || []) if (!read(b.file).includes(b.text)) miss.push(u.law + '第' + u.article + '条' + (u.paragraph ? '第' + u.paragraph + '項' : '') + '：' + b.file + ' に文がない —— ' + b.text);
+  }
+  ok('どの義務（' + T.duties.length + '）にも、それを満たす文が規程や様式にある', T.duties.length >= 30 && miss.length === 0, miss.join(' / '));
+  /* 表の条はどれも見張られ、見張っている個人情報保護法とその施行令・施行規則の条は、どれも表にある。 */
+  const watched = new Set(S.statutes.map((e) => e.name + ' ' + e.article));
+  const unwatched = [...new Set(T.duties.map((u) => u.law + ' ' + u.article))].filter((k) => !watched.has(k));
+  ok('表の条は、どれも条文の見張りの表にある', unwatched.length === 0, unwatched.join(' / '));
+  const inTable = new Set(T.duties.map((u) => u.law + ' ' + u.article));
+  const orphan = S.statutes.filter((e) => /^個人情報保護法/.test(e.name) && !inTable.has(e.name + ' ' + e.article)).map((e) => e.name + ' ' + e.article);
+  ok('見張っている個人情報保護法の条は、どれも表で規程の文と結ばれている', orphan.length === 0, orphan.join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));

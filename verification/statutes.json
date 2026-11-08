@@ -237,6 +237,158 @@
       "article": "11",
       "title": "国籍法",
       "sha256": "4654bfea54c2513f55c55e4fdf34e1a0831e50968045bdaa37bcd1af532b23ab"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第20条",
+      "law_id": "415AC0000000057",
+      "article": "20",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第21条",
+      "law_id": "415AC0000000057",
+      "article": "21",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第22条",
+      "law_id": "415AC0000000057",
+      "article": "22",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第23条",
+      "law_id": "415AC0000000057",
+      "article": "23",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第25条",
+      "law_id": "415AC0000000057",
+      "article": "25",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第26条",
+      "law_id": "415AC0000000057",
+      "article": "26",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第32条",
+      "law_id": "415AC0000000057",
+      "article": "32",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第33条",
+      "law_id": "415AC0000000057",
+      "article": "33",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第34条",
+      "law_id": "415AC0000000057",
+      "article": "34",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第35条",
+      "law_id": "415AC0000000057",
+      "article": "35",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第36条",
+      "law_id": "415AC0000000057",
+      "article": "36",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第37条",
+      "law_id": "415AC0000000057",
+      "article": "37",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第38条",
+      "law_id": "415AC0000000057",
+      "article": "38",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第40条",
+      "law_id": "415AC0000000057",
+      "article": "40",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法施行令",
+      "label": "第10条",
+      "law_id": "415CO0000000507",
+      "article": "10",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第7条",
+      "law_id": "428M60020000003",
+      "article": "7",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第8条",
+      "law_id": "428M60020000003",
+      "article": "8",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第10条",
+      "law_id": "428M60020000003",
+      "article": "10",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第17条",
+      "law_id": "428M60020000003",
+      "article": "17",
+      "title": null,
+      "sha256": null
     }
   ],
   "policies": [
