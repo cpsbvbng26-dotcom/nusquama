@@ -148,7 +148,7 @@ console.log('\n7. アイコン');
     fav.includes('viewBox="0 0 ' + F.SIDE + ' ' + F.SIDE + '"') && fav === F.square(read('assets/emblem.svg')));
   ok('どの頁も 48 の倍数の正方形の PNG（192 px）を指し、サイト名を og:site_name で出す',
     B.SOURCES.every(([s, d]) => read('site/' + d).includes('icon-192.png" sizes="192x192" type="image/png">')
-      && read('site/' + d).includes('<meta property="og:site_name" content="' + (s.endsWith('.en.md') ? 'Nusquama' : '無何有騎士王国ヌスクァマ') + '">')));
+      && read('site/' + d).includes('<meta property="og:site_name" content="' + (s.endsWith('.en.md') ? 'Regnum Nusquamae' : '無何有騎士王国ヌスクァマ') + '">')));
   ok('どの頁もアイコンを指す', B.SOURCES.every(([, d]) => /rel="icon" href="[^"]*favicon\.svg"/.test(read('site/' + d)) && /rel="apple-touch-icon"/.test(read('site/' + d))));
 }
 
