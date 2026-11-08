@@ -353,6 +353,30 @@ console.log('\n16. 適法性の論理式・網羅・無矛盾・残る危険');
   ok('残る危険の表：英語の訳と、行の数も数もすべて同じ', JSON.stringify(rj) === JSON.stringify(re), JSON.stringify(re));
 }
 
+console.log('\n17. 条文と規約の見張り');
+{
+  const S = JSON.parse(read('verification/statutes.json'));
+  const leg = read('policies/legality.md');
+  /* 適法性の説明が「〇〇法第N条」と挙げた条は、一つ残らず見張りの表にあること。 */
+  const cited = new Set();
+  for (const m of leg.matchAll(/([一-龥]+法)((?:・?第\d+条(?:の\d+)?(?:第\d+項)?(?:第\d+号)?)+)/g)) {
+    if (m[1] === '同法') continue; // 直前に挙げた法を指す。その法の条として、すでに数えている。
+    for (const a of m[2].matchAll(/第(\d+)条(?:の(\d+))?/g)) cited.add(m[1] + ' ' + a[1] + (a[2] ? '_' + a[2] : ''));
+  }
+  const have = new Set(S.statutes.map((e) => e.name + ' ' + e.article));
+  const miss = [...cited].filter((c) => !have.has(c));
+  ok('適法性の説明が挙げた条（' + cited.size + '）は、すべて見張りの表にある', cited.size >= 20 && miss.length === 0, miss.join(' / '));
+  const unrec = S.statutes.filter((e) => !/^[0-9a-f]{64}$/.test(e.sha256 || '') || !e.title || !/^\d{3}AC\d{10}$/.test(e.law_id)).map((e) => e.name + ' ' + e.label);
+  ok('見張りの表のすべての条（' + S.statutes.length + '）に、法令番号・法令名・条文の SHA-256 が記してある', unrec.length === 0, unrec.join(' / '));
+  ok('GitHub の規約（' + S.policies.length + '）に、最新のコミットが記してある', S.policies.length >= 2 && S.policies.every((p) => /^[0-9a-f]{40}$/.test(p.commit || '')));
+  const wf = read('.github/workflows/statutes.yml');
+  ok('見張りは週に一度走り、issue を開く権限を持ち、PR でも走る',
+    /cron: '\d+ \d+ \* \* \d'/.test(wf) && wf.includes('issues: write') && wf.includes('pull_request:') && wf.includes('node tools/statutes.js'));
+  ok('見張りが開く issue のラベルを、ラベルの仕事が作る', S.labels.every((l) => read('.github/workflows/labels.yml').includes('gh label create "' + l + '"')));
+  ok('適法性の説明が、見張りのことを書いている（日本語と英語）',
+    leg.includes('審査は一度きりではありません。') && read('policies/legality.en.md').includes('The review is not done once only.'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
