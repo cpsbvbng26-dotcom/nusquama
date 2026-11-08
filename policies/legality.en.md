@@ -35,7 +35,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - It issues no currency, passports, identity documents or certificates.
 - It receives no money or goods. It sells nothing, takes no donations and shows no advertising.
 - It makes and hands out no physical decorations, badges or uniforms.
-- Its titles are words inside the fiction, used only in the repository, on the site, and in the MicroWiki article the King wrote.
+- Its titles are words inside the fiction, used only in the repository, on the site, and in the articles and posts the King wrote to introduce Nusquama (listed in the README under "ほかの場所").
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - It collects no documents to check nationality, age, country of residence or real name. Age and country of residence are taken from the applicant's own declaration, made by ticking the oaths in the form.
