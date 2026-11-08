@@ -138,6 +138,8 @@ The conclusion of this page was checked in the five ways below.
 4. **Fault tree**: the ways the facts relied on could fail were listed, likelihood and severity were each estimated from 1 to 3, and the product was used to rank them. The numbers are the operator's estimates and serve only to rank.
 5. **Breaking on purpose**: each fixed sentence was altered in turn, and the check was seen to fail.
 
+The review is not done once only. Once a week, the articles this page relies on and GitHub's terms are fetched from the e-Gov law API and from GitHub, and compared with the recorded values (`tools/statutes.js`). If they differ, an issue opens, and the operator reads the text and checks this page. If this page names an article that the watch does not cover, the check fails.
+
 The ways the facts relied on could fail are these.
 
 | No. | How it could fail | Likelihood | Severity | Product | Response |
