@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="t">
 <title id="t">ヌスクァマ騎士王国の国章（創作）</title>
+<rect width="720" height="720" fill="#14213d"/>
+<svg x="102" y="50.4" width="516" height="619.2" viewBox="0 0 600 720">
+
 <polygon points="60,40 540,40 540,380 520,470 470,560 390,640 300,690 210,640 130,560 80,470 60,380" fill="#c9a227"/>
 <polygon points="80,60 520,60 520,378 501,463 454,548 379,624 300,668 221,624 146,548 99,463 80,378" fill="#14213d"/>
 <rect x="120.0" y="112.0" width="222.5" height="222.5" fill="none" stroke="#e8cf74" stroke-width="4"/>
@@ -16,4 +19,5 @@
 <rect x="214" y="342" width="172" height="16" fill="#c9a227"/>
 <polygon points="289,358 311,358 311,600 300,632 289,600" fill="#e8cf74"/>
 <rect x="298" y="364" width="4" height="230" fill="#0b1428"/>
+</svg>
 </svg>

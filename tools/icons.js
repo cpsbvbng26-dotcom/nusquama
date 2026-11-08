@@ -10,6 +10,8 @@ const path = require('path');
 const { chromium } = require('playwright');
 
 const A = path.join(__dirname, '..', 'assets');
+/* 正方形のファビコン（SVG）も、同じ国章から作り直す。 */
+fs.writeFileSync(path.join(A, 'favicon.svg'), require('./favicon.js').square(fs.readFileSync(path.join(A, 'emblem.svg'), 'utf8')));
 const svg = fs.readFileSync(path.join(A, 'emblem.svg'), 'utf8');
 const NAVY = '#14213d';
 
