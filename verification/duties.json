@@ -1,0 +1,513 @@
+{
+  "_": "個人情報保護法などの義務を、項ごとに規程の文と一対一で結ぶ表。2026-11-08 に e-Gov から取り寄せた条文を、項・号まで読んで作った。check.js が、文の実在と、見張りの表との対応を確かめる。",
+  "duties": [
+    {
+      "law": "個人情報保護法",
+      "article": "17",
+      "paragraph": "1",
+      "duty": "利用目的をできる限り特定する",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "18",
+      "paragraph": "1",
+      "duty": "同意なく目的の外で扱わない",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "20",
+      "paragraph": "1",
+      "duty": "偽りなどの不正な手段で取得しない",
+      "by": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "text": "この issue は公開されます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "20",
+      "paragraph": "2",
+      "duty": "同意なく要配慮個人情報を取得しない",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "病気・障害・信条・犯罪の経歴など、配慮の要る事柄も求めません。"
+        },
+        {
+          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "text": "病気・障害・信条・犯罪の経歴など配慮の要る事柄を書かないでください。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "21",
+      "paragraph": "1",
+      "duty": "利用目的を公表しておく",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "21",
+      "paragraph": "2",
+      "duty": "様式で直接取得するときは、あらかじめ利用目的を明示する",
+      "by": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "text": "書いたものは、叙任を判断すること、名簿を載せること、求めに応じることにだけ使います。"
+        },
+        {
+          "file": ".github/ISSUE_TEMPLATE/request.yml",
+          "text": "書いたものは、この求めに応じることにだけ使います。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "21",
+      "paragraph": "3",
+      "duty": "利用目的を変えたときは公表する",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "この方針を変えたときは、この頁の日付を改めます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "22",
+      "paragraph": "",
+      "duty": "正確に保ち、要らなくなれば消すよう努める",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "断った願い出の issue は、断った一文を示すために残します。本人の求めがあれば削除します。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "名簿の記載は、辞退の求めがあるまで残します。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "23",
+      "paragraph": "",
+      "duty": "安全管理の措置を講じる",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "名簿とサイトを変えられるのは、リポジトリの持ち主である運営者の GitHub アカウントだけです。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "扱う個人データは、公開の issue と騎士の名簿にあるものだけです。ほかの場所に集めず、別の写しも作りません。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "25",
+      "paragraph": "",
+      "duty": "委託先を監督する（委託がないことを示す）",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "GitHub と Vercel は、運営者に代わって個人データを扱う委託先ではありません。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "26",
+      "paragraph": "1",
+      "duty": "報告の要る漏えいなどを委員会に報告する",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "個人データの漏えい・滅失・毀損で、法律が報告を求める事態が起きたときは、個人情報保護委員会に報告します。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "26",
+      "paragraph": "2",
+      "duty": "本人に知らせる",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "そのときは、本人にも、願い出の issue か、名簿の頁で知らせます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "27",
+      "paragraph": "1",
+      "duty": "第三者への提供にあらかじめ同意を得る",
+      "by": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "text": "GitHub のアカウント名・訂正へのリンク・書いた説明が公開され、騎士の名簿に載ること"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "28",
+      "paragraph": "1",
+      "duty": "外国にある第三者への提供にあらかじめ同意を得る",
+      "by": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "text": "それらが GitHub と Vercel（どちらも米国）で扱われることに同意します。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "28",
+      "paragraph": "2",
+      "duty": "同意の前に、外国の制度と受け手の措置を示す",
+      "by": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "text": "米国の制度と、GitHub と Vercel の措置は、個人情報の取り扱いの節「第三者への提供と外国にある事業者」に書いてあります。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "州ごとの法律があり、本人が持つ権利は、州と分野によって違います。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "GitHub の措置は、[GitHub のプライバシーステートメント]"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "32",
+      "paragraph": "1",
+      "duty": "氏名・住所、利用目的、手続、措置を本人の知り得る状態に置く",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "運営者の氏名と住所は、求めがあれば、非公開の連絡で遅滞なく答えます。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "## 安全のための措置"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "個人情報保護法第32条が本人に知らせるよう求める事項のうち、この頁に書いていないものは、求めがあれば遅滞なく答えます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "32",
+      "paragraph": "2",
+      "duty": "利用目的の通知を求められたら通知する",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "- 自分についての保有個人データの利用目的の通知・開示・訂正・追加・削除・利用停止・消去・第三者への提供の停止。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "33",
+      "paragraph": "1",
+      "duty": "求められた方法で開示する",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "開示は、求められた方法で行います。電磁的記録で求められたときは、電磁的記録で渡します。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "33",
+      "paragraph": "2",
+      "duty": "遅滞なく開示する",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "開示・訂正・利用停止などの求めには、遅滞なく応じます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "33",
+      "paragraph": "3",
+      "duty": "開示しないとき、データがないとき、方法が難しいときは知らせる",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "求められたデータがないときや、求められた方法で渡せないときも、その旨を遅滞なく知らせます。"
+        },
+        {
+          "file": "policies/requests.md",
+          "text": "求めに応じない場合は、その理由を答えます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "34",
+      "paragraph": "1",
+      "duty": "訂正・追加・削除の求めを受ける",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "- 自分についての保有個人データの利用目的の通知・開示・訂正・追加・削除・利用停止・消去・第三者への提供の停止。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "34",
+      "paragraph": "3",
+      "duty": "訂正などをしたら、その内容を知らせる",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "求めに応じたときは、何をしたかを遅滞なく知らせます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "35",
+      "paragraph": "1",
+      "duty": "利用停止・消去の求めを受ける",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "- 自分についての保有個人データの利用目的の通知・開示・訂正・追加・削除・利用停止・消去・第三者への提供の停止。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "35",
+      "paragraph": "3",
+      "duty": "第三者への提供の停止の求めを受ける",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "- 騎士の名簿からの辞退（名を外す）。"
+        },
+        {
+          "file": "policies/requests.md",
+          "text": "名簿からの辞退は、理由を問わず応じます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "35",
+      "paragraph": "6",
+      "duty": "理由があるときは遅滞なく利用停止などを行う",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "Vercel に残る過去の配信は、求めがあれば、その記載を含むものを Vercel から消します。"
+        },
+        {
+          "file": "policies/requests.md",
+          "text": "個人情報の露出のように害が大きいものは、判断の前に、その記載をただちに外します。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "35",
+      "paragraph": "7",
+      "duty": "利用停止などをしたら知らせる",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "求めに応じたときは、何をしたかを遅滞なく知らせます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "36",
+      "paragraph": "",
+      "duty": "応じないときは理由を説明するよう努める",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "求めに応じない場合は、その理由を答えます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "37",
+      "paragraph": "1",
+      "duty": "求めを受ける方法を定める",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "様式を使わない issue は開けないようにしてあります。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "37",
+      "paragraph": "3",
+      "duty": "代理人による求めを受ける",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "求めは、代理人が出すこともできます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "37",
+      "paragraph": "4",
+      "duty": "本人に過重な負担を課さない",
+      "by": [
+        {
+          "file": "policies/requests.md",
+          "text": "GitHub の無料のアカウントで足ります。"
+        },
+        {
+          "file": "policies/requests.md",
+          "text": "費用はかかりません。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "38",
+      "paragraph": "1",
+      "duty": "手数料（取らない）",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "費用はかかりません。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法",
+      "article": "40",
+      "paragraph": "1",
+      "duty": "苦情を適切かつ迅速に処理する",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "個人情報の扱いへの苦情も、削除・訂正・辞退の求めの様式で受けます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法施行令",
+      "article": "10",
+      "paragraph": "",
+      "duty": "安全管理の措置と苦情の申出先を知り得る状態に置く",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "## 安全のための措置"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "個人情報の扱いへの苦情も、削除・訂正・辞退の求めの様式で受けます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法施行規則",
+      "article": "7",
+      "paragraph": "",
+      "duty": "報告の要る事態（不正の目的による漏えいなどを含む）",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "運営者の GitHub アカウントが乗っ取られて名簿が書き換えられたり消されたりしたときも、この事態として扱います。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法施行規則",
+      "article": "8",
+      "paragraph": "",
+      "duty": "委員会への報告（速報と確報）",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "個人データの漏えい・滅失・毀損で、法律が報告を求める事態が起きたときは、個人情報保護委員会に報告します。"
+        },
+        {
+          "file": "CLAUDE.md",
+          "text": "個人情報保護委員会への報告は、知ってから速やかに"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法施行規則",
+      "article": "10",
+      "paragraph": "",
+      "duty": "本人への通知",
+      "by": [
+        {
+          "file": "policies/privacy.md",
+          "text": "そのときは、本人にも、願い出の issue か、名簿の頁で知らせます。"
+        }
+      ]
+    },
+    {
+      "law": "個人情報保護法施行規則",
+      "article": "17",
+      "paragraph": "",
+      "duty": "外国にある第三者への提供の同意の前に示す情報",
+      "by": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "text": "米国の制度と、GitHub と Vercel の措置は、個人情報の取り扱いの節「第三者への提供と外国にある事業者」に書いてあります。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "米国には、日本の個人情報保護法に当たる、個人情報を包括して扱う連邦の法律はありません。"
+        }
+      ]
+    }
+  ]
+}

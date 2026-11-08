@@ -237,6 +237,158 @@
       "article": "11",
       "title": "国籍法",
       "sha256": "4654bfea54c2513f55c55e4fdf34e1a0831e50968045bdaa37bcd1af532b23ab"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第20条",
+      "law_id": "415AC0000000057",
+      "article": "20",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "2f45b4c2bbd6f34eefd15437e3bd333e8176482f17915b11e12ea6c698079470"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第21条",
+      "law_id": "415AC0000000057",
+      "article": "21",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "31a2d9bedd9c8222212b10aed08b2fe870b81f01ac4366fc716a4369953e670d"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第22条",
+      "law_id": "415AC0000000057",
+      "article": "22",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "9e450a5c0688e0f9515bf839233cdeac9ee07ee57c8e76170b316186b15192f6"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第23条",
+      "law_id": "415AC0000000057",
+      "article": "23",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "2519435ab1b7e3cd8444f512ae690c26c24fc777dd06c927f7512a416a899121"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第25条",
+      "law_id": "415AC0000000057",
+      "article": "25",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "65f9d3491caaf1a27b7135b2effe3e991d4b2df86ee88585b048f8b8e441ca89"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第26条",
+      "law_id": "415AC0000000057",
+      "article": "26",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "0041eb921b70c7b6f0581b376ec5f34971c961d4fec04eb4806a6de3fde85ced"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第32条",
+      "law_id": "415AC0000000057",
+      "article": "32",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "508ab29ca2664bc626001f3fccc2e5d3238b7c52780b74e5f08c093bf639fe95"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第33条",
+      "law_id": "415AC0000000057",
+      "article": "33",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "03e6c8cd20328cf92b01ebf29ce01699ccb0488c5515f34a6571b65b0c496f5a"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第34条",
+      "law_id": "415AC0000000057",
+      "article": "34",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "da3c1a981ae9a61ea47cb7d5ee7bc49aa0caf79c7677774de2450dd0ca55f60e"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第35条",
+      "law_id": "415AC0000000057",
+      "article": "35",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "4590ecd518049fcf8a384ca94028d4dd292e10a606cb0750ab51ed681a68c27d"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第36条",
+      "law_id": "415AC0000000057",
+      "article": "36",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "c5f7d0d127b7b1cbf60d3d185b304b342b84dc105b501e9dcaa07ad1e46d42c4"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第37条",
+      "law_id": "415AC0000000057",
+      "article": "37",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "88fbb172a08946175bff7db95720ec9ddd293573717d49c89bc36fd98f92a1c2"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第38条",
+      "law_id": "415AC0000000057",
+      "article": "38",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "fd639eff0c0133f52ae460fb679e8befcda6dd324929e66c482e3c83dba7b30e"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第40条",
+      "law_id": "415AC0000000057",
+      "article": "40",
+      "title": "個人情報の保護に関する法律",
+      "sha256": "97f0f20ddae334d4f42ec2573223487d6109567601980f1d77cbb5c6364ab62f"
+    },
+    {
+      "name": "個人情報保護法施行令",
+      "label": "第10条",
+      "law_id": "415CO0000000507",
+      "article": "10",
+      "title": "個人情報の保護に関する法律施行令",
+      "sha256": "02f2f8e223f83c725819e7c6fd1ebada8b15043260d60b50c0797d415eabd16c"
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第7条",
+      "law_id": "428M60020000003",
+      "article": "7",
+      "title": "個人情報の保護に関する法律施行規則",
+      "sha256": "3c58acd32819a665d7eaa4dac06d2f1e9cb383bdde9854fd2cfefaf8e309bef5"
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第8条",
+      "law_id": "428M60020000003",
+      "article": "8",
+      "title": "個人情報の保護に関する法律施行規則",
+      "sha256": "1b571a208fa54697a61b33a794e44a0bc2746e975cd633fdb4a13eef750bd626"
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第10条",
+      "law_id": "428M60020000003",
+      "article": "10",
+      "title": "個人情報の保護に関する法律施行規則",
+      "sha256": "0801aa0a09b677bf4e2ae4a89aa0ceae133db41d61c25ef12b98fde1ec1ce0a1"
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第17条",
+      "law_id": "428M60020000003",
+      "article": "17",
+      "title": "個人情報の保護に関する法律施行規則",
+      "sha256": "04c0bd7b768b36214f8acdd85da02def040874b70b2a5c7165e1d48df7d6a377"
     }
   ],
   "policies": [
