@@ -35,7 +35,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - It issues no currency, passports, identity documents or certificates.
 - It receives no money or goods. It sells nothing, takes no donations and shows no advertising.
 - It makes and hands out no physical decorations, badges or uniforms.
-- Its titles are words inside the fiction, used only in the repository, on the site, and in the MicroWiki article the King wrote himself.
+- Its titles are words inside the fiction, used only in the repository, on the site, and in the MicroWiki article the King wrote.
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - It collects no documents to check nationality, age, country of residence or real name. Age and country of residence are taken from the applicant's own declaration, made by ticking the oaths in the form.
@@ -111,19 +111,47 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Elements, in summary**: publicly alleging facts that damage a person's reputation; publicly insulting a person, even without alleging facts; infringing, intentionally or negligently, another person's rights or legally protected interests and so causing damage.
 - **Nusquama's facts**: it discusses no particular person. The roll of knights lists only account names, on the person's own application and consent. When an application is refused, the reason is given briefly and the person is not judged.
 - **Why the law does not apply**: nothing damages anyone's reputation.
-- **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); Requests for Removal, Correction or Withdrawal (in Japanese).
+- **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
+- **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); Requests for Removal, Correction or Withdrawal, "After a request is received" (in Japanese).
 
 ### Laws outside Japan
 
 - Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
-- Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom (the repository and the site) and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
+- Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
 - For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. This was confirmed from secondary sources; the original text was not checked. Applications from people living in such countries are not accepted (Knighting Rules, "Who may apply"; in Japanese). The country of residence is taken from the applicant's own declaration and is not checked (Knighting Rules, "What is not checked"; in Japanese).
+- The EU General Data Protection Regulation (GDPR) can reach those outside the EU, for example when they offer services to people in the EU. In case it does, Nusquama handles only what the person makes public themselves, takes it with consent, and answers requests for access, correction and erasure free of charge (Privacy Notice; in Japanese). The text of the GDPR was not checked; this rests on general knowledge.
+- The California Consumer Privacy Act (CCPA) covers businesses run for profit. Nusquama runs no business for profit, so the operator considers that it does not apply. This text was not checked either.
 - The operator has not checked the laws of other countries one by one.
 
 ### The terms of the services used
 
 - **GitHub**: the repository and issues are used in line with GitHub's terms. Nothing they forbid is placed there.
 - **Vercel**: the site is served on Vercel's Hobby plan, which is limited to personal, non-commercial use. Nusquama is non-commercial and meets that condition.
+
+## How this was reviewed, and the risks that remain
+
+The conclusion of this page was checked in the five ways below.
+
+1. **Elements as logic**: an offence or a duty arises only when all of its elements are present. Writing the elements as A₁ ∧ A₂ ∧ … ∧ Aₙ, one fact that denies a single Aᵢ makes the whole false. For each law, `verification/legal-matrix.json` lists which element is denied by which sentence, and the check confirms that the sentence exists.
+2. **Coverage**: every pair of actor (operator, applicant, knight, reader, third party) and act (publishing, receiving applications, listing on the roll, using titles, keeping information, reaching abroad) is listed in `verification/legal-matrix.json`. Every pair is either covered by an item on this page or cannot occur.
+3. **Consistency**: the pages were compared for the same matter being written differently. The extent of "inside the kingdom" differed from page to page, so it is now defined once, in the Terms of Use, and the other pages point there (the King's errata, entry 6).
+4. **Fault tree**: the ways the facts relied on could fail were listed, likelihood and severity were each estimated from 1 to 3, and the product was used to rank them. The numbers are the operator's estimates and serve only to rank.
+5. **Breaking on purpose**: each fixed sentence was altered in turn, and the check was seen to fail.
+
+The ways the facts relied on could fail are these.
+
+| No. | How it could fail | Likelihood | Severity | Product | Response |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Someone under 16 applies, lying about their age | 2 | 2 | 4 | Once known, the name is removed from the roll and the issue deleted, without waiting for a request |
+| 2 | A promise in the pages is removed or weakened by an edit | 2 | 2 | 4 | `verification/check.js` fails |
+| 3 | Someone writes another person's personal information or defamation in an issue | 1 | 3 | 3 | Taken down at once, before deciding anything else |
+| 4 | A third party sells titles in Nusquama's name | 1 | 3 | 3 | The Terms of Use say such a person has nothing to do with Nusquama |
+| 5 | Someone living in a country that forbids it applies, lying about where they live | 1 | 2 | 2 | Once known, the name is removed from the roll |
+| 6 | A knight uses the title outside the kingdom as if it were real | 1 | 2 | 2 | The knighting is revoked |
+| 7 | A name overlaps with someone else's registered trademark | 1 | 2 | 2 | Registrations have not been checked; a request is handled through the Requests for Removal, Correction or Withdrawal |
+| 8 | A service used changes its terms and can no longer be used | 1 | 1 | 1 | That part is stopped first, then checked |
+
+People aged 16 and 17 are minors under the Japanese Civil Code. An agreement made without the consent of a legal representative can be cancelled. Nusquama receives nothing that it would lose by such a cancellation.
 
 ## Conclusion
 
