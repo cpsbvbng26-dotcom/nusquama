@@ -405,6 +405,33 @@ console.log('\n18. 義務を項ごとに規程の文と結ぶ表');
   ok('見張っている個人情報保護法の条は、どれも表で規程の文と結ばれている', orphan.length === 0, orphan.join(' / '));
 }
 
+console.log('\n19. 見張りが PR を作り、ラベル「記す」で検査を通してから記す。公開中のサイトを main と照らす');
+{
+  const St = require('../tools/statutes.js');
+  const Rc = require('../tools/record.js');
+  const Lv = require('../tools/live.js');
+  const S = JSON.parse(read('verification/statutes.json'));
+  ok('変わった条文を、文ごとの差分で示す', St.diff('第一条 A。第二条 B。', '第一条 A。第二条 C。') === '  第一条 A。\n- 第二条 B。\n+ 第二条 C。');
+  const res = [{ kind: 'statute', i: 0, label: 'X 1', state: 'changed', value: 'h2', title: 'T', text: '甲。乙。' }, { kind: 'policy', i: 0, label: 'P', state: 'same' }];
+  const conf = { statutes: [{ sha256: 'h1', title: 'T' }], policies: [{ commit: 'c1' }], recorded: '2026-11-08' };
+  const pr = St.proposal(res, conf, { 'X 1': '甲。' }, '2026-11-20');
+  ok('提案は新しい値と条文を記し、差分を示し、ラベル「記す」を案内する。新しいものが無ければ何も作らない',
+    pr.changed === 1 && pr.conf.statutes[0].sha256 === 'h2' && pr.conf.recorded === '2026-11-20' && pr.body.includes('```diff\n  甲。\n+ 乙。\n```') && pr.body.includes('ラベル「記す」')
+    && St.proposal([Object.assign({}, res[0], { state: 'same' })], conf, { 'X 1': '甲。乙。' }, '2026-11-20') === null && S.text.prFoot.includes('マージのボタンは使いません'));
+  ok('「記す」は見張りの枝の、見張りが書くファイルだけを取り込み、マージの題をこのリポジトリの形にし、ワークフローを共著者として名乗る',
+    Rc.allowed('statutes/record', ['verification/statutes.json', 'verification/statutes-texts.json']) && !Rc.allowed('statutes/record', ['verification/statutes.json', 'policies/terms.md'])
+    && Rc.mergeTitle(31, '記す') === 'Merge pull request #31: 記す' && read('tools/record.js').includes("Co-authored-by: ' + BOT"));
+  const rw = read('.github/workflows/record.yml');
+  ok('ラベルの仕事は、持ち主の付けた「記す」に、見張りの枝でだけ応じる。ラベルはラベルの仕事が作る',
+    rw.includes("github.event.label.name == '記す'") && rw.includes('github.event.sender.login == github.repository_owner') && rw.includes("github.event.pull_request.head.ref == 'statutes/record'")
+    && read('.github/workflows/labels.yml').includes('gh label create "記す"') && read('.github/workflows/statutes.yml').includes('pull-requests: write'));
+  const files = Lv.served(fs.readdirSync(path.join(ROOT, 'site'), { recursive: true }).filter((f) => fs.statSync(path.join(ROOT, 'site', f)).isFile()).map((f) => f.split(path.sep).join('/')));
+  ok('公開中のサイトの照合は、site/ のファイル（' + files.length + ' 件）を Vercel の設定を除いてすべて取り寄せる',
+    files.length >= 20 && files.every((x) => x.url.startsWith('https://nusquama.vercel.app/')) && !files.some((x) => x.file === 'vercel.json') && read('.github/workflows/live.yml').includes('node tools/live.js'));
+  ok('適法性の説明が、PR とラベル「記す」のことを書いている（日本語と英語）',
+    read('policies/legality.md').includes('ラベル「記す」を付けます') && read('policies/legality.en.md').includes('adds the label 記す'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
