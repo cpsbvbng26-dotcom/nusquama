@@ -89,6 +89,8 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/names.md'].push('CC BY 4.0 が許すのは、著作権の及ぶ範囲のことだけです。商標などのほかの権利や、ほかの法令による制限には及びません。');
   must['policies/legality.md'].push('- **他人が書いたもの**：issue には、願い出た人や求めた人が文を書く。他人の名誉や個人情報を害する記載が書かれたときは、判断の前にただちに外す。');
   must['policies/disclaimer.md'].push('法令ごとの整理は[適法性の説明](./legality.md)にあります。弁護士の確認は受けていません。');
+  // 同じ名を使う者と紛れさせない。名は一般の語に由来し、誰かの名を借りていない。
+  must['policies/disclaimer.md'].push('- 「ヌスクァマ」「Nusquama」「ネモ」「Nemo」など、同じ名や似た名を使う音楽グループ・作品・団体・人・商品');
   for (const [f, list] of Object.entries(must)) {
     const t = read(f);
     const miss = list.filter((x) => !t.includes(x));
