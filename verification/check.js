@@ -421,6 +421,9 @@ console.log('\n19. 見張りが PR を作り、ラベル「記す」で検査を
   ok('「記す」は見張りの枝の、見張りが書くファイルだけを取り込み、マージの題をこのリポジトリの形にし、ワークフローを共著者として名乗る',
     Rc.allowed('statutes/record', ['verification/statutes.json', 'verification/statutes-texts.json']) && !Rc.allowed('statutes/record', ['verification/statutes.json', 'policies/terms.md'])
     && Rc.mergeTitle(31, '記す') === 'Merge pull request #31: 記す' && read('tools/record.js').includes("Co-authored-by: ' + BOT"));
+  ok('PR を作れないリポジトリでは、提案を issue に置き、PR を一押しで作るリンクを添える。記せばその issue も閉じる',
+    read('tools/statutes.js').includes("if (!/HTTP 403/.test(e.message)) throw e;") && S.text.openPr.includes('{link}') && S.text.openPr.includes('ラベル「記す」')
+    && St.PROPOSAL === '<!-- statutes-proposal -->' && read('tools/record.js').includes("startsWith('<!-- statutes-proposal -->')"));
   const rw = read('.github/workflows/record.yml');
   ok('ラベルの仕事は、持ち主の付けた「記す」に、見張りの枝でだけ応じる。ラベルはラベルの仕事が作る',
     rw.includes("github.event.label.name == '記す'") && rw.includes('github.event.sender.login == github.repository_owner') && rw.includes("github.event.pull_request.head.ref == 'statutes/record'")
