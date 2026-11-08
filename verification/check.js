@@ -83,6 +83,11 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/knighting.md'].push('運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。',
     'ヌスクァマは国籍を与えません。騎士は国民ではありません。', '年齢と住んでいる国は、様式の誓いへの印による本人の申告で受けます。');
   must['policies/legality.md'].push('- 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢と住んでいる国は、様式の誓いによる本人の申告で受ける。');
+  // 16 歳未満と分かったら、求めを待たずに消す。CC BY 4.0 は著作権の外に及ばない。
+  must['policies/knighting.md'].push('16 歳未満の人の願い出だったときは、求めがなくても、その issue も削除します。');
+  must['policies/privacy.md'].push('16 歳未満の人の願い出だと分かったときは、求めがなくても、名簿から名を外し、その issue を削除します。');
+  must['policies/names.md'].push('CC BY 4.0 が許すのは、著作権の及ぶ範囲のことだけです。商標などのほかの権利や、ほかの法令による制限には及びません。');
+  must['policies/legality.md'].push('- **他人が書いたもの**：issue には、願い出た人や求めた人が文を書く。他人の名誉や個人情報を害する記載が書かれたときは、判断の前にただちに外す。');
   must['policies/disclaimer.md'].push('法令ごとの整理は[適法性の説明](./legality.md)にあります。弁護士の確認は受けていません。');
   for (const [f, list] of Object.entries(must)) {
     const t = read(f);
@@ -288,6 +293,64 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
     ok(f + ' の約束がそろっている（' + list.length + ' 文）', miss.length === 0, miss.join(' / '));
   }
   ok('README が英語版のすべてへつなぐ', B.EN.every((p) => read('README.md').includes('(policies/' + p + '.en.md)')));
+}
+
+console.log('\n16. 適法性の論理式・網羅・無矛盾・残る危険');
+{
+  const M = JSON.parse(read('verification/legal-matrix.json'));
+  const leg = read('policies/legality.md');
+  /* 法令の見出しは「法令ごとの整理」の中の ### だけ。表と行列の鍵が、一つ残らず一致すること。 */
+  const part = leg.split('\n## 法令ごとの整理\n')[1].split('\n## ')[0];
+  const heads = [...part.matchAll(/^### (.+)$/gm)].map((m) => m[1]);
+  const keys = Object.keys(M.laws);
+  ok('論理式の行列が、適法性の説明の法令の見出しと一つ残らず一致する（' + heads.length + ' 項）',
+    heads.length > 0 && heads.length === keys.length && heads.every((h) => keys.includes(h)),
+    heads.filter((h) => !keys.includes(h)).concat(keys.filter((k) => !heads.includes(k))).join(' / '));
+  /* 選言のどの連言でも、否定した要件がその連言の要件の一つで、否定する文が実在すること。
+   * 義務の法令は、義務ごとに、それを満たす文が実在すること。 */
+  const bad = [];
+  let forms = 0, duties = 0;
+  for (const [law, d] of Object.entries(M.laws)) {
+    if (!(d.forms || []).length && !(d.duties || []).length) bad.push(law + '：要件も義務もない');
+    for (const f of d.forms || []) {
+      forms++;
+      if (!f.elements.includes(f.denied)) bad.push(law + '：否定した要件が要件の中にない（' + f.denied + '）');
+      if (!(f.by || []).length) bad.push(law + '：否定する文がない（' + f.denied + '）');
+      for (const b of f.by || []) if (!read(b.file).includes(b.text)) bad.push(law + '：' + b.file + ' に文がない —— ' + b.text);
+    }
+    for (const u of d.duties || []) {
+      duties++;
+      if (!(u.by || []).length) bad.push(law + '：義務を満たす文がない（' + u.duty + '）');
+      for (const b of u.by || []) if (!read(b.file).includes(b.text)) bad.push(law + '：' + b.file + ' に文がない —— ' + b.text);
+    }
+  }
+  ok('どの連言でも要件の一つが否定され、どの義務にも満たす文がある（連言 ' + forms + '、義務 ' + duties + '）', bad.length === 0, bad.join(' / '));
+  /* 網羅：行う者と行いのすべての組に、項か「起こらない」理由がある。 */
+  const holes = [];
+  for (const a of M.actors) for (const v of M.acts) {
+    const c = (M.coverage[a] || {})[v];
+    if (Array.isArray(c)) { if (!c.length || c.some((h) => !keys.includes(h))) holes.push(a + '×' + v); }
+    else if (!(c && typeof c['起こらない'] === 'string' && c['起こらない'].length)) holes.push(a + '×' + v);
+  }
+  ok('行う者と行いの組 ' + M.actors.length * M.acts.length + ' 通りのすべてに、項か起こらない理由がある', holes.length === 0, holes.join(' / '));
+  /* 無矛盾：「この国の中」を定めるのは利用規約の一か所だけ。括弧で範囲を言い直す書き方を残さない。 */
+  const pol = B.POLICIES.map((p) => 'policies/' + p + '.md').concat(B.EN.map((p) => 'policies/' + p + '.en.md'));
+  const redef = pol.filter((f) => /この国（[^）]*）の外|outside the kingdom \(/.test(read(f)));
+  ok('「この国の中」の範囲を、頁ごとに言い直していない', redef.length === 0, redef.join(', '));
+  ok('「この国の中」を利用規約の一か所で定めている',
+    read('policies/terms.md').split('この国の中とは、').length === 2 && pol.filter((f) => read(f).includes('この国の中とは、')).length === 1);
+  /* 残る危険の表：積が掛け算どおりで、積の大きい順に並び、英語の訳と数が同じ。 */
+  const rows = (t, head) => {
+    const sec = t.split(head)[1].split('\n## ')[0];
+    return [...sec.matchAll(/^\| (\d+) \| [^|]+ \| (\d) \| (\d) \| (\d) \|/gm)].map((m) => m.slice(1, 5).map(Number));
+  };
+  const rj = rows(leg, '\n## 審査の方法と残る危険\n'), re = rows(read('policies/legality.en.md'), '\n## How this was reviewed, and the risks that remain\n');
+  ok('残る危険の表がある（' + rj.length + ' 行）', rj.length >= 5);
+  ok('残る危険の表：番が 1 から続き、起こりやすさと重さが 1〜3、積が掛け算どおり',
+    rj.every(([n, l, s, x], i) => n === i + 1 && l >= 1 && l <= 3 && s >= 1 && s <= 3 && x === l * s),
+    rj.filter(([n, l, s, x], i) => !(n === i + 1 && x === l * s)).map((r) => r.join(',')).join(' / '));
+  ok('残る危険の表：積の大きい順に並んでいる', rj.every((r, i) => i === 0 || rj[i - 1][3] >= r[3]));
+  ok('残る危険の表：英語の訳と、行の数も数もすべて同じ', JSON.stringify(rj) === JSON.stringify(re), JSON.stringify(re));
 }
 
 console.log('\n' + '-'.repeat(56));
