@@ -15,6 +15,7 @@ The reasons the operator believes Nusquama breaks no law are set out, law by law
 
 Nusquama is a work of fiction that the operator writes for fun.
 It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.
+It is not a state under international law, seeks no recognition as a state, and enters into no diplomatic relations with any state.
 It is not related to any real state, royal house, order of knighthood, honours system, decoration or title, and it neither claims to be one nor replaces one.
 It issues no currency, points, vouchers, electronic value, passports, identity documents or certificates.
 "Knight-King Nemo I" is the name of a role the operator plays in the fiction.

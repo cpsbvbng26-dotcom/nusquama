@@ -114,6 +114,20 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
 - **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); Requests for Removal, Correction or Withdrawal, "After a request is received" (in Japanese).
 
+### Status under international law
+
+- **Elements, in summary**: under international law, a state is generally expected to have a permanent population, a defined territory, a government, and the capacity to enter into relations with other states (Montevideo Convention of 1933, Article 1). Japan is not a party to that convention, but it is widely cited for the criteria of statehood. Whether an entity is treated as a state also depends on recognition by other states. The text of the convention was not checked; this rests on general knowledge.
+- **Nusquama's facts**: it has no population, territory or government, and claims no sovereignty and no land. It claims no state's territory, no land that belongs to no state, and no structure at sea. It enters into no diplomatic relations and seeks no recognition as a state. It issues no passports and no nationality.
+- **Why the law does not apply**: it meets none of the four criteria and does not try to. Nusquama is not a state under international law and holds no rights or duties under it. It impairs no state's sovereignty, territorial integrity or status under international law.
+- **Rules that keep this true**: Terms of Use, "What Nusquama is"; Disclaimer, "A work of fiction"; Basic Law, Article 1.
+
+### Nationality (Nationality Act, Article 11)
+
+- **Elements, in summary**: a Japanese national who acquires a foreign nationality of their own choice loses Japanese nationality.
+- **Nusquama's facts**: Nusquama is not a foreign state and grants no nationality. Knights are not nationals. Knighting only adds an account name to the roll.
+- **Why the law does not apply**: there is no "foreign nationality" to acquire, so knighting changes no one's nationality. The same holds under any country's nationality law.
+- **Rules that keep this true**: Terms of Use, "What Nusquama is" (no nationality); Knighting Rules, "What is not checked" (no nationality granted; in Japanese).
+
 ### Laws outside Japan
 
 - Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
