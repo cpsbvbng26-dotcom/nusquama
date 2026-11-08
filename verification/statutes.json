@@ -1,0 +1,248 @@
+{
+  "_": "適法性の説明が拠る条文と、使っているサービスの規約。tools/statutes.js が週に一度、e-Gov 法令 API と GitHub の site-policy から取り寄せ、ここに記した値と比べる。値は、運営者が変更を読んでから手で記す。",
+  "agent": "nusquama (https://github.com/cpsbvbng26-dotcom/nusquama)",
+  "labels": [
+    "法令"
+  ],
+  "text": {
+    "state": {
+      "same": "同じ　",
+      "changed": "変わった",
+      "missing": "見つからない",
+      "unrecorded": "未記録",
+      "failed": "取れない"
+    },
+    "missing": "条や号が見つからない",
+    "title": "法令名",
+    "texts": "変わった条文と未記録の条文：",
+    "summaryOdd": "{all} 件のうち {n} 件を確かめる必要があります。",
+    "summarySame": "{all} 件すべて、記した値と同じでした。",
+    "issueTitle": "適法性の説明が拠る条文や規約が変わったかもしれない",
+    "issueHead": "{when} の週ごとの確認で、次のものが記した値と違いました。",
+    "issueFoot": "変わった条文を読み、適法性の説明と規程を確かめてから、verification/statutes.json の値を記し直します。",
+    "closed": "{when} の確認で、すべて記した値と同じになりました。閉じます。"
+  },
+  "statutes": [
+    {
+      "name": "刑法",
+      "label": "第77条",
+      "law_id": "140AC0000000045",
+      "article": "77",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "刑法",
+      "label": "第155条",
+      "law_id": "140AC0000000045",
+      "article": "155",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "刑法",
+      "label": "第230条",
+      "law_id": "140AC0000000045",
+      "article": "230",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "刑法",
+      "label": "第231条",
+      "law_id": "140AC0000000045",
+      "article": "231",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "刑法",
+      "label": "第246条",
+      "law_id": "140AC0000000045",
+      "article": "246",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "軽犯罪法",
+      "label": "第1条第15号",
+      "law_id": "323AC0000000039",
+      "article": "1",
+      "items": [
+        "15"
+      ],
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "旅券法",
+      "label": "第23条",
+      "law_id": "326AC0000000267",
+      "article": "23",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "民法",
+      "label": "第5条",
+      "law_id": "129AC0000000089",
+      "article": "5",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "民法",
+      "label": "第709条",
+      "law_id": "129AC0000000089",
+      "article": "709",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "特定商取引法",
+      "label": "第2条",
+      "law_id": "351AC0000000057",
+      "article": "2",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "景品表示法",
+      "label": "第5条",
+      "law_id": "337AC0000000134",
+      "article": "5",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "消費者契約法",
+      "label": "第2条",
+      "law_id": "412AC0000000061",
+      "article": "2",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "消費者契約法",
+      "label": "第8条",
+      "law_id": "412AC0000000061",
+      "article": "8",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "消費者契約法",
+      "label": "第10条",
+      "law_id": "412AC0000000061",
+      "article": "10",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "資金決済法",
+      "label": "第3条",
+      "law_id": "421AC0000000059",
+      "article": "3",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "商標法",
+      "label": "第25条",
+      "law_id": "334AC0000000127",
+      "article": "25",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "不正競争防止法",
+      "label": "第2条第1項第1号・第2号",
+      "law_id": "405AC0000000047",
+      "article": "2",
+      "items": [
+        "1",
+        "2"
+      ],
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "著作権法",
+      "label": "第21条",
+      "law_id": "345AC0000000048",
+      "article": "21",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "著作権法",
+      "label": "第23条",
+      "law_id": "345AC0000000048",
+      "article": "23",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第17条",
+      "law_id": "415AC0000000057",
+      "article": "17",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第18条",
+      "law_id": "415AC0000000057",
+      "article": "18",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第27条",
+      "law_id": "415AC0000000057",
+      "article": "27",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第28条",
+      "law_id": "415AC0000000057",
+      "article": "28",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "民事訴訟法",
+      "label": "第3条の7",
+      "law_id": "408AC0000000109",
+      "article": "3_7",
+      "title": null,
+      "sha256": null
+    },
+    {
+      "name": "民事訴訟法",
+      "label": "第11条",
+      "law_id": "408AC0000000109",
+      "article": "11",
+      "title": null,
+      "sha256": null
+    }
+  ],
+  "policies": [
+    {
+      "name": "GitHub の利用規約",
+      "repo": "github/site-policy",
+      "path": "Policies/github-terms/github-terms-of-service.md",
+      "commit": null
+    },
+    {
+      "name": "GitHub のプライバシーステートメント",
+      "repo": "github/site-policy",
+      "path": "Policies/github-privacy-statement.md",
+      "commit": null
+    }
+  ]
+}

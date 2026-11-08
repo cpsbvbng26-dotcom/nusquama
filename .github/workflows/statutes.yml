@@ -1,0 +1,28 @@
+name: 条文と規約の見張り
+
+# 週に一度、適法性の説明が拠る条文（e-Gov 法令 API）と、GitHub の規約（github/site-policy）を取り寄せ、
+# verification/statutes.json に記した値と比べる。違えば issue を開き、元に戻れば閉じる。
+# PR では比べて表示するだけで、issue は開かない。鍵は要らない。
+on:
+  schedule:
+    - cron: '23 3 * * 2'
+  workflow_dispatch:
+  pull_request:
+    paths: ['tools/statutes.js', 'verification/statutes.json', '.github/workflows/statutes.yml']
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    name: 条文と規約が記した値と同じか
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: node tools/statutes.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
