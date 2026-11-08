@@ -53,8 +53,13 @@ Anyone who claims to grant Nusquama's titles for a fee has nothing to do with Nu
 - Using Nusquama's titles or emblem as if they were a real title, decoration or the insignia of a real organisation.
 - Collecting money or goods in Nusquama's name.
 - Trying to break the site or the forms.
+- Ticking a box in the application form for something that is not true, such as your age, the country you live in, or that the correction is of your own error.
 
 The operator may refuse such applications, close the issues, and remove names from the roll.
+If a ticked box turns out to be untrue, the operator removes the name from the roll as soon as the operator learns of it. From 2026-11-22, the operator may also refuse further applications from the same GitHub account.
+The operator relies on the ticked boxes in good faith and does not check them. A person knighted on an untrue box does not mean that Nusquama accepts applications from a country where it says it does not.
+The ticked boxes stay in the public issue until it is deleted at the person's request, so that what was ticked, and when, can be shown.
+Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.
 
 ## No warranty
 
@@ -68,6 +73,7 @@ These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
 A change that is unfavourable to readers or knights will be shown on this page, with its content and the date it takes effect, before it takes effect.
 Notice: from 2026-11-22, only people who live in Japan may apply for knighthood, whatever their nationality (Knighting Rules, "Who may apply"; in Japanese).
+Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
 
