@@ -138,6 +138,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - The California Consumer Privacy Act (CCPA) covers businesses run for profit. Nusquama runs no business for profit, so the operator considers that it does not apply. This was checked on 2026-11-08 on the [CCPA page of the California Attorney General](https://oag.ca.gov/privacy/ccpa), which says the Act covers for-profit businesses and generally does not apply to nonprofit organisations. The page of the statute itself blocks automated access, and was not read.
 - The operator has not checked the laws of other countries one by one.
 - From 2026-11-22, only people who live in Japan may apply, whatever their nationality. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all (Knighting Rules, "Who may apply"; in Japanese).
+- The applicant's declaration is not checked, but if the linked correction states clearly that the applicant lives outside Japan or is under 16, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked (Knighting Rules, "What the operator checks"; in Japanese).
 
 ### The terms of the services used
 
