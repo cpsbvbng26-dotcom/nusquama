@@ -9,6 +9,8 @@ body:
         この国は創作であり、遊びです。実在の国家・王室・騎士団・叙勲とは関係がなく、ここで授ける称号に法的な効力はありません。
         叙任は無償です。本名・住所・所属・連絡先は書かないでください。この issue は公開されます。
         訂正へのリンクの先に本名や所属が書かれていると、このアカウントとその人が結び付いて公開されます。
+        書いたものは、叙任を判断すること、名簿を載せること、求めに応じることにだけ使います。
+        書いたものは GitHub と Vercel（どちらも米国）で扱われます。米国の制度と、GitHub と Vercel の措置は、個人情報の取り扱いの節「第三者への提供と外国にある事業者」に書いてあります。https://nusquama.vercel.app/policies/privacy.html
   - type: input
     id: correction
     attributes:
@@ -21,7 +23,7 @@ body:
     id: what
     attributes:
       label: 何を誤り、どう正したか
-      description: 一、二文で足ります。他人の個人情報を書かないでください。
+      description: 一、二文で足ります。他人の個人情報や、病気・障害・信条・犯罪の経歴など配慮の要る事柄を書かないでください。
     validations:
       required: true
   - type: checkboxes
