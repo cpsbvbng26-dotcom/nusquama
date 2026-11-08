@@ -32,6 +32,7 @@ Nusquama has no relation to any of the following.
 - Every so-called micronation (self-declared nation) other than Nusquama
 - Novels, films, games, animation and other works based on the Arthurian legends, and their rights holders
 - Anyone who publishes or adapts Thomas More's Utopia or Jules Verne's Twenty Thousand Leagues Under the Seas
+- Any music group, work, organisation, person or product that uses the same name as Nusquama or Nemo, or a similar one
 
 Where the words "Nusquama", "Nemo" and "Mukau" come from is written on the Names and Rights page (in Japanese). None of them shows a tie to any particular work or organisation.
 
