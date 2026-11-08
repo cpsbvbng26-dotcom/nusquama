@@ -28,40 +28,40 @@
       "label": "第77条",
       "law_id": "140AC0000000045",
       "article": "77",
-      "title": null,
-      "sha256": null
+      "title": "刑法",
+      "sha256": "65c35ddd45d554d3be96add047defb2866a01d6a2b25f0dfaca33f4ef4c7d2da"
     },
     {
       "name": "刑法",
       "label": "第155条",
       "law_id": "140AC0000000045",
       "article": "155",
-      "title": null,
-      "sha256": null
+      "title": "刑法",
+      "sha256": "e8935a073f50a58e9c2b8c726972ad97eeb3d7215ac028b0ad5943ccf8bee2e8"
     },
     {
       "name": "刑法",
       "label": "第230条",
       "law_id": "140AC0000000045",
       "article": "230",
-      "title": null,
-      "sha256": null
+      "title": "刑法",
+      "sha256": "ac736dabc949267bfc96e7bdb12ad19dc0409e60840f3515e06ac0b4f56c95a6"
     },
     {
       "name": "刑法",
       "label": "第231条",
       "law_id": "140AC0000000045",
       "article": "231",
-      "title": null,
-      "sha256": null
+      "title": "刑法",
+      "sha256": "43c0460175dccc5f1568a8253f84eec695ea817debccdd178efa15423d47ab30"
     },
     {
       "name": "刑法",
       "label": "第246条",
       "law_id": "140AC0000000045",
       "article": "246",
-      "title": null,
-      "sha256": null
+      "title": "刑法",
+      "sha256": "c6d81bcc7c9d263285c2b04d7b2406408d8aa68765c04ceb95c3498103b1cf37"
     },
     {
       "name": "軽犯罪法",
@@ -71,88 +71,88 @@
       "items": [
         "15"
       ],
-      "title": null,
-      "sha256": null
+      "title": "軽犯罪法",
+      "sha256": "75e7c99d1b791530f5ab11e80629e6f7bf20899df3869d34f76052f0e7ab3aef"
     },
     {
       "name": "旅券法",
       "label": "第23条",
       "law_id": "326AC0000000267",
       "article": "23",
-      "title": null,
-      "sha256": null
+      "title": "旅券法",
+      "sha256": "8e24df83de6560738405b6581400127cb8ab8ffc1fed8ac01059639890b53936"
     },
     {
       "name": "民法",
       "label": "第5条",
       "law_id": "129AC0000000089",
       "article": "5",
-      "title": null,
-      "sha256": null
+      "title": "民法",
+      "sha256": "4f6f3090a33137697d4742f664c6a80888ea52df11872ff947f3c4479641d2c7"
     },
     {
       "name": "民法",
       "label": "第709条",
       "law_id": "129AC0000000089",
       "article": "709",
-      "title": null,
-      "sha256": null
+      "title": "民法",
+      "sha256": "560e4d946b0d1f1f66d15f99a27226a80ea53f9e692a07b17248e319b566aacc"
     },
     {
       "name": "特定商取引法",
       "label": "第2条",
       "law_id": "351AC0000000057",
       "article": "2",
-      "title": null,
-      "sha256": null
+      "title": "特定商取引に関する法律",
+      "sha256": "969c4aa94085a96778bcfc08b164aeee858b4d419c77aaadaa00286c90c315df"
     },
     {
       "name": "景品表示法",
       "label": "第5条",
       "law_id": "337AC0000000134",
       "article": "5",
-      "title": null,
-      "sha256": null
+      "title": "不当景品類及び不当表示防止法",
+      "sha256": "b92deb21db663911d5107867a0c058089c2c6eb82b35c57e9b6bd618ed2643f9"
     },
     {
       "name": "消費者契約法",
       "label": "第2条",
       "law_id": "412AC0000000061",
       "article": "2",
-      "title": null,
-      "sha256": null
+      "title": "消費者契約法",
+      "sha256": "14c712b33adf99fcaf96827911456aa3e23897277c783ef50b32e60d8cb8286f"
     },
     {
       "name": "消費者契約法",
       "label": "第8条",
       "law_id": "412AC0000000061",
       "article": "8",
-      "title": null,
-      "sha256": null
+      "title": "消費者契約法",
+      "sha256": "e448b8aeb7b5a1e82040051acc71a04a083dfd3ff1b40fa48183e7b250cf1820"
     },
     {
       "name": "消費者契約法",
       "label": "第10条",
       "law_id": "412AC0000000061",
       "article": "10",
-      "title": null,
-      "sha256": null
+      "title": "消費者契約法",
+      "sha256": "6f5fe99fd6dbb784e161b4ba0161b34dbb498a624c3205f7eed444f029970c51"
     },
     {
       "name": "資金決済法",
       "label": "第3条",
       "law_id": "421AC0000000059",
       "article": "3",
-      "title": null,
-      "sha256": null
+      "title": "資金決済に関する法律",
+      "sha256": "d2511e405c08adcc4ee53685a932b1bee16c170d78cc7d04ad1e53d885c96ab8"
     },
     {
       "name": "商標法",
       "label": "第25条",
       "law_id": "334AC0000000127",
       "article": "25",
-      "title": null,
-      "sha256": null
+      "title": "商標法",
+      "sha256": "e1cd4c4290fdca9b93e0fd753c50e9fe5c6e353650609eb3f0d044c66797c405"
     },
     {
       "name": "不正競争防止法",
@@ -163,72 +163,72 @@
         "1",
         "2"
       ],
-      "title": null,
-      "sha256": null
+      "title": "不正競争防止法",
+      "sha256": "900c33bc3c6d3b7db92cc13678d27b03af57f0dfdab5215edabbea437fb08484"
     },
     {
       "name": "著作権法",
       "label": "第21条",
       "law_id": "345AC0000000048",
       "article": "21",
-      "title": null,
-      "sha256": null
+      "title": "著作権法",
+      "sha256": "a85d04f2fd20d7867d5579bee40676b13405c58ea7fd7eb27f1e7a5a03bda100"
     },
     {
       "name": "著作権法",
       "label": "第23条",
       "law_id": "345AC0000000048",
       "article": "23",
-      "title": null,
-      "sha256": null
+      "title": "著作権法",
+      "sha256": "19115b17dd39ed798e38527833b8743d4c40b3f8985fb8a4a9a8ced667e45718"
     },
     {
       "name": "個人情報保護法",
       "label": "第17条",
       "law_id": "415AC0000000057",
       "article": "17",
-      "title": null,
-      "sha256": null
+      "title": "個人情報の保護に関する法律",
+      "sha256": "caee832efb96d091b741777eb3957718f4a6053b38ec0827ad01f00e68c65ee0"
     },
     {
       "name": "個人情報保護法",
       "label": "第18条",
       "law_id": "415AC0000000057",
       "article": "18",
-      "title": null,
-      "sha256": null
+      "title": "個人情報の保護に関する法律",
+      "sha256": "aade43883ec2c28d6e1e43faf70f1eee83b078faff45b40826b6ac307604a7f5"
     },
     {
       "name": "個人情報保護法",
       "label": "第27条",
       "law_id": "415AC0000000057",
       "article": "27",
-      "title": null,
-      "sha256": null
+      "title": "個人情報の保護に関する法律",
+      "sha256": "29d30b77da9902b1f11723cf336ce06a6a320b2484da90b22c7d0498c44634d6"
     },
     {
       "name": "個人情報保護法",
       "label": "第28条",
       "law_id": "415AC0000000057",
       "article": "28",
-      "title": null,
-      "sha256": null
+      "title": "個人情報の保護に関する法律",
+      "sha256": "2abf2c3f010636a58acd0d8575edff6e95a02ca86aa6e7b210cc99bd8f6d2589"
     },
     {
       "name": "民事訴訟法",
       "label": "第3条の7",
       "law_id": "408AC0000000109",
       "article": "3_7",
-      "title": null,
-      "sha256": null
+      "title": "民事訴訟法",
+      "sha256": "37dd5e12a07609731291985381ee4895167cd412d6291ab084db9e96d6f86951"
     },
     {
       "name": "民事訴訟法",
       "label": "第11条",
       "law_id": "408AC0000000109",
       "article": "11",
-      "title": null,
-      "sha256": null
+      "title": "民事訴訟法",
+      "sha256": "b9967be9f0ed5984dc85ca051417756c44f58da96d9a00ef45b80526d0b75fb5"
     }
   ],
   "policies": [
@@ -236,13 +236,14 @@
       "name": "GitHub の利用規約",
       "repo": "github/site-policy",
       "path": "Policies/github-terms/github-terms-of-service.md",
-      "commit": null
+      "commit": "166eb97e485b7de3cd5dbaf8c8d16e4310fda46c"
     },
     {
       "name": "GitHub のプライバシーステートメント",
       "repo": "github/site-policy",
       "path": "Policies/github-privacy-statement.md",
-      "commit": null
+      "commit": "87906da47c95eda1a39ccc01f31ea2602d263dbe"
     }
-  ]
+  ],
+  "recorded": "2026-11-08"
 }
