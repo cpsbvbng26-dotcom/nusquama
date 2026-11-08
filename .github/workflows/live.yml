@@ -1,0 +1,33 @@
+name: 公開中のサイト
+
+# 公開中のサイトが main の site/ と同じものを配っているかを、ファイルごとにバイト単位で比べる（tools/live.js）。
+# main への push のあとは、デプロイを最大 10 分待つ。ワークフローの push はほかのワークフローを起こさないので、
+# 毎日も一度比べる。違いが残れば issue を開き、一致すればひとりでに閉じる。
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '47 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: live
+  cancel-in-progress: true
+
+jobs:
+  live:
+    name: 公開中のサイトが main と同じか
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: node tools/live.js
+        env:
+          WAIT: ${{ github.event_name == 'push' && '600' || '0' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
