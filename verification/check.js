@@ -126,7 +126,8 @@ console.log('\n5. 安全のヘッダー');
 {
   const cfg = JSON.parse(read('site/vercel.json'));
   const h = Object.fromEntries((cfg.headers[0] || { headers: [] }).headers.map((x) => [x.key, x.value]));
-  ok('vercel.json はヘッダーだけを持つ', Object.keys(cfg).join() === 'headers' && cfg.headers[0].source === '/(.*)');
+  ok('vercel.json はヘッダーと、main だけを配信する決まりを持つ', Object.keys(cfg).join() === 'headers,git' && cfg.headers[0].source === '/(.*)'
+    && JSON.stringify(cfg.git) === JSON.stringify({ deploymentEnabled: { '**': false, main: true } }));
   ok('枠を二通りで断り、型の推測・参照元・機能・窓・HTTPS を押さえる',
     h['Content-Security-Policy'] === "frame-ancestors 'none'" && h['X-Frame-Options'] === 'DENY' && h['X-Content-Type-Options'] === 'nosniff'
     && h['Referrer-Policy'] === 'no-referrer' && /camera=\(\)/.test(h['Permissions-Policy'] || '') && h['Cross-Origin-Opener-Policy'] === 'same-origin' && /^max-age=\d{8,}/.test(h['Strict-Transport-Security'] || ''));

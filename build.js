@@ -232,7 +232,9 @@ function build(out = OUT) {
   files['robots.txt'] = 'User-agent: *\nAllow: /\n\nSitemap: ' + BASE + 'sitemap.xml\n';
   files['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + SOURCES.map(([, d]) => '  <url><loc>' + BASE + (d === 'index.html' ? '' : d) + '</loc></url>').join('\n') + '\n</urlset>\n';
-  files['vercel.json'] = JSON.stringify({ headers: HEADERS }, null, 2) + '\n';
+  /* 配信するのは main だけ。無料の枠はアカウント全体で一日 100 回で、2026-11-08 に作業の枝の配信で使い切り、
+   * main を配信できなかった。枝が複数の決まりに当たるときは、どれか一つが許せば配信される。 */
+  files['vercel.json'] = JSON.stringify({ headers: HEADERS, git: { deploymentEnabled: { '**': false, main: true } } }, null, 2) + '\n';
   for (const a of ASSETS) files[a] = fs.readFileSync(path.join(ROOT, 'assets', a));
   fs.rmSync(out, { recursive: true, force: true });
   for (const [rel, content] of Object.entries(files)) {
