@@ -41,6 +41,8 @@ A post or statement not listed there is outside the kingdom, even if the operato
 The rules of Nusquama do not reach it, and what is said there is not a promise of Nusquama.
 Nusquama has no relation to the operator's other activities either.
 The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.
+Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.
+A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.
 
 Where the words "Nusquama", "Nemo" and "Mukau" come from is written on the Names and Rights page (in Japanese). None of them shows a tie to any particular work or organisation.
 
