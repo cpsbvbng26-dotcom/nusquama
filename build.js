@@ -193,7 +193,7 @@ ${alternate}<link rel="icon" href="${pre}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${pre}icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="${pre}apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="${en ? 'Nusquama' : NAME}">
+<meta property="og:site_name" content="${en ? 'Regnum Nusquamae' : NAME}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
