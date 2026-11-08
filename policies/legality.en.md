@@ -153,7 +153,7 @@ The conclusion of this page was checked in the five ways below.
 4. **Fault tree**: the ways the facts relied on could fail were listed, likelihood and severity were each estimated from 1 to 3, and the product was used to rank them. The numbers are the operator's estimates and serve only to rank.
 5. **Breaking on purpose**: each fixed sentence was altered in turn, and the check was seen to fail.
 
-The review is not done once only. Once a week, the articles this page relies on and GitHub's terms are fetched from the e-Gov law API and from GitHub, and compared with the recorded values (`tools/statutes.js`). If they differ, a pull request is opened by itself, with the difference between the old and the new text. The operator reads the difference, checks this page, and adds the label 記す; a workflow then runs the checks on the merged result and records the change only if they pass. If a fetch fails, an issue opens. If this page names an article that the watch does not cover, the check fails.
+The review is not done once only. Once a week, the articles this page relies on and GitHub's terms are fetched from the e-Gov law API and from GitHub, and compared with the recorded values (`tools/statutes.js`). If they differ, a proposal is made by itself, with the difference between the old and the new text: a pull request, or an issue with a link that opens one in a single step. The operator reads the difference, checks this page, and adds the label 記す; a workflow then runs the checks on the merged result and records the change only if they pass. If a fetch fails, an issue opens. If this page names an article that the watch does not cover, the check fails.
 
 The ways the facts relied on could fail are these.
 
