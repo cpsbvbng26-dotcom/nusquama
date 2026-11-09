@@ -62,6 +62,7 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 
 ## English (translations; the Japanese version governs)
 
+- [Founding Declaration, Basic Law and Ten Precepts](https://nusquama.vercel.app/founding.en.html)
 - [Terms of Use](https://nusquama.vercel.app/policies/terms.en.html)
 - [Disclaimer](https://nusquama.vercel.app/policies/disclaimer.en.html)
 - [Legality Statement](https://nusquama.vercel.app/policies/legality.en.html)
