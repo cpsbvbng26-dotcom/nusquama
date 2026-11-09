@@ -225,16 +225,63 @@ function notFound() {
     .replace(/href="\.\//g, 'href="/').replace(/src="\.\//g, 'src="/').replace(/<link rel="canonical"[^>]*>\n/, '').replace('<meta name="description"', '<meta name="robots" content="noindex">\n<meta name="description"');
 }
 
+/* llms.txt と llms-full.txt（llms.txt の提案、https://llmstxt.org/）。言語モデルを通して調べる人に、規程を
+ * そのままの言葉で渡す。llms.txt は断りと、願い出ることができる人・費用・称号の扱い・求め方の節（規程から一字一句そのまま）と、
+ * すべての頁へのリンク。llms-full.txt は、すべての頁の元の Markdown を一字一句そのまま収める。どちらも手で書かない。 */
+const h1 = (rel) => (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, rel), 'utf8')) || [])[1];
+function section(rel, heading) {
+  const md = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const i = md.indexOf('\n## ' + heading + '\n');
+  if (i < 0) throw new Error(rel + ' に「' + heading + '」の節がない');
+  const rest = md.slice(i + 1);
+  const j = rest.indexOf('\n## ', 1);
+  return absLinks((j < 0 ? rest : rest.slice(0, j)).trim(), rel);
+}
+/* 節の中の相対リンクを、サイトの頁の所在に直す。節だけを取り出しても、リンクが切れないように。 */
+function absLinks(md, rel) {
+  return md.replace(/\]\(([^)]+)\)/g, (m, href) => {
+    if (/^(https?:|mailto:|#)/.test(href)) return m;
+    const [p, hash] = href.split('#');
+    const abs = path.posix.normalize(path.posix.join(path.posix.dirname(rel), p));
+    const hit = SOURCES.find(([src]) => src === abs);
+    if (!hit) throw new Error(rel + ' のリンク ' + href + ' がサイトの頁に当たらない');
+    return '](' + BASE + (hit[1] === 'index.html' ? '' : hit[1]) + (hash ? '#' + hash : '') + ')';
+  });
+}
+function llmsTxt() {
+  const link = (d, t) => '- [' + t + '](' + BASE + (d === 'index.html' ? '' : d) + ')\n';
+  return '# ' + NAME + '（Regnum Nusquamae）\n\n> ' + NOTICE + '\n\n'
+    + 'English: ' + NOTICE_EN + '\n\n'
+    + '規程が決まりです。このファイルと規程が食い違うときは、規程に従います。日本語の版が正で、英語の頁は訳です。すべての頁の全文は [llms-full.txt](' + BASE + 'llms-full.txt) にあります。\n\n'
+    + section('policies/knighting.md', '願い出ることができる人') + '\n\n'
+    + section('policies/terms.md', '費用') + '\n\n'
+    + section('policies/terms.md', '称号の扱い') + '\n\n'
+    + section('policies/requests.md', '求め方') + '\n\n'
+    + '## 頁\n\n'
+    + link('index.html', 'トップ（建国の宣言と基本法）') + link('knights.html', h1('KNIGHTS.md') || '騎士の名簿') + link('errata.html', h1('ERRATA.md') || '王の正誤表')
+    + '\n## 規程\n\n' + POLICIES.map((x) => link('policies/' + x + '.html', h1('policies/' + x + '.md'))).join('')
+    + '\n## English (translations; the Japanese version governs)\n\n' + EN.map((x) => link('policies/' + x + '.en.html', h1('policies/' + x + '.en.md'))).join('')
+    + '\n## その他\n\n- [サイトの元とすべての履歴](' + REPO + ')\n- [サイトマップ](' + BASE + 'sitemap.xml)\n';
+}
+function llmsFull() {
+  return '# ' + NAME + '：すべての頁の全文\n\n> ' + NOTICE + '\n\n下の各部は、その所在の頁を作る元の Markdown を、一字一句そのまま収めたものです。\n\n'
+    + SOURCES.map(([src, dst]) => '---\n\nSource: ' + BASE + (dst === 'index.html' ? '' : dst) + '\n\n' + fs.readFileSync(path.join(ROOT, src), 'utf8').trim() + '\n\n').join('');
+}
+
 function build(out = OUT) {
   const files = {};
   for (const [src, dst] of SOURCES) files[dst] = page(src, dst);
   files['404.html'] = notFound();
   files['robots.txt'] = 'User-agent: *\nAllow: /\n\nSitemap: ' + BASE + 'sitemap.xml\n';
+  files['llms.txt'] = llmsTxt();
+  files['llms-full.txt'] = llmsFull();
   files['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + SOURCES.map(([, d]) => '  <url><loc>' + BASE + (d === 'index.html' ? '' : d) + '</loc></url>').join('\n') + '\n</urlset>\n';
   /* 配信するのは main だけ。無料の枠はアカウント全体で一日 100 回で、2026-11-08 に作業の枝の配信で使い切り、
    * main を配信できなかった。枝が複数の決まりに当たるときは、どれか一つが許せば配信される。 */
-  files['vercel.json'] = JSON.stringify({ headers: HEADERS, git: { deploymentEnabled: { '**': false, main: true } } }, null, 2) + '\n';
+  /* llms の二つは日本語を含む文字の文書。読む側が文字コードを取り違えないよう、UTF-8 と示す。 */
+  const text = { source: '/(llms|llms-full)\\.txt', headers: [{ key: 'Content-Type', value: 'text/plain; charset=utf-8' }] };
+  files['vercel.json'] = JSON.stringify({ headers: HEADERS.concat([text]), git: { deploymentEnabled: { '**': false, main: true } } }, null, 2) + '\n';
   for (const a of ASSETS) files[a] = fs.readFileSync(path.join(ROOT, 'assets', a));
   fs.rmSync(out, { recursive: true, force: true });
   for (const [rel, content] of Object.entries(files)) {
@@ -245,7 +292,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { GOOGLE_SITE_VERIFICATION, build, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
