@@ -523,6 +523,29 @@ console.log('\n22. 版図の広さと、王の正誤表・騎士の名簿の新�
     && read('README.md').includes('[errata.xml](https://nusquama.vercel.app/errata.xml)') && read('site/llms.txt').includes(B.BASE + 'knights.xml)'));
 }
 
+console.log('\n24. 建国の宣言・基本法・十則の英訳（日本語の版が正）');
+{
+  const B = require('../build.js');
+  const ja = read('README.md'), en = read('founding.en.md');
+  const jaArticles = (ja.match(/^\*\*第[一二三四五六七八九十]+条（[^）]+）\*\*/gm) || []).length;
+  const enArticles = (en.match(/^\*\*Article \d+ \([^)]+\)\*\*/gm) || []).length;
+  const jaPrecepts = (ja.match(/^[一二三四五六七八九十]　/gm) || []).length;
+  const enPrecepts = (en.match(/^(I|II|III|IV|V|VI|VII|VIII|IX|X)\. /gm) || []).length;
+  ok('基本法の条（' + jaArticles + '）と十則（' + jaPrecepts + '）を、同じ数だけ同じ順に訳す', jaArticles === 10 && enArticles === 10 && jaPrecepts === 10 && enPrecepts === 10
+    && [...en.matchAll(/^\*\*Article (\d+) /gm)].map((m) => m[1]).join() === '1,2,3,4,5,6,7,8,9,10');
+  ok('日本語の版が正であること、宣言は日付の付いた凍った文で書き換えないこと、正誤表の 1 と 3 が直すことを書く',
+    en.includes('The [Japanese version](./README.md) governs; if the two differ, the Japanese version applies.') && en.includes('The declaration is a dated text, and it is not rewritten (Ten Precepts, II).')
+    && en.includes('in entries 1 and 3 of [the King\'s Errata](./ERRATA.md)') && en.includes('Nemo I, the Knight King, 7 November 2026') && ja.includes('―― 騎士王ネモ一世　2026年11月7日'));
+  ok('第一条・第六条・第八条の要と、第十条の削らない条を、日本語のとおりに訳す',
+    en.includes('This country is a work of fiction. It is not related to any real state, royal house, order of knighthood, honour or title, and it has no territory, people, currency or passports.')
+    && en.includes('Knighting is free of charge. It is not given in exchange for money, goods or services.') && en.includes('The titles of this country are used only within this country.')
+    && en.includes('Articles 1, 6 and 8, however, are never removed.') && ja.includes('ただし、第一条・第六条・第八条は削らない。'));
+  const html = read('site/founding.en.html');
+  ok('英語の頁は英語の断りを先頭に出し、英語の頁どうしと README と llms.txt がつなぐ', /<html lang="en"/.test(html) && html.includes('<p class="notice">' + B.NOTICE_EN + '</p>')
+    && read('site/policies/terms.en.html').includes('founding.en.html') && ja.includes('[Founding Declaration, Basic Law and Ten Precepts](founding.en.md)')
+    && read('site/llms.txt').includes(B.BASE + 'founding.en.html)') && B.SOURCES.some(([s2]) => s2 === 'founding.en.md'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
