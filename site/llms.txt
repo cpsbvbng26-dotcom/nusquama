@@ -4,6 +4,8 @@
 
 English: This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.
 
+版図のうち、王の正誤表に記した誤りは 9 件です。基本法第三条により、版図は、王が誤りを一つ認めるたびに広がります。
+
 規程が決まりです。このファイルと規程が食い違うときは、規程に従います。日本語の版が正で、英語の頁は訳です。すべての頁の全文は [llms-full.txt](https://nusquama.vercel.app/llms-full.txt) にあります。
 
 ## 願い出ることができる人
@@ -68,3 +70,5 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 
 - [サイトの元とすべての履歴](https://github.com/cpsbvbng26-dotcom/nusquama)
 - [サイトマップ](https://nusquama.vercel.app/sitemap.xml)
+- [王の正誤表の新着（Atom）](https://nusquama.vercel.app/errata.xml)
+- [騎士の名簿の新着（Atom）](https://nusquama.vercel.app/knights.xml)

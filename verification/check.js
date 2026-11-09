@@ -503,6 +503,26 @@ console.log('\n21. GitHub と Vercel の規約が定めることを、原文で�
     && read('policies/disclaimer.en.md').includes('GitHub and Vercel each provide their services "as is"'));
 }
 
+console.log('\n22. 版図の広さと、王の正誤表・騎士の名簿の新着の配信');
+{
+  const B = require('../build.js');
+  const errata = read('ERRATA.md').split('\n').filter((l) => /^\| \d+ \|/.test(l));
+  const knights = read('KNIGHTS.md').split('\n').filter((l) => /^\| \d+ \|/.test(l));
+  const line = '版図のうち、王の正誤表に記した誤りは ' + errata.length + ' 件です。基本法第三条により、版図は、王が誤りを一つ認めるたびに広がります。';
+  ok('版図のうち、王の正誤表に記した誤りの数（' + errata.length + ' 件）を、正誤表の表から数えてトップと llms.txt に出す',
+    B.domain() === errata.length && errata.length >= 9 && read('build.js').includes("const domain = () => tableRows('ERRATA.md').length;") && read('site/index.html').includes('<p class="notice">' + line + ' <a href="errata.html">王の正誤表</a></p>') && read('site/llms.txt').includes(line)
+    && read('README.md').includes('**第三条（版図）**　王国の版図は、王の本棚と、王が公にした正誤表とする。版図は、王が誤りを一つ認めるたびに広がる。'));
+  const ex = read('site/errata.xml'), kx = read('site/knights.xml');
+  ok('王の正誤表の新着の配信は、表の行ごとに一つの項目を持ち、日付と番号で引け、断りを添える',
+    (ex.match(/<entry>/g) || []).length === errata.length && errata.every((r) => ex.includes('<id>' + B.BASE + 'errata.html#errata-' + r.split('|')[1].trim() + '</id>'))
+    && ex.includes('<subtitle>' + B.NOTICE + '</subtitle>') && ex.includes('<link rel="self" href="' + B.BASE + 'errata.xml"/>') && ex.includes('<author><name>騎士王ネモ一世（創作の中の王）</name></author>'));
+  ok('騎士の名簿の新着の配信は、名簿の行と同じ数の項目を持つ（いま ' + knights.length + ' 件）', (kx.match(/<entry>/g) || []).length === knights.length && kx.includes('<subtitle>' + B.NOTICE + '</subtitle>'));
+  ok('日本語の頁は二つの配信を head で示し、正誤表と名簿の頁と README と llms.txt がリンクする',
+    read('site/index.html').includes('<link rel="alternate" type="application/atom+xml" title="王の正誤表" href="' + B.BASE + 'errata.xml">')
+    && read('site/errata.html').includes('<a href="errata.xml">新着の配信（Atom）</a>') && read('site/knights.html').includes('<a href="knights.xml">新着の配信（Atom）</a>')
+    && read('README.md').includes('[errata.xml](https://nusquama.vercel.app/errata.xml)') && read('site/llms.txt').includes(B.BASE + 'knights.xml)'));
+}
+
 console.log('\n23. 叙任の願い出の自動の確認（何も決めない）');
 {
   const K = require('../tools/knighting.js');

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>無何有騎士王国ヌスクァマ：正誤表騎士団 名簿</title>
+  <subtitle>これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。</subtitle>
+  <id>https://nusquama.vercel.app/knights.xml</id>
+  <link rel="self" href="https://nusquama.vercel.app/knights.xml"/>
+  <link href="https://nusquama.vercel.app/knights.html"/>
+  <updated>2026-11-07T00:00:00+09:00</updated>
+  <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+</feed>

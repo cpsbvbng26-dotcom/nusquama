@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>無何有騎士王国ヌスクァマ：王の正誤表</title>
+  <subtitle>これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。</subtitle>
+  <id>https://nusquama.vercel.app/errata.xml</id>
+  <link rel="self" href="https://nusquama.vercel.app/errata.xml"/>
+  <link href="https://nusquama.vercel.app/errata.html"/>
+  <updated>2026-11-08T00:00:00+09:00</updated>
+  <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-1</id>
+    <title>第 1 件：建国の宣言</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>建国の宣言。正：モアは、1516 年 9 月 3 日付のエラスムスへの手紙で、この作品を「ヌスクァマ」と呼んだ。島の名として付けかけたことを示す資料を、王は見つけていない。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-2</id>
+    <title>第 2 件：名称と権利「名前の由来」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>名称と権利「名前の由来」。正：1 と同じ。規程の文は、同じ日に改めた。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-3</id>
+    <title>第 3 件：建国の宣言、名称と権利「名前の由来」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>建国の宣言、名称と権利「名前の由来」。正：ラテン語の nusquam は「どこにも…ない」を表す副詞である。ヌスクァマは、モアがそれを名の形にした呼び名である。規程の文は、同じ日に改めた。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-4</id>
+    <title>第 4 件：適法性の説明「前提となる事実」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>適法性の説明「前提となる事実」。正：王は MicroWiki に自ら記事を書き、そこでも称号を使っている。前提の文を「リポジトリとサイトと、王が自ら書いた MicroWiki の記事の中でだけ使う」と改めた。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-5</id>
+    <title>第 5 件：免責事項「責任」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>免責事項「責任」。正：「法令が許す範囲で」の形は、軽過失に限ることを明らかにしない一部の免除で、消費者契約法第8条第3項により無効になりうる。故意・重過失を除いて免じ、同法が適用されるときは免責の文を適用しない形に改めた。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-6</id>
+    <title>第 6 件：叙任の規程「辞退と取り消し」、適法性の説明「日本の外の法令」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>叙任の規程「辞退と取り消し」、適法性の説明「日本の外の法令」。正：王は MicroWiki の記事でも称号を使っており（4）、括弧の中の範囲と食い違っていた。この国の中が何を指すかを利用規約「称号の扱い」の一か所で定め、ほかの頁はそこを指すように改めた。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-7</id>
+    <title>第 7 件：利用規約「称号の扱い」、適法性の説明「前提となる事実」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>利用規約「称号の扱い」、適法性の説明「前提となる事実」。正：誤りではなく、範囲を改めた。王が X でも建国を知らせ、騎士王ネモ一世と名乗ったので、紹介のために自ら書いた「記事や投稿」とし、どれも README「ほかの場所」に挙げる形にした。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-8</id>
+    <title>第 8 件：適法性の説明「国際法での立場」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>適法性の説明「国際法での立場」。正：条約を挙げた直後に置いたので、条約がそう定めているように読めた。条約の第 3 条は逆に、国家の政治的な存在は他の国の承認によらない、とする。第 3 条をそのまま書き、条約の文と当事国を確かめた先を記した。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-9</id>
+    <title>第 9 件：利用規約「この規約が及ぶ人」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-08T00:00:00+09:00</updated>
+    <summary>利用規約「この規約が及ぶ人」。正：読むだけの人とは合意がなく、定型約款は、合意したか、契約の内容になると前もって示された人にしか及ばない（民法第548条の2）。同意は願い出の様式で得て、読むことは同意とみなさないと改めた。読む人にとっては、双方が負うものを法令が定める。</summary>
+  </entry>
+</feed>
