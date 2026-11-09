@@ -156,6 +156,29 @@ function markdown(md, srcRel, outRel) {
   return out.join('\n');
 }
 
+/* 王の正誤表の行と、騎士の名簿の行。表の「番」の列が数字の行だけを数える。 */
+function tableRows(rel) {
+  const cells = (r) => r.replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+  return fs.readFileSync(path.join(ROOT, rel), 'utf8').split('\n').filter((l) => /^\| \d+ \|/.test(l)).map(cells);
+}
+/* 版図（基本法第三条）：王が認めて正誤表に記した誤りの数。誤りを一つ認めるたびに広がる。 */
+const domain = () => tableRows('ERRATA.md').length;
+const DOMAIN_LINE = () => '版図のうち、王の正誤表に記した誤りは ' + domain() + ' 件です。基本法第三条により、版図は、王が誤りを一つ認めるたびに広がります。';
+
+/* 王の正誤表と騎士の名簿の新着の配信（Atom）。どちらも表から作り、手で書かない。 */
+function atom(kind) {
+  const rows = tableRows(kind === 'errata' ? 'ERRATA.md' : 'KNIGHTS.md');
+  const title = kind === 'errata' ? NAME + '：王の正誤表' : NAME + '：正誤表騎士団 名簿';
+  const page = kind === 'errata' ? 'errata.html' : 'knights.html';
+  const entries = rows.map((r) => {
+    const [n, date] = r;
+    const text = kind === 'errata' ? r[2] + '。正：' + r[4] : '騎士 ' + r[1] + '、正した誤り：' + r[3];
+    return `  <entry>\n    <id>${BASE}${page}#${kind}-${esc(n)}</id>\n    <title>${esc(kind === 'errata' ? '第 ' + n + ' 件：' + r[2] : '第 ' + n + ' 番の騎士：' + r[1])}</title>\n    <link href="${BASE}${page}"/>\n    <updated>${esc(date)}T00:00:00+09:00</updated>\n    <summary>${esc(text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'))}</summary>\n  </entry>`;
+  });
+  const updated = rows.map((r) => r[1]).sort().pop() || '2026-11-07';
+  return `<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">\n  <title>${esc(title)}</title>\n  <subtitle>${esc(NOTICE)}</subtitle>\n  <id>${BASE}${kind}.xml</id>\n  <link rel="self" href="${BASE}${kind}.xml"/>\n  <link href="${BASE}${page}"/>\n  <updated>${updated}T00:00:00+09:00</updated>\n  <author><name>騎士王ネモ一世（創作の中の王）</name></author>\n${entries.join('\n')}${entries.length ? '\n' : ''}</feed>\n`;
+}
+
 function firstParagraph(md) {
   const p = md.split('\n').find((l) => l.trim() && !/^(#|>|\||-|!|\d+\.)/.test(l));
   return (p || '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`]/g, '').slice(0, 120);
@@ -188,7 +211,7 @@ function page(srcRel, outRel) {
 <meta name="description" content="${esc(desc)}">
 <meta name="google-site-verification" content="${GOOGLE_SITE_VERIFICATION}">
 <link rel="canonical" href="${url}">
-${alternate}<link rel="icon" href="${pre}favicon.svg" type="image/svg+xml">
+${alternate}${en ? '' : `<link rel="alternate" type="application/atom+xml" title="王の正誤表" href="${BASE}errata.xml">\n<link rel="alternate" type="application/atom+xml" title="騎士の名簿" href="${BASE}knights.xml">\n`}<link rel="icon" href="${pre}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${pre}favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="${pre}icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="${pre}apple-touch-icon.png">
@@ -205,7 +228,7 @@ ${alternate}<link rel="icon" href="${pre}favicon.svg" type="image/svg+xml">
 <a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
 <header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a></header>
 <main id="main">
-${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${markdown(md, srcRel, outRel)}
+${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${markdown(md, srcRel, outRel).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' ? `\n<p><a href="${outRel === 'errata.html' ? 'errata' : 'knights'}.xml">新着の配信（Atom）</a></p>` : ''}
 </main>
 <footer>
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
@@ -252,6 +275,7 @@ function llmsTxt() {
   const link = (d, t) => '- [' + t + '](' + BASE + (d === 'index.html' ? '' : d) + ')\n';
   return '# ' + NAME + '（Regnum Nusquamae）\n\n> ' + NOTICE + '\n\n'
     + 'English: ' + NOTICE_EN + '\n\n'
+    + DOMAIN_LINE() + '\n\n'
     + '規程が決まりです。このファイルと規程が食い違うときは、規程に従います。日本語の版が正で、英語の頁は訳です。すべての頁の全文は [llms-full.txt](' + BASE + 'llms-full.txt) にあります。\n\n'
     + section('policies/knighting.md', '願い出ることができる人') + '\n\n'
     + section('policies/terms.md', '費用') + '\n\n'
@@ -261,7 +285,7 @@ function llmsTxt() {
     + link('index.html', 'トップ（建国の宣言と基本法）') + link('knights.html', h1('KNIGHTS.md') || '騎士の名簿') + link('errata.html', h1('ERRATA.md') || '王の正誤表')
     + '\n## 規程\n\n' + POLICIES.map((x) => link('policies/' + x + '.html', h1('policies/' + x + '.md'))).join('')
     + '\n## English (translations; the Japanese version governs)\n\n' + EN.map((x) => link('policies/' + x + '.en.html', h1('policies/' + x + '.en.md'))).join('')
-    + '\n## その他\n\n- [サイトの元とすべての履歴](' + REPO + ')\n- [サイトマップ](' + BASE + 'sitemap.xml)\n';
+    + '\n## その他\n\n- [サイトの元とすべての履歴](' + REPO + ')\n- [サイトマップ](' + BASE + 'sitemap.xml)\n- [王の正誤表の新着（Atom）](' + BASE + 'errata.xml)\n- [騎士の名簿の新着（Atom）](' + BASE + 'knights.xml)\n';
 }
 function llmsFull() {
   return '# ' + NAME + '：すべての頁の全文\n\n> ' + NOTICE + '\n\n下の各部は、その所在の頁を作る元の Markdown を、一字一句そのまま収めたものです。\n\n'
@@ -273,6 +297,8 @@ function build(out = OUT) {
   for (const [src, dst] of SOURCES) files[dst] = page(src, dst);
   files['404.html'] = notFound();
   files['robots.txt'] = 'User-agent: *\nAllow: /\n\nSitemap: ' + BASE + 'sitemap.xml\n';
+  files['errata.xml'] = atom('errata');
+  files['knights.xml'] = atom('knights');
   files['llms.txt'] = llmsTxt();
   files['llms-full.txt'] = llmsFull();
   files['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -292,7 +318,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
