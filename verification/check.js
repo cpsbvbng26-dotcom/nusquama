@@ -478,6 +478,29 @@ console.log('\n20. 言語モデルを通して調べる人に、規程をその�
   ok('README が二つのファイルのことを書く', read('README.md').includes('[llms.txt](https://nusquama.vercel.app/llms.txt)') && read('README.md').includes('食い違うときは規程に従います。'));
 }
 
+console.log('\n21. GitHub と Vercel の規約が定めることを、原文で読んだ日・各文書の日付・条とともに書く');
+{
+  const tj = read('policies/terms.md'), te = read('policies/terms.en.md'), pj = read('policies/privacy.md');
+  const links = ['https://docs.github.com/en/site-policy/github-terms/github-terms-of-service', 'https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies',
+    'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement', 'https://vercel.com/legal/terms', 'https://vercel.com/legal/acceptable-use-policy', 'https://vercel.com/legal/privacy-notice'];
+  ok('利用規約（日本語と英語）が、六つの文書をリンクとともに挙げ、読んだ日と各文書の日付を書く', [tj, te].every((t) => links.every((u) => t.includes('(' + u + ')')) && t.includes('2026-11-09')
+    && ['2026-04-27', '2026-10-19', '2026-04-21', '2026-06-01'].every((d) => t.includes(d))) && tj.includes('\n## GitHub と Vercel の規約\n') && te.includes("\n## GitHub's and Vercel's terms\n"));
+  const facts = [['（GitHub の利用規約 B.3）', '(GitHub Terms, B.3)'], ['（GitHub の利用規約 C）', '(GitHub Terms, C)'], ['（GitHub の利用規約 D.2・M.3）', '(GitHub Terms, D.2 and M.3)'],
+    ['（GitHub の利用規約 D.4）', '(GitHub Terms, D.4)'], ['（GitHub の利用規約 J.3）', '(GitHub Terms, J.3)'], ['（Vercel の利用規約 第 4 条）', '(Vercel Terms, section 4)'],
+    ['（Vercel の利用規約 第 3 条）', '(Vercel Terms, section 3)'], ['（Vercel の利用規約 第 3 条・第 8 条）', '(Vercel Terms, sections 3 and 8)'],
+    ['（GitHub の利用規約 O・P、Vercel の利用規約 第 20 条・第 21 条）', '(GitHub Terms, O and P; Vercel Terms, sections 20 and 21)'], ['（GitHub の利用規約 S.1、Vercel の利用規約 第 23 条）', '(GitHub Terms, S.1; Vercel Terms, section 23)']];
+  const miss = facts.filter(([j, e]) => !tj.includes(j) || !te.includes(e)).map(([j]) => j);
+  ok('年齢・内容の決まり・削除・公開の内容と AI の学習・Hobby プラン・モデルの学習・許容される利用・現状のまま・準拠法を、条とともに書く（' + facts.length + ' 件、日本語と英語）', miss.length === 0, miss.join(' / '));
+  ok('非商用であること、サイトが予告なく見られなくなりうること、モデルの学習はチームの設定で止めない限り行われることを書く',
+    tj.includes('ヌスクァマは非商用です。') && tj.includes('サイトが予告なく見られなくなることがあります。') && tj.includes('アカウントのチームの設定でこれを止めたときは別です')
+    && te.includes('Nusquama is non-commercial.') && te.includes('so the site can go offline without warning') && te.includes('unless the account turns this off in its team settings'));
+  ok('個人情報の取り扱いが、GitHub と Vercel が自ら公開の内容を使う二つの場合を書く',
+    pj.includes('AI の機能と関連会社のモデルの学習に使うことを認めています（D.4）') && pj.includes('アカウントのチームの設定でこれを止めたときは別です（第 3 条）'));
+  ok('運営者が Vercel のモデルの学習を止めたとは、確かめるまで書かない', ![tj, te, pj].some((t) => /止めています|止めました|has turned (this|it) off|opted out/.test(t)));
+  ok('免責事項（日本語と英語）が、二つのサービスが現状のままであることを書き、利用規約を指す', read('policies/disclaimer.md').includes('サービスを「現状のまま」保証なしに提供し')
+    && read('policies/disclaimer.en.md').includes('GitHub and Vercel each provide their services "as is"'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');

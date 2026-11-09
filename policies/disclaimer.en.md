@@ -1,6 +1,6 @@
 # Disclaimer
 
-Last updated: 2026-11-08.
+Last updated: 2026-11-09.
 
 This is an English translation. The [Japanese version](./disclaimer.md) governs; if the two differ, the Japanese version applies.
 
@@ -57,6 +57,8 @@ A name on the roll does not mean the operator recommends that person's correctio
 The site and the repository are provided as they are.
 The operator does not promise that they are free of errors, can always be read, or will continue.
 The site is served by Vercel, and the repository and issues are kept by GitHub. If those services stop, Nusquama can no longer be read.
+GitHub and Vercel each provide their services "as is", without warranty, and limit their liability under their own terms; Nusquama cannot promise more about their services than they do.
+The site is served on Vercel's free Hobby plan, on which Vercel may disable or remove a deployment with or without notice. What their terms provide is set out in the [Terms of Use](./terms.en.md), under "GitHub's and Vercel's terms".
 
 ## Not advice
 

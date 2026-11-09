@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-08.
+Last updated: 2026-11-09.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -87,6 +87,22 @@ The talks take place in an issue, or through the private channel described under
 If the other party offers to settle, the operator responds in good faith.
 A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.
 This does not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
+
+## GitHub's and Vercel's terms
+
+Nusquama runs on two services in the United States. Applications and requests are received in GitHub issues, and the site is served by Vercel.
+Their own terms apply alongside these terms. These terms do not bind GitHub or Vercel, and a dispute with either follows its own terms.
+Their terms were read at their sources on 2026-11-09: GitHub's [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (effective 2026-04-27), [Acceptable Use Policies](https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies) and [General Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) (effective 2026-04-27); Vercel's [Terms of Service](https://vercel.com/legal/terms) (last updated 2026-10-19), [Acceptable Use Policy](https://vercel.com/legal/acceptable-use-policy) (last updated 2026-04-21) and [Privacy Notice](https://vercel.com/legal/privacy-notice) (last updated 2026-06-01).
+What they say that matters to people who use Nusquama:
+
+- GitHub accepts only users aged 13 or over (GitHub Terms, B.3). Knighthood can be applied for only from the age of 16.
+- What is written in an issue must follow GitHub's Acceptable Use Policies, among them its rules on spam, harassment and other people's private information (GitHub Terms, C).
+- GitHub may refuse or remove content that breaks the law or its terms, and may close accounts (GitHub Terms, D.2 and M.3).
+- Content in a public repository and in its issues can be seen by everyone, and GitHub's terms do not restrict its lawful use by others (GitHub Terms, D.5 and D.8). GitHub and its affiliates may store, copy and display it, and use it to train AI features and the models of their affiliates (GitHub Terms, D.4); there is no setting that turns this off for public content (GitHub Terms, J.3).
+- The site is served on Vercel's free Hobby plan, which Vercel allows only for personal or non-commercial use; Nusquama is non-commercial. Vercel may disable or remove a deployment on that plan with or without notice, so the site can go offline without warning; the roll and the rules stay in the repository (Vercel Terms, section 4).
+- On the Hobby plan, Vercel may use the content it serves to train AI and machine learning models, and share it with third parties for that purpose, unless the account turns this off in its team settings (Vercel Terms, section 3).
+- Content on the site must also follow Vercel's Acceptable Use Policy, and Vercel may remove or disable content (Vercel Terms, sections 3 and 8).
+- GitHub and Vercel each provide their services "as is", without warranty, and limit their liability (GitHub Terms, O and P; Vercel Terms, sections 20 and 21). Their terms are governed by the law of California, with the courts of San Francisco, and Vercel's also provide for arbitration (GitHub Terms, S.1; Vercel Terms, section 23).
 
 ## Contact
 
