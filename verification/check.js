@@ -496,6 +496,8 @@ console.log('\n21. GitHub と Vercel の規約が定めることを、原文で�
     && te.includes('Nusquama is non-commercial.') && te.includes('so the site can go offline without warning') && te.includes('unless the account turns this off in its team settings'));
   ok('個人情報の取り扱いが、GitHub と Vercel が自ら公開の内容を使う二つの場合を書く',
     pj.includes('AI の機能と関連会社のモデルの学習に使うことを認めています（D.4）') && pj.includes('アカウントのチームの設定でこれを止めたときは別です（第 3 条）'));
+  ok('AI の学習への利用で個人情報が心配な方は願い出ないよう、叙任の規程と個人情報の取り扱いで断り、辞退できることを書く',
+    read('policies/knighting.md').includes('個人情報が心配な方は、願い出ないでください。') && pj.includes('これらの利用で個人情報が心配な方は、願い出ないでください。') && pj.includes('いつでも名簿からの辞退を求めることができ'));
   ok('運営者が Vercel のモデルの学習を止めたとは、確かめるまで書かない', ![tj, te, pj].some((t) => /止めています|止めました|has turned (this|it) off|opted out/.test(t)));
   ok('免責事項（日本語と英語）が、二つのサービスが現状のままであることを書き、利用規約を指す', read('policies/disclaimer.md').includes('サービスを「現状のまま」保証なしに提供し')
     && read('policies/disclaimer.en.md').includes('GitHub and Vercel each provide their services "as is"'));
