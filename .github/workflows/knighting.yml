@@ -1,0 +1,33 @@
+name: 叙任の願い出の確認
+
+# 叙任の願い出の issue が開かれたり直されたりすると、様式の印と、訂正へのリンクが開けるかを確かめてコメントする。
+# 何も決めない。叙任を決めるのは運営者である。
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: knighting-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    if: contains(github.event.issue.labels.*.name, '叙任')
+    name: 様式と訂正へのリンクを確かめる
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      # issue の文は環境変数でだけ渡し、シェルには入れない。
+      - run: node tools/knighting.js
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
