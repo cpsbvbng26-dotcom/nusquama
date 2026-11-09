@@ -523,6 +523,38 @@ console.log('\n22. 版図の広さと、王の正誤表・騎士の名簿の新�
     && read('README.md').includes('[errata.xml](https://nusquama.vercel.app/errata.xml)') && read('site/llms.txt').includes(B.BASE + 'knights.xml)'));
 }
 
+console.log('\n23. 叙任の願い出の自動の確認（何も決めない）');
+{
+  const K = require('../tools/knighting.js');
+  const oaths = K.requiredOaths();
+  const tpl = read('.github/ISSUE_TEMPLATE/knighting.yml');
+  ok('必ず印を付ける誓いを、様式の定義から読む（' + oaths.length + ' 件）。日本にいる印は、そのうちに入らない',
+    oaths.length === (tpl.match(/required: true\n/g) || []).length - 2 && oaths.every((o) => tpl.includes('- label: ' + o + '\n')) && !oaths.some((o) => o.includes(K.PRESENCE)));
+  const body = (ticks, link, what) => '### 訂正への公開のリンク\n\n' + link + '\n\n### 何を誤り、どう正したか\n\n' + what + '\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
+  const all = oaths.map((o) => '- [X] ' + o).concat(['- [X] ' + K.PRESENCE + '（旅行・出張・留学などで日本の外にいるあいだは願い出られません。）']);
+  const f = K.parse(body(all, 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
+  const r = (form, opened, st) => K.check(form, opened, st, oaths);
+  ok('印がすべてあり、リンクが開け、説明があれば通る。11 月 22 日からは日本にいる印も見る', r(f, '2026-11-22T00:00:00Z', 200).ok === true && r(f, '2026-11-21T00:00:00Z', 200).rows.length === 3 && r(f, '2026-11-21T15:00:00Z', 200).rows.length === 4);
+  const noHere = K.parse(body(all.slice(0, -1), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
+  const oneOff = K.parse(body(all.slice(1), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
+  ok('一つでも誓いの印がない、日本にいる印がない、リンクが http・開けない・404、説明が空、のどれでも通らない',
+    r(oneOff, '2026-11-22T00:00:00Z', 200).ok === false && r(noHere, '2026-11-22T00:00:00Z', 200).ok === false && r(noHere, '2026-11-20T00:00:00Z', 200).ok === true
+    && r(K.parse(body(all, 'http://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。')), '2026-11-22T00:00:00Z', 200).ok === false
+    && r(f, '2026-11-22T00:00:00Z', null).ok === false && r(f, '2026-11-22T00:00:00Z', 404).ok === false
+    && r(K.parse(body(all, 'https://example.org/erratum', '_No response_')), '2026-11-22T00:00:00Z', 200).ok === false);
+  const c = K.comment(r(f, '2026-11-22T00:00:00Z', 200));
+  const src = read('tools/knighting.js'), wf = read('.github/workflows/knighting.yml');
+  ok('コメントは、何も決めないこと、決めるのは運営者であること、創作であることを書く。リンクは応答の状態だけを見て、中身を残さない',
+    c.startsWith(K.MARK) && c.includes('この確認は何も決めません。叙任を決めるのは運営者です。') && c.includes('これは創作であり、遊びです。称号に法的な効力はありません。')
+    && src.includes("if (r.body) await r.body.cancel();") && !/writeFileSync|appendFileSync/.test(src));
+  ok('仕事は叙任のラベルの issue でだけ動き、コードを読んで issue に書くことしかできず、issue の文を環境変数でだけ渡す',
+    wf.includes("if: contains(github.event.issue.labels.*.name, '叙任')") && /permissions:\n  contents: read\n  issues: write\n/.test(wf) && wf.includes('ISSUE_BODY: ${{ github.event.issue.body }}')
+    && [...wf.matchAll(/^\s*- run: (.*)$/gm)].map((m) => m[1]).join() === 'node tools/knighting.js');
+  ok('叙任の規程と個人情報の取り扱いが、自動の確認と、リンクの扱いを書く',
+    read('policies/knighting.md').includes('自動の確認は何も決めません。叙任を決めるのは運営者です。')
+    && read('policies/privacy.md').includes('リンク先の中身は読まず、どこにも残しません。'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
