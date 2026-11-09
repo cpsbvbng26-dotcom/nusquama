@@ -26,7 +26,7 @@ const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'na
 const EN = ['terms', 'disclaimer', 'legality'];
 const SOURCES = [['README.md', 'index.html'], ['KNIGHTS.md', 'knights.html'], ['ERRATA.md', 'errata.html']]
   .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']))
-  .concat(EN.map((p) => ['policies/' + p + '.en.md', 'policies/' + p + '.en.html']));
+  .concat(EN.map((p) => ['policies/' + p + '.en.md', 'policies/' + p + '.en.html']), [['founding.en.md', 'founding.en.html']]);
 const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png'];
 
 /* どの頁にも先頭に出す断り。README の冒頭と同じ内容である。 */
@@ -198,7 +198,7 @@ function page(srcRel, outRel) {
   const slug = (/^policies\/(\w+)(?:\.en)?\.md$/.exec(srcRel) || [])[1];
   const twin = slug && EN.includes(slug) ? 'policies/' + slug + (en ? '.html' : '.en.html') : null;
   const links = en
-    ? [['index.html', 'Top (Japanese)']].concat(EN.map((p) => ['policies/' + p + '.en.html', h1of('policies/' + p + '.en.md')]), [[twin, '日本語']])
+    ? [['index.html', 'Top (Japanese)'], ['founding.en.html', h1of('founding.en.md')]].concat(EN.map((p) => ['policies/' + p + '.en.html', h1of('policies/' + p + '.en.md')]), twin ? [[twin, '日本語']] : [])
     : [['index.html', 'トップ'], ['knights.html', '騎士の名簿'], ['errata.html', '王の正誤表']].concat(POLICIES.map((p) => ['policies/' + p + '.html', h1of('policies/' + p + '.md')]), twin ? [[twin, 'English']] : []);
   const alternate = twin ? `<link rel="alternate" hreflang="${en ? 'ja' : 'en'}" href="${BASE + twin}">\n` : '';
   return `<!doctype html>
@@ -284,7 +284,7 @@ function llmsTxt() {
     + '## 頁\n\n'
     + link('index.html', 'トップ（建国の宣言と基本法）') + link('knights.html', h1('KNIGHTS.md') || '騎士の名簿') + link('errata.html', h1('ERRATA.md') || '王の正誤表')
     + '\n## 規程\n\n' + POLICIES.map((x) => link('policies/' + x + '.html', h1('policies/' + x + '.md'))).join('')
-    + '\n## English (translations; the Japanese version governs)\n\n' + EN.map((x) => link('policies/' + x + '.en.html', h1('policies/' + x + '.en.md'))).join('')
+    + '\n## English (translations; the Japanese version governs)\n\n' + link('founding.en.html', h1('founding.en.md')) + EN.map((x) => link('policies/' + x + '.en.html', h1('policies/' + x + '.en.md'))).join('')
     + '\n## その他\n\n- [サイトの元とすべての履歴](' + REPO + ')\n- [サイトマップ](' + BASE + 'sitemap.xml)\n- [王の正誤表の新着（Atom）](' + BASE + 'errata.xml)\n- [騎士の名簿の新着（Atom）](' + BASE + 'knights.xml)\n';
 }
 function llmsFull() {
