@@ -455,6 +455,29 @@ console.log('\n19. 見張りが PR を作り、ラベル「記す」で検査を
     read('policies/legality.md').includes('ラベル「記す」を付けます') && read('policies/legality.en.md').includes('adds the label 記す'));
 }
 
+console.log('\n20. 言語モデルを通して調べる人に、規程をそのままの言葉で渡す（llms.txt と llms-full.txt）');
+{
+  const lt = read('site/llms.txt'), lf = read('site/llms-full.txt');
+  const links = [...lt.matchAll(/\]\((https:\/\/nusquama\.vercel\.app\/[^)#]*)/g)].map((m) => m[1].replace(B.BASE, ''));
+  const missing = links.filter((u) => u !== '' && !fs.existsSync(path.join(ROOT, 'site', u)));
+  ok('llms.txt は題・断り・節・リンクの形で、規程が優先すると書き、日本語の版が正と書く',
+    lt.startsWith('# 無何有騎士王国ヌスクァマ（Regnum Nusquamae）\n\n> ' + B.NOTICE + '\n') && lt.includes(B.NOTICE_EN)
+    && lt.includes('このファイルと規程が食い違うときは、規程に従います。') && lt.includes('日本語の版が正で、英語の頁は訳です。'));
+  ok('願い出ることができる人・費用・称号の扱い・求め方の節を、規程から一字一句そのまま収める（リンクだけをサイトの所在に直す）',
+    [['policies/knighting.md', '願い出ることができる人'], ['policies/terms.md', '費用'], ['policies/terms.md', '称号の扱い'], ['policies/requests.md', '求め方']]
+      .every(([f, h]) => lt.includes(B.section(f, h)) && B.section(f, h).startsWith('## ' + h + '\n'))
+    && lt.includes('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。'));
+  ok('リンクする頁はどれも作られていて、すべての頁と llms-full.txt にリンクする（' + links.length + ' 件）', missing.length === 0
+    && B.SOURCES.every(([, d]) => links.includes(d === 'index.html' ? '' : d)) && links.includes('llms-full.txt'), missing.join(', '));
+  ok('llms-full.txt は、すべての頁の元の Markdown を、所在とともに一字一句そのまま収める（' + B.SOURCES.length + ' 件）',
+    B.SOURCES.every(([s, d]) => lf.includes('Source: ' + B.BASE + (d === 'index.html' ? '' : d) + '\n\n' + read(s).trim() + '\n')) && (lf.match(/^Source: /gm) || []).length === B.SOURCES.length);
+  ok('研究の系列の名もリンクも、どちらにも書かない', !/sophaxis|researcher-profile|cpsbvbng26-dotcom\.vercel|trinity|orcid/i.test(lt + lf));
+  const vj = JSON.parse(read('site/vercel.json'));
+  ok('どちらも UTF-8 の文字の文書として配り、robots.txt はすべてのクローラーに読ませる',
+    vj.headers.some((h) => h.source === '/(llms|llms-full)\\.txt' && h.headers.some((x) => x.key === 'Content-Type' && x.value === 'text/plain; charset=utf-8')) && read('site/robots.txt').startsWith('User-agent: *\nAllow: /\n'));
+  ok('README が二つのファイルのことを書く', read('README.md').includes('[llms.txt](https://nusquama.vercel.app/llms.txt)') && read('README.md').includes('食い違うときは規程に従います。'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
