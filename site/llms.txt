@@ -1,0 +1,70 @@
+# 無何有騎士王国ヌスクァマ（Regnum Nusquamae）
+
+> これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。
+
+English: This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.
+
+規程が決まりです。このファイルと規程が食い違うときは、規程に従います。日本語の版が正で、英語の頁は訳です。すべての頁の全文は [llms-full.txt](https://nusquama.vercel.app/llms-full.txt) にあります。
+
+## 願い出ることができる人
+
+自分の誤りを一つ、公に訂正したことがある人です。
+訂正は、論文の正誤表、ブログや記事の追記、コードの修正、発言の取り消しなど、公開されていて誰でも確かめられるものに限ります。
+16 歳未満の人は願い出ることができません。
+住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。例として、イタリアの 1951 年法律第 178 号第 8 条は、私人や団体が、名称を問わず騎士の称号などを授けることを禁じています。
+2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません。
+日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。
+日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。
+旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
+
+## 費用
+
+ヌスクァマは、誰からも料金を取りません。
+称号を売らず、寄付を受けず、広告を出さず、何も販売しません。
+叙任の願い出にも、名簿への記載にも、費用はかかりません。
+ヌスクァマの称号を有料で授けると称する者がいても、ヌスクァマとは関係がありません。
+
+## 称号の扱い
+
+ヌスクァマの称号（騎士王・騎士・正誤表騎士団の団員）は、創作の中の言葉です。
+どの国の法令に定められた称号でもなく、法的な効力も、身分も、特典もありません。
+称号は、この国の中でだけ使います。
+この国の中とは、このリポジトリとサイト、そして運営者がこの国を紹介するために自ら書いた記事や投稿（[README](https://nusquama.vercel.app/)「ほかの場所」に挙げたもの）を指します。
+ヌスクァマは、勲章・記章・制服・証書などの物を作らず、配りません。
+官公職・位階勲等・学位・その他法令により定められた称号と誤認されるように使うことは、してはいけません。
+履歴書・論文・名刺・公的な書類・商取引・広告に、ヌスクァマの称号を書いてはいけません。
+
+## 求め方
+
+[削除・訂正・辞退の求め](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml)の様式で issue を開き、どの記載について、何を求めるかを書きます。
+様式を使わない issue は開けないようにしてあります。
+窓口は GitHub だけです。ヌスクァマは、GitHub の外に連絡先を持ちません。GitHub の無料のアカウントで足ります。
+求めは、代理人が出すこともできます。そのときは、本人の GitHub アカウントから、代理を頼んだことを issue に一言書いてもらいます。
+問題の個人情報そのものを、issue に書き写さないでください。どこにあるかだけを書きます。
+
+## 頁
+
+- [トップ（建国の宣言と基本法）](https://nusquama.vercel.app/)
+- [正誤表騎士団 名簿（Ordo Erratorum）](https://nusquama.vercel.app/knights.html)
+- [王の正誤表](https://nusquama.vercel.app/errata.html)
+
+## 規程
+
+- [利用規約](https://nusquama.vercel.app/policies/terms.html)
+- [免責事項](https://nusquama.vercel.app/policies/disclaimer.html)
+- [個人情報の取り扱い](https://nusquama.vercel.app/policies/privacy.html)
+- [叙任の規程](https://nusquama.vercel.app/policies/knighting.html)
+- [削除・訂正・辞退の求め](https://nusquama.vercel.app/policies/requests.html)
+- [名称と権利](https://nusquama.vercel.app/policies/names.html)
+- [適法性の説明](https://nusquama.vercel.app/policies/legality.html)
+
+## English (translations; the Japanese version governs)
+
+- [Terms of Use](https://nusquama.vercel.app/policies/terms.en.html)
+- [Disclaimer](https://nusquama.vercel.app/policies/disclaimer.en.html)
+- [Legality Statement](https://nusquama.vercel.app/policies/legality.en.html)
+
+## その他
+
+- [サイトの元とすべての履歴](https://github.com/cpsbvbng26-dotcom/nusquama)
+- [サイトマップ](https://nusquama.vercel.app/sitemap.xml)
