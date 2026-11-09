@@ -137,7 +137,7 @@
 - [名称と権利](policies/names.md)
 - [適法性の説明](policies/legality.md)
 
-English (translation; the Japanese version governs): [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Legality Statement](policies/legality.en.md)
+English (translation; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Legality Statement](policies/legality.en.md)
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
