@@ -578,12 +578,12 @@ console.log('\n24. 建国の宣言・基本法・十則の英訳（日本語の�
     && read('site/llms.txt').includes(B.BASE + 'founding.en.html)') && B.SOURCES.some(([s2]) => s2 === 'founding.en.md'));
 }
 
-console.log('\n25. 国のしるし（国旗・徽章・版図の地図）は国章の色だけで描き、書体を使わない');
+console.log('\n25. 国のしるし（国旗・版図の地図）は国章の色だけで描き、書体を使わない');
 {
   const COLORS = ['#14213d', '#c9a227', '#e8cf74'];
-  const svgs = { flag: read('assets/flag.svg'), insignia: read('assets/insignia.svg'), territory: read('site/territory.svg') };
+  const svgs = { flag: read('assets/flag.svg'), territory: read('site/territory.svg') };
   const colors = (t) => [...new Set((t.match(/#[0-9a-f]{6}/gi) || []).map((c) => c.toLowerCase()))];
-  ok('三つとも国章の三色だけを使い、文字を描かず、題に創作であることを書く', Object.values(svgs).every((t) => colors(t).every((c) => COLORS.includes(c)) && !/<text|font-family/.test(t) && /<title id="t">[^<]*（創作/.test(t))
+  ok('二つとも国章の三色だけを使い、文字を描かず、題に創作であることを書く', Object.values(svgs).every((t) => colors(t).every((c) => COLORS.includes(c)) && !/<text|font-family/.test(t) && /<title id="t">[^<]*（創作/.test(t))
     && COLORS.every((c) => read('assets/emblem.svg').toLowerCase().includes(c)));
   /* 帯の形（幅いっぱいで高さの半分に満たない塗りの矩形）を取らない。実在の国旗の多くが帯でできているため。 */
   const fills = [...svgs.flag.matchAll(/<rect ([^>]*)\/>/g)].map((m) => m[1]).filter((a) => !/fill="none"/.test(a));
@@ -595,23 +595,13 @@ console.log('\n25. 国のしるし（国旗・徽章・版図の地図）は国�
     tiles(svgs.territory) === B.domain() && (svgs.territory.match(/fill="#e8cf74"/g) || []).length === 3 && tiles(B.territorySvg(12)) === 12 && tiles(B.territorySvg(0)) === 0
     && svgs.territory.includes('王の正誤表の誤り ' + B.domain() + ' 件の区画'));
   const sym = read('SYMBOLS.md');
-  ok('国のしるしの頁が、どれも実在の旗や記章ではないと断り、徽章は称号の扱いに従って使う場所を限る',
+  ok('国のしるしの頁が、どれも実在の旗や記章ではないと断り、徽章や叙任状は作らないと書く。徽章・叙任状を描く画像もコードもない',
     sym.includes('ここに挙げるしるしは、どれも実在の国家・王室・騎士団・叙勲の旗や記章ではなく、それらに代わるものでもありません。')
-    && sym.includes('徽章は創作の中のしるしで、法的な効力も現実の栄誉もありません。') && sym.includes('履歴書・論文・名刺・公的な書類・学術の場には使いません。'));
+    && sym.includes('騎士にも、徽章や叙任状は出しません。') && !fs.existsSync(path.join(ROOT, 'assets', 'insignia.svg')) && !fs.existsSync(path.join(ROOT, 'site', 'certificates'))
+    && !/certificate|insignia|叙任状を描/.test(read('build.js')));
 }
 
-console.log('\n26. 叙任状');
-{
-  const c = B.certificateSvg(['3', 'a<b>&c', '2026-12-01', '[記事](https://example.org) の誤りを正した']);
-  ok('叙任状は名簿の一行から作り、名と日と番を載せ、法的な効力がないことを状の中に書き、文字を逃がす',
-    c.includes('a&lt;b&gt;&amp;c を騎士に叙する') && c.includes('2026-12-01') && c.includes('第 3 番') && c.includes('この叙任状に、法的な効力も現実の栄誉もありません。')
-    && c.includes('正した誤り：記事 の誤りを正した') && !c.includes('https://example.org'));
-  const rows = B.tableRows('KNIGHTS.md');
-  const made = fs.existsSync(path.join(ROOT, 'site', 'certificates')) ? fs.readdirSync(path.join(ROOT, 'site', 'certificates')) : [];
-  ok('叙任状は名簿の騎士ごとに一枚あり（いま ' + rows.length + ' 枚）、名簿の頁から辿れる', made.length === rows.length && rows.every((r) => made.includes(r[0] + '.svg') && read('site/knights.html').includes('href="certificates/' + r[0] + '.svg"')));
-}
-
-console.log('\n27. 官報');
+console.log('\n26. 官報');
 {
   const items = B.gazetteItems();
   const n = B.timelineRows().length + B.tableRows('ERRATA.md').length + B.tableRows('KNIGHTS.md').length;
@@ -621,7 +611,7 @@ console.log('\n27. 官報');
     && (g.match(/<tr><td>\d{4}-\d{2}-\d{2}<\/td>/g) || []).length === n && g.includes('href="gazette.xml"') && read('GAZETTE.md').includes('実在の官報ではありません。'));
 }
 
-console.log('\n28. 暦と祝日、交流の規程');
+console.log('\n27. 暦と祝日、交流の規程');
 {
   const cal = read('CALENDAR.md'), ex = read('policies/exchange.md');
   const first = B.tableRows('ERRATA.md')[0][1];
