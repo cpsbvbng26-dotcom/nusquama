@@ -27,8 +27,8 @@ const EN = ['terms', 'disclaimer', 'legality'];
 const SOURCES = [['README.md', 'index.html'], ['KNIGHTS.md', 'knights.html'], ['ERRATA.md', 'errata.html'], ['SYMBOLS.md', 'symbols.html'], ['CALENDAR.md', 'calendar.html'], ['GAZETTE.md', 'gazette.html']]
   .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']))
   .concat(EN.map((p) => ['policies/' + p + '.en.md', 'policies/' + p + '.en.html']), [['founding.en.md', 'founding.en.html']]);
-const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png', 'flag.svg', 'insignia.svg'];
-/* build.js が描く画像。版図の地図は正誤表から、叙任状は名簿から。 */
+const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png', 'flag.svg'];
+/* build.js が描く画像。版図の地図は正誤表から。 */
 const DRAWN = ['territory.svg'];
 
 /* どの頁にも先頭に出す断り。README の冒頭と同じ内容である。 */
@@ -202,35 +202,7 @@ ${tiles.join('\n')}
 `;
 }
 
-/* 叙任状（創作）。名簿の一行から作る。法的な効力がないことを状の中に書く。 */
 const plainText = (t) => String(t).replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`]/g, '');
-function certificateSvg([n, knight, date, corrected]) {
-  const fixed = plainText(corrected);
-  const line = fixed.length > 46 ? fixed.slice(0, 45) + '…' : fixed;
-  const t = (y, size, text, weight) => `<text x="500" y="${y}" font-size="${size}" text-anchor="middle"${weight ? ' font-weight="700"' : ''}>${esc(text)}</text>`;
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-labelledby="t">
-<title id="t">叙任状（創作）：第 ${esc(n)} 番の騎士 ${esc(knight)}</title>
-<rect width="1000" height="700" fill="#f7f3ea"/>
-<rect x="24" y="24" width="952" height="652" fill="none" stroke="#14213d" stroke-width="10"/>
-<rect x="44" y="44" width="912" height="612" fill="none" stroke="#c9a227" stroke-width="4"/>
-<g fill="#1d1a16" font-family="Hiragino Mincho ProN, Yu Mincho, Noto Serif JP, serif">
-${t(150, 56, '叙任状', true)}
-${t(205, 24, '正誤表騎士団（Ordo Erratorum）')}
-${t(300, 40, knight + ' を騎士に叙する', true)}
-${t(365, 24, '自らの誤りを公に正したことによる')}
-${t(410, 22, '正した誤り：' + line)}
-${t(470, 24, '叙任の日　' + date + '　　第 ' + n + ' 番')}
-${t(540, 28, '騎士王ネモ一世', true)}
-${t(620, 18, 'これは創作であり、遊びです。この叙任状に、法的な効力も現実の栄誉もありません。')}
-</g>
-</svg>
-`;
-}
-function certificateLinks() {
-  const rows = tableRows('KNIGHTS.md');
-  if (!rows.length) return '';
-  return '\n<h2>叙任状</h2>\n<ul>' + rows.map((r) => `<li><a href="certificates/${esc(r[0])}.svg">第 ${esc(r[0])} 番 ${esc(plainText(r[1]))} の叙任状</a></li>`).join('') + '</ul>';
-}
 
 /* 官報。トップの頁の年表、王の正誤表、騎士の名簿から、日付の新しい順に作る。手で書かない。 */
 function timelineRows() {
@@ -304,7 +276,7 @@ ${alternate}${en ? '' : `<link rel="alternate" type="application/atom+xml" title
 <a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
 <header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a></header>
 <main id="main">
-${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${markdown(md, srcRel, outRel).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : ''}${outRel === 'knights.html' ? certificateLinks() : ''}
+${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${markdown(md, srcRel, outRel).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : ''}
 </main>
 <footer>
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
@@ -377,7 +349,6 @@ function build(out = OUT) {
   files['knights.xml'] = atom('knights');
   files['gazette.xml'] = gazetteAtom();
   files['territory.svg'] = territorySvg();
-  for (const row of tableRows('KNIGHTS.md')) files['certificates/' + row[0] + '.svg'] = certificateSvg(row);
   files['llms.txt'] = llmsTxt();
   files['llms-full.txt'] = llmsFull();
   files['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -397,7 +368,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { territorySvg, certificateSvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
