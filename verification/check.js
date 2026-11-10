@@ -624,6 +624,30 @@ console.log('\n27. 暦と祝日、交流の規程');
     && read('README.md').includes('- [交流の規程](policies/exchange.md)'));
 }
 
+console.log('\n28. トップ以外のすべての頁の英語版（日本語の版を正とする訳）');
+{
+  const count = (t, re) => (t.match(re) || []).length;
+  const rows = (t) => count(t, /^\| \d+ \|/gm);
+  for (const [f, h] of B.ROOT_EN) {
+    const ja = read(f + '.md'), en = read(f + '.en.md');
+    const html = read('site/' + h + '.en.html'), jaHtml = read('site/' + h + '.html');
+    ok(f + '.en.md：日本語の版を正とすると断り、創作であると断り、節と表の行の数が日本語の版と同じ（## ' + count(ja, /^## /gm) + '、行 ' + rows(ja) + '）',
+      en.includes('This is an English translation. The [Japanese version](' + f + '.md) governs; if the two differ, the Japanese version applies.') && /^> This is a work of fiction, written for fun\./m.test(en)
+      && count(ja, /^## /gm) === count(en, /^## /gm) && rows(ja) === rows(en));
+    ok(h + '.en.html：lang が en で、日本語の頁と互いに hreflang で指し合う',
+      html.includes('<html lang="en">') && html.includes('hreflang="ja" href="' + B.BASE + h + '.html"') && jaHtml.includes('hreflang="en" href="' + B.BASE + h + '.en.html"'));
+  }
+  const tl = B.timelineRows();
+  const g = read('site/gazette.en.html');
+  ok('年表のどの行にも英語の欄があり（' + tl.length + ' 行）、英語の官報はそれと、正誤表・名簿から英語で作る',
+    tl.every((r) => r[2] && /[A-Za-z]/.test(r[2])) && (g.match(/<tr><td>\d{4}-\d{2}-\d{2}<\/td>/g) || []).length === B.gazetteItems().length && !/<td>[^<]*[ぁ-んァ-ン一-龥][^<]*<\/td>/.test(g.split('<table>')[1] || ''));
+  const readme = read('README.md');
+  ok('すべての規程と、トップ以外のすべての頁に英語版があり、README がそのすべてへつなぐ',
+    B.EN.length === B.POLICIES.length && B.POLICIES.every((p) => B.EN.includes(p))
+    && B.EN.every((p) => readme.includes('(policies/' + p + '.en.md)')) && B.ROOT_EN.every(([f]) => readme.includes('(' + f + '.en.md)'))
+    && B.SOURCES.filter(([s]) => !s.endsWith('.en.md') && s !== 'README.md').every(([s]) => B.SOURCES.some(([t]) => t === s.replace(/\.md$/, '.en.md'))));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
