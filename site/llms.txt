@@ -67,9 +67,19 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 ## English (translations; the Japanese version governs)
 
 - [Founding Declaration, Basic Law and Ten Precepts](https://nusquama.vercel.app/founding.en.html)
+- [Roll of the Order of the Errata (Ordo Erratorum)](https://nusquama.vercel.app/knights.en.html)
+- [The King's errata](https://nusquama.vercel.app/errata.en.html)
+- [Symbols of the kingdom](https://nusquama.vercel.app/symbols.en.html)
+- [Calendar and days of the kingdom](https://nusquama.vercel.app/calendar.en.html)
+- [Gazette](https://nusquama.vercel.app/gazette.en.html)
 - [Terms of Use](https://nusquama.vercel.app/policies/terms.en.html)
 - [Disclaimer](https://nusquama.vercel.app/policies/disclaimer.en.html)
+- [Privacy](https://nusquama.vercel.app/policies/privacy.en.html)
+- [Rules on Knighting](https://nusquama.vercel.app/policies/knighting.en.html)
+- [Requests for removal, correction or withdrawal](https://nusquama.vercel.app/policies/requests.en.html)
+- [Names and rights](https://nusquama.vercel.app/policies/names.en.html)
 - [Legality Statement](https://nusquama.vercel.app/policies/legality.en.html)
+- [Rules on exchange](https://nusquama.vercel.app/policies/exchange.en.html)
 
 ## その他
 
