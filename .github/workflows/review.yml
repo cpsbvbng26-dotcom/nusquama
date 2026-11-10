@@ -1,0 +1,32 @@
+name: 年一回の総点検
+
+on:
+  schedule:
+    # 毎年 11 月 7 日（建国の日）の 9 時 17 分（日本時間）
+    - cron: '17 0 7 11 *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  review:
+    name: 総点検の issue を開く
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          year=$(TZ=Asia/Tokyo date +%Y)
+          title="年一回の総点検（${year} 年）"
+          if gh issue list --state all --search "in:title ${title}" --json title --jq '.[].title' | grep -qxF "${title}"; then
+            echo "すでに開いている: ${title}"; exit 0
+          fi
+          node tools/review.js "${year}" > review.md
+          gh issue create --title "${title}" --body-file review.md
