@@ -49,6 +49,9 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 - [トップ（建国の宣言と基本法）](https://nusquama.vercel.app/)
 - [正誤表騎士団 名簿（Ordo Erratorum）](https://nusquama.vercel.app/knights.html)
 - [王の正誤表](https://nusquama.vercel.app/errata.html)
+- [国のしるし](https://nusquama.vercel.app/symbols.html)
+- [暦と祝日](https://nusquama.vercel.app/calendar.html)
+- [官報](https://nusquama.vercel.app/gazette.html)
 
 ## 規程
 
@@ -59,6 +62,7 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 - [削除・訂正・辞退の求め](https://nusquama.vercel.app/policies/requests.html)
 - [名称と権利](https://nusquama.vercel.app/policies/names.html)
 - [適法性の説明](https://nusquama.vercel.app/policies/legality.html)
+- [交流の規程](https://nusquama.vercel.app/policies/exchange.html)
 
 ## English (translations; the Japanese version governs)
 
@@ -73,3 +77,4 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 - [サイトマップ](https://nusquama.vercel.app/sitemap.xml)
 - [王の正誤表の新着（Atom）](https://nusquama.vercel.app/errata.xml)
 - [騎士の名簿の新着（Atom）](https://nusquama.vercel.app/knights.xml)
+- [官報の新着（Atom）](https://nusquama.vercel.app/gazette.xml)

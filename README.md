@@ -124,6 +124,7 @@
 | 2026-11-08（日本時間） | 規程を厳しく見直す（免責の書き方、16 歳以上、国の法令の誓い、開示の求め） |
 | 2026-11-08（日本時間） | 紛争は示談を優先すると定め、合意管轄の裁判所を宇都宮地方裁判所と宇都宮簡易裁判所に定める |
 | 2026-11-08（日本時間） | 適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す |
+| 2026-11-10（日本時間） | 国旗と版図の地図、暦と祝日、官報、交流の規程を定める |
 
 ---
 
@@ -136,6 +137,9 @@
 - [削除・訂正・辞退の求め](policies/requests.md)
 - [名称と権利](policies/names.md)
 - [適法性の説明](policies/legality.md)
+- [交流の規程](policies/exchange.md)
+
+国のしるし（国旗と版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 
 English (translation; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Legality Statement](policies/legality.en.md)
 
