@@ -257,7 +257,7 @@ console.log('\n12. 受付と安全の知らせ');
 
 console.log('\n13. リンク切れ（リポジトリの中を指すもの）');
 {
-  const docs = ['README.md', 'KNIGHTS.md', 'ERRATA.md', 'SECURITY.md', ...fs.readdirSync(path.join(ROOT, 'policies')).filter((f) => f.endsWith('.md')).map((f) => 'policies/' + f)];
+  const docs = [...fs.readdirSync(ROOT).filter((f) => f.endsWith('.md') && f !== 'CLAUDE.md'), ...fs.readdirSync(path.join(ROOT, 'policies')).filter((f) => f.endsWith('.md')).map((f) => 'policies/' + f)];
   const ymls = fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f);
   const heads = (f) => read(f).split('\n').filter((l) => /^#{2,3} /.test(l)).map((l) => l.replace(/^#+ /, ''));
   const exists = (rel) => fs.existsSync(path.join(ROOT, rel));
@@ -277,7 +277,8 @@ console.log('\n13. リンク切れ（リポジトリの中を指すもの）');
       if (/^(mailto:|#)/.test(href)) continue;
       n++;
       const target = path.posix.normalize(path.posix.join(path.posix.dirname(f), href.split('#')[0]));
-      if (!exists(target)) { bad.push(f + ' → ' + href); continue; }
+      /* build.js が描くもの（版図の地図・暦）は、site/ にあることを見る。 */
+      if (!exists(target) && !(/^(territory(-\d{4})?\.svg|calendar\.ics)$/.test(target) && exists('site/' + target))) { bad.push(f + ' → ' + href); continue; }
       if (sec && target.endsWith('.md') && !heads(target).includes(sec)) bad.push(f + ' → ' + href + '「' + sec + '」');
     }
     for (const m of t.matchAll(/<(https:\/\/[^>\s]+)>/g)) absolute(m[1], f);
@@ -646,6 +647,145 @@ console.log('\n28. トップ以外のすべての頁の英語版（日本語の�
     B.EN.length === B.POLICIES.length && B.POLICIES.every((p) => B.EN.includes(p))
     && B.EN.every((p) => readme.includes('(policies/' + p + '.en.md)')) && B.ROOT_EN.every(([f]) => readme.includes('(' + f + '.en.md)'))
     && B.SOURCES.filter(([s]) => !s.endsWith('.en.md') && s !== 'README.md').every(([s]) => B.SOURCES.some(([t]) => t === s.replace(/\.md$/, '.en.md'))));
+}
+
+console.log('\n29. 王の正誤表の分類・地名・一件ごとの頁・地図');
+{
+  const E = B.errataEntries();
+  const cells = (f) => read(f).split('\n').filter((l) => /^\| \d+ \|/.test(l)).map((l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()));
+  const ja = cells('ERRATA.md'), en = cells('ERRATA.en.md');
+  ok('どの行にも分類と地名があり、地名は分類と順から決まるものと同じ（日本語と英語、' + E.length + ' 件）',
+    E.length === B.domain() && E.every((e, i) => ja[i][7] === e.place && en[i][7] === e.place && en[i][6] === e.kind.en)
+    && E.map((e) => e.place).length === new Set(E.map((e) => e.place)).size,
+    E.filter((e, i) => ja[i][7] !== e.place || (en[i] || [])[7] !== e.place).map((e) => e.n + ':' + e.place).join(', '));
+  const legend = (f, en2) => B.KINDS.every((k) => read(f).includes(en2 ? '| ' + k.en + ' | ' + k.shapeEn + ' | Insula ' + k.la + ' |' : '| ' + k.ja + ' | ' + k.shapeJa + ' | Insula ' + k.la + ' |'));
+  ok('分類の表（' + B.KINDS.length + ' 分類）が、地図の形と島の名を build.js と同じに書く（日本語と英語）。ローマ数字が正しい',
+    legend('ERRATA.md') && legend('ERRATA.en.md', true) && B.roman(1) === 'I' && B.roman(4) === 'IV' && B.roman(9) === 'IX' && B.roman(14) === 'XIV' && B.roman(40) === 'XL' && B.roman(1999) === 'MCMXCIX');
+  const t = read('site/territory.svg');
+  const shapes = { square: (x) => (x.match(/<rect x="[\d.]+" y="[\d.]+" width="26" height="26" fill="#c9a227"\/>/g) || []).length, bar: (x) => (x.match(/width="30" height="16" fill="#c9a227"/g) || []).length,
+    polys: (x) => (x.match(/<polygon points="[^"]+" fill="#c9a227"\/>/g) || []).length };
+  const want = (k) => E.filter((e) => e.kind.shape === k).length;
+  ok('版図の地図の区画の形が、分類ごとの件数と合う', shapes.square(t) === want('square') && shapes.bar(t) === want('bar') && shapes.polys(t) === E.length - want('square') - want('bar'));
+  const eh = read('site/errata.html'), ee = read('site/errata.en.html');
+  const links = (h) => [...h.matchAll(/<a href="(errata\/\d+(?:\.en)?\.html)" aria-label="[^"]+">/g)].map((m) => m[1]);
+  ok('正誤表の頁の地図は、区画ごとに一件の頁へつなぐ（日本語と英語、' + E.length + ' 区画）',
+    JSON.stringify(links(eh)) === JSON.stringify(E.map((e) => 'errata/' + e.n + '.html')) && JSON.stringify(links(ee)) === JSON.stringify(E.map((e) => 'errata/' + e.n + '.en.html'))
+    && eh.includes('<title id="tm">') && eh.includes('href="territory.svg"'));
+  const pages = fs.readdirSync(path.join(ROOT, 'site', 'errata'));
+  ok('一件ごとの頁が、日本語と英語で一件に一つずつあり、断りと対の頁と地名を持つ',
+    pages.length === 2 * E.length && E.every((e) => {
+      const j = read('site/errata/' + e.n + '.html'), g = read('site/errata/' + e.n + '.en.html');
+      return j.includes('<p class="notice">' + B.NOTICE + '</p>') && g.includes('<p class="notice">' + B.NOTICE_EN + '</p>') && j.includes('hreflang="en" href="' + B.BASE + 'errata/' + e.n + '.en.html"')
+        && g.includes('hreflang="ja" href="' + B.BASE + 'errata/' + e.n + '.html"') && j.includes('<h1>王の正誤表 第 ' + e.n + ' 件：' + e.place + '</h1>') && g.includes('<html lang="en">');
+    }));
+  const years = B.errataYears();
+  const tilesIn = (x) => (x.match(/fill="#c9a227"/g) || []).length;
+  ok('年ごとの版図の地図（' + years.length + ' 年）は、その年の終わりまでの件数だけの区画を持ち、表の累計と合う',
+    years.every((y) => { const n = E.filter((e) => e.date.slice(0, 4) <= y).length; return tilesIn(read('site/territory-' + y + '.svg')) === n && eh.includes('<td>' + y + '</td><td>' + E.filter((e) => e.date.startsWith(y)).length + '</td><td>' + n + '</td>'); })
+    && (eh.match(/<tr><td>\d{4}-\d{2}-\d{2}<\/td><td>\d+<\/td><td>(\d+)<\/td><\/tr>/g) || []).pop().includes('<td>' + E.length + '</td></tr>'));
+  ok('他人の文の誤りは記さず、記した行が誤りでも消さないと書き、最古の区画は第 1 件の地名を挙げる',
+    read('ERRATA.md').includes('他人の文の誤りは記しません。') && read('ERRATA.md').includes('記した正誤そのものが誤りだったと分かったときも、前の行は消しません。')
+    && read('ERRATA.md').includes('最古の区画は、第 1 件の ' + E[0].place + ' です。') && read('ERRATA.en.md').includes('The oldest parcel is entry 1, ' + E[0].place + '.'));
+}
+
+console.log('\n30. 官報の号と一号ごとの頁');
+{
+  const items = B.gazetteItems();
+  const g = read('site/gazette.html'), x = read('site/gazette.xml');
+  ok('号は古い順に 1 から欠けずに振られ、頁の表と配信が号の頁へつなぐ（' + items.length + ' 号）',
+    items.map((it) => it.no).sort((a, b) => a - b).every((n, i) => n === i + 1) && items.every((it, i) => i === 0 || items[i - 1].no === it.no + 1)
+    && items.every((it) => g.includes('<a href="gazette/' + it.no + '.html">第 ' + it.no + ' 号</a>') && x.includes('<link href="' + B.BASE + 'gazette/' + it.no + '.html"/>')));
+  const files = fs.readdirSync(path.join(ROOT, 'site', 'gazette'));
+  ok('一号ごとの頁が日本語と英語で一号に一つずつあり、断りを持つ', files.length === 2 * items.length
+    && items.every((it) => read('site/gazette/' + it.no + '.html').includes('<h1>官報 第 ' + it.no + ' 号</h1>') && read('site/gazette/' + it.no + '.en.html').includes('<p class="notice">' + B.NOTICE_EN + '</p>')));
+  const heads = [...g.matchAll(/<h2 id="y(\d{4})">\d{4} 年（(\d+) 号）<\/h2>/g)];
+  ok('官報は年ごとに区切られ（年代記）、年の号の数を足すと全体になる', heads.length > 0 && heads.reduce((a, m) => a + Number(m[2]), 0) === items.length);
+  const first = items.find((it) => it.no === 1);
+  ok('国の仕組みが挙げる「官報第 1 号」は、基本法と十則を定めた布告である', read('INSTITUTIONS.md').includes('基本法と十則を定めた布告は、官報第 1 号です。') && first.text.startsWith('建国。基本法と十則を定め'));
+}
+
+console.log('\n31. 暦の iCalendar');
+{
+  const ics = read('site/calendar.ics');
+  const rows = read('CALENDAR.md').split('\n').filter((l) => /^\| \d+ 月 \d+ 日 \|/.test(l));
+  const lines = ics.split('\r\n');
+  ok('行は CRLF で区切られ、どの行も 75 オクテット以下で、記念日（' + rows.length + ' 日）ごとに毎年くり返す終日の項目を持つ',
+    !/[^\r]\n/.test(ics) && lines.every((l) => Buffer.byteLength(l) <= 75) && ics.startsWith('BEGIN:VCALENDAR\r\nVERSION:2.0\r\n') && ics.endsWith('END:VCALENDAR\r\n')
+    && (ics.match(/BEGIN:VEVENT/g) || []).length === rows.length && (ics.match(/RRULE:FREQ=YEARLY/g) || []).length === rows.length && (ics.match(/TRANSP:TRANSPARENT/g) || []).length === rows.length
+    && ics.includes('DTSTART;VALUE=DATE:20261107') && ics.includes('DTSTART;VALUE=DATE:20261108'));
+  const unfolded = ics.replace(/\r\n /g, '');
+  ok('どの項目も、創作の記念日で実在の祝日ではないと書き、text/calendar で配る',
+    (unfolded.match(/実在の祝日ではありません。/g) || []).length === rows.length && JSON.parse(read('site/vercel.json')).headers.some((h) => h.source === '/calendar.ics' && h.headers[0].value === 'text/calendar; charset=utf-8'));
+  const cal = read('CALENDAR.md');
+  ok('祝日を足すのは王で、実在の祝日や実在の人の日を祝日にせず、誰にも義務を生じないと書く（日本語と英語）',
+    cal.includes('- 実在の祝日や、実在の人の誕生日・命日を、祝日にしません。') && cal.includes('- 祝日を足しても、誰にも休みや義務を生じません。')
+    && read('CALENDAR.en.md').includes('- Real public holidays and the birthdays or death days of real people are not made days of the kingdom.'));
+}
+
+console.log('\n32. 物語・言葉・仕組み・紹介・遊び・しるし');
+{
+  const press = read('site/press.html'), knights = B.tableRows('KNIGHTS.md').length, items = B.gazetteItems().length;
+  ok('紹介の事実の表は、正誤表・名簿・官報・頁の元から数える（版図 ' + B.domain() + '、人口 ' + knights + '、官報 ' + items + '、頁 ' + B.SOURCES.length + '）',
+    press.includes('<td>版図（王の正誤表の誤り）</td><td>' + B.domain() + ' 件</td>') && press.includes('<td>人口（正誤表騎士団の騎士）</td><td>' + knights + ' 人</td>')
+    && press.includes('<td>官報</td><td>' + items + ' 号</td>') && press.includes('<td>頁（日本語と英語）</td><td>' + B.SOURCES.length + '</td>') && press.includes('<td>建国の日</td><td>' + B.FOUNDED + '</td>')
+    && read('README.md').includes('―― 騎士王ネモ一世　' + B.FOUNDED.replace(/^(\d+)-(\d+)-(\d+)$/, (m, y, mo, d) => y + '年' + Number(mo) + '月' + Number(d) + '日')));
+  const census = [...press.matchAll(/<tr><td>(\d{4})<\/td><td>(\d+)<\/td><td>(\d+)<\/td><td>(\d+)<\/td><td>(\d+)<\/td><\/tr>/g)];
+  ok('年ごとの国勢の表を足すと、正誤・叙任・官報の全体になる', census.length > 0 && census.reduce((a, m) => a + Number(m[2]), 0) === B.domain()
+    && census.reduce((a, m) => a + Number(m[3]), 0) === knights && census.reduce((a, m) => a + Number(m[4]), 0) === items);
+  ok('紹介に添える二文は、創作であることと、運営者のほかの活動と関係がないことを書く（日本語と英語）',
+    read('PRESS.md').includes('これは創作であり、遊びです。ヌスクァマは国家ではなく、ここで授ける称号に法的な効力はありません。') && read('PRESS.md').includes('ヌスクァマは遊びの創作です。運営者のほかの活動とは関係がありません。')
+    && read('PRESS.en.md').includes('Nusquama is a playful fiction. It has no connection with the operator\'s other activities.'));
+  const inst = read('INSTITUTIONS.md');
+  const sec = (h) => { const i = inst.indexOf('\n## ' + h + '\n'); return i < 0 ? '' : inst.slice(i + 1, inst.indexOf('\n## ', i + 5) < 0 ? undefined : inst.indexOf('\n## ', i + 5)); };
+  ok('国の仕組みが、凍結・解散・終わりの言葉・十年の見通しを持ち、解散は求めに応じる期間を 30 日以上置き、リポジトリを消さない',
+    ['凍結', '解散', '終わりの言葉', '十年の見通し', '恩赦', '改めるとき'].every((h) => sec(h)) && sec('解散').includes('少なくとも 30 日') && sec('解散').includes('リポジトリは消さず')
+    && sec('十年の見通し').includes('- 土地・通貨・旅券・証書・物は作りません。'));
+  const R = require('../tools/review.js');
+  const bullets = sec('年一回の総点検').split('\n').filter((l) => l.startsWith('- '));
+  const wf = read('.github/workflows/review.yml');
+  ok('年一回の総点検は、建国の日に issue を開き、本文は国の仕組みの箇条（' + bullets.length + ' 項）そのまま。同じ年に二度開かない',
+    /cron: '17 0 7 11 \*'/.test(wf) && wf.includes('node tools/review.js') && wf.includes('grep -qxF') && /issues: write/.test(wf)
+    && bullets.length >= 5 && bullets.every((b) => R.body('2026').includes('- [ ] ' + b.slice(2))) && R.body('2026').startsWith('> これは創作であり、遊びです。'));
+  const lex = read('LEXICON.md');
+  ok('国の言葉は、正誤表の島の名のもとの語（' + B.KINDS.length + '）を持ち、誤りを含む二文をラテン語に移さない',
+    ['factum', 'verbum', 'lex', 'finis', 'littera', 'numerus'].every((w) => lex.includes('| ' + w + ' |')) && !/Morus|Thomas|Utopia|locus/i.test(lex.slice(lex.indexOf('## 建国の宣言のラテン語')))
+    && lex.includes('辞書では確かめていません'));
+  const flag = read('assets/flag.svg'), sym = read('SYMBOLS.md');
+  const r = [...flag.matchAll(/<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"/g)].map((m) => m.slice(1).map(Number));
+  ok('国旗の作図の数は、国旗の画像の座標そのまま（黄金比の矩形・切り出す正方形・角石）',
+    r.some(([x, y, w, h]) => x === 183 && y === 155 && w === 534 && h === 330) && sym.includes('左上の角は (183, 155)') && sym.includes('横 534、縦 330')
+    && ['330', '204', '126', '77.9', '48.1', '29.8'].every((v) => r.some(([, , w]) => w.toFixed(1).replace(/\.0$/, '') === v || String(w) === v)) && sym.includes('330、204、126、77.9、48.1、29.8')
+    && r.filter(([, y, w]) => y === 99 && w === 24).length === 3 && sym.includes('上の端は 99'));
+  const emblemColors = [...new Set((read('assets/emblem.svg').match(/#[0-9a-f]{6}/gi) || []).map((c) => c.toLowerCase()))];
+  ok('国の色の表が、国章の色（' + emblemColors.length + ' 色）をすべて挙げ、商標に出願しないと書く', emblemColors.every((c) => sym.includes('`' + c + '`'))
+    && sym.includes('運営者は、国の名・国章・国旗を、商標として出願しません。') && sym.includes('国旗と版図の地図も、文と国章と同じく CC BY 4.0 です。'));
+  ok('叙任の規程が、騎士の呼び方に飾りの語を足さないと書く（日本語と英語）', read('policies/knighting.md').includes('呼ぶときは「騎士 アカウント名」とし、ほかの呼び名や飾りの語を足しません。')
+    && read('policies/knighting.en.md').includes('with no other title or adornment added.'));
+  const play = read('PLAY.md');
+  const listIn = (h) => { const i = play.indexOf('\n## ' + h + '\n'); const j = play.indexOf('\n## ', i + 5); return play.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\d+\. /.test(l)); };
+  const tri = B.KINDS.find((k) => k.shape === 'triangle');
+  ok('遊びの問いと答えの数がそろい、答えが国の決まりと合う（地図の三角形・正誤の日）',
+    listIn('誤り探しの練習').length === listIn('練習の答え').length && listIn('国の仕組みの問い').length === listIn('問いの答え').length && listIn('問いの答え').length === 10
+    && listIn('問いの答え')[9].startsWith('10. ' + tri.ja + '（') && listIn('問いの答え')[8].startsWith('9. 11 月 8 日') && read('CALENDAR.md').includes('| 11 月 8 日 | 正誤の日 |'));
+}
+
+console.log('\n33. 頁の形（読み上げと印刷）');
+{
+  const html = walk(path.join(ROOT, 'site')).filter((f) => f.endsWith('.html'));
+  const bad = [];
+  for (const f of html) {
+    const t = read('site/' + f);
+    const main = (/<main id="main">([\s\S]*)<\/main>/.exec(t) || [])[1] || '';
+    const levels = [...main.matchAll(/<h([1-6])[ >]/g)].map((m) => Number(m[1]));
+    if (!/<html lang="(ja|en)">/.test(t)) bad.push(f + '：lang');
+    if ((t.match(/<h1[ >]/g) || []).length !== 1) bad.push(f + '：h1');
+    if (levels.some((l, i) => i > 0 && l > levels[i - 1] + 1)) bad.push(f + '：見出しの段を飛ばす');
+    if ((t.match(/<img /g) || []).length !== (t.match(/<img [^>]*alt="[^"]*"/g) || []).length) bad.push(f + '：alt');
+    if ((main.match(/<svg /g) || []).length !== (main.match(/<svg [^>]*aria-labelledby="(\w+)"[^>]*>\s*<title id="\1">/g) || []).length) bad.push(f + '：svg の題');
+    if (f.endsWith('.en.html') && /<p>[^<]*[a-z][.?!]["”)]?[A-Z][a-z]/.test(main.replace(/<a [^>]*>|<\/a>/g, ''))) bad.push(f + '：英文の文がつながっている');
+  }
+  ok('どの頁（' + html.length + '）も lang と h1 を一つ持ち、見出しの段を飛ばさず、画像に alt、図に題があり、英文の文と文の間が空く', bad.length === 0, bad.slice(0, 8).join(' / '));
+  ok('印刷のときは、案内と下の欄を隠し、外へのリンクの所在を書き出す', /@media print \{[^}]*\.skip, footer ul/.test(read('site/index.html')) && read('site/index.html').includes('content: " <" attr(href) ">"'));
 }
 
 console.log('\n' + '-'.repeat(56));

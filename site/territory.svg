@@ -6,11 +6,11 @@
 <rect x="187.0" y="143.0" width="8" height="60" fill="#e8cf74"/>
 <rect x="93.0" y="148.2" width="26" height="26" fill="#c9a227"/>
 <rect x="224.1" y="119.2" width="26" height="26" fill="#c9a227"/>
-<rect x="138.4" y="240.4" width="26" height="26" fill="#c9a227"/>
-<rect x="118.5" y="80.2" width="26" height="26" fill="#c9a227"/>
-<rect x="250.3" y="193.0" width="26" height="26" fill="#c9a227"/>
-<rect x="65.7" y="198.9" width="26" height="26" fill="#c9a227"/>
-<rect x="205.6" y="62.6" width="26" height="26" fill="#c9a227"/>
-<rect x="193.7" y="267.6" width="26" height="26" fill="#c9a227"/>
-<rect x="58.1" y="100.9" width="26" height="26" fill="#c9a227"/>
+<polygon points="151.4,237.4 167.4,253.4 151.4,269.4 135.4,253.4" fill="#c9a227"/>
+<polygon points="146.5,93.2 139.0,106.2 124.0,106.2 116.5,93.2 124.0,80.2 139.0,80.2" fill="#c9a227"/>
+<polygon points="263.3,190.0 277.2,214.0 249.5,214.0" fill="#c9a227"/>
+<polygon points="93.7,211.9 86.2,224.9 71.2,224.9 63.7,211.9 71.2,198.9 86.2,198.9" fill="#c9a227"/>
+<polygon points="233.6,75.6 226.1,88.6 211.1,88.6 203.6,75.6 211.1,62.6 226.1,62.6" fill="#c9a227"/>
+<polygon points="206.7,264.6 220.6,288.6 192.9,288.6" fill="#c9a227"/>
+<polygon points="71.1,97.9 85.0,121.9 57.2,121.9" fill="#c9a227"/>
 </svg>

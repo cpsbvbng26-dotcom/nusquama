@@ -52,6 +52,11 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 - [国のしるし](https://nusquama.vercel.app/symbols.html)
 - [暦と祝日](https://nusquama.vercel.app/calendar.html)
 - [官報](https://nusquama.vercel.app/gazette.html)
+- [建国の物語](https://nusquama.vercel.app/story.html)
+- [国の言葉](https://nusquama.vercel.app/lexicon.html)
+- [国の仕組み](https://nusquama.vercel.app/institutions.html)
+- [紹介する人のために](https://nusquama.vercel.app/press.html)
+- [遊び](https://nusquama.vercel.app/play.html)
 
 ## 規程
 
@@ -72,6 +77,11 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 - [Symbols of the kingdom](https://nusquama.vercel.app/symbols.en.html)
 - [Calendar and days of the kingdom](https://nusquama.vercel.app/calendar.en.html)
 - [Gazette](https://nusquama.vercel.app/gazette.en.html)
+- [The story of the founding](https://nusquama.vercel.app/story.en.html)
+- [Words of the kingdom](https://nusquama.vercel.app/lexicon.en.html)
+- [Institutions](https://nusquama.vercel.app/institutions.en.html)
+- [For anyone introducing Nusquama](https://nusquama.vercel.app/press.en.html)
+- [Play](https://nusquama.vercel.app/play.en.html)
 - [Terms of Use](https://nusquama.vercel.app/policies/terms.en.html)
 - [Disclaimer](https://nusquama.vercel.app/policies/disclaimer.en.html)
 - [Privacy](https://nusquama.vercel.app/policies/privacy.en.html)
@@ -88,3 +98,4 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 - [王の正誤表の新着（Atom）](https://nusquama.vercel.app/errata.xml)
 - [騎士の名簿の新着（Atom）](https://nusquama.vercel.app/knights.xml)
 - [官報の新着（Atom）](https://nusquama.vercel.app/gazette.xml)
+- [暦（iCalendar）](https://nusquama.vercel.app/calendar.ics)

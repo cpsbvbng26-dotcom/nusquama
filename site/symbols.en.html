@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-mde1DnYLaIO0eE96Y1uYBL3lH4KiEkvXq/obyYfhwOg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-oj9tOXS64USi8mdrgFLFkCXmM7ogmYpL0nV0xiVeJ7w='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Symbols of the kingdom | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="This is an English translation. The Japanese version governs; if the two differ, the Japanese version applies.">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -46,8 +46,12 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+th:first-child, td:first-child { white-space: nowrap; }
 footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 40px; font-size: 14px; color: var(--muted); }
-footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }</style>
+footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
+.pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+@media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -64,12 +68,34 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <p>It does not take the form of bands side by side or one above the other, so that it is not mistaken for the flag of a real country.</p>
 <h2>The map of the domain</h2>
 <img class="emblem" src="territory.svg" alt="The map of the domain (fiction)">
-<p>Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.The three pillars in the middle of the map are the King's bookshelf. The gold plots around them are the mistakes recorded in the <a href="errata.en.html">King's errata</a>.Each mistake recorded adds one plot. The map is drawn from the errata, not by hand.</p>
+<p>Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public. The three pillars in the middle of the map are the King's bookshelf. The gold plots around them are the mistakes recorded in the <a href="errata.en.html">King's errata</a>. Each mistake recorded adds one plot. The map is drawn from the errata, not by hand.</p>
+<h2>How the flag is drawn</h2>
+<p>The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates of the <a href="flag.svg">flag image</a> as they are.</p>
+<ol><li>Fill the field with navy.</li><li>Draw a gold border 8 thick, 24 in from the edge.</li><li>Draw a golden rectangle 534 wide and 330 high in light-gold lines 6 thick, with its top-left corner at (183, 155).</li><li>Cut squares out of the rectangle one by one. Their sides shrink by the golden ratio: 330, 204, 126, 77.9, 48.1, 29.8.</li><li>Above the rectangle, set three gold squares (the corner stones) with sides of 24, 12 apart, their top edge at 99.</li></ol>
+<h2>How the flag is flown</h2>
+<ul><li>The flag is flown only on screens. The King makes no flags of cloth or paper.</li><li>It is not set beside the flag of a real country so as to look like one of them.</li><li>The flag and the map of the domain, like the text and the emblem, are under CC BY 4.0. The rules for their use are in <a href="policies/names.en.html">Names and rights</a>.</li></ul>
+<h2>Colours</h2>
+<div class="table"><table><tr><th scope="col">Name</th><th scope="col">Colour code</th><th scope="col">Where it is used</th></tr><tr><td>Navy</td><td><code>#14213d</code></td><td>the field of the shield and of the flag, the sea of the map</td></tr><tr><td>Gold</td><td><code>#c9a227</code></td><td>borders, corner stones, the parcels of the map</td></tr><tr><td>Light gold</td><td><code>#e8cf74</code></td><td>the golden rectangle, the sword, the bookshelf on the map</td></tr><tr><td>Deep navy</td><td><code>#0b1428</code></td><td>the groove of the sword in the emblem</td></tr></table></div>
+<p>The flag and the map of the domain use only navy, gold and light gold.</p>
+<h2>Typeface</h2>
+<p>The symbols use no typeface, so that they look the same on every device. The text of the pages is shown in a Mincho typeface already on the reader's device (Hiragino Mincho, Yu Mincho and Noto Serif JP, in that order). No font files are served.</p>
+<h2>The sign of the kingdom</h2>
+<p>When the kingdom is shown by a character alone, ∅ (the empty set sign, U+2205) is used, because the kingdom is nowhere. Emoji are not used, because their shape changes from device to device.</p>
+<h2>Creature and flower of the kingdom</h2>
+<ul><li>Creature: the snail, because it leaves a trail where it has been, as the King leaves the trail of his mistakes.</li><li>Flower: the forget-me-not, so that mistakes are not forgotten.</li></ul>
+<p>Both are defined in words, not drawn. A drawing would make them more likely to be mistaken for real insignia.</p>
+<h2>Time and units</h2>
+<ul><li>The time of the kingdom is Japan Standard Time. The date changes at the same moment.</li><li>The size of the domain is counted in errata: one entry in the King's errata is one erratum.</li></ul>
+<h2>Words of the anthem</h2>
+<p>There is no music; only the words are given. No one is required to sing them.</p>
+<ul><li>I. On a sea that is nowhere / the King's bookshelf, three pillars / each time a mistake is admitted / the island grows by one.</li><li>II. The sword is not drawn and points down / the shield keeps dates and words / an erased mistake is a second mistake / a mistake not erased is our land.</li><li>III. One king who is no one / rules himself and corrects himself / one rank, the knight / no money taken, only names recorded.</li></ul>
+<h2>Trade marks</h2>
+<p>The operator will not apply to register the kingdom's name, emblem or flag as a trade mark, so that no one holds the symbols alone.</p>
 <h2>What is not made</h2>
-<p>As the <a href="policies/terms.en.html">Terms of Use</a> say, Nusquama makes and hands out no objects such as decorations, insignia, uniforms or certificates.No insignia or certificate is given to knights either. Knighting only puts an account name on the <a href="knights.en.html">roll of knights</a> (<a href="policies/knighting.en.html">Rules on Knighting</a>).</p>
+<p>As the <a href="policies/terms.en.html">Terms of Use</a> say, Nusquama makes and hands out no objects such as decorations, insignia, uniforms or certificates. No insignia or certificate is given to knights either. Knighting only puts an account name on the <a href="knights.en.html">roll of knights</a> (<a href="policies/knighting.en.html">Rules on Knighting</a>).</p>
 </main>
 <footer>
-<ul><li><a href="./index.html">Top (Japanese)</a></li><li><a href="./founding.en.html">Founding Declaration, Basic Law and Ten Precepts</a></li><li><a href="./knights.en.html">Roll of the Order of the Errata (Ordo Erratorum)</a></li><li><a href="./errata.en.html">The King's errata</a></li><li><a href="./symbols.en.html">Symbols of the kingdom</a></li><li><a href="./calendar.en.html">Calendar and days of the kingdom</a></li><li><a href="./gazette.en.html">Gazette</a></li><li><a href="./policies/terms.en.html">Terms of Use</a></li><li><a href="./policies/disclaimer.en.html">Disclaimer</a></li><li><a href="./policies/privacy.en.html">Privacy</a></li><li><a href="./policies/knighting.en.html">Rules on Knighting</a></li><li><a href="./policies/requests.en.html">Requests for removal, correction or withdrawal</a></li><li><a href="./policies/names.en.html">Names and rights</a></li><li><a href="./policies/legality.en.html">Legality Statement</a></li><li><a href="./policies/exchange.en.html">Rules on exchange</a></li><li><a href="./symbols.html">日本語</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
+<ul><li><a href="./index.html">Top (Japanese)</a></li><li><a href="./founding.en.html">Founding Declaration, Basic Law and Ten Precepts</a></li><li><a href="./knights.en.html">Roll of the Order of the Errata (Ordo Erratorum)</a></li><li><a href="./errata.en.html">The King's errata</a></li><li><a href="./symbols.en.html">Symbols of the kingdom</a></li><li><a href="./calendar.en.html">Calendar and days of the kingdom</a></li><li><a href="./gazette.en.html">Gazette</a></li><li><a href="./story.en.html">The story of the founding</a></li><li><a href="./lexicon.en.html">Words of the kingdom</a></li><li><a href="./institutions.en.html">Institutions</a></li><li><a href="./press.en.html">For anyone introducing Nusquama</a></li><li><a href="./play.en.html">Play</a></li><li><a href="./policies/terms.en.html">Terms of Use</a></li><li><a href="./policies/disclaimer.en.html">Disclaimer</a></li><li><a href="./policies/privacy.en.html">Privacy</a></li><li><a href="./policies/knighting.en.html">Rules on Knighting</a></li><li><a href="./policies/requests.en.html">Requests for removal, correction or withdrawal</a></li><li><a href="./policies/names.en.html">Names and rights</a></li><li><a href="./policies/legality.en.html">Legality Statement</a></li><li><a href="./policies/exchange.en.html">Rules on exchange</a></li><li><a href="./symbols.html">日本語</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
 <p>Text and emblem: CC BY 4.0. This page is generated from SYMBOLS.en.md in the repository. The Japanese version governs.</p>
 <p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>
 </footer>
