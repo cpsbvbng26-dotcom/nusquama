@@ -23,10 +23,12 @@ const GOOGLE_SITE_VERIFICATION = 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8';
 /* 頁の元。README がトップ、名簿、王の正誤表、規程。 */
 const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality', 'exchange'];
 /* 英語の訳がある規程。日本語の版を正とする。 */
-const EN = ['terms', 'disclaimer', 'legality'];
+const EN = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality', 'exchange'];
+/* 英語の訳がある、トップ以外の頁。KNIGHTS.md には KNIGHTS.en.md が対になる。 */
+const ROOT_EN = [['KNIGHTS', 'knights'], ['ERRATA', 'errata'], ['SYMBOLS', 'symbols'], ['CALENDAR', 'calendar'], ['GAZETTE', 'gazette']];
 const SOURCES = [['README.md', 'index.html'], ['KNIGHTS.md', 'knights.html'], ['ERRATA.md', 'errata.html'], ['SYMBOLS.md', 'symbols.html'], ['CALENDAR.md', 'calendar.html'], ['GAZETTE.md', 'gazette.html']]
   .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']))
-  .concat(EN.map((p) => ['policies/' + p + '.en.md', 'policies/' + p + '.en.html']), [['founding.en.md', 'founding.en.html']]);
+  .concat(EN.map((p) => ['policies/' + p + '.en.md', 'policies/' + p + '.en.html']), [['founding.en.md', 'founding.en.html']], ROOT_EN.map(([f, h]) => [f + '.en.md', h + '.en.html']));
 const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png', 'flag.svg'];
 /* build.js が描く画像。版図の地図は正誤表から。 */
 const DRAWN = ['territory.svg'];
@@ -212,14 +214,14 @@ function timelineRows() {
   return part.split('\n').filter((l) => /^\| \d{4}-\d{2}-\d{2}/.test(l)).map((l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()));
 }
 function gazetteItems() {
-  const items = timelineRows().map(([d, what]) => ({ date: d.slice(0, 10), kind: '年表', text: plainText(what) }))
-    .concat(tableRows('ERRATA.md').map((r) => ({ date: r[1], kind: '王の正誤表', text: '第 ' + r[0] + ' 件を記す（' + plainText(r[2]) + '）' })))
-    .concat(tableRows('KNIGHTS.md').map((r) => ({ date: r[2], kind: '騎士の名簿', text: '第 ' + r[0] + ' 番の騎士 ' + plainText(r[1]) + ' を叙任する' })));
+  const items = timelineRows().map(([d, what, en]) => ({ date: d.slice(0, 10), kind: '年表', kindEn: 'Timeline', text: plainText(what), textEn: plainText(en || '') }))
+    .concat(tableRows('ERRATA.md').map((r) => ({ date: r[1], kind: '王の正誤表', kindEn: "King's errata", text: '第 ' + r[0] + ' 件を記す（' + plainText(r[2]) + '）', textEn: 'Entry ' + r[0] + ' is recorded' })))
+    .concat(tableRows('KNIGHTS.md').map((r) => ({ date: r[2], kind: '騎士の名簿', kindEn: 'Roll of knights', text: '第 ' + r[0] + ' 番の騎士 ' + plainText(r[1]) + ' を叙任する', textEn: plainText(r[1]) + ' is knighted as knight no. ' + r[0] })));
   return items.map((x, k) => Object.assign(x, { k })).sort((a, b) => (a.date === b.date ? b.k - a.k : a.date < b.date ? 1 : -1));
 }
-function gazetteTable() {
-  return '<div class="table"><table><tr><th scope="col">日付</th><th scope="col">もと</th><th scope="col">布告</th></tr>'
-    + gazetteItems().map((x) => `<tr><td>${esc(x.date)}</td><td>${esc(x.kind)}</td><td>${esc(x.text)}</td></tr>`).join('') + '</table></div>';
+function gazetteTable(en = false) {
+  return '<div class="table"><table><tr>' + (en ? '<th scope="col">Date</th><th scope="col">From</th><th scope="col">Proclamation</th>' : '<th scope="col">日付</th><th scope="col">もと</th><th scope="col">布告</th>') + '</tr>'
+    + gazetteItems().map((x) => `<tr><td>${esc(x.date)}</td><td>${esc(en ? x.kindEn : x.kind)}</td><td>${esc(en ? x.textEn : x.text)}</td></tr>`).join('') + '</table></div>';
 }
 function gazetteAtom() {
   const items = gazetteItems();
@@ -244,9 +246,10 @@ function page(srcRel, outRel) {
   const en = srcRel.endsWith('.en.md');
   const h1of = (rel) => (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, rel), 'utf8')) || [])[1];
   const slug = (/^policies\/(\w+)(?:\.en)?\.md$/.exec(srcRel) || [])[1];
-  const twin = slug && EN.includes(slug) ? 'policies/' + slug + (en ? '.html' : '.en.html') : null;
+  const root = ROOT_EN.find(([f]) => srcRel === f + '.md' || srcRel === f + '.en.md');
+  const twin = slug && EN.includes(slug) ? 'policies/' + slug + (en ? '.html' : '.en.html') : root ? root[1] + (en ? '.html' : '.en.html') : null;
   const links = en
-    ? [['index.html', 'Top (Japanese)'], ['founding.en.html', h1of('founding.en.md')]].concat(EN.map((p) => ['policies/' + p + '.en.html', h1of('policies/' + p + '.en.md')]), twin ? [[twin, '日本語']] : [])
+    ? [['index.html', 'Top (Japanese)'], ['founding.en.html', h1of('founding.en.md')]].concat(ROOT_EN.map(([f, h]) => [h + '.en.html', h1of(f + '.en.md')]), EN.map((p) => ['policies/' + p + '.en.html', h1of('policies/' + p + '.en.md')]), twin ? [[twin, '日本語']] : [])
     : [['index.html', 'トップ'], ['knights.html', '騎士の名簿'], ['errata.html', '王の正誤表'], ['symbols.html', '国のしるし'], ['calendar.html', '暦と祝日'], ['gazette.html', '官報']].concat(POLICIES.map((p) => ['policies/' + p + '.html', h1of('policies/' + p + '.md')]), twin ? [[twin, 'English']] : []);
   const alternate = twin ? `<link rel="alternate" hreflang="${en ? 'ja' : 'en'}" href="${BASE + twin}">\n` : '';
   return `<!doctype html>
@@ -276,7 +279,7 @@ ${alternate}${en ? '' : `<link rel="alternate" type="application/atom+xml" title
 <a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
 <header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a></header>
 <main id="main">
-${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${markdown(md, srcRel, outRel).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : ''}
+${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${markdown(md, srcRel, outRel).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : outRel === 'gazette.en.html' ? '\n' + gazetteTable(true) : ''}
 </main>
 <footer>
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
@@ -332,7 +335,7 @@ function llmsTxt() {
     + '## 頁\n\n'
     + link('index.html', 'トップ（建国の宣言と基本法）') + link('knights.html', h1('KNIGHTS.md') || '騎士の名簿') + link('errata.html', h1('ERRATA.md') || '王の正誤表') + link('symbols.html', h1('SYMBOLS.md')) + link('calendar.html', h1('CALENDAR.md')) + link('gazette.html', h1('GAZETTE.md'))
     + '\n## 規程\n\n' + POLICIES.map((x) => link('policies/' + x + '.html', h1('policies/' + x + '.md'))).join('')
-    + '\n## English (translations; the Japanese version governs)\n\n' + link('founding.en.html', h1('founding.en.md')) + EN.map((x) => link('policies/' + x + '.en.html', h1('policies/' + x + '.en.md'))).join('')
+    + '\n## English (translations; the Japanese version governs)\n\n' + link('founding.en.html', h1('founding.en.md')) + ROOT_EN.map(([f, h]) => link(h + '.en.html', h1(f + '.en.md'))).join('') + EN.map((x) => link('policies/' + x + '.en.html', h1('policies/' + x + '.en.md'))).join('')
     + '\n## その他\n\n- [サイトの元とすべての履歴](' + REPO + ')\n- [サイトマップ](' + BASE + 'sitemap.xml)\n- [王の正誤表の新着（Atom）](' + BASE + 'errata.xml)\n- [騎士の名簿の新着（Atom）](' + BASE + 'knights.xml)\n- [官報の新着（Atom）](' + BASE + 'gazette.xml)\n';
 }
 function llmsFull() {
@@ -368,7 +371,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;

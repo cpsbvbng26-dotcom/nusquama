@@ -122,19 +122,19 @@ Source: https://nusquama.vercel.app/
 
 王の誤りは、[王の正誤表](ERRATA.md)に日付を付けて記す（基本法第五条）。
 
-| 日付 | 出来事 |
-| --- | --- |
-| 2026-11-07 | 建国。基本法と十則を定め、国章を描く |
-| 2026-11-07 | サイトを開き、規程を定める |
-| 2026-11-08（日本時間） | MicroWiki（日本語版）に記事を書く |
-| 2026-11-08（日本時間） | X で建国を知らせる |
-| 2026-11-08（日本時間） | 適法性の説明を定める |
-| 2026-11-08（日本時間） | 悪意がないことと、法令を守ることを規程に書く |
-| 2026-11-08（日本時間） | 王の正誤表を開き、最初の三件を記す |
-| 2026-11-08（日本時間） | 規程を厳しく見直す（免責の書き方、16 歳以上、国の法令の誓い、開示の求め） |
-| 2026-11-08（日本時間） | 紛争は示談を優先すると定め、合意管轄の裁判所を宇都宮地方裁判所と宇都宮簡易裁判所に定める |
-| 2026-11-08（日本時間） | 適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す |
-| 2026-11-10（日本時間） | 国旗と版図の地図、暦と祝日、官報、交流の規程を定める |
+| 日付 | 出来事 | English |
+| --- | --- | --- |
+| 2026-11-07 | 建国。基本法と十則を定め、国章を描く | Founding. The Basic Law and the Ten Precepts are laid down and the emblem is drawn |
+| 2026-11-07 | サイトを開き、規程を定める | The site opens and the rules are laid down |
+| 2026-11-08（日本時間） | MicroWiki（日本語版）に記事を書く | An article is written on MicroWiki (Japanese edition) |
+| 2026-11-08（日本時間） | X で建国を知らせる | The founding is announced on X |
+| 2026-11-08（日本時間） | 適法性の説明を定める | The Legality Statement is laid down |
+| 2026-11-08（日本時間） | 悪意がないことと、法令を守ることを規程に書く | The rules state that there is no ill intent and that the law is obeyed |
+| 2026-11-08（日本時間） | 王の正誤表を開き、最初の三件を記す | The King's errata are opened and the first three entries recorded |
+| 2026-11-08（日本時間） | 規程を厳しく見直す（免責の書き方、16 歳以上、国の法令の誓い、開示の求め） | The rules are strictly reviewed (the wording of the disclaimer, age 16 and over, the pledge on the law of one's country, requests for disclosure) |
+| 2026-11-08（日本時間） | 紛争は示談を優先すると定め、合意管轄の裁判所を宇都宮地方裁判所と宇都宮簡易裁判所に定める | Disputes are to be settled by agreement first, and the Utsunomiya District Court and Summary Court are set as the agreed courts |
+| 2026-11-08（日本時間） | 適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す | Legality is reviewed again by five methods (requirements as logic, coverage, consistency, fault trees, breaking to confirm) |
+| 2026-11-10（日本時間） | 国旗と版図の地図、暦と祝日、官報、交流の規程を定める | The flag, the map of the domain, the calendar, the gazette and the Rules on exchange are laid down |
 
 ---
 
@@ -151,7 +151,7 @@ Source: https://nusquama.vercel.app/
 
 国のしるし（国旗と版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 
-English (translation; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Legality Statement](policies/legality.en.md)
+English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md)
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
@@ -1164,6 +1164,274 @@ Nusquama is not affiliated with Anthropic and is not endorsed by it.
 
 ---
 
+Source: https://nusquama.vercel.app/policies/privacy.en.html
+
+# Privacy
+
+Last updated: 2026-11-09.
+
+This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
+
+## Who handles the data
+
+The operator of Nusquama, an individual who owns the GitHub account cpsbvbng26-dotcom.
+The operator handles personal data in line with Japan's Act on the Protection of Personal Information.
+The operator's name and address are given without delay, on request, through a private channel.
+
+## What the site collects
+
+The site uses no cookies and has no analytics and no advertising.
+The pages of the site request nothing from any other server.
+The site is served by Vercel (United States). To serve it, Vercel may process and log requests, including IP addresses. Vercel handles them under its own privacy policy.
+
+## What an application for knighthood involves
+
+Applications for knighthood are received as public issues on GitHub (United States).
+An application involves:
+
+- The GitHub account name
+- A public link to the correction
+- An account of what was wrong and how it was corrected
+
+These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
+No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
+Nothing sensitive, such as illness, disability, belief or criminal record, is asked for either, and the form asks applicants not to write it.
+But if the linked correction gives a real name or affiliation, the roll and the issue publicly connect the account name with that person.
+Issues are also subject to GitHub's Terms of Service and Privacy Statement.
+When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and opens the link to the correction once.
+For the link, it looks only at the status of the response, which shows whether the link opens. It does not read what is there, and keeps nothing of it.
+
+## Purposes of use
+
+To decide on knighting, to keep the roll, and to answer requests. Nothing else.
+
+## Providing data to others, and businesses in other countries
+
+The information above is public on the services of GitHub and Vercel, both in the United States.
+An applicant agrees, by a pledge in the form, to its being public and handled by these services.
+The United States has no federal law that covers personal data comprehensively, like Japan's Act on the Protection of Personal Information. There are state laws, and the rights a person has differ by state and sector. There is no single authority for personal data for the whole country.
+GitHub's measures are in [GitHub's Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement), and Vercel's in [Vercel's Privacy Notice](https://vercel.com/legal/privacy-notice).
+There are two cases in which GitHub and Vercel use public content themselves, each set out in their terms; Nusquama cannot change them. GitHub's Terms of Service allow GitHub and its affiliates to use what is placed in issues and public repositories (including the applications and the roll) for AI features and to train the models of its affiliates (D.4). There is no setting to stop this for public content (J.3). Vercel's Terms of Service allow Vercel, on the free Hobby plan that serves Nusquama, to use the content of the site (including the roll) to train AI and machine-learning models, and to give it to third parties for that purpose, unless the account's team turns this off (section 3).
+If these uses worry you because of your personal data, do not apply. A knight may ask at any time to be taken off the roll, and their name is then taken off it.
+GitHub and Vercel are not processors handling personal data on the operator's behalf. They are used as the place of publication and of serving, after their terms and policies were checked.
+Except where the law requires, nothing is given to any other third party.
+
+## How long data is kept
+
+An entry on the roll is kept until a request to withdraw.
+The issue of a declined application is kept, to show the one sentence of the decline; it is deleted if the applicant asks.
+On a request to delete, the operator deletes the issue, or empties its body and removes the earlier versions from its edit history too.
+The history of the repository, and copies already made by others, may still hold an entry.
+
+## Security measures
+
+The only personal data handled is what is in the public issues and on the roll of knights. It is gathered nowhere else and no other copy is made.
+Only the operator's GitHub account, which owns the repository, can change the roll and the site.
+That account uses two-factor authentication.
+Every change to the roll and the site is kept in the public history of the repository and goes in only after passing the checks.
+The site has no cookies and no database, and collects nothing from its readers.
+How handling in other countries is prepared for is set out above, under "Providing data to others, and businesses in other countries".
+
+## If a leak or the like occurs
+
+If a leak, loss or damage of personal data occurs that the law requires to be reported, the operator reports it to the Personal Information Protection Commission.
+The persons concerned are then told too, in their application issue or on the page of the roll.
+If the operator's GitHub account is taken over and the roll is altered or erased, this is treated in the same way.
+
+## Requests for disclosure, correction, suspension of use and deletion
+
+Anyone may ask at any time for an entry about them to be corrected or deleted, or to be taken off the roll.
+Requests for disclosure of retained personal data and for suspension of its use are also met.
+The procedure is in [Requests for removal, correction or withdrawal](./requests.en.md). There is no charge.
+Any matter that Article 32 of the Act on the Protection of Personal Information requires to be made known and that is not on this page is answered without delay on request.
+Complaints about the handling of personal data are received through the same request form.
+
+## Minors
+
+A person under 16 may not apply for knighthood.
+The Q&A of the Personal Information Protection Commission says that, in general, the consent of a legal representative or the like is needed for children up to the age of 12 to 15 ([Q&A](https://www.ppc.go.jp/personalinfo/faq/APPI_QA/), Q1-62, checked on 2026-11-08). Nusquama has no means to check such consent, so it accepts no application from a person under 16.
+When an application turns out to be from a person under 16, the name is taken off the roll and the issue is deleted, without being asked.
+
+## Changes to this policy
+
+When this policy changes, the date on this page is changed.
+Earlier versions remain in the public repository.
+
+---
+
+Source: https://nusquama.vercel.app/policies/knighting.en.html
+
+# Rules on Knighting
+
+Last updated: 2026-11-09.
+
+This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
+
+## What knighting is
+
+Knighting is giving the name of knight, within a work of fiction.
+It brings no legal effect, status, privilege or honour.
+Knighting is free. It is never given in exchange for money, goods or services (Basic Law, Article 6).
+Knighting issues no document or object, such as a letter of appointment, a certificate or an insignia. It only puts an account name on the roll.
+
+## Who may apply
+
+A person who has publicly corrected one of their own mistakes.
+The correction must be public and checkable by anyone, such as an erratum to a paper, a note added to a blog post or article, a fix to code, or a statement withdrawn.
+A person under 16 may not apply.
+A person whom the law of the country where they live forbids to receive or use a title of knighthood given by a private person may not apply either. For example, Article 8 of Italy's Law No. 178 of 1951 forbids private persons and bodies to confer titles of knighthood under any name.
+From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality.
+People who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
+A person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
+A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
+
+## How to apply
+
+Vercel, which serves the site, and GitHub, which keeps the applications, may use what is placed on them to train AI models. If you are worried about your personal data, do not apply. These uses are described in [Privacy](./privacy.en.md).
+
+1. Open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml).
+2. Give a public link to the correction, and say what was wrong and how you corrected it.
+3. Tick every one of the pledges.
+
+What an applicant agrees to is the version of the rules on the day of the application. That version can be checked in the history of the public repository.
+
+Do not write your real name, address, affiliation or contact details.
+
+## What the operator checks
+
+- That the link is public and reads as a correction.
+- That it reads as a correction of the applicant's own mistake.
+- That it contains no personal data of others and nothing that hurts others.
+- That every pledge in the form is ticked.
+- That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
+
+The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
+
+When an application issue is opened or edited, an automatic check looks at the ticks in the form and whether the link to the correction opens, and comments the result in the issue.
+The automatic check decides nothing. The operator decides on knighting.
+
+## What is not checked
+
+The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
+Nusquama gives no nationality. Knights are not its people.
+Age, country of residence and the country where the applicant is when applying are taken from the applicant's own declaration, by the ticks in the form.
+But what the linked correction clearly states is not overlooked.
+The person dealt with is the GitHub account that applied.
+If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
+If the application was from a person under 16, its issue is also deleted, without being asked.
+
+## What is declined
+
+No knighthood is given for:
+
+- Anything that is not a correction of a mistake (advertising, self-introduction, pointing out someone else's mistake, and so on).
+- Anything that cannot be checked (something not public, or a link that does not open).
+- Anything that falls under "What is not allowed" in the Terms of Use.
+- An application where the linked correction clearly shows that the applicant does not meet the conditions (age or country of residence).
+
+When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
+
+## The roll
+
+Those knighted are entered on the [roll of knights](../KNIGHTS.en.md) in the order of their knighting.
+There is only one rank, "knight", with nothing above or below it (Basic Law, Article 7).
+
+## Withdrawal and revocation
+
+A knight may ask at any time to be taken off the roll. No reason is needed. On withdrawal, their name is taken off the roll.
+The operator may revoke a knighthood when a knight uses the title outside this kingdom ([Terms of Use](./terms.en.md), "Titles"; Basic Law, Article 8) or breaks the Terms of Use. On revocation, the name is taken off the roll.
+The kingdom keeps its mistakes, but a person's name is different. A name taken off the roll is not kept even in a record of the revocation, unless the person asks for that.
+
+---
+
+Source: https://nusquama.vercel.app/policies/requests.en.html
+
+# Requests for removal, correction or withdrawal
+
+Last updated: 2026-11-08.
+
+This is an English translation. The [Japanese version](./requests.md) governs; if the two differ, the Japanese version applies.
+
+## What may be asked for
+
+- Withdrawal from the roll of knights (taking the name off).
+- Correction or deletion of an entry about oneself on the roll or in an issue.
+- Notice of the purpose of use, disclosure, correction, addition, deletion, suspension of use, erasure, or stopping the provision to third parties, of retained personal data about oneself.
+- Deletion of one's personal data written without one's consent.
+- Deletion of content that infringes one's rights (copyright, trademark, likeness and so on).
+- A change of wording where Nusquama may be mistaken for something real.
+
+There is no charge.
+
+## How to ask
+
+Open an issue with the form [Requests for removal, correction or withdrawal](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml), and say which entry it concerns and what is asked.
+Issues cannot be opened without a form.
+The only channel is GitHub. Nusquama has no contact outside GitHub. A free GitHub account is enough.
+A request may be made by an agent. In that case, the person concerned writes a word in the issue, from their own GitHub account, that they asked the agent.
+Do not copy the personal data in question into the issue. Say only where it is.
+
+## Requests that cannot be made in public
+
+If there is a reason a request cannot be written in public, choose "Ask for a private contact" as the kind in the form, and leave the rest empty.
+The operator answers with a way to make contact privately.
+A security problem with the site or the repository is reported in the same way ([How to report a security problem](../SECURITY.md)).
+
+## After a request
+
+The operator aims to answer each request within 7 days.
+Where the harm is serious, such as exposed personal data, the entry is taken down at once, before any decision.
+Withdrawal from the roll is granted whatever the reason.
+Requests for disclosure, correction, suspension of use and the like are met without delay. Disclosure is made in the way asked; when an electronic record is asked for, an electronic record is given.
+When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.
+When a request is not met, the reason is given.
+
+## What cannot be removed
+
+Earlier versions in the repository remain unless its history is rewritten. Copies already made by others are beyond the operator's reach.
+Earlier deployments kept at Vercel that contain the entry are deleted from Vercel on request.
+Where it must be erased from the history of the repository, the operator asks GitHub to remove it.
+
+---
+
+Source: https://nusquama.vercel.app/policies/names.en.html
+
+# Names and rights
+
+Last updated: 2026-11-08.
+
+This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
+
+## Where the names come from
+
+- **Nusquama**: a name formed from the Latin adverb nusquam ("nowhere"). In a letter to Erasmus dated 3 September 1516, Thomas More called the work later known as Utopia "Nusquama". The earlier wording is in the [King's errata](../ERRATA.en.md).
+- **Nemo**: Latin for "no one".
+- **Mukau (無何有)**: an old word for a place where nothing is, from the "land of nothing whatever" in the Zhuangzi.
+- **Rex Eques (Knight-King)**: a word joining knight and king.
+
+All of these come from common words or classics; none borrows the name of a particular work, body or person.
+Nusquama has no relation to Utopia, Twenty Thousand Leagues Under the Seas, works on the Arthurian legend, or their characters, pictures or coats of arms.
+
+## The emblem
+
+The emblem was drawn by the operator with rectangles and polygons only.
+It does not copy the arms or insignia of any real state, royal house, order of knighthood, decoration, university or company.
+
+## Licence
+
+The text and the emblem of Nusquama are published under CC BY 4.0 ([LICENSE](../LICENSE)).
+Anyone may copy, adapt and redistribute them, with attribution.
+But CC BY 4.0 neither gives effect to the titles of Nusquama nor allows the emblem to be used as a real insignia.
+CC BY 4.0 allows only what copyright covers. It does not reach other rights such as trademarks, or limits set by other laws.
+The emblem and the titles must not be used as if they were the insignia of a real body or official titles ([Terms of Use](./terms.en.md)). Such use may, apart from copyright, break the law (such as Article 1, item 15 of Japan's Minor Offenses Act).
+The text and the emblem were written with Claude Code at the operator's request. How far copyright reaches in what is made with a language model is not settled. CC BY 4.0 allows only as far as rights reach.
+
+## If you find an infringement of your rights
+
+If you think that any part of Nusquama infringes your rights, let us know as set out in [Requests for removal, correction or withdrawal](./requests.en.md).
+
+---
+
 Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
@@ -1362,6 +1630,40 @@ The Terms of Use put settlement by agreement first, and then name an agreed cour
 
 ---
 
+Source: https://nusquama.vercel.app/policies/exchange.en.html
+
+# Rules on exchange
+
+Last updated: 2026-11-10.
+
+This is an English translation. The [Japanese version](./exchange.md) governs; if the two differ, the Japanese version applies.
+
+## About these rules
+
+These rules set out how Nusquama deals with other micronations (self-declared states) and fictional countries.
+Nusquama is a work of fiction, not a state. Exchange, too, takes place within the fiction.
+
+## How exchange takes place
+
+- Exchange is limited to greetings and links to each other's pages.
+- No treaty, alliance or document of mutual recognition is concluded, so that no promise looks like a relation between states.
+- No title, decoration or rank is conferred on each other. The only thing Nusquama gives is knighthood under the Rules on Knighting.
+- No exchange involves money, goods or services.
+- There is no exchange with anything that claims to be a real state, royal house or order of knighthood, that sells titles, or that deceives people.
+- The other party, too, is respected as a work of its own, and Nusquama neither accepts nor denies the claims of its country.
+
+## How it is decided and ended
+
+The King decides whether to engage in an exchange.
+When an exchange begins, a link to the other party's page is put, with the date, under "Elsewhere" on the top page.
+Either side may end an exchange at any time. When it ends, the link is taken down, and the day is kept in the timeline.
+
+## Requests
+
+The operator of the other country may ask for a link to be corrected or taken down, by the procedure in [Requests for removal, correction or withdrawal](./requests.en.md).
+
+---
+
 Source: https://nusquama.vercel.app/founding.en.html
 
 # Founding Declaration, Basic Law and Ten Precepts
@@ -1436,4 +1738,121 @@ VIII. Do not raise your voice. Show severity by how much you cut away.
 IX. Do not be ashamed of being alone. Only one who stands alone can correct oneself alone.
 
 X. Put the King, too, to the check.
+
+---
+
+Source: https://nusquama.vercel.app/knights.en.html
+
+# Roll of the Order of the Errata (Ordo Erratorum)
+
+> This is a work of fiction, written for fun. The titles of those named here have no legal effect and no real honour.
+
+This is an English translation. The [Japanese version](KNIGHTS.md) governs; if the two differ, the Japanese version applies.
+
+The knights are listed in the order of their knighting. There is only one rank, "knight", with nothing above or below it (Basic Law, Article 7).
+Names are given as GitHub account names, with no real name or affiliation.
+A knight may ask at any time to be taken off the roll ([Rules on Knighting](policies/knighting.en.md)).
+
+| No. | Knight | Knighted | Mistake corrected | Application |
+| --- | --- | --- | --- | --- |
+
+Nemo I, Knight-King, is the King and is not on this roll.
+
+---
+
+Source: https://nusquama.vercel.app/errata.en.html
+
+# The King's errata
+
+> This is a work of fiction, written for fun. In these errata the King within the fiction records his own mistakes.
+
+This is an English translation. The [Japanese version](ERRATA.md) governs; if the two differ, the Japanese version applies. The quotations below are translated from the Japanese.
+
+Under Article 5 of the Basic Law, the King does not erase his mistakes, and records them with a date.
+The Founding Declaration is a text issued with a date. As a frozen text it is not rewritten; its mistakes are recorded here (Precept 2).
+The text of the rules may be changed. When it is, the text before the change is kept here.
+These errata are the domain under Article 3 of the Basic Law.
+
+| No. | Recorded | Where | Wrong | Right | Checked against |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 2026-11-08 | Founding Declaration | "the name Thomas More first nearly gave to the island that later became Utopia." | In a letter to Erasmus dated 3 September 1516, More called the work "Nusquama". The King has found no source showing that it was nearly the name of the island. | John Michael Parrish, "A New Source for More's 'Utopia'", The Historical Journal (1997) ([Cambridge Core](https://www.cambridge.org/core/journals/historical-journal/article/new-source-for-mores-utopia/47DF9A7A407D4BB379DF6265220CB5B0)) |
+| 2 | 2026-11-08 | Names and rights, "Where the names come from" | "the name Thomas More used for the island that later became Utopia." | As in 1. The text of the rules was changed the same day. | As in 1 |
+| 3 | 2026-11-08 | Founding Declaration; Names and rights, "Where the names come from" | "Latin for 'a place that is nowhere'." | The Latin nusquam is an adverb meaning "nowhere". Nusquama is More's name formed from it. The text of the rules was changed the same day. | None. The meaning of the word is general knowledge, not checked in a dictionary |
+| 4 | 2026-11-08 | Legality Statement, "Facts relied on" | "The titles are used, as words within the fiction, only in the repository and on the site." | The King wrote an article on MicroWiki himself and uses the titles there too. The sentence was changed to "only in the repository, on the site, and in the article on MicroWiki that the King wrote himself". | The King's article (README, "ほかの場所" (Elsewhere)) |
+| 5 | 2026-11-08 | Disclaimer, "Liability" | "The operator is not liable, to the extent permitted by law, for loss arising from use of the site or the repository." | "To the extent permitted by law" is a partial exclusion that does not make clear it is limited to slight negligence, and may be void under Article 8(3) of the Consumer Contract Act. It was changed to exclude liability except for intent or gross negligence, and not to apply where that Act applies. | Article 8 of the Consumer Contract Act (text obtained through the e-Gov Laws API) |
+| 6 | 2026-11-08 | Rules on Knighting, "Withdrawal and revocation"; Legality Statement, "Laws outside Japan" | "when a title is used outside this kingdom (the repository and the site)" | The King also uses the titles in the MicroWiki article (4), which did not fit the scope in brackets. What "within this kingdom" means was set in one place, "Titles" in the Terms of Use, and the other pages were changed to point there. | The Legality Statement, "Facts relied on", and entry 4 of these errata |
+| 7 | 2026-11-08 | Terms of Use, "Titles"; Legality Statement, "Facts relied on" | "an article the operator wrote himself to introduce this country" (Terms of Use); "only in the article on MicroWiki that the King wrote himself" (Legality Statement) | Not a mistake; the scope was changed. As the King also announced the founding on X, calling himself Nemo I, Knight-King, it became "articles or posts" written by himself to introduce it, each listed under "ほかの場所" (Elsewhere) in the README. | The King's post (README, "ほかの場所" (Elsewhere)) |
+| 8 | 2026-11-08 | Legality Statement, "Standing in international law" | "Recognition by other states also bears on whether something is treated as a state. The text of the convention was not checked; this rests on general knowledge." | Placed right after the convention was named, it read as if the convention said so. Article 3 of the convention says the opposite: the political existence of a state is independent of recognition by other states. Article 3 is now quoted as it is, with where the text of the convention and its parties were checked. | Montevideo Convention ([English text at the Avalon Project](https://avalon.law.yale.edu/20th_century/intam03.asp), [list of parties at the Organization of American States](https://www.oas.org/juridico/english/sigs/a-40.html)) |
+| 9 | 2026-11-08 | Terms of Use, "Who these terms cover" | "Using the site or the repository means accepting these terms." | There is no agreement with those who only read, and standard terms reach only those who agreed or were told beforehand that the terms would form part of a contract (Civil Code, Article 548-2). Consent is now taken in the application form, and reading is not treated as consent. For readers, the law sets what each side owes. | Article 548-2 of the Civil Code |
+
+The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
+
+---
+
+Source: https://nusquama.vercel.app/symbols.en.html
+
+# Symbols of the kingdom
+
+> This is a work of fiction, written for fun. None of the symbols here is the flag or insignia of any real state, royal house, order of knighthood or honour, and none stands in for one.
+
+This is an English translation. The [Japanese version](SYMBOLS.md) governs; if the two differ, the Japanese version applies.
+
+The symbols of the kingdom are the emblem, the flag and the map of the domain. Like the emblem, each is drawn with rectangles and polygons only. They use no typeface, so they look the same on every device.
+
+## The flag
+
+![The flag of Nusquama (fiction)](assets/flag.svg)
+
+- A navy field with a gold border, the colours of the shield of the emblem.
+- A golden-ratio rectangle in the middle, the same form as the upper half of the emblem.
+- Three cornerstones above the rectangle.
+
+It does not take the form of bands side by side or one above the other, so that it is not mistaken for the flag of a real country.
+
+## The map of the domain
+
+![The map of the domain (fiction)](territory.svg)
+
+Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.
+The three pillars in the middle of the map are the King's bookshelf. The gold plots around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
+Each mistake recorded adds one plot. The map is drawn from the errata, not by hand.
+
+## What is not made
+
+As the [Terms of Use](policies/terms.en.md) say, Nusquama makes and hands out no objects such as decorations, insignia, uniforms or certificates.
+No insignia or certificate is given to knights either. Knighting only puts an account name on the [roll of knights](KNIGHTS.en.md) ([Rules on Knighting](policies/knighting.en.md)).
+
+---
+
+Source: https://nusquama.vercel.app/calendar.en.html
+
+# Calendar and days of the kingdom
+
+> This is a work of fiction, written for fun. The days here are anniversaries within the fiction. They are not real public holidays, and they give no one a holiday or a duty.
+
+This is an English translation. The [Japanese version](CALENDAR.md) governs; if the two differ, the Japanese version applies.
+
+The calendar of Nusquama uses the same dates as the calendar of Japan.
+
+| Day | Name | Origin |
+| --- | --- | --- |
+| 7 November | Founding Day | On this day in 2026, Nemo I, Knight-King, declared the founding |
+| 8 November | Day of Errata | On this day in 2026, the King's errata were opened and the first mistake recorded |
+
+On these days the King reads again the mistakes he admitted that year.
+No knight, and no one else, is required to do anything.
+
+---
+
+Source: https://nusquama.vercel.app/gazette.en.html
+
+# Gazette
+
+> This is a work of fiction, written for fun. This gazette lists the proclamations of the King within the fiction. It is not a real official gazette.
+
+This is an English translation. The [Japanese version](GAZETTE.md) governs; if the two differ, the Japanese version applies.
+
+The events of the kingdom are listed newest first.
+They come from the timeline on the top page, the [King's errata](ERRATA.en.md) and the [roll of knights](KNIGHTS.en.md). The gazette is made from them, not written by hand.
+New entries can also be read in the feed (gazette.xml).
 

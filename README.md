@@ -112,19 +112,19 @@
 
 王の誤りは、[王の正誤表](ERRATA.md)に日付を付けて記す（基本法第五条）。
 
-| 日付 | 出来事 |
-| --- | --- |
-| 2026-11-07 | 建国。基本法と十則を定め、国章を描く |
-| 2026-11-07 | サイトを開き、規程を定める |
-| 2026-11-08（日本時間） | MicroWiki（日本語版）に記事を書く |
-| 2026-11-08（日本時間） | X で建国を知らせる |
-| 2026-11-08（日本時間） | 適法性の説明を定める |
-| 2026-11-08（日本時間） | 悪意がないことと、法令を守ることを規程に書く |
-| 2026-11-08（日本時間） | 王の正誤表を開き、最初の三件を記す |
-| 2026-11-08（日本時間） | 規程を厳しく見直す（免責の書き方、16 歳以上、国の法令の誓い、開示の求め） |
-| 2026-11-08（日本時間） | 紛争は示談を優先すると定め、合意管轄の裁判所を宇都宮地方裁判所と宇都宮簡易裁判所に定める |
-| 2026-11-08（日本時間） | 適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す |
-| 2026-11-10（日本時間） | 国旗と版図の地図、暦と祝日、官報、交流の規程を定める |
+| 日付 | 出来事 | English |
+| --- | --- | --- |
+| 2026-11-07 | 建国。基本法と十則を定め、国章を描く | Founding. The Basic Law and the Ten Precepts are laid down and the emblem is drawn |
+| 2026-11-07 | サイトを開き、規程を定める | The site opens and the rules are laid down |
+| 2026-11-08（日本時間） | MicroWiki（日本語版）に記事を書く | An article is written on MicroWiki (Japanese edition) |
+| 2026-11-08（日本時間） | X で建国を知らせる | The founding is announced on X |
+| 2026-11-08（日本時間） | 適法性の説明を定める | The Legality Statement is laid down |
+| 2026-11-08（日本時間） | 悪意がないことと、法令を守ることを規程に書く | The rules state that there is no ill intent and that the law is obeyed |
+| 2026-11-08（日本時間） | 王の正誤表を開き、最初の三件を記す | The King's errata are opened and the first three entries recorded |
+| 2026-11-08（日本時間） | 規程を厳しく見直す（免責の書き方、16 歳以上、国の法令の誓い、開示の求め） | The rules are strictly reviewed (the wording of the disclaimer, age 16 and over, the pledge on the law of one's country, requests for disclosure) |
+| 2026-11-08（日本時間） | 紛争は示談を優先すると定め、合意管轄の裁判所を宇都宮地方裁判所と宇都宮簡易裁判所に定める | Disputes are to be settled by agreement first, and the Utsunomiya District Court and Summary Court are set as the agreed courts |
+| 2026-11-08（日本時間） | 適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す | Legality is reviewed again by five methods (requirements as logic, coverage, consistency, fault trees, breaking to confirm) |
+| 2026-11-10（日本時間） | 国旗と版図の地図、暦と祝日、官報、交流の規程を定める | The flag, the map of the domain, the calendar, the gazette and the Rules on exchange are laid down |
 
 ---
 
@@ -141,7 +141,7 @@
 
 国のしるし（国旗と版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 
-English (translation; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Legality Statement](policies/legality.en.md)
+English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md)
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
