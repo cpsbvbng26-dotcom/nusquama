@@ -6,6 +6,11 @@
   <url><loc>https://nusquama.vercel.app/symbols.html</loc></url>
   <url><loc>https://nusquama.vercel.app/calendar.html</loc></url>
   <url><loc>https://nusquama.vercel.app/gazette.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/story.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/lexicon.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/institutions.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/press.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/play.html</loc></url>
   <url><loc>https://nusquama.vercel.app/policies/terms.html</loc></url>
   <url><loc>https://nusquama.vercel.app/policies/disclaimer.html</loc></url>
   <url><loc>https://nusquama.vercel.app/policies/privacy.html</loc></url>
@@ -28,4 +33,69 @@
   <url><loc>https://nusquama.vercel.app/symbols.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/calendar.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/gazette.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/story.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/lexicon.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/institutions.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/press.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/play.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/1.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/1.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/2.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/2.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/3.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/3.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/4.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/4.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/5.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/5.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/6.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/6.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/7.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/7.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/8.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/8.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/9.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/errata/9.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/1.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/1.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/2.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/2.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/3.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/3.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/4.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/4.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/5.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/5.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/6.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/6.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/7.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/7.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/8.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/8.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/9.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/9.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/10.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/10.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/11.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/11.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/12.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/12.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/13.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/13.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/14.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/14.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/15.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/15.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/16.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/16.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/17.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/17.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/18.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/18.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/19.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/19.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/20.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/20.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/21.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/21.html</loc></url>
 </urlset>

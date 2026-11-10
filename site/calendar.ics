@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Regnum Nusquamae//Calendar//JA
+CALSCALE:GREGORIAN
+X-WR-CALNAME:ヌスクァマの暦（創作）
+BEGIN:VEVENT
+UID:1107@nusquama.vercel.app
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20261107
+RRULE:FREQ=YEARLY
+SUMMARY:建国の日（ヌスクァマの創作の記念日）
+DESCRIPTION:2026 年のこの日に、騎士王ネモ一世が建国を宣
+ した。これは創作であり、遊びです。ヌスクァマは国
+ 家ではなく、いかなる実在の国家・王室・騎士団・叙
+ 勲・称号とも関係がありません。ここで授ける称号に
+ 、法的な効力はありません。 実在の祝日ではありませ
+ ん。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1108@nusquama.vercel.app
+DTSTAMP:20261107T000000Z
+DTSTART;VALUE=DATE:20261108
+RRULE:FREQ=YEARLY
+SUMMARY:正誤の日（ヌスクァマの創作の記念日）
+DESCRIPTION:2026 年のこの日に、王の正誤表を開き、最初の
+ 誤りを記した。これは創作であり、遊びです。ヌスク
+ ァマは国家ではなく、いかなる実在の国家・王室・騎
+ 士団・叙勲・称号とも関係がありません。ここで授け
+ る称号に、法的な効力はありません。 実在の祝日では
+ ありません。
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

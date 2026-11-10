@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-mde1DnYLaIO0eE96Y1uYBL3lH4KiEkvXq/obyYfhwOg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-oj9tOXS64USi8mdrgFLFkCXmM7ogmYpL0nV0xiVeJ7w='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>国のしるし | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="国のしるしは、国章と国旗と版図の地図です。どれも国章と同じく、長方形と多角形だけで描いてあります。文字の書体を使わないので、どの端末でも同じ形に描かれます。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -48,8 +48,12 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+th:first-child, td:first-child { white-space: nowrap; }
 footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 40px; font-size: 14px; color: var(--muted); }
-footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }</style>
+footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
+.pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+@media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
@@ -66,11 +70,33 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <h2>版図の地図</h2>
 <img class="emblem" src="territory.svg" alt="版図の地図（創作）">
 <p>基本法第三条により、版図は王の本棚と、王が公にした正誤表です。地図の中央の三本の柱が王の本棚です。そのまわりの金の区画が、<a href="errata.html">王の正誤表</a>に記した誤りです。誤りを一つ記すたびに、区画が一つ増えます。地図は正誤表から作り、手で描き足しません。</p>
+<h2>国旗の作図</h2>
+<p>国旗は、横 900、縦 600 の比（3:2）で描きます。数は、<a href="flag.svg">国旗の画像</a>の座標そのままです。</p>
+<ol><li>紺の地を塗る。</li><li>端から 24 内側に、太さ 8 の金の縁を引く。</li><li>横 534、縦 330 の黄金比の矩形を、明るい金の線（太さ 6）で描く。左上の角は (183, 155) に置く。</li><li>矩形から、正方形を一つずつ切り出す。辺は 330、204、126、77.9、48.1、29.8 と、黄金比で小さくなる。</li><li>矩形の上に、辺 24 の金の正方形（角石）を三つ、間を 12 空けて並べる。上の端は 99 に置く。</li></ol>
+<h2>旗の掲げ方</h2>
+<ul><li>国旗は、画面の上でだけ掲げます。王は、布や紙の旗を作りません。</li><li>実在の国の旗と並べて、同じ扱いに見せることはしません。</li><li>国旗と版図の地図も、文と国章と同じく CC BY 4.0 です。使い方の決まりは<a href="policies/names.html">名称と権利</a>にあります。</li></ul>
+<h2>国の色</h2>
+<div class="table"><table><tr><th scope="col">名</th><th scope="col">色番号</th><th scope="col">使うところ</th></tr><tr><td>紺</td><td><code>#14213d</code></td><td>盾と国旗の地、地図の海</td></tr><tr><td>金</td><td><code>#c9a227</code></td><td>縁、角石、地図の区画</td></tr><tr><td>明るい金</td><td><code>#e8cf74</code></td><td>黄金比の矩形、剣、地図の本棚</td></tr><tr><td>深い紺</td><td><code>#0b1428</code></td><td>国章の剣の溝</td></tr></table></div>
+<p>国旗と版図の地図は、紺・金・明るい金の三色だけで描きます。</p>
+<h2>国の書体</h2>
+<p>しるしは、書体を使いません。どの端末でも同じ形に描かれるようにするためです。頁の文は、読む人の端末にある明朝体で示します（ヒラギノ明朝、游明朝、Noto Serif JP の順に探します）。書体のファイルは配りません。</p>
+<h2>国の記号</h2>
+<p>文字だけで国を表すときは、∅（空集合の記号、U+2205）を使います。どこにもない国だからです。絵文字は使いません。端末ごとに形が変わるからです。</p>
+<h2>国の生き物と花</h2>
+<ul><li>国の生き物：かたつむり。通った所に跡を残すからです。王が誤りの跡を残すのと同じです。</li><li>国の花：わすれなぐさ。誤りを忘れないためです。</li></ul>
+<p>どちらも、絵ではなく言葉で定めます。絵にすると、実在の記章と紛れるおそれが増えるからです。</p>
+<h2>国の時刻と単位</h2>
+<ul><li>国の時刻は、日本標準時と同じです。日付の変わり目も同じです。</li><li>版図の広さは「誤」で数えます。王の正誤表の一件が一誤です。</li></ul>
+<h2>国歌の詞</h2>
+<p>曲はありません。詞だけを置きます。歌う決まりはありません。</p>
+<ul><li>一　どこにもない海の上／王の本棚、三つの柱／誤りひとつ認めるたび／島はひとつ広がりぬ</li><li>二　剣は抜かずに下を向き／盾に残すは日付と文／消した誤りは二度目の誤り／消さぬ誤りはわが領土</li><li>三　誰でもない王ひとり／己を治め、己を正す／位はひとつ、騎士ひとつ／金は取らずに名を記す</li></ul>
+<h2>商標</h2>
+<p>運営者は、国の名・国章・国旗を、商標として出願しません。しるしを独り占めしないためです。</p>
 <h2>作らないもの</h2>
 <p><a href="policies/terms.html">利用規約</a>のとおり、ヌスクァマは勲章・記章・制服・証書などの物を作らず、配りません。騎士にも、徽章や叙任状は出しません。叙任は、<a href="knights.html">騎士の名簿</a>にアカウント名を載せるだけです（<a href="policies/knighting.html">叙任の規程</a>）。</p>
 </main>
 <footer>
-<ul><li><a href="./index.html">トップ</a></li><li><a href="./knights.html">騎士の名簿</a></li><li><a href="./errata.html">王の正誤表</a></li><li><a href="./symbols.html">国のしるし</a></li><li><a href="./calendar.html">暦と祝日</a></li><li><a href="./gazette.html">官報</a></li><li><a href="./policies/terms.html">利用規約</a></li><li><a href="./policies/disclaimer.html">免責事項</a></li><li><a href="./policies/privacy.html">個人情報の取り扱い</a></li><li><a href="./policies/knighting.html">叙任の規程</a></li><li><a href="./policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="./policies/names.html">名称と権利</a></li><li><a href="./policies/legality.html">適法性の説明</a></li><li><a href="./policies/exchange.html">交流の規程</a></li><li><a href="./symbols.en.html">English</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
+<ul><li><a href="./index.html">トップ</a></li><li><a href="./knights.html">騎士の名簿</a></li><li><a href="./errata.html">王の正誤表</a></li><li><a href="./symbols.html">国のしるし</a></li><li><a href="./calendar.html">暦と祝日</a></li><li><a href="./gazette.html">官報</a></li><li><a href="./story.html">建国の物語</a></li><li><a href="./lexicon.html">国の言葉</a></li><li><a href="./institutions.html">国の仕組み</a></li><li><a href="./press.html">紹介する人へ</a></li><li><a href="./play.html">遊び</a></li><li><a href="./policies/terms.html">利用規約</a></li><li><a href="./policies/disclaimer.html">免責事項</a></li><li><a href="./policies/privacy.html">個人情報の取り扱い</a></li><li><a href="./policies/knighting.html">叙任の規程</a></li><li><a href="./policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="./policies/names.html">名称と権利</a></li><li><a href="./policies/legality.html">適法性の説明</a></li><li><a href="./policies/exchange.html">交流の規程</a></li><li><a href="./symbols.en.html">English</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
 <p>文と国章は CC BY 4.0 です。この頁は、リポジトリの SYMBOLS.md から生成しています。</p>
 <p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
 </footer>

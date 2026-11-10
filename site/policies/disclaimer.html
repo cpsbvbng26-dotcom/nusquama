@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-mde1DnYLaIO0eE96Y1uYBL3lH4KiEkvXq/obyYfhwOg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-oj9tOXS64USi8mdrgFLFkCXmM7ogmYpL0nV0xiVeJ7w='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>免責事項 | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="この頁は、ヌスクァマが約束しないことと、ヌスクァマが何でないかを、一か所にまとめたものです。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -48,8 +48,12 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+th:first-child, td:first-child { white-space: nowrap; }
 footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 40px; font-size: 14px; color: var(--muted); }
-footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }</style>
+footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
+.pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+@media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
@@ -81,7 +85,7 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <p>ヌスクァマの文・国章・サイトは、運営者の求めにより Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。ヌスクァマは Anthropic と提携しておらず、推薦も受けていません。</p>
 </main>
 <footer>
-<ul><li><a href="../index.html">トップ</a></li><li><a href="../knights.html">騎士の名簿</a></li><li><a href="../errata.html">王の正誤表</a></li><li><a href="../symbols.html">国のしるし</a></li><li><a href="../calendar.html">暦と祝日</a></li><li><a href="../gazette.html">官報</a></li><li><a href="../policies/terms.html">利用規約</a></li><li><a href="../policies/disclaimer.html">免責事項</a></li><li><a href="../policies/privacy.html">個人情報の取り扱い</a></li><li><a href="../policies/knighting.html">叙任の規程</a></li><li><a href="../policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="../policies/names.html">名称と権利</a></li><li><a href="../policies/legality.html">適法性の説明</a></li><li><a href="../policies/exchange.html">交流の規程</a></li><li><a href="../policies/disclaimer.en.html">English</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
+<ul><li><a href="../index.html">トップ</a></li><li><a href="../knights.html">騎士の名簿</a></li><li><a href="../errata.html">王の正誤表</a></li><li><a href="../symbols.html">国のしるし</a></li><li><a href="../calendar.html">暦と祝日</a></li><li><a href="../gazette.html">官報</a></li><li><a href="../story.html">建国の物語</a></li><li><a href="../lexicon.html">国の言葉</a></li><li><a href="../institutions.html">国の仕組み</a></li><li><a href="../press.html">紹介する人へ</a></li><li><a href="../play.html">遊び</a></li><li><a href="../policies/terms.html">利用規約</a></li><li><a href="../policies/disclaimer.html">免責事項</a></li><li><a href="../policies/privacy.html">個人情報の取り扱い</a></li><li><a href="../policies/knighting.html">叙任の規程</a></li><li><a href="../policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="../policies/names.html">名称と権利</a></li><li><a href="../policies/legality.html">適法性の説明</a></li><li><a href="../policies/exchange.html">交流の規程</a></li><li><a href="../policies/disclaimer.en.html">English</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
 <p>文と国章は CC BY 4.0 です。この頁は、リポジトリの policies/disclaimer.md から生成しています。</p>
 <p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
 </footer>
