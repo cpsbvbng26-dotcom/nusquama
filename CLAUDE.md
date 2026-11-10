@@ -9,7 +9,7 @@
 3. 基本法の第一条・第六条・第八条は削らない。
 4. 研究の系列の名やリンクを、ここに書かない。研究の系列からも、ここへつながない。
 5. `site/` は生成物。README・KNIGHTS.md・policies/*.md を直して `node build.js`。手で直さない。
-6. `assets/` は手で置いたもの。国章を変えたら `node tools/icons.js`（要 playwright）でアイコンを描き直す。正方形のファビコン（`favicon.svg`）は `tools/favicon.js` が国章から作る（icons.js も同時に作る）。
+6. `assets/` は手で置いたもの（国旗 `flag.svg` と騎士の徽章 `insignia.svg` も、国章の三色と長方形・多角形だけで描いて置いた）。版図の地図 `territory.svg` と叙任状 `certificates/<番>.svg` は `build.js` が正誤表と名簿から描く。国章を変えたら `node tools/icons.js`（要 playwright）でアイコンを描き直す。正方形のファビコン（`favicon.svg`）は `tools/favicon.js` が国章から作る（icons.js も同時に作る）。
 7. 規程の約束の文は `verification/check.js` が固めている。弱めない。
 8. Claude を騎士・王・著者にしない。
 9. 利用規約・免責事項・適法性の説明には英語の訳（`policies/*.en.md`）がある。日本語の版が正。日本語を直したら同じ日に英語も直す（最終更新の日と節の数がずれると検査が落ちる）。
