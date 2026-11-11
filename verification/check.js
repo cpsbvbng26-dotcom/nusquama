@@ -1333,7 +1333,10 @@ console.log('\n53. 解散の通し稽古（実行していない）');
   const rowsOf = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return t.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\| (\d+|ほか|Other) \|/.test(l)).map((l) => l.split(' | ')); };
   const sj = stepsOf(ij, '解散'), se = stepsOf(ie, 'Dissolution'), rj = rowsOf(ij, '解散の通し稽古'), re = rowsOf(ie, 'A dry run of dissolution');
   ok('通し稽古の表は、解散の段（' + sj.length + '）を一つずつ、段の文のままに通し、日本語と英語で行の数がそろう',
-    sj.length === 5 && sj.every((s, i) => rj[i] && rj[i][0] === '| ' + (i + 1) && rj[i][1] === s.replace(/。$/, '')) && se.every((s, i) => re[i] && re[i][1] === s) && rj.length === re.length && rj.length > sj.length);
+    sj.length === 6
+    // 段 1〜3 は、いまの段の文のまま通す。段 4・5 は 2026-11-11 に改めたので、通し稽古の行は改める前の文（王の正誤表に残した文）を引く。
+    && [0, 1, 2].every((i) => rj[i] && rj[i][0] === '| ' + (i + 1) && rj[i][1] === sj[i].replace(/。$/, '') && re[i] && re[i][1] === se[i])
+    && [3, 4].every((i) => rj[i] && rj[i][0] === '| ' + (i + 1) && read('ERRATA.md').includes(rj[i][1] + '。') && re[i] && read('ERRATA.en.md').includes('"' + re[i][1] + '"')) && rj.length === re.length && rj.length > sj.length);
   ok('通し稽古では何も止めず消しておらず、終わりの言葉はトップに掲げていない', ij.includes('2026-11-11 に、解散の手順を、実行せずに一度通して確かめました。何も止めず、何も消していません。')
     && !read('README.md').includes('どこにもない国は、どこにもない所へ帰ります。') && fs.existsSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'knighting.yml')) && fs.existsSync(path.join(ROOT, '.github', 'workflows', 'review.yml')));
 }
