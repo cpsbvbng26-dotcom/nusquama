@@ -42,6 +42,12 @@ A greeting to the operator of another country, following the [Rules on exchange]
 
 To the operator of ○○: this is Nemo I, Knight-King of Nusquama. Nusquama is a fictional kingdom, and its exchanges are limited to greetings and links to each other's pages. It makes no treaties, gives no titles in exchange, and handles no money. If you agree, we would like to place links to each other's pages.
 
+## For the micronation community
+
+Text for introducing Nusquama in English on micronation wikis and forums. Its first sentence says that Nusquama is fiction.
+
+This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money.
+
 ## Name and symbols
 
 The origin of the name and the use of the emblem and the flag are described in [Names and rights](policies/names.en.md) and [Symbols](SYMBOLS.en.md).

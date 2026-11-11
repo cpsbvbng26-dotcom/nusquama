@@ -35,6 +35,8 @@ const SOURCES = [['README.md', 'index.html']].concat(ROOT_EN.map(([f, h]) => [f 
 const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'og.png', 'flag.svg'];
 /* build.js が描く画像。版図の地図は正誤表から。 */
 const DRAWN = ['territory.svg'];
+/* build.js が作る頁と画像の所在。Markdown から指すときは、site/ を付けても付けなくても解ける。 */
+const GENERATED = /^(territory(-\d{4})?\.svg|calendar\.ics|(errata|gazette|story)\/\d+(\.en)?\.html|monthly\/\d{4}-\d{2}(\.en)?\.html|(territory-years|symbols-construction)(\.en)?\.html)$/;
 
 /* どの頁にも先頭に出す断り。README の冒頭と同じ内容である。 */
 const NOTICE = 'これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。';
@@ -89,6 +91,14 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
 .pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.years { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.years figure { margin: 0; flex: 1 1 200px; max-width: 320px; }
+.years svg, .steps svg, .tile svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 15px; color: var(--muted); }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.steps li p { margin: 0.4em 0 0; font-size: 15px; }
+.tile, .swatch { display: block; width: 40px; }
+.swatch svg { display: block; width: 100%; height: auto; outline: 1px solid var(--line); }
 @media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }
 `.trim();
 const STYLE_HASH = 'sha256-' + crypto.createHash('sha256').update(STYLE, 'utf8').digest('base64');
@@ -106,8 +116,8 @@ function mapHref(href, srcRel, outRel) {
   else if (abs === 'LICENSE') return REPO + '/blob/main/LICENSE';
   else if (abs.startsWith('assets/') && ASSETS.includes(abs.slice(7))) target = abs.slice(7);
   // 生成した site/ の中のもの（版図の地図・暦のファイル）は、GitHub でも開けるよう site/ から指し、頁では site/ を外す。
-  else if (abs.startsWith('site/') && fs.existsSync(path.join(ROOT, abs))) target = abs.slice(5);
-  else if (DRAWN.includes(abs) || /^territory-\d{4}\.svg$/.test(abs) || abs === 'calendar.ics' || /^(errata|gazette)\/\d+(\.en)?\.html$/.test(abs)) target = abs;
+  else if (abs.startsWith('site/') && (fs.existsSync(path.join(ROOT, abs)) || GENERATED.test(abs.slice(5)))) target = abs.slice(5);
+  else if (DRAWN.includes(abs) || GENERATED.test(abs)) target = abs;
   else return REPO + '/blob/main/' + abs;
   const rel = path.posix.relative(path.posix.dirname(outRel), target) || path.posix.basename(target);
   return rel + (hash ? '#' + hash : '');
@@ -145,7 +155,7 @@ function markdown(md, srcRel, outRel) {
     if (l.startsWith('>')) {
       const block = [];
       while (i < lines.length && lines[i].startsWith('>')) { block.push(lines[i].replace(/^> ?/, '')); i++; }
-      const paras = block.join('\n').split(/\n\s*\n/).map((p) => '<p>' + joinLines(p.split('\n').map(il)) + '</p>');
+      const paras = block.join('\n').split(/\n\s*\n/).map((p) => (/^English: /.test(p) ? '<p lang="en">' : '<p>') + joinLines(p.split('\n').map(il)) + '</p>');
       out.push('<blockquote>' + paras.join('') + '</blockquote>');
       continue;
     }
@@ -248,7 +258,8 @@ function tileShape(shape, x, y) {
 function territorySvg(n = domain(), opts = {}) {
   const entries = opts.entries || null;
   const step = 34, golden = Math.PI * (3 - Math.sqrt(5));
-  const reach = step * Math.sqrt(n + 4) + 50;
+  /* opts.frame：この件数の地図と同じ広さの枠で描く（年ごとの地図を同じ縮尺で並べるため）。 */
+  const reach = step * Math.sqrt(Math.max(n, opts.frame || 0) + 4) + 50;
   const size = Math.ceil(2 * reach), c = size / 2;
   const tiles = Array.from({ length: n }, (_, i) => {
     const r = step * Math.sqrt(i + 4), a = (i + 4) * golden;
@@ -300,7 +311,28 @@ function errataYearTable(en = false) {
   return '<div class="table"><table><tr>' + head + '</tr>' + errataYears().map((y) => {
     const k = rows.filter((r) => r[1].startsWith(y)).length, t = rows.filter((r) => r[1].slice(0, 4) <= y).length;
     return `<tr><td>${y}</td><td>${k}</td><td>${t}</td><td><a href="territory-${y}.svg">territory-${y}.svg</a></td></tr>`;
-  }).join('') + '</table></div>';
+  }).join('') + '</table></div>\n' + (en ? '<p><a href="territory-years.en.html">The maps of each year side by side</a></p>' : '<p><a href="territory-years.html">年ごとの地図を並べて比べる</a></p>');
+}
+
+/* 年ごとの版図を並べて比べる頁。どの年の地図も、いまの版図と同じ枠（同じ縮尺）で描く。数は正誤表から数える。 */
+function territoryYears(en = false) {
+  const entries = errataEntries(), years = errataYears();
+  let prev = 0;
+  const figs = years.map((y) => {
+    const upTo = entries.filter((e) => e.date.slice(0, 4) <= y), added = upTo.length - prev;
+    prev = upTo.length;
+    const title = en ? 'Map of the domain (fiction) at the end of ' + y + ': ' + plural(upTo.length, 'parcel') + ', drawn at the same scale as the current map'
+      : '版図の地図（創作）：' + y + ' 年の終わり。区画 ' + upTo.length + '。いまの版図と同じ縮尺';
+    const svg = territorySvg(upTo.length, { entries: upTo, frame: entries.length, title }).trim().replace('aria-labelledby="t"', `aria-labelledby="ty${y}"`).replace('<title id="t">', `<title id="ty${y}">`);
+    const cap = en ? `${y}: ${plural(upTo.length, 'parcel')} at the end of the year (${added} added that year). <a href="territory-${y}.svg">territory-${y}.svg</a>`
+      : `${y} 年：年末の区画 ${upTo.length}（その年に ${added} 増えた）。<a href="territory-${y}.svg">territory-${y}.svg</a>`;
+    return `<figure>${svg}<figcaption>${cap}</figcaption></figure>`;
+  });
+  return '<div class="years">' + figs.join('\n') + '</div>';
+}
+function territoryYearsMd(en = false) {
+  if (en) return `# The domain, year by year\n\nThis is an English translation. The [Japanese version](territory-years.html) governs.\n\nThe maps of the domain at the end of each year, side by side. Each map is drawn at the same scale as the current map, so the growth of the domain can be compared. The maps and the numbers are made from the [King's errata](ERRATA.en.md), not by hand.\n\n<!-- yearmaps -->\n\nOne parcel is added each time the King admits a mistake (Article 3 of the Basic Law). The shapes of the parcels are explained in [Symbols](SYMBOLS.en.md) and the [construction of the symbols](symbols-construction.en.html).\n`;
+  return `# 年ごとの版図\n\n年の終わりごとの版図の地図を、並べて比べる頁です。どの年の地図も、いまの版図と同じ縮尺で描きます。地図と数は[王の正誤表](ERRATA.md)から作り、手で書きません。\n\n<!-- yearmaps -->\n\n王が誤りを一つ認めるたびに、区画が一つ増えます（基本法第三条）。区画の形は、[国のしるし](SYMBOLS.md)と[しるしの作図](symbols-construction.html)にあります。\n`;
 }
 
 /* 一件ごとの頁の Markdown。前後の区画と正誤表へつなぐ。 */
@@ -314,6 +346,7 @@ function errataEntryMd(e, total, en = false) {
   return `# 王の正誤表 第 ${e.n} 件：${e.place}\n\n| 項目 | 記したこと |\n| --- | --- |\n| 地名 | ${e.place} |\n| 分類 | ${e.kind.ja}（地図では${e.kind.shapeJa}） |\n| 記した日 | ${e.date} |\n| 場所 | ${e.where} |\n| 誤 | ${e.wrong} |\n| 正 | ${e.right} |\n| 確かめた先 | ${e.source} |\n\n${pager.join(' / ')}\n`;
 }
 
+const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
 const plainText = (t) => String(t).replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`]/g, '');
 
 /* 官報。トップの頁の年表、王の正誤表、騎士の名簿から、日付の新しい順に作る。手で書かない。 */
@@ -347,10 +380,37 @@ function gazetteAtom() {
   return `<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">\n  <title>${esc(NAME)}：官報</title>\n  <subtitle>${esc(NOTICE)}</subtitle>\n  <id>${BASE}gazette.xml</id>\n  <link rel="self" href="${BASE}gazette.xml"/>\n  <link href="${BASE}gazette.html"/>\n  <updated>${(items[0] || { date: '2026-11-07' }).date}T00:00:00+09:00</updated>\n  <author><name>騎士王ネモ一世（創作の中の王）</name></author>\n`
     + items.map((x) => `  <entry>\n    <id>${BASE}gazette.html#g${x.no}</id>\n    <title>${esc('第 ' + x.no + ' 号　' + x.kind + '：' + x.text)}</title>\n    <link href="${BASE}gazette/${x.no}.html"/>\n    <updated>${x.date}T00:00:00+09:00</updated>\n  </entry>\n`).join('') + '</feed>\n';
 }
+/* 月ごとの合本。その月の号を古い順にまとめる。号の番号は gazetteItems のまま使い、合本のために振り直さない。 */
+const MONTHS_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const monthName = (m, en) => (en ? MONTHS_EN[Number(m.slice(5)) - 1] + ' ' + m.slice(0, 4) : m.slice(0, 4) + ' 年 ' + Number(m.slice(5)) + ' 月');
+const gazetteMonths = () => [...new Set(gazetteItems().map((x) => x.date.slice(0, 7)))].sort();
+function gazetteMonthMd(m, en = false) {
+  const its = gazetteItems().filter((x) => x.date.startsWith(m)).sort((a, b) => a.no - b.no);
+  const months = gazetteMonths(), i = months.indexOf(m);
+  const cell = (t) => String(t).replace(/\|/g, '／');
+  const link = (k, t) => (k ? `[${t}](monthly/${k}${en ? '.en' : ''}.html)` : null);
+  const pager = [link(months[i - 1], en ? 'Previous month' : '前の月'), en ? '[Gazette](GAZETTE.en.md)' : '[官報](GAZETTE.md)', link(months[i + 1], en ? 'Next month' : '次の月')].filter(Boolean);
+  if (en) return `# Gazette, ${monthName(m, true)}\n\nThis is an English translation. The [Japanese version](monthly/${m}.html) governs.\n\nThe ${plural(its.length, 'issue')} of this month, oldest first. The issue numbers are those of the single issues; they are not renumbered for this collection.\n\n| Issue | Date | From | Proclamation |\n| --- | --- | --- | --- |\n`
+    + its.map((x) => `| [No. ${x.no}](gazette/${x.no}.en.html) | ${x.date} | [${x.kindEn}](${x.fromEn}) | ${cell(x.textEn)} |`).join('\n') + `\n\n${pager.join(' / ')}\n`;
+  return `# 官報 ${monthName(m)}の合本\n\nこの月の ${its.length} 号を、古い順にまとめたものです。号の番号は一号ごとの頁と同じで、合本のために振り直しません。\n\n| 号 | 日付 | もと | 布告 |\n| --- | --- | --- | --- |\n`
+    + its.map((x) => `| [第 ${x.no} 号](gazette/${x.no}.html) | ${x.date} | [${x.kind}](${x.from}) | ${cell(x.text)} |`).join('\n') + `\n\n${pager.join(' / ')}\n`;
+}
+/* 官報の頁に置く、月ごとの合本の一覧。 */
+function gazetteMonthTable(en = false) {
+  const items = gazetteItems();
+  const head = en ? '<th scope="col">Month</th><th scope="col">Issues</th><th scope="col">Numbers</th>' : '<th scope="col">月</th><th scope="col">号の数</th><th scope="col">号</th>';
+  return '<div class="table"><table><tr>' + head + '</tr>' + gazetteMonths().slice().reverse().map((m) => {
+    const nos = items.filter((x) => x.date.startsWith(m)).map((x) => x.no);
+    const lo = Math.min(...nos), hi = Math.max(...nos);
+    return `<tr><td><a href="monthly/${m}${en ? '.en' : ''}.html">${esc(monthName(m, en))}</a></td><td>${nos.length}</td><td>${en ? 'No. ' + lo + (hi > lo ? ' to ' + hi : '') : '第 ' + lo + (hi > lo ? ' 号から第 ' + hi : '') + ' 号'}</td></tr>`;
+  }).join('') + '</table></div>';
+}
+
 /* 一号ごとの頁の Markdown。 */
 function gazetteIssueMd(x, total, en = false) {
   const nav = (k, t) => (k >= 1 && k <= total ? `[${t}](gazette/${k}${en ? '.en' : ''}.html)` : null);
-  const pager = [nav(x.no - 1, en ? 'Previous issue' : '前の号'), en ? '[Gazette](GAZETTE.en.md)' : '[官報](GAZETTE.md)', nav(x.no + 1, en ? 'Next issue' : '次の号')].filter(Boolean);
+  const pager = [nav(x.no - 1, en ? 'Previous issue' : '前の号'), en ? '[Gazette](GAZETTE.en.md)' : '[官報](GAZETTE.md)',
+    `[${en ? 'The month of this issue' : 'この号の月の合本'}](monthly/${x.date.slice(0, 7)}${en ? '.en' : ''}.html)`, nav(x.no + 1, en ? 'Next issue' : '次の号')].filter(Boolean);
   if (en) return `# Gazette, No. ${x.no}\n\nThis is an English translation. The [Japanese version](gazette/${x.no}.html) governs.\n\n| Item | Entry |\n| --- | --- |\n| Issue | No. ${x.no} |\n| Date | ${x.date} |\n| From | [${x.kindEn}](${x.fromEn}) |\n| Proclamation | ${x.textEn} |\n\n${pager.join(' / ')}\n`;
   return `# 官報 第 ${x.no} 号\n\n| 項目 | 記したこと |\n| --- | --- |\n| 号 | 第 ${x.no} 号 |\n| 日付 | ${x.date} |\n| もと | [${x.kind}](${x.from}) |\n| 布告 | ${x.text} |\n\n${pager.join(' / ')}\n`;
 }
@@ -435,8 +495,90 @@ function quoteOne(key, en) {
 }
 const quoteBlock = (keys, en) => keys.split('、').map((k) => quoteOne(k.trim(), en)).join('\n');
 
+/* 建国の物語の章。STORY.md の「## 」の節を、文に手を入れずにそのまま一章とする。 */
+function storyChapters(en = false) {
+  const md = fs.readFileSync(path.join(ROOT, en ? 'STORY.en.md' : 'STORY.md'), 'utf8');
+  const parts = md.split(/\n(?=## )/).slice(1);
+  return parts.map((text, i) => ({ n: i + 1, heading: text.split('\n')[0].slice(3), text: text.trim() }));
+}
+function storyChapterMd(c, total, en = false) {
+  const nav = (k, t) => (k >= 1 && k <= total ? `[${t}](story/${k}${en ? '.en' : ''}.html)` : null);
+  const pager = [nav(c.n - 1, en ? 'Previous chapter' : '前の章'), en ? '[The whole story](STORY.en.md)' : '[物語の全体](STORY.md)', nav(c.n + 1, en ? 'Next chapter' : '次の章')].filter(Boolean);
+  if (en) return `# The story of the founding, chapter ${c.n} of ${total}\n\nThis is an English translation. The [Japanese version](story/${c.n}.html) governs.\n\n${c.text}\n\n${pager.join(' / ')}\n`;
+  return `# 建国の物語　第 ${c.n} 章（全 ${total} 章）\n\n${c.text}\n\n${pager.join(' / ')}\n`;
+}
+/* 物語の頁の頭に置く、章ごとの頁への目次。 */
+function storyToc(en = false) {
+  const ch = storyChapters(en);
+  return `<nav aria-label="${en ? 'Chapters' : '章'}"><p>${en ? 'Read chapter by chapter:' : '章ごとに読む：'}</p><ol>`
+    + ch.map((c) => `<li><a href="story/${c.n}${en ? '.en' : ''}.html">${esc(c.heading)}</a></li>`).join('') + '</ol></nav>';
+}
+
+/* 国のしるしの作図の図解。手順の文は SYMBOLS.md の節から、図は assets の画像の要素から作る。
+ * 手順ごとに、その手順までの要素だけで描き直す。色も形も画像のままで、新しいしるしを描かない。 */
+const svgParts = (rel) => {
+  const t = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  return { viewBox: /viewBox="([^"]+)"/.exec(t)[1], els: [...t.matchAll(/<(rect|polygon) ([^>]*)\/>/g)].map((m) => ({ tag: m[1], attrs: m[2], raw: m[0] })) };
+};
+const attr = (e, k) => (new RegExp('(?:^| )' + k + '="([^"]*)"').exec(e.attrs) || [])[1];
+/* 国旗：地・縁・黄金比の矩形・切り出す正方形・角石の五つ。国章：盾・黄金比の矩形・角石・剣の四つ。 */
+function flagGroups() {
+  const { viewBox, els } = svgParts('assets/flag.svg');
+  const g = (e) => (!attr(e, 'x') ? 0 : attr(e, 'stroke') === '#c9a227' ? 1 : attr(e, 'stroke') === '#e8cf74' ? (attr(e, 'width') === attr(e, 'height') ? 3 : 2) : 4);
+  return { viewBox, groups: [0, 1, 2, 3, 4].map((k) => els.filter((e) => g(e) === k)) };
+}
+function emblemGroups() {
+  const { viewBox, els } = svgParts('assets/emblem.svg');
+  const g = (e) => (e.tag === 'polygon' && attr(e, 'points').split(' ').length >= 8 ? 0 : attr(e, 'stroke') === '#e8cf74' ? 1
+    : e.tag === 'rect' && attr(e, 'fill') === '#c9a227' && attr(e, 'width') === attr(e, 'height') ? 2 : 3);
+  return { viewBox, groups: [0, 1, 2, 3].map((k) => els.filter((e) => g(e) === k)) };
+}
+function listIn(rel, heading) {
+  const md = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const i = md.indexOf('\n## ' + heading + '\n');
+  if (i < 0) throw new Error(rel + ' に「' + heading + '」の節がない');
+  const j = md.indexOf('\n## ', i + 5);
+  return md.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\d+\. /.test(l)).map((l) => l.replace(/^\d+\. /, ''));
+}
+const STEP_HEADS = { flag: ['国旗の作図', 'How the flag is drawn'], emblem: ['国章の作図', 'How the emblem is drawn'] };
+function constructionSteps(which, en = false) {
+  const { viewBox, groups } = which === 'flag' ? flagGroups() : emblemGroups();
+  const steps = listIn(en ? 'SYMBOLS.en.md' : 'SYMBOLS.md', STEP_HEADS[which][en ? 1 : 0]);
+  if (steps.length !== groups.length) throw new Error(which + ' の作図の手順の数（' + steps.length + '）が、画像の要素の組の数（' + groups.length + '）と合わない');
+  const name = which === 'flag' ? (en ? 'flag' : '国旗') : (en ? 'emblem' : '国章');
+  return '<ol class="steps">' + steps.map((t, i) => {
+    const id = which[0] + 's' + (i + 1);
+    const title = en ? `Construction of the ${name} (fiction), up to step ${i + 1}` : `${name}の作図（創作）：手順 ${i + 1} まで`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" role="img" aria-labelledby="${id}"><title id="${id}">${esc(title)}</title>${groups.slice(0, i + 1).flat().map((e) => e.raw).join('')}</svg>`;
+    return `<li>${svg}<p>${i + 1}. ${inline(t, en ? 'SYMBOLS.en.md' : 'SYMBOLS.md', en ? 'symbols-construction.en.html' : 'symbols-construction.html')}</p></li>`;
+  }).join('') + '</ol>';
+}
+function colorTable(en = false) {
+  const md = fs.readFileSync(path.join(ROOT, en ? 'SYMBOLS.en.md' : 'SYMBOLS.md'), 'utf8');
+  const rows = md.split('\n').filter((l) => /^\| [^|]+ \| `#[0-9a-f]{6}` \|/.test(l)).map((l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()));
+  const head = en ? '<th scope="col">Name</th><th scope="col">Swatch</th><th scope="col">Colour code</th><th scope="col">Where it is used</th>'
+    : '<th scope="col">名</th><th scope="col">見本</th><th scope="col">色番号</th><th scope="col">使うところ</th>';
+  return '<div class="table"><table><tr>' + head + '</tr>' + rows.map(([n, c, use], i) => {
+    const hex = c.replace(/`/g, ''), id = 'cs' + (i + 1);
+    return `<tr><td>${esc(n)}</td><td><span class="swatch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 24" role="img" aria-labelledby="${id}"><title id="${id}">${esc(en ? 'Swatch of ' + n + ' (' + hex + ')' : n + '（' + hex + '）の見本')}</title><rect width="40" height="24" fill="${hex}"/></svg></span></td><td><code>${hex}</code></td><td>${esc(use)}</td></tr>`;
+  }).join('') + '</table></div>';
+}
+function tileTable(en = false) {
+  const head = en ? '<th scope="col">Category</th><th scope="col">Parcel</th><th scope="col">Shape</th><th scope="col">Island</th>'
+    : '<th scope="col">分類</th><th scope="col">区画</th><th scope="col">形</th><th scope="col">島の名</th>';
+  return '<div class="table"><table><tr>' + head + '</tr>' + KINDS.map((k, i) => {
+    const id = 'ks' + (i + 1);
+    return `<tr><td>${esc(en ? k.en : k.ja)}</td><td><span class="tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-labelledby="${id}"><title id="${id}">${esc(en ? 'Parcel for ' + k.en + ' (' + k.shapeEn + ')' : k.ja + 'の区画（' + k.shapeJa + '）')}</title><rect width="40" height="40" fill="#14213d"/>${tileShape(k.shape, 20, 20)}</svg></span></td><td>${esc(en ? k.shapeEn : k.shapeJa)}</td><td>Insula ${k.la}</td></tr>`;
+  }).join('') + '</table></div>';
+}
+function constructionMd(en = false) {
+  if (en) return `# How the symbols are drawn\n\nThis is an English translation. The [Japanese version](symbols-construction.html) governs.\n\nThe construction of the flag and the emblem, step by step, with the colours of the kingdom and the shapes of the parcels on the map. The steps are taken from [Symbols](SYMBOLS.en.md), and each drawing is made from the elements of the [flag image](assets/flag.svg) or the [emblem image](assets/emblem.svg), not drawn by hand. Where they differ, Symbols and the images apply.\n\n## The flag\n\n<!-- flagsteps -->\n\n## The emblem\n\n<!-- emblemsteps -->\n\n## Colours\n\n<!-- colors -->\n\n## Parcels of the map\n\nOn the map of the domain, the shape of a parcel shows the category of the mistake. All parcels are gold; categories are told apart by shape, not by colour.\n\n<!-- tiles -->\n\nThe maps of each year are compared in [The domain, year by year](territory-years.en.html).\n`;
+  return `# しるしの作図\n\n国旗と国章を描く手順を、手順ごとの図と並べ、国の色と版図の区画の形を一枚にまとめた頁です。手順の文は[国のしるし](SYMBOLS.md)から取り、図は[国旗の画像](assets/flag.svg)と[国章の画像](assets/emblem.svg)の要素から作ります。手で描きません。食い違うときは、国のしるしの頁と画像に従います。\n\n## 国旗\n\n<!-- flagsteps -->\n\n## 国章\n\n<!-- emblemsteps -->\n\n## 国の色\n\n<!-- colors -->\n\n## 版図の区画\n\n版図の地図では、区画の形が誤りの分類を表します。区画はどれも金一色で、分類は色ではなく形で分けます。\n\n<!-- tiles -->\n\n年ごとの地図は、[年ごとの版図](territory-years.html)で並べて比べられます。\n`;
+}
+
 /* Markdown の中の印（<!-- map --> など）を、表や図に置き換える。GitHub で読むときは印は見えない。 */
-const FILLERS = { map: errataMap, growth: errataGrowth, years: errataYearTable, facts: (en) => factsTable(en), census: (en) => censusTable(en) };
+const FILLERS = { map: errataMap, growth: errataGrowth, years: errataYearTable, facts: (en) => factsTable(en), census: (en) => censusTable(en),
+  months: gazetteMonthTable, yearmaps: territoryYears, flagsteps: (en) => constructionSteps('flag', en), emblemsteps: (en) => constructionSteps('emblem', en), colors: colorTable, tiles: tileTable };
 function fill(html, en) {
   html = html.replace(/<p>&lt;!-- 条文 (.+?) --&gt;<\/p>/g, (m, keys) => quoteBlock(keys, en));
   return html.replace(/<p>&lt;!-- (\w+) --&gt;<\/p>/g, (m, k) => {
@@ -492,7 +634,7 @@ ${alternate}${en ? '' : `<link rel="alternate" type="application/atom+xml" title
 <a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
 <header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a></header>
 <main id="main">
-${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${fill(markdown(md, srcRel, outRel), en).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : outRel === 'gazette.en.html' ? '\n' + gazetteTable(true) : ''}
+${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${fill(markdown(md, srcRel, outRel), en).replace(/<h2>/, (h) => (outRel === 'story.html' || outRel === 'story.en.html' ? storyToc(en) + '\n' + h : h)).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : outRel === 'gazette.en.html' ? '\n' + gazetteTable(true) : ''}
 </main>
 <footer>
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
@@ -579,11 +721,21 @@ function build(out = OUT) {
     files['gazette/' + x.no + '.html'] = page('GAZETTE.md', 'gazette/' + x.no + '.html', { md: gazetteIssueMd(x, issues.length), twin: 'gazette/' + x.no + '.en.html' });
     files['gazette/' + x.no + '.en.html'] = page('GAZETTE.en.md', 'gazette/' + x.no + '.en.html', { md: gazetteIssueMd(x, issues.length, true), en: true, twin: 'gazette/' + x.no + '.html' });
   }
+  for (const m of gazetteMonths()) {
+    files['monthly/' + m + '.html'] = page('GAZETTE.md', 'monthly/' + m + '.html', { md: gazetteMonthMd(m), twin: 'monthly/' + m + '.en.html' });
+    files['monthly/' + m + '.en.html'] = page('GAZETTE.en.md', 'monthly/' + m + '.en.html', { md: gazetteMonthMd(m, true), en: true, twin: 'monthly/' + m + '.html' });
+  }
+  for (const en of [false, true]) {
+    const ch = storyChapters(en), x = en ? '.en' : '';
+    for (const c of ch) files['story/' + c.n + x + '.html'] = page(en ? 'STORY.en.md' : 'STORY.md', 'story/' + c.n + x + '.html', { md: storyChapterMd(c, ch.length, en), en, twin: 'story/' + c.n + (en ? '' : '.en') + '.html' });
+    files['territory-years' + x + '.html'] = page(en ? 'ERRATA.en.md' : 'ERRATA.md', 'territory-years' + x + '.html', { md: territoryYearsMd(en), en, twin: 'territory-years' + (en ? '' : '.en') + '.html' });
+    files['symbols-construction' + x + '.html'] = page(en ? 'SYMBOLS.en.md' : 'SYMBOLS.md', 'symbols-construction' + x + '.html', { md: constructionMd(en), en, twin: 'symbols-construction' + (en ? '' : '.en') + '.html' });
+  }
   files['calendar.ics'] = calendarIcs();
   files['llms.txt'] = llmsTxt();
   files['llms-full.txt'] = llmsFull();
   files['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    + SOURCES.map(([, d]) => d).concat(Object.keys(files).filter((f) => /^(errata|gazette)\/\d+(\.en)?\.html$/.test(f)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true })))
+    + SOURCES.map(([, d]) => d).concat(Object.keys(files).filter((f) => /\.html$/.test(f) && GENERATED.test(f)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true })))
       .map((d) => '  <url><loc>' + BASE + (d === 'index.html' ? '' : d) + '</loc></url>').join('\n') + '\n</urlset>\n';
   /* 配信するのは main だけ。無料の枠はアカウント全体で一日 100 回で、2026-11-08 に作業の枝の配信で使い切り、
    * main を配信できなかった。枝が複数の決まりに当たるときは、どれか一つが許せば配信される。 */
@@ -601,7 +753,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;

@@ -5,6 +5,7 @@
 This is an English translation. The [Japanese version](SYMBOLS.md) governs; if the two differ, the Japanese version applies.
 
 The symbols of the kingdom are the emblem, the flag and the map of the domain. Like the emblem, each is drawn with rectangles and polygons only. They use no typeface, so they look the same on every device.
+The construction of the flag and the emblem, step by step in drawings, with the colours of the kingdom and the shapes of the parcels of the map, is on one page: [How the symbols are drawn](site/symbols-construction.en.html).
 
 ## The flag
 
@@ -23,6 +24,7 @@ It does not take the form of bands side by side or one above the other, so that 
 Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.
 The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
 Each mistake recorded adds one parcel. The map is drawn from the errata, not by hand.
+The maps at the end of each year are set side by side at the same scale in [The domain, year by year](site/territory-years.en.html).
 
 ## How the flag is drawn
 
@@ -33,6 +35,15 @@ The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates o
 3. Draw a golden rectangle 534 wide and 330 high in light-gold lines 6 thick, with its top-left corner at (183, 155).
 4. Cut squares out of the rectangle one by one. Their sides shrink by the golden ratio: 330, 204, 126, 77.9, 48.1, 29.8.
 5. Above the rectangle, set three gold squares (the cornerstones) with sides of 24, 12 apart, their top edge at 99.
+
+## How the emblem is drawn
+
+The emblem is drawn in a frame 600 wide and 720 high. The numbers are the coordinates of the [emblem image](assets/emblem.svg) as they are.
+
+1. Draw a gold shield and lay a navy shield inside it. A gold border 20 thick is left at the top and the sides.
+2. In the upper half of the shield, draw a golden rectangle 360 wide and 222.5 high, divided into squares, in light-gold lines 4 thick, with its top-left corner at (120, 112). The sides of the squares shrink by the golden ratio: 222.5, 137.5, 85, 52.5, 32.5, 20.1.
+3. At the top of the shield, set three gold squares (the cornerstones) with sides of 18, 10 apart, their top edge at 76.
+4. Draw the sword point down. The pommel and the guard are gold, the grip and the blade light gold, and the groove of the blade deep navy. The point reaches 632.
 
 ## How the flag is flown
 

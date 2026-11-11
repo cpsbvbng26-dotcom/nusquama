@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-w8Z2x+e8LW1Fc1s7JOx1srBMpxwasMXfbvlWuAxqC9s='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-kJODkHmNwR9eZK7MjS4P/XPDgGfDWtmKmzSTo/WfmfI='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>国のしるし | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="国のしるしは、国章と国旗と版図の地図です。どれも国章と同じく、長方形と多角形だけで描いてあります。文字の書体を使わないので、どの端末でも同じ形に描かれます。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -56,6 +56,14 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
 .pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.years { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.years figure { margin: 0; flex: 1 1 200px; max-width: 320px; }
+.years svg, .steps svg, .tile svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 15px; color: var(--muted); }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.steps li p { margin: 0.4em 0 0; font-size: 15px; }
+.tile, .swatch { display: block; width: 40px; }
+.swatch svg { display: block; width: 100%; height: auto; outline: 1px solid var(--line); }
 @media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
@@ -65,17 +73,20 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <p class="notice">これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。</p>
 <h1>国のしるし</h1>
 <blockquote><p>これは創作であり、遊びです。ここに挙げるしるしは、どれも実在の国家・王室・騎士団・叙勲の旗や記章ではなく、それらに代わるものでもありません。</p></blockquote>
-<p>国のしるしは、国章と国旗と版図の地図です。どれも国章と同じく、長方形と多角形だけで描いてあります。文字の書体を使わないので、どの端末でも同じ形に描かれます。</p>
+<p>国のしるしは、国章と国旗と版図の地図です。どれも国章と同じく、長方形と多角形だけで描いてあります。文字の書体を使わないので、どの端末でも同じ形に描かれます。国旗と国章の作図を手順ごとの図で追い、国の色と版図の区画の形を一枚にまとめた頁が、<a href="symbols-construction.html">しるしの作図</a>です。</p>
 <h2>国旗</h2>
 <img class="emblem" src="flag.svg" alt="ヌスクァマの国旗（創作）">
 <ul><li>紺の地に金の縁。国章の盾と同じ色です。</li><li>中央に黄金比の矩形を描きます。国章の上半分と同じ形です。</li><li>矩形の上に、三つの角石を並べます。</li></ul>
 <p>帯を横や縦に並べる形は取りません。実在の国の旗と紛れないようにするためです。</p>
 <h2>版図の地図</h2>
 <img class="emblem" src="territory.svg" alt="版図の地図（創作）">
-<p>基本法第三条により、版図は王の本棚と、王が公にした正誤表です。地図の中央の三本の柱が王の本棚です。そのまわりの金の区画が、<a href="errata.html">王の正誤表</a>に記した誤りです。誤りを一つ記すたびに、区画が一つ増えます。地図は正誤表から作り、手で描き足しません。</p>
+<p>基本法第三条により、版図は王の本棚と、王が公にした正誤表です。地図の中央の三本の柱が王の本棚です。そのまわりの金の区画が、<a href="errata.html">王の正誤表</a>に記した誤りです。誤りを一つ記すたびに、区画が一つ増えます。地図は正誤表から作り、手で描き足しません。年の終わりごとの地図は、<a href="territory-years.html">年ごとの版図</a>の頁で、同じ縮尺で並べて比べられます。</p>
 <h2>国旗の作図</h2>
 <p>国旗は、横 900、縦 600 の比（3:2）で描きます。数は、<a href="flag.svg">国旗の画像</a>の座標そのままです。</p>
 <ol><li>紺の地を塗る。</li><li>端から 24 内側に、太さ 8 の金の縁を引く。</li><li>横 534、縦 330 の黄金比の矩形を、明るい金の線（太さ 6）で描く。左上の角は (183, 155) に置く。</li><li>矩形から、正方形を一つずつ切り出す。辺は 330、204、126、77.9、48.1、29.8 と、黄金比で小さくなる。</li><li>矩形の上に、辺 24 の金の正方形（角石）を三つ、間を 12 空けて並べる。上の端は 99 に置く。</li></ol>
+<h2>国章の作図</h2>
+<p>国章は、横 600、縦 720 の枠に描きます。数は、<a href="emblem.svg">国章の画像</a>の座標そのままです。</p>
+<ol><li>金の盾を描き、その内側に紺の盾を重ねる。上と左右に、太さ 20 の金の縁が残る。</li><li>盾の上半分に、横 360、縦 222.5 の黄金比の矩形を、正方形に切り分けた形で、明るい金の線（太さ 4）で描く。左上の角は (120, 112) に置く。正方形の辺は 222.5、137.5、85、52.5、32.5、20.1 と、黄金比で小さくなる。</li><li>盾の頂に、辺 18 の金の正方形（角石）を三つ、間を 10 空けて並べる。上の端は 76 に置く。</li><li>剣を、切っ先を下に向けて描く。柄頭と鍔は金、握りと刃は明るい金、刃の溝は深い紺で塗る。切っ先は 632 に届く。</li></ol>
 <h2>旗の掲げ方</h2>
 <ul><li>国旗は、画面の上でだけ掲げます。王は、布や紙の旗を作りません。</li><li>実在の国の旗と並べて、同じ扱いに見せることはしません。</li><li>国旗と版図の地図も、文と国章と同じく CC BY 4.0 です。使い方の決まりは<a href="policies/names.html">名称と権利</a>にあります。</li></ul>
 <h2>国の色</h2>

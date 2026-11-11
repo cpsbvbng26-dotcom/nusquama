@@ -10,13 +10,18 @@ Source: https://nusquama.vercel.app/
 
 # 無何有騎士王国ヌスクァマ（Regnum Nusquamae）
 
+種類：エンターテインメント　状態：運営中
+
 > これは創作であり、遊びです。
+> ヌスクァマは、娯楽のために作った架空の国です。学術の研究ではなく、研究の成果を示すものでもありません。
 > ヌスクァマは国家ではなく、領土・国民・通貨・旅券を持ちません。
 > いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく、それらを名乗るものでも、それらに代わるものでもありません。
 > ここで授ける称号に、法的な効力はありません。
 > 悪意はなく、法令を守って運営しています。
 >
 > 詳しくは[利用規約](policies/terms.md)と[免責事項](policies/disclaimer.md)にあります。
+>
+> English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.
 
 ![国章](assets/emblem.svg)
 
@@ -289,6 +294,7 @@ Source: https://nusquama.vercel.app/symbols.html
 > これは創作であり、遊びです。ここに挙げるしるしは、どれも実在の国家・王室・騎士団・叙勲の旗や記章ではなく、それらに代わるものでもありません。
 
 国のしるしは、国章と国旗と版図の地図です。どれも国章と同じく、長方形と多角形だけで描いてあります。文字の書体を使わないので、どの端末でも同じ形に描かれます。
+国旗と国章の作図を手順ごとの図で追い、国の色と版図の区画の形を一枚にまとめた頁が、[しるしの作図](site/symbols-construction.html)です。
 
 ## 国旗
 
@@ -307,6 +313,7 @@ Source: https://nusquama.vercel.app/symbols.html
 基本法第三条により、版図は王の本棚と、王が公にした正誤表です。
 地図の中央の三本の柱が王の本棚です。そのまわりの金の区画が、[王の正誤表](ERRATA.md)に記した誤りです。
 誤りを一つ記すたびに、区画が一つ増えます。地図は正誤表から作り、手で描き足しません。
+年の終わりごとの地図は、[年ごとの版図](site/territory-years.html)の頁で、同じ縮尺で並べて比べられます。
 
 ## 国旗の作図
 
@@ -317,6 +324,15 @@ Source: https://nusquama.vercel.app/symbols.html
 3. 横 534、縦 330 の黄金比の矩形を、明るい金の線（太さ 6）で描く。左上の角は (183, 155) に置く。
 4. 矩形から、正方形を一つずつ切り出す。辺は 330、204、126、77.9、48.1、29.8 と、黄金比で小さくなる。
 5. 矩形の上に、辺 24 の金の正方形（角石）を三つ、間を 12 空けて並べる。上の端は 99 に置く。
+
+## 国章の作図
+
+国章は、横 600、縦 720 の枠に描きます。数は、[国章の画像](assets/emblem.svg)の座標そのままです。
+
+1. 金の盾を描き、その内側に紺の盾を重ねる。上と左右に、太さ 20 の金の縁が残る。
+2. 盾の上半分に、横 360、縦 222.5 の黄金比の矩形を、正方形に切り分けた形で、明るい金の線（太さ 4）で描く。左上の角は (120, 112) に置く。正方形の辺は 222.5、137.5、85、52.5、32.5、20.1 と、黄金比で小さくなる。
+3. 盾の頂に、辺 18 の金の正方形（角石）を三つ、間を 10 空けて並べる。上の端は 76 に置く。
+4. 剣を、切っ先を下に向けて描く。柄頭と鍔は金、握りと刃は明るい金、刃の溝は深い紺で塗る。切っ先は 632 に届く。
 
 ## 旗の掲げ方
 
@@ -424,6 +440,12 @@ Source: https://nusquama.vercel.app/gazette.html
 王国の出来事を、日付の新しい順に並べます。
 もとは、トップの頁の年表、[王の正誤表](ERRATA.md)、[騎士の名簿](KNIGHTS.md)です。官報はそこから作り、手で書きません。
 新着は配信（gazette.xml）でも読めます。
+
+## 月ごとの合本
+
+その月の号を、古い順に一つの頁にまとめたものです。号の番号は一号ごとの頁と同じで、合本のために振り直しません。
+
+<!-- months -->
 
 ---
 
@@ -707,6 +729,12 @@ Source: https://nusquama.vercel.app/press.html
 
 〇〇の運営者さまへ。無何有騎士王国ヌスクァマの騎士王ネモ一世です。ヌスクァマは創作の国で、交流は挨拶と互いの頁へのリンクに留めています。条約や称号の授け合い、金銭のやりとりはいたしません。よろしければ、互いの頁へのリンクを置かせてください。
 
+## ミクロネーションの界隈へ向けた紹介
+
+ミクロネーションの wiki や集まりで、ヌスクァマを英語で紹介するときの文です。英語の頁に、この文の英語の版があります。最初の文で、創作であることを断ります。
+
+これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。
+
 ## 名前としるし
 
 名前の由来と、国章・国旗の使い方は、[名称と権利](policies/names.md)と[国のしるし](SYMBOLS.md)にあります。
@@ -780,6 +808,40 @@ Source: https://nusquama.vercel.app/play.html
 8. 第一条・第六条・第八条（基本法第十条）。
 9. 11 月 8 日（[暦と祝日](CALENDAR.md)）。
 10. 法（[王の正誤表](ERRATA.md)「分類と地名」）。
+
+## 季節の問い
+
+[暦と祝日](CALENDAR.md)の記念日に合わせた問いです。記念日を足したときは、ここにも問いを足します。
+
+### 建国の日（11 月 7 日）
+
+1. 建国を宣した王の名は何か。
+2. 国是は何か。
+3. 2036 年 11 月 7 日に、王は何をするか。
+4. 毎年この日に、自動で開くものは何か。
+
+### 正誤の日（11 月 8 日）
+
+1. 王の正誤表に最初に記した誤りは、何についての誤りか。
+2. 版図の広さは、何という単位で数えるか。
+3. 記した正誤そのものが誤りだったと分かったとき、前の行をどうするか。
+4. 恩赦を求めると、版図はどうなるか。
+
+## 季節の問いの答え
+
+### 建国の日（11 月 7 日）
+
+1. 騎士王ネモ一世（建国の宣言）。
+2. Errata servo, me ipsum rego.（誤りは守り、己を治める）
+3. 十年の見通しと実際を比べて、官報に載せる（[国の仕組み](INSTITUTIONS.md)「十年の見通し」）。
+4. 年一回の総点検の issue（[国の仕組み](INSTITUTIONS.md)「年一回の総点検」）。
+
+### 正誤の日（11 月 8 日）
+
+1. 国の名の由来についての誤り（[建国の物語](STORY.md)）。
+2. 「誤」。王の正誤表の一件が一誤（[国のしるし](SYMBOLS.md)「国の時刻と単位」）。
+3. 消さない。新しい行に、前の行が誤っていたことを記す（[国の仕組み](INSTITUTIONS.md)「恩赦」）。
+4. かえって一区画広がる（[国の仕組み](INSTITUTIONS.md)「恩赦」）。
 
 ---
 
@@ -2487,6 +2549,7 @@ Source: https://nusquama.vercel.app/symbols.en.html
 This is an English translation. The [Japanese version](SYMBOLS.md) governs; if the two differ, the Japanese version applies.
 
 The symbols of the kingdom are the emblem, the flag and the map of the domain. Like the emblem, each is drawn with rectangles and polygons only. They use no typeface, so they look the same on every device.
+The construction of the flag and the emblem, step by step in drawings, with the colours of the kingdom and the shapes of the parcels of the map, is on one page: [How the symbols are drawn](site/symbols-construction.en.html).
 
 ## The flag
 
@@ -2505,6 +2568,7 @@ It does not take the form of bands side by side or one above the other, so that 
 Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.
 The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
 Each mistake recorded adds one parcel. The map is drawn from the errata, not by hand.
+The maps at the end of each year are set side by side at the same scale in [The domain, year by year](site/territory-years.en.html).
 
 ## How the flag is drawn
 
@@ -2515,6 +2579,15 @@ The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates o
 3. Draw a golden rectangle 534 wide and 330 high in light-gold lines 6 thick, with its top-left corner at (183, 155).
 4. Cut squares out of the rectangle one by one. Their sides shrink by the golden ratio: 330, 204, 126, 77.9, 48.1, 29.8.
 5. Above the rectangle, set three gold squares (the cornerstones) with sides of 24, 12 apart, their top edge at 99.
+
+## How the emblem is drawn
+
+The emblem is drawn in a frame 600 wide and 720 high. The numbers are the coordinates of the [emblem image](assets/emblem.svg) as they are.
+
+1. Draw a gold shield and lay a navy shield inside it. A gold border 20 thick is left at the top and the sides.
+2. In the upper half of the shield, draw a golden rectangle 360 wide and 222.5 high, divided into squares, in light-gold lines 4 thick, with its top-left corner at (120, 112). The sides of the squares shrink by the golden ratio: 222.5, 137.5, 85, 52.5, 32.5, 20.1.
+3. At the top of the shield, set three gold squares (the cornerstones) with sides of 18, 10 apart, their top edge at 76.
+4. Draw the sword point down. The pommel and the guard are gold, the grip and the blade light gold, and the groove of the blade deep navy. The point reaches 632.
 
 ## How the flag is flown
 
@@ -2626,6 +2699,12 @@ This is an English translation. The [Japanese version](GAZETTE.md) governs; if t
 The events of the kingdom are listed newest first.
 They come from the timeline on the top page, the [King's errata](ERRATA.en.md) and the [roll of knights](KNIGHTS.en.md). The gazette is made from them, not written by hand.
 New entries can also be read in the feed (gazette.xml).
+
+## Monthly collections
+
+The issues of each month, oldest first, on one page. The issue numbers are those of the single issues; they are not renumbered for the collection.
+
+<!-- months -->
 
 ---
 
@@ -2917,6 +2996,12 @@ A greeting to the operator of another country, following the [Rules on exchange]
 
 To the operator of ○○: this is Nemo I, Knight-King of Nusquama. Nusquama is a fictional kingdom, and its exchanges are limited to greetings and links to each other's pages. It makes no treaties, gives no titles in exchange, and handles no money. If you agree, we would like to place links to each other's pages.
 
+## For the micronation community
+
+Text for introducing Nusquama in English on micronation wikis and forums. Its first sentence says that Nusquama is fiction.
+
+This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money.
+
 ## Name and symbols
 
 The origin of the name and the use of the emblem and the flag are described in [Names and rights](policies/names.en.md) and [Symbols](SYMBOLS.en.md).
@@ -2992,4 +3077,38 @@ Each of these five sentences contains one mistake. The answers are under "Answer
 8. Articles 1, 6 and 8 (Article 10).
 9. 8 November ([Calendar](CALENDAR.en.md)).
 10. Law ([King's errata](ERRATA.en.md), "Categories and place names").
+
+## Seasonal questions
+
+Questions for the days of the [Calendar](CALENDAR.en.md). When a day is added, questions are added here too.
+
+### Founding Day (7 November)
+
+1. What is the name of the King who declared the founding?
+2. What is the motto of the kingdom?
+3. What will the King do on 7 November 2036?
+4. What opens automatically on this day every year?
+
+### Day of Errata (8 November)
+
+1. What was the first mistake recorded in the King's errata about?
+2. In what unit is the size of the domain counted?
+3. When a recorded entry itself turns out to be wrong, what happens to the earlier row?
+4. What happens to the domain when someone asks for a pardon?
+
+## Answers to the seasonal questions
+
+### Founding Day (7 November)
+
+1. Nemo I, Knight-King (Founding Declaration).
+2. Errata servo, me ipsum rego. ("Mistakes I keep, and myself I rule.")
+3. The King compares the ten-year outlook with what happened and announces the result in the gazette ([Institutions](INSTITUTIONS.en.md), "Ten years ahead").
+4. The issue for the yearly review ([Institutions](INSTITUTIONS.en.md), "The yearly review").
+
+### Day of Errata (8 November)
+
+1. Where the kingdom's name came from ([Story of the founding](STORY.en.md)).
+2. In errata: one entry in the King's errata is one erratum ([Symbols](SYMBOLS.en.md), "Time and units").
+3. It is not erased. A new row records that the earlier row was wrong ([Institutions](INSTITUTIONS.en.md), "Pardon").
+4. It grows by one parcel ([Institutions](INSTITUTIONS.en.md), "Pardon").
 

@@ -65,3 +65,37 @@ Each of these five sentences contains one mistake. The answers are under "Answer
 8. Articles 1, 6 and 8 (Article 10).
 9. 8 November ([Calendar](CALENDAR.en.md)).
 10. Law ([King's errata](ERRATA.en.md), "Categories and place names").
+
+## Seasonal questions
+
+Questions for the days of the [Calendar](CALENDAR.en.md). When a day is added, questions are added here too.
+
+### Founding Day (7 November)
+
+1. What is the name of the King who declared the founding?
+2. What is the motto of the kingdom?
+3. What will the King do on 7 November 2036?
+4. What opens automatically on this day every year?
+
+### Day of Errata (8 November)
+
+1. What was the first mistake recorded in the King's errata about?
+2. In what unit is the size of the domain counted?
+3. When a recorded entry itself turns out to be wrong, what happens to the earlier row?
+4. What happens to the domain when someone asks for a pardon?
+
+## Answers to the seasonal questions
+
+### Founding Day (7 November)
+
+1. Nemo I, Knight-King (Founding Declaration).
+2. Errata servo, me ipsum rego. ("Mistakes I keep, and myself I rule.")
+3. The King compares the ten-year outlook with what happened and announces the result in the gazette ([Institutions](INSTITUTIONS.en.md), "Ten years ahead").
+4. The issue for the yearly review ([Institutions](INSTITUTIONS.en.md), "The yearly review").
+
+### Day of Errata (8 November)
+
+1. Where the kingdom's name came from ([Story of the founding](STORY.en.md)).
+2. In errata: one entry in the King's errata is one erratum ([Symbols](SYMBOLS.en.md), "Time and units").
+3. It is not erased. A new row records that the earlier row was wrong ([Institutions](INSTITUTIONS.en.md), "Pardon").
+4. It grows by one parcel ([Institutions](INSTITUTIONS.en.md), "Pardon").
