@@ -242,7 +242,7 @@ console.log('\n12. 受付と安全の知らせ');
   const req = read('.github/ISSUE_TEMPLATE/request.yml');
   const labels = read('.github/workflows/labels.yml');
   ok('様式を使わない issue を開けない', /^blank_issues_enabled: false$/m.test(cfg));
-  const used = ['knighting.yml', 'request.yml'].flatMap((f) => JSON.parse((/^labels: (\[.*\])$/m.exec(read('.github/ISSUE_TEMPLATE/' + f)) || [, '[]'])[1]));
+  const used = fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).filter((f) => f !== 'config.yml').flatMap((f) => JSON.parse((/^labels: (\[.*\])$/m.exec(read('.github/ISSUE_TEMPLATE/' + f)) || [, '[]'])[1]));
   ok('様式が使うラベル（' + used.length + ' 個）を、ラベルの workflow がそろえる', used.length > 0 && used.every((l) => labels.includes('gh label create "' + l + '"')), used.join(','));
   const rq = read('policies/requests.md');
   const kinds = ((/## 求めることができるもの\n\n([\s\S]*?)\n\n/.exec(rq) || [])[1] || '').split('\n').filter((l) => l.startsWith('- '));
@@ -290,8 +290,15 @@ console.log('\n13. リンク切れ（リポジトリの中を指すもの）');
 console.log('\n14. GitHub Actions の版');
 {
   const wf = fs.readdirSync(path.join(ROOT, '.github', 'workflows')).map((f) => read('.github/workflows/' + f)).join('\n');
-  const old = [...wf.matchAll(/uses: (actions\/(?:checkout|setup-node)@v(\d+))/g)].filter((m) => Number(m[2]) < 5).map((m) => m[1]);
+  /* 版は、コミットの値で固めた行の後ろの注釈（# v7.0.1 など）から読む。 */
+  const uses = [...wf.matchAll(/uses: (\S+)(.*)$/gm)];
+  const loose = uses.filter((m) => !/^[\w.-]+\/[\w.-]+@[0-9a-f]{40}$/.test(m[1]) || !/^ # v\d+(?:\.\d+){0,2}$/.test(m[2])).map((m) => m[1] + m[2]);
+  ok('外のアクション（' + uses.length + ' 行）は、どれもコミットの値（40 桁）で固め、版を注釈に書く', uses.length > 0 && loose.length === 0, loose.join(', '));
+  const old = uses.filter((m) => /^actions\/(?:checkout|setup-node)@/.test(m[1]) && Number((/# v(\d+)/.exec(m[2]) || [])[1] || 0) < 5).map((m) => m[1] + m[2]);
   ok('checkout と setup-node は Node.js 24 で動く v5 以上', old.length === 0, old.join(', '));
+  const pins = new Map();
+  for (const m of uses) { const k = m[1].split('@')[0]; pins.set(k, (pins.get(k) || new Set()).add(m[1] + m[2])); }
+  ok('同じアクションは、どのワークフローでも同じコミットの値を使う', [...pins.values()].every((v) => v.size === 1), [...pins].filter(([, v]) => v.size > 1).map(([k]) => k).join(', '));
   ok('Dependabot が GitHub Actions の版を見る', /package-ecosystem: github-actions/.test(read('.github/dependabot.yml')));
 }
 
@@ -605,9 +612,9 @@ console.log('\n25. 国のしるし（国旗・版図の地図）は国章の色�
 console.log('\n26. 官報');
 {
   const items = B.gazetteItems();
-  const n = B.timelineRows().length + B.tableRows('ERRATA.md').length + B.tableRows('KNIGHTS.md').length;
+  const n = B.timelineRows().length + B.tableRows('ERRATA.md').length + Math.floor(B.tableRows('ERRATA.md').length / B.MILESTONE) + B.tableRows('KNIGHTS.md').length;
   const g = read('site/gazette.html'), x = read('site/gazette.xml');
-  ok('官報は、年表・正誤表・名簿のすべての行（' + n + ' 件）を、日付の新しい順に、頁と配信の両方に載せる',
+  ok('官報は、年表・正誤表・名簿のすべての行と記念の号（' + n + ' 件）を、日付の新しい順に、頁と配信の両方に載せる',
     items.length === n && items.every((it, i) => i === 0 || items[i - 1].date >= it.date) && (x.match(/<entry>/g) || []).length === n
     && (g.match(/<tr><td>\d{4}-\d{2}-\d{2}<\/td>/g) || []).length === n && g.includes('href="gazette.xml"') && read('GAZETTE.md').includes('実在の官報ではありません。'));
 }
@@ -724,14 +731,14 @@ console.log('\n31. 暦の iCalendar');
 
 console.log('\n32. 物語・言葉・仕組み・紹介・遊び・しるし');
 {
-  const press = read('site/press.html'), knights = B.tableRows('KNIGHTS.md').length, items = B.gazetteItems().length;
+  const press = read('site/press.html'), knights = B.population(), dubbed = B.tableRows('KNIGHTS.md').length, items = B.gazetteItems().length;
   ok('紹介の事実の表は、正誤表・名簿・官報・頁の元から数える（版図 ' + B.domain() + '、人口 ' + knights + '、官報 ' + items + '、頁 ' + B.SOURCES.length + '）',
     press.includes('<td>版図（王の正誤表の誤り）</td><td>' + B.domain() + ' 件</td>') && press.includes('<td>人口（正誤表騎士団の騎士）</td><td>' + knights + ' 人</td>')
     && press.includes('<td>官報</td><td>' + items + ' 号</td>') && press.includes('<td>頁（日本語と英語）</td><td>' + B.SOURCES.length + '</td>') && press.includes('<td>建国の日</td><td>' + B.FOUNDED + '</td>')
     && read('README.md').includes('―― 騎士王ネモ一世　' + B.FOUNDED.replace(/^(\d+)-(\d+)-(\d+)$/, (m, y, mo, d) => y + '年' + Number(mo) + '月' + Number(d) + '日')));
   const census = [...press.matchAll(/<tr><td>(\d{4})<\/td><td>(\d+)<\/td><td>(\d+)<\/td><td>(\d+)<\/td><td>(\d+)<\/td><\/tr>/g)];
   ok('年ごとの国勢の表を足すと、正誤・叙任・官報の全体になる', census.length > 0 && census.reduce((a, m) => a + Number(m[2]), 0) === B.domain()
-    && census.reduce((a, m) => a + Number(m[3]), 0) === knights && census.reduce((a, m) => a + Number(m[4]), 0) === items);
+    && census.reduce((a, m) => a + Number(m[3]), 0) === dubbed && census.reduce((a, m) => a + Number(m[4]), 0) === items && Number((census[census.length - 1] || [])[5]) === B.population(census.length ? census[census.length - 1][1] : '0'));
   {
     const paras = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return i < 0 ? [] : t.slice(i + h.length + 5, j < 0 ? undefined : j).split(/\n{2,}/).map((p) => p.trim()).filter(Boolean); };
     const pj = paras(read('PRESS.md'), '添える文'), pe = paras(read('PRESS.en.md'), 'Sentences to add');
@@ -1092,6 +1099,252 @@ console.log('\n43. ミクロネーションの界隈へ向けた英語の紹介'
   ok('紹介の文は、称号に効力がないこと、条約・称号の授け合い・金銭のやりとりをしないことを書き、交流の規程と合う',
     pj[1].includes('称号に法的な効力はなく') && pj[1].includes('条約を結ばず、称号を授け合わず、金銭のやりとりをしません。') && pe[1].includes('The titles have no legal effect')
     && pe[1].includes('Nusquama makes no treaties, gives no titles in exchange, and handles no money.') && read('policies/exchange.md').includes('- 交流は、挨拶と、互いの頁へのリンクに留めます。'));
+}
+
+console.log('\n44. 外のパッケージに頼らない');
+{
+  const { builtinModules } = require('module');
+  /* playwright を読むのは、手で走らせるアイコンの作図と、CI の別の job で走らせるはみ出しの検査だけ。 */
+  const ALLOW = { 'tools/icons.js': ['playwright'], 'verification/check_layout.js': ['playwright'] };
+  const list = (dir, rel = '') => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (['.git', 'node_modules', 'site'].includes(e.name) ? []
+    : e.isDirectory() ? list(path.join(dir, e.name), rel + e.name + '/') : [rel + e.name]));
+  const js = list(ROOT).filter((f) => /\.(c|m)?js$/.test(f));
+  const bad = [];
+  for (const f of js) {
+    const t = read(f);
+    const ids = [...t.matchAll(/\brequire\(\s*['"]([^'"]+)['"]\s*\)/g), ...t.matchAll(/\bimport\s[^;'"]*?from\s+['"]([^'"]+)['"]/g), ...t.matchAll(/\bimport\(\s*['"]([^'"]+)['"]\s*\)/g)].map((m) => m[1]);
+    for (const id of ids) if (!id.startsWith('.') && !builtinModules.includes(id.replace(/^node:/, '')) && !(ALLOW[f] || []).includes(id)) bad.push(f + '：' + id);
+  }
+  ok('どのスクリプト（' + js.length + '）も、Node.js に備わるモジュールとリポジトリの中のファイルだけを読む（playwright は、手で走らせる icons.js と、別の job の check_layout.js だけ）', js.length > 0 && bad.length === 0, bad.join(', '));
+  const lock = ['package.json', 'package-lock.json', 'npm-shrinkwrap.json', 'yarn.lock', 'pnpm-lock.yaml', 'node_modules', '.npmrc', 'requirements.txt'].filter((f) => fs.existsSync(path.join(ROOT, f)));
+  ok('package.json も lock のファイルも node_modules もない', lock.length === 0, lock.join(', '));
+  const wfs = fs.readdirSync(path.join(ROOT, '.github', 'workflows'));
+  const installs = wfs.flatMap((f) => read('.github/workflows/' + f).split('\n').filter((l) => /\b(npm|npx|yarn|pnpm|pip3?)\b/.test(l)).map((l) => f + '：' + l.trim()));
+  const allowed = ['check.yml：npm install -g playwright@1.56.1', 'check.yml：npx playwright install --with-deps chromium', 'check.yml：run: NODE_PATH="$(npm root -g)" node verification/check_layout.js'];
+  ok('ワークフローがパッケージを入れるのは、はみ出しの job の playwright（版を固める）だけ', installs.length === allowed.length && installs.every((l) => allowed.includes(l)), installs.filter((l) => !allowed.includes(l)).join(' / '));
+}
+
+console.log('\n45. ワークフローの権限は、要るものだけ');
+{
+  /* 書き込みが要る理由：issue へのコメントと issue を開く（issues）、PR を作る（pull-requests）、枝に push する（contents）。
+   * ワークフローを足したら、ここに足す。権限を広げるときも、ここを直す。 */
+  const PERM = {
+    'check.yml': { contents: 'read' },
+    'knighting.yml': { contents: 'read', issues: 'write' },
+    'labels.yml': { issues: 'write' },
+    'live.yml': { contents: 'read', issues: 'write' },
+    'record.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
+    'review.yml': { contents: 'read', issues: 'write' },
+    'sources.yml': { contents: 'write' },
+    'statutes.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
+  };
+  const wfs = fs.readdirSync(path.join(ROOT, '.github', 'workflows')).sort();
+  const bad = [];
+  for (const f of wfs) {
+    const t = read('.github/workflows/' + f);
+    const m = /^permissions:\n((?: {2}[\w-]+: \w+\n)+)/m.exec(t);
+    const got = m ? Object.fromEntries(m[1].trim().split('\n').map((l) => l.trim().split(': '))) : null;
+    if (!PERM[f]) bad.push(f + '：表にない');
+    else if (!got || JSON.stringify(got) !== JSON.stringify(PERM[f])) bad.push(f + '：' + JSON.stringify(got));
+    if (/^ +permissions:/m.test(t) || /write-all|read-all/.test(t)) bad.push(f + '：job ごとの権限か、まとめた権限');
+  }
+  ok('どのワークフロー（' + wfs.length + '）も、先頭で権限を挙げ、表のとおり要るものだけを持つ', wfs.length === Object.keys(PERM).length && bad.length === 0, bad.join(' / '));
+}
+
+console.log('\n46. 秘密情報と連絡先の走査');
+{
+  const S = require('../tools/scan.js');
+  const r = S.scan(ROOT);
+  ok('リポジトリの ' + r.files + ' ファイルに、秘密情報も、許したもののほかの連絡先もない', r.files > 100 && r.hits.length === 0, r.hits.join(' / '));
+  /* 鍵や宛先の形は、ここで組み立てる。そのまま書くと、このファイル自身が走査に掛かる。 */
+  const fake = ['-----BEGIN ' + 'RSA PRIVATE KEY-----', 'gh' + 'p_' + 'a1'.repeat(18), 'AK' + 'IA' + 'ABCDEFGHIJKLMNOP', 'token: "' + 'x1'.repeat(8) + '"', 'someone' + '@' + 'example.org', '03' + '-1234-5678', '〒' + '100-0001'];
+  ok('走査は、鍵・token・代入・メールアドレス・電話番号・郵便番号の形を一つずつ見つけ、許した noreply・暦の UID・日付は見逃す',
+    fake.every((t) => S.scanText(t).length === 1) && S.scanText('UID:1107' + '@nusquama.vercel.app').length === 0 && S.scanText('noreply' + '@anthropic.com').length === 0 && S.scanText('2026-11-11 と 03-12').length === 0);
+  const wf = read('.github/workflows/check.yml');
+  ok('検査（走査を含む）は、push と PR のほか、週に一度も回る', /\n {2}schedule:\n {4}- cron: '\d+ \d+ \* \* \d'\n/.test(wf) && wf.includes('run: node verification/check.js'));
+}
+
+console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキスト・重さ・索引）');
+{
+  const html = walk(path.join(ROOT, 'site')).filter((f) => f.endsWith('.html'));
+  const bad = { lang: [], foot: [], alt: [], weight: [], canon: [] };
+  const KIB = 1024, PAGE = 128 * KIB, WITH_IMAGES = 160 * KIB;
+  for (const f of html) {
+    const t = read('site/' + f);
+    const en = /<html lang="en">/.test(t);
+    const head = (/<header>([\s\S]*?)<\/header>/.exec(t) || [])[1] || '';
+    const lang = [...t.matchAll(/<a class="lang" href="([^"]+)" hreflang="(\w+)" lang="(\w+)">([^<]+)<\/a>/g)];
+    const target = lang[0] && (f === '404.html' ? lang[0][1].replace(/^\//, '') : path.posix.normalize(path.posix.join(path.posix.dirname(f), lang[0][1])));
+    if (lang.length !== 1 || !head.includes(lang[0][0]) || (en ? lang[0][4] !== '日本語' || lang[0][2] !== 'ja' : lang[0][4] !== 'English' || lang[0][2] !== 'en') || !fs.existsSync(path.join(ROOT, 'site', target))) bad.lang.push(f);
+    const foot = (/<footer>([\s\S]*?)<\/footer>/.exec(t) || [])[1] || '';
+    /* 運営者・連絡・免責の欄は、下の欄の頁の一覧とは別の一文で書く（一覧の中のリンクでは足りない）。 */
+    const need = en ? [/<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King\. Contact: <a href="[^"]*policies\/requests\.en\.html">Requests<\/a>, <a href="[^"]*\?template=error\.yml">Report a mistake<\/a>, <a href="[^"]*SECURITY\.md">Reporting a security issue<\/a>\. Disclaimer: <a href="[^"]*policies\/disclaimer\.en\.html">Disclaimer<\/a>\.<\/p>/, /Written with Claude Code \(Anthropic\)\./]
+      : [/<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="[^"]*policies\/requests\.html">削除・訂正・辞退の求め<\/a>、<a href="[^"]*\?template=error\.yml">誤りの知らせ<\/a>、<a href="[^"]*SECURITY\.md">安全の問題の知らせ方<\/a>で受けます。免責は、<a href="[^"]*policies\/disclaimer\.html">免責事項<\/a>にあります。<\/p>/, /Claude Code（Anthropic）で書きました。/];
+    if (!need.every((x) => x.test(foot)) || /github\.com\/cpsbvbng26-dotcom\/(?!nusquama[/"])|cpsbvbng26-dotcom\.github\.io/.test(t)) bad.foot.push(f);
+    const imgs = [...t.matchAll(/<img ([^>]*)>/g)].map((m) => m[1]);
+    const deco = imgs.filter((a) => /alt=""/.test(a));
+    if (deco.length !== 1 || !head.includes('<img src="' + (/src="([^"]*emblem\.svg)" alt=""/.exec(head) || [, '?'])[1] + '" alt="">')) bad.alt.push(f + '：飾り');
+    for (const a of imgs.filter((x) => !/alt=""/.test(x))) {
+      const alt = (/alt="([^"]*)"/.exec(a) || [])[1] || '';
+      if (/\.(svg|png)|^(画像|image)/i.test(alt) || !(en ? alt.endsWith('(fiction)') : alt.endsWith('（創作）'))) bad.alt.push(f + '：' + alt);
+    }
+    const size = Buffer.byteLength(t);
+    const imgBytes = imgs.map((a) => (/src="([^"]+)"/.exec(a) || [])[1]).filter(Boolean).map((s) => (f === '404.html' ? s.replace(/^\//, '') : path.posix.normalize(path.posix.join(path.posix.dirname(f), s))))
+      .reduce((n, p) => n + (fs.existsSync(path.join(ROOT, 'site', p)) ? fs.statSync(path.join(ROOT, 'site', p)).size : Infinity), 0);
+    if (size > PAGE || size + imgBytes > WITH_IMAGES) bad.weight.push(f + '：' + size + '+' + imgBytes);
+    const canon = (/<link rel="canonical" href="([^"]+)">/.exec(t) || [])[1];
+    if (f === '404.html' ? canon || !t.includes('<meta name="robots" content="noindex">') : canon !== B.BASE + (f === 'index.html' ? '' : f)) bad.canon.push(f);
+  }
+  ok('どの頁（' + html.length + '）も、言語の切り替えを頁の上の欄の右端に一つだけ置き、日本語の頁は「English」、英語の頁は「日本語」と書き、指す先がある', bad.lang.length === 0, bad.lang.slice(0, 8).join(', '));
+  ok('どの頁の下の欄も、運営者・連絡（求め・誤りの知らせ・安全の知らせ）・免責・開示をそろえ、研究の系列へつながない', bad.foot.length === 0, bad.foot.slice(0, 8).join(', '));
+  ok('代替テキスト：頁の上の国章だけが飾りで空にし、中身の画像は何の画像かを書いて（創作）・(fiction) を添え、ファイル名を書かない', bad.alt.length === 0, bad.alt.slice(0, 8).join(', '));
+  ok('どの頁も 128 KiB 以下で、読む画像を足しても 160 KiB 以下', bad.weight.length === 0, bad.weight.join(', '));
+  const vp = html.map((f) => (/<meta name="viewport" content="([^"]+)">/.exec(read('site/' + f)) || [])[1]);
+  ok('拡大を止めない（viewport に user-scalable も maximum-scale もない）。表は枠の中で横に送り、長い語は折り返す', vp.every((v) => v === 'width=device-width, initial-scale=1, viewport-fit=cover')
+    && /\.table \{ overflow-x: auto; \}/.test(read('site/index.html')) && /p, li \{ overflow-wrap: anywhere; \}/.test(read('site/index.html')));
+  const lay = read('verification/check_layout.js'), cy = read('.github/workflows/check.yml');
+  ok('はみ出しの検査は、360 px と、1280 px の 200% に当たる 640 px を含む幅で、どの頁も描いて測り、CI の別の job で走る',
+    /const WIDTHS = \[[^\]]*\b640\b[^\]]*\b360\b[^\]]*\];/.test(lay) && cy.includes('node verification/check_layout.js') && /\n {2}layout:\n/.test(cy));
+  const robots = read('site/robots.txt'), sm = read('site/sitemap.xml');
+  const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const want = html.filter((f) => f !== '404.html').map((f) => B.BASE + (f === 'index.html' ? '' : f)).sort();
+  ok('robots.txt はサイトマップを指し、サイトマップは 404 のほかのすべての頁（' + want.length + '）を一度ずつ挙げる', robots.includes('Allow: /') && robots.includes('Sitemap: ' + B.BASE + 'sitemap.xml')
+    && locs.length === want.length && JSON.stringify(locs.slice().sort()) === JSON.stringify(want));
+  ok('どの頁も、自分の所在を正の URL（canonical）に持ち、404 の頁は持たずに noindex とする', bad.canon.length === 0, bad.canon.slice(0, 8).join(', '));
+}
+
+console.log('\n48. 誤りの知らせの様式（ラテン語の誤りも）');
+{
+  const y = read('.github/ISSUE_TEMPLATE/error.yml');
+  const opts = (((/id: kind[\s\S]*?options:\n((?: {8}- .+\n)+)/.exec(y)) || [])[1] || '').split('\n').filter(Boolean).map((l) => l.trim().slice(2));
+  ok('様式の分類は、王の正誤表の分類（' + B.KINDS.length + '）と同じ並びで、ラテン語は「語」に入る', opts.length === B.KINDS.length && opts.every((o, i) => o.replace(/（.*）$/, '') === B.KINDS[i].ja) && opts.includes('語（ラテン語を含む）'), opts.join(' / '));
+  ok('様式は、公開されることと書かないことを知らせ、使い道を一つに限り、知らせた人の名を正誤表に書かず、叙任にならないと書く',
+    /^labels: \["誤り"\]$/m.test(y) && ['この issue は公開されます。本名・住所・所属・連絡先は書かないでください。', '書いたものは、知らされた誤りを確かめ、王の正誤表に記すことにだけ使います。',
+      '知らせた人の名は、正誤表に書きません。', '王の誤りを知らせることは、叙任の条件（自分の誤りを一つ、公に訂正したこと）には当たりません。', 'ラテン語の誤り（語形・格・綴り・文法）は、分類で「語」を選びます。'].every((x) => y.includes(x)));
+  const pj = read('policies/privacy.md'), pe = read('policies/privacy.en.md');
+  const old = '叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。';
+  ok('個人情報の取り扱いが、利用の目的に誤りの知らせを足し、扱うものの節を持ち（日本語と英語）、改める前の文を王の正誤表に残す',
+    pj.includes('叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと。これ以外には使いません。') && !pj.includes(old) && pj.includes('\n## 誤りの知らせで扱うもの\n')
+    && pe.includes('and to check reported mistakes and record them in the King\'s errata. Nothing else.') && pe.includes('\n## What a report of a mistake involves\n')
+    && B.tableRows('ERRATA.md').some((r) => r[2] === '個人情報の取り扱い「利用の目的」' && r[3] === old));
+  const form = 'https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml';
+  ok('王の正誤表と国の言葉（日本語と英語）が、様式へつなぎ、ラテン語の誤りを分類「語」で記すと書く', ['ERRATA.md', 'ERRATA.en.md', 'LEXICON.md', 'LEXICON.en.md', 'policies/privacy.md'].every((f) => read(f).includes('(' + form + ')'))
+    && read('LEXICON.md').includes('\n## ラテン語の誤りの知らせ\n') && read('LEXICON.md').includes('分類「語」で記します。') && read('LEXICON.en.md').includes('under the category Word.'));
+}
+
+console.log('\n49. 言語モデルの使い方の開示の表');
+{
+  const t = read('README.md');
+  const i = t.indexOf('\n## ライセンスと開示\n');
+  const part = i < 0 ? '' : t.slice(i);
+  const rows = part.split('\n').filter((l) => /^\| (?!---|道具 )/.test(l));
+  ok('README の開示に、道具・使ったこと・確かめた人の表があり、Claude Code の行の確かめた人は運営者', part.includes('| 道具 | 使ったこと | 確かめた人 |') && rows.length === 1
+    && rows[0].startsWith('| Claude Code（Anthropic） |') && rows[0].endsWith('| 運営者（王の役） |') && part.includes('Claude は騎士でも王でもありません。'));
+}
+
+console.log('\n50. 散文に書いた数（決めごと 5）');
+{
+  const KJ = ' 一二三四五六七八九十', KE = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+  const numJ = (t, re) => KJ.indexOf((re.exec(t) || [])[1] || '?');
+  const numE = (t, re) => KE.indexOf(((re.exec(t) || [])[1] || '?').toLowerCase());
+  const listAfter = (t, s) => { const i = t.indexOf(s); if (i < 0) return -1; const lines = t.slice(i + s.length).split('\n').slice(1); let n = 0; for (const l of lines) { if (/^\d+\. /.test(l)) n++; else if (n && l.trim() === '') break; else if (n) break; } return n; };
+  const ej = read('ERRATA.md'), ee = read('ERRATA.en.md');
+  const kindRows = (t) => { const i = t.indexOf('\n| ' + (t === ej ? '分類' : 'Category') + ' |'); if (i < 0) return -1; const rest = t.slice(i + 1).split('\n').slice(2); const n = rest.findIndex((l) => !l.startsWith('| ')); return n < 0 ? rest.length : n; };
+  ok('王の正誤表の分類の数（' + B.KINDS.length + '）を、文（六つ・six）と表の行で同じに書く', numJ(ej, /誤りは、次の(.)つに分けます。/) === B.KINDS.length && numE(ee, /sorted into (\w+) categories/) === B.KINDS.length
+    && kindRows(ej) === B.KINDS.length && kindRows(ee) === B.KINDS.length && numJ(read('CLAUDE.md'), /`KINDS` の(.)つ/) === B.KINDS.length);
+  const lj = read('policies/legality.md'), le = read('policies/legality.en.md');
+  ok('適法性の説明の審査の方法の数を、文と並べた箇条で同じに書く（日本語と英語）', numJ(lj, /次の(.)つの方法で確かめました。/) === listAfter(lj, 'この頁の結論は、次の') && numE(le, /checked in the (\w+) ways below/) === listAfter(le, 'The conclusion of this page was checked in the') && listAfter(lj, 'この頁の結論は、次の') === 5);
+  const plj = read('PLAY.md'), ple = read('PLAY.en.md');
+  ok('遊びの雛形の決まりの数と、練習の文の数を、文と箇条で同じに書く（日本語と英語）', numJ(plj, /使うときの決まりは(.)つです。/) === listAfter(plj, '使うときの決まりは') && numE(ple, /^(\w+) rules go with it\./m) === listAfter(ple, 'rules go with it.')
+    && numJ(plj, /次の(.)つの文には/) === B.listIn('PLAY.md', '誤り探しの練習').length && numE(ple, /Each of these (\w+) sentences/) === B.listIn('PLAY.en.md', 'Practice: find the mistake').length);
+  const stones = [...read('assets/emblem.svg').matchAll(/<rect [^>]*width="18" height="18"/g)].length;
+  ok('国章の角石の数（' + stones + '）を、トップと国のしるしの文で同じに書く', stones === 3 && numJ(read('README.md'), /\*\*(.)つの角石\*\*/) === stones && numJ(read('SYMBOLS.md'), /矩形の上に、(.)つの角石を並べます。/) === stones);
+  const fe = read('founding.en.md');
+  const frozen = B.tableRows('ERRATA.md').filter((r) => r[2].startsWith('建国の宣言')).map((r) => r[0]);
+  ok('建国の宣言の英訳が書く部分の数と、宣言の誤りの数と番（' + frozen.join('・') + '）が、頁と正誤表に合う', numE(fe, /translation of (\w+) parts of the top page/) === (fe.match(/^## /gm) || []).length
+    && numE(fe, /correct (\w+) of its statements, in entries/) === frozen.length && fe.includes('in entries ' + frozen.join(' and ') + ' of') && read('LEXICON.md').includes('第 ' + frozen.join(' 件と第 ') + ' 件のとおり')
+    && read('LEXICON.en.md').includes('entries ' + frozen.join(' and ') + ' of'));
+  const tj = read('policies/terms.md'), te = read('policies/terms.en.md');
+  const services = ((/\n## (.+) の規約\n/.exec(tj) || [])[1] || '').split('と').length;
+  ok('利用規約が挙げるサービスの数（' + services + '）を、文に同じに書く（日本語と英語）', services === 2 && numJ(tj, /米国の(.)つのサービスの上で動いています。/) === services && numJ(tj, /\n(.)つのサービスの規約は、/) === services && numE(te, /runs on (\w+) services in the United States/) === services);
+  const pj = read('policies/privacy.md'), pe = read('policies/privacy.en.md');
+  const para = (t, s) => (t.split('\n').find((l) => l.includes(s)) || '');
+  const cj = para(pj, '自ら公開の内容を使う場合が').split('。').filter((x) => /^(GitHub|Vercel) の利用規約は/.test(x)).length;
+  const ce = para(pe, 'There are two cases').split('. ').filter((x) => /^(GitHub|Vercel)'s Terms of Service allow/.test(x)).length;
+  ok('個人情報の取り扱いが挙げる、GitHub と Vercel が公開の内容を使う場合の数（' + cj + '）を、文に同じに書く（日本語と英語）', cj === 2 && ce === cj && numJ(pj, /使う場合が(.)つあり/) === cj && numE(pe, /There are (\w+) cases in which/) === ce);
+}
+
+console.log('\n51. 官報の号の台帳・記念の号・騎士の号');
+{
+  const items = B.gazetteItems(), ledger = B.readLedger();
+  const nos = Object.values(ledger).sort((a, b) => a - b);
+  ok('号の台帳は、いまのすべての号（' + items.length + '）を同じ番号で持ち、消えた行の鍵を持たず、番号は 1 から欠けず重ならない',
+    items.every((x) => ledger[x.key] === x.no) && Object.keys(ledger).length === items.length && nos.every((n, i) => n === i + 1));
+  const base = { timeline: B.timelineRows(), errata: B.tableRows('ERRATA.md'), knights: B.tableRows('KNIGHTS.md'), ledger };
+  const same = (got) => items.every((x) => (got.find((y) => y.key === x.key) || {}).no === x.no);
+  const chain = (got) => got.every((x, i) => i === 0 || got[i - 1].no === x.no + 1);
+  const last = items[0].date;
+  const t1 = B.gazetteItems(Object.assign({}, base, { timeline: base.timeline.concat([[last + '（日本時間）', '試しの行', 'A trial row']]) }));
+  ok('同じ日に後から年表の行を足しても、いまの号は動かず、新しい行は次の号（' + (items.length + 1) + '）になり、日付の順と号の順がそろう', same(t1) && t1[0].no === items.length + 1 && t1[0].text === '試しの行' && chain(t1));
+  const t2 = B.gazetteItems(Object.assign({}, base, { timeline: base.timeline.concat([['2026-11-08（日本時間）', '過去の日付の行', 'A past row']]) }));
+  ok('過去の日付の行を後から足すと、日付の順と号の順が食い違い、号の並びの検査（30）が落ちる', same(t2) && !chain(t2));
+  const fill = (n) => Array.from({ length: n }, (_, i) => base.errata[i] || [String(i + 1), '2026-12-01', '試し', '誤', '正', '先', '数', '']);
+  const e99 = B.gazetteItems(Object.assign({}, base, { errata: fill(99) })), e100 = B.gazetteItems(Object.assign({}, base, { errata: fill(100) }));
+  const m = e100.find((x) => x.key === 'M:100'), at = e100.find((x) => x.key === 'E:100');
+  ok('王の正誤表が ' + B.MILESTONE + ' 件に達すると、記念の号がその件の号のすぐ後に一つでき、99 件ではできない。いまの号は動かない',
+    B.MILESTONE === 100 && !e99.some((x) => x.kind === '記念の号') && e100.filter((x) => x.kind === '記念の号').length === 1 && m && at && m.no === at.no + 1 && m.text === '王の正誤表が 100 件に達する'
+    && m.textEn === "The King's errata reach 100 entries" && same(e100) && chain(e100));
+  const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
+  ok('国の仕組みの記念の号は、' + B.MILESTONE + ' の倍数で、物・記章・証書を作らず、称号を授けないと書く（日本語と英語）', ij.includes('王の正誤表の件数が ' + B.MILESTONE + ' の倍数に達したときは、官報に記念の号を一つ載せます。')
+    && ij.includes('記念に、物・記章・証書を作りません。称号も授けず、祝日も足しません。') && ie.includes('reaches a multiple of ' + B.MILESTONE + ', one commemorative issue') && ie.includes('No object, badge or certificate is made for it.'));
+  const k1 = ['1', 'アカウント名', '2026-12-01', '要約', '願い出'];
+  const g1 = B.gazetteItems(Object.assign({}, base, { knights: [k1] }));
+  const kn = g1.find((x) => x.key === 'K:1');
+  const kj = read('KNIGHTS.md'), ke = read('KNIGHTS.en.md');
+  ok('最初の騎士の号は、名簿の「記し方」に書いた形（ほかの騎士と同じ形）で、次の号になり、人口は 1 になる（日本語と英語）', kn && kn.no === items.length + 1 && same(g1)
+    && kj.includes('官報の布告は「' + kn.text + '」の形になります。') && ke.includes('The gazette proclaims "' + kn.textEn.replace('アカウント名', 'Account-name') + '".') && B.population(undefined, [k1]) === 1);
+  const cols = (t) => { const l = t.split('\n').find((x) => /^\| (番|No\.) \|/.test(x)); return l ? l.split('|').map((c) => c.trim()).filter(Boolean) : []; };
+  const bul = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); return t.slice(i).split('\n').filter((l) => /^- [^：:]+[：:]/.test(l)).map((l) => l.slice(2).split(/[：:]/)[0]); };
+  ok('名簿の「記し方」は、表の欄（' + cols(kj).length + '）を一つずつ、同じ名で説明する（日本語と英語）', JSON.stringify(bul(kj, '記し方')) === JSON.stringify(cols(kj)) && JSON.stringify(bul(ke, 'How entries are recorded')) === JSON.stringify(cols(ke)));
+  const led1 = B.ledgerWith(g1, ledger);
+  const k1w = ['1', '辞退（2027-01-05）', '2026-12-01', '', ''];
+  const gw = B.gazetteItems(Object.assign({}, base, { knights: [k1w], ledger: led1 })).find((x) => x.key === 'K:1');
+  ok('辞退した騎士の号は、同じ番号のまま名を外した形になり、その年から人口に数えない（名簿の「辞退したとき」の形のまま）', gw && gw.no === kn.no && !gw.text.includes('アカウント名')
+    && kj.includes('名を外した形（' + gw.text + '）') && ke.includes('("' + gw.textEn.replace(/^K/, 'K') + '")') && B.population('2026', [k1w]) === 1 && B.population('2027', [k1w]) === 0);
+  const ax = B.atom('knights', [k1]);
+  ok('騎士の名簿の新着の配信は、叙任の日の欄から日付を取る', ax.includes('<updated>2026-12-01T00:00:00+09:00</updated>\n    <summary>') && (ax.match(/<updated>2026-12-01T/g) || []).length === 2);
+}
+
+console.log('\n52. 交流の申し出を受けたとき');
+{
+  const ej = read('policies/exchange.md'), ee = read('policies/exchange.en.md');
+  const steps = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return t.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\d+\. /.test(l)); };
+  ok('交流の規程は、申し出を届いた場所で受けて答え、確かめることを箇条で挙げ、断るときも答える（日本語と英語で箇条の数がそろう）',
+    ['交流の申し出は、届いた場所で受け、同じ場所で答えます。申し出のための様式は置きません。', '断るときも、答えを返します。断る理由には、この規程のどの決まりに当たるかだけを書きます。',
+      '条約・同盟・承認・大使の交換を求められたときは、それを断り、挨拶とリンクだけなら受けると答えます。', '- 称号のほか、国籍・旅券・土地・位を売るものとも交流しません。', '- 大使・領事などの役を置かず、相手の大使や領事も受け入れません。',
+      '相手が、ヌスクァマとの間に条約・同盟・承認があるように書いたときは、訂正を頼みます。訂正されないときは、交流を終えます。', '相手が、ヌスクァマの王や騎士に称号や勲章を授けたと書いたときは、受けないと答え、その記載を外すよう頼みます。',
+      '始めた日も、年表に残します。'].every((x) => ej.includes(x)) && steps(ej, '申し出を受けたとき').length === 4 && steps(ee, 'When an offer is received').length === steps(ej, '申し出を受けたとき').length);
+}
+
+console.log('\n53. 解散の通し稽古（実行していない）');
+{
+  const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
+  const stepsOf = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return t.slice(i, j).split('\n').filter((l) => /^\d+\. /.test(l)).map((l) => l.replace(/^\d+\. /, '')); };
+  const rowsOf = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return t.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\| (\d+|ほか|Other) \|/.test(l)).map((l) => l.split(' | ')); };
+  const sj = stepsOf(ij, '解散'), se = stepsOf(ie, 'Dissolution'), rj = rowsOf(ij, '解散の通し稽古'), re = rowsOf(ie, 'A dry run of dissolution');
+  ok('通し稽古の表は、解散の段（' + sj.length + '）を一つずつ、段の文のままに通し、日本語と英語で行の数がそろう',
+    sj.length === 5 && sj.every((s, i) => rj[i] && rj[i][0] === '| ' + (i + 1) && rj[i][1] === s.replace(/。$/, '')) && se.every((s, i) => re[i] && re[i][1] === s) && rj.length === re.length && rj.length > sj.length);
+  ok('通し稽古では何も止めず消しておらず、終わりの言葉はトップに掲げていない', ij.includes('2026-11-11 に、解散の手順を、実行せずに一度通して確かめました。何も止めず、何も消していません。')
+    && !read('README.md').includes('どこにもない国は、どこにもない所へ帰ります。') && fs.existsSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'knighting.yml')) && fs.existsSync(path.join(ROOT, '.github', 'workflows', 'review.yml')));
+}
+
+console.log('\n54. ミクロネーションの界隈の言い回しとの対応');
+{
+  const rows = (f, h) => { const t = read(f); const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return t.slice(i, j).split('\n').filter((l) => /^\| (?!---)/.test(l)).slice(1).map((l) => l.split(' | ').map((c) => c.replace(/^\| |\s\|$/g, ''))); };
+  const rj = rows('PRESS.md', '界隈の言い回しとの対応'), re = rows('PRESS.en.md', 'Terms used in the micronation community');
+  ok('紹介の頁の言い回しの表（' + rj.length + ' 行）は、日本語と英語で同じ界隈の語を同じ順に挙げ、持たないものは両方で「なし」「none」とする',
+    rj.length >= 8 && rj.length === re.length && rj.every((r, i) => r[0] === re[i][0] && (r[1] === 'なし') === (re[i][1] === 'none'))
+    && rj.some((r) => r[0].includes('mutual recognition') && r[1] === 'なし') && rj.some((r) => r[0].startsWith('citizens') && r[1] === 'なし'));
 }
 
 console.log('\n' + '-'.repeat(56));
