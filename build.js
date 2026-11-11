@@ -75,6 +75,9 @@ h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1
 h3 { font-size: 1.05rem; }
 p, li { overflow-wrap: anywhere; }
 blockquote { margin: 1em 0; padding: 4px 16px; border-left: 4px solid var(--line); color: var(--muted); }
+details.source { margin: 0.6em 0 1.2em; }
+details.source summary { cursor: pointer; color: var(--muted); }
+details.source .cite { font-size: 0.9em; color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
@@ -400,9 +403,40 @@ function firstParagraph(md) {
   return (p || '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`]/g, '').slice(0, 120);
 }
 
+/* 適法性の説明の、条文の引用（<!-- 条文 刑法 第77条、旅券法 第23条 --> の印）。
+ * 日本の条文は、見張り（tools/statutes.js）が e-Gov 法令 API から取り寄せて記した文（verification/statutes-texts.json）を、そのまま引く。
+ * 外国の一次資料は、tools/sources.js が取り寄せた文から選んだ引用（verification/sources.json）を引く。
+ * 文には手を入れない。日本の条文は、項・号の境で行を改めるだけである。 */
+const STATUTE_TEXTS = JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'statutes-texts.json'), 'utf8'));
+const STATUTE_CONF = JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'statutes.json'), 'utf8'));
+const PRIMARY = JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'sources.json'), 'utf8'));
+const statuteLines = (t) => t.split(/ (?=(?:[０-９]+|[一二三四五六七八九十]+|[イロハニホヘトチリヌルヲワカヨタレソツネナラム]) )/);
+function quoteOne(key, en) {
+  const st = STATUTE_CONF.statutes.find((e) => e.name + ' ' + e.label === key);
+  if (st) {
+    const text = STATUTE_TEXTS[key];
+    if (!text) throw new Error('条文 ' + key + ' の文が statutes-texts.json にない');
+    const api = 'https://laws.e-gov.go.jp/api/1/lawdata/' + st.law_id;
+    return `<details class="source"><summary>${en ? 'Text of ' : '条文　'}${esc(key)}${en ? ' (Japanese original)' : ''}</summary>`
+      + `<blockquote lang="ja"><p>${statuteLines(text).map(esc).join('<br>\n')}</p></blockquote>`
+      + `<p class="cite">${en
+        ? `The current text as fetched from the <a href="${api}">e-Gov law API</a> on ${STATUTE_CONF.recorded} and kept by the weekly watch. Not translated; the Japanese text is authoritative.`
+        : `${STATUTE_CONF.recorded} に <a href="${api}">e-Gov 法令 API</a> から取り寄せた現行の条文です。週に一度の見張りが、記した文と同じかを確かめています。`}</p></details>`;
+  }
+  const so = PRIMARY.sources[key];
+  if (!so) throw new Error('条文 ' + key + ' を引くものがない');
+  return `<details class="source"><summary>${en ? 'Text of ' : '原文　'}${esc(en ? so.name_en : so.name)}</summary>`
+    + `<blockquote lang="${so.lang}"><p>${esc(so.quote)}</p></blockquote>`
+    + `<p class="cite">${en
+      ? `Quoted from <a href="${esc(so.url)}">${esc(so.name_en)}</a>, fetched on ${PRIMARY.fetched}.`
+      : `<a href="${esc(so.url)}">${esc(so.name)}</a>から引きました（${PRIMARY.fetched} に取り寄せ）。訳は付けていません。`}</p></details>`;
+}
+const quoteBlock = (keys, en) => keys.split('、').map((k) => quoteOne(k.trim(), en)).join('\n');
+
 /* Markdown の中の印（<!-- map --> など）を、表や図に置き換える。GitHub で読むときは印は見えない。 */
 const FILLERS = { map: errataMap, growth: errataGrowth, years: errataYearTable, facts: (en) => factsTable(en), census: (en) => censusTable(en) };
 function fill(html, en) {
+  html = html.replace(/<p>&lt;!-- 条文 (.+?) --&gt;<\/p>/g, (m, keys) => quoteBlock(keys, en));
   return html.replace(/<p>&lt;!-- (\w+) --&gt;<\/p>/g, (m, k) => {
     if (!FILLERS[k]) throw new Error('印 ' + k + ' を置き換えるものがない');
     return FILLERS[k](en);
