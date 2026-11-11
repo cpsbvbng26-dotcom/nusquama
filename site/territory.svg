@@ -1,16 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346 346" role="img" aria-labelledby="t">
-<title id="t">版図の地図（創作）：中央に王の本棚、まわりに王の正誤表の誤り 9 件の区画</title>
-<rect width="346" height="346" fill="#14213d"/>
-<rect x="151.0" y="143.0" width="8" height="60" fill="#e8cf74"/>
-<rect x="169.0" y="143.0" width="8" height="60" fill="#e8cf74"/>
-<rect x="187.0" y="143.0" width="8" height="60" fill="#e8cf74"/>
-<rect x="93.0" y="148.2" width="26" height="26" fill="#c9a227"/>
-<rect x="224.1" y="119.2" width="26" height="26" fill="#c9a227"/>
-<polygon points="151.4,237.4 167.4,253.4 151.4,269.4 135.4,253.4" fill="#c9a227"/>
-<polygon points="146.5,93.2 139.0,106.2 124.0,106.2 116.5,93.2 124.0,80.2 139.0,80.2" fill="#c9a227"/>
-<polygon points="263.3,190.0 277.2,214.0 249.5,214.0" fill="#c9a227"/>
-<polygon points="93.7,211.9 86.2,224.9 71.2,224.9 63.7,211.9 71.2,198.9 86.2,198.9" fill="#c9a227"/>
-<polygon points="233.6,75.6 226.1,88.6 211.1,88.6 203.6,75.6 211.1,62.6 226.1,62.6" fill="#c9a227"/>
-<polygon points="206.7,264.6 220.6,288.6 192.9,288.6" fill="#c9a227"/>
-<polygon points="71.1,97.9 85.0,121.9 57.2,121.9" fill="#c9a227"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 364 364" role="img" aria-labelledby="t">
+<title id="t">版図の地図（創作）：中央に王の本棚、まわりに王の正誤表の誤り 11 件の区画</title>
+<rect width="364" height="364" fill="#14213d"/>
+<rect x="160.0" y="152.0" width="8" height="60" fill="#e8cf74"/>
+<rect x="178.0" y="152.0" width="8" height="60" fill="#e8cf74"/>
+<rect x="196.0" y="152.0" width="8" height="60" fill="#e8cf74"/>
+<rect x="102.0" y="157.2" width="26" height="26" fill="#c9a227"/>
+<rect x="233.1" y="128.2" width="26" height="26" fill="#c9a227"/>
+<polygon points="160.4,246.4 176.4,262.4 160.4,278.4 144.4,262.4" fill="#c9a227"/>
+<polygon points="155.5,102.2 148.0,115.2 133.0,115.2 125.5,102.2 133.0,89.2 148.0,89.2" fill="#c9a227"/>
+<polygon points="272.3,199.0 286.2,223.0 258.5,223.0" fill="#c9a227"/>
+<polygon points="102.7,220.9 95.2,233.9 80.2,233.9 72.7,220.9 80.2,207.9 95.2,207.9" fill="#c9a227"/>
+<polygon points="242.6,84.6 235.1,97.6 220.1,97.6 212.6,84.6 220.1,71.6 235.1,71.6" fill="#c9a227"/>
+<polygon points="215.7,273.6 229.6,297.6 201.9,297.6" fill="#c9a227"/>
+<polygon points="80.1,106.9 94.0,130.9 66.2,130.9" fill="#c9a227"/>
+<polygon points="316.7,155.7 309.2,168.7 294.2,168.7 286.7,155.7 294.2,142.7 309.2,142.7" fill="#c9a227"/>
+<polygon points="123.8,286.1 116.3,299.1 101.3,299.1 93.8,286.1 101.3,273.1 116.3,273.1" fill="#c9a227"/>
 </svg>

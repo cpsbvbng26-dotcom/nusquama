@@ -4,7 +4,7 @@
 
 English: This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.
 
-版図のうち、王の正誤表に記した誤りは 9 件です。基本法第三条により、版図は、王が誤りを一つ認めるたびに広がります。
+版図のうち、王の正誤表に記した誤りは 11 件です。基本法第三条により、版図は、王が誤りを一つ認めるたびに広がります。
 
 規程が決まりです。このファイルと規程が食い違うときは、規程に従います。日本語の版が正で、英語の頁は訳です。すべての頁の全文は [llms-full.txt](https://nusquama.vercel.app/llms-full.txt) にあります。
 
@@ -15,8 +15,8 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 16 歳未満の人は願い出ることができません。
 住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。例として、イタリアの 1951 年法律第 178 号第 8 条は、私人や団体が、名称を問わず騎士の称号などを授けることを禁じています。
 2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません。
-日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。
-日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。
+2026-11-22 から、日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。
+2026-11-22 から、日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。
 旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
 
 ## 費用
@@ -72,7 +72,7 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 ## English (translations; the Japanese version governs)
 
 - [Founding Declaration, Basic Law and Ten Precepts](https://nusquama.vercel.app/founding.en.html)
-- [Roll of the Order of the Errata (Ordo Erratorum)](https://nusquama.vercel.app/knights.en.html)
+- [Roll of the Order of Errata (Ordo Erratorum)](https://nusquama.vercel.app/knights.en.html)
 - [The King's errata](https://nusquama.vercel.app/errata.en.html)
 - [Symbols of the kingdom](https://nusquama.vercel.app/symbols.en.html)
 - [Calendar and days of the kingdom](https://nusquama.vercel.app/calendar.en.html)
