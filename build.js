@@ -105,6 +105,8 @@ function mapHref(href, srcRel, outRel) {
   if (hit) target = hit[1];
   else if (abs === 'LICENSE') return REPO + '/blob/main/LICENSE';
   else if (abs.startsWith('assets/') && ASSETS.includes(abs.slice(7))) target = abs.slice(7);
+  // 生成した site/ の中のもの（版図の地図・暦のファイル）は、GitHub でも開けるよう site/ から指し、頁では site/ を外す。
+  else if (abs.startsWith('site/') && fs.existsSync(path.join(ROOT, abs))) target = abs.slice(5);
   else if (DRAWN.includes(abs) || /^territory-\d{4}\.svg$/.test(abs) || abs === 'calendar.ics' || /^(errata|gazette)\/\d+(\.en)?\.html$/.test(abs)) target = abs;
   else return REPO + '/blob/main/' + abs;
   const rel = path.posix.relative(path.posix.dirname(outRel), target) || path.posix.basename(target);
