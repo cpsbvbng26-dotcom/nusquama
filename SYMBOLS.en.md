@@ -21,8 +21,8 @@ It does not take the form of bands side by side or one above the other, so that 
 ![The map of the domain (fiction)](territory.svg)
 
 Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.
-The three pillars in the middle of the map are the King's bookshelf. The gold plots around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
-Each mistake recorded adds one plot. The map is drawn from the errata, not by hand.
+The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
+Each mistake recorded adds one parcel. The map is drawn from the errata, not by hand.
 
 ## How the flag is drawn
 
@@ -32,7 +32,7 @@ The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates o
 2. Draw a gold border 8 thick, 24 in from the edge.
 3. Draw a golden rectangle 534 wide and 330 high in light-gold lines 6 thick, with its top-left corner at (183, 155).
 4. Cut squares out of the rectangle one by one. Their sides shrink by the golden ratio: 330, 204, 126, 77.9, 48.1, 29.8.
-5. Above the rectangle, set three gold squares (the corner stones) with sides of 24, 12 apart, their top edge at 99.
+5. Above the rectangle, set three gold squares (the cornerstones) with sides of 24, 12 apart, their top edge at 99.
 
 ## How the flag is flown
 
@@ -45,7 +45,7 @@ The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates o
 | Name | Colour code | Where it is used |
 | --- | --- | --- |
 | Navy | `#14213d` | the field of the shield and of the flag, the sea of the map |
-| Gold | `#c9a227` | borders, corner stones, the parcels of the map |
+| Gold | `#c9a227` | borders, cornerstones, the parcels of the map |
 | Light gold | `#e8cf74` | the golden rectangle, the sword, the bookshelf on the map |
 | Deep navy | `#0b1428` | the groove of the sword in the emblem |
 
@@ -63,7 +63,7 @@ Emoji are not used, because their shape changes from device to device.
 
 ## Creature and flower of the kingdom
 
-- Creature: the snail, because it leaves a trail where it has been, as the King leaves the trail of his mistakes.
+- Creature: the snail, because it leaves a trail where it has been, as the King leaves the trail of the King's own mistakes.
 - Flower: the forget-me-not, so that mistakes are not forgotten.
 
 Both are defined in words, not drawn. A drawing would make them more likely to be mistaken for real insignia.
