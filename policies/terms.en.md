@@ -7,9 +7,9 @@ This is an English translation. The [Japanese version](./terms.md) governs; if t
 ## Who these terms cover
 
 These terms cover everyone who reads Nusquama's site and repository, everyone who applies for knighting, and everyone whose name is on the roll of knights.
-A person who applies for knighting agrees to these terms in the application form, in their version of the day.
+A person who applies for knighting agrees, in the application form, to the version of these terms in force on that day.
 Reading the site or the repository is not taken as agreement to anything; for readers, these terms describe how Nusquama works, and the law decides what each side owes.
-The [Disclaimer](./disclaimer.en.md), the Privacy Notice, the Knighting Rules, the Requests for Removal, Correction or Withdrawal, and the Names and Rights page are also part of these terms. Those pages are in Japanese only.
+The [Disclaimer](./disclaimer.en.md), [Privacy](./privacy.en.md), the [Rules on Knighting](./knighting.en.md), the [Requests for removal, correction or withdrawal](./requests.en.md) and [Names and rights](./names.en.md) are also part of these terms.
 The reasons the operator believes Nusquama breaks no law are set out, law by law, in the [Legality Statement](./legality.en.md). The Legality Statement is not part of these terms; it explains the operator's understanding.
 
 ## What Nusquama is
@@ -72,7 +72,7 @@ The [Disclaimer](./disclaimer.en.md) has the details.
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
 A change that is unfavourable to readers or knights will be shown on this page, with its content and the date it takes effect, before it takes effect.
-Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality (Knighting Rules, "Who may apply"; in Japanese).
+Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
@@ -83,7 +83,7 @@ These terms are governed by Japanese law.
 Nothing in these terms limits a right that the law does not allow to be limited.
 Disputes are to be settled by agreement first.
 Before bringing any claim, the operator first talks with the other party.
-The talks take place in an issue, or through the private channel described under "Requests that cannot be made in public" in the Requests page.
+The talks take place in an issue, or through the private channel described under "Requests that cannot be made in public" in the [Requests for removal, correction or withdrawal](./requests.en.md).
 If the other party offers to settle, the operator responds in good faith.
 A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.
 This does not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
@@ -107,4 +107,4 @@ What they say that matters to people who use Nusquama:
 ## Contact
 
 Contact is by [issue](https://github.com/cpsbvbng26-dotcom/nusquama/issues) in the repository.
-Contact that cannot be made in public follows "Requests that cannot be made in public" in the Requests page.
+Contact that cannot be made in public follows "Requests that cannot be made in public" in the [Requests for removal, correction or withdrawal](./requests.en.md).

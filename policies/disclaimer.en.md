@@ -12,7 +12,7 @@ This page is part of the [Terms of Use](./terms.en.md). Where this page and the 
 Nusquama is a work of fiction written for fun.
 It is not a state, government, local authority, royal house, noble family, order of knighthood, religious body, or system of decorations or honours.
 It is not a state under international law, seeks no recognition as a state, and claims no country's territory.
-The founding proclamation, the Basic Law, the ten precepts and the emblem are documents inside the fiction.
+The Founding Declaration, the Basic Law, the Ten Precepts and the emblem are documents inside the fiction.
 Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.
 The promise of no ill intent and of obeying the law is made in the Terms of Use, under "No ill intent, and obeying the law".
 
@@ -44,7 +44,7 @@ The titles of Nusquama are not used in those activities, and Nusquama does not r
 Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.
 A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.
 
-Where the words "Nusquama", "Nemo" and "Mukau" come from is written on the Names and Rights page (in Japanese). None of them shows a tie to any particular work or organisation.
+Where the words "Nusquama", "Nemo" and "Mukau" come from is written in [Names and rights](./names.en.md). None of them shows a tie to any particular work or organisation.
 
 ## Applications for knighting
 

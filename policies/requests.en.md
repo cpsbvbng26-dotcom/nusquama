@@ -25,7 +25,7 @@ Do not copy the personal data in question into the issue. Say only where it is.
 
 ## Requests that cannot be made in public
 
-If there is a reason a request cannot be written in public, choose "Ask for a private contact" as the kind in the form, and leave the rest empty.
+If there is a reason a request cannot be written in public, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the form, and leave the rest empty.
 The operator answers with a way to make contact privately.
 A security problem with the site or the repository is reported in the same way ([How to report a security problem](../SECURITY.md)).
 
