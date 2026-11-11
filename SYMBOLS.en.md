@@ -18,7 +18,7 @@ It does not take the form of bands side by side or one above the other, so that 
 
 ## The map of the domain
 
-![The map of the domain (fiction)](territory.svg)
+![The map of the domain (fiction)](site/territory.svg)
 
 Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.
 The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the [King's errata](ERRATA.en.md).

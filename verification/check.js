@@ -890,6 +890,25 @@ console.log('\n35. 法令の引用は、すべて取り寄せた条文に拠る'
     strayForeign.map(([f, k]) => k + '（' + f + '）').join(' / '));
 }
 
+console.log('\n36. GitHub で読んでもリンクが切れない');
+{
+  // Markdown の相対のリンクは、リポジトリの中のファイルを指す。GitHub で開くと、そのまま辿れる。
+  const files = walk(ROOT).filter((f) => f.endsWith('.md') && !f.startsWith('site/') && !f.startsWith('node_modules/'));
+  const broken = [];
+  let n = 0;
+  for (const f of files) {
+    const t = read(f).replace(/```[\s\S]*?```/g, '').replace(/`[^`]*`/g, '');
+    for (const m of t.matchAll(/\]\(([^)\s]+)\)/g)) {
+      const u = m[1];
+      if (/^([a-z]+:|#|\/\/)/.test(u)) continue;
+      n++;
+      const p = decodeURIComponent(u.split('#')[0]);
+      if (p && !fs.existsSync(path.join(ROOT, path.dirname(f), p))) broken.push(f + ' → ' + u);
+    }
+  }
+  ok('Markdown の相対のリンク（' + n + '）は、どれもリポジトリの中のファイルを指す', broken.length === 0 && n > 200, broken.slice(0, 8).join(' / '));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
