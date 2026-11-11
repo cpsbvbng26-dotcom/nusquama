@@ -1,12 +1,17 @@
 # 無何有騎士王国ヌスクァマ（Regnum Nusquamae）
 
+種類：エンターテインメント　状態：運営中
+
 > これは創作であり、遊びです。
+> ヌスクァマは、娯楽のために作った架空の国です。学術の研究ではなく、研究の成果を示すものでもありません。
 > ヌスクァマは国家ではなく、領土・国民・通貨・旅券を持ちません。
 > いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく、それらを名乗るものでも、それらに代わるものでもありません。
 > ここで授ける称号に、法的な効力はありません。
 > 悪意はなく、法令を守って運営しています。
 >
 > 詳しくは[利用規約](policies/terms.md)と[免責事項](policies/disclaimer.md)にあります。
+>
+> English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.
 
 ![国章](assets/emblem.svg)
 
