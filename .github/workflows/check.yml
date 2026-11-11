@@ -1,9 +1,13 @@
 name: 検査
 
+# push と PR のたびに回す。秘密情報と連絡先の走査（tools/scan.js）を含むので、週に一度も回す。
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: '41 4 * * 3'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -13,8 +17,24 @@ jobs:
     name: 生成物・断り・規程の約束・外への要求・ヘッダー・誓い・アイコン
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
       - run: node verification/check.js
+
+  # ブラウザが要るので、別の job にする。ブラウザの故障を、頁の誤りと取り違えないため。
+  layout:
+    name: 狭い画面と拡大で横にはみ出さない
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: playwright と Chromium を入れる（この job だけで使い、リポジトリには入れない）
+        run: |
+          npm install -g playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: 幅と配色を変えて、どの頁も描いて測る
+        run: NODE_PATH="$(npm root -g)" node verification/check_layout.js
