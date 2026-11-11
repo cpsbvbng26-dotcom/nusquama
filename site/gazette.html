@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-w8Z2x+e8LW1Fc1s7JOx1srBMpxwasMXfbvlWuAxqC9s='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-kJODkHmNwR9eZK7MjS4P/XPDgGfDWtmKmzSTo/WfmfI='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>官報 | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="王国の出来事を、日付の新しい順に並べます。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -56,6 +56,14 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
 .pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.years { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.years figure { margin: 0; flex: 1 1 200px; max-width: 320px; }
+.years svg, .steps svg, .tile svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 15px; color: var(--muted); }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.steps li p { margin: 0.4em 0 0; font-size: 15px; }
+.tile, .swatch { display: block; width: 40px; }
+.swatch svg { display: block; width: 100%; height: auto; outline: 1px solid var(--line); }
 @media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
@@ -66,6 +74,9 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <h1>官報</h1>
 <blockquote><p>これは創作であり、遊びです。この官報は、創作の中の王の布告を並べるものです。実在の官報ではありません。</p></blockquote>
 <p>王国の出来事を、日付の新しい順に並べます。もとは、トップの頁の年表、<a href="errata.html">王の正誤表</a>、<a href="knights.html">騎士の名簿</a>です。官報はそこから作り、手で書きません。新着は配信（gazette.xml）でも読めます。</p>
+<h2>月ごとの合本</h2>
+<p>その月の号を、古い順に一つの頁にまとめたものです。号の番号は一号ごとの頁と同じで、合本のために振り直しません。</p>
+<div class="table"><table><tr><th scope="col">月</th><th scope="col">号の数</th><th scope="col">号</th></tr><tr><td><a href="monthly/2026-11.html">2026 年 11 月</a></td><td>25</td><td>第 1 号から第 25 号</td></tr></table></div>
 <p><a href="gazette.xml">新着の配信（Atom）</a></p>
 <h2 id="y2026">2026 年（25 号）</h2>
 <div class="table"><table><tr><th scope="col">日付</th><th scope="col">号</th><th scope="col">もと</th><th scope="col">布告</th></tr><tr><td>2026-11-11</td><td><a href="gazette/25.html">第 25 号</a></td><td>王の正誤表</td><td>第 11 件を記す（叙任の規程「願い出ることができる人」「断ること」、適法性の説明「日本の外の法令」）</td></tr><tr><td>2026-11-11</td><td><a href="gazette/24.html">第 24 号</a></td><td>王の正誤表</td><td>第 10 件を記す（王の正誤表、年表、README「ほかの場所」）</td></tr><tr><td>2026-11-11</td><td><a href="gazette/23.html">第 23 号</a></td><td>年表</td><td>適法性の説明の各節に、拠る条文と外国の一次資料の文を引き、規程の外で法令の要件に近づく行いへの忠告と、その行いについての運営者の責任を、適法性の説明と免責事項に書き足す</td></tr><tr><td>2026-11-11</td><td><a href="gazette/22.html">第 22 号</a></td><td>年表</td><td>叙任の規程と適法性の説明に、日本の外からの願い出を受けない決まりの始まる日を書き添え、年表に記していなかった 11 月 9 日と 10 日の規程の書き足し（GitHub と Vercel の規約、モデルの学習への利用の断り、願い出の自動の確認、騎士の呼び方）もここに記す</td></tr><tr><td>2026-11-10</td><td><a href="gazette/21.html">第 21 号</a></td><td>年表</td><td>建国の物語・国の言葉・国の仕組み・紹介の頁・遊びの頁を置き、正誤に分類と地名を付け、官報に号を振る</td></tr><tr><td>2026-11-10</td><td><a href="gazette/20.html">第 20 号</a></td><td>年表</td><td>国旗と版図の地図、暦と祝日、官報、交流の規程を定める</td></tr><tr><td>2026-11-08</td><td><a href="gazette/19.html">第 19 号</a></td><td>王の正誤表</td><td>第 9 件を記す（利用規約「この規約が及ぶ人」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/18.html">第 18 号</a></td><td>王の正誤表</td><td>第 8 件を記す（適法性の説明「国際法での立場」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/17.html">第 17 号</a></td><td>王の正誤表</td><td>第 7 件を記す（利用規約「称号の扱い」、適法性の説明「前提となる事実」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/16.html">第 16 号</a></td><td>王の正誤表</td><td>第 6 件を記す（叙任の規程「辞退と取り消し」、適法性の説明「日本の外の法令」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/15.html">第 15 号</a></td><td>王の正誤表</td><td>第 5 件を記す（免責事項「責任」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/14.html">第 14 号</a></td><td>王の正誤表</td><td>第 4 件を記す（適法性の説明「前提となる事実」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/13.html">第 13 号</a></td><td>王の正誤表</td><td>第 3 件を記す（建国の宣言、名称と権利「名前の由来」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/12.html">第 12 号</a></td><td>王の正誤表</td><td>第 2 件を記す（名称と権利「名前の由来」）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/11.html">第 11 号</a></td><td>王の正誤表</td><td>第 1 件を記す（建国の宣言）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/10.html">第 10 号</a></td><td>年表</td><td>適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す</td></tr><tr><td>2026-11-08</td><td><a href="gazette/9.html">第 9 号</a></td><td>年表</td><td>紛争は示談を優先すると定め、合意管轄の裁判所を宇都宮地方裁判所と宇都宮簡易裁判所に定める</td></tr><tr><td>2026-11-08</td><td><a href="gazette/8.html">第 8 号</a></td><td>年表</td><td>規程を厳しく見直す（免責の書き方、16 歳以上、国の法令の誓い、開示の求め）</td></tr><tr><td>2026-11-08</td><td><a href="gazette/7.html">第 7 号</a></td><td>年表</td><td>王の正誤表を開き、最初の三件を記す</td></tr><tr><td>2026-11-08</td><td><a href="gazette/6.html">第 6 号</a></td><td>年表</td><td>悪意がないことと、法令を守ることを規程に書く</td></tr><tr><td>2026-11-08</td><td><a href="gazette/5.html">第 5 号</a></td><td>年表</td><td>適法性の説明を定める</td></tr><tr><td>2026-11-08</td><td><a href="gazette/4.html">第 4 号</a></td><td>年表</td><td>X で建国を知らせる</td></tr><tr><td>2026-11-08</td><td><a href="gazette/3.html">第 3 号</a></td><td>年表</td><td>MicroWiki（日本語版）に記事を書く</td></tr><tr><td>2026-11-07</td><td><a href="gazette/2.html">第 2 号</a></td><td>年表</td><td>サイトを開き、規程を定める</td></tr><tr><td>2026-11-07</td><td><a href="gazette/1.html">第 1 号</a></td><td>年表</td><td>建国。基本法と十則を定め、国章を描く</td></tr></table></div>

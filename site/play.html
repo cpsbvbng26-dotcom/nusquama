@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-w8Z2x+e8LW1Fc1s7JOx1srBMpxwasMXfbvlWuAxqC9s='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-kJODkHmNwR9eZK7MjS4P/XPDgGfDWtmKmzSTo/WfmfI='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>遊び | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="自分の文書に正誤表を置くための雛形です。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -56,6 +56,14 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
 .pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.years { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.years figure { margin: 0; flex: 1 1 200px; max-width: 320px; }
+.years svg, .steps svg, .tile svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 15px; color: var(--muted); }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.steps li p { margin: 0.4em 0 0; font-size: 15px; }
+.tile, .swatch { display: block; width: 40px; }
+.swatch svg { display: block; width: 100%; height: auto; outline: 1px solid var(--line); }
 @media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
@@ -80,6 +88,17 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <ol><li>ヌスクァマの王は何人いるか。</li><li>騎士になる条件は何か。</li><li>叙任にかかる費用はいくらか。</li><li>版図は何でできているか。</li><li>騎士の位はいくつあるか。</li><li>称号を履歴書に書いてよいか。</li><li>国章の剣は、どちらを向いているか。</li><li>改正で削らない条はどれか。</li><li>正誤の日は何月何日か。</li><li>地図で三角形の区画は、何の分類か。</li></ol>
 <h2>問いの答え</h2>
 <ol><li>一人。騎士王ネモ一世（基本法第二条）。</li><li>自分の誤りを一つ、公に訂正したこと（基本法第六条）。</li><li>かからない。叙任は無償（基本法第六条）。</li><li>王の本棚と、王が公にした正誤表（基本法第三条）。</li><li>一つ。「騎士」だけ（基本法第七条）。</li><li>書かない。称号は、この国の中でだけ使う（基本法第八条）。</li><li>下。抜かない剣を表す（基本法第九条）。</li><li>第一条・第六条・第八条（基本法第十条）。</li><li>11 月 8 日（<a href="calendar.html">暦と祝日</a>）。</li><li>法（<a href="errata.html">王の正誤表</a>「分類と地名」）。</li></ol>
+<h2>季節の問い</h2>
+<p><a href="calendar.html">暦と祝日</a>の記念日に合わせた問いです。記念日を足したときは、ここにも問いを足します。</p>
+<h3>建国の日（11 月 7 日）</h3>
+<ol><li>建国を宣した王の名は何か。</li><li>国是は何か。</li><li>2036 年 11 月 7 日に、王は何をするか。</li><li>毎年この日に、自動で開くものは何か。</li></ol>
+<h3>正誤の日（11 月 8 日）</h3>
+<ol><li>王の正誤表に最初に記した誤りは、何についての誤りか。</li><li>版図の広さは、何という単位で数えるか。</li><li>記した正誤そのものが誤りだったと分かったとき、前の行をどうするか。</li><li>恩赦を求めると、版図はどうなるか。</li></ol>
+<h2>季節の問いの答え</h2>
+<h3>建国の日（11 月 7 日）</h3>
+<ol><li>騎士王ネモ一世（建国の宣言）。</li><li>Errata servo, me ipsum rego.（誤りは守り、己を治める）</li><li>十年の見通しと実際を比べて、官報に載せる（<a href="institutions.html">国の仕組み</a>「十年の見通し」）。</li><li>年一回の総点検の issue（<a href="institutions.html">国の仕組み</a>「年一回の総点検」）。</li></ol>
+<h3>正誤の日（11 月 8 日）</h3>
+<ol><li>国の名の由来についての誤り（<a href="story.html">建国の物語</a>）。</li><li>「誤」。王の正誤表の一件が一誤（<a href="symbols.html">国のしるし</a>「国の時刻と単位」）。</li><li>消さない。新しい行に、前の行が誤っていたことを記す（<a href="institutions.html">国の仕組み</a>「恩赦」）。</li><li>かえって一区画広がる（<a href="institutions.html">国の仕組み</a>「恩赦」）。</li></ol>
 </main>
 <footer>
 <ul><li><a href="./index.html">トップ</a></li><li><a href="./knights.html">騎士の名簿</a></li><li><a href="./errata.html">王の正誤表</a></li><li><a href="./symbols.html">国のしるし</a></li><li><a href="./calendar.html">暦と祝日</a></li><li><a href="./gazette.html">官報</a></li><li><a href="./story.html">建国の物語</a></li><li><a href="./lexicon.html">国の言葉</a></li><li><a href="./institutions.html">国の仕組み</a></li><li><a href="./press.html">紹介する人へ</a></li><li><a href="./play.html">遊び</a></li><li><a href="./policies/terms.html">利用規約</a></li><li><a href="./policies/disclaimer.html">免責事項</a></li><li><a href="./policies/privacy.html">個人情報の取り扱い</a></li><li><a href="./policies/knighting.html">叙任の規程</a></li><li><a href="./policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="./policies/names.html">名称と権利</a></li><li><a href="./policies/legality.html">適法性の説明</a></li><li><a href="./policies/exchange.html">交流の規程</a></li><li><a href="./play.en.html">English</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>

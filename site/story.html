@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-w8Z2x+e8LW1Fc1s7JOx1srBMpxwasMXfbvlWuAxqC9s='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-kJODkHmNwR9eZK7MjS4P/XPDgGfDWtmKmzSTo/WfmfI='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>建国の物語 | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="この物語は、建国の宣言と王国基本法をやさしく言い直したものです。食い違うときは、宣言と基本法に従います。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -56,6 +56,14 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
 .pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.years { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.years figure { margin: 0; flex: 1 1 200px; max-width: 320px; }
+.years svg, .steps svg, .tile svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 15px; color: var(--muted); }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.steps li p { margin: 0.4em 0 0; font-size: 15px; }
+.tile, .swatch { display: block; width: 40px; }
+.swatch svg { display: block; width: 100%; height: auto; outline: 1px solid var(--line); }
 @media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
@@ -66,6 +74,7 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <h1>建国の物語</h1>
 <blockquote><p>これは創作であり、遊びです。ここに書く物語は、創作の中の国の成り立ちです。実在の出来事や人物を語るものではありません。</p></blockquote>
 <p>この物語は、<a href="index.html">建国の宣言と王国基本法</a>をやさしく言い直したものです。食い違うときは、宣言と基本法に従います。</p>
+<nav aria-label="章"><p>章ごとに読む：</p><ol><li><a href="story/1.html">どこにもない国の始まり</a></li><li><a href="story/2.html">なぜ誤りを版図にするか</a></li><li><a href="story/3.html">この先</a></li></ol></nav>
 <h2>どこにもない国の始まり</h2>
 <p>ある王が、自分の書いた文の誤りを数えていました。誤りは、消せば見えなくなります。けれども、消した誤りは二度目の誤りになります（基本法第五条）。王は、誤りを消さずに、日付を付けて並べることにしました。並べた誤りは、王の本棚のまわりに、小さな島を作りました。</p>
 <p>島に名を付けようとして、王は気づきました。この国は、どこにもありません。地図に載る土地を、王は一つも持っていません。そこで王は、国の名をヌスクァマとしました。ラテン語の nusquam（どこにも…ない）から作った呼び名です。王の名は、ネモとしました。ラテン語で「誰でもない者」です。</p>

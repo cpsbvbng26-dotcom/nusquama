@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-w8Z2x+e8LW1Fc1s7JOx1srBMpxwasMXfbvlWuAxqC9s='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-kJODkHmNwR9eZK7MjS4P/XPDgGfDWtmKmzSTo/WfmfI='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Symbols of the kingdom | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="This is an English translation. The Japanese version governs; if the two differ, the Japanese version applies.">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -54,6 +54,14 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 4
 footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
 .pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.years { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.years figure { margin: 0; flex: 1 1 200px; max-width: 320px; }
+.years svg, .steps svg, .tile svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: 15px; color: var(--muted); }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.steps li p { margin: 0.4em 0 0; font-size: 15px; }
+.tile, .swatch { display: block; width: 40px; }
+.swatch svg { display: block; width: 100%; height: auto; outline: 1px solid var(--line); }
 @media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }</style>
 </head>
 <body>
@@ -64,17 +72,20 @@ footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4
 <h1>Symbols of the kingdom</h1>
 <blockquote><p>This is a work of fiction, written for fun. None of the symbols here is the flag or insignia of any real state, royal house, order of knighthood or honour, and none stands in for one.</p></blockquote>
 <p>This is an English translation. The <a href="symbols.html">Japanese version</a> governs; if the two differ, the Japanese version applies.</p>
-<p>The symbols of the kingdom are the emblem, the flag and the map of the domain. Like the emblem, each is drawn with rectangles and polygons only. They use no typeface, so they look the same on every device.</p>
+<p>The symbols of the kingdom are the emblem, the flag and the map of the domain. Like the emblem, each is drawn with rectangles and polygons only. They use no typeface, so they look the same on every device. The construction of the flag and the emblem, step by step in drawings, with the colours of the kingdom and the shapes of the parcels of the map, is on one page: <a href="symbols-construction.en.html">How the symbols are drawn</a>.</p>
 <h2>The flag</h2>
 <img class="emblem" src="flag.svg" alt="The flag of Nusquama (fiction)">
 <ul><li>A navy field with a gold border, the colours of the shield of the emblem.</li><li>A golden-ratio rectangle in the middle, the same form as the upper half of the emblem.</li><li>Three cornerstones above the rectangle.</li></ul>
 <p>It does not take the form of bands side by side or one above the other, so that it is not mistaken for the flag of a real country.</p>
 <h2>The map of the domain</h2>
 <img class="emblem" src="territory.svg" alt="The map of the domain (fiction)">
-<p>Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public. The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the <a href="errata.en.html">King's errata</a>. Each mistake recorded adds one parcel. The map is drawn from the errata, not by hand.</p>
+<p>Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public. The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the <a href="errata.en.html">King's errata</a>. Each mistake recorded adds one parcel. The map is drawn from the errata, not by hand. The maps at the end of each year are set side by side at the same scale in <a href="territory-years.en.html">The domain, year by year</a>.</p>
 <h2>How the flag is drawn</h2>
 <p>The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates of the <a href="flag.svg">flag image</a> as they are.</p>
 <ol><li>Fill the field with navy.</li><li>Draw a gold border 8 thick, 24 in from the edge.</li><li>Draw a golden rectangle 534 wide and 330 high in light-gold lines 6 thick, with its top-left corner at (183, 155).</li><li>Cut squares out of the rectangle one by one. Their sides shrink by the golden ratio: 330, 204, 126, 77.9, 48.1, 29.8.</li><li>Above the rectangle, set three gold squares (the cornerstones) with sides of 24, 12 apart, their top edge at 99.</li></ol>
+<h2>How the emblem is drawn</h2>
+<p>The emblem is drawn in a frame 600 wide and 720 high. The numbers are the coordinates of the <a href="emblem.svg">emblem image</a> as they are.</p>
+<ol><li>Draw a gold shield and lay a navy shield inside it. A gold border 20 thick is left at the top and the sides.</li><li>In the upper half of the shield, draw a golden rectangle 360 wide and 222.5 high, divided into squares, in light-gold lines 4 thick, with its top-left corner at (120, 112). The sides of the squares shrink by the golden ratio: 222.5, 137.5, 85, 52.5, 32.5, 20.1.</li><li>At the top of the shield, set three gold squares (the cornerstones) with sides of 18, 10 apart, their top edge at 76.</li><li>Draw the sword point down. The pommel and the guard are gold, the grip and the blade light gold, and the groove of the blade deep navy. The point reaches 632.</li></ol>
 <h2>How the flag is flown</h2>
 <ul><li>The flag is flown only on screens. The King makes no flags of cloth or paper.</li><li>It is not set beside the flag of a real country so as to look like one of them.</li><li>The flag and the map of the domain, like the text and the emblem, are under CC BY 4.0. The rules for their use are in <a href="policies/names.en.html">Names and rights</a>.</li></ul>
 <h2>Colours</h2>
