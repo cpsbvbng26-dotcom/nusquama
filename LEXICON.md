@@ -55,3 +55,11 @@ Regnum uno rege finitur; heres non constituitur. Solus enim qui solus stat se ip
 Hic Regnum Nusquamae conditum esse declaro.
 
 Nemo I, Rex Eques, die VII mensis Novembris anno MMXXVI.
+
+## ラテン語の誤りの知らせ
+
+王のラテン語には、辞書や文法書で確かめていないところがあります。
+ラテン語に詳しい人は、[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式で、分類に「語」を選んで知らせることができます。
+王が確かめた誤りは、[王の正誤表](ERRATA.md)に分類「語」で記します。地名は Insula Verbi の島に付きます。
+ラテン語の文を改めるときは、改める前の文を王の正誤表に残します。
+知らせた人の名は、正誤表に書きません。知らせても、叙任にはなりません。

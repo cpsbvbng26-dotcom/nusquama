@@ -12,3 +12,24 @@ A knight may ask at any time to be taken off the roll ([Rules on Knighting](poli
 | --- | --- | --- | --- | --- |
 
 Nemo I, Knight-King, is the King and is not on this roll.
+
+## How entries are recorded
+
+On knighting, one row is added to the table. The issue of the [gazette](GAZETTE.en.md) is made from that row.
+
+- No.: continues from 1 with no gaps.
+- Knight: the GitHub account name.
+- Knighted: the day the King decided on the knighting (Japan time).
+- Mistake corrected: a summary of what was wrong and how it was corrected, with a link to the correction.
+- Application: a link to the application issue.
+
+The gazette proclaims "Account-name is knighted as knight no. 1".
+The issue for the first knight has the same form as every other. The Basic Law sets no ranks (Article 7), so the first knight is given no added title or adornment.
+From the day the first knight is entered, the population in [For anyone introducing Nusquama](PRESS.en.md) is 1.
+
+## When a knight withdraws
+
+The row of a knight who withdraws is not erased. The Knight cell becomes 「辞退（date of withdrawal）」, and the Mistake corrected and Application cells are emptied.
+The number and the day of knighting stay. The number is not given to another knight.
+The gazette issue keeps its number, with the name taken off ("Knight no. 1 is knighted (the knight later withdrew, and the name was taken off)").
+A knight who withdrew is not counted in the population from the year of the withdrawal.
