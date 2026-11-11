@@ -909,6 +909,191 @@ console.log('\n36. GitHub で読んでもリンクが切れない');
   ok('Markdown の相対のリンク（' + n + '）は、どれもリポジトリの中のファイルを指す', broken.length === 0 && n > 200, broken.slice(0, 8).join(' / '));
 }
 
+console.log('\n37. 種類と状態の札、娯楽の創作だという断り（トップ）');
+{
+  const readme = read('README.md');
+  const lines = readme.split('\n');
+  const h = lines.findIndex((l) => l.startsWith('# '));
+  const next = lines.slice(h + 1).find((l) => l.trim());
+  const LABEL = '種類：エンターテインメント　状態：運営中';
+  ok('README の題のすぐ下に、種類と状態の札がある（' + LABEL + '）', h === 0 && next === LABEL && read('site/index.html').includes('</h1>\n<p>' + LABEL + '</p>'), next);
+  const top = readme.slice(0, readme.indexOf('\n## '));
+  const JA = '> ヌスクァマは、娯楽のために作った架空の国です。学術の研究ではなく、研究の成果を示すものでもありません。';
+  const EN = '> English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.';
+  ok('トップの冒頭の断りが、娯楽の創作で研究ではないことを日本語と英語で書き、英語の段落に lang を付ける',
+    top.includes(JA) && top.includes(EN) && top.indexOf(JA) < top.indexOf('](policies/terms.md)')
+    && read('site/index.html').includes('<p lang="en">' + EN.slice(2) + '</p></blockquote>'));
+}
+
+console.log('\n38. 遊びの季節の問い');
+{
+  const subs = (t, h) => {
+    const i = t.indexOf('\n## ' + h + '\n'); if (i < 0) return [];
+    const j = t.indexOf('\n## ', i + 5);
+    return t.slice(i, j < 0 ? undefined : j).split('\n### ').slice(1).map((b) => ({ head: b.split('\n')[0], n: b.split('\n').filter((l) => /^\d+\. /.test(l)).length }));
+  };
+  const cal = (f) => read(f).split('\n').filter((l) => /^\| \d+ (月 \d+ 日|[A-Z][a-z]+) \|/.test(l)).map((l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()));
+  const pj = read('PLAY.md'), pe = read('PLAY.en.md');
+  const qj = subs(pj, '季節の問い'), aj = subs(pj, '季節の問いの答え'), qe = subs(pe, 'Seasonal questions'), ae = subs(pe, 'Answers to the seasonal questions');
+  const wantJ = cal('CALENDAR.md').map(([d, n]) => n + '（' + d + '）'), wantE = cal('CALENDAR.en.md').map(([d, n]) => n + ' (' + d + ')');
+  ok('季節の問いは、暦の記念日（' + wantJ.length + ' 日）ごとに一つずつ節を持ち、問いと答えの数がそろう（日本語と英語）',
+    wantJ.length > 0 && JSON.stringify(qj.map((x) => x.head)) === JSON.stringify(wantJ) && JSON.stringify(aj.map((x) => x.head)) === JSON.stringify(wantJ)
+    && JSON.stringify(qe.map((x) => x.head)) === JSON.stringify(wantE) && JSON.stringify(ae.map((x) => x.head)) === JSON.stringify(wantE)
+    && qj.every((x, i) => x.n > 0 && x.n === aj[i].n && x.n === qe[i].n && x.n === ae[i].n),
+    qj.map((x) => x.head + ':' + x.n).join(', '));
+  ok('季節の問いの答えが拠る文が、国の頁に残っている（国是・十年の見通し・総点検・最初の誤り・単位・恩赦）',
+    read('README.md').includes('**国是**：Errata servo, me ipsum rego.') && pj.includes('2. Errata servo, me ipsum rego.')
+    && read('INSTITUTIONS.md').includes('2036 年 11 月 7 日に、この見通しと実際を比べて、官報に載せます。') && read('INSTITUTIONS.md').includes('毎年 11 月 7 日（建国の日）に、点検の issue が自動で開きます。')
+    && read('STORY.md').includes('それは、国の名の由来についての誤りでした。') && read('SYMBOLS.md').includes('版図の広さは「誤」で数えます。王の正誤表の一件が一誤です。')
+    && read('INSTITUTIONS.md').includes('そのため、恩赦を求めると、版図はかえって一区画広がります。'));
+  const practice = { 'PLAY.md': ['1. 一週間は八日である。', '2. 水は、1 気圧のもとで、およそ 50 ℃ で沸騰する。', '3. 平面の三角形の内角の和は 360 度である。', '4. この文には誤字がありまさん。', '5. ヌスクァマの騎士の位は三つある。'],
+    'PLAY.en.md': ['1. A week has eight days.', '2. At a pressure of one atmosphere, water boils at about 50 °C.', '3. The angles of a triangle in a plane add up to 360 degrees.', '4. There are no speling mistakes in this sentence.', '5. The knights of Nusquama have three ranks.'] };
+  const fixed = Object.entries(practice).flatMap(([f, l]) => l.filter((x) => !read(f).includes('\n' + x + '\n')).map((x) => f + '：' + x));
+  ok('誤り探しの練習の文は、わざと置いた誤りを残している（日本語と英語、直さない）', fixed.length === 0, fixed.join(' / '));
+}
+
+console.log('\n39. 官報の月ごとの合本（号は振り直さない）');
+{
+  const items = B.gazetteItems(), months = B.gazetteMonths();
+  const g = read('site/gazette.html'), ge = read('site/gazette.en.html');
+  const seen = [];
+  const bad = [];
+  for (const m of months) {
+    const want = items.filter((x) => x.date.startsWith(m)).map((x) => x.no).sort((a, b) => a - b);
+    for (const en of [false, true]) {
+      const f = 'site/monthly/' + m + (en ? '.en' : '') + '.html';
+      if (!fs.existsSync(path.join(ROOT, f))) { bad.push(f + ' がない'); continue; }
+      const t = read(f);
+      const got = [...t.matchAll(en ? /<a href="\.\.\/gazette\/(\d+)\.en\.html">No\. (\d+)<\/a>/g : /<a href="\.\.\/gazette\/(\d+)\.html">第 (\d+) 号<\/a>/g)];
+      if (got.some((x) => x[1] !== x[2])) bad.push(f + '：号の名と所在が食い違う');
+      if (JSON.stringify(got.map((x) => Number(x[1]))) !== JSON.stringify(want)) bad.push(f + '：号の並び');
+      if (!t.includes('<p class="notice">' + (en ? B.NOTICE_EN : B.NOTICE) + '</p>')) bad.push(f + '：断り');
+      if (!t.includes(en ? 'they are not renumbered' : '合本のために振り直しません。')) bad.push(f + '：振り直さない旨');
+      if (!(en ? ge : g).includes('<a href="monthly/' + m + (en ? '.en' : '') + '.html">')) bad.push(f + '：官報の頁から指していない');
+    }
+    seen.push(...want);
+  }
+  ok('月ごとの合本（' + months.length + ' 月）は、その月の号だけを古い順に、一号ごとの頁と同じ番号で載せ、官報の頁から指される（日本語と英語）', months.length > 0 && bad.length === 0, bad.join(' / '));
+  ok('合本の号を合わせると、号は 1 から ' + items.length + ' まで欠けず重ならない。合本の数は月の数の二倍', JSON.stringify(seen.slice().sort((a, b) => a - b)) === JSON.stringify(items.map((x) => x.no).sort((a, b) => a - b))
+    && fs.existsSync(path.join(ROOT, 'site', 'monthly')) && fs.readdirSync(path.join(ROOT, 'site', 'monthly')).length === 2 * months.length);
+  const rows = [...g.matchAll(/<tr><td><a href="monthly\/(\d{4}-\d{2})\.html">[^<]+<\/a><\/td><td>(\d+)<\/td>/g)];
+  ok('官報の頁の合本の表の号の数は、月ごとに数えたものと同じで、足すと全体になる', rows.length === months.length && rows.every(([, m, n]) => Number(n) === items.filter((x) => x.date.startsWith(m)).length)
+    && rows.reduce((a, r) => a + Number(r[2]), 0) === items.length);
+  ok('一号ごとの頁は、その号の月の合本を指す', items.every((x) => read('site/gazette/' + x.no + '.html').includes('<a href="../monthly/' + x.date.slice(0, 7) + '.html">')
+    && read('site/gazette/' + x.no + '.en.html').includes('<a href="../monthly/' + x.date.slice(0, 7) + '.en.html">')));
+}
+
+console.log('\n40. 年ごとの版図を並べて比べる頁');
+{
+  const E = B.errataEntries(), years = B.errataYears();
+  const vb = (t) => (/viewBox="([^"]+)"/.exec(t) || [])[1];
+  const now = vb(read('site/territory.svg'));
+  const bad = [];
+  for (const en of [false, true]) {
+    const t = read('site/territory-years' + (en ? '.en' : '') + '.html');
+    const svgs = [...t.matchAll(/<svg [^>]*viewBox="([^"]+)"[^>]*aria-labelledby="ty(\d{4})">([\s\S]*?)<\/svg>/g)];
+    if (JSON.stringify(svgs.map((m) => m[2])) !== JSON.stringify(years)) bad.push((en ? 'en' : 'ja') + '：年の並び');
+    for (const [, box, y, body] of svgs) {
+      const n = E.filter((e) => e.date.slice(0, 4) <= y).length;
+      if (box !== now) bad.push(y + '：縮尺がいまの地図と違う');
+      if ((body.match(/fill="#c9a227"/g) || []).length !== n) bad.push(y + '：区画の数');
+      if (!t.includes('<a href="territory-' + y + '.svg">territory-' + y + '.svg</a>')) bad.push(y + '：年の地図へのリンク');
+    }
+    if (!t.includes('<p class="notice">' + (en ? B.NOTICE_EN : B.NOTICE) + '</p>')) bad.push('断り');
+  }
+  ok('年ごとの版図の頁は、どの年（' + years.length + ' 年）の地図も、いまの地図と同じ縮尺で、その年の終わりまでの件数だけの区画を描く（日本語と英語）', bad.length === 0, bad.join(' / '));
+  const wide = B.territorySvg(3, { frame: 40 }), own = B.territorySvg(3);
+  ok('同じ縮尺の枠は、件数の少ない年の地図を小さく描く（枠の幅は件数の多いほうに合う）', vb(wide) === vb(B.territorySvg(40)) && vb(own) !== vb(wide) && (wide.match(/fill="#c9a227"/g) || []).length === 3);
+  ok('国のしるしと正誤表の頁が、年ごとの版図の頁を指す', read('SYMBOLS.md').includes('[年ごとの版図](site/territory-years.html)') && read('SYMBOLS.en.md').includes('(site/territory-years.en.html)')
+    && read('site/errata.html').includes('<a href="territory-years.html">') && read('site/errata.en.html').includes('<a href="territory-years.en.html">'));
+}
+
+console.log('\n41. 建国の物語の章ごとの頁（文に手を入れない）');
+{
+  const bad = [];
+  let total = 0;
+  for (const en of [false, true]) {
+    const src = read(en ? 'STORY.en.md' : 'STORY.md');
+    const ch = B.storyChapters(en);
+    total = ch.length;
+    if (ch.length !== (src.match(/^## /gm) || []).length || src.slice(src.indexOf('\n## ') + 1).trim() !== ch.map((c) => c.text).join('\n\n')) bad.push((en ? 'en' : 'ja') + '：章を合わせても元の文にならない');
+    for (const c of ch) {
+      const f = 'site/story/' + c.n + (en ? '.en' : '') + '.html';
+      if (!fs.existsSync(path.join(ROOT, f))) { bad.push(f + ' がない'); continue; }
+      const main = ((/<main id="main">([\s\S]*)<\/main>/.exec(read(f)) || [])[1] || '').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+      const lines = c.text.split('\n').filter((l) => l.trim()).map((l) => l.replace(/^## /, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'));
+      const miss = lines.filter((l) => !main.includes(l));
+      if (miss.length) bad.push(f + '：' + miss[0]);
+      if (!read(f).includes('<h2>' + c.heading + '</h2>') || !read(f).includes('<p class="notice">' + (en ? B.NOTICE_EN : B.NOTICE) + '</p>')) bad.push(f + '：見出しか断り');
+      if (!read('site/story' + (en ? '.en' : '') + '.html').includes('<a href="story/' + c.n + (en ? '.en' : '') + '.html">' + c.heading + '</a>')) bad.push(f + '：目次から指していない');
+    }
+  }
+  ok('物語の章（' + total + ' 章）は、元の文の節をそのまま一頁ずつに収め、物語の頁の目次から指される（日本語と英語）',
+    total > 0 && bad.length === 0 && fs.existsSync(path.join(ROOT, 'site', 'story')) && fs.readdirSync(path.join(ROOT, 'site', 'story')).length === 2 * total, bad.join(' / '));
+}
+
+console.log('\n42. しるしの作図の頁（手順の文は国のしるしから、図は画像の要素から）');
+{
+  const all = (rel) => [...read(rel).matchAll(/<(rect|polygon) [^>]*\/>/g)].map((m) => m[0]);
+  const fg = B.flagGroups(), eg = B.emblemGroups();
+  const covers = (gs, rel) => gs.groups.every((g) => g.length > 0) && JSON.stringify(gs.groups.flat().map((e) => e.raw).sort()) === JSON.stringify(all(rel).sort());
+  ok('国旗の要素は五つの組に、国章の要素は四つの組に、欠けず重ならずに分かれる', covers(fg, 'assets/flag.svg') && covers(eg, 'assets/emblem.svg') && fg.groups.length === 5 && eg.groups.length === 4);
+  const COLORS = ['#14213d', '#c9a227', '#e8cf74', '#0b1428'];
+  const bad = [];
+  for (const en of [false, true]) {
+    const t = read('site/symbols-construction' + (en ? '.en' : '') + '.html');
+    const steps = [...t.matchAll(/<svg [^>]*aria-labelledby="([fe])s(\d+)">[\s\S]*?<\/svg>/g)];
+    const sym = en ? 'SYMBOLS.en.md' : 'SYMBOLS.md';
+    const nf = B.listIn(sym, en ? 'How the flag is drawn' : '国旗の作図').length, ne = B.listIn(sym, en ? 'How the emblem is drawn' : '国章の作図').length;
+    if (steps.filter((m) => m[1] === 'f').length !== nf || steps.filter((m) => m[1] === 'e').length !== ne) bad.push((en ? 'en' : 'ja') + '：手順の図の数');
+    const last = (k, n) => (steps.find((m) => m[1] === k && Number(m[2]) === n) || [''])[0];
+    if (JSON.stringify(all('assets/flag.svg').sort()) !== JSON.stringify([...last('f', nf).matchAll(/<(rect|polygon) [^>]*\/>/g)].map((m) => m[0]).sort())) bad.push('国旗の最後の図が国旗の画像と違う');
+    if (JSON.stringify(all('assets/emblem.svg').sort()) !== JSON.stringify([...last('e', ne).matchAll(/<(rect|polygon) [^>]*\/>/g)].map((m) => m[0]).sort())) bad.push('国章の最後の図が国章の画像と違う');
+    const main = (/<main id="main">([\s\S]*)<\/main>/.exec(t) || [])[1] || '';
+    if (/<text|font-family/.test(main) || [...new Set((main.match(/#[0-9a-f]{6}/gi) || []).map((c) => c.toLowerCase()))].some((c) => !COLORS.includes(c))) bad.push('国章の色のほかの色か文字');
+    for (const l of B.listIn(sym, en ? 'How the flag is drawn' : '国旗の作図').concat(B.listIn(sym, en ? 'How the emblem is drawn' : '国章の作図'))) if (!t.includes(l.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'))) bad.push('手順の文：' + l.slice(0, 20));
+    const swatches = (t.match(/<span class="swatch">/g) || []).length, tiles = (t.match(/<span class="tile">/g) || []).length;
+    const colorRows = read(sym).split('\n').filter((l) => /^\| [^|]+ \| `#[0-9a-f]{6}` \|/.test(l)).length;
+    if (swatches !== colorRows || colorRows !== COLORS.length || tiles !== B.KINDS.length) bad.push('色（' + swatches + '）か区画（' + tiles + '）の数');
+    if (!t.includes('<p class="notice">' + (en ? B.NOTICE_EN : B.NOTICE) + '</p>')) bad.push('断り');
+  }
+  ok('作図の頁は、手順ごとに図を一つ持ち、最後の図は画像そのもので、国の色（' + COLORS.length + '）と区画の形（' + B.KINDS.length + '）を挙げ、文字を描かない（日本語と英語）', bad.length === 0, bad.join(' / '));
+  const em = read('assets/emblem.svg');
+  const r = [...em.matchAll(/<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"([^>]*)\/>/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]), w: Number(m[3]), h: Number(m[4]), a: m[5] }));
+  const golden = r.filter((q) => /stroke="#e8cf74"/.test(q.a));
+  const gx = Math.min(...golden.map((q) => q.x)), gy = Math.min(...golden.map((q) => q.y));
+  const gw = Math.max(...golden.map((q) => q.x + q.w)) - gx, gh = Math.max(...golden.map((q) => q.y + q.h)) - gy;
+  const stones = r.filter((q) => /fill="#c9a227"/.test(q.a) && q.w === q.h);
+  const polys = [...em.matchAll(/<polygon points="([^"]+)"/g)].map((m) => m[1].split(' ').map((p) => p.split(',').map(Number)));
+  const outer = polys[0], inner = polys[1], blade = polys.find((p) => p.length < 8);
+  const nums = { vb: /viewBox="0 0 (\d+) (\d+)"/.exec(em).slice(1).join(','), corner: gx + ',' + gy, size: gw + ',' + gh, sides: golden.map((q) => String(q.w)).join('、'),
+    stone: stones.length + ',' + [...new Set(stones.map((q) => q.w))].join('/') + ',' + [...new Set(stones.slice(1).map((q, i) => q.x - stones[i].x - stones[i].w))].join('/') + ',' + [...new Set(stones.map((q) => q.y))].join('/'), border: (inner[0][1] - outer[0][1]) + ',' + (inner[0][0] - outer[0][0]), point: Math.max(...blade.map((p) => p[1])) };
+  const sj = read('SYMBOLS.md'), se = read('SYMBOLS.en.md');
+  ok('国章の作図の数は、国章の画像の座標そのまま（枠・縁・黄金比の矩形・正方形・角石・切っ先）（日本語と英語）',
+    nums.vb === '600,720' && nums.border === '20,20' && nums.corner === '120,112' && nums.size === '360,222.5' && nums.sides === '222.5、137.5、85、52.5、32.5、20.1' && nums.stone === '3,18,10,76' && nums.point === 632
+    && sj.includes('横 600、縦 720 の枠') && sj.includes('太さ 20 の金の縁') && sj.includes('左上の角は (120, 112)') && sj.includes('横 360、縦 222.5') && sj.includes('正方形の辺は ' + nums.sides + ' と')
+    && sj.includes('辺 18 の金の正方形（角石）を三つ、間を 10 空けて並べる。上の端は 76 に置く。') && sj.includes('切っ先は 632 に届く。')
+    && se.includes('600 wide and 720 high') && se.includes('A gold border 20 thick') && se.includes('top-left corner at (120, 112)') && se.includes('360 wide and 222.5 high') && se.includes(nums.sides.replace(/、/g, ', '))
+    && se.includes('sides of 18, 10 apart, their top edge at 76') && se.includes('The point reaches 632.'), JSON.stringify(nums));
+  ok('国のしるしの頁が、作図の頁を指す（日本語と英語）', sj.includes('[しるしの作図](site/symbols-construction.html)') && se.includes('(site/symbols-construction.en.html)'));
+}
+
+console.log('\n43. ミクロネーションの界隈へ向けた英語の紹介');
+{
+  const para = (f, h) => { const t = read(f); const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return i < 0 ? [] : t.slice(i + h.length + 5, j).split(/\n{2,}/).map((p) => p.trim()).filter(Boolean); };
+  const pj = para('PRESS.md', 'ミクロネーションの界隈へ向けた紹介'), pe = para('PRESS.en.md', 'For the micronation community');
+  const d = B.FOUNDED.split('-').map(Number);
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  ok('紹介の文は、最初の文で創作だと断り、建国の日は FOUNDED と同じで、願い出の限りを規程と同じ言葉で書く（日本語と英語）',
+    pj.length === 2 && pe.length === 2 && pj[1].startsWith('これは創作であり、') && pe[1].startsWith('This is a work of fiction,')
+    && pj[1].includes(d[0] + ' 年 ' + d[1] + ' 月 ' + d[2] + ' 日に建国を宣した') && pe[1].includes('declared on ' + d[2] + ' ' + months[d[1] - 1] + ' ' + d[0])
+    && pj[1].includes('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。') && read('policies/knighting.md').includes('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。')
+    && pe[1].includes('only people who live in Japan and are in Japan when they apply may apply') && read('policies/terms.en.md').includes('only people who live in Japan and are in Japan when they apply may apply'));
+  ok('紹介の文は、称号に効力がないこと、条約・称号の授け合い・金銭のやりとりをしないことを書き、交流の規程と合う',
+    pj[1].includes('称号に法的な効力はなく') && pj[1].includes('条約を結ばず、称号を授け合わず、金銭のやりとりをしません。') && pe[1].includes('The titles have no legal effect')
+    && pe[1].includes('Nusquama makes no treaties, gives no titles in exchange, and handles no money.') && read('policies/exchange.md').includes('- 交流は、挨拶と、互いの頁へのリンクに留めます。'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
