@@ -136,6 +136,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-08（日本時間） | 適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す | Legality is reviewed again by five methods (requirements as logic, coverage, consistency, fault trees, breaking to confirm) |
 | 2026-11-10（日本時間） | 国旗と版図の地図、暦と祝日、官報、交流の規程を定める | The flag, the map of the domain, the calendar, the gazette and the Rules on exchange are laid down |
 | 2026-11-10（日本時間） | 建国の物語・国の言葉・国の仕組み・紹介の頁・遊びの頁を置き、正誤に分類と地名を付け、官報に号を振る | The story of the founding, the words of the kingdom, the institutions, the page for introducers and the page of play are set out; the errata are given categories and place names, and the gazette is numbered |
+| 2026-11-11（日本時間） | 叙任の規程と適法性の説明に、日本の外からの願い出を受けない決まりの始まる日を書き添え、年表に記していなかった 11 月 9 日と 10 日の規程の書き足し（GitHub と Vercel の規約、モデルの学習への利用の断り、願い出の自動の確認、騎士の呼び方）もここに記す | The Rules on Knighting and the Legality Statement are given the date from which applications from outside Japan are not accepted, and the additions to the rules made on 9 and 10 November and not entered in the timeline (the terms of GitHub and Vercel, the warning about use for model training, the automatic check of applications, how knights are addressed) are recorded here |
 
 ---
 
@@ -150,7 +151,7 @@ Source: https://nusquama.vercel.app/
 - [適法性の説明](policies/legality.md)
 - [交流の規程](policies/exchange.md)
 
-国のしるし（国旗と版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
+国のしるし（国章・国旗・版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 国の成り立ちは[建国の物語](STORY.md)に、国の名や制度に使うラテン語は[国の言葉](LEXICON.md)に、機関と手続きは[国の仕組み](INSTITUTIONS.md)にあります。
 紹介に使う文と数は[紹介する人のために](PRESS.md)に、正誤表の雛形と問いは[遊び](PLAY.md)にあります。
 
@@ -158,7 +159,7 @@ English (translations; the Japanese version governs): [Founding Declaration, Bas
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
-王の正誤表と騎士の名簿には、新着の配信（[errata.xml](https://nusquama.vercel.app/errata.xml)、[knights.xml](https://nusquama.vercel.app/knights.xml)）があります。
+王の正誤表と騎士の名簿と官報には、新着の配信（[errata.xml](https://nusquama.vercel.app/errata.xml)、[knights.xml](https://nusquama.vercel.app/knights.xml)、[gazette.xml](https://nusquama.vercel.app/gazette.xml)）があります。
 言語モデルを通して調べる人のために、[llms.txt](https://nusquama.vercel.app/llms.txt) と [llms-full.txt](https://nusquama.vercel.app/llms-full.txt) を置いています。llms.txt は、断りと、規程の要の節を一字一句そのまま収め、すべての頁へリンクします。llms-full.txt は、すべての頁の元の文を一字一句そのまま収めます。食い違うときは規程に従います。
 
 ## ほかの場所
@@ -201,7 +202,7 @@ Source: https://nusquama.vercel.app/errata.html
 
 王国基本法第五条により、王は自らの誤りを消さず、日付を付けて記録します。
 建国の宣言は、日付を付けて出した文です。凍った文なので書き換えず、誤りはここに記します（十則の二）。
-規程の文は改めることがあります。改めたときも、改める前の文をここに残します。
+規程の文は改めることがあります。文を置き換えたり削ったりしたときも、改める前の文をここに残します。
 この正誤表は、基本法第三条の版図です。
 
 | 番 | 記した日 | 場所 | 誤 | 正 | 確かめた先 | 分類 | 地名 |
@@ -215,6 +216,8 @@ Source: https://nusquama.vercel.app/errata.html
 | 7 | 2026-11-08 | 利用規約「称号の扱い」、適法性の説明「前提となる事実」 | 運営者がこの国を紹介するために自ら書いた記事（利用規約）。王が自ら書いた MicroWiki の記事の中でだけ使う（適法性の説明）。 | 誤りではなく、範囲を改めた。王が X でも建国を知らせ、騎士王ネモ一世と名乗ったので、紹介のために自ら書いた「記事や投稿」とし、どれも README「ほかの場所」に挙げる形にした。 | 王の投稿（README「ほかの場所」） | 範囲 | Insula Finis III |
 | 8 | 2026-11-08 | 適法性の説明「国際法での立場」 | 国家として扱われるかどうかには、他の国の承認も関わる。条約の原文は確かめておらず、一般の知識による。 | 条約を挙げた直後に置いたので、条約がそう定めているように読めた。条約の第 3 条は逆に、国家の政治的な存在は他の国の承認によらない、とする。第 3 条をそのまま書き、条約の文と当事国を確かめた先を記した。 | モンテビデオ条約（[Avalon Project の英文](https://avalon.law.yale.edu/20th_century/intam03.asp)、[米州機構の当事国の一覧](https://www.oas.org/juridico/english/sigs/a-40.html)） | 法 | Insula Legis II |
 | 9 | 2026-11-08 | 利用規約「この規約が及ぶ人」 | サイトやリポジトリを使うことは、この規約を受け入れることを意味します。 | 読むだけの人とは合意がなく、定型約款は、合意したか、契約の内容になると前もって示された人にしか及ばない（民法第548条の2）。同意は願い出の様式で得て、読むことは同意とみなさないと改めた。読む人にとっては、双方が負うものを法令が定める。 | 民法第548条の2 | 法 | Insula Legis III |
+| 10 | 2026-11-11 | 王の正誤表、年表、README「ほかの場所」 | X：建国を知らせる投稿（README「ほかの場所」に挙げていた）。（消した行の誤） | 2026-11-08 に、X の投稿へのリンクを README「ほかの場所」から外し、そのことを正誤表のもとの第 9 件と年表の一行に記した。同じ日に、その二行を消し、正誤表ののちの行の番を詰めた（いまの第 9 件は別の行である）。消した正誤表の行は、誤りではなく範囲を改めたこと、その投稿はこの国の中に入らないことを書いていた。記した行を消したことは、基本法第五条に反する二つめの誤りである。第 7 件は X の投稿も「ほかの場所」に挙げる形にしたと書くが、いまは挙げていない。 | リポジトリの履歴（コミット 3aa7340 と a7332ca） | 範囲 | Insula Finis IV |
+| 11 | 2026-11-11 | 叙任の規程「願い出ることができる人」「断ること」、適法性の説明「日本の外の法令」 | 日本の外に住む人は、国籍を問わず願い出ることができません。／日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。（叙任の規程「願い出ることができる人」）。願い出の条件（年齢・住んでいる国）（叙任の規程「断ること」）。訂正のリンク先に日本の外に住むことや 16 歳未満であることがはっきり書かれていれば（適法性の説明）。 | 日本に住み、日本にいる人に願い出を限るのは 2026-11-22 からだが、叙任の規程の二つの文は日付を欠き、いま効いているように読めた。二つの文の頭に「2026-11-22 から、」を足した。条件を挙げるほかの二か所は、願い出のときにいる国を落としていたので、足した。 | 叙任の規程「願い出ることができる人」の「2026-11-22 から、願い出ることができるのは」で始まる文と、利用規約「変更と終了」の予告 | 範囲 | Insula Finis V |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -252,7 +255,7 @@ MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあり
 
 地名は、島の名に、その分類の中で記した順のローマ数字を付けたものです（例：Insula Facti I）。
 王は地名を手で付けません。分類が決まれば、地名も決まります。
-島の名は、ラテン語の名詞の属格です。語形は一般の知識によるもので、辞書では確かめていません。
+島の名は、ラテン語の insula（島）に、分類を表す名詞の属格を添えたものです。語形は一般の知識によるもので、辞書では確かめていません。
 
 ## 地図
 
@@ -588,7 +591,7 @@ Source: https://nusquama.vercel.app/institutions.html
 
 1. 日本語の版を改め、同じ日に英語の訳も改める。
 2. 規程の最終更新の日を改める。
-3. 改める前の文を、[王の正誤表](ERRATA.md)に残す（王の正誤表の冒頭）。
+3. 文を置き換えたり削ったりしたときは、改める前の文を、[王の正誤表](ERRATA.md)に残す（王の正誤表の冒頭）。
 4. 年表に一行を足し、官報に載せる。
 5. 検査を通してから公開する。
 
@@ -647,7 +650,7 @@ Source: https://nusquama.vercel.app/institutions.html
 
 - 土地・通貨・旅券・証書・物は作りません。
 - 位を増やしません。位は騎士の一つだけです。
-- 日本の外に住む人の願い出は、その国の法令を確かめるまで受けません。
+- 日本の外に住む人や、願い出のときに日本の外にいる人の願い出は、その国の法令を確かめるまで受けません。
 
 続けるものもあります。
 
@@ -673,9 +676,9 @@ Source: https://nusquama.vercel.app/press.html
 - 一文：無何有騎士王国ヌスクァマは、王が自分の誤りを正誤表に記すたびに版図が広がる、遊びの創作の国です。
 - 一段落：ヌスクァマは、ラテン語の nusquam（どこにも…ない）から名を取った、創作の国です。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて記します。記した誤りの数が、この国の版図です。自分の誤りを一つ公に正した人は、無償で騎士の名簿に載ることができます。称号に法的な効力はなく、お金は一切動きません。
 
-## 添える一文
+## 添える文
 
-紹介には、次の二文を添えます。
+紹介には、次の二つの段落を添えます。
 
 これは創作であり、遊びです。ヌスクァマは国家ではなく、ここで授ける称号に法的な効力はありません。
 
@@ -731,7 +734,7 @@ Source: https://nusquama.vercel.app/play.html
 2. 日付を付ける。
 3. 確かめていないことは、確かめていないと書く。
 
-この表で正した誤りは、[叙任の願い出](policies/knighting.md)に使えます。
+この表で正した誤りは、叙任の願い出に使えます（[叙任の規程](policies/knighting.md)）。
 
 ## 誤り探しの練習
 
@@ -1072,7 +1075,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 
 # 叙任の規程
 
-最終更新：2026-11-10。
+最終更新：2026-11-11。
 
 ## 叙任とは
 
@@ -1088,8 +1091,8 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 16 歳未満の人は願い出ることができません。
 住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。例として、イタリアの 1951 年法律第 178 号第 8 条は、私人や団体が、名称を問わず騎士の称号などを授けることを禁じています。
 2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません。
-日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。
-日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。
+2026-11-22 から、日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。
+2026-11-22 から、日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。
 旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
 
 ## 願い出の手順
@@ -1134,7 +1137,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 - 誤りの訂正ではないもの（宣伝、自己紹介、他人の誤りの指摘など）。
 - 確かめられないもの（非公開のもの、リンクが開けないもの）。
 - 利用規約の「してはいけないこと」に当たるもの。
-- 願い出の条件（年齢・住んでいる国）に当たらないことが、訂正のリンク先からはっきり読めるもの。
+- 願い出の条件（年齢・住んでいる国・願い出のときにいる国）に当たらないことが、訂正のリンク先からはっきり読めるもの。
 
 断るときは、決めた一文（「叙任の条件に当たりません。」）だけを issue に書き、人を評しません。本人の求めがあれば、その issue を削除します。
 
@@ -1240,7 +1243,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
 
-最終更新：2026-11-08。
+最終更新：2026-11-11。
 
 ## この頁の位置づけ
 
@@ -1376,7 +1379,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - 米国カリフォルニア州の消費者プライバシー法（CCPA）は、営利の事業者を対象とする。ヌスクァマは営利の事業をしないので、当たらないと考える。カリフォルニア州司法長官の [CCPA の頁](https://oag.ca.gov/privacy/ccpa)で、営利の事業者が対象で、非営利の団体には一般に及ばないことを、2026-11-08 に確かめた。州の法令の頁は、機械からの取得を止める仕組みがあるので、読んでいない。
 - そのほかの国の法令については、運営者は個別に確かめていない。
 - 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。国籍は問わない。日本の外の法令は国ごとに確かめきれないので、及ぶおそれのある国に住む人を、はじめから受けない。外国の法令には、そこにいる人に及ぶものがあるので、旅行・出張・留学などで日本の外にいるあいだの願い出も受けない（[叙任の規程](./knighting.md)「願い出ることができる人」）。
-- 本人の申告は確かめないが、訂正のリンク先に日本の外に住むことや 16 歳未満であることがはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。気づくことができた事柄を見落とさないためである（[叙任の規程](./knighting.md)「運営者が確かめること」）。
+- 本人の申告は確かめないが、訂正のリンク先に日本の外に住むことや、願い出のときに日本の外にいること、16 歳未満であることがはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。気づくことができた事柄を見落とさないためである（[叙任の規程](./knighting.md)「運営者が確かめること」）。
 
 ### 使っているサービスの規約
 
@@ -1475,9 +1478,9 @@ This is an English translation. The [Japanese version](./terms.md) governs; if t
 ## Who these terms cover
 
 These terms cover everyone who reads Nusquama's site and repository, everyone who applies for knighting, and everyone whose name is on the roll of knights.
-A person who applies for knighting agrees to these terms in the application form, in their version of the day.
+A person who applies for knighting agrees, in the application form, to the version of these terms in force on that day.
 Reading the site or the repository is not taken as agreement to anything; for readers, these terms describe how Nusquama works, and the law decides what each side owes.
-The [Disclaimer](./disclaimer.en.md), the Privacy Notice, the Knighting Rules, the Requests for Removal, Correction or Withdrawal, and the Names and Rights page are also part of these terms. Those pages are in Japanese only.
+The [Disclaimer](./disclaimer.en.md), [Privacy](./privacy.en.md), the [Rules on Knighting](./knighting.en.md), the [Requests for removal, correction or withdrawal](./requests.en.md) and [Names and rights](./names.en.md) are also part of these terms.
 The reasons the operator believes Nusquama breaks no law are set out, law by law, in the [Legality Statement](./legality.en.md). The Legality Statement is not part of these terms; it explains the operator's understanding.
 
 ## What Nusquama is
@@ -1540,7 +1543,7 @@ The [Disclaimer](./disclaimer.en.md) has the details.
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
 A change that is unfavourable to readers or knights will be shown on this page, with its content and the date it takes effect, before it takes effect.
-Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality (Knighting Rules, "Who may apply"; in Japanese).
+Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
@@ -1551,7 +1554,7 @@ These terms are governed by Japanese law.
 Nothing in these terms limits a right that the law does not allow to be limited.
 Disputes are to be settled by agreement first.
 Before bringing any claim, the operator first talks with the other party.
-The talks take place in an issue, or through the private channel described under "Requests that cannot be made in public" in the Requests page.
+The talks take place in an issue, or through the private channel described under "Requests that cannot be made in public" in the [Requests for removal, correction or withdrawal](./requests.en.md).
 If the other party offers to settle, the operator responds in good faith.
 A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.
 This does not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
@@ -1575,7 +1578,7 @@ What they say that matters to people who use Nusquama:
 ## Contact
 
 Contact is by [issue](https://github.com/cpsbvbng26-dotcom/nusquama/issues) in the repository.
-Contact that cannot be made in public follows "Requests that cannot be made in public" in the Requests page.
+Contact that cannot be made in public follows "Requests that cannot be made in public" in the [Requests for removal, correction or withdrawal](./requests.en.md).
 
 ---
 
@@ -1595,7 +1598,7 @@ This page is part of the [Terms of Use](./terms.en.md). Where this page and the 
 Nusquama is a work of fiction written for fun.
 It is not a state, government, local authority, royal house, noble family, order of knighthood, religious body, or system of decorations or honours.
 It is not a state under international law, seeks no recognition as a state, and claims no country's territory.
-The founding proclamation, the Basic Law, the ten precepts and the emblem are documents inside the fiction.
+The Founding Declaration, the Basic Law, the Ten Precepts and the emblem are documents inside the fiction.
 Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.
 The promise of no ill intent and of obeying the law is made in the Terms of Use, under "No ill intent, and obeying the law".
 
@@ -1627,7 +1630,7 @@ The titles of Nusquama are not used in those activities, and Nusquama does not r
 Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.
 A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.
 
-Where the words "Nusquama", "Nemo" and "Mukau" come from is written on the Names and Rights page (in Japanese). None of them shows a tie to any particular work or organisation.
+Where the words "Nusquama", "Nemo" and "Mukau" come from is written in [Names and rights](./names.en.md). None of them shows a tie to any particular work or organisation.
 
 ## Applications for knighting
 
@@ -1763,7 +1766,7 @@ Source: https://nusquama.vercel.app/policies/knighting.en.html
 
 # Rules on Knighting
 
-Last updated: 2026-11-10.
+Last updated: 2026-11-11.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -1781,8 +1784,8 @@ The correction must be public and checkable by anyone, such as an erratum to a p
 A person under 16 may not apply.
 A person whom the law of the country where they live forbids to receive or use a title of knighthood given by a private person may not apply either. For example, Article 8 of Italy's Law No. 178 of 1951 forbids private persons and bodies to confer titles of knighthood under any name.
 From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality.
-People who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
-A person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
+From 2026-11-22, people who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
+From 2026-11-22, a person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 
 ## How to apply
@@ -1827,7 +1830,7 @@ No knighthood is given for:
 - Anything that is not a correction of a mistake (advertising, self-introduction, pointing out someone else's mistake, and so on).
 - Anything that cannot be checked (something not public, or a link that does not open).
 - Anything that falls under "What is not allowed" in the Terms of Use.
-- An application where the linked correction clearly shows that the applicant does not meet the conditions (age or country of residence).
+- An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, or the country where the applicant is when applying).
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 
@@ -1874,7 +1877,7 @@ Do not copy the personal data in question into the issue. Say only where it is.
 
 ## Requests that cannot be made in public
 
-If there is a reason a request cannot be written in public, choose "Ask for a private contact" as the kind in the form, and leave the rest empty.
+If there is a reason a request cannot be written in public, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the form, and leave the rest empty.
 The operator answers with a way to make contact privately.
 A security problem with the site or the repository is reported in the same way ([How to report a security problem](../SECURITY.md)).
 
@@ -1937,7 +1940,7 @@ Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
 
-Last updated: 2026-11-08.
+Last updated: 2026-11-11.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -1992,14 +1995,14 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Elements, in summary**: falsely claiming an official post, court rank or decoration, academic degree or other title set by law, or a foreign equivalent of these; or, without the right to do so, using a uniform, decoration, badge or other insignia set by law, or anything made to look like one.
 - **Nusquama's facts**: Knight-King and knight are words inside a work of fiction, set by no country's law. Because Nusquama is not a state, its titles are not "foreign equivalents" either. It makes no physical decorations, badges or uniforms, and its emblem imitates no real insignia.
 - **Why the law does not apply**: the titles used are not titles set by law, and no physical insignia are used. Using the titles in a way that could be mistaken for a legal title is itself forbidden.
-- **Rules that keep this true**: Terms of Use, "Titles" (no use that could be mistaken for a legal title; nothing on CVs, business cards or official documents); Basic Law, Article 8; Names and Rights, "Emblem" (in Japanese).
+- **Rules that keep this true**: Terms of Use, "Titles" (no use that could be mistaken for a legal title; nothing on CVs, business cards or official documents); Basic Law, Article 8; [Names and rights](./names.en.md), "The emblem".
 
 ### Official documents and passports (Penal Code, Article 155; Passport Act, Article 23)
 
 - **Elements, in summary**: forging, for use, a document that a public office or public official is to make (Penal Code, Article 155). Using a passport in another person's name, or handing over, receiving or holding a forged passport for use, among others (Passport Act, Article 23).
 - **Nusquama's facts**: it makes no passports, identity documents, certificates or letters of appointment. Knighting only adds an account name to the roll and issues no document.
 - **Why the law does not apply**: no document that could be forged is made.
-- **Rules that keep this true**: Terms of Use, "What Nusquama is" (no passports, no nationality); Knighting Rules, "What knighting is" (no documents or objects; in Japanese).
+- **Rules that keep this true**: Terms of Use, "What Nusquama is" (no passports, no nationality); [Rules on Knighting](./knighting.en.md), "What knighting is" (no documents or objects).
 
 ### Fraud (Penal Code, Article 246)
 
@@ -2027,14 +2030,14 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Elements, in summary**: using, without right, a registered trademark for the designated goods or services, which the trademark owner has the exclusive right to use (Trademark Act). Using an indication identical or similar to another person's indication of goods or business that is widely known among consumers, causing confusion; or using, as one's own indication, something identical or similar to another person's famous indication (Unfair Competition Prevention Act).
 - **Nusquama's facts**: it does no business. Its names come from ordinary Latin words and words from the classics, and borrow no one's indication of goods or organisation. The emblem is the operator's own work.
 - **Why the law does not apply**: there is no use in business, and no one else's indication is used.
-- **Rules that keep this true**: Names and Rights (in Japanese); Disclaimer, "Relation to real things".
+- **Rules that keep this true**: [Names and rights](./names.en.md); Disclaimer, "Relation to real things".
 
 ### Copyright (Copyright Act, Articles 21 and 23)
 
 - **Elements, in summary**: reproducing a work, or transmitting it to the public (including making it transmittable), which the author has the exclusive right to do, without permission.
 - **Nusquama's facts**: the text and the emblem were written with Claude Code at the operator's request and checked by the operator. No one else's work is copied. Utopia and the Zhuangzi are named only as sources of the names, and none of their text is copied. Both are long out of copyright.
 - **Why the law does not apply**: no one else's work is reproduced.
-- **Rules that keep this true**: Names and Rights (in Japanese); Requests for Removal, Correction or Withdrawal (requests to remove content that infringes a right; in Japanese).
+- **Rules that keep this true**: [Names and rights](./names.en.md); [Requests for removal, correction or withdrawal](./requests.en.md) (requests to remove content that infringes a right).
 
 ### Personal information (Act on the Protection of Personal Information, Articles 17, 18, 27 and 28)
 
@@ -2042,7 +2045,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: it handles only the GitHub account name, the link to the correction and the description the person writes, and asks for no real name, address or contact details. It states the purpose of use, that the information is public, and that it is handled by GitHub and Vercel in the United States, and the person consents in the application form. Withdrawal from the roll and removal are granted at any time, free of charge.
 - **Why the law does not apply**: the handling the law requires is met by the pages and the form.
 - **Duty by duty**: the duties of Articles 17, 18, 20–23, 25–28, 32–38 and 40 of the Act, Article 10 of its Cabinet Order and Articles 7, 8, 10 and 17 of its Rules are paired, paragraph by paragraph, with the sentences that meet them, in `verification/duties.json`. The texts were fetched from e-Gov and read on 2026-11-08. The check confirms that every sentence exists and that every article is watched.
-- **Rules that keep this true**: Privacy Notice (in Japanese); Knighting Rules, "Withdrawal and revocation" (in Japanese); the oaths in the application form.
+- **Rules that keep this true**: [Privacy](./privacy.en.md); [Rules on Knighting](./knighting.en.md), "Withdrawal and revocation"; the pledges in the application form.
 
 ### Reputation and credit (Penal Code, Articles 230 and 231; Civil Code, Article 709)
 
@@ -2050,7 +2053,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: it discusses no particular person. The roll of knights lists only account names, on the person's own application and consent. When an application is refused, the reason is given briefly and the person is not judged.
 - **Why the law does not apply**: nothing damages anyone's reputation.
 - **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
-- **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); Requests for Removal, Correction or Withdrawal, "After a request is received" (in Japanese).
+- **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); [Requests for removal, correction or withdrawal](./requests.en.md), "After a request".
 
 ### Status under international law
 
@@ -2064,18 +2067,18 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Elements, in summary**: a Japanese national who acquires a foreign nationality of their own choice loses Japanese nationality.
 - **Nusquama's facts**: Nusquama is not a foreign state and grants no nationality. Knights are not nationals. Knighting only adds an account name to the roll.
 - **Why the law does not apply**: there is no "foreign nationality" to acquire, so knighting changes no one's nationality. The same holds under any country's nationality law.
-- **Rules that keep this true**: Terms of Use, "What Nusquama is" (no nationality); Knighting Rules, "What is not checked" (no nationality granted; in Japanese).
+- **Rules that keep this true**: Terms of Use, "What Nusquama is" (no nationality); [Rules on Knighting](./knighting.en.md), "What is not checked" (no nationality granted).
 
 ### Laws outside Japan
 
 - Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
 - Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
-- For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. The same article also punishes anyone who uses such a distinction, and applies even when it was conferred abroad. The text was checked on 2026-11-08 in [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8), Italy's official database of legislation. Applications from people living in such countries are not accepted (Knighting Rules, "Who may apply"; in Japanese). The country of residence is taken from the applicant's own declaration and is not checked (Knighting Rules, "What is not checked"; in Japanese).
-- The EU General Data Protection Regulation (GDPR) can reach those outside the EU, for example when they offer services to people in the EU. In case it does, Nusquama handles only what the person makes public themselves, takes it with consent, and answers requests for access, correction and erasure free of charge (Privacy Notice; in Japanese). Article 3(2) of the GDPR applies to a controller outside the EU where it offers goods or services, irrespective of payment, to people in the EU, among other cases. The text was checked on 2026-11-08 in [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679).
+- For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. The same article also punishes anyone who uses such a distinction, and applies even when it was conferred abroad. The text was checked on 2026-11-08 in [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8), Italy's official database of legislation. Applications from people living in such countries are not accepted ([Rules on Knighting](./knighting.en.md), "Who may apply"). The country of residence is taken from the applicant's own declaration and is not checked ([Rules on Knighting](./knighting.en.md), "What is not checked").
+- The EU General Data Protection Regulation (GDPR) can reach those outside the EU, for example when they offer services to people in the EU. In case it does, Nusquama handles only what the person makes public themselves, takes it with consent, and answers requests for access, correction and erasure free of charge ([Privacy](./privacy.en.md)). Article 3(2) of the GDPR applies to a controller outside the EU where it offers goods or services, irrespective of payment, to people in the EU, among other cases. The text was checked on 2026-11-08 in [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679).
 - The California Consumer Privacy Act (CCPA) covers businesses run for profit. Nusquama runs no business for profit, so the operator considers that it does not apply. This was checked on 2026-11-08 on the [CCPA page of the California Attorney General](https://oag.ca.gov/privacy/ccpa), which says the Act covers for-profit businesses and generally does not apply to nonprofit organisations. The page of the statute itself blocks automated access, and was not read.
 - The operator has not checked the laws of other countries one by one.
-- From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either (Knighting Rules, "Who may apply"; in Japanese).
-- The applicant's declaration is not checked, but if the linked correction states clearly that the applicant lives outside Japan or is under 16, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked (Knighting Rules, "What the operator checks"; in Japanese).
+- From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either ([Rules on Knighting](./knighting.en.md), "Who may apply").
+- The applicant's declaration is not checked, but if the linked correction states clearly that the applicant lives outside Japan, is outside Japan when applying, or is under 16, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 
 ### The terms of the services used
 
@@ -2118,7 +2121,7 @@ The facts relied on are fixed in the pages and the Basic Law.
 The repository's check (`verification/check.js`) fails if those sentences are removed.
 The same check confirms that the page sections and Basic Law articles this page refers to exist.
 
-Anyone who finds a possible illegality can report it through the Requests for Removal, Correction or Withdrawal (in Japanese). The operator will check it, fix it, and revise this page.
+Anyone who finds a possible illegality can report it through the [Requests for removal, correction or withdrawal](./requests.en.md). The operator will check it, fix it, and revise this page.
 
 ## How the agreement on courts works
 
@@ -2127,7 +2130,7 @@ The Terms of Use put settlement by agreement first, and then name an agreed cour
 - **The law, in summary**: the parties may, by agreement, choose the court of first instance. The agreement has no effect unless it concerns claims arising from a defined legal relationship and is made in writing or as an electronic record (Code of Civil Procedure, Article 11). An agreement on which country's courts will hear future disputes over a consumer contract has effect only in limited cases, such as when it allows claims in the courts of the country where the consumer lives (Code of Civil Procedure, Article 3-7, paragraph 5).
 - **Nusquama's facts**: people applying for knighting tick their agreement to the Terms of Use in the form, and the tick stays in the issue. People who only read the site or the repository tick nothing.
 - **How it works**: with those who agreed in the form, a record of the agreement remains as an electronic record. With those who only read, there is no written agreement, so the agreement on courts may have no effect. In that case, the court set by law has jurisdiction. The Terms state that they do not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
-- **Rules that keep this true**: Terms of Use, "Governing law and disputes"; the oaths in the application form.
+- **Rules that keep this true**: Terms of Use, "Governing law and disputes"; the pledges in the application form.
 
 ---
 
@@ -2169,38 +2172,38 @@ Source: https://nusquama.vercel.app/founding.en.html
 
 # Founding Declaration, Basic Law and Ten Precepts
 
-Last updated: 2026-11-09.
+Last updated: 2026-11-11.
 
 This is an English translation of three parts of the top page. The [Japanese version](./README.md) governs; if the two differ, the Japanese version applies.
 
 ## The founding declaration
 
 The declaration is a dated text, and it is not rewritten (Ten Precepts, II).
-The King's errata correct two of its statements, in entries 1 and 3 of [the King's Errata](./ERRATA.md), which is in Japanese.
+The King's errata correct two of its statements, in entries 1 and 3 of [the King's errata](./ERRATA.en.md).
 
 There is a country that is nowhere.
 Its name is Nusquama: in Latin, "a place that is nowhere". It is the name that Thomas More first nearly gave to the island that later became Utopia.
 
 The country that is nowhere has a king who is no one.
 The King's name is Nemo: in Latin, "no one".
-The Knight King Nemo I has no subjects. The one person the King rules is the King alone.
+The Knight-King Nemo I has no subjects. The one person the King rules is the King alone.
 
 This King does not wield a sword.
 The King's weapon is the check, and the King's shield is the errata.
 The King's greatness is not measured by how few errors there are. It is measured by the honesty of a record that keeps its errors instead of erasing them.
 
 The crown lasts one reign, and has no heir.
-For only one who stands alone can correct oneself alone.
+For only those who stand alone can correct themselves alone.
 
 Here the founding of the Knightly Kingdom of Nusquama (Regnum Nusquamae) is declared.
 
-Nemo I, the Knight King, 7 November 2026
+Nemo I, the Knight-King, 7 November 2026
 
 ## The Basic Law of the Kingdom
 
 **Article 1 (Fiction)** This country is a work of fiction. It is not related to any real state, royal house, order of knighthood, honour or title, and it has no territory, people, currency or passports.
 
-**Article 2 (The King)** The King is one person only, Nemo I, the Knight King (Nemo I, Rex Eques Nusquamae). The reign lasts one generation and is not inherited.
+**Article 2 (The King)** The King is one person only, Nemo I, the Knight-King (Nemo I, Rex Eques Nusquamae). The reign lasts one generation and is not inherited.
 
 **Article 3 (The domain)** The domain of the Kingdom is the King's bookshelf and the errata that the King has made public. The domain widens each time the King admits an error.
 
@@ -2218,7 +2221,7 @@ Nemo I, the Knight King, 7 November 2026
 
 **Article 10 (Amendment)** The King amends this Basic Law. Articles 1, 6 and 8, however, are never removed.
 
-## The Ten Precepts of the Knight King
+## The Ten Precepts of the Knight-King
 
 I. Do not fill a gap with a guess. What you do not know, write that you do not know.
 
@@ -2226,7 +2229,7 @@ II. Do not rewrite frozen words. To correct them, write on a separate sheet.
 
 III. If you speak of numbers, speak in a form that can be counted again.
 
-IV. Do not adorn yourself with titles. The name of the Knight King is allowed only within this country.
+IV. Do not adorn yourself with titles. The name of the Knight-King is allowed only within this country.
 
 V. Take no money. A rank bought is no rank.
 
@@ -2236,7 +2239,7 @@ VII. One thing to a sentence. A sword, too, makes one cut to a stroke.
 
 VIII. Do not raise your voice. Show severity by how much you cut away.
 
-IX. Do not be ashamed of being alone. Only one who stands alone can correct oneself alone.
+IX. Do not be ashamed of being alone. Only those who stand alone can correct themselves alone.
 
 X. Put the King, too, to the check.
 
@@ -2244,7 +2247,7 @@ X. Put the King, too, to the check.
 
 Source: https://nusquama.vercel.app/knights.en.html
 
-# Roll of the Order of the Errata (Ordo Erratorum)
+# Roll of the Order of Errata (Ordo Erratorum)
 
 > This is a work of fiction, written for fun. The titles of those named here have no legal effect and no real honour.
 
@@ -2265,13 +2268,13 @@ Source: https://nusquama.vercel.app/errata.en.html
 
 # The King's errata
 
-> This is a work of fiction, written for fun. In these errata the King within the fiction records his own mistakes.
+> This is a work of fiction, written for fun. In these errata the King within the fiction records the King's own mistakes.
 
 This is an English translation. The [Japanese version](ERRATA.md) governs; if the two differ, the Japanese version applies. The quotations below are translated from the Japanese.
 
-Under Article 5 of the Basic Law, the King does not erase his mistakes, and records them with a date.
+Under Article 5 of the Basic Law, the King does not erase the King's own mistakes, and records them with a date.
 The Founding Declaration is a text issued with a date. As a frozen text it is not rewritten; its mistakes are recorded here (Precept 2).
-The text of the rules may be changed. When it is, the text before the change is kept here.
+The text of the rules may be changed. When text is replaced or removed, the text before the change is kept here.
 These errata are the domain under Article 3 of the Basic Law.
 
 | No. | Recorded | Where | Wrong | Right | Checked against | Category | Place name |
@@ -2285,6 +2288,8 @@ These errata are the domain under Article 3 of the Basic Law.
 | 7 | 2026-11-08 | Terms of Use, "Titles"; Legality Statement, "Facts relied on" | "an article the operator wrote himself to introduce this country" (Terms of Use); "only in the article on MicroWiki that the King wrote himself" (Legality Statement) | Not a mistake; the scope was changed. As the King also announced the founding on X, calling himself Nemo I, Knight-King, it became "articles or posts" written by himself to introduce it, each listed under "ほかの場所" (Elsewhere) in the README. | The King's post (README, "ほかの場所" (Elsewhere)) | Scope | Insula Finis III |
 | 8 | 2026-11-08 | Legality Statement, "Standing in international law" | "Recognition by other states also bears on whether something is treated as a state. The text of the convention was not checked; this rests on general knowledge." | Placed right after the convention was named, it read as if the convention said so. Article 3 of the convention says the opposite: the political existence of a state is independent of recognition by other states. Article 3 is now quoted as it is, with where the text of the convention and its parties were checked. | Montevideo Convention ([English text at the Avalon Project](https://avalon.law.yale.edu/20th_century/intam03.asp), [list of parties at the Organization of American States](https://www.oas.org/juridico/english/sigs/a-40.html)) | Law | Insula Legis II |
 | 9 | 2026-11-08 | Terms of Use, "Who these terms cover" | "Using the site or the repository means accepting these terms." | There is no agreement with those who only read, and standard terms reach only those who agreed or were told beforehand that the terms would form part of a contract (Civil Code, Article 548-2). Consent is now taken in the application form, and reading is not treated as consent. For readers, the law sets what each side owes. | Article 548-2 of the Civil Code | Law | Insula Legis III |
+| 10 | 2026-11-11 | The King's errata; the timeline; README, "ほかの場所" (Elsewhere) | "X: the post announcing the founding (listed under "ほかの場所" in the README)." (the Wrong of the deleted row) | On 2026-11-08 the link to the post on X was taken out of "ほかの場所" in the README, and this was recorded as the earlier entry 9 and as a row of the timeline. On the same day both rows were deleted, and the later entries were renumbered (the present entry 9 is a different row). The deleted entry said that this was not a mistake but a change of scope, and that the post is not inside the kingdom. Deleting a recorded row is a second mistake against Article 5 of the Basic Law. Entry 7 says that the post on X was also to be listed under "ほかの場所", but it is no longer listed. | The history of the repository (commits 3aa7340 and a7332ca) | Scope | Insula Finis IV |
+| 11 | 2026-11-11 | Rules on Knighting, "Who may apply" and "What is declined"; Legality Statement, "Laws outside Japan" | "People who live outside Japan may not apply, whatever their nationality" / "A person who lives in Japan may not apply while outside Japan" (Rules on Knighting, "Who may apply"); "the conditions (age or country of residence)" (Rules on Knighting, "What is declined"); "if the linked correction states clearly that the applicant lives outside Japan or is under 16" (Legality Statement) | Applications are limited to people who live in Japan and are in Japan only from 2026-11-22, but two sentences of the Rules on Knighting gave no date and read as if already in force. "From 2026-11-22" was put at the head of both. Two other places that list the conditions left out the country where the applicant is when applying, which was added. | The sentence beginning "From 2026-11-22, only people who live in Japan" in the Rules on Knighting, "Who may apply", and the notice in the Terms of Use, "Changes and ending" | Scope | Insula Finis V |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
@@ -2302,7 +2307,7 @@ Each entry gives the number, the date recorded, where, the wrong text, the right
 
 ## What is recorded
 
-The King's errata record only mistakes in texts the King wrote himself.
+The King's errata record only mistakes in the King's own texts.
 Mistakes in other people's texts are not recorded. Making someone else's mistake into territory would be judging that person.
 If an entry itself turns out to be wrong, the earlier row is not erased. A new row records that the earlier row was wrong ([Institutions](INSTITUTIONS.en.md), "Pardon").
 
@@ -2322,7 +2327,7 @@ The map uses only the three colours of the emblem, so the categories are told ap
 
 A place name is the name of the isle followed by a Roman numeral for its order within the category (for example, Insula Facti I).
 The King does not name places by hand. Once the category is fixed, so is the name.
-The names of the isles are Latin nouns in the genitive. Their forms come from general knowledge and have not been checked in a dictionary.
+The name of each isle is the Latin insula ("isle") followed by the genitive of a noun for the category. Their forms come from general knowledge and have not been checked in a dictionary.
 
 ## Map
 
@@ -2373,8 +2378,8 @@ It does not take the form of bands side by side or one above the other, so that 
 ![The map of the domain (fiction)](territory.svg)
 
 Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.
-The three pillars in the middle of the map are the King's bookshelf. The gold plots around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
-Each mistake recorded adds one plot. The map is drawn from the errata, not by hand.
+The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
+Each mistake recorded adds one parcel. The map is drawn from the errata, not by hand.
 
 ## How the flag is drawn
 
@@ -2384,7 +2389,7 @@ The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates o
 2. Draw a gold border 8 thick, 24 in from the edge.
 3. Draw a golden rectangle 534 wide and 330 high in light-gold lines 6 thick, with its top-left corner at (183, 155).
 4. Cut squares out of the rectangle one by one. Their sides shrink by the golden ratio: 330, 204, 126, 77.9, 48.1, 29.8.
-5. Above the rectangle, set three gold squares (the corner stones) with sides of 24, 12 apart, their top edge at 99.
+5. Above the rectangle, set three gold squares (the cornerstones) with sides of 24, 12 apart, their top edge at 99.
 
 ## How the flag is flown
 
@@ -2397,7 +2402,7 @@ The flag is drawn 900 wide and 600 high (3:2). The numbers are the coordinates o
 | Name | Colour code | Where it is used |
 | --- | --- | --- |
 | Navy | `#14213d` | the field of the shield and of the flag, the sea of the map |
-| Gold | `#c9a227` | borders, corner stones, the parcels of the map |
+| Gold | `#c9a227` | borders, cornerstones, the parcels of the map |
 | Light gold | `#e8cf74` | the golden rectangle, the sword, the bookshelf on the map |
 | Deep navy | `#0b1428` | the groove of the sword in the emblem |
 
@@ -2415,7 +2420,7 @@ Emoji are not used, because their shape changes from device to device.
 
 ## Creature and flower of the kingdom
 
-- Creature: the snail, because it leaves a trail where it has been, as the King leaves the trail of his mistakes.
+- Creature: the snail, because it leaves a trail where it has been, as the King leaves the trail of the King's own mistakes.
 - Flower: the forget-me-not, so that mistakes are not forgotten.
 
 Both are defined in words, not drawn. A drawing would make them more likely to be mistaken for real insignia.
@@ -2459,7 +2464,7 @@ The calendar of Nusquama uses the same dates as the calendar of Japan.
 | 7 November | Founding Day | On this day in 2026, Nemo I, Knight-King, declared the founding |
 | 8 November | Day of Errata | On this day in 2026, the King's errata were opened and the first mistake recorded |
 
-On these days the King reads again the mistakes he admitted that year.
+On these days the King reads again the King's own mistakes admitted that year.
 No knight, and no one else, is required to do anything.
 
 ## Importing the calendar
@@ -2670,12 +2675,12 @@ The Basic Law and the rules are changed by the King, in this order:
 
 1. Change the Japanese version, and on the same day the English translation.
 2. Change the date of last update of the rule.
-3. Keep the text before the change in the [King's errata](ERRATA.en.md) (as the opening of the errata says).
+3. Where text is replaced or removed, keep the text before the change in the [King's errata](ERRATA.en.md) (as the opening of the errata says).
 4. Add a row to the timeline, so that it appears in the gazette.
 5. Publish only after the checks pass.
 
 Articles 1, 6 and 8 of the Basic Law are not removed (Article 10).
-When a change takes effect and how it is announced follow the [Terms of Use](policies/terms.en.md).
+When a change takes effect and how it is announced follow the [Terms of Use](policies/terms.en.md), "Changes and ending".
 
 ## Versions
 
@@ -2713,7 +2718,7 @@ To close the kingdom, the King follows this order:
 4. Allow at least 30 days for such requests before stopping the site.
 5. Keep the repository, in a read-only state.
 
-Personal data is handled as the [Privacy](policies/privacy.en.md) says.
+Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
 
 ## Closing words
 
@@ -2729,7 +2734,7 @@ Some things will not grow, even in ten years.
 
 - No land, currency, passports, certificates or objects will be made.
 - No ranks will be added. There is only one: knight.
-- Requests from people who live outside Japan will not be accepted until the laws of their country have been checked.
+- Requests from people who live outside Japan, or who are outside Japan when applying, will not be accepted until the laws of that country have been checked.
 
 Some things will go on.
 
@@ -2754,12 +2759,12 @@ Text and numbers for anyone introducing Nusquama in an article or a post are gat
 ## Short introductions
 
 - In a phrase: a kingdom that is nowhere, whose territory is its mistakes.
-- In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of his own mistakes in the errata.
-- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records his own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge. The titles have no legal effect, and no money changes hands.
+- In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of the King's own mistakes in the errata.
+- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge. The titles have no legal effect, and no money changes hands.
 
 ## Sentences to add
 
-An introduction carries these two sentences.
+An introduction carries these two passages.
 
 This is a work of fiction, written for fun. Nusquama is not a state, and the titles it gives have no legal effect.
 
@@ -2817,7 +2822,7 @@ Three rules go with it.
 2. Give a date.
 3. Say so when something has not been checked.
 
-A mistake corrected in such a table can be used in a [request for knighthood](policies/knighting.en.md).
+A mistake corrected in such a table can be used in a request for knighthood ([Rules on Knighting](policies/knighting.en.md)).
 
 ## Practice: find the mistake
 
@@ -2855,7 +2860,7 @@ Each of these five sentences contains one mistake. The answers are under "Answer
 1. One: Nemo I, Knight-King (Article 2 of the Basic Law).
 2. Having publicly corrected one of one's own mistakes (Article 6).
 3. Nothing. Knighthood is free (Article 6).
-4. The King's bookshelf and the errata he has made public (Article 3).
+4. The King's bookshelf and the errata the King has made public (Article 3).
 5. One: knight (Article 7).
 6. No. The title is used only within the kingdom (Article 8).
 7. Down, for the sword that is not drawn (Article 9).

@@ -1,12 +1,12 @@
 # The King's errata
 
-> This is a work of fiction, written for fun. In these errata the King within the fiction records his own mistakes.
+> This is a work of fiction, written for fun. In these errata the King within the fiction records the King's own mistakes.
 
 This is an English translation. The [Japanese version](ERRATA.md) governs; if the two differ, the Japanese version applies. The quotations below are translated from the Japanese.
 
-Under Article 5 of the Basic Law, the King does not erase his mistakes, and records them with a date.
+Under Article 5 of the Basic Law, the King does not erase the King's own mistakes, and records them with a date.
 The Founding Declaration is a text issued with a date. As a frozen text it is not rewritten; its mistakes are recorded here (Precept 2).
-The text of the rules may be changed. When it is, the text before the change is kept here.
+The text of the rules may be changed. When text is replaced or removed, the text before the change is kept here.
 These errata are the domain under Article 3 of the Basic Law.
 
 | No. | Recorded | Where | Wrong | Right | Checked against | Category | Place name |
@@ -20,6 +20,8 @@ These errata are the domain under Article 3 of the Basic Law.
 | 7 | 2026-11-08 | Terms of Use, "Titles"; Legality Statement, "Facts relied on" | "an article the operator wrote himself to introduce this country" (Terms of Use); "only in the article on MicroWiki that the King wrote himself" (Legality Statement) | Not a mistake; the scope was changed. As the King also announced the founding on X, calling himself Nemo I, Knight-King, it became "articles or posts" written by himself to introduce it, each listed under "ほかの場所" (Elsewhere) in the README. | The King's post (README, "ほかの場所" (Elsewhere)) | Scope | Insula Finis III |
 | 8 | 2026-11-08 | Legality Statement, "Standing in international law" | "Recognition by other states also bears on whether something is treated as a state. The text of the convention was not checked; this rests on general knowledge." | Placed right after the convention was named, it read as if the convention said so. Article 3 of the convention says the opposite: the political existence of a state is independent of recognition by other states. Article 3 is now quoted as it is, with where the text of the convention and its parties were checked. | Montevideo Convention ([English text at the Avalon Project](https://avalon.law.yale.edu/20th_century/intam03.asp), [list of parties at the Organization of American States](https://www.oas.org/juridico/english/sigs/a-40.html)) | Law | Insula Legis II |
 | 9 | 2026-11-08 | Terms of Use, "Who these terms cover" | "Using the site or the repository means accepting these terms." | There is no agreement with those who only read, and standard terms reach only those who agreed or were told beforehand that the terms would form part of a contract (Civil Code, Article 548-2). Consent is now taken in the application form, and reading is not treated as consent. For readers, the law sets what each side owes. | Article 548-2 of the Civil Code | Law | Insula Legis III |
+| 10 | 2026-11-11 | The King's errata; the timeline; README, "ほかの場所" (Elsewhere) | "X: the post announcing the founding (listed under "ほかの場所" in the README)." (the Wrong of the deleted row) | On 2026-11-08 the link to the post on X was taken out of "ほかの場所" in the README, and this was recorded as the earlier entry 9 and as a row of the timeline. On the same day both rows were deleted, and the later entries were renumbered (the present entry 9 is a different row). The deleted entry said that this was not a mistake but a change of scope, and that the post is not inside the kingdom. Deleting a recorded row is a second mistake against Article 5 of the Basic Law. Entry 7 says that the post on X was also to be listed under "ほかの場所", but it is no longer listed. | The history of the repository (commits 3aa7340 and a7332ca) | Scope | Insula Finis IV |
+| 11 | 2026-11-11 | Rules on Knighting, "Who may apply" and "What is declined"; Legality Statement, "Laws outside Japan" | "People who live outside Japan may not apply, whatever their nationality" / "A person who lives in Japan may not apply while outside Japan" (Rules on Knighting, "Who may apply"); "the conditions (age or country of residence)" (Rules on Knighting, "What is declined"); "if the linked correction states clearly that the applicant lives outside Japan or is under 16" (Legality Statement) | Applications are limited to people who live in Japan and are in Japan only from 2026-11-22, but two sentences of the Rules on Knighting gave no date and read as if already in force. "From 2026-11-22" was put at the head of both. Two other places that list the conditions left out the country where the applicant is when applying, which was added. | The sentence beginning "From 2026-11-22, only people who live in Japan" in the Rules on Knighting, "Who may apply", and the notice in the Terms of Use, "Changes and ending" | Scope | Insula Finis V |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
@@ -37,7 +39,7 @@ Each entry gives the number, the date recorded, where, the wrong text, the right
 
 ## What is recorded
 
-The King's errata record only mistakes in texts the King wrote himself.
+The King's errata record only mistakes in the King's own texts.
 Mistakes in other people's texts are not recorded. Making someone else's mistake into territory would be judging that person.
 If an entry itself turns out to be wrong, the earlier row is not erased. A new row records that the earlier row was wrong ([Institutions](INSTITUTIONS.en.md), "Pardon").
 
@@ -57,7 +59,7 @@ The map uses only the three colours of the emblem, so the categories are told ap
 
 A place name is the name of the isle followed by a Roman numeral for its order within the category (for example, Insula Facti I).
 The King does not name places by hand. Once the category is fixed, so is the name.
-The names of the isles are Latin nouns in the genitive. Their forms come from general knowledge and have not been checked in a dictionary.
+The name of each isle is the Latin insula ("isle") followed by the genitive of a noun for the category. Their forms come from general knowledge and have not been checked in a dictionary.
 
 ## Map
 

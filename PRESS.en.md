@@ -9,12 +9,12 @@ Text and numbers for anyone introducing Nusquama in an article or a post are gat
 ## Short introductions
 
 - In a phrase: a kingdom that is nowhere, whose territory is its mistakes.
-- In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of his own mistakes in the errata.
-- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records his own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge. The titles have no legal effect, and no money changes hands.
+- In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of the King's own mistakes in the errata.
+- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge. The titles have no legal effect, and no money changes hands.
 
 ## Sentences to add
 
-An introduction carries these two sentences.
+An introduction carries these two passages.
 
 This is a work of fiction, written for fun. Nusquama is not a state, and the titles it gives have no legal effect.
 

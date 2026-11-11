@@ -20,7 +20,7 @@ Three rules go with it.
 2. Give a date.
 3. Say so when something has not been checked.
 
-A mistake corrected in such a table can be used in a [request for knighthood](policies/knighting.en.md).
+A mistake corrected in such a table can be used in a request for knighthood ([Rules on Knighting](policies/knighting.en.md)).
 
 ## Practice: find the mistake
 
@@ -58,7 +58,7 @@ Each of these five sentences contains one mistake. The answers are under "Answer
 1. One: Nemo I, Knight-King (Article 2 of the Basic Law).
 2. Having publicly corrected one of one's own mistakes (Article 6).
 3. Nothing. Knighthood is free (Article 6).
-4. The King's bookshelf and the errata he has made public (Article 3).
+4. The King's bookshelf and the errata the King has made public (Article 3).
 5. One: knight (Article 7).
 6. No. The title is used only within the kingdom (Article 8).
 7. Down, for the sword that is not drawn (Article 9).
