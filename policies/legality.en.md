@@ -16,6 +16,9 @@ The statutes are summarised, not quoted, and the law names are given in common E
 The summaries were checked on 2026-11-08 against the current texts obtained from the e-Gov law API. The articles checked are listed in each heading.
 The texts were obtained by querying the e-Gov law API (v1) from GitHub Actions.
 The original texts can be read on [e-Gov Laws Search](https://laws.e-gov.go.jp/) (in Japanese).
+At the end of each section, under "Text of", the wording itself is quoted.
+The Japanese articles are quoted unchanged from the texts obtained from the e-Gov law API and recorded by the watch.
+Foreign treaties, laws and explanations are quoted from the texts fetched on 2026-11-11 from the pages that publish them, without translation.
 If the law or the facts change, this page will be revised.
 
 ## How Nusquama is run
@@ -50,12 +53,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: there is neither the purpose nor a riot.
 - **Rules that keep this true**: Terms of Use, "What Nusquama is"; Basic Law, Articles 1 and 9.
 
+<!-- 条文 刑法 第77条 -->
+
 ### False titles and insignia (Minor Offenses Act, Article 1, item 15)
 
 - **Elements, in summary**: falsely claiming an official post, court rank or decoration, academic degree or other title set by law, or a foreign equivalent of these; or, without the right to do so, using a uniform, decoration, badge or other insignia set by law, or anything made to look like one.
 - **Nusquama's facts**: Knight-King and knight are words inside a work of fiction, set by no country's law. Because Nusquama is not a state, its titles are not "foreign equivalents" either. It makes no physical decorations, badges or uniforms, and its emblem imitates no real insignia.
 - **Why the law does not apply**: the titles used are not titles set by law, and no physical insignia are used. Using the titles in a way that could be mistaken for a legal title is itself forbidden.
 - **Rules that keep this true**: Terms of Use, "Titles" (no use that could be mistaken for a legal title; nothing on CVs, business cards or official documents); Basic Law, Article 8; [Names and rights](./names.en.md), "The emblem".
+
+<!-- 条文 軽犯罪法 第1条第15号 -->
 
 ### Official documents and passports (Penal Code, Article 155; Passport Act, Article 23)
 
@@ -64,12 +71,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: no document that could be forged is made.
 - **Rules that keep this true**: Terms of Use, "What Nusquama is" (no passports, no nationality); [Rules on Knighting](./knighting.en.md), "What knighting is" (no documents or objects).
 
+<!-- 条文 刑法 第155条、旅券法 第23条 -->
+
 ### Fraud (Penal Code, Article 246)
 
 - **Elements, in summary**: deceiving a person into handing over property, or by that means obtaining an unlawful financial benefit.
 - **Nusquama's facts**: it receives no money or goods. It sells no titles, takes no donations, and knighting is free.
 - **Why the law does not apply**: no property or benefit changes hands.
 - **Rules that keep this true**: Terms of Use, "Fees"; Basic Law, Article 6; the fifth of the ten precepts. The Terms also say that anyone claiming to grant Nusquama's titles for a fee has nothing to do with Nusquama.
+
+<!-- 条文 刑法 第246条 -->
 
 ### Trade (Act on Specified Commercial Transactions, Article 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5; Consumer Contract Act, Articles 2, 8 and 10)
 
@@ -78,12 +89,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: the transactions these laws assume do not exist. In case the Consumer Contract Act ever applies, the "Liability" section of the [Disclaimer](./disclaimer.en.md) says that the exclusion does not apply and that the operator is liable, including for slight negligence. Article 8(1) of that Act voids full exclusions of liability, and Article 8(3) voids partial exclusions that do not make clear they apply only to slight negligence. The Disclaimer falls under neither.
 - **Rules that keep this true**: Terms of Use, "Fees".
 
+<!-- 条文 特定商取引法 第2条、景品表示法 第5条、消費者契約法 第2条、消費者契約法 第8条、消費者契約法 第10条 -->
+
 ### Currency and means of payment (Payment Services Act, Article 3)
 
 - **Elements, in summary**: issuing prepaid payment instruments, that is, tokens or electronic records issued in return for payment matching an amount or a quantity, which can be used to pay for, or to claim, goods or services.
 - **Nusquama's facts**: it issues no currency, points, vouchers or electronic value.
 - **Why the law does not apply**: nothing is issued or handled.
 - **Rules that keep this true**: Terms of Use, "What Nusquama is" (no currency).
+
+<!-- 条文 資金決済法 第3条 -->
 
 ### Trademarks and indications (Trademark Act, Article 25; Unfair Competition Prevention Act, Article 2, paragraph 1, items 1 and 2)
 
@@ -92,12 +107,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: there is no use in business, and no one else's indication is used.
 - **Rules that keep this true**: [Names and rights](./names.en.md); Disclaimer, "Relation to real things".
 
+<!-- 条文 商標法 第25条、不正競争防止法 第2条第1項第1号・第2号 -->
+
 ### Copyright (Copyright Act, Articles 21 and 23)
 
 - **Elements, in summary**: reproducing a work, or transmitting it to the public (including making it transmittable), which the author has the exclusive right to do, without permission.
 - **Nusquama's facts**: the text and the emblem were written with Claude Code at the operator's request and checked by the operator. No one else's work is copied. Utopia and the Zhuangzi are named only as sources of the names, and none of their text is copied. Both are long out of copyright.
 - **Why the law does not apply**: no one else's work is reproduced.
 - **Rules that keep this true**: [Names and rights](./names.en.md); [Requests for removal, correction or withdrawal](./requests.en.md) (requests to remove content that infringes a right).
+
+<!-- 条文 著作権法 第21条、著作権法 第23条 -->
 
 ### Personal information (Act on the Protection of Personal Information, Articles 17, 18, 27 and 28)
 
@@ -107,6 +126,8 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Duty by duty**: the duties of Articles 17, 18, 20–23, 25–28, 32–38 and 40 of the Act, Article 10 of its Cabinet Order and Articles 7, 8, 10 and 17 of its Rules are paired, paragraph by paragraph, with the sentences that meet them, in `verification/duties.json`. The texts were fetched from e-Gov and read on 2026-11-08. The check confirms that every sentence exists and that every article is watched.
 - **Rules that keep this true**: [Privacy](./privacy.en.md); [Rules on Knighting](./knighting.en.md), "Withdrawal and revocation"; the pledges in the application form.
 
+<!-- 条文 個人情報保護法 第17条、個人情報保護法 第18条、個人情報保護法 第27条、個人情報保護法 第28条 -->
+
 ### Reputation and credit (Penal Code, Articles 230 and 231; Civil Code, Article 709)
 
 - **Elements, in summary**: publicly alleging facts that damage a person's reputation; publicly insulting a person, even without alleging facts; infringing, intentionally or negligently, another person's rights or legally protected interests and so causing damage.
@@ -115,6 +136,8 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
 - **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); [Requests for removal, correction or withdrawal](./requests.en.md), "After a request".
 
+<!-- 条文 刑法 第230条、刑法 第231条、民法 第709条 -->
+
 ### Status under international law
 
 - **Elements, in summary**: under international law, a state is generally expected to have a permanent population, a defined territory, a government, and the capacity to enter into relations with other states (Montevideo Convention of 1933, Article 1). Article 3 of the same convention says that the political existence of a state is independent of recognition by other states. The convention is among American states, and Japan is not a party to it, but it is widely cited for the criteria of statehood. The text was checked on 2026-11-08 in the [English text of the Avalon Project (Yale Law School)](https://avalon.law.yale.edu/20th_century/intam03.asp), and the parties in the [list of the Organization of American States](https://www.oas.org/juridico/english/sigs/a-40.html), which is the depositary.
@@ -122,12 +145,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: it meets none of the four criteria and does not try to. Nusquama is not a state under international law and holds no rights or duties under it. It impairs no state's sovereignty, territorial integrity or status under international law.
 - **Rules that keep this true**: Terms of Use, "What Nusquama is"; Disclaimer, "A work of fiction"; Basic Law, Article 1.
 
+<!-- 条文 モンテビデオ条約 第1条、モンテビデオ条約 第3条 -->
+
 ### Nationality (Nationality Act, Article 11)
 
 - **Elements, in summary**: a Japanese national who acquires a foreign nationality of their own choice loses Japanese nationality.
 - **Nusquama's facts**: Nusquama is not a foreign state and grants no nationality. Knights are not nationals. Knighting only adds an account name to the roll.
 - **Why the law does not apply**: there is no "foreign nationality" to acquire, so knighting changes no one's nationality. The same holds under any country's nationality law.
 - **Rules that keep this true**: Terms of Use, "What Nusquama is" (no nationality); [Rules on Knighting](./knighting.en.md), "What is not checked" (no nationality granted).
+
+<!-- 条文 国籍法 第11条 -->
 
 ### Laws outside Japan
 
@@ -140,10 +167,38 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either ([Rules on Knighting](./knighting.en.md), "Who may apply").
 - The applicant's declaration is not checked, but if the linked correction states clearly that the applicant lives outside Japan, is outside Japan when applying, or is under 16, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 
+<!-- 条文 イタリア 1951 年法律第178号 第8条、GDPR 第3条第2項、CCPA 司法長官の説明 -->
+
 ### The terms of the services used
 
 - **GitHub**: the repository and issues are used in line with GitHub's terms. Nothing they forbid is placed there.
 - **Vercel**: the site is served on Vercel's Hobby plan, which is limited to personal, non-commercial use (Vercel's [Fair Use Guidelines](https://vercel.com/docs/limits/fair-use-guidelines), checked on 2026-11-08). Nusquama is non-commercial and meets that condition.
+
+<!-- 条文 Vercel Fair Use Guidelines -->
+
+## Acts outside the rules that come near a law's elements
+
+Nusquama itself is set up so that, for every law above, it has no fact that meets the elements.
+But if a knight, a reader or a third party acts against the rules, or outside them, that person's act may come near a law's elements.
+The table lists such acts, the laws they come near, and the operator's caution.
+It lists possible paths. It does not say that a listed act is always an offence or unlawful, nor that an act not listed is safe.
+
+| Act | Law it comes near | Caution |
+| --- | --- | --- |
+| Writing a title on a CV, business card, paper, official document or job title, or presenting it like a real title or honour | Minor Offenses Act, Article 1, item 15 | Do not. The [Terms of Use](./terms.en.md), "Titles", forbid it |
+| Using a title outside Japan, or applying while living outside Japan and giving a false country | Laws outside Japan (such as Article 8 of Italy's Law No. 178 of 1951) | Do not. Article 8 of the Basic Law and the [Rules on Knighting](./knighting.en.md) forbid it. Once known, the knighting is withdrawn |
+| Selling titles, certificates, insignia or membership in Nusquama's name, or collecting donations or fees | Penal Code, Article 246; Act on Specified Commercial Transactions, Article 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not. Nusquama sells nothing and takes no donations ([Terms of Use](./terms.en.md), "Fees"). Anyone who does so has no connection with Nusquama |
+| Making a "Nusquama passport", "citizen card" or similar paper, and showing it to prove who one is | Penal Code, Article 155; Passport Act, Article 23 | Do not make or show one. Nusquama has no passports and no nationality. Making it so that it may be taken for a document of a real office or state comes near an offence |
+| Putting the emblem or the name "Nusquama" on goods, services or advertising | Trademark Act, Article 25; Unfair Competition Prevention Act, Article 2, paragraph 1, items 1 and 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not use them in trade. How they may be used is on the [Names and Rights](./names.en.md) page |
+| Making currency, points or vouchers in Nusquama's name and handing them out for a price | Payment Services Act, Article 3 | Do not. Nusquama has no currency |
+| Naming and judging another person, or writing another person's personal information, in an issue or elsewhere | Penal Code, Articles 230 and 231; Civil Code, Article 709 | Do not. Such text is removed at once, before any decision |
+| Applying under the age of 16 by giving a false age | Civil Code, Article 5 | Do not. Once known, the name is removed from the roll, even without a request |
+
+The responsibility for an act done against the rules, or outside them, lies with the person who did it.
+The operator is not responsible for such acts of knights, readers or third parties.
+When the operator learns of one, the operator withdraws the knighting, removes the text, or states that it has no connection with Nusquama.
+This does not apply where the law makes the operator responsible ([Disclaimer](./disclaimer.en.md), "Liability").
+The texts of the laws cited in each section above can be read under that section.
 
 ## How this was reviewed, and the risks that remain
 
@@ -172,6 +227,8 @@ The ways the facts relied on could fail are these.
 
 People aged 16 and 17 are minors under the Japanese Civil Code. An agreement made without the consent of a legal representative can be cancelled. Nusquama receives nothing that it would lose by such a cancellation.
 
+<!-- 条文 民法 第5条 -->
+
 ## Conclusion
 
 In the operator's analysis, no fact meets the elements of any of the laws above.
@@ -191,3 +248,5 @@ The Terms of Use put settlement by agreement first, and then name an agreed cour
 - **Nusquama's facts**: people applying for knighting tick their agreement to the Terms of Use in the form, and the tick stays in the issue. People who only read the site or the repository tick nothing.
 - **How it works**: with those who agreed in the form, a record of the agreement remains as an electronic record. With those who only read, there is no written agreement, so the agreement on courts may have no effect. In that case, the court set by law has jurisdiction. The Terms state that they do not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
 - **Rules that keep this true**: Terms of Use, "Governing law and disputes"; the pledges in the application form.
+
+<!-- 条文 民事訴訟法 第11条、民事訴訟法 第3条の7 -->
