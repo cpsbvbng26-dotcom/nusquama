@@ -845,6 +845,51 @@ console.log('\n34. 条文の引用と、規程の外の行い');
     && read('policies/disclaimer.en.md').includes('Except where the law makes the operator responsible, the operator is not responsible for such acts.'));
 }
 
+console.log('\n35. 法令の引用は、すべて取り寄せた条文に拠る');
+{
+  // 日本語の頁が挙げる「〇〇法第N条」「同法第N条」を拾い、見張りの表（verification/statutes.json）にあることを確かめる。
+  // 外国の条約・法令の条は、選んだ一次資料（verification/sources.json）にあることを確かめる。
+  // 無い条を挙げれば落ちる。言語モデルが条を作り出したときに、ここで止める。
+  const conf = JSON.parse(read('verification/statutes.json'));
+  const prim = JSON.parse(read('verification/sources.json'));
+  const have = new Set(conf.statutes.map((e) => e.name + ' ' + e.article.replace('_', 'の')));
+  const laws = [...new Set(conf.statutes.map((e) => e.name))].sort((a, b) => b.length - a.length);
+  const files = walk(ROOT).filter((f) => f.endsWith('.md') && !f.endsWith('.en.md') && !f.startsWith('site/') && !f.startsWith('node_modules/'));
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp('(同法施行規則|同法施行令|同法|' + laws.map(esc).join('|') + '|[一-龥]+法)((?:第[0-9]+条(?:の[0-9]+)?(?:第[0-9]+項)?(?:第[0-9]+号)?[・、]?)+)', 'g');
+  const cited = new Map();
+  for (const f of files) {
+    let last = null;
+    for (const m of read(f).matchAll(re)) {
+      let law = m[1];
+      if (law === '同法') law = last;
+      else if (law.startsWith('同法施行')) law = (last || '').replace(/施行(令|規則)$/, '') + law.slice(2);
+      else last = law;
+      for (const a of m[2].matchAll(/第([0-9]+)条(?:の([0-9]+))?/g)) {
+        const k = law + ' ' + a[1] + (a[2] ? 'の' + a[2] : '');
+        if (!cited.has(k)) cited.set(k, new Set());
+        cited.get(k).add(f);
+      }
+    }
+  }
+  const missing = [...cited.keys()].filter((k) => !have.has(k));
+  ok('日本語の頁が挙げる日本の法令の条（' + cited.size + '）は、すべて見張りの表にある', missing.length === 0 && cited.size >= 40,
+    missing.map((k) => k + '（' + [...cited.get(k)].join('・') + '）').join(' / '));
+  // 外国の条：GDPR・モンテビデオ条約・イタリアの 1951 年法律第 178 号。
+  const keys = Object.keys(prim.sources).map((k) => k.replace(/\s+/g, ''));
+  const foreign = [];
+  for (const f of files) {
+    const t = read(f).replace(/<!--[\s\S]*?-->/g, '');
+    for (const m of t.matchAll(/(GDPR|モンテビデオ条約|条約|法律第 ?178 ?号) ?第 ?([0-9]+) ?条( ?第 ?[0-9]+ ?項)?/g)) {
+      const name = m[1] === '条約' ? 'モンテビデオ条約' : m[1].replace(/\s+/g, '');
+      foreign.push([f, (name + '第' + m[2] + '条' + (m[3] || '')).replace(/\s+/g, '')]);
+    }
+  }
+  const strayForeign = foreign.filter(([, k]) => !keys.some((x) => x.endsWith(k) || x === k));
+  ok('日本語の頁が挙げる外国の条（' + foreign.length + ' か所）は、すべて取り寄せた一次資料にある', strayForeign.length === 0 && foreign.length >= 4,
+    strayForeign.map(([f, k]) => k + '（' + f + '）').join(' / '));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
