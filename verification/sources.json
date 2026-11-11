@@ -1,0 +1,54 @@
+{
+  "_": "適法性の説明が引く外国の一次資料。quote は sources-raw.json の窓（tools/sources.js が取り寄せた文）に現れる文で、閉じ括弧と句読点の前の空白だけを詰めてある。検査が、同じ詰め方をした窓に現れることを確かめる。",
+  "fetched": "2026-11-11",
+  "sources": {
+    "モンテビデオ条約 第1条": {
+      "from": "montevideo",
+      "name": "国家の権利及び義務に関する条約（モンテビデオ条約）第1条",
+      "name_en": "Montevideo Convention on the Rights and Duties of States, Article 1",
+      "url": "https://avalon.law.yale.edu/20th_century/intam03.asp",
+      "lang": "en",
+      "quote": "The state as a person of international law should possess the following qualifications: a) a permanent population; b) a defined territory; c) government; and d) capacity to enter into relations with the other states."
+    },
+    "モンテビデオ条約 第3条": {
+      "from": "montevideo",
+      "name": "国家の権利及び義務に関する条約（モンテビデオ条約）第3条",
+      "name_en": "Montevideo Convention on the Rights and Duties of States, Article 3",
+      "url": "https://avalon.law.yale.edu/20th_century/intam03.asp",
+      "lang": "en",
+      "quote": "The political existence of the state is independent of recognition by the other states."
+    },
+    "GDPR 第3条第2項": {
+      "from": "gdpr-cellar",
+      "name": "一般データ保護規則（EU 2016/679）第3条第2項",
+      "name_en": "General Data Protection Regulation (EU) 2016/679, Article 3(2)",
+      "url": "https://publications.europa.eu/resource/celex/32016R0679",
+      "lang": "en",
+      "quote": "2. This Regulation applies to the processing of personal data of data subjects who are in the Union by a controller or processor not established in the Union, where the processing activities are related to: (a) the offering of goods or services, irrespective of whether a payment of the data subject is required, to such data subjects in the Union; or (b) the monitoring of their behaviour as far as their behaviour takes place within the Union."
+    },
+    "イタリア 1951 年法律第178号 第8条": {
+      "from": "italy",
+      "name": "イタリア 1951 年 3 月 3 日法律第 178 号 第 8 条",
+      "name_en": "Italy, Law No. 178 of 3 March 1951, Article 8",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8",
+      "lang": "it",
+      "quote": "Salvo quanto è disposto dall'art. 7, è vietato il conferimento di onorificenze, decorazioni e distinzioni cavalleresche, con qualsiasi forma e denominazione, da parte di enti, associazioni o privati. I trasgressori sono puniti con la reclusione da sei mesi a due anni e con la multa da lire duecentocinquantamila a lire cinquecentomila. Chiunque fa uso, in qualsiasi forma e modalità, di onorificenze, decorazioni o distinzioni di cui al precedente comma, anche se conferite prima dell'entrata in vigore della presente legge, è punito con l'ammenda da lire cinquantamila a lire trecentocinquantamila. La condanna per i reati previsti nei commi precedenti importa la pubblicazione della sentenza ai sensi dell'art. 36, ultimo comma, del Codice penale. Le disposizioni del secondo e terzo comma si applicano anche quando il conferimento delle onorificenze, decorazioni o distinzioni sia avvenuto all'estero."
+    },
+    "CCPA 司法長官の説明": {
+      "from": "ccpa-oag",
+      "name": "カリフォルニア州司法長官「California Consumer Privacy Act (CCPA)」の頁（法律そのものではなく、州の説明）",
+      "name_en": "California Attorney General, “California Consumer Privacy Act (CCPA)” (the State’s explanation, not the statute itself)",
+      "url": "https://oag.ca.gov/privacy/ccpa",
+      "lang": "en",
+      "quote": "The CCPA applies to for-profit businesses that do business in California and meet any of the following: Have a gross annual revenue of over $25 million; Buy, sell, or share the personal information of 100,000 or more California residents or households; or Derive 50% or more of their annual revenue from selling California residents’ personal information. 6. Does the CCPA apply to nonprofits or government agencies? The CCPA generally does not apply to nonprofit organizations or government agencies."
+    },
+    "Vercel Fair Use Guidelines": {
+      "from": "vercel",
+      "name": "Vercel「Fair Use Guidelines」の「Commercial usage」",
+      "name_en": "Vercel, “Fair Use Guidelines”, “Commercial usage”",
+      "url": "https://vercel.com/docs/limits/fair-use-guidelines",
+      "lang": "en",
+      "quote": "Hobby teams are restricted to non-commercial personal use only."
+    }
+  }
+}

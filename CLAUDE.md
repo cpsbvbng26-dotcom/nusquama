@@ -23,6 +23,8 @@
 13. 紹介の頁（PRESS.md）の事実と国勢の表は、正誤表・名簿・官報から数える。数を手で書かない。
 14. 年一回の総点検の issue は `.github/workflows/review.yml` が建国の日に開く。本文は国の仕組み「年一回の総点検」の箇条から作る。
 
+15. 適法性の説明の「条文」は生成物。日本の条文は見張り（`tools/statutes.js`）が記した `verification/statutes-texts.json` から、外国の条約・法令・説明は `verification/sources.json` から引く。引用を手で書かない。外国の文は、Actions の「一次資料の取り寄せ」（`tools/sources.js`）で取り寄せた `verification/sources-raw.json` から、そのまま現れる文だけを選ぶ（検査 34）。作業環境からは e-Gov も EUR-Lex も届かない。
+
 ```
 node build.js
 node verification/check.js

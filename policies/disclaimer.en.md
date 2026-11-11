@@ -1,6 +1,6 @@
 # Disclaimer
 
-Last updated: 2026-11-09.
+Last updated: 2026-11-11.
 
 This is an English translation. The [Japanese version](./disclaimer.md) governs; if the two differ, the Japanese version applies.
 
@@ -72,6 +72,9 @@ Nusquama is a free work of fiction.
 Except in cases of intent or gross negligence, the operator accepts no liability for damage arising from use of the site or the repository.
 Where the Japanese Consumer Contract Act applies, the previous sentence does not apply. In that case the operator is liable as that Act and the Civil Code provide, including for damage caused by slight negligence.
 Nothing here excludes or limits any liability the law does not allow to be excluded or limited.
+The responsibility for anything a knight, a reader or a third party does against the rules, or outside them, lies with that person.
+Except where the law makes the operator responsible, the operator is not responsible for such acts.
+Those of such acts that come near a law's elements, and the operator's caution, are listed in the [Legality Statement](./legality.en.md), "Acts outside the rules that come near a law's elements".
 
 ## How this was made
 
