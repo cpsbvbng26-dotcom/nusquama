@@ -80,14 +80,14 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     '住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。');
   must['policies/knighting.md'].push('叙任では、任命書・証書・記章などの書面や物を発行しません。名簿にアカウント名を載せるだけです。');
   /* 2026-11-22 から、願い出は日本に住む人に限る。国籍は問わない。利用規約で予告する（不利な変更は効力の前に示す）。 */
-  must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません。', '日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。',
-    '日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。', '旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。');
+  must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません。', '2026-11-22 から、日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。',
+    '2026-11-22 から、日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。', '旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。');
   must['policies/terms.md'].push('予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません');
   must['policies/legality.md'].push('- 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。国籍は問わない。', '旅行・出張・留学などで日本の外にいるあいだの願い出も受けない');
   /* 気づくことができた事柄を見落とさない。リンク先にはっきり書かれた住む国や年齢は、尋ねてから決める。 */
   must['policies/knighting.md'].push('- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、16 歳未満であることが、はっきり書かれていないこと。', 'ただし、訂正のリンク先にはっきり書かれていることは、見落としません。',
-    '- 願い出の条件（年齢・住んでいる国）に当たらないことが、訂正のリンク先からはっきり読めるもの。');
-  must['policies/legality.md'].push('- 本人の申告は確かめないが、訂正のリンク先に日本の外に住むことや 16 歳未満であることがはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。');
+    '- 願い出の条件（年齢・住んでいる国・願い出のときにいる国）に当たらないことが、訂正のリンク先からはっきり読めるもの。');
+  must['policies/legality.md'].push('- 本人の申告は確かめないが、訂正のリンク先に日本の外に住むことや、願い出のときに日本の外にいること、16 歳未満であることがはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。');
   /* 事実でない印。してはいけないことに挙げ、知った時点で名簿から外し、信頼して受けたこと・公開に残ること・違約金を求めないことを書く。 */
   must['policies/terms.md'].push('- 願い出の様式で、事実でないことに印を付けること。', '印が事実でないと分かったときは、運営者は、知った時点で名簿から名を外します。',
     '運営者は、印を信頼して受け、確かめません。', '願い出た人に、違約金や、法令が定める以上の損害の賠償を求めることはありません。',
@@ -568,7 +568,7 @@ console.log('\n24. 建国の宣言・基本法・十則の英訳（日本語の�
     && [...en.matchAll(/^\*\*Article (\d+) /gm)].map((m) => m[1]).join() === '1,2,3,4,5,6,7,8,9,10');
   ok('日本語の版が正であること、宣言は日付の付いた凍った文で書き換えないこと、正誤表の 1 と 3 が直すことを書く',
     en.includes('The [Japanese version](./README.md) governs; if the two differ, the Japanese version applies.') && en.includes('The declaration is a dated text, and it is not rewritten (Ten Precepts, II).')
-    && en.includes('in entries 1 and 3 of [the King\'s Errata](./ERRATA.md)') && en.includes('Nemo I, the Knight King, 7 November 2026') && ja.includes('―― 騎士王ネモ一世　2026年11月7日'));
+    && en.includes('in entries 1 and 3 of [the King\'s errata](./ERRATA.en.md)') && en.includes('Nemo I, the Knight-King, 7 November 2026') && ja.includes('―― 騎士王ネモ一世　2026年11月7日'));
   ok('第一条・第六条・第八条の要と、第十条の削らない条を、日本語のとおりに訳す',
     en.includes('This country is a work of fiction. It is not related to any real state, royal house, order of knighthood, honour or title, and it has no territory, people, currency or passports.')
     && en.includes('Knighting is free of charge. It is not given in exchange for money, goods or services.') && en.includes('The titles of this country are used only within this country.')
@@ -732,7 +732,14 @@ console.log('\n32. 物語・言葉・仕組み・紹介・遊び・しるし');
   const census = [...press.matchAll(/<tr><td>(\d{4})<\/td><td>(\d+)<\/td><td>(\d+)<\/td><td>(\d+)<\/td><td>(\d+)<\/td><\/tr>/g)];
   ok('年ごとの国勢の表を足すと、正誤・叙任・官報の全体になる', census.length > 0 && census.reduce((a, m) => a + Number(m[2]), 0) === B.domain()
     && census.reduce((a, m) => a + Number(m[3]), 0) === knights && census.reduce((a, m) => a + Number(m[4]), 0) === items);
-  ok('紹介に添える二文は、創作であることと、運営者のほかの活動と関係がないことを書く（日本語と英語）',
+  {
+    const paras = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return i < 0 ? [] : t.slice(i + h.length + 5, j < 0 ? undefined : j).split(/\n{2,}/).map((p) => p.trim()).filter(Boolean); };
+    const pj = paras(read('PRESS.md'), '添える文'), pe = paras(read('PRESS.en.md'), 'Sentences to add');
+    const mj = /^紹介には、次の([一二三四五])つの段落を添えます。$/.exec(pj[0] || ''), me = /^An introduction carries these (one|two|three|four|five) passages?\.$/.exec(pe[0] || '');
+    const nj = mj ? ' 一二三四五'.indexOf(mj[1]) : -1, ne = me ? ['', 'one', 'two', 'three', 'four', 'five'].indexOf(me[1]) : -2;
+    ok('紹介に添える段落の数（' + (pj.length - 1) + '）が、文に書いた数と同じ（日本語と英語）', nj > 0 && nj === pj.length - 1 && ne === pe.length - 1 && nj === ne, mj ? mj[1] : '数が見つからない');
+  }
+  ok('紹介に添える文は、創作であることと、運営者のほかの活動と関係がないことを書く（日本語と英語）',
     read('PRESS.md').includes('これは創作であり、遊びです。ヌスクァマは国家ではなく、ここで授ける称号に法的な効力はありません。') && read('PRESS.md').includes('ヌスクァマは遊びの創作です。運営者のほかの活動とは関係がありません。')
     && read('PRESS.en.md').includes('Nusquama is a playful fiction. It has no connection with the operator\'s other activities.'));
   const inst = read('INSTITUTIONS.md');
