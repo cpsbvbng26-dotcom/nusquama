@@ -1,12 +1,9 @@
 name: 一次資料の取り寄せ
 
-# 適法性の説明が引く外国の一次資料を取り寄せ、verification/sources-raw.json に記して枝に戻す。
-# 手で動かす。取り寄せた文は、運営者が読んでから引用に使う。
+# 適法性の説明が引く外国の一次資料を取り寄せ、verification/sources-raw.json に記して、新しい枝 sources/<日付> に置く。
+# 手で動かす。main には直に入れない。取り寄せた文は、運営者が読んでから verification/sources.json の引用に使う。
 on:
   workflow_dispatch:
-  push:
-    branches: ['claude/legality-sources-1111']
-    paths: ['tools/sources.js']
 
 permissions:
   contents: write
@@ -26,4 +23,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add verification/sources-raw.json
           git commit -m "一次資料：取り寄せた文を記す" || exit 0
-          git push
+          git push origin "HEAD:refs/heads/sources/$(date -u +%Y%m%d-%H%M)"
