@@ -263,7 +263,7 @@ MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあり
 <!-- map -->
 
 区画を押すと、その正誤の頁へ移ります。
-地図の画像は [territory.svg](territory.svg) です。文と国章と同じく CC BY 4.0 で、そのまま使えます。
+地図の画像は [territory.svg](site/territory.svg) です。文と国章と同じく CC BY 4.0 で、そのまま使えます。
 
 ## 版図の広がり
 
@@ -302,7 +302,7 @@ Source: https://nusquama.vercel.app/symbols.html
 
 ## 版図の地図
 
-![版図の地図（創作）](territory.svg)
+![版図の地図（創作）](site/territory.svg)
 
 基本法第三条により、版図は王の本棚と、王が公にした正誤表です。
 地図の中央の三本の柱が王の本棚です。そのまわりの金の区画が、[王の正誤表](ERRATA.md)に記した誤りです。
@@ -394,7 +394,7 @@ Source: https://nusquama.vercel.app/calendar.html
 
 ## 暦を取り込む
 
-記念日は、[iCalendar のファイル](calendar.ics)でも配っています。カレンダーのアプリに取り込むと、毎年の記念日が出ます。
+記念日は、[iCalendar のファイル](site/calendar.ics)でも配っています。カレンダーのアプリに取り込むと、毎年の記念日が出ます。
 予定を塞がない終日の日として入り、どの日にも「創作の記念日で、実在の祝日ではない」と書いてあります。
 
 ## 祝日の過ごし方
@@ -2459,7 +2459,7 @@ The name of each isle is the Latin insula ("isle") followed by the genitive of a
 <!-- map -->
 
 Each parcel links to its entry.
-The image of the map is [territory.svg](territory.svg). Like the text and the emblem, it is under CC BY 4.0 and may be used as it is.
+The image of the map is [territory.svg](site/territory.svg). Like the text and the emblem, it is under CC BY 4.0 and may be used as it is.
 
 ## Growth of the domain
 
@@ -2500,7 +2500,7 @@ It does not take the form of bands side by side or one above the other, so that 
 
 ## The map of the domain
 
-![The map of the domain (fiction)](territory.svg)
+![The map of the domain (fiction)](site/territory.svg)
 
 Under Article 3 of the Basic Law, the domain is the King's bookshelf and the errata the King has made public.
 The three pillars in the middle of the map are the King's bookshelf. The gold parcels around them are the mistakes recorded in the [King's errata](ERRATA.en.md).
@@ -2594,7 +2594,7 @@ No knight, and no one else, is required to do anything.
 
 ## Importing the calendar
 
-The days are also served as an [iCalendar file](calendar.ics). Imported into a calendar app, it shows the days every year.
+The days are also served as an [iCalendar file](site/calendar.ics). Imported into a calendar app, it shows the days every year.
 They come in as all-day days that do not block time, and each says that it is an anniversary within the fiction and not a real public holiday.
 
 ## Spending the days
