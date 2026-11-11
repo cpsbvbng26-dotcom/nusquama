@@ -134,6 +134,7 @@
 | 2026-11-11（日本時間） | 叙任の規程と適法性の説明に、日本の外からの願い出を受けない決まりの始まる日を書き添え、年表に記していなかった 11 月 9 日と 10 日の規程の書き足し（GitHub と Vercel の規約、モデルの学習への利用の断り、願い出の自動の確認、騎士の呼び方）もここに記す | The Rules on Knighting and the Legality Statement are given the date from which applications from outside Japan are not accepted, and the additions to the rules made on 9 and 10 November and not entered in the timeline (the terms of GitHub and Vercel, the warning about use for model training, the automatic check of applications, how knights are addressed) are recorded here |
 | 2026-11-11（日本時間） | 適法性の説明の各節に、拠る条文と外国の一次資料の文を引き、規程の外で法令の要件に近づく行いへの忠告と、その行いについての運営者の責任を、適法性の説明と免責事項に書き足す | The Legality Statement quotes, in each section, the articles and the foreign primary sources it relies on; it and the Disclaimer add a caution against acts outside the rules that come near a law's elements, and state the operator's responsibility for such acts |
 | 2026-11-11（日本時間） | 誤りの知らせの様式を置き、個人情報の取り扱いの利用の目的に知らされた誤りを記すことを足し、交流の規程に申し出を受けたときの手順を書き足す | A form for reporting mistakes is set up, checking reported mistakes is added to the purposes of use in the Privacy page, and the Rules on exchange gain a procedure for receiving offers |
+| 2026-11-11（日本時間） | 解散の手順を改め、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めを受ける窓口を開けておくと定める | The procedure for dissolution is changed: the site is kept and served, the repository is not archived, and a way to receive requests stays open |
 
 ---
 

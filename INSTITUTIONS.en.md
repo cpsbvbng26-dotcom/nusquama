@@ -111,8 +111,9 @@ To close the kingdom, the King follows this order:
 1. Close the form for requesting knighthood.
 2. Put up the closing words and announce them in the gazette.
 3. Tell the knights that they may ask to leave the roll, and do so for any who ask.
-4. Allow at least 30 days for such requests before stopping the site.
-5. Keep the repository, in a read-only state.
+4. Allow at least 30 days for such requests.
+5. Do not delete the site; keep serving it as it was last. Do not delete the Vercel project, because then someone else might be able to use the name nusquama.vercel.app. Stop the watch on the live site (live.yml).
+6. Do not delete the repository, and do not archive it either. Keep issues open, to receive requests for removal, correction or withdrawal, and requests about personal data held.
 
 Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
 
@@ -132,6 +133,8 @@ The gaps found are listed below. Whether to fill them is for the King to decide.
 | Other | Elsewhere | No step adds the dissolution to the MicroWiki article |
 | Other | Against the rules | The Terms of Use, "Changes and ending", say that Nusquama may end without notice. How that reads beside the 30 days of dissolution is not written |
 | Other | Ten years ahead | The gazette issue on the outlook in 2036 cannot appear after dissolution |
+
+The gaps found at steps 4 and 5 were filled by the King on 2026-11-11: the site is kept and served, and the repository is not archived, so that requests can still be received (steps 4 to 6 of "Dissolution" above). The earlier text is in [the King's errata](ERRATA.en.md).
 
 ## Closing words
 

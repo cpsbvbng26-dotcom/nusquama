@@ -144,6 +144,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-11（日本時間） | 叙任の規程と適法性の説明に、日本の外からの願い出を受けない決まりの始まる日を書き添え、年表に記していなかった 11 月 9 日と 10 日の規程の書き足し（GitHub と Vercel の規約、モデルの学習への利用の断り、願い出の自動の確認、騎士の呼び方）もここに記す | The Rules on Knighting and the Legality Statement are given the date from which applications from outside Japan are not accepted, and the additions to the rules made on 9 and 10 November and not entered in the timeline (the terms of GitHub and Vercel, the warning about use for model training, the automatic check of applications, how knights are addressed) are recorded here |
 | 2026-11-11（日本時間） | 適法性の説明の各節に、拠る条文と外国の一次資料の文を引き、規程の外で法令の要件に近づく行いへの忠告と、その行いについての運営者の責任を、適法性の説明と免責事項に書き足す | The Legality Statement quotes, in each section, the articles and the foreign primary sources it relies on; it and the Disclaimer add a caution against acts outside the rules that come near a law's elements, and state the operator's responsibility for such acts |
 | 2026-11-11（日本時間） | 誤りの知らせの様式を置き、個人情報の取り扱いの利用の目的に知らされた誤りを記すことを足し、交流の規程に申し出を受けたときの手順を書き足す | A form for reporting mistakes is set up, checking reported mistakes is added to the purposes of use in the Privacy page, and the Rules on exchange gain a procedure for receiving offers |
+| 2026-11-11（日本時間） | 解散の手順を改め、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めを受ける窓口を開けておくと定める | The procedure for dissolution is changed: the site is kept and served, the repository is not archived, and a way to receive requests stays open |
 
 ---
 
@@ -251,6 +252,7 @@ Source: https://nusquama.vercel.app/errata.html
 | 10 | 2026-11-11 | 王の正誤表、年表、README「ほかの場所」 | X：建国を知らせる投稿（README「ほかの場所」に挙げていた）。（消した行の誤） | 2026-11-08 に、X の投稿へのリンクを README「ほかの場所」から外し、そのことを正誤表のもとの第 9 件と年表の一行に記した。同じ日に、その二行を消し、正誤表ののちの行の番を詰めた（いまの第 9 件は別の行である）。消した正誤表の行は、誤りではなく範囲を改めたこと、その投稿はこの国の中に入らないことを書いていた。記した行を消したことは、基本法第五条に反する二つめの誤りである。第 7 件は X の投稿も「ほかの場所」に挙げる形にしたと書くが、いまは挙げていない。 | リポジトリの履歴（コミット 3aa7340 と a7332ca） | 範囲 | Insula Finis IV |
 | 11 | 2026-11-11 | 叙任の規程「願い出ることができる人」「断ること」、適法性の説明「日本の外の法令」 | 日本の外に住む人は、国籍を問わず願い出ることができません。／日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。（叙任の規程「願い出ることができる人」）。願い出の条件（年齢・住んでいる国）（叙任の規程「断ること」）。訂正のリンク先に日本の外に住むことや 16 歳未満であることがはっきり書かれていれば（適法性の説明）。 | 日本に住み、日本にいる人に願い出を限るのは 2026-11-22 からだが、叙任の規程の二つの文は日付を欠き、いま効いているように読めた。二つの文の頭に「2026-11-22 から、」を足した。条件を挙げるほかの二か所は、願い出のときにいる国を落としていたので、足した。 | 叙任の規程「願い出ることができる人」の「2026-11-22 から、願い出ることができるのは」で始まる文と、利用規約「変更と終了」の予告 | 範囲 | Insula Finis V |
 | 12 | 2026-11-11 | 個人情報の取り扱い「利用の目的」 | 叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。 | 誤りではなく、範囲を改めた。王の文の誤りを知らせる様式を置いたので、知らされた誤りを確かめて王の正誤表に記すことを、利用の目的に足した。 | 誤りの知らせの様式（.github/ISSUE_TEMPLATE/error.yml） | 範囲 | Insula Finis VI |
+| 13 | 2026-11-11 | 国の仕組み「解散」 | 求めに応じる期間を少なくとも 30 日置いてから、サイトの配信を止める。／リポジトリは消さず、読むだけの状態にする。 | 誤りではなく、範囲を改めた。解散の通し稽古で、サイトの配信を止めると nusquama.vercel.app の名をほかの人が使えるようになるおそれがあること、リポジトリを読むだけにすると削除・訂正・辞退の求めを受ける窓口がなくなることが分かった。王が決めて、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めのために issue を開けておく、と改めた。 | 国の仕組み「解散の通し稽古」 | 範囲 | Insula Finis VII |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -707,8 +709,9 @@ Source: https://nusquama.vercel.app/institutions.html
 1. 叙任の願い出の様式を閉じる。
 2. 終わりの言葉を掲げ、官報に載せる。
 3. 騎士に、名簿からの辞退を求められることを知らせ、求めがあれば応じる。
-4. 求めに応じる期間を少なくとも 30 日置いてから、サイトの配信を止める。
-5. リポジトリは消さず、読むだけの状態にする。
+4. 求めに応じる期間を少なくとも 30 日置く。
+5. サイトは消さず、最後の状態のまま配信を続ける。Vercel のプロジェクトは消さない。消すと、nusquama.vercel.app の名をほかの人が使えるようになるおそれがあるためである。公開中のサイトの見張り（live.yml）は止める。
+6. リポジトリは消さず、読むだけ（archive）にもしない。削除・訂正・辞退の求めと、保有個人データの求めを受けるため、issue は開けておく。
 
 個人データの扱いは、[個人情報の取り扱い](policies/privacy.md)に従います。
 
@@ -728,6 +731,8 @@ Source: https://nusquama.vercel.app/institutions.html
 | ほか | ほかの場所 | MicroWiki の記事に解散を書き足す段がない |
 | ほか | 規程との突き合わせ | 利用規約「変更と終了」は「予告なく終わることがあります」と書く。解散の 30 日と並べたときの読み方が書いていない |
 | ほか | 十年の見通し | 2036 年の見通しの官報は、解散した後は出せない |
+
+段 4 と段 5 の抜けは、2026-11-11 に王が決めて埋めました。サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めを受ける窓口を開けておきます（上の「解散」の 4〜6）。改める前の文は[王の正誤表](ERRATA.md)にあります。
 
 ## 終わりの言葉
 
@@ -2645,6 +2650,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 10 | 2026-11-11 | The King's errata; the timeline; README, "ほかの場所" (Elsewhere) | "X: the post announcing the founding (listed under "ほかの場所" in the README)." (the Wrong of the deleted row) | On 2026-11-08 the link to the post on X was taken out of "ほかの場所" in the README, and this was recorded as the earlier entry 9 and as a row of the timeline. On the same day both rows were deleted, and the later entries were renumbered (the present entry 9 is a different row). The deleted entry said that this was not a mistake but a change of scope, and that the post is not inside the kingdom. Deleting a recorded row is a second mistake against Article 5 of the Basic Law. Entry 7 says that the post on X was also to be listed under "ほかの場所", but it is no longer listed. | The history of the repository (commits 3aa7340 and a7332ca) | Scope | Insula Finis IV |
 | 11 | 2026-11-11 | Rules on Knighting, "Who may apply" and "What is declined"; Legality Statement, "Laws outside Japan" | "People who live outside Japan may not apply, whatever their nationality" / "A person who lives in Japan may not apply while outside Japan" (Rules on Knighting, "Who may apply"); "the conditions (age or country of residence)" (Rules on Knighting, "What is declined"); "if the linked correction states clearly that the applicant lives outside Japan or is under 16" (Legality Statement) | Applications are limited to people who live in Japan and are in Japan only from 2026-11-22, but two sentences of the Rules on Knighting gave no date and read as if already in force. "From 2026-11-22" was put at the head of both. Two other places that list the conditions left out the country where the applicant is when applying, which was added. | The sentence beginning "From 2026-11-22, only people who live in Japan" in the Rules on Knighting, "Who may apply", and the notice in the Terms of Use, "Changes and ending" | Scope | Insula Finis V |
 | 12 | 2026-11-11 | Privacy, "Purposes of use" | "To decide on knighting, to keep the roll, and to answer requests. Nothing else." | Not a mistake; the scope was changed. A form for reporting mistakes in the King's texts was set up, so checking reported mistakes and recording them in the King's errata was added to the purposes of use. | The form for reporting mistakes (.github/ISSUE_TEMPLATE/error.yml) | Scope | Insula Finis VI |
+| 13 | 2026-11-11 | Institutions, "Dissolution" | "Allow at least 30 days for such requests before stopping the site." / "Keep the repository, in a read-only state." | Not a mistake; the scope was changed. The dry run of dissolution showed that stopping the site might let someone else use the name nusquama.vercel.app, and that a read-only repository leaves no way to receive requests for removal, correction or withdrawal. The King decided to keep serving the site, not to archive the repository, and to keep issues open for requests. | Institutions, "A dry run of dissolution" | Scope | Insula Finis VII |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
@@ -3113,8 +3119,9 @@ To close the kingdom, the King follows this order:
 1. Close the form for requesting knighthood.
 2. Put up the closing words and announce them in the gazette.
 3. Tell the knights that they may ask to leave the roll, and do so for any who ask.
-4. Allow at least 30 days for such requests before stopping the site.
-5. Keep the repository, in a read-only state.
+4. Allow at least 30 days for such requests.
+5. Do not delete the site; keep serving it as it was last. Do not delete the Vercel project, because then someone else might be able to use the name nusquama.vercel.app. Stop the watch on the live site (live.yml).
+6. Do not delete the repository, and do not archive it either. Keep issues open, to receive requests for removal, correction or withdrawal, and requests about personal data held.
 
 Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
 
@@ -3134,6 +3141,8 @@ The gaps found are listed below. Whether to fill them is for the King to decide.
 | Other | Elsewhere | No step adds the dissolution to the MicroWiki article |
 | Other | Against the rules | The Terms of Use, "Changes and ending", say that Nusquama may end without notice. How that reads beside the 30 days of dissolution is not written |
 | Other | Ten years ahead | The gazette issue on the outlook in 2036 cannot appear after dissolution |
+
+The gaps found at steps 4 and 5 were filled by the King on 2026-11-11: the site is kept and served, and the repository is not archived, so that requests can still be received (steps 4 to 6 of "Dissolution" above). The earlier text is in [the King's errata](ERRATA.en.md).
 
 ## Closing words
 

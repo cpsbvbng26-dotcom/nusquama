@@ -91,4 +91,11 @@
     <updated>2026-11-11T00:00:00+09:00</updated>
     <summary>個人情報の取り扱い「利用の目的」。正：誤りではなく、範囲を改めた。王の文の誤りを知らせる様式を置いたので、知らされた誤りを確かめて王の正誤表に記すことを、利用の目的に足した。</summary>
   </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-13</id>
+    <title>第 13 件：国の仕組み「解散」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-11T00:00:00+09:00</updated>
+    <summary>国の仕組み「解散」。正：誤りではなく、範囲を改めた。解散の通し稽古で、サイトの配信を止めると nusquama.vercel.app の名をほかの人が使えるようになるおそれがあること、リポジトリを読むだけにすると削除・訂正・辞退の求めを受ける窓口がなくなることが分かった。王が決めて、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めのために issue を開けておく、と改めた。</summary>
+  </entry>
 </feed>
