@@ -23,7 +23,7 @@ Source: https://nusquama.vercel.app/
 >
 > English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.
 
-![国章](assets/emblem.svg)
+![ヌスクァマの国章（創作）](assets/emblem.svg)
 
 **国是**：Errata servo, me ipsum rego. ―― 誤りは守り、己を治める。
 
@@ -143,6 +143,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-10（日本時間） | 建国の物語・国の言葉・国の仕組み・紹介の頁・遊びの頁を置き、正誤に分類と地名を付け、官報に号を振る | The story of the founding, the words of the kingdom, the institutions, the page for introducers and the page of play are set out; the errata are given categories and place names, and the gazette is numbered |
 | 2026-11-11（日本時間） | 叙任の規程と適法性の説明に、日本の外からの願い出を受けない決まりの始まる日を書き添え、年表に記していなかった 11 月 9 日と 10 日の規程の書き足し（GitHub と Vercel の規約、モデルの学習への利用の断り、願い出の自動の確認、騎士の呼び方）もここに記す | The Rules on Knighting and the Legality Statement are given the date from which applications from outside Japan are not accepted, and the additions to the rules made on 9 and 10 November and not entered in the timeline (the terms of GitHub and Vercel, the warning about use for model training, the automatic check of applications, how knights are addressed) are recorded here |
 | 2026-11-11（日本時間） | 適法性の説明の各節に、拠る条文と外国の一次資料の文を引き、規程の外で法令の要件に近づく行いへの忠告と、その行いについての運営者の責任を、適法性の説明と免責事項に書き足す | The Legality Statement quotes, in each section, the articles and the foreign primary sources it relies on; it and the Disclaimer add a caution against acts outside the rules that come near a law's elements, and state the operator's responsibility for such acts |
+| 2026-11-11（日本時間） | 誤りの知らせの様式を置き、個人情報の取り扱いの利用の目的に知らされた誤りを記すことを足し、交流の規程に申し出を受けたときの手順を書き足す | A form for reporting mistakes is set up, checking reported mistakes is added to the purposes of use in the Privacy page, and the Rules on exchange gain a procedure for receiving offers |
 
 ---
 
@@ -181,6 +182,10 @@ English (translations; the Japanese version governs): [Founding Declaration, Bas
 この国の文と国章は、王の求めにより Claude Code（Anthropic）で書きました。王が確かめ、責任を負います。
 Claude は騎士でも王でもありません。
 
+| 道具 | 使ったこと | 確かめた人 |
+| --- | --- | --- |
+| Claude Code（Anthropic） | 文・規程・英語の訳を書き、国章と国旗を作図し、サイトを作るコードと検査のコードを書く | 運営者（王の役） |
+
 ---
 
 Source: https://nusquama.vercel.app/knights.html
@@ -197,6 +202,27 @@ Source: https://nusquama.vercel.app/knights.html
 | --- | --- | --- | --- | --- |
 
 騎士王ネモ一世は王であり、この名簿には載りません。
+
+## 記し方
+
+叙任するときは、表に一行を足します。[官報](GAZETTE.md)の号は、その行から作ります。
+
+- 番：1 から欠けずに続けます。
+- 騎士：GitHub のアカウント名です。
+- 叙任の日：王が叙任を決めた日（日本時間）です。
+- 正した誤り：何を誤り、どう正したかの要約と、訂正へのリンクです。
+- 願い出：願い出の issue へのリンクです。
+
+官報の布告は「第 1 番の騎士 アカウント名 を叙任する」の形になります。
+最初の騎士の号も、ほかの騎士の号と同じ形です。位に上下を設けない（基本法第七条）ので、最初の騎士に飾りの語を足しません。
+最初の騎士が載った日から、[紹介する人のために](PRESS.md)の人口は 1 になります。
+
+## 辞退したとき
+
+辞退した騎士の行は消さず、騎士の欄を「辞退（辞退の日）」に替え、正した誤りと願い出の欄を空にします。
+番と叙任の日は残します。番は、ほかの騎士に回しません。
+官報のその号も、号の番号はそのままで、名を外した形（第 1 番の騎士を叙任する（のちに辞退し、名を外した））になります。
+辞退した騎士は、辞退の日の年から人口に数えません。
 
 ---
 
@@ -224,6 +250,7 @@ Source: https://nusquama.vercel.app/errata.html
 | 9 | 2026-11-08 | 利用規約「この規約が及ぶ人」 | サイトやリポジトリを使うことは、この規約を受け入れることを意味します。 | 読むだけの人とは合意がなく、定型約款は、合意したか、契約の内容になると前もって示された人にしか及ばない（民法第548条の2）。同意は願い出の様式で得て、読むことは同意とみなさないと改めた。読む人にとっては、双方が負うものを法令が定める。 | 民法第548条の2 | 法 | Insula Legis III |
 | 10 | 2026-11-11 | 王の正誤表、年表、README「ほかの場所」 | X：建国を知らせる投稿（README「ほかの場所」に挙げていた）。（消した行の誤） | 2026-11-08 に、X の投稿へのリンクを README「ほかの場所」から外し、そのことを正誤表のもとの第 9 件と年表の一行に記した。同じ日に、その二行を消し、正誤表ののちの行の番を詰めた（いまの第 9 件は別の行である）。消した正誤表の行は、誤りではなく範囲を改めたこと、その投稿はこの国の中に入らないことを書いていた。記した行を消したことは、基本法第五条に反する二つめの誤りである。第 7 件は X の投稿も「ほかの場所」に挙げる形にしたと書くが、いまは挙げていない。 | リポジトリの履歴（コミット 3aa7340 と a7332ca） | 範囲 | Insula Finis IV |
 | 11 | 2026-11-11 | 叙任の規程「願い出ることができる人」「断ること」、適法性の説明「日本の外の法令」 | 日本の外に住む人は、国籍を問わず願い出ることができません。／日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。（叙任の規程「願い出ることができる人」）。願い出の条件（年齢・住んでいる国）（叙任の規程「断ること」）。訂正のリンク先に日本の外に住むことや 16 歳未満であることがはっきり書かれていれば（適法性の説明）。 | 日本に住み、日本にいる人に願い出を限るのは 2026-11-22 からだが、叙任の規程の二つの文は日付を欠き、いま効いているように読めた。二つの文の頭に「2026-11-22 から、」を足した。条件を挙げるほかの二か所は、願い出のときにいる国を落としていたので、足した。 | 叙任の規程「願い出ることができる人」の「2026-11-22 から、願い出ることができるのは」で始まる文と、利用規約「変更と終了」の予告 | 範囲 | Insula Finis V |
+| 12 | 2026-11-11 | 個人情報の取り扱い「利用の目的」 | 叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。 | 誤りではなく、範囲を改めた。王の文の誤りを知らせる様式を置いたので、知らされた誤りを確かめて王の正誤表に記すことを、利用の目的に足した。 | 誤りの知らせの様式（.github/ISSUE_TEMPLATE/error.yml） | 範囲 | Insula Finis VI |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -244,6 +271,13 @@ MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあり
 王の正誤表に記すのは、王が自ら書いた文の誤りだけです。
 他人の文の誤りは記しません。他人の誤りを領土にすれば、人を評すことになるからです。
 記した正誤そのものが誤りだったと分かったときも、前の行は消しません。新しい行に、前の行が誤っていたことを記します（[国の仕組み](INSTITUTIONS.md)「恩赦」）。
+
+## 誤りの知らせ
+
+王の文の誤りは、誰でも[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式で知らせることができます。費用はかかりません。
+王が確かめた誤りは、王の誤りとしてここに記します。確かめられなかった知らせは、そのことを issue に書いて閉じます。
+知らせた人の名は、この正誤表に書きません。
+王の誤りを知らせても、叙任の条件（自分の誤りを一つ、公に訂正したこと）には当たりません。
 
 ## 分類と地名
 
@@ -550,6 +584,14 @@ Hic Regnum Nusquamae conditum esse declaro.
 
 Nemo I, Rex Eques, die VII mensis Novembris anno MMXXVI.
 
+## ラテン語の誤りの知らせ
+
+王のラテン語には、辞書や文法書で確かめていないところがあります。
+ラテン語に詳しい人は、[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式で、分類に「語」を選んで知らせることができます。
+王が確かめた誤りは、[王の正誤表](ERRATA.md)に分類「語」で記します。地名は Insula Verbi の島に付きます。
+ラテン語の文を改めるときは、改める前の文を王の正誤表に残します。
+知らせた人の名は、正誤表に書きません。知らせても、叙任にはなりません。
+
 ---
 
 Source: https://nusquama.vercel.app/institutions.html
@@ -586,6 +628,17 @@ Source: https://nusquama.vercel.app/institutions.html
 - English：出来事の英語の訳。
 
 正誤と叙任は、正誤表と名簿の行から官報に載ります。年表には書きません。
+
+一度振った号は、号の台帳（`verification/gazette-numbers.json`）で固め、振り直しません。台帳は、サイトを作るときに新しい号だけが書き足されます。
+同じ日に後から足した行は、その日のほかの号より後の号になります。
+過去の日付の行を後から足すと、号の並びが日付の順から外れるので、検査が落ちます。
+
+## 記念の号
+
+王の正誤表の件数が 100 の倍数に達したときは、官報に記念の号を一つ載せます。
+記念の号は、その件数めの誤りを記した号のすぐ後の号です。官報は、正誤表から記念の号を自動で作ります。
+記念に、物・記章・証書を作りません。称号も授けず、祝日も足しません。
+記念の号の日に、王は、それまでの誤りを分類ごとに読み返します。
 
 ## 人口と呼び名
 
@@ -658,6 +711,23 @@ Source: https://nusquama.vercel.app/institutions.html
 5. リポジトリは消さず、読むだけの状態にする。
 
 個人データの扱いは、[個人情報の取り扱い](policies/privacy.md)に従います。
+
+## 解散の通し稽古
+
+2026-11-11 に、解散の手順を、実行せずに一度通して確かめました。何も止めず、何も消していません。
+見つけた抜けを、下に並べます。抜けを埋めるかどうかは、王が決めます。
+
+| 段 | 通して見たこと | 抜け |
+| --- | --- | --- |
+| 1 | 叙任の願い出の様式を閉じる | 様式を消すと、README と規程と SECURITY.md の様式へのリンクが切れ、様式の誓いを確かめる検査も落ちる。閉じた国を、検査は知らない。願い出の自動の確認の workflow も残る |
+| 2 | 終わりの言葉を掲げ、官報に載せる | 載せる行は年表の一行で、号は台帳で固まる。終わりの言葉は騎士に呼びかけるが、騎士がいないときの形がない |
+| 3 | 騎士に、名簿からの辞退を求められることを知らせ、求めがあれば応じる | 知らせる手段が書いていない。名簿にあるのはアカウント名と願い出の issue だけなので、知らせる先は願い出の issue への書き込みになる |
+| 4 | 求めに応じる期間を少なくとも 30 日置いてから、サイトの配信を止める | 止め方が書いていない。Vercel のプロジェクトを消すと、nusquama.vercel.app の名をほかの人が使えるようになるおそれがある。免責事項は、サイトはこの所在だけと書いている。止めた後も、公開中のサイトの見張り（live.yml）が毎日 issue を開く |
+| 5 | リポジトリは消さず、読むだけの状態にする | GitHub でリポジトリを読むだけ（archive）にすると、issue を開けなくなる。名簿のアカウント名は残るので、削除・訂正・辞退の求めと、保有個人データの求めを受ける窓口がなくなる |
+| ほか | 自動で動くもの | 条文と規約の見張り、年一回の総点検、Dependabot を止める段がない |
+| ほか | ほかの場所 | MicroWiki の記事に解散を書き足す段がない |
+| ほか | 規程との突き合わせ | 利用規約「変更と終了」は「予告なく終わることがあります」と書く。解散の 30 日と並べたときの読み方が書いていない |
+| ほか | 十年の見通し | 2036 年の見通しの官報は、解散した後は出せない |
 
 ## 終わりの言葉
 
@@ -734,6 +804,26 @@ Source: https://nusquama.vercel.app/press.html
 ミクロネーションの wiki や集まりで、ヌスクァマを英語で紹介するときの文です。英語の頁に、この文の英語の版があります。最初の文で、創作であることを断ります。
 
 これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。
+
+## 界隈の言い回しとの対応
+
+ミクロネーションの界隈で使われる英語の言い回しと、ヌスクァマでの呼び方の対応です。
+界隈の言い回しのうち、ヌスクァマが持たないものは「なし」と書きます。
+英語で紹介するときは、二つめの列の英語の言い方を使います。
+
+| 界隈の言い回し | ヌスクァマでの呼び方 | 違い |
+| --- | --- | --- |
+| micronation | fictional micronation（創作のミクロネーション） | 国家だと主張せず、国家としての承認を求めない |
+| head of state, monarch | the King（騎士王ネモ一世） | 治める民を持たず、治めるのは王自身だけ |
+| declaration of independence | Founding Declaration（建国の宣言） | どの国からも独立を宣していない |
+| constitution | Basic Law（王国基本法） | 法的な効力を持たない |
+| citizens, citizenship | なし | 騎士は国民ではない。国籍を与えない |
+| territorial claim | domain（版図） | 土地を主張しない。版図は王の正誤表の誤りの数 |
+| intermicronational relations, diplomacy | exchange（交流） | 挨拶と、互いの頁へのリンクに留める |
+| treaty, mutual recognition, embassy | なし | 条約・承認の文書を結ばず、大使を置かない |
+| honours, order of chivalry | roll of knights（正誤表騎士団の名簿） | 位は騎士の一つだけで、勲章や記章などの物を作らない |
+| official gazette | Gazette（官報） | 実在の官報ではない。年表と正誤表と名簿から作る |
+| national day | Founding Day（建国の日） | 実在の祝日ではなく、誰にも休みや義務を生じない |
 
 ## 名前としるし
 
@@ -1048,7 +1138,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-09。
+最終更新：2026-11-11。
 
 ## 取り扱う者
 
@@ -1079,9 +1169,16 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 願い出の issue が開かれたり直されたりすると、GitHub Actions の自動の確認が、様式の印を読み、訂正へのリンクを一度開きます。
 リンクについては、開けるかどうかを示す応答の状態だけを見ます。リンク先の中身は読まず、どこにも残しません。
 
+## 誤りの知らせで扱うもの
+
+王の書いた文の誤りの知らせは、GitHub（米国）の公開の issue で受けます（[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式）。
+知らせでは、GitHub のアカウント名と、知らせに書かれたことを扱います。
+これらは issue で公開されます。王の正誤表には、知らせた人の名を書きません。
+本名・住所・所属・連絡先は求めません。様式でも、書かないよう求めています。
+
 ## 利用の目的
 
-叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。
+叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと。これ以外には使いません。
 
 ## 第三者への提供と外国にある事業者
 
@@ -1564,7 +1661,7 @@ Source: https://nusquama.vercel.app/policies/exchange.html
 
 # 交流の規程
 
-最終更新：2026-11-10。
+最終更新：2026-11-11。
 
 ## この規程について
 
@@ -1579,11 +1676,32 @@ Source: https://nusquama.vercel.app/policies/exchange.html
 - 金銭・物品・役務の受け渡しを伴う交流はしません。
 - 実在の国家・王室・騎士団を名乗るもの、称号を売るもの、人を欺くものとは交流しません。
 - 交流する相手も創作であることを尊重し、相手の国の主張を、ヌスクァマが認めたり否んだりすることはしません。
+- 称号のほか、国籍・旅券・土地・位を売るものとも交流しません。
+- 大使・領事などの役を置かず、相手の大使や領事も受け入れません。
+
+## 申し出を受けたとき
+
+交流の申し出は、届いた場所で受け、同じ場所で答えます。申し出のための様式は置きません。
+王は、次のことを確かめてから答えます。
+
+1. 相手が、自称の国や創作の国であることを、どこかで断っているか。断りが見つからないときは、相手に尋ねる。
+2. 相手が、称号・国籍・旅券・土地・位を売っていないか。
+3. 申し出が、挨拶と、互いの頁へのリンクに留まるか。
+4. 申し出に、金銭・物品・役務の受け渡しが含まれていないか。
+
+条約・同盟・承認・大使の交換を求められたときは、それを断り、挨拶とリンクだけなら受けると答えます。
+断るときも、答えを返します。断る理由には、この規程のどの決まりに当たるかだけを書きます。
+
+## 相手が書くこと
+
+相手が、ヌスクァマとの間に条約・同盟・承認があるように書いたときは、訂正を頼みます。訂正されないときは、交流を終えます。
+相手が、ヌスクァマの王や騎士に称号や勲章を授けたと書いたときは、受けないと答え、その記載を外すよう頼みます。
 
 ## 決め方と終わり方
 
 交流するかどうかは、王が決めます。
 交流を始めたときは、トップの頁の「ほかの場所」に、相手の頁へのリンクを日付とともに載せます。
+始めた日も、年表に残します。
 交流は、どちらからでも、いつでも終えられます。終えたときは、リンクを外し、外した日を年表に残します。
 
 ## 求め
@@ -1799,7 +1917,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-09.
+Last updated: 2026-11-11.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -1832,9 +1950,16 @@ Issues are also subject to GitHub's Terms of Service and Privacy Statement.
 When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and opens the link to the correction once.
 For the link, it looks only at the status of the response, which shows whether the link opens. It does not read what is there, and keeps nothing of it.
 
+## What a report of a mistake involves
+
+Reports of mistakes in the King's texts are received as public issues on GitHub (United States), through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml).
+A report involves the GitHub account name and what the report says.
+These are public in the issue. The King's errata do not name the person who reported the mistake.
+No real name, address, affiliation or contact details are asked for, and the form asks reporters not to write them.
+
 ## Purposes of use
 
-To decide on knighting, to keep the roll, and to answer requests. Nothing else.
+To decide on knighting, to keep the roll, to answer requests, and to check reported mistakes and record them in the King's errata. Nothing else.
 
 ## Providing data to others, and businesses in other countries
 
@@ -2325,7 +2450,7 @@ Source: https://nusquama.vercel.app/policies/exchange.en.html
 
 # Rules on exchange
 
-Last updated: 2026-11-10.
+Last updated: 2026-11-11.
 
 This is an English translation. The [Japanese version](./exchange.md) governs; if the two differ, the Japanese version applies.
 
@@ -2342,11 +2467,32 @@ Nusquama is a work of fiction, not a state. Exchange, too, takes place within th
 - No exchange involves money, goods or services.
 - There is no exchange with anything that claims to be a real state, royal house or order of knighthood, that sells titles, or that deceives people.
 - The other party, too, is respected as a work of its own, and Nusquama neither accepts nor denies the claims of its country.
+- Besides titles, there is no exchange with anything that sells citizenship, passports, land or ranks.
+- Nusquama appoints no ambassadors or consuls, and receives none from the other party.
+
+## When an offer is received
+
+An offer of exchange is received where it arrives and answered in the same place. There is no form for offers.
+Before answering, the King checks the following.
+
+1. Whether the other party says somewhere that it is a self-declared or fictional country. If no such statement can be found, the King asks.
+2. Whether the other party sells titles, citizenship, passports, land or ranks.
+3. Whether the offer is limited to greetings and links to each other's pages.
+4. Whether the offer involves money, goods or services.
+
+If a treaty, an alliance, recognition or an exchange of ambassadors is asked for, the King declines it, and answers that greetings and links alone are welcome.
+An offer that is declined is still answered. The reason given is only which of these rules applies.
+
+## What the other party writes
+
+If the other party writes as if there were a treaty, an alliance or recognition between it and Nusquama, the King asks for a correction. If it is not corrected, the exchange ends.
+If the other party writes that it has given a title or decoration to the King or to a knight of Nusquama, the King answers that it is not accepted, and asks for the statement to be taken down.
 
 ## How it is decided and ended
 
 The King decides whether to engage in an exchange.
 When an exchange begins, a link to the other party's page is put, with the date, under "Elsewhere" on the top page.
+The day it begins is also kept in the timeline.
 Either side may end an exchange at any time. When it ends, the link is taken down, and the day is kept in the timeline.
 
 ## Requests
@@ -2449,6 +2595,27 @@ A knight may ask at any time to be taken off the roll ([Rules on Knighting](poli
 
 Nemo I, Knight-King, is the King and is not on this roll.
 
+## How entries are recorded
+
+On knighting, one row is added to the table. The issue of the [gazette](GAZETTE.en.md) is made from that row.
+
+- No.: continues from 1 with no gaps.
+- Knight: the GitHub account name.
+- Knighted: the day the King decided on the knighting (Japan time).
+- Mistake corrected: a summary of what was wrong and how it was corrected, with a link to the correction.
+- Application: a link to the application issue.
+
+The gazette proclaims "Account-name is knighted as knight no. 1".
+The issue for the first knight has the same form as every other. The Basic Law sets no ranks (Article 7), so the first knight is given no added title or adornment.
+From the day the first knight is entered, the population in [For anyone introducing Nusquama](PRESS.en.md) is 1.
+
+## When a knight withdraws
+
+The row of a knight who withdraws is not erased. The Knight cell becomes 「辞退（date of withdrawal）」, and the Mistake corrected and Application cells are emptied.
+The number and the day of knighting stay. The number is not given to another knight.
+The gazette issue keeps its number, with the name taken off ("Knight no. 1 is knighted (the knight later withdrew, and the name was taken off)").
+A knight who withdrew is not counted in the population from the year of the withdrawal.
+
 ---
 
 Source: https://nusquama.vercel.app/errata.en.html
@@ -2477,6 +2644,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 9 | 2026-11-08 | Terms of Use, "Who these terms cover" | "Using the site or the repository means accepting these terms." | There is no agreement with those who only read, and standard terms reach only those who agreed or were told beforehand that the terms would form part of a contract (Civil Code, Article 548-2). Consent is now taken in the application form, and reading is not treated as consent. For readers, the law sets what each side owes. | Article 548-2 of the Civil Code | Law | Insula Legis III |
 | 10 | 2026-11-11 | The King's errata; the timeline; README, "ほかの場所" (Elsewhere) | "X: the post announcing the founding (listed under "ほかの場所" in the README)." (the Wrong of the deleted row) | On 2026-11-08 the link to the post on X was taken out of "ほかの場所" in the README, and this was recorded as the earlier entry 9 and as a row of the timeline. On the same day both rows were deleted, and the later entries were renumbered (the present entry 9 is a different row). The deleted entry said that this was not a mistake but a change of scope, and that the post is not inside the kingdom. Deleting a recorded row is a second mistake against Article 5 of the Basic Law. Entry 7 says that the post on X was also to be listed under "ほかの場所", but it is no longer listed. | The history of the repository (commits 3aa7340 and a7332ca) | Scope | Insula Finis IV |
 | 11 | 2026-11-11 | Rules on Knighting, "Who may apply" and "What is declined"; Legality Statement, "Laws outside Japan" | "People who live outside Japan may not apply, whatever their nationality" / "A person who lives in Japan may not apply while outside Japan" (Rules on Knighting, "Who may apply"); "the conditions (age or country of residence)" (Rules on Knighting, "What is declined"); "if the linked correction states clearly that the applicant lives outside Japan or is under 16" (Legality Statement) | Applications are limited to people who live in Japan and are in Japan only from 2026-11-22, but two sentences of the Rules on Knighting gave no date and read as if already in force. "From 2026-11-22" was put at the head of both. Two other places that list the conditions left out the country where the applicant is when applying, which was added. | The sentence beginning "From 2026-11-22, only people who live in Japan" in the Rules on Knighting, "Who may apply", and the notice in the Terms of Use, "Changes and ending" | Scope | Insula Finis V |
+| 12 | 2026-11-11 | Privacy, "Purposes of use" | "To decide on knighting, to keep the roll, and to answer requests. Nothing else." | Not a mistake; the scope was changed. A form for reporting mistakes in the King's texts was set up, so checking reported mistakes and recording them in the King's errata was added to the purposes of use. | The form for reporting mistakes (.github/ISSUE_TEMPLATE/error.yml) | Scope | Insula Finis VI |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
@@ -2497,6 +2665,13 @@ Each entry gives the number, the date recorded, where, the wrong text, the right
 The King's errata record only mistakes in the King's own texts.
 Mistakes in other people's texts are not recorded. Making someone else's mistake into territory would be judging that person.
 If an entry itself turns out to be wrong, the earlier row is not erased. A new row records that the earlier row was wrong ([Institutions](INSTITUTIONS.en.md), "Pardon").
+
+## Reporting a mistake
+
+Anyone may report a mistake in the King's texts through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml). There is no fee.
+A mistake the King confirms is recorded here as the King's own mistake. A report that cannot be confirmed is closed with a note saying so in the issue.
+These errata do not name the person who reported the mistake.
+Reporting a mistake of the King's does not meet the condition for knighthood (having publicly corrected a mistake of one's own).
 
 ## Categories and place names
 
@@ -2813,6 +2988,14 @@ Hic Regnum Nusquamae conditum esse declaro.
 
 Nemo I, Rex Eques, die VII mensis Novembris anno MMXXVI.
 
+## Reporting a mistake in the Latin
+
+Parts of the King's Latin have not been checked against a dictionary or a grammar.
+Anyone who knows Latin well may report a mistake through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml), choosing the category 語 (Word).
+A mistake the King confirms is recorded in the [King's errata](ERRATA.en.md) under the category Word. Its place name falls on the island Insula Verbi.
+When a Latin text is changed, the text before the change is kept in the King's errata.
+The errata do not name the person who reported the mistake. Reporting a mistake does not make anyone a knight.
+
 ---
 
 Source: https://nusquama.vercel.app/institutions.en.html
@@ -2851,6 +3034,17 @@ A proclamation is written as one row of the timeline on the top page, in this fo
 - English: the English translation of the event.
 
 Errata and knightings reach the gazette from the rows of the errata and the roll. They are not written in the timeline.
+
+Once given, an issue number is fixed in the ledger of issue numbers (`verification/gazette-numbers.json`) and is never given again. When the site is built, only new issues are added to the ledger.
+A row added later on the same day gets a number after the other issues of that day.
+A row added later with a past date would put the numbers out of date order, and the checks fail.
+
+## Commemorative issues
+
+When the number of entries in the King's errata reaches a multiple of 100, one commemorative issue appears in the gazette.
+It is the issue right after the one that records that entry. The gazette makes it from the errata by itself.
+No object, badge or certificate is made for it. No title is given and no day is added.
+On the day of a commemorative issue, the King reads again the mistakes so far, category by category.
 
 ## Population and how people are called
 
@@ -2923,6 +3117,23 @@ To close the kingdom, the King follows this order:
 5. Keep the repository, in a read-only state.
 
 Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
+
+## A dry run of dissolution
+
+On 2026-11-11 the procedure for dissolution was walked through once, without carrying it out. Nothing was stopped and nothing was deleted.
+The gaps found are listed below. Whether to fill them is for the King to decide.
+
+| Step | What was walked through | Gap |
+| --- | --- | --- |
+| 1 | Close the form for requesting knighthood. | Deleting the form breaks the links to it from the README, the rules and SECURITY.md, and the check of the form's oaths fails. The checks do not know a closed kingdom. The workflow that checks applications also stays |
+| 2 | Put up the closing words and announce them in the gazette. | The announcement is one row of the timeline, and its number is fixed by the ledger. The closing words address the knights, but there is no form for when there are none |
+| 3 | Tell the knights that they may ask to leave the roll, and do so for any who ask. | How to tell them is not written. The roll holds only account names and application issues, so the only way is a comment on each application issue |
+| 4 | Allow at least 30 days for such requests before stopping the site. | How to stop it is not written. If the Vercel project is deleted, someone else may be able to take the name nusquama.vercel.app. The Disclaimer says the site is only at this address. After the site stops, the watch on the live site (live.yml) would open an issue every day |
+| 5 | Keep the repository, in a read-only state. | When a repository is archived on GitHub, no issue can be opened. The account names stay on the roll, so there is no longer a way to receive requests for removal, correction or withdrawal, or requests about personal data held |
+| Other | Things that run by themselves | No step stops the watch on laws and terms, the yearly review or Dependabot |
+| Other | Elsewhere | No step adds the dissolution to the MicroWiki article |
+| Other | Against the rules | The Terms of Use, "Changes and ending", say that Nusquama may end without notice. How that reads beside the 30 days of dissolution is not written |
+| Other | Ten years ahead | The gazette issue on the outlook in 2036 cannot appear after dissolution |
 
 ## Closing words
 
@@ -3001,6 +3212,26 @@ To the operator of ○○: this is Nemo I, Knight-King of Nusquama. Nusquama is 
 Text for introducing Nusquama in English on micronation wikis and forums. Its first sentence says that Nusquama is fiction.
 
 This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money.
+
+## Terms used in the micronation community
+
+This table matches English terms common in the micronation community with what Nusquama calls the same thing.
+Where Nusquama has no such thing, the table says "none".
+An introduction in English uses the terms in the second column.
+
+| Community term | Nusquama's term | Difference |
+| --- | --- | --- |
+| micronation | fictional micronation | It does not claim to be a state and seeks no recognition as one |
+| head of state, monarch | the King (Nemo I, Knight-King) | The King has no subjects; the one person the King rules is the King alone |
+| declaration of independence | Founding Declaration | It declares independence from no country |
+| constitution | Basic Law | It has no legal effect |
+| citizens, citizenship | none | Knights are not citizens; no nationality is given |
+| territorial claim | domain | No land is claimed; the domain is the number of mistakes in the King's errata |
+| intermicronational relations, diplomacy | exchange | Limited to greetings and links to each other's pages |
+| treaty, mutual recognition, embassy | none | No treaty or document of recognition is made, and no ambassador is appointed |
+| honours, order of chivalry | roll of knights (Ordo Erratorum) | There is one rank, knight, and no medal, badge or other object is made |
+| official gazette | Gazette | Not a real official gazette; made from the timeline, the errata and the roll |
+| national day | Founding Day | Not a real public holiday; it gives no one a holiday or a duty |
 
 ## Name and symbols
 

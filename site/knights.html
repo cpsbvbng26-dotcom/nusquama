@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-kJODkHmNwR9eZK7MjS4P/XPDgGfDWtmKmzSTo/WfmfI='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-nvMLXsvkrOc6Z+zV25cW8OV5yrH0jlYWZG9Dsj2GNhg='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>正誤表騎士団 名簿（Ordo Erratorum） | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="叙任された騎士を、叙任の順に並べます。位は「騎士」の一つだけで、上下はありません（基本法第七条）。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -35,6 +35,7 @@ header, main, footer { max-width: 44rem; margin: 0 auto; padding-left: max(16px,
 header { padding-top: 20px; padding-bottom: 8px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 header img { width: 40px; height: 48px; }
 header a.home { font-weight: 600; text-decoration: none; color: var(--fg); }
+header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
@@ -68,7 +69,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
-<header><img src="./emblem.svg" alt=""><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a></header>
+<header><img src="./emblem.svg" alt=""><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./knights.en.html" hreflang="en" lang="en">English</a></header>
 <main id="main">
 <p class="notice">これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。</p>
 <h1>正誤表騎士団 名簿（Ordo Erratorum）</h1>
@@ -76,10 +77,17 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>叙任された騎士を、叙任の順に並べます。位は「騎士」の一つだけで、上下はありません（基本法第七条）。名は GitHub のアカウント名で記し、本名・所属は記しません。騎士は、いつでも名簿からの辞退を求めることができます（<a href="policies/knighting.html">叙任の規程</a>）。</p>
 <div class="table"><table><tr><th scope="col">番</th><th scope="col">騎士</th><th scope="col">叙任の日</th><th scope="col">正した誤り</th><th scope="col">願い出</th></tr></table></div>
 <p>騎士王ネモ一世は王であり、この名簿には載りません。</p>
+<h2>記し方</h2>
+<p>叙任するときは、表に一行を足します。<a href="gazette.html">官報</a>の号は、その行から作ります。</p>
+<ul><li>番：1 から欠けずに続けます。</li><li>騎士：GitHub のアカウント名です。</li><li>叙任の日：王が叙任を決めた日（日本時間）です。</li><li>正した誤り：何を誤り、どう正したかの要約と、訂正へのリンクです。</li><li>願い出：願い出の issue へのリンクです。</li></ul>
+<p>官報の布告は「第 1 番の騎士 アカウント名 を叙任する」の形になります。最初の騎士の号も、ほかの騎士の号と同じ形です。位に上下を設けない（基本法第七条）ので、最初の騎士に飾りの語を足しません。最初の騎士が載った日から、<a href="press.html">紹介する人のために</a>の人口は 1 になります。</p>
+<h2>辞退したとき</h2>
+<p>辞退した騎士の行は消さず、騎士の欄を「辞退（辞退の日）」に替え、正した誤りと願い出の欄を空にします。番と叙任の日は残します。番は、ほかの騎士に回しません。官報のその号も、号の番号はそのままで、名を外した形（第 1 番の騎士を叙任する（のちに辞退し、名を外した））になります。辞退した騎士は、辞退の日の年から人口に数えません。</p>
 <p><a href="knights.xml">新着の配信（Atom）</a></p>
 </main>
 <footer>
-<ul><li><a href="./index.html">トップ</a></li><li><a href="./knights.html">騎士の名簿</a></li><li><a href="./errata.html">王の正誤表</a></li><li><a href="./symbols.html">国のしるし</a></li><li><a href="./calendar.html">暦と祝日</a></li><li><a href="./gazette.html">官報</a></li><li><a href="./story.html">建国の物語</a></li><li><a href="./lexicon.html">国の言葉</a></li><li><a href="./institutions.html">国の仕組み</a></li><li><a href="./press.html">紹介する人へ</a></li><li><a href="./play.html">遊び</a></li><li><a href="./policies/terms.html">利用規約</a></li><li><a href="./policies/disclaimer.html">免責事項</a></li><li><a href="./policies/privacy.html">個人情報の取り扱い</a></li><li><a href="./policies/knighting.html">叙任の規程</a></li><li><a href="./policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="./policies/names.html">名称と権利</a></li><li><a href="./policies/legality.html">適法性の説明</a></li><li><a href="./policies/exchange.html">交流の規程</a></li><li><a href="./knights.en.html">English</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
+<ul><li><a href="./index.html">トップ</a></li><li><a href="./knights.html">騎士の名簿</a></li><li><a href="./errata.html">王の正誤表</a></li><li><a href="./symbols.html">国のしるし</a></li><li><a href="./calendar.html">暦と祝日</a></li><li><a href="./gazette.html">官報</a></li><li><a href="./story.html">建国の物語</a></li><li><a href="./lexicon.html">国の言葉</a></li><li><a href="./institutions.html">国の仕組み</a></li><li><a href="./press.html">紹介する人へ</a></li><li><a href="./play.html">遊び</a></li><li><a href="./policies/terms.html">利用規約</a></li><li><a href="./policies/disclaimer.html">免責事項</a></li><li><a href="./policies/privacy.html">個人情報の取り扱い</a></li><li><a href="./policies/knighting.html">叙任の規程</a></li><li><a href="./policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="./policies/names.html">名称と権利</a></li><li><a href="./policies/legality.html">適法性の説明</a></li><li><a href="./policies/exchange.html">交流の規程</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
+<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="./policies/requests.html">削除・訂正・辞退の求め</a>、<a href="https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml">誤りの知らせ</a>、<a href="https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/SECURITY.md">安全の問題の知らせ方</a>で受けます。免責は、<a href="./policies/disclaimer.html">免責事項</a>にあります。</p>
 <p>文と国章は CC BY 4.0 です。この頁は、リポジトリの KNIGHTS.md から生成しています。</p>
 <p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
 </footer>

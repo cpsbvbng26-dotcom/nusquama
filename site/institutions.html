@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-kJODkHmNwR9eZK7MjS4P/XPDgGfDWtmKmzSTo/WfmfI='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-nvMLXsvkrOc6Z+zV25cW8OV5yrH0jlYWZG9Dsj2GNhg='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>国の仕組み | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="この頁は、王国基本法と規程を、仕組みの面から並べ直したものです。食い違うときは、基本法と規程に従います。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -35,6 +35,7 @@ header, main, footer { max-width: 44rem; margin: 0 auto; padding-left: max(16px,
 header { padding-top: 20px; padding-bottom: 8px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 header img { width: 40px; height: 48px; }
 header a.home { font-weight: 600; text-decoration: none; color: var(--fg); }
+header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
@@ -68,7 +69,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
-<header><img src="./emblem.svg" alt=""><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a></header>
+<header><img src="./emblem.svg" alt=""><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./institutions.en.html" hreflang="en" lang="en">English</a></header>
 <main id="main">
 <p class="notice">これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。</p>
 <h1>国の仕組み</h1>
@@ -82,6 +83,9 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>布告は、トップの頁の年表に一行で書きます。書式は次のとおりです。</p>
 <ul><li>日付：日本時間の日付。</li><li>出来事：何を定め、何をしたかを一文で。</li><li>English：出来事の英語の訳。</li></ul>
 <p>正誤と叙任は、正誤表と名簿の行から官報に載ります。年表には書きません。</p>
+<p>一度振った号は、号の台帳（<code>verification/gazette-numbers.json</code>）で固め、振り直しません。台帳は、サイトを作るときに新しい号だけが書き足されます。同じ日に後から足した行は、その日のほかの号より後の号になります。過去の日付の行を後から足すと、号の並びが日付の順から外れるので、検査が落ちます。</p>
+<h2>記念の号</h2>
+<p>王の正誤表の件数が 100 の倍数に達したときは、官報に記念の号を一つ載せます。記念の号は、その件数めの誤りを記した号のすぐ後の号です。官報は、正誤表から記念の号を自動で作ります。記念に、物・記章・証書を作りません。称号も授けず、祝日も足しません。記念の号の日に、王は、それまでの誤りを分類ごとに読み返します。</p>
 <h2>人口と呼び名</h2>
 <p>人口は、正誤表騎士団の騎士の数です。いまの人口と年ごとの数は、<a href="press.html">紹介する人のために</a>の表にあります。表は名簿から数え、手で書きません。騎士は国民ではありません。ヌスクァマは国籍を与えません（<a href="policies/knighting.html">叙任の規程</a>）。騎士でない人は「訪れる人」と呼びます。訪れる人に、届け出や登録はありません。王は人口に数えません。王は名簿に載らないからです。</p>
 <h2>決め方</h2>
@@ -105,6 +109,9 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>国を閉じるときは、次の順によります。</p>
 <ol><li>叙任の願い出の様式を閉じる。</li><li>終わりの言葉を掲げ、官報に載せる。</li><li>騎士に、名簿からの辞退を求められることを知らせ、求めがあれば応じる。</li><li>求めに応じる期間を少なくとも 30 日置いてから、サイトの配信を止める。</li><li>リポジトリは消さず、読むだけの状態にする。</li></ol>
 <p>個人データの扱いは、<a href="policies/privacy.html">個人情報の取り扱い</a>に従います。</p>
+<h2>解散の通し稽古</h2>
+<p>2026-11-11 に、解散の手順を、実行せずに一度通して確かめました。何も止めず、何も消していません。見つけた抜けを、下に並べます。抜けを埋めるかどうかは、王が決めます。</p>
+<div class="table"><table><tr><th scope="col">段</th><th scope="col">通して見たこと</th><th scope="col">抜け</th></tr><tr><td>1</td><td>叙任の願い出の様式を閉じる</td><td>様式を消すと、README と規程と SECURITY.md の様式へのリンクが切れ、様式の誓いを確かめる検査も落ちる。閉じた国を、検査は知らない。願い出の自動の確認の workflow も残る</td></tr><tr><td>2</td><td>終わりの言葉を掲げ、官報に載せる</td><td>載せる行は年表の一行で、号は台帳で固まる。終わりの言葉は騎士に呼びかけるが、騎士がいないときの形がない</td></tr><tr><td>3</td><td>騎士に、名簿からの辞退を求められることを知らせ、求めがあれば応じる</td><td>知らせる手段が書いていない。名簿にあるのはアカウント名と願い出の issue だけなので、知らせる先は願い出の issue への書き込みになる</td></tr><tr><td>4</td><td>求めに応じる期間を少なくとも 30 日置いてから、サイトの配信を止める</td><td>止め方が書いていない。Vercel のプロジェクトを消すと、nusquama.vercel.app の名をほかの人が使えるようになるおそれがある。免責事項は、サイトはこの所在だけと書いている。止めた後も、公開中のサイトの見張り（live.yml）が毎日 issue を開く</td></tr><tr><td>5</td><td>リポジトリは消さず、読むだけの状態にする</td><td>GitHub でリポジトリを読むだけ（archive）にすると、issue を開けなくなる。名簿のアカウント名は残るので、削除・訂正・辞退の求めと、保有個人データの求めを受ける窓口がなくなる</td></tr><tr><td>ほか</td><td>自動で動くもの</td><td>条文と規約の見張り、年一回の総点検、Dependabot を止める段がない</td></tr><tr><td>ほか</td><td>ほかの場所</td><td>MicroWiki の記事に解散を書き足す段がない</td></tr><tr><td>ほか</td><td>規程との突き合わせ</td><td>利用規約「変更と終了」は「予告なく終わることがあります」と書く。解散の 30 日と並べたときの読み方が書いていない</td></tr><tr><td>ほか</td><td>十年の見通し</td><td>2036 年の見通しの官報は、解散した後は出せない</td></tr></table></div>
 <h2>終わりの言葉</h2>
 <p>凍結や解散のときに掲げる文の下書きです。掲げる日に、日付を付けて出します。</p>
 <p>どこにもない国は、どこにもない所へ帰ります。王の正誤表は、ここに残します。誤りは、消さずに置いていきます。騎士の皆さん、ともに誤りを正してくださり、ありがとうございました。</p>
@@ -116,7 +123,8 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>2036 年 11 月 7 日に、この見通しと実際を比べて、官報に載せます。</p>
 </main>
 <footer>
-<ul><li><a href="./index.html">トップ</a></li><li><a href="./knights.html">騎士の名簿</a></li><li><a href="./errata.html">王の正誤表</a></li><li><a href="./symbols.html">国のしるし</a></li><li><a href="./calendar.html">暦と祝日</a></li><li><a href="./gazette.html">官報</a></li><li><a href="./story.html">建国の物語</a></li><li><a href="./lexicon.html">国の言葉</a></li><li><a href="./institutions.html">国の仕組み</a></li><li><a href="./press.html">紹介する人へ</a></li><li><a href="./play.html">遊び</a></li><li><a href="./policies/terms.html">利用規約</a></li><li><a href="./policies/disclaimer.html">免責事項</a></li><li><a href="./policies/privacy.html">個人情報の取り扱い</a></li><li><a href="./policies/knighting.html">叙任の規程</a></li><li><a href="./policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="./policies/names.html">名称と権利</a></li><li><a href="./policies/legality.html">適法性の説明</a></li><li><a href="./policies/exchange.html">交流の規程</a></li><li><a href="./institutions.en.html">English</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
+<ul><li><a href="./index.html">トップ</a></li><li><a href="./knights.html">騎士の名簿</a></li><li><a href="./errata.html">王の正誤表</a></li><li><a href="./symbols.html">国のしるし</a></li><li><a href="./calendar.html">暦と祝日</a></li><li><a href="./gazette.html">官報</a></li><li><a href="./story.html">建国の物語</a></li><li><a href="./lexicon.html">国の言葉</a></li><li><a href="./institutions.html">国の仕組み</a></li><li><a href="./press.html">紹介する人へ</a></li><li><a href="./play.html">遊び</a></li><li><a href="./policies/terms.html">利用規約</a></li><li><a href="./policies/disclaimer.html">免責事項</a></li><li><a href="./policies/privacy.html">個人情報の取り扱い</a></li><li><a href="./policies/knighting.html">叙任の規程</a></li><li><a href="./policies/requests.html">削除・訂正・辞退の求め</a></li><li><a href="./policies/names.html">名称と権利</a></li><li><a href="./policies/legality.html">適法性の説明</a></li><li><a href="./policies/exchange.html">交流の規程</a></li><li><a href="https://github.com/cpsbvbng26-dotcom/nusquama">GitHub</a></li></ul>
+<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="./policies/requests.html">削除・訂正・辞退の求め</a>、<a href="https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml">誤りの知らせ</a>、<a href="https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/SECURITY.md">安全の問題の知らせ方</a>で受けます。免責は、<a href="./policies/disclaimer.html">免責事項</a>にあります。</p>
 <p>文と国章は CC BY 4.0 です。この頁は、リポジトリの INSTITUTIONS.md から生成しています。</p>
 <p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
 </footer>
