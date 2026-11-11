@@ -1,4 +1,4 @@
-# Roll of the Order of the Errata (Ordo Erratorum)
+# Roll of the Order of Errata (Ordo Erratorum)
 
 > This is a work of fiction, written for fun. The titles of those named here have no legal effect and no real honour.
 

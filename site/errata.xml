@@ -5,7 +5,7 @@
   <id>https://nusquama.vercel.app/errata.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/errata.xml"/>
   <link href="https://nusquama.vercel.app/errata.html"/>
-  <updated>2026-11-08T00:00:00+09:00</updated>
+  <updated>2026-11-11T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
   <entry>
     <id>https://nusquama.vercel.app/errata.html#errata-1</id>
@@ -69,5 +69,19 @@
     <link href="https://nusquama.vercel.app/errata.html"/>
     <updated>2026-11-08T00:00:00+09:00</updated>
     <summary>利用規約「この規約が及ぶ人」。正：読むだけの人とは合意がなく、定型約款は、合意したか、契約の内容になると前もって示された人にしか及ばない（民法第548条の2）。同意は願い出の様式で得て、読むことは同意とみなさないと改めた。読む人にとっては、双方が負うものを法令が定める。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-10</id>
+    <title>第 10 件：王の正誤表、年表、README「ほかの場所」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-11T00:00:00+09:00</updated>
+    <summary>王の正誤表、年表、README「ほかの場所」。正：2026-11-08 に、X の投稿へのリンクを README「ほかの場所」から外し、そのことを正誤表のもとの第 9 件と年表の一行に記した。同じ日に、その二行を消し、正誤表ののちの行の番を詰めた（いまの第 9 件は別の行である）。消した正誤表の行は、誤りではなく範囲を改めたこと、その投稿はこの国の中に入らないことを書いていた。記した行を消したことは、基本法第五条に反する二つめの誤りである。第 7 件は X の投稿も「ほかの場所」に挙げる形にしたと書くが、いまは挙げていない。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-11</id>
+    <title>第 11 件：叙任の規程「願い出ることができる人」「断ること」、適法性の説明「日本の外の法令」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-11T00:00:00+09:00</updated>
+    <summary>叙任の規程「願い出ることができる人」「断ること」、適法性の説明「日本の外の法令」。正：日本に住み、日本にいる人に願い出を限るのは 2026-11-22 からだが、叙任の規程の二つの文は日付を欠き、いま効いているように読めた。二つの文の頭に「2026-11-22 から、」を足した。条件を挙げるほかの二か所は、願い出のときにいる国を落としていたので、足した。</summary>
   </entry>
 </feed>

@@ -60,12 +60,12 @@ The Basic Law and the rules are changed by the King, in this order:
 
 1. Change the Japanese version, and on the same day the English translation.
 2. Change the date of last update of the rule.
-3. Keep the text before the change in the [King's errata](ERRATA.en.md) (as the opening of the errata says).
+3. Where text is replaced or removed, keep the text before the change in the [King's errata](ERRATA.en.md) (as the opening of the errata says).
 4. Add a row to the timeline, so that it appears in the gazette.
 5. Publish only after the checks pass.
 
 Articles 1, 6 and 8 of the Basic Law are not removed (Article 10).
-When a change takes effect and how it is announced follow the [Terms of Use](policies/terms.en.md).
+When a change takes effect and how it is announced follow the [Terms of Use](policies/terms.en.md), "Changes and ending".
 
 ## Versions
 
@@ -103,7 +103,7 @@ To close the kingdom, the King follows this order:
 4. Allow at least 30 days for such requests before stopping the site.
 5. Keep the repository, in a read-only state.
 
-Personal data is handled as the [Privacy](policies/privacy.en.md) says.
+Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
 
 ## Closing words
 
@@ -119,7 +119,7 @@ Some things will not grow, even in ten years.
 
 - No land, currency, passports, certificates or objects will be made.
 - No ranks will be added. There is only one: knight.
-- Requests from people who live outside Japan will not be accepted until the laws of their country have been checked.
+- Requests from people who live outside Japan, or who are outside Japan when applying, will not be accepted until the laws of that country have been checked.
 
 Some things will go on.
 

@@ -126,6 +126,7 @@
 | 2026-11-08（日本時間） | 適法性を五つの方法（要件の論理式・網羅・無矛盾・故障の木・壊して確かめる）で審査し直す | Legality is reviewed again by five methods (requirements as logic, coverage, consistency, fault trees, breaking to confirm) |
 | 2026-11-10（日本時間） | 国旗と版図の地図、暦と祝日、官報、交流の規程を定める | The flag, the map of the domain, the calendar, the gazette and the Rules on exchange are laid down |
 | 2026-11-10（日本時間） | 建国の物語・国の言葉・国の仕組み・紹介の頁・遊びの頁を置き、正誤に分類と地名を付け、官報に号を振る | The story of the founding, the words of the kingdom, the institutions, the page for introducers and the page of play are set out; the errata are given categories and place names, and the gazette is numbered |
+| 2026-11-11（日本時間） | 叙任の規程と適法性の説明に、日本の外からの願い出を受けない決まりの始まる日を書き添え、年表に記していなかった 11 月 9 日と 10 日の規程の書き足し（GitHub と Vercel の規約、モデルの学習への利用の断り、願い出の自動の確認、騎士の呼び方）もここに記す | The Rules on Knighting and the Legality Statement are given the date from which applications from outside Japan are not accepted, and the additions to the rules made on 9 and 10 November and not entered in the timeline (the terms of GitHub and Vercel, the warning about use for model training, the automatic check of applications, how knights are addressed) are recorded here |
 
 ---
 
@@ -140,7 +141,7 @@
 - [適法性の説明](policies/legality.md)
 - [交流の規程](policies/exchange.md)
 
-国のしるし（国旗と版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
+国のしるし（国章・国旗・版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 国の成り立ちは[建国の物語](STORY.md)に、国の名や制度に使うラテン語は[国の言葉](LEXICON.md)に、機関と手続きは[国の仕組み](INSTITUTIONS.md)にあります。
 紹介に使う文と数は[紹介する人のために](PRESS.md)に、正誤表の雛形と問いは[遊び](PLAY.md)にあります。
 
@@ -148,7 +149,7 @@ English (translations; the Japanese version governs): [Founding Declaration, Bas
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
-王の正誤表と騎士の名簿には、新着の配信（[errata.xml](https://nusquama.vercel.app/errata.xml)、[knights.xml](https://nusquama.vercel.app/knights.xml)）があります。
+王の正誤表と騎士の名簿と官報には、新着の配信（[errata.xml](https://nusquama.vercel.app/errata.xml)、[knights.xml](https://nusquama.vercel.app/knights.xml)、[gazette.xml](https://nusquama.vercel.app/gazette.xml)）があります。
 言語モデルを通して調べる人のために、[llms.txt](https://nusquama.vercel.app/llms.txt) と [llms-full.txt](https://nusquama.vercel.app/llms-full.txt) を置いています。llms.txt は、断りと、規程の要の節を一字一句そのまま収め、すべての頁へリンクします。llms-full.txt は、すべての頁の元の文を一字一句そのまま収めます。食い違うときは規程に従います。
 
 ## ほかの場所

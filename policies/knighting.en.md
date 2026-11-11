@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-10.
+Last updated: 2026-11-11.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -18,8 +18,8 @@ The correction must be public and checkable by anyone, such as an erratum to a p
 A person under 16 may not apply.
 A person whom the law of the country where they live forbids to receive or use a title of knighthood given by a private person may not apply either. For example, Article 8 of Italy's Law No. 178 of 1951 forbids private persons and bodies to confer titles of knighthood under any name.
 From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality.
-People who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
-A person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
+From 2026-11-22, people who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
+From 2026-11-22, a person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 
 ## How to apply
@@ -64,7 +64,7 @@ No knighthood is given for:
 - Anything that is not a correction of a mistake (advertising, self-introduction, pointing out someone else's mistake, and so on).
 - Anything that cannot be checked (something not public, or a link that does not open).
 - Anything that falls under "What is not allowed" in the Terms of Use.
-- An application where the linked correction clearly shows that the applicant does not meet the conditions (age or country of residence).
+- An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, or the country where the applicant is when applying).
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 
