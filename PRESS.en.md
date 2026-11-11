@@ -48,6 +48,26 @@ Text for introducing Nusquama in English on micronation wikis and forums. Its fi
 
 This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money.
 
+## Terms used in the micronation community
+
+This table matches English terms common in the micronation community with what Nusquama calls the same thing.
+Where Nusquama has no such thing, the table says "none".
+An introduction in English uses the terms in the second column.
+
+| Community term | Nusquama's term | Difference |
+| --- | --- | --- |
+| micronation | fictional micronation | It does not claim to be a state and seeks no recognition as one |
+| head of state, monarch | the King (Nemo I, Knight-King) | The King has no subjects; the one person the King rules is the King alone |
+| declaration of independence | Founding Declaration | It declares independence from no country |
+| constitution | Basic Law | It has no legal effect |
+| citizens, citizenship | none | Knights are not citizens; no nationality is given |
+| territorial claim | domain | No land is claimed; the domain is the number of mistakes in the King's errata |
+| intermicronational relations, diplomacy | exchange | Limited to greetings and links to each other's pages |
+| treaty, mutual recognition, embassy | none | No treaty or document of recognition is made, and no ambassador is appointed |
+| honours, order of chivalry | roll of knights (Ordo Erratorum) | There is one rank, knight, and no medal, badge or other object is made |
+| official gazette | Gazette | Not a real official gazette; made from the timeline, the errata and the roll |
+| national day | Founding Day | Not a real public holiday; it gives no one a holiday or a duty |
+
 ## Name and symbols
 
 The origin of the name and the use of the emblem and the flag are described in [Names and rights](policies/names.en.md) and [Symbols](SYMBOLS.en.md).

@@ -13,7 +13,7 @@
 >
 > English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.
 
-![国章](assets/emblem.svg)
+![ヌスクァマの国章（創作）](assets/emblem.svg)
 
 **国是**：Errata servo, me ipsum rego. ―― 誤りは守り、己を治める。
 
@@ -133,6 +133,7 @@
 | 2026-11-10（日本時間） | 建国の物語・国の言葉・国の仕組み・紹介の頁・遊びの頁を置き、正誤に分類と地名を付け、官報に号を振る | The story of the founding, the words of the kingdom, the institutions, the page for introducers and the page of play are set out; the errata are given categories and place names, and the gazette is numbered |
 | 2026-11-11（日本時間） | 叙任の規程と適法性の説明に、日本の外からの願い出を受けない決まりの始まる日を書き添え、年表に記していなかった 11 月 9 日と 10 日の規程の書き足し（GitHub と Vercel の規約、モデルの学習への利用の断り、願い出の自動の確認、騎士の呼び方）もここに記す | The Rules on Knighting and the Legality Statement are given the date from which applications from outside Japan are not accepted, and the additions to the rules made on 9 and 10 November and not entered in the timeline (the terms of GitHub and Vercel, the warning about use for model training, the automatic check of applications, how knights are addressed) are recorded here |
 | 2026-11-11（日本時間） | 適法性の説明の各節に、拠る条文と外国の一次資料の文を引き、規程の外で法令の要件に近づく行いへの忠告と、その行いについての運営者の責任を、適法性の説明と免責事項に書き足す | The Legality Statement quotes, in each section, the articles and the foreign primary sources it relies on; it and the Disclaimer add a caution against acts outside the rules that come near a law's elements, and state the operator's responsibility for such acts |
+| 2026-11-11（日本時間） | 誤りの知らせの様式を置き、個人情報の取り扱いの利用の目的に知らされた誤りを記すことを足し、交流の規程に申し出を受けたときの手順を書き足す | A form for reporting mistakes is set up, checking reported mistakes is added to the purposes of use in the Privacy page, and the Rules on exchange gain a procedure for receiving offers |
 
 ---
 
@@ -170,3 +171,7 @@ English (translations; the Japanese version governs): [Founding Declaration, Bas
 
 この国の文と国章は、王の求めにより Claude Code（Anthropic）で書きました。王が確かめ、責任を負います。
 Claude は騎士でも王でもありません。
+
+| 道具 | 使ったこと | 確かめた人 |
+| --- | --- | --- |
+| Claude Code（Anthropic） | 文・規程・英語の訳を書き、国章と国旗を作図し、サイトを作るコードと検査のコードを書く | 運営者（王の役） |

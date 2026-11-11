@@ -70,6 +70,7 @@ header, main, footer { max-width: 44rem; margin: 0 auto; padding-left: max(16px,
 header { padding-top: 20px; padding-bottom: 8px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 header img { width: 40px; height: 48px; }
 header a.home { font-weight: 600; text-decoration: none; color: var(--fg); }
+header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
@@ -199,16 +200,22 @@ const domain = () => tableRows('ERRATA.md').length;
 const DOMAIN_LINE = () => '版図のうち、王の正誤表に記した誤りは ' + domain() + ' 件です。基本法第三条により、版図は、王が誤りを一つ認めるたびに広がります。';
 
 /* 王の正誤表と騎士の名簿の新着の配信（Atom）。どちらも表から作り、手で書かない。 */
-function atom(kind) {
-  const rows = tableRows(kind === 'errata' ? 'ERRATA.md' : 'KNIGHTS.md');
+/* 騎士の名簿の行のうち、辞退した騎士の行。行は消さず、騎士の欄を「辞退（辞退の日）」に替える（名簿の「記し方」）。 */
+const WITHDRAWN = /^辞退（(\d{4}-\d{2}-\d{2})）$/;
+const withdrawnOn = (r) => (WITHDRAWN.exec(r[1]) || [])[1] || null;
+/* 年の終わり（y を渡さなければ、いま）に名簿に載っている騎士の数。辞退した騎士は、辞退の日から数えない。 */
+const population = (y, rows = tableRows('KNIGHTS.md')) => rows.filter((r) => (!y || r[2].slice(0, 4) <= y) && !(withdrawnOn(r) && (!y || withdrawnOn(r).slice(0, 4) <= y))).length;
+
+function atom(kind, rows = tableRows(kind === 'errata' ? 'ERRATA.md' : 'KNIGHTS.md')) {
   const title = kind === 'errata' ? NAME + '：王の正誤表' : NAME + '：正誤表騎士団 名簿';
   const page = kind === 'errata' ? 'errata.html' : 'knights.html';
   const entries = rows.map((r) => {
-    const [n, date] = r;
-    const text = kind === 'errata' ? r[2] + '。正：' + r[4] : '騎士 ' + r[1] + '、正した誤り：' + r[3];
+    /* 名簿の行は、番・騎士・叙任の日の順。日付は三つめの欄にある。 */
+    const n = r[0], date = kind === 'errata' ? r[1] : r[2];
+    const text = kind === 'errata' ? r[2] + '。正：' + r[4] : withdrawnOn(r) ? '辞退した騎士。名を外した。' : '騎士 ' + r[1] + '、正した誤り：' + r[3];
     return `  <entry>\n    <id>${BASE}${page}#${kind}-${esc(n)}</id>\n    <title>${esc(kind === 'errata' ? '第 ' + n + ' 件：' + r[2] : '第 ' + n + ' 番の騎士：' + r[1])}</title>\n    <link href="${BASE}${page}"/>\n    <updated>${esc(date)}T00:00:00+09:00</updated>\n    <summary>${esc(text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'))}</summary>\n  </entry>`;
   });
-  const updated = rows.map((r) => r[1]).sort().pop() || '2026-11-07';
+  const updated = rows.map((r) => (kind === 'errata' ? r[1] : r[2])).sort().pop() || '2026-11-07';
   return `<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">\n  <title>${esc(title)}</title>\n  <subtitle>${esc(NOTICE)}</subtitle>\n  <id>${BASE}${kind}.xml</id>\n  <link rel="self" href="${BASE}${kind}.xml"/>\n  <link href="${BASE}${page}"/>\n  <updated>${updated}T00:00:00+09:00</updated>\n  <author><name>騎士王ネモ一世（創作の中の王）</name></author>\n${entries.join('\n')}${entries.length ? '\n' : ''}</feed>\n`;
 }
 
@@ -356,13 +363,37 @@ function timelineRows() {
   const part = md.slice(i, md.indexOf('\n## ', i + 5));
   return part.split('\n').filter((l) => /^\| \d{4}-\d{2}-\d{2}/.test(l)).map((l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()));
 }
-function gazetteItems() {
-  const items = timelineRows().map(([d, what, en]) => ({ date: d.slice(0, 10), kind: '年表', kindEn: 'Timeline', text: plainText(what), textEn: plainText(en || ''), from: 'README.md', fromEn: 'founding.en.md' }))
-    .concat(tableRows('ERRATA.md').map((r) => ({ date: r[1], kind: '王の正誤表', kindEn: "King's errata", text: '第 ' + r[0] + ' 件を記す（' + plainText(r[2]) + '）', textEn: 'Entry ' + r[0] + ' is recorded', from: 'errata/' + r[0] + '.html', fromEn: 'errata/' + r[0] + '.en.html' })))
-    .concat(tableRows('KNIGHTS.md').map((r) => ({ date: r[2], kind: '騎士の名簿', kindEn: 'Roll of knights', text: '第 ' + r[0] + ' 番の騎士 ' + plainText(r[1]) + ' を叙任する', textEn: plainText(r[1]) + ' is knighted as knight no. ' + r[0], from: 'KNIGHTS.md', fromEn: 'KNIGHTS.en.md' })));
-  const sorted = items.map((x, k) => Object.assign(x, { k })).sort((a, b) => (a.date === b.date ? b.k - a.k : a.date < b.date ? 1 : -1));
-  /* 号は古い順に 1 から振る。布告の番号（法令番号）は、この号である。 */
-  return sorted.map((x, i) => Object.assign(x, { no: sorted.length - i }));
+/* 記念の号：王の正誤表が、この数の倍数の件数に達したときに置く（国の仕組み「記念の号」）。 */
+const MILESTONE = 100;
+/* 号の台帳。一度振った号を、行の鍵ごとに固定する。build.js が site/ を作るときに、新しい号だけを書き足す。手で直さない。 */
+const LEDGER = path.join(ROOT, 'verification', 'gazette-numbers.json');
+const readLedger = () => (fs.existsSync(LEDGER) ? JSON.parse(fs.readFileSync(LEDGER, 'utf8')) : {});
+/* 行の鍵。年表の行は日付と文から、正誤と叙任と記念の号は番から作る。年表の文を書き換えると鍵が変わり、検査が台帳との食い違いを見つける。 */
+const timelineKey = (date, text) => 'T:' + date + ':' + crypto.createHash('sha256').update(text, 'utf8').digest('hex').slice(0, 12);
+
+/* 官報の号。src で年表・正誤表・名簿の行と台帳を差し替えられる（検査が、まだない行で号の振り方を確かめるため）。
+ * 号は古い順に 1 から振る。台帳にある行は台帳の号のまま、ない行は台帳の最後の号の次から、日付の古い順に振る。
+ * 同じ日の行は、年表・正誤表・名簿の順に振る。同じ日に年表の行を後から足しても、台帳にある号は動かない。 */
+function gazetteItems(src = {}) {
+  const ledger = src.ledger || readLedger();
+  const timeline = src.timeline || timelineRows(), errata = src.errata || tableRows('ERRATA.md'), knights = src.knights || tableRows('KNIGHTS.md');
+  const items = timeline.map(([d, what, en]) => ({ date: d.slice(0, 10), kind: '年表', kindEn: 'Timeline', text: plainText(what), textEn: plainText(en || ''), from: 'README.md', fromEn: 'founding.en.md', key: timelineKey(d.slice(0, 10), plainText(what)) }))
+    .concat(errata.flatMap((r) => [{ date: r[1], kind: '王の正誤表', kindEn: "King's errata", text: '第 ' + r[0] + ' 件を記す（' + plainText(r[2]) + '）', textEn: 'Entry ' + r[0] + ' is recorded', from: 'errata/' + r[0] + '.html', fromEn: 'errata/' + r[0] + '.en.html', key: 'E:' + r[0] }]
+      .concat(Number(r[0]) % MILESTONE === 0 ? [{ date: r[1], kind: '記念の号', kindEn: 'Commemorative issue', text: '王の正誤表が ' + r[0] + ' 件に達する', textEn: "The King's errata reach " + r[0] + ' entries', from: 'ERRATA.md', fromEn: 'ERRATA.en.md', key: 'M:' + r[0] }] : [])))
+    .concat(knights.map((r) => ({ date: r[2], kind: '騎士の名簿', kindEn: 'Roll of knights', key: 'K:' + r[0], from: 'KNIGHTS.md', fromEn: 'KNIGHTS.en.md',
+      text: withdrawnOn(r) ? '第 ' + r[0] + ' 番の騎士を叙任する（のちに辞退し、名を外した）' : '第 ' + r[0] + ' 番の騎士 ' + plainText(r[1]) + ' を叙任する',
+      textEn: withdrawnOn(r) ? 'Knight no. ' + r[0] + ' is knighted (the knight later withdrew, and the name was taken off)' : plainText(r[1]) + ' is knighted as knight no. ' + r[0] })));
+  const oldest = items.map((x, k) => Object.assign(x, { k })).sort((a, b) => (a.date === b.date ? a.k - b.k : a.date < b.date ? -1 : 1));
+  let next = Math.max(0, ...Object.values(ledger));
+  for (const x of oldest) x.no = Object.prototype.hasOwnProperty.call(ledger, x.key) ? ledger[x.key] : ++next;
+  /* 布告の番号（法令番号）は、この号である。頁には日付の新しい順に、同じ日なら号の大きい順に並べる。 */
+  return oldest.sort((a, b) => (a.date === b.date ? b.no - a.no : a.date < b.date ? 1 : -1));
+}
+/* 台帳に、まだない号を書き足す。すでにある号は書き換えない。 */
+function ledgerWith(items, ledger = readLedger()) {
+  const out = Object.assign({}, ledger);
+  for (const x of items) if (!Object.prototype.hasOwnProperty.call(out, x.key)) out[x.key] = x.no;
+  return Object.fromEntries(Object.entries(out).sort((a, b) => a[1] - b[1]));
 }
 /* 官報の表。年ごとに区切る（年代記）。 */
 function gazetteTable(en = false) {
@@ -418,7 +449,7 @@ function gazetteIssueMd(x, total, en = false) {
 /* 紹介する人のための事実と、年ごとの国勢。どれも正誤表・名簿・官報・頁の元から数え、手で書かない。 */
 const FOUNDED = '2026-11-07';
 function factsTable(en = false) {
-  const knights = tableRows('KNIGHTS.md').length, issues = gazetteItems().length;
+  const knights = population(), issues = gazetteItems().length;
   const rows = en ? [['Founded', FOUNDED], ['Domain (mistakes in the King\'s errata)', domain() + ''], ['Population (knights of the Ordo Erratorum)', knights + ''], ['Gazette', issues + ' issues'],
     ['Pages (Japanese and English)', SOURCES.length + ''], ['Rules', POLICIES.length + ' (each with an English translation)'], ['Fees', 'None. Titles are not sold and no donations are taken']]
     : [['建国の日', FOUNDED], ['版図（王の正誤表の誤り）', domain() + ' 件'], ['人口（正誤表騎士団の騎士）', knights + ' 人'], ['官報', issues + ' 号'],
@@ -433,7 +464,7 @@ function censusTable(en = false) {
     : '<th scope="col">年</th><th scope="col">記した誤り</th><th scope="col">叙任した騎士</th><th scope="col">官報の号</th><th scope="col">年末の人口</th>';
   return '<div class="table"><table><tr>' + head + '</tr>' + years.map((y) => {
     const e = errata.filter((r) => r[1].startsWith(y)).length, k = knights.filter((r) => r[2].startsWith(y)).length, g = items.filter((x) => x.date.startsWith(y)).length;
-    const pop = knights.filter((r) => r[2].slice(0, 4) <= y).length;
+    const pop = population(y, knights);
     return `<tr><td>${y}</td><td>${e}</td><td>${k}</td><td>${g}</td><td>${pop}</td></tr>`;
   }).join('') + '</table></div>';
 }
@@ -604,8 +635,11 @@ function page(srcRel, outRel, opts = {}) {
   const root = ROOT_EN.find(([f]) => srcRel === f + '.md' || srcRel === f + '.en.md');
   const twin = opts.md ? opts.twin : slug && EN.includes(slug) ? 'policies/' + slug + (en ? '.html' : '.en.html') : root ? root[1] + (en ? '.html' : '.en.html') : null;
   const links = en
-    ? [['index.html', 'Top (Japanese)'], ['founding.en.html', h1of('founding.en.md')]].concat(ROOT_EN.map(([f, h]) => [h + '.en.html', h1of(f + '.en.md')]), EN.map((p) => ['policies/' + p + '.en.html', h1of('policies/' + p + '.en.md')]), twin ? [[twin, '日本語']] : [])
-    : [['index.html', 'トップ']].concat(ROOT_EN.map(([, h]) => [h + '.html', SHORT[h]]), POLICIES.map((p) => ['policies/' + p + '.html', h1of('policies/' + p + '.md')]), twin ? [[twin, 'English']] : []);
+    ? [['index.html', 'Top (Japanese)'], ['founding.en.html', h1of('founding.en.md')]].concat(ROOT_EN.map(([f, h]) => [h + '.en.html', h1of(f + '.en.md')]), EN.map((p) => ['policies/' + p + '.en.html', h1of('policies/' + p + '.en.md')]))
+    : [['index.html', 'トップ']].concat(ROOT_EN.map(([, h]) => [h + '.html', SHORT[h]]), POLICIES.map((p) => ['policies/' + p + '.html', h1of('policies/' + p + '.md')]));
+  /* 言語の切り替えは、どの頁も頁の上の同じ場所（見出しの欄の右端）に置く。トップの頁の英語は、建国の宣言・基本法・十則の訳である。 */
+  const other = twin || (outRel === 'index.html' ? 'founding.en.html' : outRel === 'founding.en.html' ? 'index.html' : null);
+  const lang = other ? (en ? `<a class="lang" href="${pre}${other}" hreflang="ja" lang="ja">日本語</a>` : `<a class="lang" href="${pre}${other}" hreflang="en" lang="en">English</a>`) : '';
   const alternate = twin ? `<link rel="alternate" hreflang="${en ? 'ja' : 'en'}" href="${BASE + twin}">\n` : '';
   return `<!doctype html>
 <html lang="${en ? 'en' : 'ja'}">
@@ -632,14 +666,16 @@ ${alternate}${en ? '' : `<link rel="alternate" type="application/atom+xml" title
 </head>
 <body>
 <a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
-<header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a></header>
+<header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a>${lang}</header>
 <main id="main">
 ${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${fill(markdown(md, srcRel, outRel), en).replace(/<h2>/, (h) => (outRel === 'story.html' || outRel === 'story.en.html' ? storyToc(en) + '\n' + h : h)).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : outRel === 'gazette.en.html' ? '\n' + gazetteTable(true) : ''}
 </main>
 <footer>
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
-${en ? `<p>Text and emblem: CC BY 4.0. This page is generated from ${esc(srcRel)} in the repository. The Japanese version governs.</p>
-<p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>` : `<p>文と国章は CC BY 4.0 です。この頁は、リポジトリの ${esc(srcRel)} から生成しています。</p>
+${en ? `<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King. Contact: <a href="${pre}policies/requests.en.html">Requests</a>, <a href="${REPO}/issues/new?template=error.yml">Report a mistake</a>, <a href="${REPO}/blob/main/SECURITY.md">Reporting a security issue</a>. Disclaimer: <a href="${pre}policies/disclaimer.en.html">Disclaimer</a>.</p>
+<p>Text and emblem: CC BY 4.0. This page is generated from ${esc(srcRel)} in the repository. The Japanese version governs.</p>
+<p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>` : `<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="${pre}policies/requests.html">削除・訂正・辞退の求め</a>、<a href="${REPO}/issues/new?template=error.yml">誤りの知らせ</a>、<a href="${REPO}/blob/main/SECURITY.md">安全の問題の知らせ方</a>で受けます。免責は、<a href="${pre}policies/disclaimer.html">免責事項</a>にあります。</p>
+<p>文と国章は CC BY 4.0 です。この頁は、リポジトリの ${esc(srcRel)} から生成しています。</p>
 <p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>`}
 </footer>
 </body>
@@ -750,10 +786,12 @@ function build(out = OUT) {
     fs.mkdirSync(path.dirname(f), { recursive: true });
     fs.writeFileSync(f, content);
   }
+  /* site/ を作るときだけ、号の台帳に新しい号を書き足す（検査が一時の場所に作るときは書かない）。 */
+  if (path.resolve(out) === OUT) fs.writeFileSync(LEDGER, JSON.stringify(ledgerWith(issues), null, 2) + '\n');
   return Object.keys(files).length;
 }
 
-module.exports = { GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;

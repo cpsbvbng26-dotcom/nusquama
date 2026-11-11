@@ -33,6 +33,17 @@ A proclamation is written as one row of the timeline on the top page, in this fo
 
 Errata and knightings reach the gazette from the rows of the errata and the roll. They are not written in the timeline.
 
+Once given, an issue number is fixed in the ledger of issue numbers (`verification/gazette-numbers.json`) and is never given again. When the site is built, only new issues are added to the ledger.
+A row added later on the same day gets a number after the other issues of that day.
+A row added later with a past date would put the numbers out of date order, and the checks fail.
+
+## Commemorative issues
+
+When the number of entries in the King's errata reaches a multiple of 100, one commemorative issue appears in the gazette.
+It is the issue right after the one that records that entry. The gazette makes it from the errata by itself.
+No object, badge or certificate is made for it. No title is given and no day is added.
+On the day of a commemorative issue, the King reads again the mistakes so far, category by category.
+
 ## Population and how people are called
 
 The population is the number of knights of the Ordo Erratorum.
@@ -104,6 +115,23 @@ To close the kingdom, the King follows this order:
 5. Keep the repository, in a read-only state.
 
 Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
+
+## A dry run of dissolution
+
+On 2026-11-11 the procedure for dissolution was walked through once, without carrying it out. Nothing was stopped and nothing was deleted.
+The gaps found are listed below. Whether to fill them is for the King to decide.
+
+| Step | What was walked through | Gap |
+| --- | --- | --- |
+| 1 | Close the form for requesting knighthood. | Deleting the form breaks the links to it from the README, the rules and SECURITY.md, and the check of the form's oaths fails. The checks do not know a closed kingdom. The workflow that checks applications also stays |
+| 2 | Put up the closing words and announce them in the gazette. | The announcement is one row of the timeline, and its number is fixed by the ledger. The closing words address the knights, but there is no form for when there are none |
+| 3 | Tell the knights that they may ask to leave the roll, and do so for any who ask. | How to tell them is not written. The roll holds only account names and application issues, so the only way is a comment on each application issue |
+| 4 | Allow at least 30 days for such requests before stopping the site. | How to stop it is not written. If the Vercel project is deleted, someone else may be able to take the name nusquama.vercel.app. The Disclaimer says the site is only at this address. After the site stops, the watch on the live site (live.yml) would open an issue every day |
+| 5 | Keep the repository, in a read-only state. | When a repository is archived on GitHub, no issue can be opened. The account names stay on the roll, so there is no longer a way to receive requests for removal, correction or withdrawal, or requests about personal data held |
+| Other | Things that run by themselves | No step stops the watch on laws and terms, the yearly review or Dependabot |
+| Other | Elsewhere | No step adds the dissolution to the MicroWiki article |
+| Other | Against the rules | The Terms of Use, "Changes and ending", say that Nusquama may end without notice. How that reads beside the 30 days of dissolution is not written |
+| Other | Ten years ahead | The gazette issue on the outlook in 2036 cannot appear after dissolution |
 
 ## Closing words
 

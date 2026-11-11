@@ -57,3 +57,11 @@ Regnum uno rege finitur; heres non constituitur. Solus enim qui solus stat se ip
 Hic Regnum Nusquamae conditum esse declaro.
 
 Nemo I, Rex Eques, die VII mensis Novembris anno MMXXVI.
+
+## Reporting a mistake in the Latin
+
+Parts of the King's Latin have not been checked against a dictionary or a grammar.
+Anyone who knows Latin well may report a mistake through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml), choosing the category 語 (Word).
+A mistake the King confirms is recorded in the [King's errata](ERRATA.en.md) under the category Word. Its place name falls on the island Insula Verbi.
+When a Latin text is changed, the text before the change is kept in the King's errata.
+The errata do not name the person who reported the mistake. Reporting a mistake does not make anyone a knight.

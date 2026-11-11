@@ -20,5 +20,6 @@ jobs:
         run: |
           gh label create "叙任" --color c9a227 --description "騎士の叙任の願い出" --force
           gh label create "求め" --color 14213d --description "削除・訂正・辞退の求め" --force
+          gh label create "誤り" --color 8a6d12 --description "王の文の誤りの知らせ" --force
           gh label create "法令" --color 6b4e16 --description "条文や規約が変わったかもしれない（自動）" --force
           gh label create "記す" --color 2f6f4e --description "見張りの PR を、検査を通してから記す（運営者だけ）" --force

@@ -1,0 +1,50 @@
+name: 誤りの知らせ
+description: 王の書いた文（規程・正誤表・国の言葉のラテン語など）の誤りを知らせる。無償。知らせても、叙任にはならない。
+title: "誤り：<頁の名>"
+labels: ["誤り"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        この国は創作であり、遊びです。実在の国家・王室・騎士団・叙勲とは関係がありません。
+        この issue は公開されます。本名・住所・所属・連絡先は書かないでください。
+        書いたものは、知らされた誤りを確かめ、王の正誤表に記すことにだけ使います。
+        王が確かめた誤りは、王の誤りとして王の正誤表に記します。知らせた人の名は、正誤表に書きません。
+        王の誤りを知らせることは、叙任の条件（自分の誤りを一つ、公に訂正したこと）には当たりません。
+        ラテン語の誤り（語形・格・綴り・文法）は、分類で「語」を選びます。国の言葉のラテン語には、辞書で確かめていないものがあります。
+        書いたものは GitHub（米国）で扱われます。扱いは個人情報の取り扱いにあります。https://nusquama.vercel.app/policies/privacy.html
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 分類
+      description: 王の正誤表の分類です。迷うときは、近いものを選びます。
+      options:
+        - 事実
+        - 語（ラテン語を含む）
+        - 法
+        - 範囲
+        - 誤字
+        - 数
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: どこにあるか
+      description: 頁の URL か、リポジトリのファイル名と節。
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 何が誤りで、何が正しいか
+      description: 短くてかまいません。他人の個人情報は書かないでください。
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: 確かめた先
+      description: 辞書・資料・条文など。なければ空のままでかまいません。
+    validations:
+      required: false

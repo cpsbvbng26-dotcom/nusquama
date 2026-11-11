@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-09.
+Last updated: 2026-11-11.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -33,9 +33,16 @@ Issues are also subject to GitHub's Terms of Service and Privacy Statement.
 When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and opens the link to the correction once.
 For the link, it looks only at the status of the response, which shows whether the link opens. It does not read what is there, and keeps nothing of it.
 
+## What a report of a mistake involves
+
+Reports of mistakes in the King's texts are received as public issues on GitHub (United States), through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml).
+A report involves the GitHub account name and what the report says.
+These are public in the issue. The King's errata do not name the person who reported the mistake.
+No real name, address, affiliation or contact details are asked for, and the form asks reporters not to write them.
+
 ## Purposes of use
 
-To decide on knighting, to keep the roll, and to answer requests. Nothing else.
+To decide on knighting, to keep the roll, to answer requests, and to check reported mistakes and record them in the King's errata. Nothing else.
 
 ## Providing data to others, and businesses in other countries
 
