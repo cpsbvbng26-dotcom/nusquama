@@ -110,7 +110,9 @@
       "name": "民法",
       "label": "第548条の2",
       "law_id": "129AC0000000089",
-      "article": "548_2"
+      "article": "548_2",
+      "title": "民法",
+      "sha256": "a8d84ebb66e26efe68e987db813a466f35c1996a2c852ccc7788d067f33d3d2e"
     },
     {
       "name": "特定商取引法",
