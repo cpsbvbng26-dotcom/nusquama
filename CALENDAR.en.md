@@ -16,7 +16,7 @@ No knight, and no one else, is required to do anything.
 
 ## Importing the calendar
 
-The days are also served as an [iCalendar file](calendar.ics). Imported into a calendar app, it shows the days every year.
+The days are also served as an [iCalendar file](site/calendar.ics). Imported into a calendar app, it shows the days every year.
 They come in as all-day days that do not block time, and each says that it is an anniversary within the fiction and not a real public holiday.
 
 ## Spending the days

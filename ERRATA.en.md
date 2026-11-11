@@ -66,7 +66,7 @@ The name of each isle is the Latin insula ("isle") followed by the genitive of a
 <!-- map -->
 
 Each parcel links to its entry.
-The image of the map is [territory.svg](territory.svg). Like the text and the emblem, it is under CC BY 4.0 and may be used as it is.
+The image of the map is [territory.svg](site/territory.svg). Like the text and the emblem, it is under CC BY 4.0 and may be used as it is.
 
 ## Growth of the domain
 

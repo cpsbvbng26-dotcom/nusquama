@@ -64,7 +64,7 @@ MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあり
 <!-- map -->
 
 区画を押すと、その正誤の頁へ移ります。
-地図の画像は [territory.svg](territory.svg) です。文と国章と同じく CC BY 4.0 で、そのまま使えます。
+地図の画像は [territory.svg](site/territory.svg) です。文と国章と同じく CC BY 4.0 で、そのまま使えます。
 
 ## 版図の広がり
 
