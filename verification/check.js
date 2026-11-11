@@ -795,6 +795,56 @@ console.log('\n33. 頁の形（読み上げと印刷）');
   ok('印刷のときは、案内と下の欄を隠し、外へのリンクの所在を書き出す', /@media print \{[^}]*\.skip, footer ul/.test(read('site/index.html')) && read('site/index.html').includes('content: " <" attr(href) ">"'));
 }
 
+console.log('\n34. 条文の引用と、規程の外の行い');
+{
+  const crypto = require('crypto');
+  const conf = JSON.parse(read('verification/statutes.json'));
+  const texts = JSON.parse(read('verification/statutes-texts.json'));
+  const prim = JSON.parse(read('verification/sources.json'));
+  const raw = JSON.parse(read('verification/sources-raw.json'));
+  const unhtml = (x) => x.replace(/<br>\n?/g, ' ').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  // 引く日本の条文は、見張りが記した文そのもの（SHA-256 が記した値と同じ）。
+  const badHash = conf.statutes.filter((e) => !texts[e.name + ' ' + e.label] || crypto.createHash('sha256').update(texts[e.name + ' ' + e.label], 'utf8').digest('hex') !== e.sha256).map((e) => e.name + ' ' + e.label);
+  ok('引く日本の条文（' + conf.statutes.length + '）は、見張りが記した値と同じ文', badHash.length === 0, badHash.join(' / '));
+  // 外国の一次資料の引用は、取り寄せた文にそのまま現れる（閉じ括弧と句読点の前の空白だけを詰める）。
+  const squeeze = (x) => x.replace(/ ([).,;])/g, '$1');
+  const badQuote = Object.entries(prim.sources).filter(([k, v]) => !raw.sources[v.from] || !(raw.sources[v.from].windows || []).some((w) => squeeze(w).includes(v.quote))).map(([k]) => k);
+  ok('外国の一次資料の引用（' + Object.keys(prim.sources).length + '）は、取り寄せた文にそのまま現れ、取り寄せた日が頁の断りと同じ',
+    badQuote.length === 0 && prim.fetched === raw.fetched && read('policies/legality.md').includes(prim.fetched + ' に取り寄せた文から引き') && read('policies/legality.en.md').includes('fetched on ' + prim.fetched), badQuote.join(' / '));
+  // 見出しに挙げた条は、その節の終わりにすべて引く。英語の頁も同じ印を持つ。
+  const leg = read('policies/legality.md'), legEn = read('policies/legality.en.md');
+  const marks = (t) => [...t.matchAll(/<!-- 条文 (.+?) -->/g)].map((m) => m[1]);
+  const missing = [];
+  for (const sec of leg.split('\n### ').slice(1)) {
+    const head = sec.split('\n')[0];
+    const cited = ((/（([^）]*第[^）]*)）/.exec(head) || [])[1] || '').split('、').filter((x) => /第/.test(x)).flatMap((part) => {
+      const m = /^(.+?)(第.+)$/.exec(part);
+      const pieces = m[2].split('・');
+      return pieces.every((x) => /^第.+条$/.test(x)) ? pieces.map((x) => m[1] + ' ' + x) : [m[1] + ' ' + m[2]];
+    });
+    const quoted = marks(sec.split('\n## ')[0]).join('、').split('、');
+    for (const c of cited) if (!quoted.includes(c)) missing.push(c);
+  }
+  ok('見出しに挙げた条は、その節の終わりにすべて引き、英語の頁も同じ印を持つ', missing.length === 0 && marks(leg).join('|') === marks(legEn).join('|') && marks(leg).length >= 16, missing.join(' / '));
+  // 生成された頁の引用は、記した文と同じ（行を改めただけ）。
+  const page = read('site/policies/legality.html');
+  const blocks = [...page.matchAll(/<summary>条文　(.+?)<\/summary><blockquote lang="ja"><p>([\s\S]*?)<\/p><\/blockquote>/g)];
+  const badPage = blocks.filter(([, k, b]) => unhtml(b) !== texts[unhtml(k)]).map(([, k]) => k);
+  const foreign = [...page.matchAll(/<summary>原文　[\s\S]*?<blockquote lang="(?:en|it)"><p>([\s\S]*?)<\/p><\/blockquote>/g)].map((m) => unhtml(m[1]));
+  const allKeys = marks(leg).join('、').split('、');
+  ok('生成された頁は、日本の条文（' + blocks.length + '）と外国の文（' + foreign.length + '）を、記した文のまま引く',
+    badPage.length === 0 && blocks.length + foreign.length === allKeys.length && foreign.every((q) => Object.values(prim.sources).some((v) => v.quote === q)), badPage.join(' / '));
+  // 規程の外の行いの表と、責任の文。
+  const rowsIn = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return t.slice(i, j).split('\n').filter((l) => /^\| [^-]/.test(l)).length - 1; };
+  const nJa = rowsIn(leg, '規程の外で、要件に近づく行い'), nEn = rowsIn(legEn, 'Acts outside the rules that come near a law\'s elements');
+  ok('規程の外で要件に近づく行いの表（' + nJa + ' 行）が日本語と英語でそろい、責任は行った本人にあり、法令が運営者に責任を負わせる場合を除かない',
+    nJa >= 8 && nJa === nEn
+    && leg.includes('規程に反して、または規程の外で行われた行いの責任は、行った本人にあります。') && leg.includes('ただし、法令が運営者に責任を負わせる場合は、この限りではありません')
+    && legEn.includes('The responsibility for an act done against the rules, or outside them, lies with the person who did it.') && legEn.includes('This does not apply where the law makes the operator responsible')
+    && read('policies/disclaimer.md').includes('運営者は、法令が責任を負わせる場合を除き、そうした行いについて責任を負いません。')
+    && read('policies/disclaimer.en.md').includes('Except where the law makes the operator responsible, the operator is not responsible for such acts.'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
