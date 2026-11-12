@@ -27,6 +27,15 @@ Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses s
 This limit reduces the possibility that the article applies; it does not remove it ([Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 
+## Pause in receiving applications
+
+From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received. The owner decided this on 2026-11-12. The reason is that, in the period before the revised rules take effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained.
+The pause rests on the Terms of Use, "No ill intent, and obeying the law" (when a risk of breaking the law is found, that part is stopped first, then checked and corrected).
+An application issue opened during the pause gets a comment from the automatic check saying that applications are paused, and is closed as not accepted. The link to the correction is not opened.
+From 00:00 on 2026-11-22 (Japan time), receiving resumes without anyone acting, and the revised rules are checked. An issue opened during the pause is not reopened; the applicant opens a new issue.
+Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used, so that the pause depends on dates only and waits for no one.
+On 2026-11-12, when the pause was decided, there were no open applications for knighting, and there was no knight on the roll.
+
 ## The premise of good sense
 
 From 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play.
@@ -48,7 +57,7 @@ When revoking, the operator writes in the application issue only which rule was 
 
 Vercel, which serves the site, and GitHub, which keeps the applications, may use what is placed on them to train AI models. If you are worried about your personal data, do not apply. These uses are described in [Privacy](./privacy.en.md).
 
-1. Open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml).
+1. From 00:00 on 2026-11-22 (Japan time), open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml) (before then, applications are not received under "Pause in receiving applications").
 2. Give a public link to the correction, and say what was wrong and how you corrected it.
 3. Tick every one of the pledges.
 
@@ -87,6 +96,7 @@ No knighthood is given for:
 - Anything that cannot be checked (something not public, or a link that does not open).
 - Anything that falls under "What is not allowed" in the Terms of Use.
 - An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
+- An application opened from 2026-11-12 until 00:00 on 2026-11-22 (Japan time) ("Pause in receiving applications").
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
