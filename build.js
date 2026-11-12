@@ -42,6 +42,11 @@ const GENERATED = /^(territory(-\d{4})?\.svg|calendar\.ics|(errata|gazette|story
 const NOTICE = 'これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。';
 const NOTICE_EN = 'This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.';
 
+/* どの頁の下の欄にも出す一文。この国は運営者の研究とは別のもので、その一部ではない（免責事項「運営者の研究との関係」）。
+ * 研究の系列の名もリンクも書かない（決めごと 4）。 */
+const SEPARATE = 'ヌスクァマは、運営者の研究とは別のもので、その一部ではありません。';
+const SEPARATE_EN = "Nusquama is separate from the operator's research and is not part of it.";
+
 /* 文書の安全のヘッダー。<meta> では出せない frame-ancestors などを Vercel に出させる。 */
 const HEADERS = [{
   source: '/(.*)',
@@ -674,9 +679,11 @@ ${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTIC
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
 ${en ? `<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King. Contact: <a href="${pre}policies/requests.en.html">Requests</a>, <a href="${REPO}/issues/new?template=error.yml">Report a mistake</a>, <a href="${REPO}/blob/main/SECURITY.md">Reporting a security issue</a>. Disclaimer: <a href="${pre}policies/disclaimer.en.html">Disclaimer</a>.</p>
 <p>Text and emblem: CC BY 4.0. This page is generated from ${esc(srcRel)} in the repository. The Japanese version governs.</p>
-<p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>` : `<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="${pre}policies/requests.html">削除・訂正・辞退の求め</a>、<a href="${REPO}/issues/new?template=error.yml">誤りの知らせ</a>、<a href="${REPO}/blob/main/SECURITY.md">安全の問題の知らせ方</a>で受けます。免責は、<a href="${pre}policies/disclaimer.html">免責事項</a>にあります。</p>
+<p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>
+<p>${SEPARATE_EN}</p>` : `<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="${pre}policies/requests.html">削除・訂正・辞退の求め</a>、<a href="${REPO}/issues/new?template=error.yml">誤りの知らせ</a>、<a href="${REPO}/blob/main/SECURITY.md">安全の問題の知らせ方</a>で受けます。免責は、<a href="${pre}policies/disclaimer.html">免責事項</a>にあります。</p>
 <p>文と国章は CC BY 4.0 です。この頁は、リポジトリの ${esc(srcRel)} から生成しています。</p>
-<p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>`}
+<p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
+<p>${SEPARATE}</p>`}
 </footer>
 </body>
 </html>
@@ -791,7 +798,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { NAME, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { NAME, SEPARATE, SEPARATE_EN, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
