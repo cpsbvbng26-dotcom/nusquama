@@ -188,6 +188,7 @@ Some things will not grow, even in ten years.
 - No land, currency, passports, certificates or objects will be made.
 - No ranks will be added. There is only one: knight.
 - Requests from people who live outside Japan, or who are outside Japan when applying, will not be accepted until the laws of that country have been checked.
+- Applications from people who hold Italian nationality will not be accepted.
 
 Some things will go on.
 
