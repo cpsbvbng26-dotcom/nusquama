@@ -13,7 +13,7 @@
  "keywords": {
   "honours": {
    "en": "(?<![\\p{L}])(?:titles? of nobility|nobility|noble titles?|hereditary titles?|peerages?|knighthoods?|knights?|chivalry|decorations?|insignia|medals?|honou?rs|honorary titles?|titles? of honou?r|orders? of (?:merit|chivalry|knighthood)|state awards?|honorary distinctions?|distinctions? of honou?r|dignit(?:y|ies) or titles?|uniforms?)(?![\\p{L}])",
-   "es": "(?<![\\p{L}])(?:nobleza|nobiliari\\p{L}*|t[íi]tulos? (?:de nobleza|nobiliari\\p{L}*|honor[íi]fic\\p{L}*|de honor)|condecoraci\\p{L}*|honores|distinciones honor[íi]ficas|[óo]rdenes (?:honor[íi]fic\\p{L}*|de caballer\\p{L}*)|caballer\\p{L}*|insignias?|medallas?|uniformes?)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:nobleza|nobiliari\\p{L}*|t[íi]tulos? (?:de nobleza|nobiliari\\p{L}*|honor[íi]fic\\p{L}*|de honor)|condecoraci\\p{L}*|honores|distinciones honor[íi]ficas|[óo]rdenes (?:honor[íi]fic\\p{L}*|de caballer\\p{L}*)|caballer(?:o|os|esc\\p{L}*)|insignias?|medallas?|uniformes?)(?![\\p{L}])",
    "pt": "(?<![\\p{L}])(?:nobreza|nobili[áa]rqu\\p{L}*|t[íi]tulos? (?:de nobreza|nobili\\p{L}*|honor[íi]fic\\p{L}*)|condecora\\p{L}*|honrarias?|ordens honor[íi]ficas|ins[íi]gnias?|medalhas?|cavaleir\\p{L}*|uniformes?)(?![\\p{L}])",
    "fr": "(?<![\\p{L}])(?:noblesse|nobiliaires?|titres? (?:de noblesse|nobiliaires?|honorifiques?)|d[ée]corations?|distinctions? honorifiques?|ordres? (?:nationaux|national|honorifiques?|de chevalerie)|chevaleries?|chevaliers?|insignes?|m[ée]dailles?|l[ée]gion d.honneur|uniformes?)(?![\\p{L}])",
    "it": "(?<![\\p{L}])(?:nobiliar\\p{L}*|nobilt[àa]|titoli (?:nobiliari|onorifici|cavallereschi)|onorificenz\\p{L}*|decorazion\\p{L}*|distinzion\\p{L}* cavallere\\p{L}*|cavalier\\p{L}*|insegne|medagli\\p{L}*|ordini cavallereschi|uniform\\p{L}*)(?![\\p{L}])",
@@ -111,15 +111,15 @@
   }
  },
  "keywords_dp": {
-  "en": "(?<![\\p{L}])(?:territor\\p{L}*|outside|abroad|foreign|overseas|not established|established in|representatives?|transfer\\p{L}*|cross-border|third countr\\p{L}*|child\\p{L}*|minors?|under the age|parental|guardians?|regist\\p{L}*|locali[sz]\\p{L}*|non-profit|not-for-profit|journalis\\p{L}*|academic)(?![\\p{L}])",
+  "en": "(?<![\\p{L}])(?:territorial scope|extra-?territorial\\p{L}*|outside (?:of )?(?:the )?(?:Union|Republic|Kingdom|country|territory|State|Philippines|India|Kenya|Singapore|Canada|Australia|New Zealand)|not established|established (?:in|outside)|designate[sd]? (?:a |an )?representatives?|representatives? (?:in|within) (?:the )?(?:Union|United Kingdom|Republic|country|territory|Kingdom)|transfer\\p{L}* (?:of )?(?:personal (?:data|information) )?(?:to|outside|abroad|across)|cross-border|third countr\\p{L}*|overseas|abroad|foreign (?:country|countries|jurisdiction|entit\\p{L}*|organi[sz]ation\\p{L}*|person\\p{L}*)|child\\p{L}*|minors?|under the age|parental|register(?:ed)? with|registration|locali[sz]\\p{L}*|journalis\\p{L}*|academic)(?![\\p{L}])",
   "ja": "外国|国外|域外|適用の範囲|適用除外|代理人|未成年|十六歳|十八歳|子ども|児童|学術研究|報道|著述|届出|定義",
-  "es": "(?<![\\p{L}])(?:transferencias?|internacional\\p{L}*|extranjer\\p{L}*|fuera del territorio|territori\\p{L}*|[áa]mbito|representante\\p{L}*|menor\\p{L}*|niñ\\p{L}*|adolescent\\p{L}*|registr\\p{L}*|period[íi]stic\\p{L}*|acad[ée]mic\\p{L}*)(?![\\p{L}])",
-  "pt": "(?<![\\p{L}])(?:transfer[êe]ncia\\p{L}*|internacional|estrangeir\\p{L}*|territ[óo]rio|[âa]mbito|representante\\p{L}*|encarregado|crian[çc]a\\p{L}*|adolescente\\p{L}*|registro\\p{L}*|jornal[íi]stic\\p{L}*|acad[êe]mic\\p{L}*)(?![\\p{L}])",
-  "fr": "(?<![\\p{L}])(?:transferts?|pays tiers|hors (?:du territoire|de la principaut[ée]|de l.Union)|[ée]tabli\\p{L}*|territori\\p{L}*|repr[ée]sentant\\p{L}*|mineur\\p{L}*|enfants?|[âa]ge|d[ée]claration\\p{L}*|journalisti\\p{L}*|universitaire\\p{L}*)(?![\\p{L}])",
-  "de": "(?<![\\p{L}])(?:Anwendungsbereich|Drittl[aä]nd\\p{L}*|Übermittlung\\p{L}*|Vertreter\\p{L}*|Kind\\p{L}*|[Mm]inderjährig\\p{L}*|außerhalb|niedergelassen\\p{L}*|Niederlassung\\p{L}*|journalistisch\\p{L}*)(?![\\p{L}])",
-  "nl": "(?<![\\p{L}])(?:toepassingsgebied|derde land\\p{L}*|doorgifte|vertegenwoordiger\\p{L}*|kind\\p{L}*|minderjarig\\p{L}*|jonger dan|journalisti\\p{L}*|wetenschappelijk\\p{L}*)(?![\\p{L}])",
-  "nb": "(?<![\\p{L}])(?:virkeområde|stedlig\\p{L}*|tredjeland\\p{L}*|overføring\\p{L}*|representant\\p{L}*|barn|mindreårig\\p{L}*|journalisti\\p{L}*)(?![\\p{L}])",
-  "ru": "(?<![\\p{L}])(?:территори\\p{L}*|за пределами|трансграничн\\p{L}*|иностран\\p{L}*|представител\\p{L}*|несовершеннолет\\p{L}*|ребен\\p{L}*|граждан\\p{L}* Российской Федерации|баз\\p{L}* данных)(?![\\p{L}])"
+  "es": "(?<![\\p{L}])(?:transferencias? internacional\\p{L}*|fuera del territorio|[áa]mbito (?:territorial|de aplicaci[óo]n)|no establecid\\p{L}*|establecid\\p{L}* fuera|representante\\p{L}* (?:en|del responsable)|menor\\p{L}* de (?:edad|\\d+)|niñ\\p{L}*|adolescent\\p{L}*|registr\\p{L}* (?:de|ante) (?:la|el)|period[íi]stic\\p{L}*|extranjer\\p{L}*)(?![\\p{L}])",
+  "pt": "(?<![\\p{L}])(?:transfer[êe]ncia internacional|territ[óo]rio nacional|[âa]mbito|estrangeir\\p{L}*|representante\\p{L}*|encarregado|crian[çc]a\\p{L}*|adolescente\\p{L}*|jornal[íi]stic\\p{L}*|acad[êe]mic\\p{L}*)(?![\\p{L}])",
+  "fr": "(?<![\\p{L}])(?:transferts?|pays tiers|hors (?:du territoire|de la principaut[ée]|de l.Union)|(?:non )?[ée]tabli\\p{L}* (?:sur le territoire|hors|dans un)|champ d.application|repr[ée]sentant\\p{L}* (?:sur|dans|[ée]tabli)|mineur\\p{L}*|enfants?|journalisti\\p{L}*)(?![\\p{L}])",
+  "de": "(?<![\\p{L}])(?:Anwendungsbereich|Drittl[aä]nd\\p{L}*|Vertreter\\p{L}* (?:in|im|innerhalb)|[Mm]inderjährig\\p{L}*|Kind\\p{L}*|außerhalb|niedergelassen\\p{L}*|journalistisch\\p{L}*)(?![\\p{L}])",
+  "nl": "(?<![\\p{L}])(?:toepassingsgebied|derde land\\p{L}*|doorgifte|vertegenwoordiger\\p{L}*|minderjarig\\p{L}*|jonger dan|kinderen|journalisti\\p{L}*)(?![\\p{L}])",
+  "nb": "(?<![\\p{L}])(?:virkeområde|stedlig\\p{L}*|tredjeland\\p{L}*|overføring\\p{L}* (?:til|av)|representant\\p{L}*|barn|mindreårig\\p{L}*|journalisti\\p{L}*)(?![\\p{L}])",
+  "ru": "(?<![\\p{L}])(?:территори\\p{L}* Российской|за пределами|трансграничн\\p{L}*|иностран\\p{L}* (?:государств\\p{L}*|лиц\\p{L}*|физическ\\p{L}*|юридическ\\p{L}*)|представител\\p{L}*|несовершеннолет\\p{L}*|граждан\\p{L}* Российской Федерации|баз\\p{L}* данных, находящ\\p{L}*)(?![\\p{L}])"
  },
  "constitute": {
   "names": {},
