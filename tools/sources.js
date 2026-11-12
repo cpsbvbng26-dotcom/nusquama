@@ -1,8 +1,18 @@
 #!/usr/bin/env node
-/* Fetches the foreign primary sources that the legality page quotes, and keeps the plain text around each
- * passage in verification/sources-raw.json, with the address, the HTTP status and the day it was fetched.
- * The quotations on the page are taken word for word from these windows, and verification/check.js
- * confirms that each quotation occurs in the window it names.
+/* Fetches the foreign primary sources that the legality page and the legal review quote, and records in
+ * verification/sources-raw.json the address, the HTTP status, the day, the length and the SHA-256 of the whole
+ * fetched text (the plain text this tool makes of the page).
+ *
+ * What is committed depends on who made the text (2026-11-12 に Claude が決めました):
+ * - whole: true marks a law, a treaty or an official text of a state organ (Copyright Act, Article 13). Its windows
+ *   around the needles are kept, as before.
+ * - Any other text (terms of service, guidance and explanations, lists made by other bodies) keeps only the passages
+ *   that verification/sources.json quotes from it ("spans"), and the passages a check relies on ("keep": from one
+ *   needle to the next). Its whole text is not committed.
+ * The whole text of every source and the windows around every needle are written to sources-full/, which the
+ * workflow keeps as an artifact of the run (.github/workflows/sources.yml), not in git.
+ * verification/check.js confirms that each quotation occurs in a window or a span, and that the SHA-256 recorded with
+ * the quotation in verification/sources.json is the SHA-256 of the text fetched now: a text that has changed fails.
  *
  * Run from GitHub Actions (the hosts are not reachable from every machine):
  *   node tools/sources.js
@@ -10,39 +20,45 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'verification', 'sources-raw.json');
+const FULL = process.env.SOURCES_FULL || path.join(ROOT, 'sources-full');
+const QUOTES = path.join(ROOT, 'verification', 'sources.json');
 const { pdfText } = require('./pdftext.js');
 
 const SOURCES = [
-  { key: 'montevideo', url: 'https://avalon.law.yale.edu/20th_century/intam03.asp', needles: ['ARTICLE 1', 'ARTICLE 3'] },
-  { key: 'gdpr', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679', needles: ['Territorial scope'] },
-  { key: 'gdpr-cellar', url: 'https://publications.europa.eu/resource/celex/32016R0679', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Territorial scope'] },
+  { key: 'montevideo', whole: true, url: 'https://avalon.law.yale.edu/20th_century/intam03.asp', needles: ['ARTICLE 1', 'ARTICLE 3'] },
+  { key: 'gdpr', whole: true, url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679', needles: ['Territorial scope'] },
+  { key: 'gdpr-cellar', whole: true, url: 'https://publications.europa.eu/resource/celex/32016R0679', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Territorial scope'] },
   { key: 'ccpa-oag', url: 'https://oag.ca.gov/privacy/ccpa', needles: ['for-profit', 'nonprofit', 'non-profit'] },
-  { key: 'italy', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8', needles: ['Art. 8', 'cavaliere', 'onorificenz'] },
-  { key: 'ccpa', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['Business'] },
+  { key: 'italy', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8', needles: ['Art. 8', 'cavaliere', 'onorificenz'] },
+  { key: 'ccpa', whole: true, url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['Business'] },
   { key: 'vercel', url: 'https://vercel.com/docs/limits/fair-use-guidelines', needles: ['commercial'] },
-  { key: 'gdpr-art27', url: 'https://publications.europa.eu/resource/celex/32016R0679', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Representatives of controllers or processors not established in the Union'] },
+  { key: 'gdpr-art27', whole: true, url: 'https://publications.europa.eu/resource/celex/32016R0679', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Representatives of controllers or processors not established in the Union'] },
   { key: 'vercel-terms', url: 'https://vercel.com/legal/terms', needles: ['Hobby', 'train', 'arbitration', 'AS IS'] },
-  /* Short windows: section 10.1 goes on to a contact address, which the scan of the repository (tools/scan.js) does not let in. */
+  /* Short windows: section 10.1 goes on to a contact address, which the scan of the repository (tools/scan.js) does not let in.
+   * The windows now go only to the artifact; the span kept in git is the quotation. */
   { key: 'vercel-terms-sections', url: 'https://vercel.com/legal/terms', needles: ['8. Acceptable Use', '10.1 General'], span: 600 },
   /* The Q&A numbers its questions in full-width characters (Ａ１－62). The answers are taken, not the table of contents. */
   { key: 'ppc-qa', url: 'https://www.ppc.go.jp/personalinfo/faq/APPI_QA/', needles: ['Ａ１－62 ', 'Ａ12－３ ', 'Ａ12－10 ', 'Ａ13－２ '] },
   /* The Penal Code is the annex of Royal Decree No. 1398 of 1930; its articles answer only under the annex's URN (…;1398:1~artN). */
-  { key: 'italy-cp-10', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10', needles: ['Art. 10.'] },
-  { key: 'italy-depenalizzazione', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2016-01-15;8~art1', needles: ['Art. 1', 'pena della multa o dell'] },
-  { key: 'egov', url: 'https://laws.e-gov.go.jp/law/140AC0000000045', needles: ['刑法'] },
+  { key: 'italy-cp-10', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10', needles: ['Art. 10.'] },
+  { key: 'italy-depenalizzazione', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2016-01-15;8~art1', needles: ['Art. 1', 'pena della multa o dell'] },
+  { key: 'egov', whole: true, url: 'https://laws.e-gov.go.jp/law/140AC0000000045', needles: ['刑法'] },
   /* 2026-11-12, the texts the legal review could not fetch, and the official guidance on the articles it relies on. */
-  { key: 'italy-cp-6', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art6', needles: ['Art. 6.'] },
-  { key: 'italy-cp-9', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art9', needles: ['Art. 9.'] },
-  { key: 'italy-178-art7', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art7', needles: ['Art. 7 I cittadini'] },
+  { key: 'italy-cp-6', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art6', needles: ['Art. 6.'] },
+  { key: 'italy-cp-9', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art9', needles: ['Art. 9.'] },
+  { key: 'italy-178-art7', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art7', needles: ['Art. 7 I cittadini'] },
   /* The annex of Legislative Decree No. 8 of 2016 (the laws excluded from decriminalisation), as published in the Gazzetta Ufficiale. */
-  { key: 'italy-depenalizzazione-allegato', url: 'https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=16G00011&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2016-01-22&art.progressivo=0', needles: ['ELENCO DELLE LEGGI'], span: 8000 },
+  { key: 'italy-depenalizzazione-allegato', whole: true, url: 'https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=16G00011&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2016-01-22&art.progressivo=0', needles: ['ELENCO DELLE LEGGI'], span: 8000 },
   { key: 'italy-pcm-uso', url: 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', needles: ['Uso delle onorificenze I cittadini'] },
   { key: 'italy-pcm-uso-archive', url: 'https://web.archive.org/web/2026/https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', needles: ['Uso delle onorificenze I cittadini'] },
-  { key: 'montevideo-parties', url: 'https://www.oas.org/juridico/english/sigs/a-40.html', needles: ['DEPOSITORY:', 'COUNTRY SIGNATURE'] },
+  /* A list made by the OAS, not by a state organ: the table of signatures and ratifications is kept, because a check
+   * relies on the whole table (Japan is not in it). */
+  { key: 'montevideo-parties', url: 'https://www.oas.org/juridico/english/sigs/a-40.html', needles: ['DEPOSITORY:', 'COUNTRY SIGNATURE'], keep: [['COUNTRY SIGNATURE', '*DECLARATIONS']] },
   /* leginfo answers machines with a challenge page (HTTP 403); the Internet Archive keeps the same page. */
-  { key: 'ccpa-archive', url: 'https://web.archive.org/web/2026/https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['“Business” means'] },
+  { key: 'ccpa-archive', whole: true, url: 'https://web.archive.org/web/2026/https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['“Business” means'] },
   { key: 'vercel-aup', url: 'https://vercel.com/legal/acceptable-use-policy', needles: ['Last Updated', '2. Prohibited Activities'] },
   { key: 'ppc-guideline-general', url: 'https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/', needles: ['ここでいう「事業の用に供している」の「事業」とは'] },
   { key: 'ppc-guideline-offshore', url: 'https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/', needles: ['5-1情報提供の方法', '（イ）当該外国の個人情報の保護に関する制度についての指標となり得る情報の存在', '5-3-2 提供先の第三者が講ずる個人情報の保護のための措置に関する情報が提供できない場合（規則第17条第4項関係） 規則第17条（第4項）'] },
@@ -63,10 +79,17 @@ const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<sty
   .replace(/&([aeiou])(grave|acute);/gi, (m, v, k) => v + (k.toLowerCase() === 'grave' ? '\u0300' : '\u0301')).normalize('NFC')
   .replace(/\s+/g, ' ').trim();
 
+const sha = (x) => crypto.createHash('sha256').update(x, 'utf8').digest('hex');
+/* The same squeezing as the check: the space before a closing bracket or a punctuation mark is taken out. */
+const squeeze = (x) => x.replace(/ ([).,;])/g, '$1');
+
 async function main() {
+  const quotes = JSON.parse(fs.readFileSync(QUOTES, 'utf8')).sources;
+  fs.mkdirSync(FULL, { recursive: true });
   const out = { fetched: new Date().toISOString().slice(0, 10), sources: {} };
+  const windows = {};
   for (const s of SOURCES) {
-    const r = { url: s.url };
+    const r = { url: s.url, whole: !!s.whole };
     try {
       /* Some official hosts drop a connection now and then; a failed connection is tried three times. */
       let res;
@@ -84,16 +107,32 @@ async function main() {
         text = plain(new TextDecoder(['sjis', 'x-sjis'].includes(cs) ? 'shift_jis' : cs).decode(bytes));
       }
       r.length = text.length;
-      r.windows = [];
+      r.sha256_full = sha(text);
+      fs.writeFileSync(path.join(FULL, s.key + '.txt'), text);
+      const ws = [];
       for (const n of s.needles) {
         let at = 0, k = 0;
-        while (k < 3 && (at = text.indexOf(n, at)) !== -1) { r.windows.push(text.slice(Math.max(0, at - 300), at + (s.span || 2500))); at += n.length; k++; }
+        while (k < 3 && (at = text.indexOf(n, at)) !== -1) { ws.push(text.slice(Math.max(0, at - 300), at + (s.span || 2500))); at += n.length; k++; }
       }
-      if (!r.windows.length) r.head = text.slice(0, 3000);
+      windows[s.key] = ws;
+      if (s.whole) r.windows = ws;
+      else {
+        /* Only what is quoted, and what a check relies on. */
+        const sq = squeeze(text);
+        const mine = Object.entries(quotes).filter(([, v]) => v.from === s.key);
+        r.spans = [];
+        for (const [, v] of mine) if (sq.includes(v.quote) && !r.spans.includes(v.quote)) r.spans.push(v.quote);
+        for (const [a, b] of s.keep || []) { const i = sq.indexOf(a), j = i < 0 ? -1 : sq.indexOf(b, i); if (i >= 0 && j > i) r.spans.push(sq.slice(i, j).trim()); }
+        const missing = mine.filter(([, v]) => !sq.includes(v.quote)).map(([k]) => k);
+        if (missing.length) r.missing = missing;
+      }
+      /* A page that answered with something else (a challenge page, an empty body): the start of it, short. */
+      if (!ws.length) r.head = text.slice(0, 300);
     } catch (e) { r.error = String(e.message || e); }
     out.sources[s.key] = r;
-    console.log(s.key, r.status || r.error, (r.windows || []).length);
+    console.log(s.key, r.status || r.error, (windows[s.key] || []).length, r.whole ? 'whole' : 'spans ' + (r.spans || []).length + (r.missing ? ' missing ' + r.missing.length : ''));
   }
+  fs.writeFileSync(path.join(FULL, 'windows.json'), JSON.stringify(windows, null, 2) + '\n');
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
 }
 main();

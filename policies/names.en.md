@@ -1,6 +1,6 @@
 # Names and rights
 
-Last updated: 2026-11-08.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
 
@@ -22,6 +22,7 @@ It does not copy the arms or insignia of any real state, royal house, order of k
 ## Licence
 
 The text and the emblem of Nusquama are published under CC BY 4.0 ([LICENSE](../LICENSE)).
+Third-party texts quoted or stored for verification are not under CC BY 4.0 and remain their owners'.
 Anyone may copy, adapt and redistribute them, with attribution.
 But CC BY 4.0 neither gives effect to the titles of Nusquama nor allows the emblem to be used as a real insignia.
 CC BY 4.0 allows only what copyright covers. It does not reach other rights such as trademarks, or limits set by other laws.

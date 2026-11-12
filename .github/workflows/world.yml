@@ -3,6 +3,8 @@ name: 各国の法令の取り寄せ
 # 各国の憲法と、ヌスクァマと Sophaxis に関わりうる法令の条を取り寄せ、条だけを抜き出して
 # verification/world/ に記す（tools/world.js）。地域ごとの組（batch）に分けて回し、組ごとにこの枝へ記す。
 # 手で動かすか、枝で verification/world/request.json を書き換えて動かす。main には直に入れない。
+# 私的な団体の文（Constitute Project の英訳など。verification/world/sources.json の spans_only）は、拠った箇所だけを
+# 記す。取り寄せた全文は、この実行の artifact（world-full）に残し、git には入れない。
 on:
   workflow_dispatch:
     inputs:
@@ -34,6 +36,12 @@ jobs:
       - run: node tools/world.js
         env:
           WORLD_BATCH: ${{ inputs.batch }}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: world-full
+          path: world-full/
+          retention-days: 90
+          if-no-files-found: ignore
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

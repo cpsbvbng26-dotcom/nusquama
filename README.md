@@ -152,6 +152,7 @@
 | 2026-11-12（日本時間） | 法令の点検で取り寄せられなかった文と、条文を解釈する公の文書を取り寄せ、適法性の説明のイタリアの刑法典・カリフォルニア州法・電気通信事業・米州機構の一覧についての文を改める。個人情報の取り扱いに、米国の制度についての個人情報保護委員会の調べと、両社の措置を確かめられないことを書き足す。叙任は勲章・栄典・騎士の位を授けるものではないと書き、「授ける称号」を「贈る騎士の呼び名」と改める | The texts the legal review could not fetch, and the official documents interpreting the articles, are fetched. The Legality Statement's sentences on the Italian Penal Code, the California statute, the telecommunications business and the OAS list are revised. The Privacy page adds the Personal Information Protection Commission's survey of the United States and that the measures of GitHub and Vercel cannot be confirmed. Knighting is stated not to confer a decoration, honour or rank of knighthood, and "the titles it gives" becomes "the name of knight it gives" |
 | 2026-11-12（日本時間） | 2026-11-22 0 時（日本時間）まで、叙任の願い出の受付を止める。叙任の規程に「受付の停止」の節を置き、そのあいだに開かれた願い出は自動の確認が停止を書いて閉じ、2026-11-22 0 時からひとりでに受付に戻る | Applications for knighting are paused until 00:00 on 2026-11-22 (Japan time). The Rules on Knighting gain a section "Pause in receiving applications"; an application opened during the pause gets a comment from the automatic check and is closed, and receiving resumes by itself at 00:00 on 2026-11-22 |
 | 2026-11-12（日本時間） | 各国の法令の調べを頁に当てはめる。叙任の規程・利用規約・様式に、2026-11-22 から外国の称号を受けることを縛る国の国籍を持つ人の願い出を受けないことと、騎士の呼び名をヌスクァマに関わることにだけ使うことを書き、利用規約で予告する。適法性の説明に刑法第233条を、削除・訂正・辞退の求めに、どの国の人の求めも同じ手順で受けることを足す | The survey of the world's laws is applied to the pages. The Rules on Knighting, the Terms of Use and the form state that, from 2026-11-22, applications from people who hold the nationality of a country that restricts accepting foreign titles are not accepted, and that the name of knight is used only in connection with Nusquama; the Terms of Use give notice of both. The Legality Statement adds Article 233 of the Penal Code, and the requests page says that requests from people in any country are received in the same way |
+| 2026-11-12（日本時間） | リポジトリに記す他人の文を減らす。法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所と全文の SHA-256 だけを記し、全文は取り寄せの実行の artifact に残す。README と名称と権利に、検証のために引いたり記したりした他人の文は CC BY 4.0 の対象ではないことを書き、適法性の説明の著作権の節を改める | Less of others' texts is kept in the repository: of texts other than laws, treaties and texts of state organs, only the passages quoted, the passages the checks rely on and the SHA-256 of the whole text are kept, and the whole texts stay in the artifact of the fetch run. The README and Names and rights state that third-party texts quoted or stored for verification are not under CC BY 4.0, and the copyright section of the Legality Statement is corrected |
 
 ---
 
@@ -186,6 +187,7 @@ English (translations; the Japanese version governs): [Founding Declaration, Bas
 ## ライセンスと開示
 
 文と国章は CC BY 4.0 です。
+検証のために引いたり記したりした他人の文は、CC BY 4.0 の対象ではなく、それぞれの権利者のものです。
 
 この国の文と国章は、王の求めにより Claude Code（Anthropic）で書きました。王が確かめ、責任を負います。
 Claude は騎士でも王でもありません。

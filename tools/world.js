@@ -7,6 +7,13 @@
  * Each kept provision carries its country, instrument, article, language, text, source address, the day it was
  * fetched and the SHA-256 of its text. verification/world/check.js confirms the hashes and the coverage table.
  *
+ * A source named in spans_only of verification/world/sources.json is a text made by a private body (the Constitute
+ * Project's English translations, a translation by a research institute). Its kept provisions do not carry the text:
+ * they carry its length, its SHA-256 and only the passages relied on ("spans"): each match of the keyword sets of the
+ * provision's topics, each match of the patterns of the rules in decisions.json (test and not), and each passage the
+ * records quote. The classification reads the spans joined by line ends. The whole texts go to world-full/, which the
+ * workflow keeps as an artifact of the run (.github/workflows/world.yml), not in git. 2026-11-12 に Claude が決めました。
+ *
  * The hosts are not reachable from every machine; the fetches run on GitHub Actions (.github/workflows/world.yml),
  * one batch (a region, Japan, or the instruments shared by several countries) at a time, one request after another.
  *
@@ -14,6 +21,8 @@
  *   WORLD_BATCH=europe:DEU,FRA node tools/world.js   only these countries of the batch
  *   WORLD_BATCH=src:GBR-honours node tools/world.js  only these sources
  *   node tools/world.js coverage                     rebuild verification/world/coverage.json from data/ (no fetch)
+ *   node tools/world.js spans                        replace the text of provisions of spans_only sources by their spans
+ *                                                    (only where the text is still there; a changed rule needs a new fetch)
  *   WORLD_BATCH=probe node tools/world.js            print what each address of request.json answers
  */
 'use strict';
@@ -26,6 +35,7 @@ const { scanText } = require('./scan.js');
 const ROOT = path.join(__dirname, '..');
 const DIR = path.join(ROOT, 'verification', 'world');
 const DATA = path.join(DIR, 'data');
+const FULL = process.env.WORLD_FULL || path.join(ROOT, 'world-full');
 const UA = 'nusquama-world-law-survey (+https://github.com/cpsbvbng26-dotcom/nusquama)';
 const DELAY = 2500;
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -271,6 +281,58 @@ function search(arts, lang, topics, s = {}) {
   return out;
 }
 
+/* ---- private texts: the spans relied on ---- */
+
+const SPANS_ONLY = CONF.spans_only || {};
+const RECORDS = ['docs/world-law-2026-11-12.md'];
+/* The passages the records quote: the quoted blocks and the quoted runs (「」, “”, "") of the records and of the reasons in
+ * decisions.json. A run counts where it occurs in the text. */
+function recordQuotes(D) {
+  const out = new Set();
+  const take = (t) => {
+    for (const m of t.matchAll(/^> (.+)$/gm)) out.add(m[1].trim());
+    for (const m of t.matchAll(/「([^」]{12,})」|“([^”]{12,})”|"([^"\n]{12,})"/g)) out.add((m[1] || m[2] || m[3]).trim());
+  };
+  for (const f of RECORDS) { const p = path.join(ROOT, f); if (fs.existsSync(p)) take(fs.readFileSync(p, 'utf8')); }
+  for (const d of Object.values((D || {}).provisions || {})) take(d.reason || '');
+  return [...out];
+}
+/* The patterns a provision's spans keep: the keyword sets of its topics, and every pattern of the rules. */
+function spanPatterns(p, s, D) {
+  const res = p.topics.map((t) => rx(t, p.lang, s)).filter(Boolean);
+  for (const r of (D || {}).rules || []) for (const k of ['test', 'not']) if (r[k]) res.push(new RegExp(r[k], 'iu'));
+  return res;
+}
+/* The spans of a text: every match of the patterns and every quoted passage, in order, overlaps merged. */
+function spansOf(text, patterns, quotes) {
+  const at = [];
+  for (const re of patterns) {
+    const g = new RegExp(re.source, re.flags.replace('g', '') + 'g');
+    let m;
+    while ((m = g.exec(text))) { if (!m[0].length) { g.lastIndex++; continue; } at.push([m.index, m.index + m[0].length]); }
+  }
+  for (const q of quotes) for (let i = text.indexOf(q); i !== -1; i = text.indexOf(q, i + 1)) at.push([i, i + q.length]);
+  at.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const merged = [];
+  for (const x of at) { const l = merged[merged.length - 1]; if (l && x[0] <= l[1]) l[1] = Math.max(l[1], x[1]); else merged.push(x.slice()); }
+  return merged.map(([a, b]) => text.slice(a, b));
+}
+/* What the classification and the checks read of a provision: its text, or its spans joined by line ends. */
+const body = (p) => (typeof p.text === 'string' ? p.text : (p.spans || []).join('\n'));
+/* A provision of a spans_only source, from its whole text. */
+function toSpans(p, text, s, D, quotes) {
+  const { text: _t, ...rest } = p;
+  return { ...rest, length: text.length, spans: spansOf(text, spanPatterns(p, s, D), quotes.filter((q) => text.includes(q))), sha256: sha(text) };
+}
+function saveFull(owner, rows) {
+  if (!rows.length) return;
+  fs.mkdirSync(FULL, { recursive: true });
+  const f = path.join(FULL, owner + '.json');
+  const all = fs.existsSync(f) ? readJSON(f) : {};
+  for (const [id, t] of rows) all[id] = t;
+  fs.writeFileSync(f, JSON.stringify(all, null, 1) + '\n');
+}
+
 /* ---- one source ---- */
 
 function split(s, text, pdf) {
@@ -374,12 +436,15 @@ function store(owner, id, s, rec, found) {
   d.provisions = d.provisions.filter((p) => p.source !== id);
   const seen = new Map();
   const url = Array.isArray(rec.final) ? rec.final[0] : rec.final;
+  const priv = id in SPANS_ONLY, D = priv ? readJSON(path.join(DIR, 'decisions.json')) : null, quotes = priv ? recordQuotes(D) : [], full = [];
   for (const f of found) {
     /* The constitution of every country has the source id "constitute"; its provisions carry the country in front. */
     let pid = (id === 'constitute' ? owner + ' constitution' : id) + ' ' + f.article + (f.part === 'article' ? '' : ' ¶' + f.part.split(' ')[1]);
     const n = (seen.get(pid) || 0) + 1; seen.set(pid, n); if (n > 1) pid += ' (' + n + ')';
-    d.provisions.push({ id: pid, source: id, country: owner, instrument: s.instrument, kind: rec.kind, article: f.article, ...(f.caption ? { caption: f.caption } : {}), part: f.part, lang: s.lang, topics: f.topics, text: f.text, ...(f.cut ? { cut: true } : {}), url, fetched: TODAY, sha256: sha(f.text) });
+    const p = { id: pid, source: id, country: owner, instrument: s.instrument, kind: rec.kind, article: f.article, ...(f.caption ? { caption: f.caption } : {}), part: f.part, lang: s.lang, topics: f.topics, text: f.text, ...(f.cut ? { cut: true } : {}), url, fetched: TODAY, sha256: sha(f.text) };
+    if (priv) { full.push([pid, f.text]); d.provisions.push(toSpans(p, f.text, s, D, quotes)); } else d.provisions.push(p);
   }
+  saveFull(owner, full);
   save(d);
 }
 
@@ -510,7 +575,7 @@ function classifyAll(data, D) {
   const out = {}, left = [];
   const EX = new Set(D.sophaxis_excluded || []);
   for (const d of Object.values(data)) for (const p of d.provisions) {
-    const text = (p.caption ? p.caption + ' ' : '') + p.text;
+    const text = (p.caption ? p.caption + ' ' : '') + body(p);
     const dec = (D.provisions || {})[p.id];
     if (dec && dec.sha256 === p.sha256) { const { reason, sha256, ...rest } = dec; out[p.id] = { by: 'read', ...rest }; continue; }
     const r = (D.rules || []).find((x) => (!x.kind || x.kind === p.kind) && (!x.topic || p.topics.includes(x.topic))
@@ -537,10 +602,30 @@ function classify() {
   return left;
 }
 
+/* The provisions of spans_only sources that still carry their text: the text is replaced by the spans. The source
+ * settings of a code come from sources.json; the constitutions are read with no settings of their own. */
+function toSpansAll() {
+  const D = readJSON(path.join(DIR, 'decisions.json'));
+  const quotes = recordQuotes(D);
+  let n = 0;
+  for (const f of fs.readdirSync(DATA).sort()) {
+    const d = readJSON(path.join(DATA, f));
+    let changed = false;
+    d.provisions = d.provisions.map((p) => {
+      if (!(p.source in SPANS_ONLY) || typeof p.text !== 'string') return p;
+      changed = true; n++;
+      return toSpans(p, p.text, CONF.codes.find((c) => c.id === p.source) || {}, D, quotes);
+    });
+    if (changed) save(d);
+  }
+  return n;
+}
+
 /* ---- main ---- */
 
 async function main() {
   if (process.argv[2] === 'coverage') { console.log(coverage().length + ' rows'); return; }
+  if (process.argv[2] === 'spans') { console.log(toSpansAll() + ' provisions now keep only their spans'); return; }
   if (process.argv[2] === 'classify') { const left = classify(); console.log(left.length + ' provisions without a classification'); if (process.argv[3]) fs.writeFileSync(process.argv[3], left.join('\n') + '\n'); return; }
   const req = readJSON(path.join(DIR, 'request.json'));
   const spec = process.env.WORLD_BATCH || req.batch;
@@ -562,5 +647,5 @@ async function main() {
   if (!consOnly) await codes(CONF.codes.filter((s) => single(s) && s.countries[0] !== 'JPN' && isos.includes(s.countries[0])));
 }
 
-module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, coverageText, classifyAll, TOPICS };
+module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, coverageText, classifyAll, TOPICS, spansOf, body, SPANS_ONLY };
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });

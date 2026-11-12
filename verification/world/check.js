@@ -8,6 +8,8 @@
  * - the list of countries is the 193 members of the United Nations and the 2 observer states, each once;
  * - every kept provision has its country, instrument, article, language, text, source address, day and SHA-256,
  *   and the SHA-256 is the hash of the text;
+ * - a provision of a source in spans_only (a text made by a private body) carries no text: only its length, the
+ *   SHA-256 of its whole text, and spans (the passages relied on) no longer than SPAN_MAX, shorter in all than the text;
  * - coverage.json is what tools/world.js makes from data/ (not edited by hand), with one row for each of the 195,
  *   and "none found" only where a fetched text was searched for that topic;
  * - every kept provision has a classification with a reason (a rule, or a decision made on the same text, the same
@@ -25,6 +27,8 @@ const DIR = __dirname;
 const sha = (x) => crypto.createHash('sha256').update(x, 'utf8').digest('hex');
 const RECORD = 'docs/world-law-2026-11-12.md';
 const CLASSES = ['applies', 'could apply', 'does not apply'];
+/* The longest passage a provision of a private text may keep (the longest match of a rule's pattern is shorter). */
+const SPAN_MAX = 400;
 
 function state() {
   const rd = (f) => fs.readFileSync(path.join(DIR, f), 'utf8');
@@ -70,20 +74,36 @@ function verdict(S, coverageOf, classesOf) {
   if (S.countries.length !== 195 || members !== 193 || observers !== 2 || new Set(isos).size !== 195 || !isos.every((i) => /^[A-Z]{3}$/.test(i))) bad.push('国の一覧が加盟国 193 とオブザーバー 2 ではない（' + members + ' と ' + observers + '）');
   /* The provisions. */
   const ids = new Set();
-  const need = ['id', 'source', 'country', 'instrument', 'article', 'lang', 'text', 'url', 'fetched', 'sha256'];
+  const need = ['id', 'source', 'country', 'instrument', 'article', 'lang', 'url', 'fetched', 'sha256'];
+  const PRIV = S.sources.spans_only || {};
+  let privAll = 0, privKept = 0;
+  if (!PRIV.constitute) bad.push('Constitute Project の英語の文を、拠った箇所だけを記す出典に挙げていない');
   for (const [f, d] of Object.entries(S.data)) {
     if (f !== d.country + '.json') bad.push(f + '：ファイルの名と国が違う');
     if (!d.country.startsWith('_') && !isos.includes(d.country)) bad.push(f + '：一覧にない国');
     for (const p of d.provisions) {
       const miss = need.filter((k) => typeof p[k] !== 'string' || !p[k]);
       if (miss.length) bad.push(p.id + '：欄がない（' + miss.join('・') + '）');
-      if (sha(p.text || '') !== p.sha256) bad.push(p.id + '：SHA-256 が文と合わない');
+      if (p.source in PRIV) {
+        /* A private text: no text in git, only the spans relied on, each short, and shorter in all than the text. */
+        const sp = p.spans;
+        if ('text' in p) bad.push(p.id + '：私的な団体の文の全文を記している');
+        if (!Array.isArray(sp) || !sp.length || !sp.every((x) => typeof x === 'string' && x.length > 0 && x.length <= SPAN_MAX && !x.includes('\n'))) bad.push(p.id + '：拠った箇所の形が違う（空か、' + SPAN_MAX + ' 字を超える）');
+        else if (!Number.isInteger(p.length) || sp.join('').length > p.length) bad.push(p.id + '：拠った箇所が文の長さを超える');
+        else { privAll += p.length; privKept += sp.join('').length; }
+        if (!/^[0-9a-f]{64}$/.test(p.sha256 || '')) bad.push(p.id + '：全文の SHA-256 の形が違う');
+      } else {
+        if (typeof p.text !== 'string' || !p.text) bad.push(p.id + '：欄がない（text）');
+        if (sha(p.text || '') !== p.sha256) bad.push(p.id + '：SHA-256 が文と合わない');
+      }
       if (ids.has(p.id)) bad.push(p.id + '：同じ識別子が二つある');
       ids.add(p.id);
       if (!d.sources[p.source] || d.sources[p.source].error) bad.push(p.id + '：取り寄せた記録のない出典');
       if (!/^https?:\/\//.test(p.url || '') || !/^\d{4}-\d{2}-\d{2}$/.test(p.fetched || '')) bad.push(p.id + '：所在か日付の形が違う');
     }
   }
+  /* In all, the spans kept of the private texts are less than a tenth of their length. */
+  if (privAll && privKept * 10 >= privAll) bad.push('私的な団体の文から記した箇所が、全文の一割を超える（' + privKept + ' / ' + privAll + ' 字）');
   /* The coverage table. */
   if (S.coverage !== coverageOf(S)) bad.push('coverage.json が data/ から作ったものと違う（手で直したか、作り直していない）');
   const rows = JSON.parse(S.coverage).countries;
@@ -144,7 +164,8 @@ function run(ok) {
   ok('各国の法令の調べ：195 の国の一覧、当たった ' + n.provisions + ' 件の条の SHA-256、網羅の表（data/ から作ったまま）、分類と計画、記録の数がそろう', bad.length === 0, bad.slice(0, 12).join(' / ') + (bad.length > 12 ? ' ほか ' + (bad.length - 12) + ' 件' : ''));
   /* Break tests: each change must make the verdict fail. */
   const clone = () => JSON.parse(JSON.stringify(Object.assign({}, S, { coverage: S.coverage, record: S.record })));
-  const first = (T) => Object.values(T.data).find((d) => d.provisions.length);
+  const first = (T) => Object.values(T.data).find((d) => d.provisions.length && 'text' in d.provisions[0]);
+  const priv = (T) => Object.values(T.data).flatMap((d) => d.provisions).find((p) => p.source === 'constitute');
   const breaks = [
     ['条の文を一字変える', (T) => { const p = first(T).provisions[0]; p.text = p.text.replace(/.$/, 'X'); }],
     ['条の SHA-256 を変える', (T) => { first(T).provisions[0].sha256 = '0'.repeat(64); }],
@@ -160,10 +181,15 @@ function run(ok) {
     ['一つずつ読んだ決めの元の文の値を変える', (T) => { const k = Object.keys(T.decisions.provisions)[0]; T.decisions.provisions[k].sha256 = '0'.repeat(64); }],
     ['記録の条の数を変える', (T) => { T.record = T.record.replace('当たった条は ' + n.provisions + ' 件', '当たった条は ' + (n.provisions + 1) + ' 件'); }],
     ['記録から弁護士の文を消す', (T) => { T.record = T.record.split('弁護士の確認は受けていません。').join(''); }],
+    ['私的な団体の訳の条に全文を戻す', (T) => { const p = priv(T); p.text = p.spans.join(' ') + ' and the rest of the article'; }],
+    ['私的な団体の訳の条の拠った箇所を、上限より長くする', (T) => { const p = priv(T); p.spans[0] = p.spans[0] + ' '.repeat(SPAN_MAX); }],
+    ['私的な団体の訳の条の拠った箇所を、全体で一割を超えるまで増やす', (T) => { for (const p of Object.values(T.data).flatMap((d) => d.provisions).filter((q) => q.source === 'constitute')) { const room = Math.min(SPAN_MAX, p.length - p.spans.join('').length); if (room > 0) p.spans.push('y'.repeat(room)); } }],
+    ['私的な団体の訳の条の拠った箇所を消す', (T) => { delete priv(T).spans; }],
+    ['Constitute を、拠った箇所だけを記す出典から外す', (T) => { delete T.sources.spans_only.constitute; }],
     ['称号の条の一つずつ読んだ決めを消し、型で「当たりうる」に戻す', (T) => { const k = Object.keys(T.decisions.provisions).find((x) => T.decisions.provisions[x].class === 'could apply' && /constitution/.test(x) && T.decisions.provisions[x].project === 'Nusquama'); delete T.decisions.provisions[k]; T.classes.provisions = classesOf(T); T.record = T.record.replace(/「当たりうる」が \d+ 件/, '「当たりうる」が ' + counts(T).could + ' 件'); }],
   ];
   const caught = breaks.filter(([, f]) => { const T = clone(); f(T); return verdict(T, coverageOf, classesOf).length > 0; }).map(([k]) => k);
-  ok('各国の法令の調べを壊して確かめる：文・値・所在・国・網羅の行・見当たらないの偽り・取り寄せの失敗・分類・計画・記録の数・弁護士の文・型だけで分けた称号の条のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+  ok('各国の法令の調べを壊して確かめる：文・値・所在・国・網羅の行・見当たらないの偽り・取り寄せの失敗・分類・計画・記録の数・弁護士の文・私的な訳の全文と拠った箇所・型だけで分けた称号の条のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 module.exports = { run, verdict, counts, state };
