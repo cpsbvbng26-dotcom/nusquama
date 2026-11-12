@@ -417,6 +417,14 @@ async function probe(urls) {
     if (r.error) { console.log('PROBE', u, 'ERROR', r.error); continue; }
     const t = decode(r).text;
     console.log('PROBE', u, r.status, r.type, r.final === u ? '' : '-> ' + r.final, 'bytes=' + r.bytes.length);
+    if (process.env.PROBE_SPLIT) {
+      const h = JSON.parse(t).html || '';
+      const arts = splitConstitute(h);
+      console.log('  ARTS ' + arts.length + ' ' + arts.slice(0, 15).map((a) => a.label).join(' | '));
+      const tags = [...h.matchAll(/<(h[1-6]|p)(\s[^>]*)?>([\s\S]{0,60})/g)].slice(0, 40).map((m) => m[1] + (m[2] || '').slice(0, 25) + ':' + flat(m[3]).slice(0, 30));
+      console.log('  TAGS ' + tags.join(' || '));
+      continue;
+    }
     const body = process.env.RAW ? t.replace(/\s+/g, ' ') : flat(t);
     const from = process.env.RAW_FIND ? Math.max(0, body.indexOf(process.env.RAW_FIND) - 300) : +(process.env.RAW_FROM || 0);
     console.log('  HEAD ' + body.slice(from, from + +(process.env.RAW_LEN || 400)));
