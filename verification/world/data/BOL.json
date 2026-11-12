@@ -1,0 +1,9 @@
+{
+ "country": "BOL",
+ "sources": {
+  "constitute": {"instrument":"Bolivia (Plurinational State of) 2009","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Bolivia_2009&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Bolivia_2009&lang=en","status":200,"length":258175,"sha256_full":"68708d9d1152a8bcca0105e08e5cfa3e99c63e2759d18bb26dee2f2b374c76c8","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Bolivia_2009","title":"Bolivia (Plurinational State of) 2009","year_enacted":"2009","year_updated":null,"page":"https://www.constituteproject.org/constitution/Bolivia_2009?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

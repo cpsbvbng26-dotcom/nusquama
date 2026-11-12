@@ -1,0 +1,9 @@
+{
+ "country": "HND",
+ "sources": {
+  "constitute": {"instrument":"Honduras 1982 (rev. 2013)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Honduras_2013&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Honduras_2013&lang=en","status":200,"length":168227,"sha256_full":"bb7346e020dc18cda27376e7461d104017c028c836215f595d347381a016f847","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Honduras_2013","title":"Honduras 1982 (rev. 2013)","year_enacted":"1982","year_updated":"2013","page":"https://www.constituteproject.org/constitution/Honduras_2013?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "country": "GTM",
+ "sources": {
+  "constitute": {"instrument":"Guatemala 1985 (rev. 1993)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Guatemala_1993&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Guatemala_1993&lang=en","status":200,"length":191527,"sha256_full":"07f0dfc3b95829a491301bae04c6b348e2979eb3e63b123621754c44e1e90d4e","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Guatemala_1993","title":"Guatemala 1985 (rev. 1993)","year_enacted":"1985","year_updated":"1993","page":"https://www.constituteproject.org/constitution/Guatemala_1993?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

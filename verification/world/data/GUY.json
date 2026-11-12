@@ -1,0 +1,9 @@
+{
+ "country": "GUY",
+ "sources": {
+  "constitute": {"instrument":"Guyana 1980 (rev. 2016)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Guyana_2016&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Guyana_2016&lang=en","status":200,"length":309002,"sha256_full":"6d020343cbb6630201d7924c50eefb42c5a575834b5835230c084eb4d01c342b","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Guyana_2016","title":"Guyana 1980 (rev. 2016)","year_enacted":"1980","year_updated":"2016","page":"https://www.constituteproject.org/constitution/Guyana_2016?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

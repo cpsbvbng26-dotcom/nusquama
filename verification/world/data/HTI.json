@@ -1,0 +1,10 @@
+{
+ "country": "HTI",
+ "sources": {
+  "constitute": {"instrument":"Haiti 1987 (rev. 2012)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Haiti_2012&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Haiti_2012&lang=en","status":200,"length":119641,"sha256_full":"62605acb2e7cf9ec1978cd6b3508996a44809a1c3637692f8e0f3895fc9c942f","articles":117,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Haiti_2012","title":"Haiti 1987 (rev. 2012)","year_enacted":"1987","year_updated":"2012","page":"https://www.constituteproject.org/constitution/Haiti_2012?lang=en"}
+ },
+ "provisions": [
+  {"id":"constitute Article 263-2","source":"constitute","country":"HTI","instrument":"Haiti 1987 (rev. 2012)","kind":"constitution","article":"Article 263-2","part":"article","lang":"en","topics":["symbols"],"text":"All members of the police and armed forces shall take an oath of allegiance and respect for the Constitution and the flag at the time of their enlistment.","url":"https://www.constituteproject.org/service/html?cons_id=Haiti_2012&lang=en","fetched":"2026-11-12","sha256":"9a55742d5a39555e802b73d3d51699347cb376d0ec758f45004463479d29803f"},
+  {"id":"constitute Article 275-1","source":"constitute","country":"HTI","instrument":"Haiti 1987 (rev. 2012)","kind":"constitution","article":"Article 275-1","part":"article","lang":"en","topics":["symbols"],"text":"The national holidays are: Independence Day, January 1; Heroes’ Day, January 2; Agriculture and Labor Day, May 1; Flag Day and University Day, May 18; and The commemoration of the Battle of Vertieres, which is also ARMED FORCES DAY, November 18.","url":"https://www.constituteproject.org/service/html?cons_id=Haiti_2012&lang=en","fetched":"2026-11-12","sha256":"2d16f9b41c2ff275a54e149fc55f0d798cb6e17b6484bd3f55f2255b0ff3c83d"}
+ ]
+}

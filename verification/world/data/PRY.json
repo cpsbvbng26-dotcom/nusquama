@@ -1,0 +1,9 @@
+{
+ "country": "PRY",
+ "sources": {
+  "constitute": {"instrument":"Paraguay 1992 (rev. 2011)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Paraguay_2011&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Paraguay_2011&lang=en","status":200,"length":174010,"sha256_full":"14a707602a697ca9a6b972f7dd8232f75c62fa32218bc02f897a65ddee85d0f7","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Paraguay_2011","title":"Paraguay 1992 (rev. 2011)","year_enacted":"1992","year_updated":"2011","page":"https://www.constituteproject.org/constitution/Paraguay_2011?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

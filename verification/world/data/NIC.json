@@ -1,0 +1,9 @@
+{
+ "country": "NIC",
+ "sources": {
+  "constitute": {"instrument":"Nicaragua 1987 (rev. 2014)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Nicaragua_2014&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Nicaragua_2014&lang=en","status":200,"length":132298,"sha256_full":"607593055fb27ae3878e115e2b7a5a5c21ca339563dd77d5eafd32b308d1942b","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Nicaragua_2014","title":"Nicaragua 1987 (rev. 2014)","year_enacted":"1987","year_updated":"2014","page":"https://www.constituteproject.org/constitution/Nicaragua_2014?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

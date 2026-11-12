@@ -1,0 +1,9 @@
+{
+ "country": "ECU",
+ "sources": {
+  "constitute": {"instrument":"Ecuador 2008 (rev. 2021)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Ecuador_2021&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Ecuador_2021&lang=en","status":200,"length":365869,"sha256_full":"024b96b041c17d23290be2ae120c8d979d1c558210450eb6672869119d74dc13","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Ecuador_2021","title":"Ecuador 2008 (rev. 2021)","year_enacted":"2008","year_updated":"2021","page":"https://www.constituteproject.org/constitution/Ecuador_2021?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

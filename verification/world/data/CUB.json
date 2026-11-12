@@ -1,0 +1,9 @@
+{
+ "country": "CUB",
+ "sources": {
+  "constitute": {"instrument":"Cuba 2019","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Cuba_2019&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Cuba_2019&lang=en","status":200,"length":127431,"sha256_full":"1956bab8c26179aa060917d674b9d5c92ea96df740f33ee7573e7d5d21ac4982","articles":31,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Cuba_2019","title":"Cuba 2019","year_enacted":"2019","year_updated":null,"page":"https://www.constituteproject.org/constitution/Cuba_2019?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

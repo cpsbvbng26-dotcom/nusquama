@@ -1,0 +1,9 @@
+{
+ "country": "SUR",
+ "sources": {
+  "constitute": {"instrument":"Suriname 1987 (rev. 1992)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Surinam_1992&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Surinam_1992&lang=en","status":200,"length":75649,"sha256_full":"46275505ad1fbf3e77c0a33f4f86601b095a0edc6742a41441ce84d30dd328a5","articles":53,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Surinam_1992","title":"Suriname 1987 (rev. 1992)","year_enacted":"1987","year_updated":"1992","page":"https://www.constituteproject.org/constitution/Surinam_1992?lang=en"}
+ },
+ "provisions": [
+  {"id":"constitute Article 17","source":"constitute","country":"SUR","instrument":"Suriname 1987 (rev. 1992)","kind":"constitution","article":"Article 17","part":"article","lang":"en","topics":["data","defamation"],"text":"Everyone has a right to respect of his privacy, his family life, his home and his honor and good name. No dwelling may be entered against the occupant's will except by order of an authority which has the power to give that order by virtue of law and subject to the conditions prescribed by the law. The confidentiality of correspondence, telephone and telegraph is inviolable except in the cases described by law.","url":"https://www.constituteproject.org/service/html?cons_id=Surinam_1992&lang=en","fetched":"2026-11-12","sha256":"63800301b293269c8256821bc27a0b09a473930ab546fc29f762a66d17355e13"}
+ ]
+}
