@@ -623,11 +623,89 @@ GitHub の非公開の脆弱性の報告（private vulnerability reporting）は
 
 この節も、弁護士の確認は受けていません。
 
+## 2026-11-12 の続き：八度目の見落とし
+
+八度目の読み直しで、GitHub Actions の使い方を GitHub の規約に照らしていなかったことが分かりました。
+GitHub の利用規約の I 節は、GitHub の追加製品の規約を取り込みます。その追加の規約を、ヌスクァマは取り寄せておらず、週ごとの見張りにも入れていませんでした。
+追加の規約の Actions の節は、GitHub の実行環境で使うときに、リポジトリのソフトウェアのプロジェクトの制作・検査・配備・公開に関わらない使い方を禁じます。負荷が利用者への益に見合わない使い方も禁じます。
+ヌスクァマのワークフローは、どれも GitHub の実行環境（`ubuntu-latest` か `ubuntu-24.04`）で動きます。
+この節は、ワークフローを一つずつ規約に照らした記録です。
+直した日は、日本時間で 2026-11-13 です。
+実行の時間は、GitHub の API で 2026-11-13 に読んだ直近の実行（多くて 300 件）の中央値です。
+
+### 決めたこと
+
+2026-11-13 に Claude が決めました。GitHub の利用規約と追加製品の規約を、一次資料の取り寄せ（`tools/sources.js`）に足し、追加製品の規約を週ごとの見張り（`verification/statutes.json`）にも足します。どちらも、見張りが記したコミット `166eb97e485b7de3cd5dbaf8c8d16e4310fda46c` の文を読みます。Actions の使い方を決めるのはこの文なので、利用規約と同じ扱いで読み続けるためです。
+
+2026-11-13 に Claude が決めました。九つのワークフローは、どれも残します。どれも、配る頁と名簿と規程を作ること、確かめること、配ることのどれかに当たり、負荷も小さいためです。
+
+2026-11-13 に Claude が決めました。免責事項に、GitHub が Actions を制限したときは自動の手順が動かず、運営者が手で行い、すぐには行われないことを書きます（日本語と英語）。叙任の規程は、受付を止めているあいだの願い出を自動の確認が閉じると書いており、その手順は Actions が動くときにだけ働くためです。
+
+2026-11-13 に Claude が決めました。検査 72 を足します。`.github/workflows/` のどのファイルも、この節の表に行を持つことを確かめます。新しいワークフローを、規約に照らさずに足せないようにするためです。
+
+### 確かめ直した表
+
+| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |
+| --- | --- | --- | --- | --- | --- |
+| GitHub の追加製品の規約 | GitHub の利用規約 I 節、GitHub の追加製品の規約 Actions（目的） | 使っているサービスの規約を取り寄せ、変わったら分かるようにしておくこと | 利用規約と個人情報の方針だけを見張っていた。追加の規約は、取り寄せにも見張りにもなかった | 漏れ | 取り寄せと見張りに足した |
+| `.github/workflows/check.yml`（push・PR、毎週水曜の 13:41） | GitHub の追加製品の規約 Actions（目的）、GitHub の追加製品の規約 Actions（負荷） | GitHub の実行環境で、制作・検査・配備・公開のどれかに当たること。負荷が益に見合うこと | 検査を回す。週に一度の実行は、秘密と連絡先の走査のため。実行の中央値は 10 秒 | 問題なし | 変えていない。検査に当たる |
+| `.github/workflows/knighting.yml`（叙任の願い出の issue が開かれたり直されたりしたとき） | GitHub の追加製品の規約 Actions（目的）、GitHub の追加製品の規約 Actions（負荷） | 同じ。外から来る願い出に答える仕組みが、規約の挙げる serverless application に当たらないこと | 様式の印と訂正へのリンクの形を確かめ、コメントを書く。何も決めず、名簿は運営者が PR で入れたときだけ変わる。外へ出す要求は GitHub の API だけ。直近の実行の記録はない | 問題なし | 変えていない。名簿を作る最初の段で制作に当たり、リポジトリの外に計算を貸す仕組みではない |
+| `.github/workflows/labels.yml`（定義を変えた push、手で起こすとき） | GitHub の追加製品の規約 Actions（目的） | 同じ | issue のラベルを作る。実行の中央値は 8 秒 | 問題なし | 変えていない。願い出の受け方を作る仕事で、制作に当たる |
+| `.github/workflows/live.yml`（main への push、毎日の 11:47） | GitHub の追加製品の規約 Actions（目的）、GitHub の追加製品の規約 Actions（負荷） | 同じ | 配っているサイトが main の `site/` と同じかを比べる。push のあとは配備を最大 10 分待つ。実行の中央値は 26 秒 | 問題なし | 変えていない。配備を確かめる仕事に当たる |
+| `.github/workflows/record.yml`（見張りの PR に、持ち主がラベル「記す」を付けたとき） | GitHub の追加製品の規約 Actions（目的） | 同じ | 見張りの提案を main に取り込み、検査を通したときだけ push する。実行は 1 回で 65 秒 | 問題なし | 変えていない。適法性の説明が拠る記録を作る仕事で、制作に当たる |
+| `.github/workflows/review.yml`（毎年 11 月 7 日の 09:17） | GitHub の追加製品の規約 Actions（目的） | 同じ | 年一回の総点検の issue を開く。直近の実行の記録はない | 問題なし | 変えていない。国の決まりを見直す仕事で、制作に当たる |
+| `.github/workflows/sources.yml`（手で起こすとき） | GitHub の追加製品の規約 Actions（目的） | 同じ | 適法性の説明が引く一次資料を取り寄せ、新しい枝に記す。実行の中央値は 53 秒 | 問題なし | 変えていない。頁の引用の元を作る仕事で、制作に当たる |
+| `.github/workflows/statutes.yml`（毎週火曜の 12:23、PR） | GitHub の追加製品の規約 Actions（目的） | 同じ | 条文と GitHub の規約を取り寄せ、記した値と比べる。実行の中央値は 59 秒。この節から、追加の規約も比べる | 問題なし | 変えていない。適法性の説明を正しく保つ仕事で、制作と検査に当たる |
+| `.github/workflows/world.yml`（手で起こすとき、`claude/world-law-*` の枝で調べの求めを書き換えた push） | GitHub の追加製品の規約 Actions（目的）、GitHub の追加製品の規約 Actions（負荷） | 同じ | 各国の法令の条を取り寄せ、適法性の説明と叙任の規程が拠る調べに記す。実行の中央値は 110 秒、最も長い実行は 2356 秒 | 問題なし | 変えていない。頁が拠る調べを作る仕事で、制作に当たる。長い実行は、取り寄せの相手ごとに間をあけるため |
+| 免責事項「正確さと可用性」（日本語と英語） | GitHub の追加製品の規約 Actions（誤用） | 頁の約束が、ヌスクァマの力の及ぶ範囲を越えないこと | GitHub が Actions を制限したとき、願い出の自動の確認や、受付を止めているあいだに願い出を閉じる手順が動かないことを書いていなかった | 漏れ | GitHub が Actions を制限しうることと、そのときは運営者が手で行い、すぐには行われないことを書いた |
+| 削除・訂正・辞退の求め「求めを受けた後」と、適法性の説明の「判断の前に、ただちに外す」 | GitHub の追加製品の規約 Actions（誤用） | 同じ | 外すのは運営者で、ワークフローは記載を外さない | 問題なし | 変えていない。免責事項に、この手順が Actions に頼らないことを書いた |
+| 検査 | なし | 新しいワークフローを、規約に照らさずに足せないこと | ワークフローの権限は検査 45 が見ていたが、規約に照らした記録との突き合わせはなかった | 漏れ | 検査 72 を足した |
+
+判定は、誤り 0 件、根拠不足 0 件、漏れ 3 件、表現 0 件、問題なし 10 件で、合わせて 13 件です。
+
+### 引いた文
+
+取り寄せた文から、表が拠る一節を引きます。出所は `verification/sources.json` の名と所在にあります。
+取り寄せの実行は 43308457764 で、結果は枝 `sources/20261112-2116` にあります。その実行の結果のうち、この二つの規約の記録だけを取り込みました。ほかの出典の記録は、その実行の前のままです。
+GitHub の site-policy のリポジトリは、CC0 1.0 Universal で公開されています。
+
+<!-- 原文 GitHub の利用規約 I 節 -->
+> Some Service features may be subject to additional terms specific to that feature or product as set forth in the GitHub Additional Product Terms.
+>
+> GitHub の利用規約 I 節（https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-of-service.md）
+
+<!-- 原文 GitHub の追加製品の規約 Actions（前置き） -->
+> Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
+>
+> GitHub の追加製品の規約 Actions の節（https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md）
+
+<!-- 原文 GitHub の追加製品の規約 Actions（負荷） -->
+> Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
+>
+> GitHub の追加製品の規約 Actions の節（https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md）
+
+<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->
+> If using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
+>
+> GitHub の追加製品の規約 Actions の節（https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md）
+
+<!-- 原文 GitHub の追加製品の規約 Actions（誤用） -->
+> Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
+>
+> GitHub の追加製品の規約 Actions の節（https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md）
+
+### 残る危険
+
+- 規約は、負荷が見合うかを数で定めていません。願い出に答える仕事を、GitHub が別に読む危険は残ります。そのときは、免責事項に書いたとおり、運営者が手で行います。
+
+この節も、弁護士の確認は受けていません。
+
 ## 調べた法令
 
 日本の法令は、刑法、軽犯罪法、旅券法、民法、特定商取引法、景品表示法、消費者契約法、資金決済法、商標法、不正競争防止法、著作権法、個人情報保護法とその施行令・施行規則、民事訴訟法、国籍法、電気通信事業法、情報流通プラットフォーム対処法です。
 外国の法令と条約は、モンテビデオ条約、イタリアの 1951 年法律第 178 号、イタリアの 2016 年委任立法第 8 号、GDPR、カリフォルニア州の CCPA（州の説明だけ）です。
 サービスの規約は、GitHub の利用規約、Vercel の利用規約と Fair Use Guidelines です。
+2026-11-12 の八度目の見落としでは、GitHub の追加製品の規約（Actions の節）を読みました。
 2026-11-12 の続きでは、イタリアの刑法典（第 6 条・第 9 条・第 10 条）、1951 年法律第 178 号第 7 条、2016 年委任立法第 8 号の別表、米州機構の当事国の一覧、カリフォルニア州民法典第 1798.140 条、Vercel の許容される利用の方針、電気通信事業法第27条の12 と同法施行規則第59条の2・第59条の3 を読みました。
 公の文書は、イタリア首相府の栄典の案内、個人情報保護委員会のガイドライン（通則編・外国にある第三者への提供編・第三者提供時の確認・記録義務編）と Q&A と外国制度の調べ、総務省の電気通信事業参入マニュアル（追補版）と外部送信規律の FAQ を読みました。
 英国の GDPR と EU のデジタルサービス法は、規程がどこにも挙げておらず、ヌスクァマの役務が向く先でもないので、調べていません。
