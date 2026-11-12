@@ -122,7 +122,119 @@
   "ru": "(?<![\\p{L}])(?:территори\\p{L}* Российской|за пределами|трансграничн\\p{L}*|иностран\\p{L}* (?:государств\\p{L}*|лиц\\p{L}*|физическ\\p{L}*|юридическ\\p{L}*)|представител\\p{L}*|несовершеннолет\\p{L}*|граждан\\p{L}* Российской Федерации|баз\\p{L}* данных, находящ\\p{L}*)(?![\\p{L}])"
  },
  "constitute": {
-  "names": {},
+  "names": {
+   "TZA": [
+    "United Republic of Tanzania"
+   ],
+   "IRN": [
+    "Iran Islamic Rep of",
+    "Iran (Islamic Republic of)"
+   ],
+   "PRK": [
+    "Democratic People's Republic of Korea"
+   ],
+   "KOR": [
+    "Republic of Korea"
+   ],
+   "FSM": [
+    "Micronesia Fed States of",
+    "Micronesia"
+   ],
+   "MKD": [
+    "The former Yugoslav Republic of Macedonia",
+    "Macedonia"
+   ],
+   "DEU": [
+    "Germany"
+   ],
+   "CZE": [
+    "Czech Republic"
+   ],
+   "GBR": [
+    "United Kingdom of Great Britain and Northern Ireland"
+   ],
+   "CIV": [
+    "Cote d'Ivoire",
+    "Ivory Coast"
+   ],
+   "SWZ": [
+    "Swaziland"
+   ],
+   "TUR": [
+    "Turkey"
+   ],
+   "CPV": [
+    "Cape Verde"
+   ],
+   "BOL": [
+    "Bolivia Plurinational State of",
+    "Bolivia (Plurinational State of)"
+   ],
+   "VEN": [
+    "Venezuela Bolivarian Republic of",
+    "Venezuela (Bolivarian Republic of)"
+   ],
+   "RUS": [
+    "Russia"
+   ],
+   "PSE": [
+    "Palestine",
+    "Palestine State of"
+   ],
+   "VAT": [
+    "Holy See",
+    "Vatican",
+    "Vatican City"
+   ],
+   "SYR": [
+    "Syria"
+   ],
+   "LAO": [
+    "Laos"
+   ],
+   "VNM": [
+    "Vietnam"
+   ],
+   "MDA": [
+    "Moldova"
+   ],
+   "KGZ": [
+    "Kyrgyz Republic"
+   ],
+   "COD": [
+    "Congo Democratic Republic of the"
+   ],
+   "COG": [
+    "Congo Republic of the"
+   ],
+   "GNB": [
+    "Guinea Bissau"
+   ],
+   "TLS": [
+    "East Timor"
+   ],
+   "BRN": [
+    "Brunei"
+   ],
+   "STP": [
+    "Sao Tome and Principe"
+   ],
+   "KNA": [
+    "St Kitts and Nevis"
+   ],
+   "LCA": [
+    "St Lucia"
+   ],
+   "VCT": [
+    "St Vincent and the Grenadines"
+   ],
+   "SUR": [
+    "Surinam"
+   ],
+   "USA": [
+    "United States"
+   ]
+  },
   "overrides": {},
   "missing": {}
  },
