@@ -1,7 +1,7 @@
 {
  "country": "VAT",
  "sources": {
-  "constitute": {"kind":"constitution","instrument":"Constitution","error":"Constitute の一覧に、この国の効力のある憲法の英文が見当たらない","fetched":"2026-11-12"}
+  "constitute": {"kind":"constitution","instrument":"Constitution","error":"Constitute Project の一覧にこの国の文がなく、ほかの公式の所在もこの調べでは定めていない","fetched":"2026-11-12"}
  },
  "provisions": [
 
