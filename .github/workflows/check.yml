@@ -25,7 +25,7 @@ jobs:
 
   # ブラウザが要るので、別の job にする。ブラウザの故障を、頁の誤りと取り違えないため。
   layout:
-    name: 狭い画面と拡大で横にはみ出さない
+    name: 狭い画面と拡大で横にはみ出さず、トップの最初の画面に国旗と地図が収まる
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

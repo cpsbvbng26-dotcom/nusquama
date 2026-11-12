@@ -1176,7 +1176,7 @@ console.log('\n46. 秘密情報と連絡先の走査');
 console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキスト・重さ・索引）');
 {
   const html = walk(path.join(ROOT, 'site')).filter((f) => f.endsWith('.html'));
-  const bad = { lang: [], foot: [], alt: [], weight: [], canon: [] };
+  const bad = { lang: [], foot: [], alt: [], weight: [], canon: [], dims: [] };
   const KIB = 1024, PAGE = 128 * KIB, WITH_IMAGES = 160 * KIB;
   for (const f of html) {
     const t = read('site/' + f);
@@ -1192,7 +1192,19 @@ console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキ�
     if (!need.every((x) => x.test(foot)) || /github\.com\/cpsbvbng26-dotcom\/(?!nusquama[/"])|cpsbvbng26-dotcom\.github\.io/.test(t)) bad.foot.push(f);
     const imgs = [...t.matchAll(/<img ([^>]*)>/g)].map((m) => m[1]);
     const deco = imgs.filter((a) => /alt=""/.test(a));
-    if (deco.length !== 1 || !head.includes('<img src="' + (/src="([^"]*emblem\.svg)" alt=""/.exec(head) || [, '?'])[1] + '" alt="">')) bad.alt.push(f + '：飾り');
+    if (deco.length !== 1 || !head.includes('<img src="' + (/src="([^"]*emblem\.svg)" alt=""/.exec(head) || [, '?'])[1] + '" alt="" width="40" height="48">')) bad.alt.push(f + '：飾り');
+    /* 画像は縦横を書いて場所を取っておく。縦横は SVG の viewBox と同じ。最初の画面より下の、文の中の画像だけを遅れて読む。 */
+    const first = (/<figure class="first">([\s\S]*?)<\/figure>/.exec(t) || [])[1] || '';
+    for (const a of imgs) {
+      const src = (/src="([^"]+)"/.exec(a) || [])[1] || '';
+      const file = path.join(ROOT, 'site', f === '404.html' ? src.replace(/^\//, '') : path.posix.normalize(path.posix.join(path.posix.dirname(f), src)));
+      const vb = fs.existsSync(file) ? /viewBox="0 0 ([\d.]+) ([\d.]+)"/.exec(fs.readFileSync(file, 'utf8')) : null;
+      const inHead = head.includes('<img ' + a + '>'), inFirst = first.includes('<img ' + a + '>');
+      const w = (/ width="([\d.]+)"/.exec(a) || [])[1], h = (/ height="([\d.]+)"/.exec(a) || [])[1];
+      const sized = inHead ? w === '40' && h === '48' : !!vb && w === vb[1] && h === vb[2];
+      const lazy = / loading="lazy"/.test(a);
+      if (!sized || (inHead || inFirst ? lazy : !lazy || !/ decoding="async"/.test(a))) bad.dims.push(f + '：' + src);
+    }
     for (const a of imgs.filter((x) => !/alt=""/.test(x))) {
       const alt = (/alt="([^"]*)"/.exec(a) || [])[1] || '';
       if (/\.(svg|png)|^(画像|image)/i.test(alt) || !(en ? alt.endsWith('(fiction)') : alt.endsWith('（創作）'))) bad.alt.push(f + '：' + alt);
@@ -1208,6 +1220,7 @@ console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキ�
   ok('どの頁の下の欄も、運営者・連絡（求め・誤りの知らせ・安全の知らせ）・免責・開示と、研究とは別のもので、その一部ではないという一文をそろえ、研究の系列へつながない', bad.foot.length === 0, bad.foot.slice(0, 8).join(', '));
   ok('代替テキスト：頁の上の国章だけが飾りで空にし、中身の画像は何の画像かを書いて（創作）・(fiction) を添え、ファイル名を書かない', bad.alt.length === 0, bad.alt.slice(0, 8).join(', '));
   ok('どの頁も 128 KiB 以下で、読む画像を足しても 160 KiB 以下', bad.weight.length === 0, bad.weight.join(', '));
+  ok('どの画像も縦横（SVG の viewBox と同じ）を書いて場所を取り、頁の上の国章とトップの最初の画面の図のほかは遅れて読む', bad.dims.length === 0, bad.dims.slice(0, 8).join(', '));
   const vp = html.map((f) => (/<meta name="viewport" content="([^"]+)">/.exec(read('site/' + f)) || [])[1]);
   ok('拡大を止めない（viewport に user-scalable も maximum-scale もない）。表は枠の中で横に送り、長い語は折り返す', vp.every((v) => v === 'width=device-width, initial-scale=1, viewport-fit=cover')
     && /\.table \{ overflow-x: auto; \}/.test(read('site/index.html')) && /p, li \{ overflow-wrap: anywhere; \}/.test(read('site/index.html')));
@@ -1471,6 +1484,22 @@ console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試し
   ok('国の仕組みの叙任の通し稽古の表は、段 1 から 6 とほかの行を持ち、日本語と英語で行がそろい、本物の issue を開いていないと書く',
     JSON.stringify(tj.filter((x) => /^\d+$/.test(x))) === JSON.stringify(['1', '2', '3', '4', '5', '6']) && tj.length === te.length && tj.length > 6
     && ij.includes('本物の issue は開いていません。') && ie.includes('No real issue was opened.'));
+}
+
+console.log('\n58. トップの最初の画面と、狭い画面での読みやすさ');
+{
+  const idx = read('site/index.html');
+  const fig = (/<figure class="first">([\s\S]*?)<\/figure>/.exec(idx) || [])[0] || '';
+  const readme = read('README.md');
+  ok('トップの最初の画面に、国旗（国のしるしへ）と版図の地図（王の正誤表へ）を、題の札のすぐ後、創作の断りの前に置く。GitHub では印だけで見えない',
+    !!fig && idx.indexOf(fig) > idx.indexOf('<p>種類：エンターテインメント　状態：運営中</p>') && idx.indexOf(fig) < idx.indexOf('<blockquote>')
+    && /<a href="symbols\.html"><img src="flag\.svg" alt="ヌスクァマの国旗（創作）"/.test(fig) && /<a href="errata\.html"><img src="territory\.svg" alt="ヌスクァマの版図の地図（創作）"/.test(fig)
+    && (idx.match(/<figure class="first">/g) || []).length === 1 && B.SOURCES.filter(([, d]) => d !== 'index.html').every(([, d]) => !read('site/' + d).includes('<figure class="first">'))
+    && readme.indexOf('\n<!-- first -->\n') > 0 && readme.indexOf('\n<!-- first -->\n') < readme.indexOf('\n> これは創作であり、遊びです。'));
+  ok('最初の画面の図の題は、地図が王の誤りで広がることを書き、色・形・数は代替テキストに書かない',
+    fig.includes('<figcaption>国旗と、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption>') && !/alt="[^"]*(紺|金|\d)/.test(fig));
+  ok('見出しは、日本語の語の途中で折り返さない（word-break: auto-phrase）。最初の画面の図は、狭い画面で低くし、640 px から高くする',
+    B.STYLE.includes('h1, h2, h3 { word-break: auto-phrase; }') && B.STYLE.includes('.first img { display: block; height: 88px; width: auto; }') && B.STYLE.includes('@media (min-width: 640px) { .first img { height: 128px; } }'));
 }
 
 console.log('\n' + '-'.repeat(56));

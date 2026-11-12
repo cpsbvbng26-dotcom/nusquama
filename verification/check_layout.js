@@ -7,6 +7,7 @@
  * 幅は 1280・640・390・360・320 px。640 px は、1280 px の窓を 200% に拡大したときの幅である。
  * 320 px は 1280 px を 400% にしたときの幅で、WCAG 2.2 の 1.4.10（リフロー）が求める幅である。
  * 表は .table の中で横に送るので、頁そのものは横に送らない。
+ * トップの頁は、最初の画面（スクロールする前に見える範囲）に、国旗と版図の地図と、創作の断りの始まりが収まるかも見る。
  *
  * 要: playwright と Chromium。どちらもないときは 1 で止まる（走らなかった検査は、通った検査ではない）。
  * CI では、ブラウザの故障を頁の誤りと取り違えないよう、別の job で走らせる（.github/workflows/check.yml）。
@@ -99,11 +100,28 @@ async function main() {
       await ctx.close();
     }
   }
+  /* トップの最初の画面（スクロールする前に見える範囲）に、国旗と版図の地図が読み込まれて収まり、創作の断りも始まっていること。
+   * 幅と高さは、狭い電話（360×640）、よくある電話（390×844）、拡大した窓（640×400、1280×800 の 200%）、広い窓（1280×800）。 */
+  const SCREENS = [[360, 640], [390, 844], [640, 400], [1280, 800]];
+  for (const [w, h] of SCREENS) {
+    const ctx = await browser.newContext({ viewport: { width: w, height: h } });
+    const page = await ctx.newPage();
+    await page.goto(base + 'index.html', { waitUntil: 'load' });
+    const r = await page.evaluate(() => {
+      const imgs = [...document.querySelectorAll('figure.first img')];
+      const quote = document.querySelector('main blockquote');
+      return { n: imgs.length, out: imgs.filter((i) => !i.complete || !i.naturalWidth || i.getBoundingClientRect().bottom > innerHeight || i.getBoundingClientRect().top < 0).map((i) => i.getAttribute('src')),
+        quoteTop: quote ? quote.getBoundingClientRect().top : Infinity };
+    });
+    n++;
+    if (r.n !== 2 || r.out.length || r.quoteTop >= h) bad.push('index.html @' + w + '×' + h + '：最初の画面に、国旗と地図（' + r.n + '、外れたもの ' + (r.out.join('・') || 'なし') + '）と、断りの始まり（上から ' + Math.round(r.quoteTop) + ' px）が収まらない');
+    await ctx.close();
+  }
   await browser.close();
   server.close();
-  console.log('頁 ' + list.length + '、幅 ' + WIDTHS.join('・') + ' px、明るい配色と暗い配色で、' + n + ' 通りを描いた。');
-  if (bad.length) { console.log('横にはみ出した（' + bad.length + ' 通り）：\n  ' + bad.slice(0, 30).join('\n  ')); process.exit(1); }
-  console.log('どれも横にはみ出さなかった。');
+  console.log('頁 ' + list.length + '、幅 ' + WIDTHS.join('・') + ' px、明るい配色と暗い配色で描き、トップの最初の画面を ' + SCREENS.length + ' つの大きさで見て、' + n + ' 通りを確かめた。');
+  if (bad.length) { console.log('通らなかった（' + bad.length + ' 通り）：\n  ' + bad.slice(0, 30).join('\n  ')); process.exit(1); }
+  console.log('どれも横にはみ出さず、トップの最初の画面に国旗と地図と断りの始まりが収まった。');
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
