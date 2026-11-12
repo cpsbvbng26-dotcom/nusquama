@@ -147,6 +147,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-11（日本時間） | 解散の手順を改め、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めを受ける窓口を開けておくと定める | The procedure for dissolution is changed: the site is kept and served, the repository is not archived, and a way to receive requests stays open |
 | 2026-11-12（日本時間） | 交流の規程の、相手の国を尊重する文と、個人情報の取り扱いの、運営者の氏名と住所を知らせる文を、意味を変えずに言い直す | The sentence on respecting the other party's country in the Rules on exchange, and the sentence on giving the operator's name and address in the Privacy page, are reworded without changing their meaning |
 | 2026-11-12（日本時間） | 免責事項と、どの頁の下の欄にも、この国が運営者の研究とは別のもので、その一部ではないことを書く | The Disclaimer, and the footer of every page, state that Nusquama is separate from the operator's research and is not part of it |
+| 2026-11-12（日本時間） | 国の仕組みに、凍結して休むときに終わりの言葉に添えて掲げる、休止の告知の下書きを置く | A draft notice of suspension, to be put up beside the closing words when the kingdom is frozen, is added to the Institutions |
 
 ---
 
@@ -705,6 +706,7 @@ Source: https://nusquama.vercel.app/institutions.html
 - 削除・訂正・辞退の求めには、できる限り応えます。
 
 凍結は、トップの頁に下の「終わりの言葉」を掲げて知らせます。
+そのとき、下の「休止の告知」も添えます。
 
 ## 解散
 
@@ -745,6 +747,18 @@ Source: https://nusquama.vercel.app/institutions.html
 どこにもない国は、どこにもない所へ帰ります。
 王の正誤表は、ここに残します。誤りは、消さずに置いていきます。
 騎士の皆さん、ともに誤りを正してくださり、ありがとうございました。
+
+## 休止の告知
+
+国を凍結して務めを休むときに、終わりの言葉に添えて掲げる告知の下書きです。いまは掲げていません。
+掲げる日に、（日付）をその日に替えます。
+
+> ヌスクァマは、（日付）から休止しています（国の仕組み「凍結」）。
+> 叙任の願い出は、受けていません。
+> 騎士の名簿・王の正誤表・規程は、休止したときのまま公開しています。
+> 削除・訂正・辞退の求めは、これまでと同じ[様式](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml)で受け、できる限り応えます。
+> 個人データの扱いは、[個人情報の取り扱い](policies/privacy.md)に従います。
+> これは創作であり、遊びです。
 
 ## 十年の見通し
 
@@ -3131,6 +3145,7 @@ If the King can no longer keep the kingdom going, the kingdom is frozen. When it
 - Requests for deletion, correction or leaving are answered as far as possible.
 
 The freezing is announced by putting the "Closing words" below on the top page.
+The "Notice of suspension" below is put up with them.
 
 ## Dissolution
 
@@ -3171,6 +3186,18 @@ This is the draft of the text put up on freezing or dissolution. It is issued wi
 The kingdom that is nowhere returns to nowhere.
 The King's errata stay here. The mistakes are left behind, not erased.
 Knights, thank you for correcting mistakes with us.
+
+## Notice of suspension
+
+This is the draft of the notice put up beside the closing words when the kingdom is frozen and its work is suspended. It is not put up now.
+On the day it is put up, "(date)" is replaced with that day.
+
+> Nusquama has been suspended since (date) (Institutions, "Freezing").
+> Requests for knighthood are not being accepted.
+> The roll of knights, the King's errata and the rules stay public as they were when Nusquama was suspended.
+> Requests for deletion, correction or leaving are received with the same [form](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml) as before, and answered as far as possible.
+> Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
+> This is a work of fiction, written for fun.
 
 ## Ten years ahead
 
