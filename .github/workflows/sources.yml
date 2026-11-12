@@ -1,33 +1,42 @@
 name: 一次資料の取り寄せ
 
-# 適法性の説明が引く外国の一次資料を取り寄せ、verification/sources-raw.json に記して、新しい枝 sources/<日付> に置く。
-# 手で動かす。main には直に入れない。取り寄せた文は、運営者が読んでから verification/sources.json の引用に使う。
-# 法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。取り寄せた全文と窓は、この実行の
-# artifact（sources-full）に残し、git には入れない（tools/sources.js の冒頭の注釈）。
+# 探り（2026-11-13、十一度目の見落とし）：官報の発行に関する法律を e-Gov 法令 API から取り寄せ、条ごとに記録へ書き出す。
+# main には入れない。何も押さない。
 on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   fetch:
-    name: 一次資料を取り寄せる
+    name: 官報の発行に関する法律を取り寄せる
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
-      - run: node tools/sources.js
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
-        with:
-          name: sources-full
-          path: sources-full/
-          retention-days: 90
       - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add verification/sources-raw.json
-          git commit -m "一次資料：取り寄せた文を記す" || exit 0
-          git push origin "HEAD:refs/heads/sources/$(date -u +%Y%m%d-%H%M)"
+          node -e '
+          const crypto = require("crypto");
+          const UA = { "User-Agent": "nusquama (https://github.com/cpsbvbng26-dotcom/nusquama)" };
+          const plain = (x) => x.replace(/<Rt>[^<]*<\/Rt>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+          const sha = (x) => crypto.createHash("sha256").update(x, "utf8").digest("hex");
+          (async () => {
+            const list = await (await fetch("https://laws.e-gov.go.jp/api/1/lawlists/1", { headers: UA })).text();
+            const hits = [];
+            for (const m of list.matchAll(/<LawNameListInfo>([\s\S]*?)<\/LawNameListInfo>/g)) {
+              const g = (t) => (new RegExp("<" + t + ">([^<]*)</" + t + ">").exec(m[1]) || [])[1] || "";
+              if (g("LawName").includes("官報")) hits.push({ id: g("LawId"), name: g("LawName"), num: g("LawNo"), date: g("PromulgationDate") });
+            }
+            console.log("LIST " + JSON.stringify(hits));
+            for (const h of hits.filter((x) => x.name.startsWith("官報の発行に関する法律"))) {
+              const xml = await (await fetch("https://laws.e-gov.go.jp/api/1/lawdata/" + h.id, { headers: UA })).text();
+              console.log("=====LAW " + h.id + " " + (/<LawTitle[^>]*>([^<]*)<\/LawTitle>/.exec(xml) || [])[1] + " " + (/<LawNum>([^<]*)<\/LawNum>/.exec(xml) || [])[1]);
+              const main = (/<MainProvision[\s\S]*?<\/MainProvision>/.exec(xml) || [""])[0];
+              for (const a of main.matchAll(/<Article[^>]*\sNum="([^"]+)"[^>]*>[\s\S]*?<\/Article>/g)) { const t = plain(a[0]); console.log("ART " + a[1] + " " + sha(t) + " " + t); }
+              for (const s of xml.matchAll(/<SupplProvision[\s\S]*?<\/SupplProvision>/g)) console.log("SUPPL " + plain(s[0]));
+              console.log("MAINLEN " + main.length + " ARTS " + [...main.matchAll(/<Article[^>]*\sNum="([^"]+)"/g)].length);
+            }
+          })().catch((e) => { console.error(e); process.exit(1); });'
