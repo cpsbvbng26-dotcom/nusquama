@@ -79,6 +79,7 @@ header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
+h1, h2, h3 { word-break: auto-phrase; }
 h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 h3 { font-size: 1.05rem; }
 p, li { overflow-wrap: anywhere; }
@@ -89,6 +90,11 @@ details.source .cite { font-size: 0.9em; color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
+.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 8px 0 16px; }
+.first a { display: block; }
+.first img { display: block; height: 88px; width: auto; }
+.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; }
+@media (min-width: 640px) { .first img { height: 128px; } }
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
@@ -129,9 +135,18 @@ function mapHref(href, srcRel, outRel) {
   return rel + (hash ? '#' + hash : '');
 }
 
+/* 画像の縦横（SVG の viewBox）。img に width と height を書き、読み込む前から場所を取っておく（狭い画面で、読み込みのたびに文が動かない）。 */
+function svgSize(rel) {
+  const t = rel === 'site/territory.svg' ? territorySvg() : fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const m = /viewBox="0 0 ([\d.]+) ([\d.]+)"/.exec(t);
+  if (!m) throw new Error(rel + ' に viewBox がない');
+  return 'width="' + m[1] + '" height="' + m[2] + '"';
+}
+
 function inline(text, srcRel, outRel) {
   let s = esc(text);
-  s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (m, alt, src) => `<img class="emblem" src="${esc(mapHref(src.replace(/&amp;/g, '&'), srcRel, outRel))}" alt="${alt}">`);
+  /* 文の中の画像は、どれも最初の画面より下にあるので、遅れて読む。 */
+  s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (m, alt, src) => `<img class="emblem" src="${esc(mapHref(src.replace(/&amp;/g, '&'), srcRel, outRel))}" alt="${alt}" ${svgSize(path.posix.normalize(path.posix.join(path.posix.dirname(srcRel), src)))} loading="lazy" decoding="async">`);
   s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, href) => `<a href="${esc(mapHref(href.replace(/&amp;/g, '&'), srcRel, outRel))}">${t}</a>`);
   s = s.replace(/&lt;(https?:\/\/[^\s&]+)&gt;/g, (m, u) => `<a href="${u}">${u}</a>`);
   s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -612,9 +627,17 @@ function constructionMd(en = false) {
   return `# しるしの作図\n\n国旗と国章を描く手順を、手順ごとの図と並べ、国の色と版図の区画の形を一枚にまとめた頁です。手順の文は[国のしるし](SYMBOLS.md)から取り、図は[国旗の画像](assets/flag.svg)と[国章の画像](assets/emblem.svg)の要素から作ります。手で描きません。食い違うときは、国のしるしの頁と画像に従います。\n\n## 国旗\n\n<!-- flagsteps -->\n\n## 国章\n\n<!-- emblemsteps -->\n\n## 国の色\n\n<!-- colors -->\n\n## 版図の区画\n\n版図の地図では、区画の形が誤りの分類を表します。区画はどれも金一色で、分類は色ではなく形で分けます。\n\n<!-- tiles -->\n\n年ごとの地図は、[年ごとの版図](territory-years.html)で並べて比べられます。\n`;
 }
 
+/* トップの最初の画面に置く、国旗と版図の地図。どちらも最初の画面に入るので、遅れて読まない。
+ * 国旗は国のしるしへ、地図は王の正誤表へつなぐ。代替テキストは、つなぐ先と何の画像かを短く書く。 */
+function firstScreen() {
+  return '<figure class="first"><a href="symbols.html"><img src="flag.svg" alt="ヌスクァマの国旗（創作）" ' + svgSize('assets/flag.svg') + '></a>'
+    + '<a href="errata.html"><img src="territory.svg" alt="ヌスクァマの版図の地図（創作）" ' + svgSize('site/territory.svg') + '></a>'
+    + '<figcaption>国旗と、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption></figure>';
+}
+
 /* Markdown の中の印（<!-- map --> など）を、表や図に置き換える。GitHub で読むときは印は見えない。 */
 const FILLERS = { map: errataMap, growth: errataGrowth, years: errataYearTable, facts: (en) => factsTable(en), census: (en) => censusTable(en),
-  months: gazetteMonthTable, yearmaps: territoryYears, flagsteps: (en) => constructionSteps('flag', en), emblemsteps: (en) => constructionSteps('emblem', en), colors: colorTable, tiles: tileTable };
+  months: gazetteMonthTable, yearmaps: territoryYears, flagsteps: (en) => constructionSteps('flag', en), emblemsteps: (en) => constructionSteps('emblem', en), colors: colorTable, tiles: tileTable, first: firstScreen };
 function fill(html, en) {
   html = html.replace(/<p>&lt;!-- 条文 (.+?) --&gt;<\/p>/g, (m, keys) => quoteBlock(keys, en));
   return html.replace(/<p>&lt;!-- (\w+) --&gt;<\/p>/g, (m, k) => {
@@ -671,7 +694,7 @@ ${alternate}${en ? '' : `<link rel="alternate" type="application/atom+xml" title
 </head>
 <body>
 <a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
-<header><img src="${pre}emblem.svg" alt=""><a class="home" href="${pre}index.html">${NAME}</a>${lang}</header>
+<header><img src="${pre}emblem.svg" alt="" width="40" height="48"><a class="home" href="${pre}index.html">${NAME}</a>${lang}</header>
 <main id="main">
 ${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${fill(markdown(md, srcRel, outRel), en).replace(/<h2>/, (h) => (outRel === 'story.html' || outRel === 'story.en.html' ? storyToc(en) + '\n' + h : h)).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : outRel === 'gazette.en.html' ? '\n' + gazetteTable(true) : ''}
 </main>
@@ -798,7 +821,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { NAME, SEPARATE, SEPARATE_EN, page, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { NAME, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
