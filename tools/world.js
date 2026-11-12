@@ -288,11 +288,17 @@ async function fetchSource(s) {
   const urls = Array.isArray(s.url) ? s.url : [s.url];
   const rec = { instrument: s.instrument, kind: s.kind || 'code', lang: s.lang, url: s.url, fetched: TODAY, topics: s.topics || TOPICS };
   if (s.official) rec.official = s.official;
-  const tries = [urls];
-  if (s.archive !== false) tries.push(urls.map((u) => 'https://web.archive.org/web/2026/' + u));
+  /* The routes, in order: the address itself; any other official address of the same text (alt: another official
+   * mirror or an official PDF); the Internet Archive copy; and the archive's raw copy ("id_"), which is the page as it
+   * was served, without the archive's own scripts. Each route is tried once; every failure is written in the record. */
+  const tries = [{ via: 'direct', us: urls }];
+  for (const [i, a] of (s.alt || []).entries()) tries.push({ via: 'alt' + (i + 1), us: Array.isArray(a) ? a : [a] });
+  if (s.archive !== false) {
+    tries.push({ via: 'archive', us: urls.map((u) => 'https://web.archive.org/web/2026/' + u) });
+    tries.push({ via: 'archive-raw', us: urls.map((u) => 'https://web.archive.org/web/2026id_/' + u) });
+  }
   const notes = [];
-  for (const us of tries) {
-    const via = us === urls ? 'direct' : 'archive';
+  for (const { via, us } of tries) {
     const texts = [], finals = [];
     let pdf = false, failed = null;
     for (const u of us) {
