@@ -1,0 +1,10 @@
+{
+ "country": "TUN",
+ "sources": {
+  "constitute": {"instrument":"Tunisia 2022","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Tunisia_2022&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Tunisia_2022&lang=en","status":200,"length":56058,"sha256_full":"408ac02f5d14e7b1bdc8e25b8e985f057a1e9386b7faf37f39459cc1127fb140","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Tunisia_2022","title":"Tunisia 2022","year_enacted":"2022","year_updated":null,"page":"https://www.constituteproject.org/constitution/Tunisia_2022?lang=en"}
+ },
+ "provisions": [
+  {"id":"constitute PREAMBLE ¶3","source":"constitute","country":"TUN","instrument":"Tunisia 2022","kind":"constitution","article":"PREAMBLE","part":"paragraph 3","lang":"en","topics":["symbols"],"text":"We are the Tunisian people who offered legions of martyrs for emancipation and freedom, their pure blood mingling with this good land, painting it with the [two] colors of the national flag.","url":"https://www.constituteproject.org/service/html?cons_id=Tunisia_2022&lang=en","fetched":"2026-11-12","sha256":"6b166f8a3e2a6549a64e4e57aaa680519c5736d6575a6754ac2477d254fccdf9"},
+  {"id":"constitute PREAMBLE ¶9","source":"constitute","country":"TUN","instrument":"Tunisia 2022","kind":"constitution","article":"PREAMBLE","part":"paragraph 9","lang":"en","topics":["symbols"],"text":"We approve this constitution inspired by the glories and pains of the past while looking forward to a better future for us and for generations that will come after us who will hoist the national flag higher and higher in every forum and under every sky.","url":"https://www.constituteproject.org/service/html?cons_id=Tunisia_2022&lang=en","fetched":"2026-11-12","sha256":"0bc5b1e126f691b7f0936010913827b3945d68acd2d7f72d45d0a3ba9cab04ba"}
+ ]
+}

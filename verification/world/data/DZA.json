@@ -1,0 +1,10 @@
+{
+ "country": "DZA",
+ "sources": {
+  "constitute": {"instrument":"Algeria 2020","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Algeria_2020&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Algeria_2020&lang=en","status":200,"length":103783,"sha256_full":"decb9531e6a3403bc47bbd4db078564838dc137818d32181a7592bc74abf982c","articles":2,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Algeria_2020","title":"Algeria 2020","year_enacted":"2020","year_updated":null,"page":"https://www.constituteproject.org/constitution/Algeria_2020?lang=en"}
+ },
+ "provisions": [
+  {"id":"constitute ARTICLE 1","source":"constitute","country":"DZA","instrument":"Algeria 2020","kind":"constitution","article":"ARTICLE 1","part":"article","lang":"en","topics":["sovereignty"],"text":"Algeria shall be a People’s Democratic Republic. It shall be one and indivisible.","url":"https://www.constituteproject.org/service/html?cons_id=Algeria_2020&lang=en","fetched":"2026-11-12","sha256":"cd44a77a2534307857049990931440d8d4dae02fd3a4b700a944638541971af2"},
+  {"id":"constitute Preamble ¶21","source":"constitute","country":"DZA","instrument":"Algeria 2020","kind":"constitution","article":"Preamble","part":"paragraph 21","lang":"en","topics":["sovereignty"],"text":"The State shall attend to the professionalism of the People’s National Army and to its modernisation in the manner that enables it to acquire the requisite capabilities to preserve national independence, defend Algeria’s national sovereignty, her unity and territorial integrity and protect her land, sea and air boundaries.","url":"https://www.constituteproject.org/service/html?cons_id=Algeria_2020&lang=en","fetched":"2026-11-12","sha256":"4156d193bc54c7d72fab032ca6506a074500c6261513e0140f51e245e8689c88"}
+ ]
+}
