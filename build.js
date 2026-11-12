@@ -47,6 +47,24 @@ const NOTICE_EN = 'This is a work of fiction, written for fun. Nusquama is not a
 const SEPARATE = 'ヌスクァマは、運営者の研究とは別のもので、その一部ではありません。';
 const SEPARATE_EN = "Nusquama is separate from the operator's research and is not part of it.";
 
+/* README の題のすぐ下の札。GitHub で読む人のための札で、サイトの頁には出さない（サイトでは、頁の上の欄と最初の画面が同じ役を務める）。 */
+const LABEL = '種類：エンターテインメント　状態：運営中';
+/* トップの最初の画面で、国の名の下に置く一文。README の断りの一文をそのまま使う。 */
+const LEDE = 'ヌスクァマは、娯楽のために作った架空の国です。';
+
+/* 頁の上の欄の案内。どの頁にも同じ七つを同じ順に置く（検査 59）。宣言と基本法は、トップ（英語は建国の宣言の訳の頁）の節を指す。 */
+const NAV = [
+  ['宣言', 'Declaration', 'index.html#declaration', 'founding.en.html#declaration'],
+  ['基本法', 'Basic Law', 'index.html#law', 'founding.en.html#law'],
+  ['制度', 'Institutions', 'institutions.html', 'institutions.en.html'],
+  ['騎士名簿', 'Knights', 'knights.html', 'knights.en.html'],
+  ['官報', 'Gazette', 'gazette.html', 'gazette.en.html'],
+  ['暦', 'Calendar', 'calendar.html', 'calendar.en.html'],
+  ['王の正誤表', 'Errata', 'errata.html', 'errata.en.html'],
+];
+/* 宣言と基本法の節に付ける id。トップと英語の訳の頁の見出しに付け、案内から指す。 */
+const ANCHORS = [['<h2>建国の宣言</h2>', 'declaration'], ['<h2>王国基本法</h2>', 'law'], ['<h2>The founding declaration</h2>', 'declaration'], ['<h2>The Basic Law of the Kingdom</h2>', 'law']];
+
 /* 文書の安全のヘッダー。<meta> では出せない frame-ancestors などを Vercel に出させる。 */
 const HEADERS = [{
   source: '/(.*)',
@@ -62,45 +80,85 @@ const HEADERS = [{
 }];
 
 const STYLE = `
-:root { --bg: #f7f3ea; --fg: #1d1a16; --muted: #5d564b; --line: #d8cfbd; --accent: #14213d; --gold: #8a6d12; --notice: #efe6d2; color-scheme: light; }
-@media (prefers-color-scheme: dark) { :root { --bg: #0e1626; --fg: #ece6d8; --muted: #b5ad9c; --line: #2c3a55; --accent: #e8cf74; --gold: #e8cf74; --notice: #17223a; color-scheme: dark; } }
+:root { --bg: #f7f3ea; --fg: #1d1a16; --muted: #595246; --line: #d8cfbd; --accent: #1d3461; --gold: #7d620f; --notice: #efe6d2; --card: #fffcf4; --band: #14213d; --onband: #f3ecdb; --bandgold: #e8cf74; --bandmuted: #c5cbd8; --bandline: #2f3e63; --rule: #c9a227; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0e1626; --fg: #ece6d8; --muted: #b5ad9c; --line: #2c3a55; --accent: #e8cf74; --gold: #e8cf74; --notice: #17223a; --card: #131d33; --band: #080d19; --onband: #ece6d8; --bandgold: #e8cf74; --bandmuted: #aab2c3; --bandline: #24304a; --rule: #c9a227; color-scheme: dark; } }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--fg); font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; line-height: 1.9; font-size: 17px; }
-a { color: var(--accent); text-underline-offset: 3px; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", "Noto Serif CJK JP", "Source Han Serif JP", serif; line-height: 1.9; font-size: 17px; }
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
 a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-.skip { position: absolute; left: -9999px; top: 0; background: var(--bg); padding: 8px 12px; }
+.skip { position: absolute; left: -9999px; top: 0; background: var(--bg); color: var(--accent); padding: 8px 12px; }
 .skip:focus { left: 16px; z-index: 10; }
-header, main, footer { max-width: 44rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-header { padding-top: 20px; padding-bottom: 8px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-header img { width: 40px; height: 48px; }
-header a.home { font-weight: 600; text-decoration: none; color: var(--fg); }
-header a.lang { margin-left: auto; }
-.notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
-main { padding-bottom: 32px; }
-h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
+.wrap, main { max-width: 46rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { background: var(--band); color: var(--onband); border-bottom: 4px double var(--rule); }
+header .bar { display: flex; align-items: center; gap: 12px; padding-top: 14px; padding-bottom: 10px; }
+header img { width: 40px; height: 48px; flex: none; }
+header a.home { display: flex; flex-direction: column; min-width: 0; color: var(--onband); text-decoration: none; line-height: 1.35; }
+header .name { font-weight: 600; font-size: 1.05rem; letter-spacing: 0.06em; }
+.la { font-variant: small-caps; letter-spacing: 0.16em; }
+header .la { color: var(--bandgold); font-size: 0.85rem; }
+header a.lang { margin-left: auto; flex: none; color: var(--bandgold); font-size: 0.95rem; }
+header nav ul { list-style: none; margin: 0; padding: 6px 0 8px; border-top: 1px solid var(--bandline); display: flex; flex-wrap: wrap; gap: 0 20px; }
+header nav a { display: inline-block; padding: 4px 0; line-height: 1.6; white-space: nowrap; color: var(--onband); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; border-bottom: 2px solid transparent; }
+header nav a:hover, header nav a[aria-current="page"] { border-bottom-color: var(--bandgold); }
+@media (max-width: 639px) { header nav ul { gap: 0 14px; } html[lang="ja"] header nav ul { justify-content: space-between; gap: 0 8px; } header nav a { font-size: 0.875rem; letter-spacing: 0; } .hero + blockquote { padding: 12px 14px; } }
+header a:focus-visible, footer a:focus-visible { outline-color: var(--bandgold); }
+.notice { background: var(--notice); border: 1px solid var(--line); border-left: 4px solid var(--rule); padding: 10px 14px; margin: 24px 0; font-size: 15px; line-height: 1.75; color: var(--fg); }
+main { padding-bottom: 40px; }
+h1, h2, h3 { font-weight: 600; letter-spacing: 0.03em; }
+html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3 { letter-spacing: 0.01em; }
+h1 { font-size: 1.75rem; line-height: 1.4; text-wrap: balance; margin: 0.9em 0 0.6em; }
+h1::after { content: ""; display: block; width: 3rem; height: 3px; margin-top: 0.35em; background: var(--rule); }
 h1, h2, h3 { word-break: auto-phrase; }
-h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
-h3 { font-size: 1.05rem; }
+h2 { font-size: 1.3rem; line-height: 1.5; margin: 2.2em 0 0.7em; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+h2::before { content: ""; display: inline-block; width: 0.4em; height: 0.4em; margin: 0 0.6em 0.2em 0.1em; background: var(--rule); transform: rotate(45deg); vertical-align: middle; }
+h3 { font-size: 1.08rem; margin: 1.6em 0 0.4em; }
 p, li { overflow-wrap: anywhere; }
-blockquote { margin: 1em 0; padding: 4px 16px; border-left: 4px solid var(--line); color: var(--muted); }
+blockquote { margin: 1em 0; padding: 2px 16px; border-left: 3px solid var(--line); color: var(--muted); }
+blockquote p { margin: 0.5em 0; }
 details.source { margin: 0.6em 0 1.2em; }
 details.source summary { cursor: pointer; color: var(--muted); }
 details.source .cite { font-size: 0.9em; color: var(--muted); }
-hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
+hr { border: 0; height: 12px; margin: 2.4em 0; background: linear-gradient(var(--line), var(--line)) center / 100% 1px no-repeat; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
-.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 8px 0 16px; }
+.hero { text-align: center; padding: 20px 0 4px; }
+.hero h1 { margin: 0; font-size: 1.5rem; line-height: 1.35; letter-spacing: 0.04em; }
+.hero h1::after { margin: 0.45em auto 0; }
+.hero h1 .la { display: block; margin-top: 0.2em; font-size: 0.55em; font-weight: 400; color: var(--gold); letter-spacing: 0.24em; }
+.lede { margin: 0.7em 0 0; line-height: 1.7; }
+.lede, .first figcaption { text-wrap: balance; word-break: auto-phrase; }
+.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 16px; margin: 14px 0 0; }
 .first a { display: block; }
-.first img { display: block; height: 88px; width: auto; }
-.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; }
-@media (min-width: 640px) { .first img { height: 128px; } }
+.first img { display: block; height: 80px; width: auto; }
+.first a img { outline: 1px solid var(--line); outline-offset: 3px; }
+.first img.crest { height: 104px; }
+.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; line-height: 1.6; color: var(--muted); }
+@media (min-width: 640px) { .first img { height: 128px; } .first img.crest { height: 160px; } .first { gap: 10px 32px; } .hero h1 { font-size: 2.3rem; letter-spacing: 0.08em; } .lede { font-size: 1.05rem; } }
+@media (min-width: 640px) and (max-height: 520px) { .first img { height: 80px; } .first img.crest { height: 96px; } .hero { padding-top: 10px; } .hero h1 { font-size: 1.5rem; } .lede { margin-top: 0.4em; } }
+@media (max-height: 520px) { header .bar { padding-top: 8px; padding-bottom: 6px; } header nav ul { padding: 2px 0 4px; } }
+.hero + blockquote { margin: 20px 0 0; padding: 14px 18px; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--rule); color: var(--fg); font-size: 15px; line-height: 1.8; }
+.hero + blockquote p { margin: 0 0 0.6em; }
+.hero + blockquote p:last-child { margin: 0; color: var(--muted); }
+.motto { text-align: center; margin: 28px 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); letter-spacing: 0.04em; }
+.entries ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 720px) { .entries ul { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.entries a { display: block; height: 100%; padding: 12px 16px 14px; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--rule); color: var(--fg); text-decoration: none; }
+.entries a:hover { border-color: var(--gold); }
+.entries b { display: block; color: var(--accent); font-size: 1.05rem; letter-spacing: 0.04em; }
+.entries span { display: block; margin-top: 4px; color: var(--muted); font-size: 14px; line-height: 1.7; word-break: auto-phrase; }
 .table { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; font-size: 15px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--card); }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+th { background: var(--notice); font-weight: 600; }
 th:first-child, td:first-child { white-space: nowrap; }
-footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 40px; font-size: 14px; color: var(--muted); }
-footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+footer { margin-top: 32px; background: var(--band); color: var(--bandmuted); border-top: 4px double var(--rule); font-size: 14px; line-height: 1.8; }
+footer .wrap { padding-top: 20px; padding-bottom: 40px; }
+footer a { color: var(--bandgold); }
+footer .seal { margin: 0 0 12px; color: var(--onband); text-align: center; font-size: 15px; }
+footer ul { list-style: none; margin: 0 0 16px; padding: 0 0 16px; border-bottom: 1px solid var(--bandline); display: flex; flex-wrap: wrap; gap: 4px 18px; }
+footer ul a { color: var(--onband); }
 .map svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 16px auto; }
 .pager { display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .years { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
@@ -111,7 +169,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 .steps li p { margin: 0.4em 0 0; font-size: 15px; }
 .tile, .swatch { display: block; width: 40px; }
 .swatch svg { display: block; width: 100%; height: auto; outline: 1px solid var(--line); }
-@media print { .skip, footer ul, .pager { display: none; } body { font-size: 12pt; } header, main, footer { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }
+@media print { .skip, footer ul, .pager, header nav { display: none; } header, footer { background: none; color: inherit; border: 0; } header a.home, header a.lang, header .la, footer .seal { color: inherit; } body { font-size: 12pt; } .wrap, main { max-width: none; } a { text-decoration: none; } main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 0.85em; } .table { overflow: visible; } }
 `.trim();
 const STYLE_HASH = 'sha256-' + crypto.createHash('sha256').update(STYLE, 'utf8').digest('base64');
 
@@ -631,19 +689,61 @@ function constructionMd(en = false) {
  * 国旗は国のしるしへ、地図は王の正誤表へつなぐ。代替テキストは、つなぐ先と何の画像かを短く書く。 */
 function firstScreen() {
   return '<figure class="first"><a href="symbols.html"><img src="flag.svg" alt="ヌスクァマの国旗（創作）" ' + svgSize('assets/flag.svg') + '></a>'
+    + '<img class="crest" src="emblem.svg" alt="ヌスクァマの国章（創作）" ' + svgSize('assets/emblem.svg') + '>'
     + '<a href="errata.html"><img src="territory.svg" alt="ヌスクァマの版図の地図（創作）" ' + svgSize('site/territory.svg') + '></a>'
-    + '<figcaption>国旗と、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption></figure>';
+    + '<figcaption>国旗、国章、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption></figure>';
+}
+
+/* トップの主な頁への入口。題は下の欄の短い名、説明は各頁の冒頭の言い方から取る。数は名簿・正誤表・官報から数え、手で書かない。 */
+function entries(en = false) {
+  if (en) throw new Error('入口の一覧は日本語のトップだけに置く');
+  const rows = [
+    ['knights', '正誤表騎士団に叙任された騎士の名簿。人口 ' + population() + ' 人'],
+    ['errata', '王が自らの誤りを消さず、日付を付けて記した表。' + domain() + ' 件'],
+    ['gazette', '王国の出来事を、号を振って並べたもの。' + gazetteItems().length + ' 号'],
+    ['calendar', '建国の日と、国の記念日'],
+    ['institutions', '基本法と規程を、仕組みの面から並べ直したもの'],
+    ['symbols', '国章と国旗と版図の地図'],
+    ['story', '建国の宣言と基本法を、やさしく言い直した物語'],
+    ['play', '自分の正誤表の雛形と、季節の問い'],
+  ];
+  return '<nav class="entries" aria-label="王国の案内"><ul>' + rows.map(([h, d]) => `<li><a href="${h}.html"><b>${esc(SHORT[h])}</b><span>${esc(d)}</span></a></li>`).join('') + '</ul></nav>';
+}
+
+/* トップの頁の頭。題と一文と最初の画面の図を一つの枠に収め、README の札は出さない。国章は最初の画面に出すので、README の国章の画像は繰り返さない。 */
+function frontispiece(html) {
+  const head = '<h1>' + NAME + '（Regnum Nusquamae）</h1>\n<p>' + LABEL + '</p>\n';
+  if (!html.startsWith(head)) throw new Error('README が、題と種類の札で始まっていない');
+  const rest = html.slice(head.length);
+  const fig = /^<figure class="first">[\s\S]*?<\/figure>\n/.exec(rest);
+  if (!fig) throw new Error('README の札のすぐ後に、最初の画面の印がない');
+  const emblem = /<img class="emblem" src="emblem\.svg"[^>]*>\n/;
+  const motto = '<p><strong>国是</strong>：';
+  if (!emblem.test(rest) || !rest.includes(motto)) throw new Error('README の国章の画像か国是がない');
+  return '<div class="hero">\n<h1>' + NAME + '<span class="la" lang="la">Regnum Nusquamae</span></h1>\n<p class="lede">' + LEDE + '</p>\n' + fig[0] + '</div>\n'
+    + rest.slice(fig[0].length).replace(emblem, '').replace(motto, '<p class="motto"><strong>国是</strong>：');
 }
 
 /* Markdown の中の印（<!-- map --> など）を、表や図に置き換える。GitHub で読むときは印は見えない。 */
 const FILLERS = { map: errataMap, growth: errataGrowth, years: errataYearTable, facts: (en) => factsTable(en), census: (en) => censusTable(en),
-  months: gazetteMonthTable, yearmaps: territoryYears, flagsteps: (en) => constructionSteps('flag', en), emblemsteps: (en) => constructionSteps('emblem', en), colors: colorTable, tiles: tileTable, first: firstScreen };
+  months: gazetteMonthTable, yearmaps: territoryYears, flagsteps: (en) => constructionSteps('flag', en), emblemsteps: (en) => constructionSteps('emblem', en), colors: colorTable, tiles: tileTable, first: firstScreen, entries };
 function fill(html, en) {
   html = html.replace(/<p>&lt;!-- 条文 (.+?) --&gt;<\/p>/g, (m, keys) => quoteBlock(keys, en));
   return html.replace(/<p>&lt;!-- (\w+) --&gt;<\/p>/g, (m, k) => {
     if (!FILLERS[k]) throw new Error('印 ' + k + ' を置き換えるものがない');
     return FILLERS[k](en);
   });
+}
+
+/* トップの頁の頭を組み、宣言と基本法の節に id を付ける（英語の訳の頁も）。 */
+function anchored(outRel, html) {
+  if (outRel !== 'index.html' && outRel !== 'founding.en.html') return html;
+  if (outRel === 'index.html') html = frontispiece(html);
+  for (const [h, id] of ANCHORS.filter(([h]) => (outRel === 'index.html') === /[^\x00-\x7f]/.test(h))) {
+    if (!html.includes(h)) throw new Error(outRel + ' に ' + h + ' がない');
+    html = html.replace(h, h.replace('<h2>', '<h2 id="' + id + '">'));
+  }
+  return html;
 }
 
 /* opts.md：ファイルではなく、この関数に渡した Markdown から頁を作る（正誤一件・官報一号の頁）。
@@ -668,6 +768,10 @@ function page(srcRel, outRel, opts = {}) {
   /* 言語の切り替えは、どの頁も頁の上の同じ場所（見出しの欄の右端）に置く。トップの頁の英語は、建国の宣言・基本法・十則の訳である。 */
   const other = twin || (outRel === 'index.html' ? 'founding.en.html' : outRel === 'founding.en.html' ? 'index.html' : null);
   const lang = other ? (en ? `<a class="lang" href="${pre}${other}" hreflang="ja" lang="ja">日本語</a>` : `<a class="lang" href="${pre}${other}" hreflang="en" lang="en">English</a>`) : '';
+  const nav = '<nav aria-label="' + (en ? 'Main pages' : '主な頁') + '"><ul>' + NAV.map(([ja, eng, hj, he]) => {
+    const href = en ? he : hj;
+    return `<li><a href="${pre}${href}"${href === outRel ? ' aria-current="page"' : ''}>${en ? eng : ja}</a></li>`;
+  }).join('') + '</ul></nav>';
   const alternate = twin ? `<link rel="alternate" hreflang="${en ? 'ja' : 'en'}" href="${BASE + twin}">\n` : '';
   return `<!doctype html>
 <html lang="${en ? 'en' : 'ja'}">
@@ -694,11 +798,15 @@ ${alternate}${en ? '' : `<link rel="alternate" type="application/atom+xml" title
 </head>
 <body>
 <a class="skip" href="#main">${en ? 'Skip to content' : '本文へ'}</a>
-<header><img src="${pre}emblem.svg" alt="" width="40" height="48"><a class="home" href="${pre}index.html">${NAME}</a>${lang}</header>
+<header><div class="wrap">
+<div class="bar"><img src="${pre}emblem.svg" alt="" width="40" height="48"><a class="home" href="${pre}index.html"><span class="name"${en ? ' lang="ja"' : ''}>${NAME}</span><span class="la" lang="la">Regnum Nusquamae</span></a>${lang}</div>
+${nav}
+</div></header>
 <main id="main">
-${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${fill(markdown(md, srcRel, outRel), en).replace(/<h2>/, (h) => (outRel === 'story.html' || outRel === 'story.en.html' ? storyToc(en) + '\n' + h : h)).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : outRel === 'gazette.en.html' ? '\n' + gazetteTable(true) : ''}
+${outRel === 'index.html' ? '' : `<p class="notice">${esc(en ? NOTICE_EN : NOTICE)}</p>\n`}${anchored(outRel, fill(markdown(md, srcRel, outRel), en)).replace(/<h2>/, (h) => (outRel === 'story.html' || outRel === 'story.en.html' ? storyToc(en) + '\n' + h : h)).replace(/(<\/blockquote>)/, outRel === 'index.html' ? '$1\n<p class="notice">' + esc(DOMAIN_LINE()) + ' <a href="errata.html">王の正誤表</a></p>' : '$1')}${outRel === 'errata.html' || outRel === 'knights.html' || outRel === 'gazette.html' ? `\n<p><a href="${outRel.replace('.html', '')}.xml">新着の配信（Atom）</a></p>` : ''}${outRel === 'gazette.html' ? '\n' + gazetteTable() : outRel === 'gazette.en.html' ? '\n' + gazetteTable(true) : ''}
 </main>
-<footer>
+<footer><div class="wrap">
+<p class="seal"><span class="la" lang="la">Regnum Nusquamae</span> · <span lang="la">Errata servo, me ipsum rego.</span></p>
 <ul>${links.map(([h, t]) => `<li><a href="${pre}${h}">${esc(t)}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li></ul>
 ${en ? `<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King. Contact: <a href="${pre}policies/requests.en.html">Requests</a>, <a href="${REPO}/issues/new?template=error.yml">Report a mistake</a>, <a href="${REPO}/blob/main/SECURITY.md">Reporting a security issue</a>. Disclaimer: <a href="${pre}policies/disclaimer.en.html">Disclaimer</a>.</p>
 <p>Text and emblem: CC BY 4.0. This page is generated from ${esc(srcRel)} in the repository. The Japanese version governs.</p>
@@ -707,7 +815,7 @@ ${en ? `<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotco
 <p>文と国章は CC BY 4.0 です。この頁は、リポジトリの ${esc(srcRel)} から生成しています。</p>
 <p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
 <p>${SEPARATE}</p>`}
-</footer>
+</div></footer>
 </body>
 </html>
 `;
@@ -821,7 +929,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { NAME, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
