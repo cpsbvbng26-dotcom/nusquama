@@ -2486,14 +2486,33 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
   /* 日付は日本時間で読む（利用規約「変更と終了」）。git の日付も Asia/Tokyo の地方時に直して比べる。 */
   const git = (args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', env: Object.assign({}, process.env, { TZ: 'Asia/Tokyo' }), stdio: ['ignore', 'pipe', 'ignore'] });
   const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
-  let shallow = true, dirty = new Set();
-  try {
-    shallow = git(['rev-parse', '--is-shallow-repository']).trim() !== 'false';
-    dirty = new Set(git(['status', '--porcelain', '--untracked-files=all']).split('\n').filter(Boolean).map((l) => l.slice(3)));
-  } catch (e) { shallow = true; }
+  let shallow = true;
+  try { shallow = git(['rev-parse', '--is-shallow-repository']).trim() !== 'false'; } catch (e) { shallow = true; }
   const day = (args) => { try { return git(args).split('\n').filter(Boolean); } catch (e) { return []; } };
-  /* 頁を変えた最後の日。まだコミットしていない頁は、今日（日本時間）に変えたものとする。 */
-  const lastDay = (f) => (dirty.has(f) ? today : day(['log', '-1', '--format=%cd', '--date=format-local:%Y-%m-%d', '--', f])[0] || today);
+  /* 頁の文を変えた最後の日。前の版と、最終更新の行のほかで違う版のうち、いちばん新しいコミットの日（最終更新の日だけを
+   * 改めたコミットは、文を変えたものとしない）。最後のコミットと文が違う頁は、今日（日本時間）に変えたものとする。
+   * 版は git cat-file で一度に読む。 */
+  const body = (s) => String(s || '').replace(/^(?:最終更新：\d{4}-\d{2}-\d{2}。|Last updated: \d{4}-\d{2}-\d{2}\.)$/gm, '');
+  const lastTextDays = (fs_) => {
+    const logs = Object.fromEntries(fs_.map((f) => [f, day(['log', '--format=%H %cd', '--date=format-local:%Y-%m-%d', '--', f]).map((l) => l.split(' '))]));
+    let buf = Buffer.alloc(0);
+    try { buf = execFileSync('git', ['cat-file', '--batch'], { cwd: ROOT, input: fs_.flatMap((f) => logs[f].map(([h]) => h + ':' + f)).join('\n') + '\n', maxBuffer: 1 << 30, stdio: ['pipe', 'pipe', 'ignore'] }); } catch (e) { buf = Buffer.alloc(0); }
+    const blobs = [];
+    for (let p = 0; p < buf.length;) {
+      const nl = buf.indexOf(10, p), m = / blob (\d+)$/.exec(buf.slice(p, nl).toString('utf8'));
+      if (!m) { blobs.push(null); p = nl + 1; continue; }
+      blobs.push(buf.slice(nl + 1, nl + 1 + Number(m[1])).toString('utf8')); p = nl + 1 + Number(m[1]) + 1;
+    }
+    const out = {};
+    let k = 0;
+    for (const f of fs_) {
+      const l = logs[f], v = l.map(() => blobs[k++]);
+      if (!l.length || body(read(f)) !== body(v[0])) { out[f] = today; continue; }
+      const i = v.findIndex((x, j) => j + 1 >= v.length || body(x) !== body(v[j + 1]));
+      out[f] = (l[i] || [])[1] || today;
+    }
+    return out;
+  };
   /* 行の文が最初に入った日。まだどのコミットにもない文は、今日に入るものとする。 */
   const firstDay = (f, s) => day(['log', '--reverse', '--format=%cd', '--date=format-local:%Y-%m-%d', '-S', s, '--', f])[0] || today;
   const UPD = /^(?:最終更新：(\d{4}-\d{2}-\d{2})。|Last updated: (\d{4}-\d{2}-\d{2})\.)$/m;
@@ -2504,7 +2523,7 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
   const files = ['README.md', 'ERRATA.md', 'policies/terms.md', 'policies/terms.en.md', AUD, WF].concat(pages.filter((f) => !['policies/terms.md', 'policies/terms.en.md'].includes(f)));
   const real = Object.fromEntries(files.map((f) => [f, read(f)]));
   /* 履歴から読む日は、いまの文について一度だけ読む。壊して確かめるときも、同じ文には同じ日を使う。 */
-  const last = Object.fromEntries(pages.map((f) => [f, lastDay(f)]));
+  const last = lastTextDays(pages);
   const first = {};
   for (const r of timeline(real['README.md'])) first['README.md\n' + r[1]] = firstDay('README.md', r[1]);
   for (const r of errata(real['ERRATA.md'])) first['ERRATA.md\n' + r[3]] = firstDay('ERRATA.md', r[3]);
@@ -2550,12 +2569,13 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
   }
   const facts = { shallow, last, first, ledger: ledgerRaw };
   const bad = verdict(real, facts);
-  ok('頁の最終更新（' + pages.length + ' 頁）は変えた最後の日より、年表と王の正誤表の行の日付は文が入った日より前にならず（日本時間）、年表の告げる効力の日は行の日付より前にならない。利用規約が日付の時刻を書き、号の台帳は改めた日付の鍵を持ち、検査は履歴をすべて読む。点検の記録がそろう',
+  ok('頁の最終更新（' + pages.length + ' 頁）は文を変えた最後の日より、年表と王の正誤表の行の日付は文が入った日より前にならず（日本時間）、年表の告げる効力の日は行の日付より前にならない。利用規約が日付の時刻を書き、号の台帳は改めた日付の鍵を持ち、検査は履歴をすべて読む。点検の記録がそろう',
     bad.length === 0, bad.join(' / '));
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
   const breaks = [
     ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-13。', '最終更新：2026-11-12。'), facts],
     ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-12.'), facts],
+    ['文を変えていない頁の最終更新を、文を変えた日より前にする', mut('policies/names.md', '最終更新：2026-11-12。', '最終更新：2026-11-11。'), facts],
     ['年表の行を作業の時計の日付に戻す', mut('README.md', '| 2026-11-13（日本時間） | 利用規約の合意管轄を、', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、'), facts],
     ['年表の 2026-11-11 の行を前の日に戻す', mut('README.md', '| 2026-11-11（日本時間） | 建国の物語・', '| 2026-11-10（日本時間） | 建国の物語・'), facts],
     ['王の正誤表 30 の記した日を前の日に戻す', mut('ERRATA.md', '| 30 | 2026-11-13 |', '| 30 | 2026-11-12 |'), facts],
@@ -2574,7 +2594,7 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
     ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令'), facts],
   ];
   const caught = breaks.filter(([, y, h]) => verdict(y, h).length > 0).map(([k]) => k);
-  ok('壊して確かめる：最終更新・英語の最終更新・年表の行・2026-11-11 の行・王の正誤表の記した日・新しい正誤・効力の日（日本語と英語）・利用規約の三つの文・浅い履歴・今日変えた頁・号の台帳・fetch-depth・判定の数・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+  ok('壊して確かめる：最終更新・英語の最終更新・文を変えていない頁の最終更新・年表の行・2026-11-11 の行・王の正誤表の記した日・新しい正誤・効力の日（日本語と英語）・利用規約の三つの文・浅い履歴・今日変えた頁・号の台帳・fetch-depth・判定の数・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));
