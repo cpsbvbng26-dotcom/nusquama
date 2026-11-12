@@ -51,7 +51,8 @@ console.log('\n3. 規程の約束（消せば落ちる）');
       '官公職・位階勲等・学位・その他法令により定められた称号と誤認されるように使うことは、してはいけません。', 'ヌスクァマは、誰からも料金を取りません。', '称号を売らず、寄付を受けず、広告を出さず、何も販売しません。', 'この規約は日本法に準拠します。',
       '紛争は、示談による解決を優先します。', '相手方から示談の申し出があれば、運営者は誠実に応じます。',
       '示談で解決しない紛争は、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の専属的合意管轄裁判所とします。'],
-    'policies/disclaimer.md': ['国際法上の国家ではなく、国家としての承認を求めず、どの国の領土も主張しません。', '叙任は、現実の栄誉の授与ではありません。', 'アーサー王伝説を題材とする小説・映画・ゲーム・アニメなどの作品と、その権利者', 'Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。'],
+    'policies/disclaimer.md': ['国際法上の国家ではなく、国家としての承認を求めず、どの国の領土も主張しません。', '叙任は、現実の栄誉の授与ではありません。', 'アーサー王伝説を題材とする小説・映画・ゲーム・アニメなどの作品と、その権利者', 'Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。',
+      '## 運営者の研究との関係\n\n' + B.SEPARATE + '\n', 'ヌスクァマの頁から運営者の研究の頁へはつながず、研究の頁からもヌスクァマへはつなぎません。'],
     'policies/privacy.md': ['サイトは、cookie を使わず、アクセス解析も広告も置いていません。', '本名・住所・所属・連絡先は求めません。', '16 歳未満の人は、叙任を願い出ることができません。',
       'ただし、訂正へのリンクの先に本名や所属が書かれている場合は、名簿と issue によって、アカウント名とその人が結び付いて公開されます。',
       '米国には、日本の個人情報保護法に当たる、個人情報を包括して扱う連邦の法律はありません。',
@@ -328,7 +329,8 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
     'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
-    'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
+    'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.',
+      "## The operator's research\n\n" + B.SEPARATE_EN + '\n', 'The pages of Nusquama do not link to the operator\'s research pages, and the research pages do not link to Nusquama.'],
     'policies/legality.en.md': ['This page sets out the operator\'s understanding; it is neither legal advice nor a guarantee.', 'It has not been reviewed by a lawyer.', 'This is not a legal guarantee. If the facts relied on change, so does the conclusion.',
       'It collects no documents to check nationality, age, country of residence or real name.'],
   };
@@ -1185,8 +1187,8 @@ console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキ�
     if (lang.length !== 1 || !head.includes(lang[0][0]) || (en ? lang[0][4] !== '日本語' || lang[0][2] !== 'ja' : lang[0][4] !== 'English' || lang[0][2] !== 'en') || !fs.existsSync(path.join(ROOT, 'site', target))) bad.lang.push(f);
     const foot = (/<footer>([\s\S]*?)<\/footer>/.exec(t) || [])[1] || '';
     /* 運営者・連絡・免責の欄は、下の欄の頁の一覧とは別の一文で書く（一覧の中のリンクでは足りない）。 */
-    const need = en ? [/<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King\. Contact: <a href="[^"]*policies\/requests\.en\.html">Requests<\/a>, <a href="[^"]*\?template=error\.yml">Report a mistake<\/a>, <a href="[^"]*SECURITY\.md">Reporting a security issue<\/a>\. Disclaimer: <a href="[^"]*policies\/disclaimer\.en\.html">Disclaimer<\/a>\.<\/p>/, /Written with Claude Code \(Anthropic\)\./]
-      : [/<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="[^"]*policies\/requests\.html">削除・訂正・辞退の求め<\/a>、<a href="[^"]*\?template=error\.yml">誤りの知らせ<\/a>、<a href="[^"]*SECURITY\.md">安全の問題の知らせ方<\/a>で受けます。免責は、<a href="[^"]*policies\/disclaimer\.html">免責事項<\/a>にあります。<\/p>/, /Claude Code（Anthropic）で書きました。/];
+    const need = en ? [/<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King\. Contact: <a href="[^"]*policies\/requests\.en\.html">Requests<\/a>, <a href="[^"]*\?template=error\.yml">Report a mistake<\/a>, <a href="[^"]*SECURITY\.md">Reporting a security issue<\/a>\. Disclaimer: <a href="[^"]*policies\/disclaimer\.en\.html">Disclaimer<\/a>\.<\/p>/, /Written with Claude Code \(Anthropic\)\./, new RegExp('<p>' + B.SEPARATE_EN + '</p>')]
+      : [/<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="[^"]*policies\/requests\.html">削除・訂正・辞退の求め<\/a>、<a href="[^"]*\?template=error\.yml">誤りの知らせ<\/a>、<a href="[^"]*SECURITY\.md">安全の問題の知らせ方<\/a>で受けます。免責は、<a href="[^"]*policies\/disclaimer\.html">免責事項<\/a>にあります。<\/p>/, /Claude Code（Anthropic）で書きました。/, new RegExp('<p>' + B.SEPARATE + '</p>')];
     if (!need.every((x) => x.test(foot)) || /github\.com\/cpsbvbng26-dotcom\/(?!nusquama[/"])|cpsbvbng26-dotcom\.github\.io/.test(t)) bad.foot.push(f);
     const imgs = [...t.matchAll(/<img ([^>]*)>/g)].map((m) => m[1]);
     const deco = imgs.filter((a) => /alt=""/.test(a));
@@ -1203,7 +1205,7 @@ console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキ�
     if (f === '404.html' ? canon || !t.includes('<meta name="robots" content="noindex">') : canon !== B.BASE + (f === 'index.html' ? '' : f)) bad.canon.push(f);
   }
   ok('どの頁（' + html.length + '）も、言語の切り替えを頁の上の欄の右端に一つだけ置き、日本語の頁は「English」、英語の頁は「日本語」と書き、指す先がある', bad.lang.length === 0, bad.lang.slice(0, 8).join(', '));
-  ok('どの頁の下の欄も、運営者・連絡（求め・誤りの知らせ・安全の知らせ）・免責・開示をそろえ、研究の系列へつながない', bad.foot.length === 0, bad.foot.slice(0, 8).join(', '));
+  ok('どの頁の下の欄も、運営者・連絡（求め・誤りの知らせ・安全の知らせ）・免責・開示と、研究とは別のもので、その一部ではないという一文をそろえ、研究の系列へつながない', bad.foot.length === 0, bad.foot.slice(0, 8).join(', '));
   ok('代替テキスト：頁の上の国章だけが飾りで空にし、中身の画像は何の画像かを書いて（創作）・(fiction) を添え、ファイル名を書かない', bad.alt.length === 0, bad.alt.slice(0, 8).join(', '));
   ok('どの頁も 128 KiB 以下で、読む画像を足しても 160 KiB 以下', bad.weight.length === 0, bad.weight.join(', '));
   const vp = html.map((f) => (/<meta name="viewport" content="([^"]+)">/.exec(read('site/' + f)) || [])[1]);
