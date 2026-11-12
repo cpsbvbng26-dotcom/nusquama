@@ -19,6 +19,8 @@
 
 **国是**：Errata servo, me ipsum rego. ―― 誤りは守り、己を治める。
 
+<!-- entries -->
+
 ---
 
 ## 建国の宣言
