@@ -1,9 +1,4 @@
 {
-  "batch": "probe",
-  "probe": [
-    "https://www.constituteproject.org/service/html?cons_id=Japan_1946&lang=en",
-    "https://www.legislation.gov.uk/ukpga/Geo5/15-16/72/data.xml",
-    "https://laws-lois.justice.gc.ca/eng/XML/C-46.xml",
-    "https://www.legislation.gov.uk/ukpga/2013/26/data.xml"
-  ]
+  "_": "枝でこのファイルを書き換えると、world.yml が batch の組を取り寄せる。手で動かすときは、ワークフローの入力 batch が先に立つ。",
+  "batch": "japan"
 }
