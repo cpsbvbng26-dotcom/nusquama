@@ -82,7 +82,7 @@ function lines(html) {
 const flat = (x) => entities(x.replace(/<[^>]+>/g, ' ')).normalize('NFC').replace(/[\s ​]+/g, ' ').trim();
 
 /* A heading that opens an article, in the languages the survey reads. Group 2 is the number. */
-const HEADS = 'Article|ARTICLE|Art\\.|ART\\.|Art(?=\\s+\\d)|Artículo|ARTÍCULO|Articulo|ARTICULO|Artigo|ARTIGO|Articolo|ARTICOLO|Artikel|ARTIKEL|Section|SECTION|Sec\\.|SEC\\.|§|Статья|Článek|Čl\\.';
+const HEADS = 'Article|ARTICLE|Art\\.|ART\\.|Art(?=\\s+\\d)|ART(?=\\s+\\d)|Sec(?=\\s+\\d)|Artículo|ARTÍCULO|Articulo|ARTICULO|Artigo|ARTIGO|Articolo|ARTICOLO|Artikel|ARTIKEL|Section|SECTION|Sec\\.|SEC\\.|§|Статья|Článek|Čl\\.';
 const NUM = '(\\d+[A-Za-z]?(?:[.\\-–]\\d+[A-Za-z]?)*(?:\\s?(?:bis|ter|quater|quinquies|sexies|septies|octies|novies|decies)\\b)?)';
 const HEAD = new RegExp('^(' + HEADS + ')\\s*' + NUM + '(?=[\\s.:º°ª\\-–)]|$)');
 /* Swedish and Danish write the number first: "1 §". */
@@ -195,8 +195,9 @@ function splitConstitute(html) {
     if (!title) { if (cur) cur.paras.push(t); continue; }
     if (cur && cur.paras.length) arts.push(cur);
     const short = t.length > 80 ? t.slice(0, 80) : t;
-    const isArticle = /^(Article|ARTICLE|Art\.?)\s+[IVXLCDM\d]+[A-Za-z]?\b/.test(t);
-    const isSection = /^(Section|SECTION|Sec\.|§)\s*\d/.test(t) || /^\d+[A-Z]?\.?(\s|$)/.test(t);
+    /* "Article 14", "ART 2", "Article IV", and the numbers in words of some translations ("Article Twenty-One:"). */
+    const isArticle = /^(Article|ARTICLE|Art\.?|ART\.?)\s+[IVXLCDM\d]+[A-Za-z]?\b/.test(t) || (/^(Article|ARTICLE)\s+[A-Z][a-z]+(?:[- ][A-Za-z]+){0,3}:?$/.test(t) && t.length < 60);
+    const isSection = /^(Section|SECTION|Sec\.?|§)\s*\d/.test(t) || /^\d+[A-Z]?\.?(\s|$)/.test(t);
     if (isArticle) { lastArticle = short; cur = { label: short, paras: [] }; continue; }
     if (isSection) { cur = { label: lastArticle ? lastArticle + ', ' + short : short, paras: [] }; continue; }
     if (HEAD.test(t) || /^preamble$/i.test(t)) { cur = { label: short, paras: [] }; continue; }
@@ -489,12 +490,13 @@ function classifyAll(data, D) {
   for (const d of Object.values(data)) for (const p of d.provisions) {
     const text = (p.caption ? p.caption + ' ' : '') + p.text;
     const dec = (D.provisions || {})[p.id];
-    if (dec && dec.sha256 === p.sha256) { out[p.id] = { ...dec, by: 'read' }; continue; }
+    if (dec && dec.sha256 === p.sha256) { const { reason, sha256, ...rest } = dec; out[p.id] = { by: 'read', ...rest }; continue; }
     const r = (D.rules || []).find((x) => (!x.kind || x.kind === p.kind) && (!x.topic || p.topics.includes(x.topic))
       && (!x.topics_only || p.topics.every((t) => x.topics_only.includes(t))) && (!x.sources || new RegExp(x.sources).test(p.source))
       && (!x.lang || x.lang === p.lang) && (!x.test || new RegExp(x.test, 'iu').test(text)) && (!x.not || !new RegExp(x.not, 'iu').test(text)));
     if (!r) { left.push(p.id); continue; }
-    const c = { class: r.class, reason: r.reason, sha256: p.sha256, by: r.id };
+    /* The reason stays in decisions.json (the rule's); classes.json names the rule. */
+    const c = { by: r.id, class: r.class };
     if (r.class !== 'does not apply') {
       const excluded = p.country.startsWith('_') || EX.has(p.country);
       Object.assign(c, { project: r.project, severity: excluded && r.severity_excluded ? r.severity_excluded : r.severity, action: excluded && r.action_excluded ? r.action_excluded : r.action });
