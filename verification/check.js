@@ -1357,6 +1357,37 @@ console.log('\n54. ミクロネーションの界隈の言い回しとの対応'
     && rj.some((r) => r[0].includes('mutual recognition') && r[1] === 'なし') && rj.some((r) => r[0].startsWith('citizens') && r[1] === 'なし'));
 }
 
+console.log('\n55. 規程の分かりにくい文の言い直し（王の正誤表の手順）');
+{
+  /* 言い直しも、文を置き換えることなので、国の仕組み「改めるとき」の順による。改める前の文を王の正誤表に残し、
+   * 日本語と英語の最終更新を同じ日に改め、年表に一行を足す。言い直した行は、正の欄をこの一文で始める。 */
+  const REWORD = '誤りではなく、分かりにくい文を言い直した。', REWORD_EN = 'Not a mistake; an unclear sentence was reworded.';
+  const E = B.errataEntries().filter((e) => e.right.startsWith(REWORD));
+  const titleOf = (rel) => (/^# (.*)$/m.exec(read(rel)) || [])[1];
+  const policy = (where) => B.POLICIES.find((p) => where.startsWith(titleOf('policies/' + p + '.md') + '「'));
+  const day = (t, re) => (re.exec(t) || [])[1];
+  const timeline = B.timelineRows();
+  const bad = [];
+  for (const e of E) {
+    const p = policy(e.where);
+    if (!p) { bad.push(e.n + '：場所が規程の名で始まらない'); continue; }
+    const ja = read('policies/' + p + '.md'), en = read('policies/' + p + '.en.md');
+    const wrongEn = (e.en[3] || '').replace(/^"|"$/g, '');
+    if (ja.includes(e.wrong) || !wrongEn || en.includes(wrongEn)) bad.push(e.n + '：改める前の文が規程に残る');
+    if (!(e.en[4] || '').startsWith(REWORD_EN) || e.kind.ja !== '語') bad.push(e.n + '：英語の正の欄か分類');
+    if (day(ja, /^最終更新：(\d{4}-\d{2}-\d{2})。$/m) < e.date || day(en, /^Last updated: (\d{4}-\d{2}-\d{2})\.$/m) !== day(ja, /^最終更新：(\d{4}-\d{2}-\d{2})。$/m)) bad.push(e.n + '：最終更新');
+    if (!timeline.some((r) => r[0].startsWith(e.date) && r[1].includes(titleOf('policies/' + p + '.md')) && r[1].includes('言い直す') && r[2].includes('reworded'))) bad.push(e.n + '：年表');
+  }
+  ok('言い直した文（' + E.length + ' 件）は、改める前の文を日本語と英語の正誤表に残して規程から外し、最終更新を日本語と英語で同じ日に改め、年表に行がある', E.length >= 2 && bad.length === 0, bad.join(', '));
+  const xj = read('policies/exchange.md'), xe = read('policies/exchange.en.md'), pj = read('policies/privacy.md'), pe = read('policies/privacy.en.md');
+  ok('交流の規程は相手の国を相手が作ったものとして尊重し、その主張を認めも否みもしない。運営者の氏名と住所は、求めた人に非公開の連絡で知らせ、求め方は求めの頁の手順による（日本語と英語）',
+    xj.includes('- 相手の国は、相手が自ら作ったものとして尊重します。その国の主張を、ヌスクァマは認めも否みもしません。')
+    && xe.includes("- The other party's country is respected as the other party's own creation. Nusquama neither accepts nor denies that country's claims.")
+    && pj.includes('運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。\n求めるときは、[削除・訂正・辞退の求め](./requests.md)の様式の種類で「非公開の連絡を求める」を選びます。')
+    && pe.includes("The operator's name and address are given without delay, through a private channel, to the person who asks for them.")
+    && read('policies/requests.md').includes('様式の種類で「非公開の連絡を求める」を選び') && read('.github/ISSUE_TEMPLATE/request.yml').includes('        - 非公開の連絡を求める\n'));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
