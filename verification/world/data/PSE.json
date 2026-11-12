@@ -1,9 +1,10 @@
 {
  "country": "PSE",
  "sources": {
-  "constitute": {"kind":"constitution","instrument":"Constitution","error":"Constitute の一覧に、この国の効力のある憲法の英文が見当たらない","fetched":"2026-11-12"}
+  "constitute": {"instrument":"Palestine 2003 (rev. 2005)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Palestine_2005&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Palestine_2005&lang=en","status":200,"length":52426,"sha256_full":"0ecd891054c6ebdba94a13bdbf55b8a30f9dfec7293d17a5af0a5f7b2b3c3b1e","articles":124,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Palestine_2005","title":"Palestine 2003 (rev. 2005)","year_enacted":"2003","year_updated":"2005","page":"https://www.constituteproject.org/constitution/Palestine_2005?lang=en"}
  },
  "provisions": [
-
+  {"id":"constitute Article 8","source":"constitute","country":"PSE","instrument":"Palestine 2003 (rev. 2005)","kind":"constitution","article":"Article 8","part":"article","lang":"en","topics":["symbols"],"text":"The flag of Palestine shall be of four colors and in accordance with the dimensions and measurements approved by the Palestine Liberation Organization. It shall be the official flag of the country.","url":"https://www.constituteproject.org/service/html?cons_id=Palestine_2005&lang=en","fetched":"2026-11-12","sha256":"83b0d65b720187bbf8eec9feda17f38507e491366600f93030c33aa37a74a18e"},
+  {"id":"constitute Article 32","source":"constitute","country":"PSE","instrument":"Palestine 2003 (rev. 2005)","kind":"constitution","article":"Article 32","part":"article","lang":"en","topics":["data"],"text":"Any violation of any personal freedom, of the sanctity of the private life of human beings, or of any of the rights or liberties that have been guaranteed by law or by this Basic Law shall be considered a crime. Criminal and civil cases resulting from such violations may not be subject to any statute of limitations. The National Authority shall guarantee a fair remedy to those who suffer from such damage.","url":"https://www.constituteproject.org/service/html?cons_id=Palestine_2005&lang=en","fetched":"2026-11-12","sha256":"747ae3266a8c48ae81d76a7f260dac4b4b51ef418af0e7ad6ddb7b2c5e8891c2"}
  ]
 }
