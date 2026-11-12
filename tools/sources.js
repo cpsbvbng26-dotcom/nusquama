@@ -45,10 +45,11 @@ const SOURCES = [
   { key: 'ppc-guideline-general', url: 'https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/', needles: ['ここでいう「事業の用に供している」の「事業」とは'] },
   { key: 'ppc-guideline-offshore', url: 'https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/', needles: ['5-1情報提供の方法', '（イ）当該外国の個人情報の保護に関する制度についての指標となり得る情報の存在', '5-3-2 提供先の第三者が講ずる個人情報の保護のための措置に関する情報が提供できない場合（規則第17条第4項関係） 規則第17条（第4項）'] },
   { key: 'ppc-guideline-records', url: 'https://www.ppc.go.jp/personalinfo/legal/guidelines_thirdparty/', needles: ['2-2-1-1 「提供者」の考え方 次の', '2-2-1-3 「提供」行為の考え方 不特定多数', '4-2-1-2 本人の同意による第三者提供をする場合（規則第20条第1項第2号関係） 規則'] },
-  { key: 'ppc-us', url: 'https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/', needles: ['連邦政府の個人情報の保護に関する法律についての調査報告'] },
+  { key: 'ppc-us', url: 'https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/', needles: ['連邦政府の個人情報の保護に関する法律についての調査報告'], span: 6000 },
   /* Shift_JIS. The answer is taken, not the table of contents. */
   { key: 'soumu-gaibu-faq', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu_00002.html', needles: ['問1-8 ：外部送信規律に従わなければならない事業者はどのような事業者ですか。 答'] },
-  /* A PDF, read by tools/pdftext.js. */
+  /* PDFs, read by tools/pdftext.js. */
+  { key: 'caa-annotation-2', url: 'https://www.caa.go.jp/policies/policy/consumer_system/consumer_contract_act/annotations/assets/consumer_system_cms203_230915_04.pdf', pdf: true, needles: ['「事業」とは'] },
   { key: 'soumu-entry-manual', url: 'https://www.soumu.go.jp/main_content/000477428.pdf', pdf: true, needles: ['営利目的があることは、事業性があることの判断要素', '個人や企業によるWebサイトの開設', '電子掲示板 インターネット経由で不特定多数'] },
 ];
 
