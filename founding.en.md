@@ -1,6 +1,6 @@
 # Founding Declaration, Basic Law and Ten Precepts
 
-Last updated: 2026-11-11.
+Last updated: 2026-11-13.
 
 This is an English translation of three parts of the top page. The [Japanese version](./README.md) governs; if the two differ, the Japanese version applies.
 
@@ -48,6 +48,8 @@ Nemo I, the Knight-King, 7 November 2026
 **Article 9 (Arms)** The Kingdom does not draw its sword. Disputes are settled by words and evidence.
 
 **Article 10 (Amendment)** The King amends this Basic Law. Articles 1, 6 and 8, however, are never removed.
+
+Knighting under Article 6 is also subject to the conditions of the [Rules on Knighting](policies/knighting.en.md). Where the Rules on Knighting add a condition, the Rules on Knighting prevail (Rules on Knighting, "Relation to Article 6 of the Basic Law"). This note is not an article of the Basic Law, and the text of the articles is unchanged.
 
 ## The Ten Precepts of the Knight-King
 

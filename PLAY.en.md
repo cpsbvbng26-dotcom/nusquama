@@ -56,7 +56,7 @@ Each of these five sentences contains one mistake. The answers are under "Answer
 ## Answers to the questions
 
 1. One: Nemo I, Knight-King (Article 2 of the Basic Law).
-2. Having publicly corrected one of one's own mistakes (Article 6).
+2. Having publicly corrected one of one's own mistakes (Article 6), and also meeting the conditions of the [Rules on Knighting](policies/knighting.en.md), such as age, country of residence and nationality.
 3. Nothing. Knighthood is free (Article 6).
 4. The King's bookshelf and the errata the King has made public (Article 3).
 5. One: knight (Article 7).

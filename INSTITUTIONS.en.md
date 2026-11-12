@@ -76,6 +76,7 @@ The Basic Law and the rules are changed by the King, in this order:
 5. Publish only after the checks pass.
 
 Articles 1, 6 and 8 of the Basic Law are not removed (Article 10).
+Knighting is subject to the conditions of the [Rules on Knighting](policies/knighting.en.md) in addition to the condition of Article 6 of the Basic Law. Where the Rules on Knighting add a condition, the Rules on Knighting prevail (Rules on Knighting, "Relation to Article 6 of the Basic Law").
 When a change takes effect and how it is announced follow the [Terms of Use](policies/terms.en.md), "Changes and ending".
 
 ## Versions

@@ -12,6 +12,15 @@ Knighting does not confer a decoration, honour or rank of knighthood of any coun
 Knighting is free. It is never given in exchange for money, goods or services (Basic Law, Article 6).
 Knighting issues no document or object, such as a letter of appointment, a certificate or an insignia. It only puts an account name on the roll.
 
+## Relation to Article 6 of the Basic Law
+
+Article 6 of the Basic Law of the Kingdom sets one condition for knighting: to have publicly corrected one of one's own errors.
+The conditions of these rules apply in addition to the condition of Article 6.
+Where these rules add a condition, these rules prevail.
+The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
+A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
+Claude decided this on 2026-11-13, so that, without amending any article of the Basic Law, Article 6 is not read as making its condition alone enough to be knighted.
+
 ## Who may apply
 
 A person who has publicly corrected one of their own mistakes.

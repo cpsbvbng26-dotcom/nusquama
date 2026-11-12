@@ -1746,8 +1746,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-8).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-9).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2591,10 +2591,116 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
     ['検査の workflow から fetch-depth を外す', mut(WF, '          fetch-depth: 0\n', ''), facts],
     ['記録の判定の数を変える', mut(AUD, '誤り 5 件、根拠不足 2 件、漏れ 2 件', '誤り 4 件、根拠不足 2 件、漏れ 2 件'), facts],
     ['記録から決めた理由を外す', mut(AUD, '一度振った号を動かさないためです。', '一度振った号を動かさない。'), facts],
-    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令'), facts],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：七度目の見落とし', '\n\n## 2026-11-12 の続き：七度目の見落とし'), facts],
   ];
   const caught = breaks.filter(([, y, h]) => verdict(y, h).length > 0).map(([k]) => k);
   ok('壊して確かめる：最終更新・英語の最終更新・文を変えていない頁の最終更新・年表の行・2026-11-11 の行・王の正誤表の記した日・新しい正誤・効力の日（日本語と英語）・利用規約の三つの文・浅い履歴・今日変えた頁・号の台帳・fetch-depth・判定の数・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n71. 叙任を誘う文は、叙任の規程を挙げる（日本語と英語、生成したファイルも。2026-11-13）');
+{
+  const AUD = 'docs/legal-audit-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：七度目の見落とし\n';
+  /* 王の正誤表とその頁は、改める前の文をそのまま写すので除く（王の正誤表「記し方」）。docs/ と verification/ は配る頁ではない。 */
+  const ERR = (f) => /^(?:ERRATA(?:\.en)?\.md|site\/errata(?:\.en)?\.html|site\/errata\/[^/]+|site\/errata\.xml)$/.test(f);
+  const srcs = walk(ROOT).filter((f) => (/\.md$/.test(f) || /^\.github\/ISSUE_TEMPLATE\/[^/]+\.yml$/.test(f)) && !/^(?:\.git|site|docs|verification|node_modules)\//.test(f)).sort();
+  const gen = walk(path.join(ROOT, 'site')).filter((f) => /\.(?:html|txt|xml|ics)$/.test(f)).map((f) => 'site/' + f).sort();
+  const files = srcs.concat(gen).filter((f) => !ERR(f));
+  const real = Object.fromEntries(files.concat(['policies/knighting.md', 'policies/knighting.en.md', 'INSTITUTIONS.md', 'INSTITUTIONS.en.md', 'README.md', 'founding.en.md', 'ERRATA.md', 'ERRATA.en.md', AUD]).map((f) => [f, read(f)]));
+  const ent = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+  const text = (f, t) => {
+    let x = t;
+    /* llms-full.txt は頁ごとの塊に分け、王の正誤表の塊を除く。 */
+    if (f === 'site/llms-full.txt') x = x.split(/\n(?=Source: )/).filter((b) => !/^Source: \S+\/errata(?:\.en)?\.html\s*$/m.test(b.split('\n')[0])).join('\n');
+    if (/\.(?:html|xml)$/.test(f)) x = x.replace(/<(?:script|style)[\s\S]*?<\/(?:script|style)>/gi, ' ').replace(/<br\s*\/?>|<\/(?:p|li|h[1-6]|td|th|tr|div|blockquote|summary|title|entry)>/gi, '\n').replace(/<[^>]+>/g, '');
+    x = x.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => e[0] === '#' ? String.fromCodePoint(e[1] === 'x' || e[1] === 'X' ? parseInt(e.slice(2), 16) : Number(e.slice(1))) : (ent[e.toLowerCase()] || m));
+    return x.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1');
+  };
+  /* 誘う文：公に正した人・誰でもが、名簿に載る・騎士団に加わる・騎士になることができる、と書く文。 */
+  const JA_WHO = /誰でも|だれでも|誰もが|公に(?:正|訂正)した(?:人|者)(?:は|なら|であれば|が)/;
+  const JA_CAN = /(?:名簿に載る|騎士団[^。\n]{0,24}に加わる|騎士になる|騎士に叙され|叙任を受ける|叙任される)ことができ|騎士になれ|騎士団に加われ|名簿に載れ/;
+  const EN_WHO = /\b(?:anyone|anybody|everyone|everybody|any person|whoever|who (?:has|have) publicly corrected)\b/i;
+  const EN_CAN = /\b(?:join (?:the )?(?:Ordo Erratorum|Order|order of)|be (?:put|added|listed|entered|included) on the roll|be (?:added|entered) to the roll|become (?:a )?knights?|be knighted|be made (?:a )?knights?|apply for knighthood|receive (?:the )?knighthood)\b/i;
+  const sentences = (x) => x.split(/\n+/).flatMap((l) => l.split(/(?<=。)|(?<=[.!?]["”)]?)\s+(?=[A-Z"“(])/)).map((z) => z.trim()).filter(Boolean);
+  const invites = (z) => (JA_WHO.test(z) && JA_CAN.test(z) && !z.includes('叙任の規程')) || (EN_WHO.test(z) && EN_CAN.test(z) && !/Rules on Knighting/.test(z));
+  const RULE_JA = ['王国基本法第六条は、叙任の条件を、自分の誤りを一つ公に訂正したことの一つとしています。\nこの規程の条件は、第六条の条件に加わります。\nこの規程が条件を足すところは、この規程に従います。\n', '第六条の条件を満たしても、この規程の条件を満たさない人は、叙任しません。\n'];
+  const RULE_EN = ["Article 6 of the Basic Law of the Kingdom sets one condition for knighting: to have publicly corrected one of one's own errors.\nThe conditions of these rules apply in addition to the condition of Article 6.\nWhere these rules add a condition, these rules prevail.\n", 'A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.\n'];
+  const INST_JA = '叙任には、基本法第六条の条件に、[叙任の規程](policies/knighting.md)の条件が加わります。叙任の規程が条件を足すところは、叙任の規程に従います（叙任の規程「基本法第六条との関係」）。';
+  const INST_EN = 'Knighting is subject to the conditions of the [Rules on Knighting](policies/knighting.en.md) in addition to the condition of Article 6 of the Basic Law. Where the Rules on Knighting add a condition, the Rules on Knighting prevail';
+  const NOTE_JA = '第六条の叙任には、[叙任の規程](policies/knighting.md)の条件も加わります。叙任の規程が条件を足すところは、叙任の規程に従います（叙任の規程「基本法第六条との関係」）。この注は基本法の条ではなく、条の文は改めていません。';
+  const NOTE_EN = 'Knighting under Article 6 is also subject to the conditions of the [Rules on Knighting](policies/knighting.en.md). Where the Rules on Knighting add a condition, the Rules on Knighting prevail';
+  const ART6 = '**第六条（叙任）**　騎士の叙任は無償とする。金銭・物品・役務と引き換えにしない。叙任の条件は一つ、自分の誤りを一つ、公に訂正したことである。';
+  const ART6_EN = "**Article 6 (Knighting)** Knighting is free of charge. It is not given in exchange for money, goods or services. It has one condition: to have publicly corrected one of one's own errors.";
+  const OLD = ['自分の誤りを一つ公に正した人は、無償で騎士の名簿に載ることができます。', '自分の誤りを一つ公に正した人は、正誤表騎士団に加わることができます。', '"Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge."', '"Anyone who has publicly corrected one of their own mistakes can join the Ordo Erratorum."'];
+  const KINDS71 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const cells = (l) => l.replace(/^\| | \|$/g, '').split(' | ');
+  function verdict(x) {
+    const bad = [];
+    for (const f of files) for (const z of sentences(text(f, x[f] || ''))) if (invites(z)) bad.push(f + '：' + z.slice(0, 60));
+    /* 叙任の規程と国の仕組みは、規程の条件が第六条に加わり、条件を足すところは規程に従うと書く。基本法の後ろの注も。 */
+    const kj = x['policies/knighting.md'], ke = x['policies/knighting.en.md'];
+    const secJ = kj.slice(kj.indexOf('\n## 基本法第六条との関係\n'), kj.indexOf('\n## 願い出ることができる人\n')), secE = ke.slice(ke.indexOf('\n## Relation to Article 6 of the Basic Law\n'), ke.indexOf('\n## Who may apply\n'));
+    if (kj.indexOf('\n## 基本法第六条との関係\n') < 0 || !RULE_JA.every((r) => secJ.includes(r))) bad.push('叙任の規程に、第六条との関係がない');
+    if (ke.indexOf('\n## Relation to Article 6 of the Basic Law\n') < 0 || !RULE_EN.every((r) => secE.includes(r))) bad.push('英語の叙任の規程に、第六条との関係がない');
+    if (!x['INSTITUTIONS.md'].includes(INST_JA)) bad.push('国の仕組みに、第六条との関係がない');
+    if (!x['INSTITUTIONS.en.md'].includes(INST_EN)) bad.push('英語の国の仕組みに、第六条との関係がない');
+    const rd = x['README.md'], fe = x['founding.en.md'];
+    if (!rd.includes(ART6) || !(rd.indexOf(NOTE_JA) > rd.indexOf('**第十条（改正）**') && rd.indexOf(NOTE_JA) < rd.indexOf('\n## 騎士王の十則\n'))) bad.push('基本法の第六条が変わったか、後ろの注がない');
+    if (!fe.includes(ART6_EN) || !(fe.indexOf(NOTE_EN) > fe.indexOf('**Article 10 (Amendment)**') && fe.indexOf(NOTE_EN) < fe.indexOf('\n## The Ten Precepts of the Knight-King\n'))) bad.push('英訳の第六条が変わったか、後ろの注がない');
+    /* 王の正誤表 33 に、改める前の文を残す。 */
+    const e33 = x['ERRATA.md'].split('\n').find((l) => l.startsWith('| 33 | ')) || '', e33en = x['ERRATA.en.md'].split('\n').find((l) => l.startsWith('| 33 | ')) || '';
+    if (!OLD.slice(0, 2).every((o) => cells(e33)[3] && cells(e33)[3].includes(o)) || cells(e33)[6] !== '事実') bad.push('王の正誤表 33 に、改める前の文がない');
+    if (!OLD.slice(2).every((o) => cells(e33en)[3] && cells(e33en)[3].includes(o)) || cells(e33en)[6] !== 'Fact') bad.push('英語の王の正誤表 33 に、改める前の文がない');
+    /* 年表の行。 */
+    if (!/^\| 2026-11-13（日本時間） \| 紹介する人のために・建国の物語・遊びで、叙任の条件を基本法第六条の一つだけのように書いた文を、叙任の規程の条件によると改め/m.test(rd)) bad.push('年表の行がない');
+    /* 点検の記録の節。 */
+    const a = x[AUD], i = a.indexOf(SEC), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map(cells);
+    if (rows.length < 10 || !rows.every((y) => y.length === 6 && KINDS71.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [0, -1])[1]);
+    if (!KINDS71.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    const decided = sec.split('2026-11-13 に Claude が決めました。').slice(1);
+    if (decided.length !== 6 || !decided.every((z) => /ためです。/.test(z.split('\n\n')[0]))) bad.push('記録に、決めた者と理由がない');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。')) bad.push('記録に弁護士の文がない');
+    return bad;
+  }
+  const bad = verdict(real);
+  ok('どの頁と生成したファイル（' + files.length + '）も、叙任の規程を挙げずに叙任を誘わない（日本語と英語）。叙任の規程・国の仕組み・基本法の後ろの注が、規程の条件は第六条に加わると書き、第六条の文は変わらない。王の正誤表 33・年表・点検の記録がそろう',
+    bad.length === 0, bad.join(' / '));
+  const mut = (f, a2, b2) => Object.assign({}, real, { [f]: real[f].replace(a2, b2) });
+  const PJ = '自分の誤りを一つ公に正した人は、叙任の規程の条件を満たすときにだけ、無償で騎士の名簿に載ることができます。';
+  const PE = 'A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting.';
+  const breaks = [
+    ['紹介の頁の前の文に戻す', mut('PRESS.md', PJ, OLD[0])],
+    ['英語の紹介の頁の前の文に戻す', mut('PRESS.en.md', PE, OLD[2].slice(1, -1))],
+    ['物語の前の文に戻す', mut('STORY.md', '自分の誤りを一つ公に正した人は、[叙任の規程](policies/knighting.md)の条件を満たせば、[正誤表騎士団](KNIGHTS.md)に加わることができます。', '自分の誤りを一つ公に正した人は、[正誤表騎士団](KNIGHTS.md)に加わることができます。')],
+    ['英語の物語の前の文に戻す', mut('STORY.en.md', 'A person who has publicly corrected one of their own mistakes can join the [Ordo Erratorum](KNIGHTS.en.md) if they meet the conditions of the [Rules on Knighting](policies/knighting.en.md).', 'Anyone who has publicly corrected one of their own mistakes can join the [Ordo Erratorum](KNIGHTS.en.md).')],
+    ['生成した紹介の頁に前の文を戻す', mut('site/press.html', PJ, OLD[0])],
+    ['生成した英語の物語の頁に誘う文を置く', mut('site/story.en.html', '<h2', '<p>Anyone can become a knight of Nusquama.</p><h2')],
+    ['llms-full.txt に前の文を戻す', mut('site/llms-full.txt', PJ, OLD[0])],
+    ['トップの頁に「誰でも騎士になれます」と書く', mut('README.md', '## 騎士になるには\n\n', '## 騎士になるには\n\n誰でも騎士になれます。\n\n')],
+    ['生成したトップの頁に「誰でも」を置く', mut('site/index.html', '<h2', '<p>誰でも、名簿に載ることができます。騎士になる条件は一つです。</p><h2')],
+    ['英語の遊びの頁に「Anyone may be knighted」を置く', mut('PLAY.en.md', '## Answers to the questions\n', '## Answers to the questions\n\nAnyone may be knighted for free.\n')],
+    ['叙任の規程から第六条との関係を外す', mut('policies/knighting.md', RULE_JA[0], '')],
+    ['英語の叙任の規程から「prevail」を外す', mut('policies/knighting.en.md', 'Where these rules add a condition, these rules prevail.\n', '')],
+    ['叙任の規程から「叙任しません」を外す', mut('policies/knighting.md', RULE_JA[1], '')],
+    ['国の仕組みから第六条との関係を外す', mut('INSTITUTIONS.md', INST_JA, '')],
+    ['英語の国の仕組みから第六条との関係を外す', mut('INSTITUTIONS.en.md', INST_EN, 'Knighting')],
+    ['基本法の後ろの注を外す', mut('README.md', NOTE_JA, '')],
+    ['英訳の注を外す', mut('founding.en.md', NOTE_EN, '')],
+    ['基本法の第六条を改める', mut('README.md', ART6, ART6.replace('叙任の条件は一つ、', '叙任の条件は、叙任の規程による。その一つは、'))],
+    ['英訳の第六条を改める', mut('founding.en.md', ART6_EN, ART6_EN.replace('It has one condition:', 'Its conditions include:'))],
+    ['王の正誤表 33 から前の文を外す', mut('ERRATA.md', OLD[1], '')],
+    ['英語の王の正誤表 33 の分類を変える', mut('ERRATA.en.md', '| Fact | Insula Facti VIII |', '| Scope | Insula Facti VIII |')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 紹介する人のために・建国の物語・遊びで、', '| 2026-11-13（日本時間） | 紹介の頁などで、')],
+    ['記録の判定の数を変える', mut(AUD, '誤り 2 件、根拠不足 0 件、漏れ 5 件', '誤り 2 件、根拠不足 0 件、漏れ 4 件')],
+    ['記録から誤りの行を問題なしにする', mut(AUD, '英語は「Anyone」で始まっていた | 誤り | 叙任の規程の', '英語は「Anyone」で始まっていた | 問題なし | 叙任の規程の')],
+    ['記録から決めた理由を外す', mut(AUD, '同じ見落としを機械で止めるためです。', '同じ見落としを機械で止める。')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：紹介の頁・物語の前の文（日本語と英語）・生成した頁・llms-full.txt・「誰でも」・「Anyone」・規程と国の仕組みの文（日本語と英語）・基本法の後ろの注（日本語と英語）・第六条を改める（日本語と英語）・王の正誤表 33・年表・判定の数・誤りの行・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));

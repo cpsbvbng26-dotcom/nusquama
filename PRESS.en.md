@@ -10,7 +10,7 @@ Text and numbers for anyone introducing Nusquama in an article or a post are gat
 
 - In a phrase: a kingdom that is nowhere, whose territory is its mistakes.
 - In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of the King's own mistakes in the errata.
-- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge. The titles have no legal effect, and no money changes hands.
+- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting. Applications are paused until 00:00 on 2026-11-22 (Japan time). After that, only people aged 16 or over who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality, or the nationality of a country that restricts accepting foreign titles, may not apply. The titles have no legal effect, and no money changes hands.
 
 ## Sentences to add
 

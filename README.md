@@ -67,6 +67,8 @@
 
 **第十条（改正）**　この基本法は王が改める。ただし、第一条・第六条・第八条は削らない。
 
+第六条の叙任には、[叙任の規程](policies/knighting.md)の条件も加わります。叙任の規程が条件を足すところは、叙任の規程に従います（叙任の規程「基本法第六条との関係」）。この注は基本法の条ではなく、条の文は改めていません。
+
 ---
 
 ## 騎士王の十則
@@ -157,6 +159,7 @@
 | 2026-11-13（日本時間） | 叙任の願い出の自動の確認が、訂正へのリンクを開かないように改める。https の URL で受けない先を指さないことだけを文字の上で見て、リンク先は運営者が読むと、叙任の規程と個人情報の取り扱いに書く | The automatic check of applications for knighting no longer opens the link to the correction. It looks only at the text, whether the link is an https URL that does not point to a refused destination, and the operator reads the linked page; the Rules on Knighting and the Privacy page say so |
 | 2026-11-13（日本時間） | 利用規約の合意管轄を、専属的でないものに改める。合意は叙任の願い出の様式で同意した人との間にだけ置き、この規約に基づく訴えと、その人自身の願い出・名簿への記載・辞退に基づく訴えに限る。それ以外は法令の定める裁判所が管轄し、運営者から訴えるときは宇都宮の二つの裁判所か相手の普通裁判籍の地に限る。裁判所は宇都宮地方裁判所と宇都宮簡易裁判所のまま | The agreed court in the Terms of Use is no longer exclusive. The agreement is made only with those who agreed in the application form for knighting, and covers only suits based on the Terms or on that person's own application, listing on the roll or withdrawal. Anything else goes to the court that the law sets, and the operator sues only in the two Utsunomiya courts or at the other party's general forum. The courts remain the Utsunomiya District Court and Summary Court |
 | 2026-11-13（日本時間） | 年表の四行と王の正誤表の三件の日付、五つの規程の最終更新、国の仕組みの一文を、日本時間で公開した日に改める。利用規約に、頁の日付は日本時間で、文を取り寄せた日と建国の日は協定世界時であることを書く。安全の問題の知らせ方と削除・訂正・辞退の求めの、GitHub の API で確かめた日を、確かめ直して改める | The dates of four timeline rows and of three entries of the King's errata, the "Last updated" of five rules and one sentence of the Institutions are corrected to the day they were published in Japan time. The Terms of Use state that the dates on the pages are in Japan time, and that the day a text was fetched and the founding day are in UTC. The day of the check through the GitHub API in the security page and the Requests is checked again and corrected |
+| 2026-11-13（日本時間） | 紹介する人のために・建国の物語・遊びで、叙任の条件を基本法第六条の一つだけのように書いた文を、叙任の規程の条件によると改め、受付の停止を書く。紹介の文には主な除外も書く。叙任の規程に「基本法第六条との関係」の節を置き、規程の条件は第六条の条件に加わり、規程が条件を足すところは規程に従うと書く。国の仕組みと基本法の後ろの注にも同じことを書き、基本法の条は改めない | The sentences in the press page, the story of the founding and the play page that described the condition of knighting as if it were only the one in Article 6 of the Basic Law now say that knighting follows the conditions of the Rules on Knighting, and mention the pause. The press page also names the main exclusions. The Rules on Knighting gain a section "Relation to Article 6 of the Basic Law": the conditions of the rules apply in addition to the condition of Article 6, and where the rules add a condition, the rules prevail. The Institutions and a note after the Basic Law say the same; no article of the Basic Law is amended |
 
 ---
 
