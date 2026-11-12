@@ -19,24 +19,12 @@ const A = 'https://web.archive.org/web/2026/';
 const NC = (a) => 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art' + a;
 const GU = (f, a) => 'https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=' + f + '&art.codiceRedazionale=16G00011&art.idArticolo=' + a + '&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2016-01-22&art.progressivo=0';
 const SOURCES = [
-  { key: 'cp6', url: NC(6), full: true },
-  { key: 'cp9', url: NC(9), full: true },
-  { key: 'gu-all', url: GU(1, 1), full: true },
-  { key: 'gu-art1', url: GU(0, 1), full: true },
-  { key: 'pres-uso', url: 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', full: true, links: /./ },
-  { key: 'pres-uso-a', url: A + 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', full: true, links: /onorific|araldic/ },
-  { key: 'pres-art7-a', url: A + 'https://presidenza.governo.it/onorificenze_araldica/araldica/normativa/art7_030551.html', full: true, links: /onorific|araldic/ },
-  { key: 'pres-norm-a', url: A + 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/normativa.html', full: true, links: /onorific|araldic/ },
-  { key: 'difesa', url: 'https://www.difesa.it/sgd-dna/staff/dg/persomil/circolari/direttiva-autorizzazione-a-fregiarsi-di-ordini-cavallereschibenemerenze-non-nazionali/47116.html', full: true, links: /pdf|allegat/ },
-  { key: 'ppc-us', url: 'https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/', full: true, links: /./ },
-  { key: 'soumu-gaibu', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu.html', full: true, links: /./ },
-  { key: 'soumu-gaibu2', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu_00002.html', full: true, links: /./ },
-  { key: 'soumu-news', url: 'https://www.soumu.go.jp/menu_news/s-news/01kiban04_02000229.html', full: true, links: /./ },
-  { key: 'soumu-ihoyugai', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/ihoyugai.html', full: true, links: /./ },
-  { key: 'soumu-entry', url: 'https://www.soumu.go.jp/menu_kyotsuu/important/kinkyu02_000495.html', full: true, links: /./ },
-  { key: 'soumu-manual', url: 'https://www.soumu.go.jp/main_content/000477428.pdf', pdf: true },
-  { key: 'bunka', url: 'https://www.bunka.go.jp/seisaku/chosakuken/', full: true, links: /./ },
-  { key: 'caa', url: 'https://www.caa.go.jp/policies/policy/consumer_system/consumer_contract_act/annotations/', full: true, links: /./ },
+  { key: 'soumu-gaibu', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu.html', full: true },
+  { key: 'soumu-gaibu2', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu_00002.html', full: true },
+  { key: 'soumu-news', url: 'https://www.soumu.go.jp/menu_news/s-news/01kiban04_02000229.html', full: true, links: /pdf|kokuji|告示/ },
+  { key: 'soumu-ihoyugai', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/ihoyugai.html', full: true, links: /pdf/ },
+  { key: 'pres-faq', url: 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/faq.html', full: true },
+  { key: 'bunka-q', url: 'https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/gaiyo/chosakubutsu_jiyu.html', full: true },
 ];
 
 const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
@@ -60,7 +48,10 @@ async function main() {
         r.bytes = buf.length;
         r.b64 = buf.toString('base64'); text = '';
       } else {
-        const html = await res.text();
+        const bytes = Buffer.from(await res.arrayBuffer());
+        const head = bytes.subarray(0, 4096).toString('latin1');
+        const cs = ((/charset=["']?([\w-]+)/i.exec(res.headers.get('content-type') || '') || /<meta[^>]+charset=["']?([\w-]+)/i.exec(head) || [])[1] || 'utf-8').toLowerCase();
+        const html = new TextDecoder(cs === 'x-sjis' || cs === 'sjis' ? 'shift_jis' : cs).decode(bytes);
         if (s.links) r.links = [...new Set([...html.matchAll(/href=["']([^"']+)["']/g)].map((m) => m[1]).filter((h) => s.links.test(h)))].slice(0, 400);
         text = plain(html);
       }
