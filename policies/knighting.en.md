@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-11.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -71,6 +71,7 @@ When declining, the operator writes only one fixed sentence in the issue ("This 
 ## The roll
 
 Those knighted are entered on the [roll of knights](../KNIGHTS.en.md) in the order of their knighting.
+On knighting, the operator posts a comment on the application issue with a link to the row of the roll, and closes the issue as completed.
 There is only one rank, "knight", with nothing above or below it (Basic Law, Article 7).
 The roll gives each knight by account name only. A knight is called "Knight" followed by the account name, with no other title or adornment added.
 
