@@ -37,6 +37,7 @@ const SOURCES = [
   /* The annex of Legislative Decree No. 8 of 2016 (the laws excluded from decriminalisation), as published in the Gazzetta Ufficiale. */
   { key: 'italy-depenalizzazione-allegato', url: 'https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=16G00011&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2016-01-22&art.progressivo=0', needles: ['ELENCO DELLE LEGGI'], span: 8000 },
   { key: 'italy-pcm-uso', url: 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', needles: ['Uso delle onorificenze I cittadini'] },
+  { key: 'italy-pcm-uso-archive', url: 'https://web.archive.org/web/2026/https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', needles: ['Uso delle onorificenze I cittadini'] },
   { key: 'montevideo-parties', url: 'https://www.oas.org/juridico/english/sigs/a-40.html', needles: ['DEPOSITORY:', 'COUNTRY SIGNATURE'] },
   /* leginfo answers machines with a challenge page (HTTP 403); the Internet Archive keeps the same page. */
   { key: 'ccpa-archive', url: 'https://web.archive.org/web/2026/https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['“Business” means'] },
@@ -64,7 +65,11 @@ async function main() {
   for (const s of SOURCES) {
     const r = { url: s.url };
     try {
-      const res = await fetch(s.url, { headers: { 'User-Agent': 'nusquama (https://github.com/cpsbvbng26-dotcom/nusquama)', 'Accept-Language': s.lang || 'en,ja,it', ...(s.accept ? { Accept: s.accept } : {}) }, redirect: 'follow', signal: AbortSignal.timeout(90000) });
+      /* Some official hosts drop a connection now and then; a failed connection is tried three times. */
+      let res;
+      for (let k = 0; k < 3 && !res; k++) {
+        try { res = await fetch(s.url, { headers: { 'User-Agent': 'nusquama (https://github.com/cpsbvbng26-dotcom/nusquama)', 'Accept-Language': s.lang || 'en,ja,it', ...(s.accept ? { Accept: s.accept } : {}) }, redirect: 'follow', signal: AbortSignal.timeout(90000) }); } catch (e) { if (k === 2) throw new Error(String(e.message || e) + (e.cause ? ' (' + (e.cause.code || e.cause.message) + ')' : '')); await new Promise((ok) => setTimeout(ok, 5000)); }
+      }
       r.status = res.status;
       if (res.redirected) r.final = res.url; // e.g. the dated snapshot the Internet Archive chose
       const bytes = Buffer.from(await res.arrayBuffer());
