@@ -698,19 +698,25 @@
       "name": "電気通信事業法",
       "label": "第27条の12",
       "law_id": "359AC0000000086",
-      "article": "27_12"
+      "article": "27_12",
+      "sha256": "79544bb2ddce61207c1ab88cbc99135d3de82e151754084ab3d2b15d2b262db9",
+      "title": "電気通信事業法"
     },
     {
       "name": "電気通信事業法施行規則",
       "label": "第59条の2",
       "law_id": "360M50001000025",
-      "article": "59_2"
+      "article": "59_2",
+      "sha256": "7eac9aa8f18773f332736787dc0767a06c092a001328056b3089f3e3e4c6bfcb",
+      "title": "電気通信事業法施行規則"
     },
     {
       "name": "電気通信事業法施行規則",
       "label": "第59条の3",
       "law_id": "360M50001000025",
-      "article": "59_3"
+      "article": "59_3",
+      "sha256": "1aa608eb9079a3bd068e4b0a66a44e5cd3288f7d70791ec235dbf73a969ec1e7",
+      "title": "電気通信事業法施行規則"
     }
   ],
   "policies": [
