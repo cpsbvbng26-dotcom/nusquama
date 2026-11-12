@@ -457,10 +457,13 @@ async function main() {
   if (batch === 'src') return codes(CONF.codes.filter((s) => pick.includes(s.id)));
   if (batch === 'shared') return codes(CONF.codes.filter((s) => !single(s) && (!pick || pick.includes(s.id))));
   if (batch === 'japan') return codes(CONF.codes.filter((s) => single(s) && s.countries[0] === 'JPN' && (!pick || pick.includes(s.id))));
-  const list = COUNTRIES.filter((c) => c.batch === batch && (!pick || pick.includes(c.iso3)));
+  /* "codes-europe": the codes of a region, without fetching its constitutions again. */
+  const codesOnly = batch.startsWith('codes-');
+  const region = codesOnly ? batch.slice(6) : batch;
+  const list = COUNTRIES.filter((c) => c.batch === region && (!pick || pick.includes(c.iso3)));
   if (!list.length) throw new Error('組がない：' + spec);
   const isos = list.map((c) => c.iso3);
-  if (!req.skip_constitutions) await constitutions(list);
+  if (!codesOnly) await constitutions(list);
   await codes(CONF.codes.filter((s) => single(s) && s.countries[0] !== 'JPN' && isos.includes(s.countries[0])));
 }
 
