@@ -32,8 +32,9 @@ No real name, address, affiliation or contact details are asked for, and the for
 Nothing sensitive, such as illness, disability, belief or criminal record, is asked for either, and the form asks applicants not to write it.
 But if the linked correction gives a real name or affiliation, the roll and the issue publicly connect the account name with that person.
 Issues are also subject to GitHub's Terms of Service and Privacy Statement.
-When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and opens the link to the correction once.
-For the link, it looks only at the status of the response, which shows whether the link opens. It does not read what is there, and keeps nothing of it.
+When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and the text of the link to the correction.
+The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.
+The operator is the one who opens and reads the linked page ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 
 ## What a report of a mistake involves
 

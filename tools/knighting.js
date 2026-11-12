@@ -10,11 +10,15 @@
  *   - 2026-11-22 から、イタリアの国籍を持っていない印があること（ほかの国籍と重ねて持つ場合も含む）
  *   - 2026-11-22 から、外国の称号を縛る国（叙任の規程「外国の称号を縛る国」）の国籍を持っていない印があること
  *   - 2026-11-22 から、称号を遊びとして扱い、規程の禁じる使い方をしない印（良識の前提）があること
- *   - 訂正へのリンクが https で、開けること（応答の状態だけを見る。中身は読まず、残さない）
+ *   - 訂正へのリンクが https の URL で、受けない先（CLOSED）を指さないこと（文字の上だけで見る。リンクは開かない）
  *   - 何を誤り、どう正したかが書かれていること
  *
  * 受付の停止（2026-11-12 に利用者が決めた）：2026-11-12 から 2026-11-22 0 時（日本時間）より前に開かれた願い出は、
  * 上の確認をせずに、受付を止めていることをコメントし、issue を閉じる。日付だけで決まり、人の手を待たない。
+ *
+ * 訂正へのリンクは開かない（2026-11-12 に Claude が決めた。王の正誤表 30）。先のサイトは願い出ごとに違い、
+ * 機械による取得を禁じる規約かどうかを前もって読めないため。外へ出す要求は GitHub の API への読み書きだけで、
+ * リンク先を開いて読むのは運営者である（叙任の規程「運営者が確かめること」）。
  * 2026-11-22 0 時からは、ひとりでに受付に戻り、その日から求める印（日本にいる・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提）で確かめる。
  */
 'use strict';
@@ -85,8 +89,32 @@ function parse(body) {
 
 const jstDay = (t) => new Date(Date.parse(t) + 9 * 3600 * 1000).toISOString().slice(0, 10);
 
-/* 純：確かめた結果の行。linkStatus は訂正へのリンクの応答の状態（数）か、開けなかったときは null。 */
-function check(form, opened, linkStatus, oaths = requiredOaths()) {
+/* 訂正へのリンクの先として受けないもの。どれも公開の頁を指さず、運営者が開けば運営者の手元の機械や網に届きうる。
+ * 2026-11-12 に Claude が決めた。一覧は docs/legal-audit-2026-11-12.md「2026-11-12 の続き：三度目の見落とし」に記し、検査 68 が照らし合わせる。 */
+const CLOSED = {
+  hosts: ['localhost'],
+  suffixes: ['.localhost', '.local', '.internal', '.home.arpa', '.test', '.example', '.invalid', '.onion'],
+  ip: true, /* 数で書いた先（IPv4・IPv6） */
+  singleLabel: true, /* 点を含まない名（社内の網の名など） */
+  userinfo: true, /* 名や合言葉を含む URL */
+};
+
+/* 純：訂正へのリンクを、開かずに文字の上だけで見る。受けられるなら null、受けられないなら理由。 */
+function linkProblem(link) {
+  if (!/^https:\/\/[^\s]+$/.test(link)) return 'https で始まる URL ではない';
+  let u;
+  try { u = new URL(link); } catch (e) { return 'URL として読めない'; }
+  if (u.protocol !== 'https:') return 'https で始まる URL ではない';
+  if (CLOSED.userinfo && (u.username || u.password)) return '名や合言葉を含む URL は受けない';
+  const h = u.hostname.toLowerCase().replace(/\.$/, '');
+  if (CLOSED.ip && (/^\[.*\]$/.test(h) || /^[0-9.]+$/.test(h))) return '数で書いた先は受けない';
+  if (CLOSED.hosts.includes(h) || CLOSED.suffixes.some((x) => h.endsWith(x))) return '受けない先（' + h + '）';
+  if (CLOSED.singleLabel && !h.includes('.')) return '点を含まない名の先は受けない';
+  return null;
+}
+
+/* 純：確かめた結果の行。訂正へのリンクは開かず、linkProblem で文字の上だけを見る。 */
+function check(form, opened, oaths = requiredOaths()) {
   const rows = [];
   const add = (label, pass, detail) => rows.push([label, !!pass, detail || '']);
   const oath = form['誓い'] || '';
@@ -99,9 +127,8 @@ function check(form, opened, linkStatus, oaths = requiredOaths()) {
     add(d.label, has, has ? '' : d.from + ' から、この印のない願い出は受けません');
   }
   const link = (form['訂正への公開のリンク'] || '').trim();
-  const https = /^https:\/\/[^\s]+$/.test(link);
-  add('訂正へのリンクが https で、開ける', https && linkStatus !== null && linkStatus < 400,
-    !https ? 'https で始まるリンクではない' : linkStatus === null ? '開けなかった' : '応答 ' + linkStatus);
+  const problem = linkProblem(link);
+  add('訂正へのリンクが https の URL で、受けない先を指さない', problem === null, problem || '開いていない。リンク先は運営者が読む');
   const what = (form['何を誤り、どう正したか'] || '').trim();
   add('何を誤り、どう正したかが書かれている', what.length >= 10 && what !== '_No response_');
   return { ok: rows.every((r) => r[1]), rows };
@@ -118,19 +145,9 @@ function comment(result) {
 ${rows}
 
 ${result.ok ? '様式は整っています。' : '通らなかったところを直し、この issue を編集してください。'}
-この確認は何も決めません。叙任を決めるのは運営者です。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
+この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
 これは創作であり、遊びです。称号に法的な効力はありません。
 `;
-}
-
-/* 訂正へのリンクを一度開き、応答の状態だけを見る。中身は読まず、残さない。 */
-async function status(url) {
-  const opts = { redirect: 'follow', signal: AbortSignal.timeout(15000), headers: { 'User-Agent': 'nusquama-knighting (https://github.com/cpsbvbng26-dotcom/nusquama)' } };
-  try {
-    let r = await fetch(url, Object.assign({ method: 'HEAD' }, opts));
-    if (r.status === 405 || r.status === 403) { r = await fetch(url, Object.assign({ method: 'GET' }, opts)); if (r.body) await r.body.cancel(); }
-    return r.status;
-  } catch (e) { return null; }
 }
 
 async function github(method, p, body) {
@@ -156,8 +173,7 @@ async function main() {
     return;
   }
   const form = parse(process.env.ISSUE_BODY);
-  const link = (form['訂正への公開のリンク'] || '').trim();
-  const result = check(form, opened, /^https:\/\/[^\s]+$/.test(link) ? await status(link) : null);
+  const result = check(form, opened);
   const body = comment(result);
   const mine = mine0;
   if (mine) await github('PATCH', '/issues/comments/' + mine.id, { body });
@@ -165,6 +181,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { PAUSE_FROM, PAUSE_UNTIL, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, requiredOaths, parse, check, comment, jstDay };
+module.exports = { PAUSE_FROM, PAUSE_UNTIL, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
