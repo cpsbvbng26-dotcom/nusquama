@@ -1,0 +1,45 @@
+name: 各国の法令の取り寄せ
+
+# 各国の憲法と、ヌスクァマと Sophaxis に関わりうる法令の条を取り寄せ、条だけを抜き出して
+# verification/world/ に記す（tools/world.js）。地域ごとの組（batch）に分けて回し、組ごとにこの枝へ記す。
+# 手で動かすか、枝で verification/world/request.json を書き換えて動かす。main には直に入れない。
+on:
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: 組の名（probe・japan・africa・americas・asia・europe・oceania・shared）
+        required: true
+        default: probe
+  push:
+    branches: ['claude/world-law-*']
+    paths: ['verification/world/request.json']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: world-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    name: 組ごとに取り寄せて抜き出す
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: node tools/world.js
+        env:
+          WORLD_BATCH: ${{ inputs.batch }}
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add verification/world
+          git commit -m "各国の法令：取り寄せた条を記す（${WORLD_BATCH:-request}）" || exit 0
+          for k in 1 2 3; do git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep 10; done
+          exit 1
+        env:
+          WORLD_BATCH: ${{ inputs.batch }}
