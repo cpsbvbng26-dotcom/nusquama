@@ -1,6 +1,6 @@
 name: 一次資料の取り寄せ
 
-# 探り（2026-11-13、十一度目の見落とし）：官報の発行に関する内閣府令と明治十六年太政官達第二十七号を e-Gov 法令 API から取り寄せ、条ごとに記録へ書き出す。
+# 探り（2026-11-13、十一度目の見落とし）：明治十六年太政官達第二十七号の本文を e-Gov 法令 API から取り寄せ、条ごとに記録へ書き出す。
 # main には入れない。何も押さない。
 on:
   workflow_dispatch:
@@ -31,12 +31,12 @@ jobs:
               if (g("LawName").includes("官報")) hits.push({ id: g("LawId"), name: g("LawName"), num: g("LawNo"), date: g("PromulgationDate") });
             }
             console.log("LIST " + JSON.stringify(hits));
-            for (const h of hits.filter((x) => x.name !== "官報の発行に関する法律")) {
+            for (const h of hits.filter((x) => x.id === "116DT0000000027")) {
               const xml = await (await fetch("https://laws.e-gov.go.jp/api/1/lawdata/" + h.id, { headers: UA })).text();
               console.log("=====LAW " + h.id + " " + (/<LawTitle[^>]*>([^<]*)<\/LawTitle>/.exec(xml) || [])[1] + " " + (/<LawNum>([^<]*)<\/LawNum>/.exec(xml) || [])[1]);
               const main = (/<MainProvision[\s\S]*?<\/MainProvision>/.exec(xml) || [""])[0];
               for (const a of main.matchAll(/<Article[^>]*\sNum="([^"]+)"[^>]*>[\s\S]*?<\/Article>/g)) { const t = plain(a[0]); console.log("ART " + a[1] + " " + sha(t) + " " + t); }
               for (const s of xml.matchAll(/<SupplProvision[\s\S]*?<\/SupplProvision>/g)) console.log("SUPPL " + plain(s[0]));
-              console.log("MAINLEN " + main.length + " ARTS " + [...main.matchAll(/<Article[^>]*\sNum="([^"]+)"/g)].length);
+              console.log("MAIN " + plain(main)); console.log("MAINLEN " + main.length + " ARTS " + [...main.matchAll(/<Article[^>]*\sNum="([^"]+)"/g)].length);
             }
           })().catch((e) => { console.error(e); process.exit(1); });'
