@@ -136,7 +136,9 @@ Do not write your real name, address, affiliation or contact details.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
 
-When an application issue is opened or edited, an automatic check looks at the ticks in the form and whether the link to the correction opens, and comments the result in the issue.
+When an application issue is opened or edited, an automatic check looks at the ticks in the form and whether the link to the correction is an https URL that does not point to a refused destination, and comments the result in the issue.
+The automatic check does not open the link to the correction. The operator is the one who opens and reads it.
+The refused destinations are localhost; names ending in .localhost, .local, .internal, .home.arpa, .test, .example, .invalid or .onion; addresses written as numbers; names without a dot; and URLs that contain a user name or password. None of them points to a public page.
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
