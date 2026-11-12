@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-nvMLXsvkrOc6Z+zV25cW8OV5yrH0jlYWZG9Dsj2GNhg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-DUWJ1iZf+0kb3EnIzZ2uk5UEbfemzyr9vkFBYQi2b0k='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Institutions | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="This is an English translation. The Japanese version governs; if the two differ, the Japanese version applies.">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -37,6 +37,7 @@ header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
+h1, h2, h3 { word-break: auto-phrase; }
 h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 h3 { font-size: 1.05rem; }
 p, li { overflow-wrap: anywhere; }
@@ -47,6 +48,11 @@ details.source .cite { font-size: 0.9em; color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
+.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 8px 0 16px; }
+.first a { display: block; }
+.first img { display: block; height: 88px; width: auto; }
+.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; }
+@media (min-width: 640px) { .first img { height: 128px; } }
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
@@ -67,7 +73,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><img src="./emblem.svg" alt=""><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./institutions.html" hreflang="ja" lang="ja">日本語</a></header>
+<header><img src="./emblem.svg" alt="" width="40" height="48"><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./institutions.html" hreflang="ja" lang="ja">日本語</a></header>
 <main id="main">
 <p class="notice">This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.</p>
 <h1>Institutions</h1>
@@ -103,7 +109,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 <h2>Freezing</h2>
 <p>If the King can no longer keep the kingdom going, the kingdom is frozen. When it is frozen:</p>
 <ul><li>No requests for knighthood are accepted.</li><li>The roll, the errata and the rules stay public as they are.</li><li>Requests for deletion, correction or leaving are answered as far as possible.</li></ul>
-<p>The freezing is announced by putting the &quot;Closing words&quot; below on the top page.</p>
+<p>The freezing is announced by putting the &quot;Closing words&quot; below on the top page. The &quot;Notice of suspension&quot; below is put up with them.</p>
 <h2>Dissolution</h2>
 <p>To close the kingdom, the King follows this order:</p>
 <ol><li>Close the form for requesting knighthood.</li><li>Put up the closing words and announce them in the gazette.</li><li>Tell the knights that they may ask to leave the roll, and do so for any who ask.</li><li>Allow at least 30 days for such requests.</li><li>Do not delete the site; keep serving it as it was last. Do not delete the Vercel project, because then someone else might be able to use the name nusquama.vercel.app. Stop the watch on the live site (live.yml).</li><li>Do not delete the repository, and do not archive it either. Keep issues open, to receive requests for removal, correction or withdrawal, and requests about personal data held.</li></ol>
@@ -112,9 +118,16 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>On 2026-11-11 the procedure for dissolution was walked through once, without carrying it out. Nothing was stopped and nothing was deleted. The gaps found are listed below. Whether to fill them is for the King to decide.</p>
 <div class="table"><table><tr><th scope="col">Step</th><th scope="col">What was walked through</th><th scope="col">Gap</th></tr><tr><td>1</td><td>Close the form for requesting knighthood.</td><td>Deleting the form breaks the links to it from the README, the rules and SECURITY.md, and the check of the form's oaths fails. The checks do not know a closed kingdom. The workflow that checks applications also stays</td></tr><tr><td>2</td><td>Put up the closing words and announce them in the gazette.</td><td>The announcement is one row of the timeline, and its number is fixed by the ledger. The closing words address the knights, but there is no form for when there are none</td></tr><tr><td>3</td><td>Tell the knights that they may ask to leave the roll, and do so for any who ask.</td><td>How to tell them is not written. The roll holds only account names and application issues, so the only way is a comment on each application issue</td></tr><tr><td>4</td><td>Allow at least 30 days for such requests before stopping the site.</td><td>How to stop it is not written. If the Vercel project is deleted, someone else may be able to take the name nusquama.vercel.app. The Disclaimer says the site is only at this address. After the site stops, the watch on the live site (live.yml) would open an issue every day</td></tr><tr><td>5</td><td>Keep the repository, in a read-only state.</td><td>When a repository is archived on GitHub, no issue can be opened. The account names stay on the roll, so there is no longer a way to receive requests for removal, correction or withdrawal, or requests about personal data held</td></tr><tr><td>Other</td><td>Things that run by themselves</td><td>No step stops the watch on laws and terms, the yearly review or Dependabot</td></tr><tr><td>Other</td><td>Elsewhere</td><td>No step adds the dissolution to the MicroWiki article</td></tr><tr><td>Other</td><td>Against the rules</td><td>The Terms of Use, &quot;Changes and ending&quot;, say that Nusquama may end without notice. How that reads beside the 30 days of dissolution is not written</td></tr><tr><td>Other</td><td>Ten years ahead</td><td>The gazette issue on the outlook in 2036 cannot appear after dissolution</td></tr></table></div>
 <p>The gaps found at steps 4 and 5 were filled by the King on 2026-11-11: the site is kept and served, and the repository is not archived, so that requests can still be received (steps 4 to 6 of &quot;Dissolution&quot; above). The earlier text is in <a href="errata.en.html">the King's errata</a>.</p>
+<h2>A dry run of knighting</h2>
+<p>On 2026-11-12 the path of an application for knighthood was walked through once, with a trial application. No real issue was opened. A check (<code>verification/check.js</code>, &quot;A dry run of knighting&quot;) builds the text of an application from the definition of the form, and walks it through to the row of the roll, the gazette issue, the population and the feed, every time the checks run. The trial application is on neither the roll nor the gazette. The gaps found are listed below.</p>
+<div class="table"><table><tr><th scope="col">Step</th><th scope="col">What was walked through</th><th scope="col">Gap</th></tr><tr><td>1</td><td>Build the text of the application issue from the form.</td><td>None. The headings the automatic check reads are the same as the headings of the form</td></tr><tr><td>2</td><td>The automatic check runs on the label the form adds.</td><td>None. The label is the one the labels workflow creates and the one the check workflow waits for</td></tr><tr><td>3</td><td>The automatic check looks at the ticks, the link and the explanation, and comments.</td><td>None. The link was not opened; a response status was passed in</td></tr><tr><td>4</td><td>The operator reads the linked page and checks it.</td><td>This is reading by a person, so the checks cannot walk it through</td></tr><tr><td>5</td><td>Add one row to the roll, as &quot;How entries are recorded&quot; says.</td><td>No check compared the rows of the English roll with the Japanese roll. One was added on 2026-11-12 (the number, the knight, the day of knighting and the application must match)</td></tr><tr><td>6</td><td>A gazette issue appears, and the knight enters the population and the feed.</td><td>None</td></tr><tr><td>Other</td><td>When the first real knight is entered</td><td>The check of the knights' gazette issues assumed an empty roll. Once the first knight was entered, it would have failed even for a correct row. On 2026-11-12 it was changed to check with the next number after the current roll</td></tr><tr><td>Other</td><td>The day of knighting and the order of issues</td><td>If the timeline has a row dated after the day the knighting was decided, the issues fall out of date order and the checks fail. The row of the roll has to be added on the day of the decision, but &quot;How entries are recorded&quot; does not say so</td></tr><tr><td>Other</td><td>Answering the application issue</td><td>What to write on the issue on knighting, and whether to close it, is not written. Only the one sentence for a refusal is fixed</td></tr></table></div>
+<p>The gap at step 5 and the gap for the first knight were filled by changing the checks. Whether to fill the remaining gaps is for the King to decide.</p>
 <h2>Closing words</h2>
 <p>This is the draft of the text put up on freezing or dissolution. It is issued with the date of that day.</p>
 <p>The kingdom that is nowhere returns to nowhere. The King's errata stay here. The mistakes are left behind, not erased. Knights, thank you for correcting mistakes with us.</p>
+<h2>Notice of suspension</h2>
+<p>This is the draft of the notice put up beside the closing words when the kingdom is frozen and its work is suspended. It is not put up now. On the day it is put up, &quot;(date)&quot; is replaced with that day.</p>
+<blockquote><p>Nusquama has been suspended since (date) (Institutions, &quot;Freezing&quot;). Requests for knighthood are not being accepted. The roll of knights, the King's errata and the rules stay public as they were when Nusquama was suspended. Requests for deletion, correction or leaving are received with the same <a href="https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml">form</a> as before, and answered as far as possible. Personal data is handled as the <a href="policies/privacy.en.html">Privacy</a> page says. This is a work of fiction, written for fun.</p></blockquote>
 <h2>Ten years ahead</h2>
 <p>Some things will not grow, even in ten years.</p>
 <ul><li>No land, currency, passports, certificates or objects will be made.</li><li>No ranks will be added. There is only one: knight.</li><li>Requests from people who live outside Japan, or who are outside Japan when applying, will not be accepted until the laws of that country have been checked.</li></ul>
@@ -127,6 +140,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King. Contact: <a href="./policies/requests.en.html">Requests</a>, <a href="https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml">Report a mistake</a>, <a href="https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/SECURITY.md">Reporting a security issue</a>. Disclaimer: <a href="./policies/disclaimer.en.html">Disclaimer</a>.</p>
 <p>Text and emblem: CC BY 4.0. This page is generated from INSTITUTIONS.en.md in the repository. The Japanese version governs.</p>
 <p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>
+<p>Nusquama is separate from the operator's research and is not part of it.</p>
 </footer>
 </body>
 </html>

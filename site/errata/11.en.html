@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-nvMLXsvkrOc6Z+zV25cW8OV5yrH0jlYWZG9Dsj2GNhg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-DUWJ1iZf+0kb3EnIzZ2uk5UEbfemzyr9vkFBYQi2b0k='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>The King's errata, entry 11: Insula Finis V | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="This is an English translation. The Japanese version governs.">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -37,6 +37,7 @@ header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
+h1, h2, h3 { word-break: auto-phrase; }
 h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 h3 { font-size: 1.05rem; }
 p, li { overflow-wrap: anywhere; }
@@ -47,6 +48,11 @@ details.source .cite { font-size: 0.9em; color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
+.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 8px 0 16px; }
+.first a { display: block; }
+.first img { display: block; height: 88px; width: auto; }
+.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; }
+@media (min-width: 640px) { .first img { height: 128px; } }
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
@@ -67,7 +73,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><img src="../emblem.svg" alt=""><a class="home" href="../index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="../errata/11.html" hreflang="ja" lang="ja">日本語</a></header>
+<header><img src="../emblem.svg" alt="" width="40" height="48"><a class="home" href="../index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="../errata/11.html" hreflang="ja" lang="ja">日本語</a></header>
 <main id="main">
 <p class="notice">This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.</p>
 <h1>The King's errata, entry 11: Insula Finis V</h1>
@@ -80,6 +86,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King. Contact: <a href="../policies/requests.en.html">Requests</a>, <a href="https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml">Report a mistake</a>, <a href="https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/SECURITY.md">Reporting a security issue</a>. Disclaimer: <a href="../policies/disclaimer.en.html">Disclaimer</a>.</p>
 <p>Text and emblem: CC BY 4.0. This page is generated from ERRATA.en.md in the repository. The Japanese version governs.</p>
 <p>Written with Claude Code (Anthropic). The operator checked it and is responsible for it. Claude is neither a knight nor a king.</p>
+<p>Nusquama is separate from the operator's research and is not part of it.</p>
 </footer>
 </body>
 </html>

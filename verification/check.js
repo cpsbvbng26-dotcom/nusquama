@@ -51,7 +51,8 @@ console.log('\n3. 規程の約束（消せば落ちる）');
       '官公職・位階勲等・学位・その他法令により定められた称号と誤認されるように使うことは、してはいけません。', 'ヌスクァマは、誰からも料金を取りません。', '称号を売らず、寄付を受けず、広告を出さず、何も販売しません。', 'この規約は日本法に準拠します。',
       '紛争は、示談による解決を優先します。', '相手方から示談の申し出があれば、運営者は誠実に応じます。',
       '示談で解決しない紛争は、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の専属的合意管轄裁判所とします。'],
-    'policies/disclaimer.md': ['国際法上の国家ではなく、国家としての承認を求めず、どの国の領土も主張しません。', '叙任は、現実の栄誉の授与ではありません。', 'アーサー王伝説を題材とする小説・映画・ゲーム・アニメなどの作品と、その権利者', 'Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。'],
+    'policies/disclaimer.md': ['国際法上の国家ではなく、国家としての承認を求めず、どの国の領土も主張しません。', '叙任は、現実の栄誉の授与ではありません。', 'アーサー王伝説を題材とする小説・映画・ゲーム・アニメなどの作品と、その権利者', 'Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。',
+      '## 運営者の研究との関係\n\n' + B.SEPARATE + '\n', 'ヌスクァマの頁から運営者の研究の頁へはつながず、研究の頁からもヌスクァマへはつなぎません。'],
     'policies/privacy.md': ['サイトは、cookie を使わず、アクセス解析も広告も置いていません。', '本名・住所・所属・連絡先は求めません。', '16 歳未満の人は、叙任を願い出ることができません。',
       'ただし、訂正へのリンクの先に本名や所属が書かれている場合は、名簿と issue によって、アカウント名とその人が結び付いて公開されます。',
       '米国には、日本の個人情報保護法に当たる、個人情報を包括して扱う連邦の法律はありません。',
@@ -177,6 +178,13 @@ console.log('\n7. アイコン');
     B.SOURCES.every(([s, d]) => read('site/' + d).includes('icon-192.png" sizes="192x192" type="image/png">')
       && read('site/' + d).includes('<meta property="og:site_name" content="' + (s.endsWith('.en.md') ? 'Regnum Nusquamae' : '無何有騎士王国ヌスクァマ') + '">')));
   ok('どの頁もアイコンを指す', B.SOURCES.every(([, d]) => /rel="icon" href="[^"]*favicon\.svg"/.test(read('site/' + d)) && /rel="apple-touch-icon"/.test(read('site/' + d))));
+  /* 国の名は「無何有騎士王国ヌスクァマ」一つにそろえる。国章の画像の題も、その名で呼ぶ（2026-11-12 にそろえた）。 */
+  const EMBLEM_TITLE = '<title id="t">' + B.NAME + 'の国章（創作）</title>';
+  const texts = walk(ROOT).filter((f) => !f.startsWith('.git/') && /\.(md|svg|js|json|yml|html|txt|xml)$/.test(f) && f !== 'verification/check.js');
+  const reversed = texts.filter((f) => read(f).includes('ヌスクァマ' + '騎士王国'));
+  ok('国章とファビコンの題は国の名（' + B.NAME + '）で国章を呼び、名を前後に入れ替えた形はどのファイルにもない',
+    B.NAME === '無何有騎士王国ヌスクァマ' && ['assets/emblem.svg', 'assets/favicon.svg', 'site/emblem.svg', 'site/favicon.svg'].every((f) => read(f).split('<title').length === 2 && read(f).includes(EMBLEM_TITLE))
+    && read('tools/favicon.js').includes(EMBLEM_TITLE) && reversed.length === 0, reversed.join(', '));
 }
 
 console.log('\n8. Search Console の所有者の確認');
@@ -321,7 +329,8 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
     'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
-    'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.'],
+    'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.',
+      "## The operator's research\n\n" + B.SEPARATE_EN + '\n', 'The pages of Nusquama do not link to the operator\'s research pages, and the research pages do not link to Nusquama.'],
     'policies/legality.en.md': ['This page sets out the operator\'s understanding; it is neither legal advice nor a guarantee.', 'It has not been reviewed by a lawyer.', 'This is not a legal guarantee. If the facts relied on change, so does the conclusion.',
       'It collects no documents to check nationality, age, country of residence or real name.'],
   };
@@ -1167,7 +1176,7 @@ console.log('\n46. 秘密情報と連絡先の走査');
 console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキスト・重さ・索引）');
 {
   const html = walk(path.join(ROOT, 'site')).filter((f) => f.endsWith('.html'));
-  const bad = { lang: [], foot: [], alt: [], weight: [], canon: [] };
+  const bad = { lang: [], foot: [], alt: [], weight: [], canon: [], dims: [] };
   const KIB = 1024, PAGE = 128 * KIB, WITH_IMAGES = 160 * KIB;
   for (const f of html) {
     const t = read('site/' + f);
@@ -1178,12 +1187,24 @@ console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキ�
     if (lang.length !== 1 || !head.includes(lang[0][0]) || (en ? lang[0][4] !== '日本語' || lang[0][2] !== 'ja' : lang[0][4] !== 'English' || lang[0][2] !== 'en') || !fs.existsSync(path.join(ROOT, 'site', target))) bad.lang.push(f);
     const foot = (/<footer>([\s\S]*?)<\/footer>/.exec(t) || [])[1] || '';
     /* 運営者・連絡・免責の欄は、下の欄の頁の一覧とは別の一文で書く（一覧の中のリンクでは足りない）。 */
-    const need = en ? [/<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King\. Contact: <a href="[^"]*policies\/requests\.en\.html">Requests<\/a>, <a href="[^"]*\?template=error\.yml">Report a mistake<\/a>, <a href="[^"]*SECURITY\.md">Reporting a security issue<\/a>\. Disclaimer: <a href="[^"]*policies\/disclaimer\.en\.html">Disclaimer<\/a>\.<\/p>/, /Written with Claude Code \(Anthropic\)\./]
-      : [/<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="[^"]*policies\/requests\.html">削除・訂正・辞退の求め<\/a>、<a href="[^"]*\?template=error\.yml">誤りの知らせ<\/a>、<a href="[^"]*SECURITY\.md">安全の問題の知らせ方<\/a>で受けます。免責は、<a href="[^"]*policies\/disclaimer\.html">免責事項<\/a>にあります。<\/p>/, /Claude Code（Anthropic）で書きました。/];
+    const need = en ? [/<p>Operator: the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King\. Contact: <a href="[^"]*policies\/requests\.en\.html">Requests<\/a>, <a href="[^"]*\?template=error\.yml">Report a mistake<\/a>, <a href="[^"]*SECURITY\.md">Reporting a security issue<\/a>\. Disclaimer: <a href="[^"]*policies\/disclaimer\.en\.html">Disclaimer<\/a>\.<\/p>/, /Written with Claude Code \(Anthropic\)\./, new RegExp('<p>' + B.SEPARATE_EN + '</p>')]
+      : [/<p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="[^"]*policies\/requests\.html">削除・訂正・辞退の求め<\/a>、<a href="[^"]*\?template=error\.yml">誤りの知らせ<\/a>、<a href="[^"]*SECURITY\.md">安全の問題の知らせ方<\/a>で受けます。免責は、<a href="[^"]*policies\/disclaimer\.html">免責事項<\/a>にあります。<\/p>/, /Claude Code（Anthropic）で書きました。/, new RegExp('<p>' + B.SEPARATE + '</p>')];
     if (!need.every((x) => x.test(foot)) || /github\.com\/cpsbvbng26-dotcom\/(?!nusquama[/"])|cpsbvbng26-dotcom\.github\.io/.test(t)) bad.foot.push(f);
     const imgs = [...t.matchAll(/<img ([^>]*)>/g)].map((m) => m[1]);
     const deco = imgs.filter((a) => /alt=""/.test(a));
-    if (deco.length !== 1 || !head.includes('<img src="' + (/src="([^"]*emblem\.svg)" alt=""/.exec(head) || [, '?'])[1] + '" alt="">')) bad.alt.push(f + '：飾り');
+    if (deco.length !== 1 || !head.includes('<img src="' + (/src="([^"]*emblem\.svg)" alt=""/.exec(head) || [, '?'])[1] + '" alt="" width="40" height="48">')) bad.alt.push(f + '：飾り');
+    /* 画像は縦横を書いて場所を取っておく。縦横は SVG の viewBox と同じ。最初の画面より下の、文の中の画像だけを遅れて読む。 */
+    const first = (/<figure class="first">([\s\S]*?)<\/figure>/.exec(t) || [])[1] || '';
+    for (const a of imgs) {
+      const src = (/src="([^"]+)"/.exec(a) || [])[1] || '';
+      const file = path.join(ROOT, 'site', f === '404.html' ? src.replace(/^\//, '') : path.posix.normalize(path.posix.join(path.posix.dirname(f), src)));
+      const vb = fs.existsSync(file) ? /viewBox="0 0 ([\d.]+) ([\d.]+)"/.exec(fs.readFileSync(file, 'utf8')) : null;
+      const inHead = head.includes('<img ' + a + '>'), inFirst = first.includes('<img ' + a + '>');
+      const w = (/ width="([\d.]+)"/.exec(a) || [])[1], h = (/ height="([\d.]+)"/.exec(a) || [])[1];
+      const sized = inHead ? w === '40' && h === '48' : !!vb && w === vb[1] && h === vb[2];
+      const lazy = / loading="lazy"/.test(a);
+      if (!sized || (inHead || inFirst ? lazy : !lazy || !/ decoding="async"/.test(a))) bad.dims.push(f + '：' + src);
+    }
     for (const a of imgs.filter((x) => !/alt=""/.test(x))) {
       const alt = (/alt="([^"]*)"/.exec(a) || [])[1] || '';
       if (/\.(svg|png)|^(画像|image)/i.test(alt) || !(en ? alt.endsWith('(fiction)') : alt.endsWith('（創作）'))) bad.alt.push(f + '：' + alt);
@@ -1196,9 +1217,10 @@ console.log('\n47. 頁の形（言語の切り替え・下の欄・代替テキ�
     if (f === '404.html' ? canon || !t.includes('<meta name="robots" content="noindex">') : canon !== B.BASE + (f === 'index.html' ? '' : f)) bad.canon.push(f);
   }
   ok('どの頁（' + html.length + '）も、言語の切り替えを頁の上の欄の右端に一つだけ置き、日本語の頁は「English」、英語の頁は「日本語」と書き、指す先がある', bad.lang.length === 0, bad.lang.slice(0, 8).join(', '));
-  ok('どの頁の下の欄も、運営者・連絡（求め・誤りの知らせ・安全の知らせ）・免責・開示をそろえ、研究の系列へつながない', bad.foot.length === 0, bad.foot.slice(0, 8).join(', '));
+  ok('どの頁の下の欄も、運営者・連絡（求め・誤りの知らせ・安全の知らせ）・免責・開示と、研究とは別のもので、その一部ではないという一文をそろえ、研究の系列へつながない', bad.foot.length === 0, bad.foot.slice(0, 8).join(', '));
   ok('代替テキスト：頁の上の国章だけが飾りで空にし、中身の画像は何の画像かを書いて（創作）・(fiction) を添え、ファイル名を書かない', bad.alt.length === 0, bad.alt.slice(0, 8).join(', '));
   ok('どの頁も 128 KiB 以下で、読む画像を足しても 160 KiB 以下', bad.weight.length === 0, bad.weight.join(', '));
+  ok('どの画像も縦横（SVG の viewBox と同じ）を書いて場所を取り、頁の上の国章とトップの最初の画面の図のほかは遅れて読む', bad.dims.length === 0, bad.dims.slice(0, 8).join(', '));
   const vp = html.map((f) => (/<meta name="viewport" content="([^"]+)">/.exec(read('site/' + f)) || [])[1]);
   ok('拡大を止めない（viewport に user-scalable も maximum-scale もない）。表は枠の中で横に送り、長い語は折り返す', vp.every((v) => v === 'width=device-width, initial-scale=1, viewport-fit=cover')
     && /\.table \{ overflow-x: auto; \}/.test(read('site/index.html')) && /p, li \{ overflow-wrap: anywhere; \}/.test(read('site/index.html')));
@@ -1297,20 +1319,23 @@ console.log('\n51. 官報の号の台帳・記念の号・騎士の号');
   const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
   ok('国の仕組みの記念の号は、' + B.MILESTONE + ' の倍数で、物・記章・証書を作らず、称号を授けないと書く（日本語と英語）', ij.includes('王の正誤表の件数が ' + B.MILESTONE + ' の倍数に達したときは、官報に記念の号を一つ載せます。')
     && ij.includes('記念に、物・記章・証書を作りません。称号も授けず、祝日も足しません。') && ie.includes('reaches a multiple of ' + B.MILESTONE + ', one commemorative issue') && ie.includes('No object, badge or certificate is made for it.'));
-  const k1 = ['1', 'アカウント名', '2026-12-01', '要約', '願い出'];
-  const g1 = B.gazetteItems(Object.assign({}, base, { knights: [k1] }));
-  const kn = g1.find((x) => x.key === 'K:1');
+  /* 次の騎士は、いまの名簿の次の番（名簿が空なら第 1 番）。本物の騎士が載ったあとも同じ形を確かめる（叙任の通し稽古で見つけた）。 */
+  const N = base.knights.length + 1, as1 = (t) => t.replace(/^第 \d+ 番/, '第 1 番').replace(/no\. \d+/, 'no. 1');
+  const k1 = [String(N), 'アカウント名', '2026-12-01', '要約', '願い出'];
+  const g1 = B.gazetteItems(Object.assign({}, base, { knights: base.knights.concat([k1]) }));
+  const kn = g1.find((x) => x.key === 'K:' + N);
   const kj = read('KNIGHTS.md'), ke = read('KNIGHTS.en.md');
   ok('最初の騎士の号は、名簿の「記し方」に書いた形（ほかの騎士と同じ形）で、次の号になり、人口は 1 になる（日本語と英語）', kn && kn.no === items.length + 1 && same(g1)
-    && kj.includes('官報の布告は「' + kn.text + '」の形になります。') && ke.includes('The gazette proclaims "' + kn.textEn.replace('アカウント名', 'Account-name') + '".') && B.population(undefined, [k1]) === 1);
+    && kj.includes('官報の布告は「' + as1(kn.text) + '」の形になります。') && ke.includes('The gazette proclaims "' + as1(kn.textEn).replace('アカウント名', 'Account-name') + '".') && B.population(undefined, [k1]) === 1
+    && B.population(undefined, base.knights.concat([k1])) === B.population() + 1);
   const cols = (t) => { const l = t.split('\n').find((x) => /^\| (番|No\.) \|/.test(x)); return l ? l.split('|').map((c) => c.trim()).filter(Boolean) : []; };
   const bul = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); return t.slice(i).split('\n').filter((l) => /^- [^：:]+[：:]/.test(l)).map((l) => l.slice(2).split(/[：:]/)[0]); };
   ok('名簿の「記し方」は、表の欄（' + cols(kj).length + '）を一つずつ、同じ名で説明する（日本語と英語）', JSON.stringify(bul(kj, '記し方')) === JSON.stringify(cols(kj)) && JSON.stringify(bul(ke, 'How entries are recorded')) === JSON.stringify(cols(ke)));
   const led1 = B.ledgerWith(g1, ledger);
-  const k1w = ['1', '辞退（2027-01-05）', '2026-12-01', '', ''];
-  const gw = B.gazetteItems(Object.assign({}, base, { knights: [k1w], ledger: led1 })).find((x) => x.key === 'K:1');
+  const k1w = [String(N), '辞退（2027-01-05）', '2026-12-01', '', ''];
+  const gw = B.gazetteItems(Object.assign({}, base, { knights: base.knights.concat([k1w]), ledger: led1 })).find((x) => x.key === 'K:' + N);
   ok('辞退した騎士の号は、同じ番号のまま名を外した形になり、その年から人口に数えない（名簿の「辞退したとき」の形のまま）', gw && gw.no === kn.no && !gw.text.includes('アカウント名')
-    && kj.includes('名を外した形（' + gw.text + '）') && ke.includes('("' + gw.textEn.replace(/^K/, 'K') + '")') && B.population('2026', [k1w]) === 1 && B.population('2027', [k1w]) === 0);
+    && kj.includes('名を外した形（' + as1(gw.text) + '）') && ke.includes('("' + as1(gw.textEn) + '")') && B.population('2026', [k1w]) === 1 && B.population('2027', [k1w]) === 0);
   const ax = B.atom('knights', [k1]);
   ok('騎士の名簿の新着の配信は、叙任の日の欄から日付を取る', ax.includes('<updated>2026-12-01T00:00:00+09:00</updated>\n    <summary>') && (ax.match(/<updated>2026-12-01T/g) || []).length === 2);
 }
@@ -1348,6 +1373,133 @@ console.log('\n54. ミクロネーションの界隈の言い回しとの対応'
   ok('紹介の頁の言い回しの表（' + rj.length + ' 行）は、日本語と英語で同じ界隈の語を同じ順に挙げ、持たないものは両方で「なし」「none」とする',
     rj.length >= 8 && rj.length === re.length && rj.every((r, i) => r[0] === re[i][0] && (r[1] === 'なし') === (re[i][1] === 'none'))
     && rj.some((r) => r[0].includes('mutual recognition') && r[1] === 'なし') && rj.some((r) => r[0].startsWith('citizens') && r[1] === 'なし'));
+}
+
+console.log('\n55. 規程の分かりにくい文の言い直し（王の正誤表の手順）');
+{
+  /* 言い直しも、文を置き換えることなので、国の仕組み「改めるとき」の順による。改める前の文を王の正誤表に残し、
+   * 日本語と英語の最終更新を同じ日に改め、年表に一行を足す。言い直した行は、正の欄をこの一文で始める。 */
+  const REWORD = '誤りではなく、分かりにくい文を言い直した。', REWORD_EN = 'Not a mistake; an unclear sentence was reworded.';
+  const E = B.errataEntries().filter((e) => e.right.startsWith(REWORD));
+  const titleOf = (rel) => (/^# (.*)$/m.exec(read(rel)) || [])[1];
+  const policy = (where) => B.POLICIES.find((p) => where.startsWith(titleOf('policies/' + p + '.md') + '「'));
+  const day = (t, re) => (re.exec(t) || [])[1];
+  const timeline = B.timelineRows();
+  const bad = [];
+  for (const e of E) {
+    const p = policy(e.where);
+    if (!p) { bad.push(e.n + '：場所が規程の名で始まらない'); continue; }
+    const ja = read('policies/' + p + '.md'), en = read('policies/' + p + '.en.md');
+    const wrongEn = (e.en[3] || '').replace(/^"|"$/g, '');
+    if (ja.includes(e.wrong) || !wrongEn || en.includes(wrongEn)) bad.push(e.n + '：改める前の文が規程に残る');
+    if (!(e.en[4] || '').startsWith(REWORD_EN) || e.kind.ja !== '語') bad.push(e.n + '：英語の正の欄か分類');
+    if (day(ja, /^最終更新：(\d{4}-\d{2}-\d{2})。$/m) < e.date || day(en, /^Last updated: (\d{4}-\d{2}-\d{2})\.$/m) !== day(ja, /^最終更新：(\d{4}-\d{2}-\d{2})。$/m)) bad.push(e.n + '：最終更新');
+    if (!timeline.some((r) => r[0].startsWith(e.date) && r[1].includes(titleOf('policies/' + p + '.md')) && r[1].includes('言い直す') && r[2].includes('reworded'))) bad.push(e.n + '：年表');
+  }
+  ok('言い直した文（' + E.length + ' 件）は、改める前の文を日本語と英語の正誤表に残して規程から外し、最終更新を日本語と英語で同じ日に改め、年表に行がある', E.length >= 2 && bad.length === 0, bad.join(', '));
+  const xj = read('policies/exchange.md'), xe = read('policies/exchange.en.md'), pj = read('policies/privacy.md'), pe = read('policies/privacy.en.md');
+  ok('交流の規程は相手の国を相手が作ったものとして尊重し、その主張を認めも否みもしない。運営者の氏名と住所は、求めた人に非公開の連絡で知らせ、求め方は求めの頁の手順による（日本語と英語）',
+    xj.includes('- 相手の国は、相手が自ら作ったものとして尊重します。その国の主張を、ヌスクァマは認めも否みもしません。')
+    && xe.includes("- The other party's country is respected as the other party's own creation. Nusquama neither accepts nor denies that country's claims.")
+    && pj.includes('運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。\n求めるときは、[削除・訂正・辞退の求め](./requests.md)の様式の種類で「非公開の連絡を求める」を選びます。')
+    && pe.includes("The operator's name and address are given without delay, through a private channel, to the person who asks for them.")
+    && read('policies/requests.md').includes('様式の種類で「非公開の連絡を求める」を選び') && read('.github/ISSUE_TEMPLATE/request.yml').includes('        - 非公開の連絡を求める\n'));
+}
+
+console.log('\n56. 休止の告知（下書き。いまは掲げていない）');
+{
+  const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
+  const part = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = t.indexOf('\n## ', i + 5); return t.slice(i + 1, j < 0 ? undefined : j); };
+  const quote = (t) => t.split('\n').filter((l) => l.startsWith('> ')).map((l) => l.slice(2));
+  const nj = quote(part(ij, '休止の告知')), ne = quote(part(ie, 'Notice of suspension'));
+  const fj = part(ij, '凍結'), fe = part(ie, 'Freezing');
+  /* 告知の文は、凍結の箇条（願い出を受けない・そのまま公開に残す・求めにはできる限り応える）を、そのまま言い換えたものに限る。 */
+  ok('休止の告知の下書きは、日本語と英語で同じ行の数（' + nj.length + '）を持ち、日付を空けておき、凍結の箇条と同じことだけを告げ、創作だと断る',
+    nj.length === 6 && ne.length === nj.length && nj[0].includes('（日付）から休止しています（国の仕組み「凍結」）') && ne[0].includes('suspended since (date) (Institutions, "Freezing")')
+    && fj.includes('- 叙任の願い出を受けません。') && nj.includes('叙任の願い出は、受けていません。')
+    && fj.includes('- 名簿・正誤表・規程は、そのときのまま公開に残します。') && nj.includes('騎士の名簿・王の正誤表・規程は、休止したときのまま公開しています。')
+    && fj.includes('- 削除・訂正・辞退の求めには、できる限り応えます。') && nj.some((l) => l.startsWith('削除・訂正・辞退の求めは、') && l.endsWith('できる限り応えます。') && l.includes('?template=request.yml'))
+    && nj[nj.length - 1] === 'これは創作であり、遊びです。' && ne[ne.length - 1] === 'This is a work of fiction, written for fun.'
+    && fj.includes('そのとき、下の「休止の告知」も添えます。') && fe.includes('The "Notice of suspension" below is put up with them.'));
+  const live = B.SOURCES.filter(([src]) => !/^INSTITUTIONS(\.en)?\.md$/.test(src) && /から休止しています|has been suspended since/.test(read(src))).map(([src]) => src)
+    .concat(['site/index.html', 'site/founding.en.html', 'site/llms.txt'].filter((f) => /から休止しています|has been suspended since/.test(read(f))));
+  ok('休止の告知は下書きのままで、トップの頁にも、ほかのどの頁にも掲げていない（国の仕組みの頁だけにある）', live.length === 0, live.join(', '));
+}
+
+console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試しの一件を様式から名簿まで通す）');
+{
+  const K = require('../tools/knighting.js');
+  const tpl = read('.github/ISSUE_TEMPLATE/knighting.yml');
+  /* 段 1：様式の定義から、GitHub が issue に書く形（### 題、空行、答え）で本文を組む。印はすべて付ける。 */
+  const fields = tpl.split(/\n  - type: /).slice(1).map((b) => ({ type: b.split('\n')[0].trim(), label: (/\n      label: (.+)/.exec(b) || [])[1],
+    options: [...b.matchAll(/\n        - label: (.+)\n          required: (?:true|false)/g)].map((m) => m[1]) })).filter((f) => f.type !== 'markdown');
+  /* 叙任の日は、日本にいる印を見始める 2026-11-22 と、いまの官報の最後の号の日の、遅いほう。 */
+  const lastDay = [K.PRESENCE_FROM].concat(B.gazetteItems().map((x) => x.date)).sort().pop();
+  const TRIAL = { link: 'https://example.org/erratum', what: 'ブログの記事で年を誤り、追記で正しました。', account: 'アカウント名', day: lastDay, opened: lastDay + 'T00:00:00Z' };
+  const answer = (f) => (f.type === 'checkboxes' ? f.options.map((o) => '- [X] ' + o).join('\n') : f.type === 'input' ? TRIAL.link : TRIAL.what);
+  const body = fields.map((f) => '### ' + f.label + '\n\n' + answer(f)).join('\n\n') + '\n';
+  const form = K.parse(body);
+  ok('段 1：様式の定義（' + fields.length + ' 項）から組んだ本文を、自動の確認が同じ題で読む', fields.length >= 3 && fields.every((f) => f.label && form[f.label] === answer(f))
+    && ['訂正への公開のリンク', '何を誤り、どう正したか', '誓い'].every((h) => fields.some((f) => f.label === h)));
+  /* 段 2：様式が付けるラベルを、ラベルの workflow が作り、確認の workflow が待つ。 */
+  const label = (/\nlabels: \["([^"]+)"\]/.exec(tpl) || [])[1];
+  ok('段 2：様式が付けるラベル（' + label + '）を、ラベルの workflow が作り、確認の workflow がそのラベルで動く', !!label && read('.github/workflows/labels.yml').includes('gh label create "' + label + '"')
+    && read('.github/workflows/knighting.yml').includes("contains(github.event.issue.labels.*.name, '" + label + "')"));
+  /* 段 3：自動の確認。リンクは開かず、応答の状態を渡す（通し稽古は外へ何も要求しない）。 */
+  const result = K.check(form, TRIAL.opened, 200), c = K.comment(result);
+  ok('段 3：試しの一件は自動の確認を通り（' + result.rows.length + ' 行）、コメントは整っていると書いて何も決めない。日本にいる印がなければ通らない',
+    result.ok && result.rows.length === 4 && c.startsWith(K.MARK) && c.includes('様式は整っています。') && c.includes('この確認は何も決めません。')
+    && !K.check(K.parse(body.replace('- [X] ' + K.PRESENCE, '- [ ] ' + K.PRESENCE)), TRIAL.opened, 200).ok);
+  /* 段 5：記し方のとおりに、日本語と英語の名簿の終わりへ一行ずつ足す（ファイルは書き換えない）。番は、いまの名簿の次の番。 */
+  const issue = B.REPO + '/issues/0';
+  const kj = read('KNIGHTS.md'), ke = read('KNIGHTS.en.md');
+  const rowsOf = (t) => t.split('\n').filter((l) => /^\| \d+ \|/.test(l)).map((l) => l.replace(/^\||\|$/g, '').split('|').map((x) => x.trim()));
+  const n = rowsOf(kj).length + 1;
+  const append = (t, row) => { const ls = t.split('\n'); let k = ls.indexOf('| --- | --- | --- | --- | --- |'); while (/^\| \d+ \|/.test(ls[k + 1] || '')) k++; ls.splice(k + 1, 0, row); return ls.join('\n'); };
+  const mdJ = append(kj, '| ' + n + ' | ' + TRIAL.account + ' | ' + TRIAL.day + ' | ブログの記事の年の誤りを、追記で正した（[訂正](' + TRIAL.link + ')） | [願い出](' + issue + ') |');
+  const mdE = append(ke, '| ' + n + ' | ' + TRIAL.account + ' | ' + TRIAL.day + ' | Corrected a wrong year in a blog post with an addendum ([correction](' + TRIAL.link + ')) | [Application](' + issue + ') |');
+  /* 英語の名簿は、番・騎士・叙任の日・願い出を日本語の名簿とそろえ、正した誤りの欄の空き方もそろえる（通し稽古で見つけた抜け）。 */
+  const href = (x) => (/\]\(([^)]+)\)/.exec(x || '') || [, x || ''])[1];
+  const twin = (a, b) => a.length === b.length && a.every((r, i) => b[i] && [0, 1, 2].every((k) => r[k] === b[i][k]) && href(r[4]) === href(b[i][4]) && !r[3] === !b[i][3]);
+  const rows = rowsOf(mdJ);
+  const html = B.page('KNIGHTS.md', 'knights.html', { md: mdJ, twin: 'knights.en.html' });
+  ok('段 5：記し方のとおりに足した行（第 ' + n + ' 番）が名簿の頁の表に出て、日本語と英語の名簿の行がそろう。英語の行を足し忘れると、そろわない',
+    rows.length === n && rows[n - 1][0] === String(n) && twin(rows, rowsOf(mdE)) && !twin(rows, rowsOf(ke)) && html.includes('<td>' + n + '</td><td>' + TRIAL.account + '</td><td>' + TRIAL.day + '</td>') && html.includes('<p class="notice">' + B.NOTICE + '</p>'));
+  /* 段 6：官報の号・人口・新着の配信。 */
+  const items = B.gazetteItems();
+  const base = { timeline: B.timelineRows(), errata: B.tableRows('ERRATA.md'), ledger: B.readLedger() };
+  const g = B.gazetteItems(Object.assign({}, base, { knights: rows })), kn = g.find((x) => x.key === 'K:' + n);
+  const ax = B.atom('knights', rows);
+  ok('段 6：試しの騎士は次の号（' + (items.length + 1) + '）に記し方の形で載り、人口は一人増え、新着の配信に叙任の日で出る。いまの号は動かない',
+    kn && kn.no === items.length + 1 && kn.date === TRIAL.day && kj.includes('官報の布告は「' + kn.text.replace(TRIAL.account, 'アカウント名').replace(/^第 \d+ 番/, '第 1 番') + '」の形になります。')
+    && items.every((x) => (g.find((y) => y.key === x.key) || {}).no === x.no) && B.population(undefined, rows) === B.population() + 1
+    && ax.includes('<title>第 ' + n + ' 番の騎士：' + TRIAL.account + '</title>') && ax.includes('<updated>' + TRIAL.day + 'T00:00:00+09:00</updated>') && !/\]\(https:/.test(ax));
+  const late = B.gazetteItems(Object.assign({}, base, { knights: rows.map((r, i) => (i === n - 1 ? r.map((x, k) => (k === 2 ? '2026-11-07' : x)) : r)) }));
+  ok('ほか：年表の最後の行より前の日を叙任の日にすると、号の並びが日付の順から外れる（通し稽古の表に、抜けとして書いた）',
+    !late.every((x, i) => i === 0 || late[i - 1].no === x.no + 1) && read('INSTITUTIONS.md').includes('叙任を決めた日より後の日付の行が年表にあると'));
+  ok('いまの名簿は、日本語と英語で行がそろう（' + B.tableRows('KNIGHTS.md').length + ' 行）', twin(rowsOf(kj), rowsOf(ke)));
+  const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
+  const tab = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return i < 0 ? [] : t.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\| (\d+|ほか|Other) \|/.test(l)).map((l) => l.split(' | ')[0].slice(2)); };
+  const tj = tab(ij, '叙任の通し稽古'), te = tab(ie, 'A dry run of knighting');
+  ok('国の仕組みの叙任の通し稽古の表は、段 1 から 6 とほかの行を持ち、日本語と英語で行がそろい、本物の issue を開いていないと書く',
+    JSON.stringify(tj.filter((x) => /^\d+$/.test(x))) === JSON.stringify(['1', '2', '3', '4', '5', '6']) && tj.length === te.length && tj.length > 6
+    && ij.includes('本物の issue は開いていません。') && ie.includes('No real issue was opened.'));
+}
+
+console.log('\n58. トップの最初の画面と、狭い画面での読みやすさ');
+{
+  const idx = read('site/index.html');
+  const fig = (/<figure class="first">([\s\S]*?)<\/figure>/.exec(idx) || [])[0] || '';
+  const readme = read('README.md');
+  ok('トップの最初の画面に、国旗（国のしるしへ）と版図の地図（王の正誤表へ）を、題の札のすぐ後、創作の断りの前に置く。GitHub では印だけで見えない',
+    !!fig && idx.indexOf(fig) > idx.indexOf('<p>種類：エンターテインメント　状態：運営中</p>') && idx.indexOf(fig) < idx.indexOf('<blockquote>')
+    && /<a href="symbols\.html"><img src="flag\.svg" alt="ヌスクァマの国旗（創作）"/.test(fig) && /<a href="errata\.html"><img src="territory\.svg" alt="ヌスクァマの版図の地図（創作）"/.test(fig)
+    && (idx.match(/<figure class="first">/g) || []).length === 1 && B.SOURCES.filter(([, d]) => d !== 'index.html').every(([, d]) => !read('site/' + d).includes('<figure class="first">'))
+    && readme.indexOf('\n<!-- first -->\n') > 0 && readme.indexOf('\n<!-- first -->\n') < readme.indexOf('\n> これは創作であり、遊びです。'));
+  ok('最初の画面の図の題は、地図が王の誤りで広がることを書き、色・形・数は代替テキストに書かない',
+    fig.includes('<figcaption>国旗と、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption>') && !/alt="[^"]*(紺|金|\d)/.test(fig));
+  ok('見出しは、日本語の語の途中で折り返さない（word-break: auto-phrase）。最初の画面の図は、狭い画面で低くし、640 px から高くする',
+    B.STYLE.includes('h1, h2, h3 { word-break: auto-phrase; }') && B.STYLE.includes('.first img { display: block; height: 88px; width: auto; }') && B.STYLE.includes('@media (min-width: 640px) { .first img { height: 128px; } }'));
 }
 
 console.log('\n' + '-'.repeat(56));

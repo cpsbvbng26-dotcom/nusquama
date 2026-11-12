@@ -1,6 +1,6 @@
 # Disclaimer
 
-Last updated: 2026-11-11.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./disclaimer.md) governs; if the two differ, the Japanese version applies.
 
@@ -45,6 +45,12 @@ Nusquama has no plan to obtain a domain of its own. Its only site is https://nus
 A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.
 
 Where the words "Nusquama", "Nemo" and "Mukau" come from is written in [Names and rights](./names.en.md). None of them shows a tie to any particular work or organisation.
+
+## The operator's research
+
+Nusquama is separate from the operator's research and is not part of it.
+Nusquama is never presented as a research output.
+The pages of Nusquama do not link to the operator's research pages, and the research pages do not link to Nusquama.
 
 ## Applications for knighting
 

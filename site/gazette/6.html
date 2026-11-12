@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-nvMLXsvkrOc6Z+zV25cW8OV5yrH0jlYWZG9Dsj2GNhg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-DUWJ1iZf+0kb3EnIzZ2uk5UEbfemzyr9vkFBYQi2b0k='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>官報 第 6 号 | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="前の号 / 官報 / この号の月の合本 / 次の号">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -39,6 +39,7 @@ header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
+h1, h2, h3 { word-break: auto-phrase; }
 h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 h3 { font-size: 1.05rem; }
 p, li { overflow-wrap: anywhere; }
@@ -49,6 +50,11 @@ details.source .cite { font-size: 0.9em; color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
+.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 8px 0 16px; }
+.first a { display: block; }
+.first img { display: block; height: 88px; width: auto; }
+.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; }
+@media (min-width: 640px) { .first img { height: 128px; } }
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
@@ -69,7 +75,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
-<header><img src="../emblem.svg" alt=""><a class="home" href="../index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="../gazette/6.en.html" hreflang="en" lang="en">English</a></header>
+<header><img src="../emblem.svg" alt="" width="40" height="48"><a class="home" href="../index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="../gazette/6.en.html" hreflang="en" lang="en">English</a></header>
 <main id="main">
 <p class="notice">これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。</p>
 <h1>官報 第 6 号</h1>
@@ -81,6 +87,7 @@ figcaption { font-size: 15px; color: var(--muted); }
 <p>運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。連絡は、<a href="../policies/requests.html">削除・訂正・辞退の求め</a>、<a href="https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml">誤りの知らせ</a>、<a href="https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/SECURITY.md">安全の問題の知らせ方</a>で受けます。免責は、<a href="../policies/disclaimer.html">免責事項</a>にあります。</p>
 <p>文と国章は CC BY 4.0 です。この頁は、リポジトリの GAZETTE.md から生成しています。</p>
 <p>Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います。Claude は騎士でも王でもありません。</p>
+<p>ヌスクァマは、運営者の研究とは別のもので、その一部ではありません。</p>
 </footer>
 </body>
 </html>

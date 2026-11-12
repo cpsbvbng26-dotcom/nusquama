@@ -103,6 +103,7 @@ If the King can no longer keep the kingdom going, the kingdom is frozen. When it
 - Requests for deletion, correction or leaving are answered as far as possible.
 
 The freezing is announced by putting the "Closing words" below on the top page.
+The "Notice of suspension" below is put up with them.
 
 ## Dissolution
 
@@ -136,6 +137,27 @@ The gaps found are listed below. Whether to fill them is for the King to decide.
 
 The gaps found at steps 4 and 5 were filled by the King on 2026-11-11: the site is kept and served, and the repository is not archived, so that requests can still be received (steps 4 to 6 of "Dissolution" above). The earlier text is in [the King's errata](ERRATA.en.md).
 
+## A dry run of knighting
+
+On 2026-11-12 the path of an application for knighthood was walked through once, with a trial application. No real issue was opened.
+A check (`verification/check.js`, "A dry run of knighting") builds the text of an application from the definition of the form, and walks it through to the row of the roll, the gazette issue, the population and the feed, every time the checks run.
+The trial application is on neither the roll nor the gazette.
+The gaps found are listed below.
+
+| Step | What was walked through | Gap |
+| --- | --- | --- |
+| 1 | Build the text of the application issue from the form. | None. The headings the automatic check reads are the same as the headings of the form |
+| 2 | The automatic check runs on the label the form adds. | None. The label is the one the labels workflow creates and the one the check workflow waits for |
+| 3 | The automatic check looks at the ticks, the link and the explanation, and comments. | None. The link was not opened; a response status was passed in |
+| 4 | The operator reads the linked page and checks it. | This is reading by a person, so the checks cannot walk it through |
+| 5 | Add one row to the roll, as "How entries are recorded" says. | No check compared the rows of the English roll with the Japanese roll. One was added on 2026-11-12 (the number, the knight, the day of knighting and the application must match) |
+| 6 | A gazette issue appears, and the knight enters the population and the feed. | None |
+| Other | When the first real knight is entered | The check of the knights' gazette issues assumed an empty roll. Once the first knight was entered, it would have failed even for a correct row. On 2026-11-12 it was changed to check with the next number after the current roll |
+| Other | The day of knighting and the order of issues | If the timeline has a row dated after the day the knighting was decided, the issues fall out of date order and the checks fail. The row of the roll has to be added on the day of the decision, but "How entries are recorded" does not say so |
+| Other | Answering the application issue | What to write on the issue on knighting, and whether to close it, is not written. Only the one sentence for a refusal is fixed |
+
+The gap at step 5 and the gap for the first knight were filled by changing the checks. Whether to fill the remaining gaps is for the King to decide.
+
 ## Closing words
 
 This is the draft of the text put up on freezing or dissolution. It is issued with the date of that day.
@@ -143,6 +165,18 @@ This is the draft of the text put up on freezing or dissolution. It is issued wi
 The kingdom that is nowhere returns to nowhere.
 The King's errata stay here. The mistakes are left behind, not erased.
 Knights, thank you for correcting mistakes with us.
+
+## Notice of suspension
+
+This is the draft of the notice put up beside the closing words when the kingdom is frozen and its work is suspended. It is not put up now.
+On the day it is put up, "(date)" is replaced with that day.
+
+> Nusquama has been suspended since (date) (Institutions, "Freezing").
+> Requests for knighthood are not being accepted.
+> The roll of knights, the King's errata and the rules stay public as they were when Nusquama was suspended.
+> Requests for deletion, correction or leaving are received with the same [form](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml) as before, and answered as far as possible.
+> Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
+> This is a work of fiction, written for fun.
 
 ## Ten years ahead
 
