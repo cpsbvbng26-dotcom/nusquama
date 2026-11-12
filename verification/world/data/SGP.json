@@ -1,7 +1,7 @@
 {
  "country": "SGP",
  "sources": {
-  "SGP-pdpa": {"instrument":"Personal Data Protection Act 2012","kind":"code","lang":"en","url":"https://sso.agc.gov.sg/Act/PDPA2012","fetched":"2026-11-12","topics":["data"],"official":"Singapore Statutes Online（法務長官府、公式）","error":"direct：HTTP 403 / archive：HTTP 403"},
+  "SGP-pdpa": {"instrument":"Personal Data Protection Act 2012","kind":"code","lang":"en","url":"https://sso.agc.gov.sg/Act/PDPA2012","fetched":"2026-11-12","topics":["data"],"official":"Singapore Statutes Online（法務長官府、公式）","error":"direct：HTTP 403 / alt1：HTTP 403 / archive：HTTP 403 / archive-raw：HTTP 403"},
   "constitute": {"instrument":"Singapore 1963 (rev. 2016)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Singapore_2016&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Singapore_2016&lang=en","status":200,"length":281067,"sha256_full":"07e67077e7cf192b31f7ff48532a5eac2877f598c79dcaf2a6779f5420cd2664","articles":248,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Singapore_2016","title":"Singapore 1963 (rev. 2016)","year_enacted":"1963","year_updated":"2016","page":"https://www.constituteproject.org/constitution/Singapore_2016?lang=en"}
  },
  "provisions": [

@@ -1,7 +1,7 @@
 {
  "country": "PER",
  "sources": {
-  "PER-29733": {"instrument":"Ley N° 29733, Ley de Protección de Datos Personales","kind":"code","lang":"es","url":"https://www.leyes.congreso.gob.pe/Documentos/Leyes/29733.pdf","fetched":"2026-11-12","topics":["data"],"official":"Congreso de la República（議会、制定時の文）","error":"direct：本文がない（JavaScript で描く頁か、拒む応答） / archive：本文がない（JavaScript で描く頁か、拒む応答）"},
+  "PER-29733": {"instrument":"Ley N° 29733, Ley de Protección de Datos Personales","kind":"code","lang":"es","url":"https://www.leyes.congreso.gob.pe/Documentos/Leyes/29733.pdf","fetched":"2026-11-12","topics":["data"],"official":"Congreso de la República（議会、制定時の文）","error":"direct：本文がない（JavaScript で描く頁か、拒む応答） / alt1：fetch failed (UND_ERR_CONNECT_TIMEOUT) / archive：fetch failed (UND_ERR_CONNECT_TIMEOUT) / archive-raw：fetch failed (UND_ERR_CONNECT_TIMEOUT)"},
   "constitute": {"instrument":"Peru 1993 (rev. 2023)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Peru_2023&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Peru_2023&lang=en","status":200,"length":121570,"sha256_full":"3d57023f69a74eab23903c514ff80a620a92beb6eed164d23fdb8e471cec1fe5","articles":212,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Peru_2023","title":"Peru 1993 (rev. 2023)","year_enacted":"1993","year_updated":"2023","page":"https://www.constituteproject.org/constitution/Peru_2023?lang=en"}
  },
  "provisions": [

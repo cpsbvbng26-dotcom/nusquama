@@ -112,6 +112,8 @@
 
 2026-11-12 から 2026-11-22 0 時（日本時間）より前は、願い出の受付を止めています（[叙任の規程](policies/knighting.md)「受付の停止」）。このあいだに開かれた願い出は、自動の確認が閉じます。
 2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。
+2026-11-22 から、外国の称号を受けることを縛る国の国籍を持つ人も、願い出ることができません（[叙任の規程](policies/knighting.md)「外国の称号を縛る国」）。
+2026-11-22 から、騎士の呼び名は、ヌスクァマに関わることにだけ使います（[叙任の規程](policies/knighting.md)「騎士の呼び名の使い方」）。
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
 ただし、訂正へのリンクの先から、身元が分かることがあります。
@@ -149,6 +151,7 @@
 | 2026-11-12（日本時間） | 叙任の規程・利用規約・適法性の説明・願い出の様式に、2026-11-22 からイタリアの国籍を持つ人の願い出を受けないことと、叙任は称号を遊びとして扱う良識ある人を前提とすることを書き、利用規約で予告する | The Rules on Knighting, the Terms of Use, the Legality Statement and the application form state that, from 2026-11-22, applications from people who hold Italian nationality are not accepted and knighting presumes a person of good sense who treats the title as play; the Terms of Use give notice of both |
 | 2026-11-12（日本時間） | 法令の点検で取り寄せられなかった文と、条文を解釈する公の文書を取り寄せ、適法性の説明のイタリアの刑法典・カリフォルニア州法・電気通信事業・米州機構の一覧についての文を改める。個人情報の取り扱いに、米国の制度についての個人情報保護委員会の調べと、両社の措置を確かめられないことを書き足す。叙任は勲章・栄典・騎士の位を授けるものではないと書き、「授ける称号」を「贈る騎士の呼び名」と改める | The texts the legal review could not fetch, and the official documents interpreting the articles, are fetched. The Legality Statement's sentences on the Italian Penal Code, the California statute, the telecommunications business and the OAS list are revised. The Privacy page adds the Personal Information Protection Commission's survey of the United States and that the measures of GitHub and Vercel cannot be confirmed. Knighting is stated not to confer a decoration, honour or rank of knighthood, and "the titles it gives" becomes "the name of knight it gives" |
 | 2026-11-12（日本時間） | 2026-11-22 0 時（日本時間）まで、叙任の願い出の受付を止める。叙任の規程に「受付の停止」の節を置き、そのあいだに開かれた願い出は自動の確認が停止を書いて閉じ、2026-11-22 0 時からひとりでに受付に戻る | Applications for knighting are paused until 00:00 on 2026-11-22 (Japan time). The Rules on Knighting gain a section "Pause in receiving applications"; an application opened during the pause gets a comment from the automatic check and is closed, and receiving resumes by itself at 00:00 on 2026-11-22 |
+| 2026-11-12（日本時間） | 各国の法令の調べを頁に当てはめる。叙任の規程・利用規約・様式に、2026-11-22 から外国の称号を受けることを縛る国の国籍を持つ人の願い出を受けないことと、騎士の呼び名をヌスクァマに関わることにだけ使うことを書き、利用規約で予告する。適法性の説明に刑法第233条を、削除・訂正・辞退の求めに、どの国の人の求めも同じ手順で受けることを足す | The survey of the world's laws is applied to the pages. The Rules on Knighting, the Terms of Use and the form state that, from 2026-11-22, applications from people who hold the nationality of a country that restricts accepting foreign titles are not accepted, and that the name of knight is used only in connection with Nusquama; the Terms of Use give notice of both. The Legality Statement adds Article 233 of the Penal Code, and the requests page says that requests from people in any country are received in the same way |
 
 ---
 

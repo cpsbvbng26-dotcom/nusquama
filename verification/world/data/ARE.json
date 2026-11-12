@@ -1,7 +1,7 @@
 {
  "country": "ARE",
  "sources": {
-  "ARE-pdpl": {"instrument":"Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data","kind":"code","lang":"en","url":"https://uaelegislation.gov.ae/en/legislations/1972","fetched":"2026-11-12","topics":["data"],"official":"UAE Legislation（政府、公式）","error":"direct：HTTP 403 / archive：条に分けられない"},
+  "ARE-pdpl": {"instrument":"Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data","kind":"code","lang":"en","url":"https://uaelegislation.gov.ae/en/legislations/1972","fetched":"2026-11-12","topics":["data"],"official":"UAE Legislation（政府、公式）","error":"direct：HTTP 403 / alt1：HTTP 403 / archive：条に分けられない / archive-raw：条に分けられない"},
   "constitute": {"instrument":"United Arab Emirates 1971 (rev. 2009)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=United_Arab_Emirates_2009&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=United_Arab_Emirates_2009&lang=en","status":200,"length":61494,"sha256_full":"1a5bbc13fed04c1a94e7465b51cab79ca2754172b28b6fa021eda5079d88419f","articles":153,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"United_Arab_Emirates_2009","title":"United Arab Emirates 1971 (rev. 2009)","year_enacted":"1971","year_updated":"2009","page":"https://www.constituteproject.org/constitution/United_Arab_Emirates_2009?lang=en"}
  },
  "provisions": [

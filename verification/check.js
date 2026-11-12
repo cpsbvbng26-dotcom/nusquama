@@ -81,9 +81,9 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     '住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。');
   must['policies/knighting.md'].push('叙任では、任命書・証書・記章などの書面や物を発行しません。名簿にアカウント名を載せるだけです。');
   /* 2026-11-22 から、願い出は日本に住む人に限る。国籍は、イタリアの国籍を持つ人を除いて問わない。利用規約で予告する（不利な変更は効力の前に示す）。 */
-  must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人を除き、国籍は問いません。', '2026-11-22 から、日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。',
+  must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '2026-11-22 から、日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。',
     '2026-11-22 から、日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。', '旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。');
-  must['policies/terms.md'].push('予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人を除き、国籍は問いません');
+  must['policies/terms.md'].push('予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人と、外国の称号を縛る国の国籍を持つ人を除き、国籍は問いません');
   must['policies/legality.md'].push('- 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。', '旅行・出張・留学などで日本の外にいるあいだの願い出も受けない');
   /* 2026-11-22 から、イタリアの国籍を持つ人（重国籍を含む）の願い出を受けない。理由は、常識に照らして場違いであることが先で、イタリアの 1951 年法律第 178 号第 8 条が次。
    * 限っても、及ぶおそれは減るだけで、なくならない。2026-11-12 に利用者が決めた。 */
@@ -102,7 +102,7 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/terms.md'].push('予告：2026-11-22 から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし、様式でこの前提に印のない願い出は受けません');
   must['policies/legality.md'].push('「良識の前提」（おそれは断たない）', '良識の前提（叙任の規程）も同じだが、おそれを断たない。');
   /* 気づくことができた事柄を見落とさない。リンク先にはっきり書かれた住む国や年齢は、尋ねてから決める。 */
-  must['policies/knighting.md'].push('- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、イタリアの国籍を持つこと、16 歳未満であることが、はっきり書かれていないこと。', 'ただし、訂正のリンク先にはっきり書かれていることは、見落としません。',
+  must['policies/knighting.md'].push('- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、イタリアや「外国の称号を縛る国」の国籍を持つこと、16 歳未満であることが、はっきり書かれていないこと。', 'ただし、訂正のリンク先にはっきり書かれていることは、見落としません。',
     '- 願い出の条件（年齢・住んでいる国・願い出のときにいる国・国籍）に当たらないことが、訂正のリンク先からはっきり読めるもの。');
   must['policies/legality.md'].push('- 本人の申告は確かめないが、願い出の条件に当たらないことが訂正のリンク先にはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。');
   /* 事実でない印。してはいけないことに挙げ、知った時点で名簿から外し、信頼して受けたこと・公開に残ること・違約金を求めないことを書く。 */
@@ -111,7 +111,7 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     '予告：2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります');
   // 確かめないことを確かめていると読ませない。国籍・年齢・住む国は本人の申告で、身分証は取らない。
   must['policies/knighting.md'].push('運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。',
-    'ヌスクァマは国籍を与えません。騎士は国民ではありません。', '年齢・住んでいる国・願い出のときにいる国・イタリアの国籍を持たないことは、様式の誓いへの印による本人の申告で受けます。');
+    'ヌスクァマは国籍を与えません。騎士は国民ではありません。', '年齢・住んでいる国・願い出のときにいる国・イタリアと「外国の称号を縛る国」の国籍を持たないことは、様式の誓いへの印による本人の申告で受けます。');
   must['policies/legality.md'].push('- 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国・国籍は、様式の誓いによる本人の申告で受ける。');
   // 国際法上の国家ではないこと。国籍を与えないので、誰の国籍も変えないこと。
   must['policies/terms.md'].push('国際法上の国家ではなく、国家としての承認を求めず、どの国とも外交の関係を結びません。');
@@ -172,7 +172,7 @@ console.log('\n6. 叙任の様式の誓い');
   const oaths = ['訂正したのは、自分自身の誤りです。', '称号に法的な効力も現実の栄誉もないことを分かっています。', '履歴書・論文・名刺・公的な書類には書きません（基本法第八条）。',
     '叙任のために、誰にも何も支払いません（基本法第六条）。', '16 歳以上です。', '住んでいる国の法令は、私人の授ける騎士の称号を受けることや使うことを禁じていません。', '利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、願い出の日の版に同意します'];
   const miss = oaths.filter((x) => !y.includes(x));
-  ok('様式が、日本に住んでいて、いま日本にいることの印を求め、その日と、イタリアの国籍を持つ人を除いて国籍を問わないことを書く', y.includes('- label: 日本に住んでいて、いま日本にいます（旅行・出張・留学などで日本の外にいるあいだは願い出られません。2026-11-22 から、この印のない願い出は受けません。イタリアの国籍を持つ人を除き、国籍は問いません）。'));
+  ok('様式が、日本に住んでいて、いま日本にいることの印を求め、その日と、イタリアの国籍を持つ人を除いて国籍を問わないことを書く', y.includes('- label: 日本に住んでいて、いま日本にいます（旅行・出張・留学などで日本の外にいるあいだは願い出られません。2026-11-22 から、この印のない願い出は受けません。イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）。'));
   ok('誓いがそろい、どれも必須である', miss.length === 0 && (y.match(/required: true/g) || []).length >= oaths.length + 2, miss.join(' / '));
   ok('本名・住所・所属・連絡先を書かないよう求め、リンクの先から身元が分かることを知らせる', y.includes('本名・住所・所属・連絡先は書かないでください。') && y.includes('訂正へのリンクの先に本名や所属が書かれていると、このアカウントとその人が結び付いて公開されます。'));
 }
@@ -273,7 +273,7 @@ console.log('\n12. 受付と安全の知らせ');
   const rq = read('policies/requests.md');
   const kinds = ((/## 求めることができるもの\n\n([\s\S]*?)\n\n/.exec(rq) || [])[1] || '').split('\n').filter((l) => l.startsWith('- '));
   const opts = [...req.matchAll(/^        - (.+)$/gm)].map((m) => m[1]);
-  ok('求めの様式の種類が、規程の「求めることができるもの」（' + kinds.length + ' 件）と非公開の連絡を覆う', kinds.length === 6 && opts.length === kinds.length + 1 && opts.includes('非公開の連絡を求める'), opts.join(' / '));
+  ok('求めの様式の種類が、規程の「求めることができるもの」（' + kinds.length + ' 件）と非公開の連絡を覆う', kinds.length === 7 && opts.length === kinds.length + 1 && opts.includes('非公開の連絡を求める'), opts.join(' / '));
   const sec = read('SECURITY.md');
   ok('SECURITY.md が冒頭で創作だと断り、非公開の手順へ案内する', sec.includes('> これは創作であり、遊びです。') && sec.includes('template=request.yml') && sec.includes('「非公開の連絡を求める」'));
   const days = (s) => (/(\d+) 日以内に答える/.exec(s) || [])[1];
@@ -344,7 +344,7 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
       html.includes('<html lang="en">') && html.includes('hreflang="ja" href="' + B.BASE + 'policies/' + p + '.html"') && jaHtml.includes('hreflang="en" href="' + B.BASE + 'policies/' + p + '.en.html"'));
   }
   const mustEn = {
-    'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality are excluded', 'Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality', 'Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
+    'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded', 'Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality', 'Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
     'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.',
@@ -570,19 +570,20 @@ console.log('\n23. 叙任の願い出の自動の確認（何も決めない）'
   ok('必ず印を付ける誓いを、様式の定義から読む（' + oaths.length + ' 件）。日本にいる印は、そのうちに入らない',
     oaths.length === (tpl.match(/required: true\n/g) || []).length - 2 && oaths.every((o) => tpl.includes('- label: ' + o + '\n')) && !oaths.some((o) => o.includes(K.PRESENCE)));
   const body = (ticks, link, what) => '### 訂正への公開のリンク\n\n' + link + '\n\n### 何を誤り、どう正したか\n\n' + what + '\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
-  const dated = ['- [X] ' + K.PRESENCE + '（旅行・出張・留学などで日本の外にいるあいだは願い出られません。）', '- [X] ' + K.NATIONALITY + '（ほかの国籍と重ねて持つ場合も含みます。）', '- [X] ' + K.PREMISE + '。'];
+  const dated = ['- [X] ' + K.PRESENCE + '（旅行・出張・留学などで日本の外にいるあいだは願い出られません。）', '- [X] ' + K.NATIONALITY + '（ほかの国籍と重ねて持つ場合も含みます。）', '- [X] ' + K.PREMISE + '。', '- [X] ' + K.FOREIGN + 'アイルランド、アメリカ合衆国。'];
   const all = oaths.map((o) => '- [X] ' + o).concat(dated);
   const without = (x) => all.filter((l) => !l.includes(x));
   const f = K.parse(body(all, 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
   const r = (form, opened, st) => K.check(form, opened, st, oaths);
-  ok('印がすべてあり、リンクが開け、説明があれば通る。11 月 22 日（日本時間）からは、日本にいる印・イタリアの国籍を持たない印・良識の前提の印も見る', r(f, '2026-11-22T00:00:00Z', 200).ok === true && r(f, '2026-11-21T00:00:00Z', 200).rows.length === 3 && r(f, '2026-11-21T15:00:00Z', 200).rows.length === 6);
+  ok('印がすべてあり、リンクが開け、説明があれば通る。11 月 22 日（日本時間）からは、日本にいる印・イタリアの国籍を持たない印・良識の前提の印・外国の称号を縛る国の国籍を持たない印も見る', r(f, '2026-11-22T00:00:00Z', 200).ok === true && r(f, '2026-11-21T00:00:00Z', 200).rows.length === 3 && r(f, '2026-11-21T15:00:00Z', 200).rows.length === 7);
   const noHere = K.parse(body(without(K.PRESENCE), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
   const noNat = K.parse(body(without(K.NATIONALITY), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
   const noPremise = K.parse(body(without(K.PREMISE), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
+  const noForeign = K.parse(body(without(K.FOREIGN), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
   const unticked = K.parse(body(all.map((l) => (l.includes(K.NATIONALITY) ? l.replace('- [X] ', '- [ ] ') : l)), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
-  ok('11 月 22 日（日本時間）からは、イタリアの国籍を持たない印か良識の前提の印がない、または印を付けていない願い出は通らない。その前の日は通る',
-    [noNat, noPremise, unticked].every((x) => r(x, '2026-11-21T15:00:00Z', 200).ok === false && r(x, '2026-11-21T14:59:00Z', 200).ok === true)
-    && r(noNat, '2026-11-22T00:00:00Z', 200).rows.some((row) => !row[1] && row[0].includes('イタリアの国籍')) && r(noPremise, '2026-11-22T00:00:00Z', 200).rows.some((row) => !row[1] && row[0].includes('良識の前提')));
+  ok('11 月 22 日（日本時間）からは、イタリアの国籍を持たない印・良識の前提の印・外国の称号を縛る国の国籍を持たない印のどれかがない、または印を付けていない願い出は通らない。その前の日は通る',
+    [noNat, noPremise, noForeign, unticked].every((x) => r(x, '2026-11-21T15:00:00Z', 200).ok === false && r(x, '2026-11-21T14:59:00Z', 200).ok === true)
+    && r(noNat, '2026-11-22T00:00:00Z', 200).rows.some((row) => !row[1] && row[0].includes('イタリアの国籍')) && r(noPremise, '2026-11-22T00:00:00Z', 200).rows.some((row) => !row[1] && row[0].includes('良識の前提')) && r(noForeign, '2026-11-22T00:00:00Z', 200).rows.some((row) => !row[1] && row[0].includes('外国の称号を縛る国')));
   const oneOff = K.parse(body(all.slice(1), 'https://example.org/erratum', 'ブログの記事で年を誤り、追記で正しました。'));
   ok('一つでも誓いの印がない、日本にいる印がない、リンクが http・開けない・404、説明が空、のどれでも通らない',
     r(oneOff, '2026-11-22T00:00:00Z', 200).ok === false && r(noHere, '2026-11-22T00:00:00Z', 200).ok === false && r(noHere, '2026-11-20T00:00:00Z', 200).ok === true
@@ -1482,11 +1483,11 @@ console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試し
   /* 段 3：自動の確認。リンクは開かず、応答の状態を渡す（通し稽古は外へ何も要求しない）。 */
   const result = K.check(form, TRIAL.opened, 200), c = K.comment(result);
   ok('段 3：試しの一件は自動の確認を通り（' + result.rows.length + ' 行）、コメントは整っていると書いて何も決めない。日本にいる印がなければ通らない',
-    result.ok && result.rows.length === 6 && c.startsWith(K.MARK) && c.includes('様式は整っています。') && c.includes('この確認は何も決めません。')
+    result.ok && result.rows.length === 7 && c.startsWith(K.MARK) && c.includes('様式は整っています。') && c.includes('この確認は何も決めません。')
     && !K.check(K.parse(body.replace('- [X] ' + K.PRESENCE, '- [ ] ' + K.PRESENCE)), TRIAL.opened, 200).ok);
   /* 試しの一件は、イタリアの国籍を持たない印と良識の前提の印も付けて願い出る。どちらかを外せば通らない。 */
-  ok('段 3：試しの一件は、イタリアの国籍を持たない印と良識の前提の印を付けて通り、どちらかの印を外すと通らない',
-    [K.NATIONALITY, K.PREMISE].every((x) => body.includes('- [X] ' + x) && !K.check(K.parse(body.replace('- [X] ' + x, '- [ ] ' + x)), TRIAL.opened, 200).ok));
+  ok('段 3：試しの一件は、イタリアの国籍を持たない印・良識の前提の印・外国の称号を縛る国の国籍を持たない印を付けて通り、どれかの印を外すと通らない',
+    [K.NATIONALITY, K.PREMISE, K.FOREIGN].every((x) => body.includes('- [X] ' + x) && !K.check(K.parse(body.replace('- [X] ' + x, '- [ ] ' + x)), TRIAL.opened, 200).ok));
   /* 段 5：記し方のとおりに、日本語と英語の名簿の終わりへ一行ずつ足す（ファイルは書き換えない）。番は、いまの名簿の次の番。 */
   const issue = B.REPO + '/issues/0';
   const kj = read('KNIGHTS.md'), ke = read('KNIGHTS.en.md');
@@ -1667,7 +1668,7 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
   function verdict(x, k) {
     const bad = [];
     const need = (f, list) => list.forEach((s) => { if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 40)); });
-    need('policies/knighting.md', [DAY + ' から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。', 'イタリアの国籍を持つ人を除き、国籍は問いません。', '\n## 良識の前提\n', 'この限りで、同条が及ぶおそれは減りますが、なくなりはしません']);
+    need('policies/knighting.md', [DAY + ' から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '\n## 良識の前提\n', 'この限りで、同条が及ぶおそれは減りますが、なくなりはしません']);
     need('policies/knighting.en.md', ['From ' + DAY + ', a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality.', '\n## The premise of good sense\n',
       'From ' + DAY + ', knighting presumes that the applicant is a person of good sense who treats the title as play.', 'From ' + DAY + ', the applicant ticks a box in the form for this premise.', 'This limit reduces the possibility that the article applies; it does not remove it']);
     need('policies/terms.md', ['予告：' + DAY + ' から、イタリアの国籍を持つ人は、', '予告：' + DAY + ' から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし']);
@@ -1697,9 +1698,9 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
   const breaks = [
     ['様式から国籍の印を外す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '        - label: ' + BOX_N + '\n          required: false\n', '')],
     ['様式から良識の前提の印を外す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '        - label: ' + BOX_P + '\n          required: false\n', '')],
-    ['様式を前の文言（国籍は問いません）に戻す', mut('.github/ISSUE_TEMPLATE/knighting.yml', 'イタリアの国籍を持つ人を除き、国籍は問いません）', '国籍は問いません）')],
-    ['叙任の規程を前の文言に戻す', mut('policies/knighting.md', 'イタリアの国籍を持つ人を除き、国籍は問いません。', '国籍は問いません。')],
-    ['英語の利用規約を前の文言に戻す', mut('policies/terms.en.md', 'may apply for knighthood; nationality does not matter, except that people who hold Italian nationality are excluded', 'may apply for knighthood, whatever their nationality')],
+    ['様式を前の文言（国籍は問いません）に戻す', mut('.github/ISSUE_TEMPLATE/knighting.yml', 'イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）', '国籍は問いません）')],
+    ['叙任の規程を前の文言に戻す', mut('policies/knighting.md', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '国籍は問いません。')],
+    ['英語の利用規約を前の文言に戻す', mut('policies/terms.en.md', 'may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded', 'may apply for knighthood, whatever their nationality')],
     ['理由の順を入れ替える', mut('policies/knighting.md', '一つめに、イタリアの国民', '三つめに、イタリアの国民')],
   ];
   const kBreak = Object.assign({}, K, { DATED: K.DATED.filter((d) => d.text !== K.NATIONALITY) });
@@ -1842,7 +1843,7 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から 2026
     const oaths = K.requiredOaths(x['.github/ISSUE_TEMPLATE/knighting.yml']);
     const after = K.check(K.parse(FORM(oaths.concat(K.DATED.map((d) => d.text)))), '2026-11-22T00:00:00+09:00', 200, oaths);
     if (!after.ok) bad.push('2026-11-22 0 時に開いた整った願い出が通らない');
-    const noPremise = K.check(K.parse(FORM(oaths.concat([K.PRESENCE, K.NATIONALITY]))), '2026-11-22T00:00:00+09:00', 200, oaths);
+    const noPremise = K.check(K.parse(FORM(oaths.concat(K.DATED.map((d) => d.text).filter((t) => t !== K.PREMISE)))), '2026-11-22T00:00:00+09:00', 200, oaths);
     if (noPremise.ok) bad.push('2026-11-22 からの印のない願い出が通る');
     /* 停止のあいだは、リンクを開く前に止め、停止を書いて閉じる（受けないものとして）。 */
     const src = x['tools/knighting.js'];
@@ -1887,6 +1888,141 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から 2026
 
 console.log('\n64. 各国の憲法と法令の調べ（2026-11-12）');
 require('./world/check.js').run(ok);
+
+console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を縛る国、騎士の呼び名の使い方、削除の求め、刑法第233条（2026-11-12）');
+{
+  /* 2026-11-12 に Claude が決めた。各国の法令の調べで取り寄せ、一つずつ読んだ条から、2026-11-22 から願い出を受けない国の表を作る。
+   * 表の国は、一つずつ読んだ決め（decisions.json）が「叙任の規程「外国の称号を縛る国」」で除くと書いた条の国と、過不足なく同じで、
+   * 拠る条の名は取り寄せた条の名そのもの。様式の印は表と同じ国を挙げ、受付のコードは 2026-11-22 からその印を求める（日付を渡して確かめる）。
+   * 騎士の呼び名の使い方は三つの決まりと、反したときに名簿から外すことを、日本語と英語の規程と利用規約に書く。拠る条は取り寄せた条。
+   * 記録は、引いた条の文が取り寄せた文に一字一句現れ、表は六つの欄で判定は五つのどれか、件数は表から数えたとおり。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const W = require('./world/check.js');
+  const WS = W.state();
+  const prov = {};
+  for (const d of Object.values(WS.data)) for (const p of d.provisions) prov[p.id] = p;
+  const byJa = Object.fromEntries(WS.countries.map((c) => [c.name_ja, c.iso3])), byEn = Object.fromEntries(WS.countries.map((c) => [c.name, c.iso3]));
+  const label = (p, en) => p.instrument + ' ' + p.article + (p.part === 'article' ? '' : en ? ' (paragraph ' + p.part.split(' ')[1] + ')' : '（第 ' + p.part.split(' ')[1] + ' 段落）');
+  const DAY = '2026-11-22';
+  const EXCL = '（叙任の規程「外国の称号を縛る国」）';
+  const REC = 'docs/world-law-2026-11-12.md';
+  const files = ['policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'policies/legality.md', 'policies/legality.en.md', 'policies/requests.md', 'policies/requests.en.md',
+    '.github/ISSUE_TEMPLATE/knighting.yml', '.github/ISSUE_TEMPLATE/request.yml', 'tools/knighting.js', REC];
+  const load = (src) => { const m = { exports: {} }; new Function('require', 'module', 'exports', '__dirname', src.replace(/^#!.*\n/, ''))(require, m, m.exports, path.join(ROOT, 'tools')); return m.exports; };
+  const sec = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = t.indexOf('\n## ', i + 4); return t.slice(i, j < 0 ? undefined : j); };
+  const rowsOf = (t, head) => t.split('\n').filter((l) => /^\| /.test(l) && !l.startsWith('| --- ') && !l.startsWith(head)).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+  const KINDS = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  function verdict(x, decisions) {
+    const bad = [];
+    const need = (f, list) => list.forEach((t) => { if (!x[f].includes(t)) bad.push(f + '：' + t.slice(0, 40)); });
+    /* 表の国 ＝ 一つずつ読んで除くと決めた条の国。 */
+    const want = {};
+    for (const [id, d] of Object.entries(decisions.provisions)) if (d.class !== 'does not apply' && (d.action || '').includes(EXCL) && prov[id] && prov[id].sha256 === d.sha256) (want[prov[id].country] = want[prov[id].country] || []).push(id);
+    const isos = Object.keys(want).sort();
+    const sj = sec(x['policies/knighting.md'], '外国の称号を縛る国'), se = sec(x['policies/knighting.en.md'], 'Countries that restrict foreign titles');
+    const rj = rowsOf(sj, '| 国 |'), re = rowsOf(se, '| Country |');
+    const sortId = (a, b) => a.localeCompare(b, 'en', { numeric: true });
+    if (rj.length < 10 || rj.map((r) => byJa[r[0]]).sort().join() !== isos.join()) bad.push('表の国と、読んで除くと決めた国が違う');
+    for (const r of rj) { const ids = (want[byJa[r[0]]] || []).slice().sort(sortId); if (r[1] !== ids.map((i) => label(prov[i])).join('、') || !/^型 [123](・型 [123])*$/.test(r[2] || '')) bad.push('拠る条か型が違う：' + r[0]); }
+    if (re.length !== rj.length || re.map((r) => byEn[r[0]]).sort().join() !== isos.join()) bad.push('英語の表の国');
+    for (const r of re) { const ids = (want[byEn[r[0]]] || []).slice().sort(sortId); if (r[1] !== ids.map((i) => label(prov[i], true)).join('; ')) bad.push('英語の拠る条：' + r[0]); }
+    if (!sj.includes('2026-11-22 から、次の表の ' + rj.length + ' か国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。2026-11-12 に Claude が決めました。')) bad.push('表の国の数を文に書いたとおりでない');
+    if (!se.includes('From 2026-11-22, a person who holds the nationality of any of the ' + re.length + ' countries in the table below may not apply')) bad.push('英語の国の数');
+    const types = (s, re1) => s.split('\n').filter((l) => re1.test(l)).length;
+    if (!(sj.includes('次の三つの型のどれかに当たります。') && types(sj, /^[123]\. 型 [123]：/) === 3 && types(se, /^[123]\. Type [123]: /) === 3)) bad.push('三つの型');
+    need('policies/knighting.md', ['表の国のほかにも、国籍を持つ国の法令が三つの型のどれかに当たる人は、願い出ることができません。', 'いちばん厳しい読み方を取り、願い出を受けない形にしました。', 'この限りで、これらの条が及ぶおそれは減りますが、なくなりはしません。']);
+    need('policies/knighting.en.md', ['Besides the countries in the table, a person whose country of nationality has a law of any of the three types may not apply either', 'The strictest reading was taken']);
+    /* 様式の印は表と同じ国を挙げ、2026-11-22 から求める。 */
+    const yml = x['.github/ISSUE_TEMPLATE/knighting.yml'];
+    let K;
+    try { K = load(x['tools/knighting.js']); } catch (e) { return bad.concat(['受付のコードが読めない']); }
+    const box = (new RegExp('        - label: (' + K.FOREIGN + '[^\\n]+)\\n          required: false\\n').exec(yml) || [])[1] || '';
+    const listed = box.slice(K.FOREIGN.length).split('。')[0].split('、');
+    if (!box || listed.slice().sort().join() !== rj.map((r) => r[0]).sort().join() || !box.includes('（ほかの国籍と重ねて持つ場合も含みます。' + DAY + ' から、この印のない願い出は受けません）。')) bad.push('様式の印の国が表と違う');
+    if (!(K.FOREIGN_FROM === DAY && (K.DATED || []).some((d) => d.text === K.FOREIGN && d.from === DAY))) bad.push('受付のコードがその日から印を求めない');
+    const oaths = K.requiredOaths(yml);
+    const FORM = (boxes) => '### 訂正への公開のリンク\n\nhttps://example.org/fix\n\n### 何を誤り、どう正したか\n\n自分の記事の年を誤り、正誤表で正しました。\n\n### 誓い\n\n' + boxes.map((b) => '- [X] ' + b).join('\n') + '\n';
+    const all = oaths.concat((K.DATED || []).map((d) => d.text)), noF = all.filter((t) => t !== K.FOREIGN);
+    if (!K.check(K.parse(FORM(all)), DAY + 'T00:00:00+09:00', 200, oaths).ok) bad.push('22 日に整った願い出が通らない');
+    if (K.check(K.parse(FORM(noF)), DAY + 'T00:00:00+09:00', 200, oaths).ok) bad.push('22 日から、印のない願い出が通る');
+    if (!K.check(K.parse(FORM(noF)), '2026-11-21T23:59:59+09:00', 200, oaths).ok) bad.push('22 日より前から印を求める');
+    /* 利用規約と適法性の説明（日本語と英語）。 */
+    need('policies/terms.md', ['予告：' + DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません', '予告：' + DAY + ' から、騎士の呼び名は、ヌスクァマに関わることにだけ使い、',
+      DAY + ' から、騎士の呼び名は、ヌスクァマに関わることにだけ使います。', DAY + ' から、これに反したときは、運営者は名簿から名を外します（[叙任の規程](./knighting.md)「騎士の呼び名の使い方」）。']);
+    need('policies/terms.en.md', ['Notice: from ' + DAY + ', people who hold the nationality of a country that restricts accepting foreign titles may not apply', 'Notice: from ' + DAY + ', the name of knight is used only in connection with Nusquama',
+      'From ' + DAY + ', if this is breached, the operator removes the name from the roll']);
+    need('policies/legality.md', ['- ' + DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人の願い出も受けない（[叙任の規程](./knighting.md)「外国の称号を縛る国」）。']);
+    need('policies/legality.en.md', ['- From ' + DAY + ', applications from people who hold the nationality of a country that restricts accepting foreign titles are not accepted either']);
+    /* 騎士の呼び名の使い方：三つの決まり、反したときに外す、拠る条は取り寄せた条。 */
+    const uj = sec(x['policies/knighting.md'], '騎士の呼び名の使い方'), ue = sec(x['policies/knighting.en.md'], 'Use of the name of knight');
+    const items = (s) => s.split('\n').filter((l) => /^- [^：:]+$/.test(l) && !/^- \S+[：:]/.test(l));
+    if (!(uj.includes(DAY + ' から、騎士の呼び名は、次の三つを守って使います。2026-11-12 に Claude が決めました。') && items(uj).length === 3 && uj.includes('これに反したことが分かったときは、名簿から名を外します。')
+      && ue.includes('used only within the following three rules') && ue.split('\n').filter((l) => /^- (Use it only|Never present|Do not use it)/.test(l)).length === 3 && ue.includes('the name is removed from the roll'))) bad.push('呼び名の使い方の三つの決まり');
+    const labels = new Set(Object.values(prov).map((p) => label(p))), labelsEn = new Set(Object.values(prov).map((p) => label(p, true)));
+    const cites = uj.split('\n').filter((l) => /^- \S+：/.test(l)).map((l) => l.replace(/^- \S+?：/, '').replace(/（取り寄せた頁から取れたのは見出しだけです）$/, '').split('、'));
+    if (cites.length < 6 || !cites.flat().every((c) => labels.has(c))) bad.push('呼び名の使い方が挙げる条が、取り寄せた条にない');
+    const citesEn = ue.split('\n').filter((l) => /^- [A-Z][a-z]+: /.test(l)).map((l) => l.replace(/^- [A-Za-z]+: /, '').replace(/ \(only the heading could be taken from the fetched page\)$/, '').split('; '));
+    if (citesEn.length !== cites.length || !citesEn.flat().every((c) => labelsEn.has(c))) bad.push('英語の呼び名の使い方が挙げる条');
+    /* 削除の求め：どの国の人からも同じ手順と速さ。名誉と信用を求めの種類に。 */
+    need('policies/requests.md', ['求めは、住んでいる国や国籍を問わず、どの国の人からも同じ手順で受け、同じ速さで答えます。', '- 自分の名誉や信用を傷つける内容の削除。', '他人の名誉や信用を傷つける記載も、判断の前に、ただちに外します。']);
+    need('policies/requests.en.md', ['Requests are received in the same way, and answered as quickly, from people in any country', '- Deletion of content that harms one\'s honour or reputation.']);
+    need('.github/ISSUE_TEMPLATE/request.yml', ['        - 自分の名誉や信用を傷つける内容の削除\n', 'どの国の人からも同じ手順で受け、同じ速さで答えます。']);
+    /* 刑法第233条。 */
+    need('policies/legality.md', ['### 名誉と信用（刑法第230条・第231条・第233条、民法第709条）', '<!-- 条文 刑法 第230条、刑法 第231条、刑法 第233条、民法 第709条 -->']);
+    /* 記録：当てはめの節、引いた条の文、表の形と件数。 */
+    const r = x[REC];
+    const ri = r.indexOf('\n## 2026-11-12 の続き：当てはめ\n'), rs = ri < 0 ? '' : r.slice(ri, r.indexOf('\n## ', ri + 5) < 0 ? undefined : r.indexOf('\n## ', ri + 5));
+    const quotes = [...rs.matchAll(/<!-- 条 (.+?) -->\n> (.+)\n/g)];
+    for (const [, id, q] of quotes) if (!prov[id] || !prov[id].text.includes(q)) bad.push('記録の引用が取り寄せた文にない：' + id);
+    const quoted = new Set(quotes.map((q) => q[1]));
+    for (const id of Object.values(want).flat()) if (!quoted.has(id)) bad.push('除く国の条を記録に引いていない：' + id);
+    const t0 = rs.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const trows = t0 < 0 ? [] : rs.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (trows.length < 10 || !trows.every((y) => y.length === 6 && KINDS.includes(y[4]))) bad.push('当てはめの表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(rs) || [])[1]);
+    if (!KINDS.every((k) => said(k) === trows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(rs) || [])[1]) !== trows.length) bad.push('当てはめの表の件数');
+    if (!rs.includes('弁護士の確認は受けていません。')) bad.push('記録に弁護士の文がない');
+    /* 型で分けていた条を読み直した数は、型を当て直して数えたとおり（決めごと 5）。 */
+    const Wt = require('../tools/world.js');
+    const byRule = Wt.classifyAll(WS.data, Object.assign({}, decisions, { provisions: {} })).out, mine = Wt.classifyAll(WS.data, decisions).out;
+    const of = (rule, c) => Object.keys(byRule).filter((k) => byRule[k].by === rule && (!c || (mine[k].by === 'read' && mine[k].class === c))).length;
+    const hf = of('C-honours-foreign'), hfc = of('C-honours-foreign', 'could apply'), hfn = of('C-honours-foreign', 'does not apply'), sy = of('K-symbols-similar'), syn = of('K-symbols-similar', 'does not apply');
+    if (!(rs.includes('外国の称号の型（C-honours-foreign）が拾う ' + hf + ' 件と、国のしるしの型（K-symbols-similar）が拾う ' + sy + ' 件です。') && rs.includes('外国の称号の型の ' + hf + ' 件のうち、' + hfc + ' 件は')
+      && rs.includes('残る ' + hfn + ' 件は') && hfc + hfn === hf && rs.includes('国のしるしの型の ' + sy + ' 件は') && syn === sy)) bad.push('読み直した数が数えた数と違う');
+    /* 取り寄せ直した出典の数は、取り寄せの記録から数えたとおり。 */
+    const alts = WS.sources.codes.filter((c) => c.alt), recOf = (id) => Object.values(WS.data).map((d) => d.sources[id]).find(Boolean) || {};
+    const okN = alts.filter((c) => !recOf(c.id).error).length;
+    if (!rs.includes('取り寄せられなかった ' + alts.length + ' の出典を') || !rs.includes('取れたのは ' + okN + ' 件、取れなかったのは ' + (alts.length - okN) + ' 件です。')) bad.push('取り寄せ直した数が記録と違う');
+    return bad;
+  }
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const D = WS.decisions;
+  const bad = verdict(real, D);
+  ok('外国の称号を縛る国の表が一つずつ読んだ決めと過不足なくそろい、様式・受付のコード（日付を渡して確かめる）・規程・利用規約・適法性の説明・削除の求め・記録が日本語と英語でそろう', bad.length === 0, bad.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const kn = real['policies/knighting.md'];
+  const firstRow = kn.split('\n').find((l) => l.startsWith('| アイルランド |'));
+  const D2 = JSON.parse(JSON.stringify(D)); const k2 = Object.keys(D2.provisions).find((k) => (D2.provisions[k].action || '').includes(EXCL)); D2.provisions[k2].action = '対応は要りません。';
+  const breaks = [
+    ['表から国を一つ外す', mut('policies/knighting.md', firstRow + '\n', ''), D],
+    ['決めから除く国を一つ外す（表は残す）', real, D2],
+    ['表の国の数を変える', mut('policies/knighting.md', '次の表の ', '次の表の 1'), D],
+    ['様式の印から国を一つ外す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '：アイルランド、', '：'), D],
+    ['受付のコードから印を外す', mut('tools/knighting.js', "  { from: FOREIGN_FROM, text: FOREIGN, label: '外国の称号を縛る国の国籍を持っていない印がある' },\n", ''), D],
+    ['印を求める日を一日遅らせる', mut('tools/knighting.js', "const FOREIGN_FROM = '2026-11-22';", "const FOREIGN_FROM = '2026-11-23';"), D],
+    ['呼び名の使い方の決まりを一つ外す', mut('policies/knighting.md', '- 公的な場・商取引・法的な場（書類・届出・契約・裁判など）で使わない。\n', ''), D],
+    ['呼び名の使い方に取り寄せていない条を挙げる', mut('policies/knighting.md', '- ドイツ：Strafgesetzbuch (StGB) § 132a\n', '- ドイツ：Strafgesetzbuch (StGB) § 132b\n'), D],
+    ['利用規約の予告を外す', mut('policies/terms.md', '予告：' + DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人は、', '予告：'), D],
+    ['削除の求めから、どの国の人からも同じ手順で受ける文を外す', mut('policies/requests.md', '求めは、住んでいる国や国籍を問わず、どの国の人からも同じ手順で受け、同じ速さで答えます。', ''), D],
+    ['適法性の説明の見出しから第233条を外す', mut('policies/legality.md', '### 名誉と信用（刑法第230条・第231条・第233条、民法第709条）', '### 名誉と信用（刑法第230条・第231条、民法第709条）'), D],
+    ['記録の引用を一字変える', mut(REC, '> No citizen shall, without the prior approval of the President', '> No citizen shall, without the prior approval of the Prezident'), D],
+    ['記録の判定の数を変える', mut(REC, /漏れ (\d+) 件/, (m0, n0) => '漏れ ' + (Number(n0) + 1) + ' 件'), D],
+    ['記録の読み直した数を変える', mut(REC, /が拾う (\d+) 件と、国のしるし/, (m0, n0) => 'が拾う ' + (Number(n0) + 1) + ' 件と、国のしるし'), D],
+    ['記録の取り寄せ直した数を変える', mut(REC, /取れたのは (\d+) 件/, (m0, n0) => '取れたのは ' + (Number(n0) + 1) + ' 件'), D],
+  ];
+  const caught = breaks.filter(([, x, d]) => verdict(x, d).length > 0).map(([n]) => n);
+  ok('壊して確かめる：表・決め・数・様式・受付のコード・日付・呼び名の決まり・挙げた条・予告・削除の求め・第233条・記録の引用と件数・読み直した数・取り寄せ直した数、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
+}
 
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }

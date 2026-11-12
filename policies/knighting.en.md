@@ -18,7 +18,7 @@ A person who has publicly corrected one of their own mistakes.
 The correction must be public and checkable by anyone, such as an erratum to a paper, a note added to a blog post or article, a fix to code, or a statement withdrawn.
 A person under 16 may not apply.
 A person whom the law of the country where they live forbids to receive or use a title of knighthood given by a private person may not apply either. For example, Article 8 of Italy's Law No. 178 of 1951 forbids private persons and bodies to confer titles of knighthood under any name.
-From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. Nationality does not matter, except that people who hold Italian nationality are excluded.
+From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. Nationality does not matter, except that people who hold Italian nationality, or the nationality of a country under "Countries that restrict foreign titles", are excluded.
 From 2026-11-22, people who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
 From 2026-11-22, a person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
 From 2026-11-22, a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality. There are two reasons.
@@ -53,6 +53,67 @@ If what the applicant wrote, or the linked correction, shows clearly that this p
 If it becomes clear after knighting, the knighting is revoked under "Withdrawal and revocation".
 When revoking, the operator writes in the application issue only which rule was not kept, briefly, and comments on no one. The issue is deleted if the person asks.
 
+
+## Countries that restrict foreign titles
+
+From 2026-11-22, a person who holds the nationality of any of the 15 countries in the table below may not apply, even if they live in Japan, and even if they also hold another nationality. Claude decided this on 2026-11-12.
+On the texts fetched and read, the constitution or a law of each country in the table is of one of three types.
+
+1. Type 1: it forbids accepting a foreign title, order, honour or rank, or requires the State's permission to accept one.
+2. Type 2: it attaches loss of nationality or citizenship, or a penalty, to accepting a foreign title or the like.
+3. Type 3: it punishes assuming a title of nobility that is not one's own, and the name of knight could be read as such a title.
+
+Nusquama is not a state, and the name of knight is not a title of any country.
+Even so, on the words of these provisions, a reading remains on which they apply.
+The strictest reading was taken, and such applications are not accepted. This costs nothing, and not accepting them closes that path.
+Some provisions bind only public officials or holders of State office. The operator does not check an applicant's office, so the whole nationality is excluded.
+
+| Country | Provision relied on | Type |
+| --- | --- | --- |
+| Bangladesh | Bangladesh 1972 (reinst. 1986, rev. 2018) 30. Prohibition of foreign titles, etc. | Type 1 |
+| Belgium | Code pénal Art. 230 | Type 3 |
+| Colombia | Colombia 1991 (rev. 2015) Article 129 | Type 1 |
+| Dominican Republic | Dominican Republic 2015 Article 128. Powers of the President of the Republic (paragraph 23) | Type 1 |
+| Honduras | Honduras 1982 (rev. 2013) Article 205 (paragraph 18) | Type 1 |
+| Hungary | Hungary 2011 (rev. 2016) Article 9 (paragraph 21) | Type 1 |
+| India | India 1949 (rev. 2023) 18. Abolition of titles | Type 1 |
+| Ireland | Ireland 1937 (rev. 2019) ARTICLE 40, 2 | Type 1 |
+| Mexico | Mexico 1917 (rev. 2015) Article 37 | Type 2 |
+| Nepal | Nepal 2015 (rev. 2016) 277. Titles, honors, and decorations | Type 1 |
+| Netherlands | Wetboek van Strafrecht Artikel 435 | Type 1, Type 2, Type 3 |
+| Pakistan | Pakistan 1973 (reinst. 2002, rev. 2018) 259. Awards | Type 1 |
+| Philippines | Philippines 1987 Sec 8 | Type 1 |
+| United States of America | United States of America 1789 (rev. 1992) Article I, Section 9 | Type 1 |
+| Venezuela | Venezuela (Bolivarian Republic of) 1999 (rev. 2009) Article 149; Venezuela (Bolivarian Republic of) 1999 (rev. 2009) Article 187 (paragraph 14) | Type 1 |
+
+Besides the countries in the table, a person whose country of nationality has a law of any of the three types may not apply either, because the laws of countries not fetched may have the same provisions.
+People who hold Italian nationality are excluded separately, under "Who may apply".
+The texts of the provisions and the reasons for reading them so are in the [survey of the world's laws](../docs/world-law-2026-11-12.md) (in Japanese), "2026-11-12 の続き：当てはめ".
+This limit reduces the possibility that these provisions apply; it does not remove it.
+
+## Use of the name of knight
+
+From 2026-11-22, the name of knight is used only within the following three rules. Claude decided this on 2026-11-12.
+
+- Use it only in connection with Nusquama.
+- Never present it as a title of nobility, an honour, an order, a rank or a dignity of any state.
+- Do not use it in an official, commercial or legal context (documents, filings, contracts, courts and the like).
+
+If it becomes known that these rules were breached, the name is removed from the roll.
+The reason is that the following provisions, fetched and read, punish assuming titles, honours or ranks without the right to them, or using them without permission.
+
+- Germany: Strafgesetzbuch (StGB) § 132a
+- Argentina: Código Penal de la Nación (Ley 11.179, t.o. 1984) ARTICULO 247
+- Mexico: Código Penal Federal Artículo 250
+- Italy: Codice penale (R.D. 19 ottobre 1930, n. 1398) Art. 498 (paragraph 5); Legge 3 marzo 1951, n. 178 (Ordine al merito della Repubblica) Art. 7 (paragraph 2)
+- Belgium: Code pénal Art. 230
+- Netherlands: Wetboek van Strafrecht Artikel 435
+- Norway: Lov om straff (straffeloven) § 165 (only the heading could be taken from the fetched page)
+- Portugal: Código Penal (Decreto-Lei n.º 48/95) Artigo 307 (only the heading could be taken from the fetched page)
+
+The texts of the provisions are quoted in the [survey of the world's laws](../docs/world-law-2026-11-12.md) (in Japanese), "2026-11-12 の続き：当てはめ".
+Keeping these rules reduces the possibility that these provisions apply; it does not remove it.
+
 ## How to apply
 
 Vercel, which serves the site, and GitHub, which keeps the applications, may use what is placed on them to train AI models. If you are worried about your personal data, do not apply. These uses are described in [Privacy](./privacy.en.md).
@@ -71,7 +132,7 @@ Do not write your real name, address, affiliation or contact details.
 - That it reads as a correction of the applicant's own mistake.
 - That it contains no personal data of others and nothing that hurts others.
 - That every pledge in the form is ticked.
-- That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality, or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
+- That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality or the nationality of a country under "Countries that restrict foreign titles", or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
 
@@ -82,7 +143,7 @@ The automatic check decides nothing. The operator decides on knighting.
 
 The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
 Nusquama gives no nationality. Knights are not its people.
-Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality are taken from the applicant's own declaration, by the ticks in the form.
+Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality or the nationality of a country under "Countries that restrict foreign titles" are taken from the applicant's own declaration, by the ticks in the form.
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.

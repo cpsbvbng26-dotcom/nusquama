@@ -14,10 +14,8 @@ This page sets out the operator's understanding; it is neither legal advice nor 
 It has not been reviewed by a lawyer.
 The statutes are summarised, not quoted, and the law names are given in common English renderings.
 The summaries were checked on 2026-11-08 against the current texts obtained from the e-Gov law API. The articles checked are listed in each heading.
-On 2026-11-12 this page was reviewed again, article by article. The articles added in that review are named in each section under "Added in the review", and were fetched from the same API and read on the same day.
-The record of the review is in [Legal review record (2026-11-12)](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md) (in Japanese). This review, too, was not checked by a lawyer.
-The texts were obtained by querying the e-Gov law API (v1) from GitHub Actions.
-The original texts can be read on [e-Gov Laws Search](https://laws.e-gov.go.jp/) (in Japanese).
+On 2026-11-12 this page was reviewed again, article by article. The articles added in that review are named in each section under "Added in the review", and were fetched and read on the same day.
+The record of the review is in [Legal review record (2026-11-12)](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md) (in Japanese).
 At the end of each section, under "Text of", the wording itself is quoted.
 The Japanese articles are quoted unchanged from the texts obtained from the e-Gov law API and recorded by the watch.
 Foreign treaties, laws and explanations are quoted from the texts fetched on 2026-11-12 from the pages that publish them, without translation.
@@ -147,16 +145,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 
 <!-- 条文 個人情報保護法 第17条、個人情報保護法 第18条、個人情報保護法 第27条、個人情報保護法 第28条 -->
 
-### Reputation and credit (Penal Code, Articles 230 and 231; Civil Code, Article 709)
+### Reputation and credit (Penal Code, Articles 230, 231 and 233; Civil Code, Article 709)
 
-- **Elements, in summary**: publicly alleging facts that damage a person's reputation; publicly insulting a person, even without alleging facts; infringing, intentionally or negligently, another person's rights or legally protected interests and so causing damage.
+- **Elements, in summary**: publicly alleging facts that damage a person's reputation; publicly insulting a person, even without alleging facts; damaging a person's credit by spreading false rumours or by deception; infringing, intentionally or negligently, another person's rights or legally protected interests and so causing damage.
 - **Nusquama's facts**: it discusses no particular person. The roll of knights lists only account names, on the person's own application and consent. When an application is refused, the reason is given briefly and the person is not judged.
-- **Why the law does not apply**: nothing damages anyone's reputation.
+- **Why the law does not apply**: nothing damages anyone's reputation or credit.
 - **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
 - **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); [Requests for removal, correction or withdrawal](./requests.en.md), "After a request".
 - **Added in the review (2026-11-12)**: issues are written on GitHub, where anyone may read them. Such a transmission is a "specified telecommunication" under Article 2, item 1, of the Act on Responses to Rights Infringement on Information Distribution Platforms. Whether the operator is a provider of that service (item 4 of the same Article) is unclear, because GitHub holds the equipment. If the operator is one, it is not liable for a post that infringes another person's rights unless it was technically possible to stop the transmission and it knew of the infringement, or there were reasonable grounds to find that it could have known (Article 3(1) of that Act). For harm to the writer caused by taking a post down, it is not liable when the takedown went no further than necessary and, among other cases, there were reasonable grounds to believe another person's rights were being unjustly infringed (Article 3(2)). Taking text down at once, before deciding anything else, reduces liability on the side of paragraph 1, but does not protect where paragraph 2's reasonable grounds are missing. So the matter is checked after the takedown. The duties of large-scale providers (Article 2, item 14) belong to those designated, and do not reach the operator.
 
-<!-- 条文 刑法 第230条、刑法 第231条、民法 第709条 -->
+<!-- 条文 刑法 第230条、刑法 第231条、刑法 第233条、民法 第709条 -->
 
 ### Telecommunications business (Telecommunications Business Act, Article 164)
 
@@ -194,9 +192,9 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - The EU General Data Protection Regulation (GDPR) can reach those outside the EU, for example when they offer services to people in the EU. In case it does, Nusquama handles only what the person makes public themselves, takes it with consent, and answers requests for access, correction and erasure free of charge ([Privacy](./privacy.en.md)). Article 3(2) of the GDPR applies to a controller outside the EU where it offers goods or services, irrespective of payment, to people in the EU, among other cases. The text was checked on 2026-11-08 in [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679).
 - **Added in the review (2026-11-12)**: where the GDPR applies under Article 3(2), a controller outside the EU designates in writing a representative in the EU (GDPR, Article 27). That duty does not apply to processing that is occasional, does not include large-scale processing of special categories of data, and is unlikely to result in a risk to the rights and freedoms of natural persons (paragraph 2(a) of that Article). Nusquama does not offer its service to people in the EU, and from 2026-11-22 it accepts no application from anyone outside Japan. Even if the GDPR applies, the operator considers the handling of the roll to fall under paragraph 2(a), and has designated no representative. Claude decided this on 2026-11-12, because the roll handles only account names and summaries of corrections, and asks for no special categories of data.
 - The California Consumer Privacy Act (CCPA) covers businesses run for profit. Nusquama runs no business for profit, so the operator considers that it does not apply. This was checked on 2026-11-08 on the [CCPA page of the California Attorney General](https://oag.ca.gov/privacy/ccpa), which says the Act covers for-profit businesses and generally does not apply to nonprofit organisations. The statute itself (Civil Code section 1798.140(d)) was read on 2026-11-12 in an Internet Archive copy, since the State's page blocks automated access; it makes the purpose of profit an element.
-- The operator has not checked the laws of other countries one by one.
 - From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either ([Rules on Knighting](./knighting.en.md), "Who may apply").
 - From 2026-11-22, applications from people who hold Italian nationality (including dual nationals) are not accepted either. The reasons are that, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with, and that the most realistic path by which the article above could reach Nusquama is an Italian national who received and used the title.
+- From 2026-11-22, applications from people who hold the nationality of a country that restricts accepting foreign titles are not accepted either ([Rules on Knighting](./knighting.en.md), "Countries that restrict foreign titles").
 - These limits reduce, but do not remove, the possibility that laws outside Japan apply. Like the Italian article above, some laws punish the one who confers and reach conferring done abroad. Some laws may also reach their own nationals abroad.
 - The applicant's declaration is not checked, but if the linked correction states clearly that the applicant does not meet the conditions, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 
@@ -229,14 +227,13 @@ It lists possible paths. It does not say that a listed act is always an offence 
 | Making a "Nusquama passport", "citizen card" or similar paper, and showing it to prove who one is | Penal Code, Article 155; Passport Act, Article 23 | Do not make or show one. Nusquama has no passports and no nationality. Making it so that it may be taken for a document of a real office or state comes near an offence |
 | Putting the emblem or the name "Nusquama" on goods, services or advertising | Trademark Act, Article 25; Unfair Competition Prevention Act, Article 2, paragraph 1, items 1 and 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not use them in trade. How they may be used is on the [Names and Rights](./names.en.md) page |
 | Making currency, points or vouchers in Nusquama's name and handing them out for a price | Payment Services Act, Article 3 | Do not. Nusquama has no currency |
-| Naming and judging another person, or writing another person's personal information, in an issue or elsewhere | Penal Code, Articles 230 and 231; Civil Code, Article 709 | Do not. Such text is removed at once, before any decision |
+| Naming and judging another person, or writing another person's personal information, in an issue or elsewhere | Penal Code, Articles 230, 231 and 233; Civil Code, Article 709 | Do not. Such text is removed at once, before any decision |
 | Applying under the age of 16 by giving a false age | Civil Code, Article 5 | Do not. Once known, the name is removed from the roll, even without a request |
 
 The responsibility for an act done against the rules, or outside them, lies with the person who did it.
 The operator is not responsible for such acts of knights, readers or third parties.
 When the operator learns of one, the operator withdraws the knighting, removes the text, or states that it has no connection with Nusquama.
 This does not apply where the law makes the operator responsible ([Disclaimer](./disclaimer.en.md), "Liability").
-The texts of the laws cited in each section above can be read under that section.
 
 ## How this was reviewed, and the risks that remain
 
@@ -251,7 +248,7 @@ The conclusion of this page was checked in the five ways below.
 This method works only when the elements are set out correctly and completely. Each law not set out, and each element read in more than one way, weakens the conclusion by that much.
 The review of 2026-11-12 found laws that had not been set out and elements read in more than one way. Both are under "Added in the review" in the sections above and in [the record of the review](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md).
 
-The review is not done once only. Once a week, the articles this page relies on and GitHub's terms are fetched from the e-Gov law API and from GitHub, and compared with the recorded values (`tools/statutes.js`). If they differ, a proposal is made by itself, with the difference between the old and the new text: a pull request, or an issue with a link that opens one in a single step. The operator reads the difference, checks this page, and adds the label 記す; a workflow then runs the checks on the merged result and records the change only if they pass. If a fetch fails, an issue opens. If this page names an article that the watch does not cover, the check fails.
+The review is not done once only. Once a week, the articles this page relies on and GitHub's terms are fetched and compared with the recorded values (`tools/statutes.js`). If they differ, a proposal is made by itself, with the difference between the old and the new text; the operator reads it and adds the label 記す. If this page names an article that the watch does not cover, the check fails.
 
 The ways the facts relied on could fail are these.
 
@@ -279,7 +276,6 @@ Laws not set out and elements read in more than one way remain, so the operator 
 This is not a legal guarantee. If the facts relied on change, so does the conclusion.
 The facts relied on are fixed in the pages and the Basic Law.
 The repository's check (`verification/check.js`) fails if those sentences are removed.
-The same check confirms that the page sections and Basic Law articles this page refers to exist.
 
 Anyone who finds a possible illegality can report it through the [Requests for removal, correction or withdrawal](./requests.en.md). The operator will check it, fix it, and revise this page.
 

@@ -112,6 +112,13 @@ function verdict(S, coverageOf, classesOf) {
     if (c.class !== 'does not apply' && (!c.action || !['Nusquama', 'Sophaxis', 'both'].includes(c.project) || !['高', '中', '低'].includes(c.severity))) bad.push(p.id + '：当たる・当たりうる条に、計画・対象・重さがない');
   }
   for (const id of Object.keys(cls)) if (!ids.has(id)) bad.push(id + '：記していない条の分類');
+  /* Titles and honours, sovereignty and impersonation, national symbols, and fraud: a provision that applies or could
+   * apply is one read by hand, never one sorted by a rule. 2026-11-12 に Claude が決めました（統合の段で、型で分けた条を一つずつ読み直した）。 */
+  const READ_TOPICS = ['honours', 'sovereignty', 'symbols', 'fraud'];
+  for (const d of Object.values(S.data)) for (const p of d.provisions) {
+    const c = cls[p.id];
+    if (c && c.class !== 'does not apply' && c.by !== 'read' && p.topics.some((t) => READ_TOPICS.includes(t)) && !p.topics.includes('data')) bad.push(p.id + '：称号・主権・しるし・詐欺の主題で、当たりうる条を型だけで分けている');
+  }
   /* The record's numbers. */
   const n = counts(S);
   const say = [
@@ -152,10 +159,11 @@ function run(ok) {
     ['分類を手で「当たらない」に書き換える', (T) => { const c = Object.values(T.classes.provisions).find((x) => x.class !== 'does not apply'); c.class = 'does not apply'; }],
     ['一つずつ読んだ決めの元の文の値を変える', (T) => { const k = Object.keys(T.decisions.provisions)[0]; T.decisions.provisions[k].sha256 = '0'.repeat(64); }],
     ['記録の条の数を変える', (T) => { T.record = T.record.replace('当たった条は ' + n.provisions + ' 件', '当たった条は ' + (n.provisions + 1) + ' 件'); }],
-    ['記録から弁護士の文を消す', (T) => { T.record = T.record.replace('弁護士の確認は受けていません。', ''); }],
+    ['記録から弁護士の文を消す', (T) => { T.record = T.record.split('弁護士の確認は受けていません。').join(''); }],
+    ['称号の条の一つずつ読んだ決めを消し、型で「当たりうる」に戻す', (T) => { const k = Object.keys(T.decisions.provisions).find((x) => T.decisions.provisions[x].class === 'could apply' && /constitution/.test(x) && T.decisions.provisions[x].project === 'Nusquama'); delete T.decisions.provisions[k]; T.classes.provisions = classesOf(T); T.record = T.record.replace(/「当たりうる」が \d+ 件/, '「当たりうる」が ' + counts(T).could + ' 件'); }],
   ];
   const caught = breaks.filter(([, f]) => { const T = clone(); f(T); return verdict(T, coverageOf, classesOf).length > 0; }).map(([k]) => k);
-  ok('各国の法令の調べを壊して確かめる：文・値・所在・国・網羅の行・見当たらないの偽り・取り寄せの失敗・分類・計画・記録の数・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+  ok('各国の法令の調べを壊して確かめる：文・値・所在・国・網羅の行・見当たらないの偽り・取り寄せの失敗・分類・計画・記録の数・弁護士の文・型だけで分けた称号の条のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 module.exports = { run, verdict, counts, state };

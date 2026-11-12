@@ -10,6 +10,8 @@ body:
         公開の場で書けない事情があるときは、種類で「非公開の連絡を求める」を選び、ほかは空のままにしてください。
         費用はかかりません。手順は「削除・訂正・辞退の求め」の規程にあります。
         書いたものは、この求めに応じることにだけ使います。
+        求めは、住んでいる国や国籍を問わず、どの国の人からも同じ手順で受け、同じ速さで答えます。日本語でも英語でも受けます。
+        Requests are received in the same way, and answered as quickly, from people in any country, whatever their nationality. Japanese or English may be used.
   - type: dropdown
     id: kind
     attributes:
@@ -19,6 +21,7 @@ body:
         - 自分についての記載の訂正・削除
         - 自分についての保有個人データの利用目的の通知・開示・訂正・追加・削除・利用停止・消去・第三者への提供の停止
         - 自分の個人情報の削除
+        - 自分の名誉や信用を傷つける内容の削除
         - 自分の権利を侵す内容の削除
         - 実在の何かと誤認されるおそれがある表現の修正
         - 非公開の連絡を求める
