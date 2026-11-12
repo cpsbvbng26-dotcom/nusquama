@@ -15,6 +15,8 @@
  * - every kept provision has a classification with a reason (a rule, or a decision made on the same text, the same
  *   SHA-256), classes.json is what the decisions make of data/, and every provision
  *   classified as applying or as possibly applying has a reason and a proposed action;
+ * - every provision of titles and honours is classified by a decision read by hand, never by a type rule alone
+ *   (2026-11-13), and the record states how many were re-read and how many of those now could apply;
  * - the numbers the survey record writes in its prose are the numbers counted here.
  */
 'use strict';
@@ -29,6 +31,8 @@ const RECORD = 'docs/world-law-2026-11-12.md';
 const CLASSES = ['applies', 'could apply', 'does not apply'];
 /* The longest passage a provision of a private text may keep (the longest match of a rule's pattern is shorter). */
 const SPAN_MAX = 400;
+/* The words a decision ends with when it re-read a provision of titles and honours that a type rule had sorted. */
+const REREAD = '2026-11-13 に一つずつ読み直しました。';
 
 function state() {
   const rd = (f) => fs.readFileSync(path.join(DIR, f), 'utf8');
@@ -59,6 +63,10 @@ function counts(S) {
     could: provs.filter((p) => (cls[p.id] || {}).class === 'could apply').length,
     sources: Object.values(S.data).reduce((a, d) => a + Object.keys(d.sources).length, 0),
   };
+  /* The provisions of titles and honours that a type rule had sorted, read one by one on 2026-11-13 (their decisions say so). */
+  const reread = provs.filter((p) => p.topics.includes('honours') && ((S.decisions.provisions || {})[p.id] || {}).sha256 === p.sha256 && (S.decisions.provisions[p.id].reason || '').includes(REREAD));
+  n.reread = reread.length;
+  n.rereadCould = reread.filter((p) => S.decisions.provisions[p.id].class !== 'does not apply').length;
   for (const t of topics) {
     n['fetched:' + t] = rows.filter((r) => r.topics[t].state !== 'not fetched').length;
     n['found:' + t] = rows.filter((r) => r.topics[t].state === 'found').length;
@@ -139,6 +147,13 @@ function verdict(S, coverageOf, classesOf) {
     const c = cls[p.id];
     if (c && c.class !== 'does not apply' && c.by !== 'read' && p.topics.some((t) => READ_TOPICS.includes(t)) && !p.topics.includes('data')) bad.push(p.id + '：称号・主権・しるし・詐欺の主題で、当たりうる条を型だけで分けている');
   }
+  /* Titles and honours: every provision of the topic is read by hand; none is sorted by a type rule alone, whatever its
+   * class. 2026-11-13 に Claude が決めました。型で「当たらない」に分けた称号の条に、一つずつ読めば当たりうる条
+   * （ギリシャの第4条、イエメンの第119条）と、他の法律を憲法の法律とみなす条（オーストリアの第149条）が紛れていたためです。 */
+  for (const d of Object.values(S.data)) for (const p of d.provisions) {
+    const c = cls[p.id];
+    if (c && c.by !== 'read' && p.topics.includes('honours')) bad.push(p.id + '：称号・栄典の条を、型の決めだけで分けている（' + c.by + '）');
+  }
   /* The record's numbers. */
   const n = counts(S);
   const say = [
@@ -147,6 +162,8 @@ function verdict(S, coverageOf, classesOf) {
     ['条の数', '当たった条は ' + n.provisions + ' 件'],
     ['当たる', '「当たる」が ' + n.applies + ' 件'],
     ['当たりうる', '「当たりうる」が ' + n.could + ' 件'],
+    ['読み直した称号の条', '型の決めだけで分けていた称号・栄典の条 ' + n.reread + ' 件を、すべて一つずつ読み直しました。'],
+    ['読み直して改めた称号の条', 'そのうち ' + n.rereadCould + ' 件を「当たりうる」に改めました。'],
   ];
   for (const t of topics) say.push([t, '| ' + S.sources.topics[t].split('：')[0].split('（')[0] + ' | ' + n['fetched:' + t] + ' | ' + n['found:' + t] + ' |']);
   for (const [k, s] of say) if (!S.record.includes(s)) bad.push('記録の数が数えた数と違う：' + k + '（「' + s + '」がない）');
@@ -187,9 +204,12 @@ function run(ok) {
     ['私的な団体の訳の条の拠った箇所を消す', (T) => { delete priv(T).spans; }],
     ['Constitute を、拠った箇所だけを記す出典から外す', (T) => { delete T.sources.spans_only.constitute; }],
     ['称号の条の一つずつ読んだ決めを消し、型で「当たりうる」に戻す', (T) => { const k = Object.keys(T.decisions.provisions).find((x) => T.decisions.provisions[x].class === 'could apply' && /constitution/.test(x) && T.decisions.provisions[x].project === 'Nusquama'); delete T.decisions.provisions[k]; T.classes.provisions = classesOf(T); T.record = T.record.replace(/「当たりうる」が \d+ 件/, '「当たりうる」が ' + counts(T).could + ' 件'); }],
+    ['読み直した称号の条の決めを消し、型で「当たらない」に戻す（記録の数も合わせる）', (T) => { const k = Object.keys(T.decisions.provisions).find((x) => T.decisions.provisions[x].class === 'does not apply' && (T.decisions.provisions[x].reason || '').includes(REREAD) && /constitution/.test(x)); delete T.decisions.provisions[k]; T.classes.provisions = classesOf(T); const m = counts(T); T.record = T.record.replace(/型の決めだけで分けていた称号・栄典の条 \d+ 件/, '型の決めだけで分けていた称号・栄典の条 ' + m.reread + ' 件'); }],
+    ['記録の読み直した称号の条の数を変える', (T) => { T.record = T.record.replace('型の決めだけで分けていた称号・栄典の条 ' + n.reread + ' 件', '型の決めだけで分けていた称号・栄典の条 ' + (n.reread + 1) + ' 件'); }],
+    ['記録の読み直して改めた数を変える', (T) => { T.record = T.record.replace('そのうち ' + n.rereadCould + ' 件を「当たりうる」に改めました。', 'そのうち ' + (n.rereadCould + 1) + ' 件を「当たりうる」に改めました。'); }],
   ];
   const caught = breaks.filter(([, f]) => { const T = clone(); f(T); return verdict(T, coverageOf, classesOf).length > 0; }).map(([k]) => k);
-  ok('各国の法令の調べを壊して確かめる：文・値・所在・国・網羅の行・見当たらないの偽り・取り寄せの失敗・分類・計画・記録の数・弁護士の文・私的な訳の全文と拠った箇所・型だけで分けた称号の条のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+  ok('各国の法令の調べを壊して確かめる：文・値・所在・国・網羅の行・見当たらないの偽り・取り寄せの失敗・分類・計画・記録の数・弁護士の文・私的な訳の全文と拠った箇所・型だけで分けた称号の条・型だけで「当たらない」に分けた称号の条・読み直した数のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 module.exports = { run, verdict, counts, state };
