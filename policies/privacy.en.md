@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-13.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 

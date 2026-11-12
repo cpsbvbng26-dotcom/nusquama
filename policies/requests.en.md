@@ -1,6 +1,6 @@
 # Requests for removal, correction or withdrawal
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-13.
 
 This is an English translation. The [Japanese version](./requests.md) governs; if the two differ, the Japanese version applies.
 
@@ -28,7 +28,7 @@ Do not copy the personal data in question into the issue. Say only where it is.
 ## Requests that cannot be made in public
 
 Nusquama has no channel that receives requests privately.
-GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-12).
+GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-13).
 If there is a reason a request cannot be written in public, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the form, and leave the rest empty. The issue then shows only the GitHub account name, the title and the kind.
 The operator answers privately only when the person who asks has made a contact public on their own GitHub profile, and then answers at that contact.
 When there is no such contact, there is no private route. The operator then answers in the issue, without personal details.
