@@ -1,6 +1,6 @@
 # Requests for removal, correction or withdrawal
 
-Last updated: 2026-11-08.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./requests.md) governs; if the two differ, the Japanese version applies.
 
@@ -10,10 +10,12 @@ This is an English translation. The [Japanese version](./requests.md) governs; i
 - Correction or deletion of an entry about oneself on the roll or in an issue.
 - Notice of the purpose of use, disclosure, correction, addition, deletion, suspension of use, erasure, or stopping the provision to third parties, of retained personal data about oneself.
 - Deletion of one's personal data written without one's consent.
+- Deletion of content that harms one's honour or reputation.
 - Deletion of content that infringes one's rights (copyright, trademark, likeness and so on).
 - A change of wording where Nusquama may be mistaken for something real.
 
 There is no charge.
+Requests are received in the same way, and answered as quickly, from people in any country, whatever country they live in and whatever their nationality. They are received in Japanese or in English.
 
 ## How to ask
 
@@ -33,6 +35,7 @@ A security problem with the site or the repository is reported in the same way (
 
 The operator aims to answer each request within 7 days.
 Where the harm is serious, such as exposed personal data, the entry is taken down at once, before any decision.
+An entry that harms another person's honour or reputation is also taken down at once, before any decision. After it is taken down, whether that was right is checked.
 Withdrawal from the roll is granted whatever the reason.
 Requests for disclosure, correction, suspension of use and the like are met without delay. Disclosure is made in the way asked; when an electronic record is asked for, an electronic record is given.
 When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.

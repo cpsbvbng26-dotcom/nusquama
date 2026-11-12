@@ -38,6 +38,9 @@ Inside the kingdom means this repository, the site, and the articles and posts t
 Nusquama makes and hands out no physical decorations, insignia, uniforms or certificates.
 The titles must not be used in a way that could be mistaken for an official post, court rank, decoration, academic degree or any other title set by law.
 Nusquama's titles must not be written on a CV, a paper, a business card, an official document, in commerce or in advertising.
+From 2026-11-22, the name of knight is used only in connection with Nusquama.
+From 2026-11-22, the name of knight is never presented as a title of nobility, an honour, an order, a rank or a dignity of any state, and is not used in an official, commercial or legal context.
+From 2026-11-22, if this is breached, the operator removes the name from the roll ([Rules on Knighting](./knighting.en.md), "Use of the name of knight").
 
 ## Fees
 
@@ -73,8 +76,10 @@ The [Disclaimer](./disclaimer.en.md) has the details.
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
 A change that is unfavourable to readers or knights will be shown on this page, with its content and the date it takes effect, before it takes effect.
-Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality are excluded ([Rules on Knighting](./knighting.en.md), "Who may apply").
+Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded ([Rules on Knighting](./knighting.en.md), "Who may apply").
 Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
+Notice: from 2026-11-22, people who hold the nationality of a country that restricts accepting foreign titles may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality ([Rules on Knighting](./knighting.en.md), "Countries that restrict foreign titles").
+Notice: from 2026-11-22, the name of knight is used only in connection with Nusquama, is never presented as a title of nobility, an honour, an order, a rank or a dignity of any state, and is not used in an official, commercial or legal context; if this is breached, the name is removed from the roll ("Titles").
 Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play, and an application without the box for this premise ticked is not accepted ([Rules on Knighting](./knighting.en.md), "The premise of good sense").
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.

@@ -189,6 +189,7 @@ Some things will not grow, even in ten years.
 - No ranks will be added. There is only one: knight.
 - Requests from people who live outside Japan, or who are outside Japan when applying, will not be accepted until the laws of that country have been checked.
 - Applications from people who hold Italian nationality will not be accepted.
+- Applications from people who hold the nationality of a country that restricts accepting foreign titles will not be accepted.
 
 Some things will go on.
 
