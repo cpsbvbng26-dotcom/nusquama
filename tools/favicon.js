@@ -18,7 +18,7 @@ function square(emblem) {
   const h = SIDE * SCALE, w = h * 600 / 720;
   const r = (n) => Math.round(n * 10) / 10;
   return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + SIDE + ' ' + SIDE + '" role="img" aria-labelledby="t">\n'
-    + '<title id="t">ヌスクァマ騎士王国の国章（創作）</title>\n'
+    + '<title id="t">無何有騎士王国ヌスクァマの国章（創作）</title>\n'
     + '<rect width="' + SIDE + '" height="' + SIDE + '" fill="' + NAVY + '"/>\n'
     + '<svg x="' + r((SIDE - w) / 2) + '" y="' + r((SIDE - h) / 2) + '" width="' + r(w) + '" height="' + r(h) + '" viewBox="0 0 600 720">' + inner + '</svg>\n'
     + '</svg>\n';
