@@ -23,7 +23,9 @@ const SOURCES = [
   { key: 'ccpa', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['Business'] },
   { key: 'vercel', url: 'https://vercel.com/docs/limits/fair-use-guidelines', needles: ['commercial'] },
   { key: 'gdpr-art27', url: 'https://publications.europa.eu/resource/celex/32016R0679', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Representatives of controllers or processors not established in the Union'] },
-  { key: 'vercel-terms', url: 'https://vercel.com/legal/terms', needles: ['Hobby', 'train', 'arbitration', 'AS IS', '8. Acceptable Use', '10.1 General'] },
+  { key: 'vercel-terms', url: 'https://vercel.com/legal/terms', needles: ['Hobby', 'train', 'arbitration', 'AS IS'] },
+  /* Short windows: section 10.1 goes on to a contact address, which the scan of the repository (tools/scan.js) does not let in. */
+  { key: 'vercel-terms-sections', url: 'https://vercel.com/legal/terms', needles: ['8. Acceptable Use', '10.1 General'], span: 600 },
   /* The Q&A numbers its questions in full-width characters (Ａ１－62). The answers are taken, not the table of contents. */
   { key: 'ppc-qa', url: 'https://www.ppc.go.jp/personalinfo/faq/APPI_QA/', needles: ['Ａ１－62 ', 'Ａ12－３ ', 'Ａ12－10 ', 'Ａ13－２ '] },
   /* The Penal Code is the annex of Royal Decree No. 1398 of 1930; its articles answer only under the annex's URN (…;1398:1~artN). */
