@@ -177,6 +177,13 @@ console.log('\n7. アイコン');
     B.SOURCES.every(([s, d]) => read('site/' + d).includes('icon-192.png" sizes="192x192" type="image/png">')
       && read('site/' + d).includes('<meta property="og:site_name" content="' + (s.endsWith('.en.md') ? 'Regnum Nusquamae' : '無何有騎士王国ヌスクァマ') + '">')));
   ok('どの頁もアイコンを指す', B.SOURCES.every(([, d]) => /rel="icon" href="[^"]*favicon\.svg"/.test(read('site/' + d)) && /rel="apple-touch-icon"/.test(read('site/' + d))));
+  /* 国の名は「無何有騎士王国ヌスクァマ」一つにそろえる。国章の画像の題も、その名で呼ぶ（2026-11-12 にそろえた）。 */
+  const EMBLEM_TITLE = '<title id="t">' + B.NAME + 'の国章（創作）</title>';
+  const texts = walk(ROOT).filter((f) => !f.startsWith('.git/') && /\.(md|svg|js|json|yml|html|txt|xml)$/.test(f) && f !== 'verification/check.js');
+  const reversed = texts.filter((f) => read(f).includes('ヌスクァマ' + '騎士王国'));
+  ok('国章とファビコンの題は国の名（' + B.NAME + '）で国章を呼び、名を前後に入れ替えた形はどのファイルにもない',
+    B.NAME === '無何有騎士王国ヌスクァマ' && ['assets/emblem.svg', 'assets/favicon.svg', 'site/emblem.svg', 'site/favicon.svg'].every((f) => read(f).split('<title').length === 2 && read(f).includes(EMBLEM_TITLE))
+    && read('tools/favicon.js').includes(EMBLEM_TITLE) && reversed.length === 0, reversed.join(', '));
 }
 
 console.log('\n8. Search Console の所有者の確認');
