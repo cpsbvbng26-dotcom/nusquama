@@ -12,103 +12,114 @@
  },
  "keywords": {
   "honours": {
-   "en": "(?<![\\p{L}])(?:titles? of nobility|nobility|noble titles?|hereditary titles?|peerages?|knighthoods?|knights?|chivalry|decorations?|insignia|medals?|honou?rs|honorary titles?|titles? of honou?r|orders? of (?:merit|chivalry|knighthood)|state awards?|honorary distinctions?|distinctions? of honou?r|dignit(?:y|ies) or titles?|uniforms?)",
-   "es": "(?<![\\p{L}])(?:nobleza|nobiliari\\p{L}*|t[íi]tulos? (?:de nobleza|nobiliari\\p{L}*|honor[íi]fic\\p{L}*|de honor)|condecoraci\\p{L}*|honores|distinciones honor[íi]ficas|[óo]rdenes (?:honor[íi]fic\\p{L}*|de caballer\\p{L}*)|caballer\\p{L}*|insignias?|medallas?|uniformes?)",
-   "pt": "(?<![\\p{L}])(?:nobreza|nobili[áa]rqu\\p{L}*|t[íi]tulos? (?:de nobreza|nobili\\p{L}*|honor[íi]fic\\p{L}*)|condecora\\p{L}*|honrarias?|ordens honor[íi]ficas|ins[íi]gnias?|medalhas?|cavaleir\\p{L}*|uniformes?)",
-   "fr": "(?<![\\p{L}])(?:noblesse|nobiliaires?|titres? (?:de noblesse|nobiliaires?|honorifiques?)|d[ée]corations?|distinctions? honorifiques?|ordres? (?:nationaux|national|honorifiques?|de chevalerie)|chevaleries?|chevaliers?|insignes?|m[ée]dailles?|l[ée]gion d.honneur|uniformes?)",
-   "it": "(?<![\\p{L}])(?:nobiliar\\p{L}*|nobilt[àa]|titoli (?:nobiliari|onorifici|cavallereschi)|onorificenz\\p{L}*|decorazion\\p{L}*|distinzion\\p{L}* cavallere\\p{L}*|cavalier\\p{L}*|insegne|medagli\\p{L}*|ordini cavallereschi|uniform\\p{L}*)",
-   "de": "(?<![\\p{L}])(?:Adel\\p{L}*|adelig\\p{L}*|Titel\\p{L}*|Orden|Ordens\\p{L}*|Ehrenzeichen|Auszeichnung\\p{L}*|Abzeichen|Uniform\\p{L}*|Amtsbezeichnung\\p{L}*|Würden?|Ritter\\p{L}*)",
-   "nl": "(?<![\\p{L}])(?:adel\\p{L}*|titels?|titulatuur|ridderorde\\p{L}*|onderscheiding\\p{L}*|ordeteken\\p{L}*|ridders?|decorati\\p{L}*|uniform\\p{L}*|insigne\\p{L}*)",
-   "nb": "(?<![\\p{L}])(?:adel\\p{L}*|titt?el\\p{L}*|orden|ordener|ordenstegn|dekorasjon\\p{L}*|utmerkelse\\p{L}*|ridder\\p{L}*|medalje\\p{L}*|uniform\\p{L}*)",
-   "ru": "(?<![\\p{L}])(?:дворян\\p{L}*|титул\\p{L}*|орден\\p{L}*|наград\\p{L}*|знак\\p{L}* отличия|медал\\p{L}*|звани\\p{L}*)",
+   "en": "(?<![\\p{L}])(?:titles? of nobility|nobility|noble titles?|hereditary titles?|peerages?|knighthoods?|knights?|chivalry|decorations?|insignia|medals?|honou?rs|honorary titles?|titles? of honou?r|orders? of (?:merit|chivalry|knighthood)|state awards?|honorary distinctions?|distinctions? of honou?r|dignit(?:y|ies) or titles?|uniforms?)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:nobleza|nobiliari\\p{L}*|t[íi]tulos? (?:de nobleza|nobiliari\\p{L}*|honor[íi]fic\\p{L}*|de honor)|condecoraci\\p{L}*|honores|distinciones honor[íi]ficas|[óo]rdenes (?:honor[íi]fic\\p{L}*|de caballer\\p{L}*)|caballer\\p{L}*|insignias?|medallas?|uniformes?)(?![\\p{L}])",
+   "pt": "(?<![\\p{L}])(?:nobreza|nobili[áa]rqu\\p{L}*|t[íi]tulos? (?:de nobreza|nobili\\p{L}*|honor[íi]fic\\p{L}*)|condecora\\p{L}*|honrarias?|ordens honor[íi]ficas|ins[íi]gnias?|medalhas?|cavaleir\\p{L}*|uniformes?)(?![\\p{L}])",
+   "fr": "(?<![\\p{L}])(?:noblesse|nobiliaires?|titres? (?:de noblesse|nobiliaires?|honorifiques?)|d[ée]corations?|distinctions? honorifiques?|ordres? (?:nationaux|national|honorifiques?|de chevalerie)|chevaleries?|chevaliers?|insignes?|m[ée]dailles?|l[ée]gion d.honneur|uniformes?)(?![\\p{L}])",
+   "it": "(?<![\\p{L}])(?:nobiliar\\p{L}*|nobilt[àa]|titoli (?:nobiliari|onorifici|cavallereschi)|onorificenz\\p{L}*|decorazion\\p{L}*|distinzion\\p{L}* cavallere\\p{L}*|cavalier\\p{L}*|insegne|medagli\\p{L}*|ordini cavallereschi|uniform\\p{L}*)(?![\\p{L}])",
+   "de": "(?<![\\p{L}])(?:Adel\\p{L}*|adelig\\p{L}*|Titel\\p{L}*|Orden|Ordens\\p{L}*|Ehrenzeichen|Auszeichnung\\p{L}*|Abzeichen|Uniform\\p{L}*|Amtsbezeichnung\\p{L}*|Würden?|Ritter\\p{L}*)(?![\\p{L}])",
+   "nl": "(?<![\\p{L}])(?:adel\\p{L}*|titels?|titulatuur|ridderorde\\p{L}*|onderscheiding\\p{L}*|ordeteken\\p{L}*|ridders?|decorati\\p{L}*|uniform\\p{L}*|insigne\\p{L}*)(?![\\p{L}])",
+   "nb": "(?<![\\p{L}])(?:adel\\p{L}*|titt?el\\p{L}*|orden|ordener|ordenstegn|dekorasjon\\p{L}*|utmerkelse\\p{L}*|ridder\\p{L}*|medalje\\p{L}*|uniform\\p{L}*)(?![\\p{L}])",
+   "ru": "(?<![\\p{L}])(?:дворян\\p{L}*|титул\\p{L}*|орден\\p{L}*|наград\\p{L}*|знак\\p{L}* отличия|медал\\p{L}*|звани\\p{L}*)(?![\\p{L}])",
    "ja": "栄典|勲章|褒章|爵位|華族|貴族|称号|位階|勲等|叙勲|騎士|記章|徽章|名誉の称号|表彰",
-   "sv": "(?<![\\p{L}])(?:adel\\p{L}*|titel\\p{L}*|orden|ordnar|ordenstecken|utmärkelse\\p{L}*|riddar\\p{L}*|medalj\\p{L}*|uniform\\p{L}*|tjänstetecken)",
-   "da": "(?<![\\p{L}])(?:adel\\p{L}*|titel\\p{L}*|orden|ordener|ordenstegn|dekoration\\p{L}*|udmærkelse\\p{L}*|ridder\\p{L}*|medalje\\p{L}*|uniform\\p{L}*)"
+   "sv": "(?<![\\p{L}])(?:adel\\p{L}*|titel\\p{L}*|orden|ordnar|ordenstecken|utmärkelse\\p{L}*|riddar\\p{L}*|medalj\\p{L}*|uniform\\p{L}*|tjänstetecken)(?![\\p{L}])",
+   "da": "(?<![\\p{L}])(?:adel\\p{L}*|titel\\p{L}*|orden|ordener|ordenstegn|dekoration\\p{L}*|udmærkelse\\p{L}*|ridder\\p{L}*|medalje\\p{L}*|uniform\\p{L}*)(?![\\p{L}])"
   },
   "sovereignty": {
-   "en": "(?<![\\p{L}])(?:secession|secede|seceding|territorial integrity|integrity of (?:the|its) (?:national )?territory|indivisib\\p{L}*|dismember\\p{L}*|separatis\\p{L}*|usurp\\p{L}*|imperson\\p{L}*|personat\\p{L}*|falsely (?:claims?|represents?|pretends?|holds? (?:himself|herself|oneself) out)|pretend\\p{L}* to be|unrecogni[sz]ed|micro-?nations?|alienat\\p{L}* (?:of )?(?:any part of )?(?:the )?(?:national )?territory|cession of (?:the )?territory|self-proclaimed)",
-   "es": "(?<![\\p{L}])(?:secesi\\p{L}*|integridad territorial|indivisib\\p{L}*|desmembra\\p{L}*|separatis\\p{L}*|usurpa\\p{L}*|se (?:atribuy\\p{L}*|arrog\\p{L}*)|fingi\\p{L}* (?:ser|autoridad)|falsamente (?:la )?(?:calidad|car[áa]cter))",
-   "pt": "(?<![\\p{L}])(?:secess\\p{L}*|integridade territorial|indissol[úu]vel|indivis[íi]v\\p{L}*|separatis\\p{L}*|usurpa\\p{L}*|desmembra\\p{L}*|fingir-se|arrog\\p{L}*)",
-   "fr": "(?<![\\p{L}])(?:s[ée]cession|int[ée]grit[ée] (?:du )?territori\\p{L}*|indivisibles?|d[ée]membrement|s[ée]paratis\\p{L}*|usurpation|usurpe\\p{L}*|se faire passer pour|se pr[ée]valoir (?:faussement|indûment))",
-   "it": "(?<![\\p{L}])(?:secession\\p{L}*|integrit[àa] (?:del )?territori\\p{L}*|indivisibil\\p{L}*|usurpazion\\p{L}*|usurpa\\p{L}*|separatis\\p{L}*|attent\\p{L}* (?:all'|contro l')(?:integrit[àa]|indipendenza|unit[àa]))",
-   "de": "(?<![\\p{L}])(?:Sezession|territoriale\\p{L}* Integrität|Gebietsstand|Hochverrat\\p{L}*|Amtsanmaßung|anmaßt|unteilbar|Bestand der Bundesrepublik|Staatsgebiet)",
-   "nl": "(?<![\\p{L}])(?:afscheiding|territoriale integriteit|ondeelbaar|aanmatig\\p{L}*|zich valselijk|zich uitgeeft)",
-   "nb": "(?<![\\p{L}])(?:løsrivelse|territoriell\\p{L}* integritet|udelelig|utgir seg for|uberettiget (?:utgir|bruker)|offentlig myndighet)",
-   "ru": "(?<![\\p{L}])(?:сепаратиз\\p{L}*|территориальн\\p{L}* целостност\\p{L}*|отчужден\\p{L}* части территории|самозван\\p{L}*|присвоени\\p{L}* (?:власт|звани|полномоч)\\p{L}*)",
+   "en": "(?<![\\p{L}])(?:secession|secede|seceding|territorial integrity|integrity of (?:the|its) (?:national )?territory|indivisib\\p{L}*|dismember\\p{L}*|separatis\\p{L}*|usurp\\p{L}*|imperson\\p{L}*|personat\\p{L}*|falsely (?:claims?|represents?|pretends?|holds? (?:himself|herself|oneself) out)|pretend\\p{L}* to be|unrecogni[sz]ed|micro-?nations?|alienat\\p{L}* (?:of )?(?:any part of )?(?:the )?(?:national )?territory|cession of (?:the )?territory|self-proclaimed)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:secesi\\p{L}*|integridad territorial|indivisib\\p{L}*|desmembra\\p{L}*|separatis\\p{L}*|usurpa\\p{L}*|se (?:atribuy\\p{L}*|arrog\\p{L}*)|fingi\\p{L}* (?:ser|autoridad)|falsamente (?:la )?(?:calidad|car[áa]cter))(?![\\p{L}])",
+   "pt": "(?<![\\p{L}])(?:secess\\p{L}*|integridade territorial|indissol[úu]vel|indivis[íi]v\\p{L}*|separatis\\p{L}*|usurpa\\p{L}*|desmembra\\p{L}*|fingir-se|arrog\\p{L}*)(?![\\p{L}])",
+   "fr": "(?<![\\p{L}])(?:s[ée]cession|int[ée]grit[ée] (?:du )?territori\\p{L}*|indivisibles?|d[ée]membrement|s[ée]paratis\\p{L}*|usurpation|usurpe\\p{L}*|se faire passer pour|se pr[ée]valoir (?:faussement|indûment))(?![\\p{L}])",
+   "it": "(?<![\\p{L}])(?:secession\\p{L}*|integrit[àa] (?:del )?territori\\p{L}*|indivisibil\\p{L}*|usurpazion\\p{L}*|usurpa\\p{L}*|separatis\\p{L}*|attent\\p{L}* (?:all'|contro l')(?:integrit[àa]|indipendenza|unit[àa]))(?![\\p{L}])",
+   "de": "(?<![\\p{L}])(?:Sezession|territoriale\\p{L}* Integrität|Gebietsstand|Hochverrat\\p{L}*|Amtsanmaßung|anmaßt|unteilbar|Bestand der Bundesrepublik|Staatsgebiet)(?![\\p{L}])",
+   "nl": "(?<![\\p{L}])(?:afscheiding|territoriale integriteit|ondeelbaar|aanmatig\\p{L}*|zich valselijk|zich uitgeeft)(?![\\p{L}])",
+   "nb": "(?<![\\p{L}])(?:løsrivelse|territoriell\\p{L}* integritet|udelelig|utgir seg for|uberettiget (?:utgir|bruker)|offentlig myndighet)(?![\\p{L}])",
+   "ru": "(?<![\\p{L}])(?:сепаратиз\\p{L}*|территориальн\\p{L}* целостност\\p{L}*|отчужден\\p{L}* части территории|самозван\\p{L}*|присвоени\\p{L}* (?:власт|звани|полномоч)\\p{L}*)(?![\\p{L}])",
    "ja": "内乱|外患|主権|領土|統治機構|国権|独立|僭|詐称|官職|官公職|外国の?(?:政府|国家|元首)|国交|外国の国章",
-   "sv": "(?<![\\p{L}])(?:territoriell\\p{L}* integritet|odelbar|utger sig för|obehörig\\p{L}* utövning|myndighetsutövning|högförräderi)",
-   "da": "(?<![\\p{L}])(?:løsrivelse|territorial\\p{L}* integritet|udgiver sig for|uberettiget (?:udøver|bærer)|offentlig myndighed)"
+   "sv": "(?<![\\p{L}])(?:territoriell\\p{L}* integritet|odelbar|utger sig för|obehörig\\p{L}* utövning|myndighetsutövning|högförräderi)(?![\\p{L}])",
+   "da": "(?<![\\p{L}])(?:løsrivelse|territorial\\p{L}* integritet|udgiver sig for|uberettiget (?:udøver|bærer)|offentlig myndighed)(?![\\p{L}])"
   },
   "symbols": {
-   "en": "(?<![\\p{L}])(?:flags?|coats? of arms|armorial|emblems?|national symbols?|state symbols?|seals? of (?:the )?(?:state|republic)|(?:national|state) seal|anthems?|heraldr\\p{L}*|national colou?rs)",
-   "es": "(?<![\\p{L}])(?:banderas?|escudos? (?:de armas|nacional|de la naci[óo]n)|emblemas?|s[íi]mbolos? (?:patrios|nacionales|del estado)|himnos?|pabell[óo]n nacional|sellos? (?:del estado|nacional|oficial))",
-   "pt": "(?<![\\p{L}])(?:bandeiras?|bras(?:ão|ões)|armas nacionais|emblemas?|s[íi]mbolos (?:nacionais|da rep[úu]blica)|hinos?|selo nacional)",
-   "fr": "(?<![\\p{L}])(?:drapeaux?|armoiries|embl[èe]mes?|sceau|hymnes?|symboles? (?:nationa\\p{L}*|de l.[ÉE]tat|de la r[ée]publique)|couleurs nationales)",
-   "it": "(?<![\\p{L}])(?:bandier\\p{L}*|stemm\\p{L}*|emblem\\p{L}*|vessill\\p{L}*|inno|simboli|sigill\\p{L}*)",
-   "de": "(?<![\\p{L}])(?:Flaggen?|Fahnen?|Wappen|Hoheitszeichen|Staatssymbol\\p{L}*|Hymne|Dienstsiegel|Bundesfarben|Farben der Bundesrepublik)",
-   "nl": "(?<![\\p{L}])(?:vlag\\p{L}*|wapen(?:s|schild)?|emble\\p{L}*|volkslied|zegels?|nationale kleuren|vaandel\\p{L}*)",
-   "nb": "(?<![\\p{L}])(?:flagg\\p{L}*|riksvåpen\\p{L}*|våpen(?:merke)?|emblem\\p{L}*|nasjonalsang|segl\\p{L}*)",
-   "ru": "(?<![\\p{L}])(?:флаг\\p{L}*|герб\\p{L}*|гимн\\p{L}*|символ\\p{L}*)",
+   "en": "(?<![\\p{L}])(?:flags?|coats? of arms|armorial|emblems?|national symbols?|state symbols?|seals? of (?:the )?(?:state|republic)|(?:national|state) seal|anthems?|heraldr\\p{L}*|national colou?rs)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:banderas?|escudos? (?:de armas|nacional|de la naci[óo]n)|emblemas?|s[íi]mbolos? (?:patrios|nacionales|del estado)|himnos?|pabell[óo]n nacional|sellos? (?:del estado|nacional|oficial))(?![\\p{L}])",
+   "pt": "(?<![\\p{L}])(?:bandeiras?|bras(?:ão|ões)|armas nacionais|emblemas?|s[íi]mbolos (?:nacionais|da rep[úu]blica)|hinos?|selo nacional)(?![\\p{L}])",
+   "fr": "(?<![\\p{L}])(?:drapeaux?|armoiries|embl[èe]mes?|sceau|hymnes?|symboles? (?:nationa\\p{L}*|de l.[ÉE]tat|de la r[ée]publique)|couleurs nationales)(?![\\p{L}])",
+   "it": "(?<![\\p{L}])(?:bandier\\p{L}*|stemm\\p{L}*|emblem\\p{L}*|vessill\\p{L}*|inno|simboli|sigill\\p{L}*)(?![\\p{L}])",
+   "de": "(?<![\\p{L}])(?:Flaggen?|Fahnen?|Wappen|Hoheitszeichen|Staatssymbol\\p{L}*|Hymne|Dienstsiegel|Bundesfarben|Farben der Bundesrepublik)(?![\\p{L}])",
+   "nl": "(?<![\\p{L}])(?:vlag\\p{L}*|wapen(?:s|schild)?|emble\\p{L}*|volkslied|zegels?|nationale kleuren|vaandel\\p{L}*)(?![\\p{L}])",
+   "nb": "(?<![\\p{L}])(?:flagg\\p{L}*|riksvåpen\\p{L}*|våpen(?:merke)?|emblem\\p{L}*|nasjonalsang|segl\\p{L}*)(?![\\p{L}])",
+   "ru": "(?<![\\p{L}])(?:флаг\\p{L}*|герб\\p{L}*|гимн\\p{L}*|символ\\p{L}*)(?![\\p{L}])",
    "ja": "国旗|国章|紋章|国歌|標章|公記号|公印|御璽|国璽|旗",
-   "sv": "(?<![\\p{L}])(?:flagg\\p{L}*|riksvapn\\p{L}*|riksvapen|vapen|emblem\\p{L}*|nationalsång|sigill\\p{L}*|statssymbol\\p{L}*)",
-   "da": "(?<![\\p{L}])(?:flag\\p{L}*|rigsvåben|våben|emblem\\p{L}*|nationalsang|segl\\p{L}*)"
+   "sv": "(?<![\\p{L}])(?:flagg\\p{L}*|riksvapn\\p{L}*|riksvapen|vapen|emblem\\p{L}*|nationalsång|sigill\\p{L}*|statssymbol\\p{L}*)(?![\\p{L}])",
+   "da": "(?<![\\p{L}])(?:flag\\p{L}*|rigsvåben|våben|emblem\\p{L}*|nationalsang|segl\\p{L}*)(?![\\p{L}])"
   },
   "fraud": {
-   "en": "(?<![\\p{L}])(?:fraud\\p{L}*|deceit\\p{L}*|decepti\\p{L}*|deceiv\\p{L}*|false pretences?|misleading|misrepresent\\p{L}*|unfair (?:commercial|trade) practices?|consumers?)",
-   "es": "(?<![\\p{L}])(?:estafa\\p{L}*|fraude\\p{L}*|fraudulent\\p{L}*|enga[ñn]\\p{L}*|publicidad (?:enga[ñn]osa|falsa|il[íi]cita)|consumidor\\p{L}*)",
-   "pt": "(?<![\\p{L}])(?:estelionato|fraude\\p{L}*|fraudulent\\p{L}*|engan\\p{L}*|publicidade enganosa|consumidor\\p{L}*)",
-   "fr": "(?<![\\p{L}])(?:escroquerie\\p{L}*|fraude\\p{L}*|frauduleu\\p{L}*|tromperie\\p{L}*|trompeu\\p{L}*|consommateurs?)",
-   "it": "(?<![\\p{L}])(?:truff\\p{L}*|frod\\p{L}*|fraudolent\\p{L}*|ingann\\p{L}*|artifizi|raggiri|pratiche commerciali scorrette|consumator\\p{L}*)",
-   "de": "(?<![\\p{L}])(?:Betrug\\p{L}*|Täuschung\\p{L}*|täusch\\p{L}*|irreführend\\p{L}*|Verbraucher\\p{L}*)",
-   "nl": "(?<![\\p{L}])(?:oplichting|bedrog|bedrieg\\p{L}*|misleid\\p{L}*|listige kunstgrepen|consument\\p{L}*)",
-   "nb": "(?<![\\p{L}])(?:bedrageri\\p{L}*|svindel|villed\\p{L}*|forbruker\\p{L}*)",
-   "ru": "(?<![\\p{L}])(?:мошенничеств\\p{L}*|обман\\p{L}*|потребител\\p{L}*)",
+   "en": "(?<![\\p{L}])(?:fraud\\p{L}*|deceit\\p{L}*|decepti\\p{L}*|deceiv\\p{L}*|false pretences?|misleading|misrepresent\\p{L}*|unfair (?:commercial|trade) practices?|consumers?)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:estafa\\p{L}*|fraude\\p{L}*|fraudulent\\p{L}*|enga[ñn]\\p{L}*|publicidad (?:enga[ñn]osa|falsa|il[íi]cita)|consumidor\\p{L}*)(?![\\p{L}])",
+   "pt": "(?<![\\p{L}])(?:estelionato|fraude\\p{L}*|fraudulent\\p{L}*|engan\\p{L}*|publicidade enganosa|consumidor\\p{L}*)(?![\\p{L}])",
+   "fr": "(?<![\\p{L}])(?:escroquerie\\p{L}*|fraude\\p{L}*|frauduleu\\p{L}*|tromperie\\p{L}*|trompeu\\p{L}*|consommateurs?)(?![\\p{L}])",
+   "it": "(?<![\\p{L}])(?:truff\\p{L}*|frod\\p{L}*|fraudolent\\p{L}*|ingann\\p{L}*|artifizi|raggiri|pratiche commerciali scorrette|consumator\\p{L}*)(?![\\p{L}])",
+   "de": "(?<![\\p{L}])(?:Betrug\\p{L}*|Täuschung\\p{L}*|täusch\\p{L}*|irreführend\\p{L}*|Verbraucher\\p{L}*)(?![\\p{L}])",
+   "nl": "(?<![\\p{L}])(?:oplichting|bedrog|bedrieg\\p{L}*|misleid\\p{L}*|listige kunstgrepen|consument\\p{L}*)(?![\\p{L}])",
+   "nb": "(?<![\\p{L}])(?:bedrageri\\p{L}*|svindel|villed\\p{L}*|forbruker\\p{L}*)(?![\\p{L}])",
+   "ru": "(?<![\\p{L}])(?:мошенничеств\\p{L}*|обман\\p{L}*|потребител\\p{L}*)(?![\\p{L}])",
    "ja": "詐欺|欺|誤認|錯誤|不当(?:表示|景品)|消費者|偽り",
-   "sv": "(?<![\\p{L}])(?:bedrägeri\\p{L}*|vilsele\\p{L}*|konsument\\p{L}*)",
-   "da": "(?<![\\p{L}])(?:bedrageri\\p{L}*|vildled\\p{L}*|forbruger\\p{L}*)"
+   "sv": "(?<![\\p{L}])(?:bedrägeri\\p{L}*|vilsele\\p{L}*|konsument\\p{L}*)(?![\\p{L}])",
+   "da": "(?<![\\p{L}])(?:bedrageri\\p{L}*|vildled\\p{L}*|forbruger\\p{L}*)(?![\\p{L}])"
   },
   "data": {
-   "en": "(?<![\\p{L}])(?:personal data|personal information|data protection|protection of (?:personal )?data|habeas data|data subjects?|privacy|private life|informational self-determination|data controllers?)",
-   "es": "(?<![\\p{L}])(?:datos personales|datos de car[áa]cter personal|protecci[óo]n de (?:los )?datos|h[áa]beas data|intimidad|vida privada|autodeterminaci[óo]n informativa)",
-   "pt": "(?<![\\p{L}])(?:dados pessoais|prote[çc][ãa]o de dados|habeas data|intimidade|vida privada)",
-   "fr": "(?<![\\p{L}])(?:donn[ée]es (?:[àa] caract[èe]re )?personnelles|protection des donn[ée]es|vie priv[ée]e|intimit[ée])",
-   "it": "(?<![\\p{L}])(?:dati personali|protezione dei dati|riservatezza|vita privata)",
-   "de": "(?<![\\p{L}])(?:personenbezogene\\p{L}* Daten|Datenschutz\\p{L}*|Privatsphäre|Privatleben|informationelle\\p{L}* Selbstbestimmung)",
-   "nl": "(?<![\\p{L}])(?:persoonsgegevens|gegevensbescherming|persoonlijke levenssfeer|privacy)",
-   "nb": "(?<![\\p{L}])(?:personopplysning\\p{L}*|personvern\\p{L}*|privatliv\\p{L}*)",
-   "ru": "(?<![\\p{L}])(?:персональн\\p{L}* данн\\p{L}*|частн\\p{L}* жизн\\p{L}*|неприкосновенност\\p{L}* частной)",
+   "en": "(?<![\\p{L}])(?:personal data|personal information|data protection|protection of (?:personal )?data|habeas data|data subjects?|privacy|private life|informational self-determination|data controllers?)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:datos personales|datos de car[áa]cter personal|protecci[óo]n de (?:los )?datos|h[áa]beas data|intimidad|vida privada|autodeterminaci[óo]n informativa)(?![\\p{L}])",
+   "pt": "(?<![\\p{L}])(?:dados pessoais|prote[çc][ãa]o de dados|habeas data|intimidade|vida privada)(?![\\p{L}])",
+   "fr": "(?<![\\p{L}])(?:donn[ée]es (?:[àa] caract[èe]re )?personnelles|protection des donn[ée]es|vie priv[ée]e|intimit[ée])(?![\\p{L}])",
+   "it": "(?<![\\p{L}])(?:dati personali|protezione dei dati|riservatezza|vita privata)(?![\\p{L}])",
+   "de": "(?<![\\p{L}])(?:personenbezogene\\p{L}* Daten|Datenschutz\\p{L}*|Privatsphäre|Privatleben|informationelle\\p{L}* Selbstbestimmung)(?![\\p{L}])",
+   "nl": "(?<![\\p{L}])(?:persoonsgegevens|gegevensbescherming|persoonlijke levenssfeer|privacy)(?![\\p{L}])",
+   "nb": "(?<![\\p{L}])(?:personopplysning\\p{L}*|personvern\\p{L}*|privatliv\\p{L}*)(?![\\p{L}])",
+   "ru": "(?<![\\p{L}])(?:персональн\\p{L}* данн\\p{L}*|частн\\p{L}* жизн\\p{L}*|неприкосновенност\\p{L}* частной)(?![\\p{L}])",
    "ja": "個人情報|個人データ|プライバシ|秘密を漏|私生活|通信の秘密",
-   "sv": "(?<![\\p{L}])(?:personuppgift\\p{L}*|privatliv\\p{L}*|integritetsskydd)",
-   "da": "(?<![\\p{L}])(?:personoplysning\\p{L}*|privatliv\\p{L}*)"
+   "sv": "(?<![\\p{L}])(?:personuppgift\\p{L}*|privatliv\\p{L}*|integritetsskydd)(?![\\p{L}])",
+   "da": "(?<![\\p{L}])(?:personoplysning\\p{L}*|privatliv\\p{L}*)(?![\\p{L}])"
   },
   "defamation": {
-   "en": "(?<![\\p{L}])(?:defam\\p{L}*|libel\\p{L}*|slander\\p{L}*|insult\\p{L}*|calumn\\p{L}*|reputations?|good name|honou?r and (?:dignity|reputation)|(?:dignity|reputation) and honou?r)",
-   "es": "(?<![\\p{L}])(?:injuria\\p{L}*|calumnia\\p{L}*|difamaci\\p{L}*|difamator\\p{L}*|honra|honor|reputaci[óo]n|buen nombre)",
-   "pt": "(?<![\\p{L}])(?:inj[úu]ria\\p{L}*|cal[úu]nia\\p{L}*|difama\\p{L}*|honra|reputa[çc][ãa]o|bom nome)",
-   "fr": "(?<![\\p{L}])(?:diffamation\\p{L}*|diffamatoire\\p{L}*|injure\\p{L}*|calomni\\p{L}*|honneur|r[ée]putation)",
-   "it": "(?<![\\p{L}])(?:diffamazion\\p{L}*|ingiuri\\p{L}*|onore|reputazion\\p{L}*|calunni\\p{L}*)",
-   "de": "(?<![\\p{L}])(?:Beleidigung\\p{L}*|üble\\p{L}* Nachrede|Verleumdung\\p{L}*|Ehre|Ehrverletzung\\p{L}*|verunglimpf\\p{L}*|Verunglimpfung\\p{L}*)",
-   "nl": "(?<![\\p{L}])(?:smaad\\p{L}*|laster\\p{L}*|belediging\\p{L}*|eer|goede naam)",
-   "nb": "(?<![\\p{L}])(?:ærekrenk\\p{L}*|æreskrenk\\p{L}*|omdømme|ære)",
-   "ru": "(?<![\\p{L}])(?:клевет\\p{L}*|оскорблени\\p{L}*|чест\\p{L}* и достоинств\\p{L}*|деловой репутаци\\p{L}*)",
+   "en": "(?<![\\p{L}])(?:defam\\p{L}*|libel\\p{L}*|slander\\p{L}*|insult\\p{L}*|calumn\\p{L}*|reputations?|good name|honou?r and (?:dignity|reputation)|(?:dignity|reputation) and honou?r)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:injuria\\p{L}*|calumnia\\p{L}*|difamaci\\p{L}*|difamator\\p{L}*|honra|honor|reputaci[óo]n|buen nombre)(?![\\p{L}])",
+   "pt": "(?<![\\p{L}])(?:inj[úu]ria\\p{L}*|cal[úu]nia\\p{L}*|difama\\p{L}*|honra|reputa[çc][ãa]o|bom nome)(?![\\p{L}])",
+   "fr": "(?<![\\p{L}])(?:diffamation\\p{L}*|diffamatoire\\p{L}*|injure\\p{L}*|calomni\\p{L}*|honneur|r[ée]putation)(?![\\p{L}])",
+   "it": "(?<![\\p{L}])(?:diffamazion\\p{L}*|ingiuri\\p{L}*|onore|reputazion\\p{L}*|calunni\\p{L}*)(?![\\p{L}])",
+   "de": "(?<![\\p{L}])(?:Beleidigung\\p{L}*|üble\\p{L}* Nachrede|Verleumdung\\p{L}*|Ehre|Ehrverletzung\\p{L}*|verunglimpf\\p{L}*|Verunglimpfung\\p{L}*)(?![\\p{L}])",
+   "nl": "(?<![\\p{L}])(?:smaad\\p{L}*|laster\\p{L}*|belediging\\p{L}*|eer|goede naam)(?![\\p{L}])",
+   "nb": "(?<![\\p{L}])(?:ærekrenk\\p{L}*|æreskrenk\\p{L}*|omdømme|ære)(?![\\p{L}])",
+   "ru": "(?<![\\p{L}])(?:клевет\\p{L}*|оскорблени\\p{L}*|чест\\p{L}* и достоинств\\p{L}*|деловой репутаци\\p{L}*)(?![\\p{L}])",
    "ja": "名誉|侮辱|信用|毀損|事実を摘示|謝罪広告",
-   "sv": "(?<![\\p{L}])(?:förtal\\p{L}*|förolämpning\\p{L}*|ärekränk\\p{L}*|anseende)",
-   "da": "(?<![\\p{L}])(?:ærekrænk\\p{L}*|freds- og ærekrænk\\p{L}*|omdømme|ære)"
+   "sv": "(?<![\\p{L}])(?:förtal\\p{L}*|förolämpning\\p{L}*|ärekränk\\p{L}*|anseende)(?![\\p{L}])",
+   "da": "(?<![\\p{L}])(?:ærekrænk\\p{L}*|freds- og ærekrænk\\p{L}*|omdømme|ære)(?![\\p{L}])"
   },
   "quotation": {
-   "en": "(?<![\\p{L}])(?:quotations?|quot(?:e|es|ed|ing)|fair dealing|fair use)",
-   "es": "(?<![\\p{L}])(?:derecho de cita|citas?|citar)",
-   "pt": "(?<![\\p{L}])(?:cita[çc](?:ão|ões)|citar)",
-   "fr": "(?<![\\p{L}])(?:citations?|courtes citations)",
-   "it": "(?<![\\p{L}])(?:citazion\\p{L}*|riassunto)",
-   "de": "(?<![\\p{L}])(?:Zitat\\p{L}*|zitier\\p{L}*)",
-   "nl": "(?<![\\p{L}])(?:citaat|citaten|citeren|aanhaling\\p{L}*)",
-   "nb": "(?<![\\p{L}])(?:sitat\\p{L}*|siter\\p{L}*)",
-   "ru": "(?<![\\p{L}])(?:цитирован\\p{L}*|в цитатах)",
+   "en": "(?<![\\p{L}])(?:quotations?|quot(?:e|es|ed|ing)|fair dealing|fair use)(?![\\p{L}])",
+   "es": "(?<![\\p{L}])(?:derecho de cita|citas?|citar)(?![\\p{L}])",
+   "pt": "(?<![\\p{L}])(?:cita[çc](?:ão|ões)|citar)(?![\\p{L}])",
+   "fr": "(?<![\\p{L}])(?:citations?|courtes citations)(?![\\p{L}])",
+   "it": "(?<![\\p{L}])(?:citazion\\p{L}*|riassunto)(?![\\p{L}])",
+   "de": "(?<![\\p{L}])(?:Zitat\\p{L}*|zitier\\p{L}*)(?![\\p{L}])",
+   "nl": "(?<![\\p{L}])(?:citaat|citaten|citeren|aanhaling\\p{L}*)(?![\\p{L}])",
+   "nb": "(?<![\\p{L}])(?:sitat\\p{L}*|siter\\p{L}*)(?![\\p{L}])",
+   "ru": "(?<![\\p{L}])(?:цитирован\\p{L}*|в цитатах)(?![\\p{L}])",
    "ja": "引用|転載",
-   "sv": "(?<![\\p{L}])(?:citat\\p{L}*|citera\\p{L}*)",
-   "da": "(?<![\\p{L}])(?:citat\\p{L}*|citere\\p{L}*)"
+   "sv": "(?<![\\p{L}])(?:citat\\p{L}*|citera\\p{L}*)(?![\\p{L}])",
+   "da": "(?<![\\p{L}])(?:citat\\p{L}*|citere\\p{L}*)(?![\\p{L}])"
   }
+ },
+ "keywords_dp": {
+  "en": "(?<![\\p{L}])(?:territor\\p{L}*|outside|abroad|foreign|overseas|not established|established in|representatives?|transfer\\p{L}*|cross-border|third countr\\p{L}*|child\\p{L}*|minors?|under the age|years of age|parental|guardians?|regist\\p{L}*|locali[sz]\\p{L}*|non-profit|not-for-profit|household|purely personal|journalis\\p{L}*|academic|research)(?![\\p{L}])",
+  "ja": "外国|国外|域外|適用の範囲|適用除外|代理人|未成年|十六歳|十八歳|子ども|児童|学術研究|報道|著述|届出|定義",
+  "es": "(?<![\\p{L}])(?:transferencias?|internacional\\p{L}*|extranjer\\p{L}*|fuera del territorio|territori\\p{L}*|[áa]mbito|representante\\p{L}*|menor\\p{L}*|niñ\\p{L}*|adolescent\\p{L}*|registr\\p{L}*|period[íi]stic\\p{L}*|acad[ée]mic\\p{L}*|investigaci[óo]n|dom[ée]stic\\p{L}*)(?![\\p{L}])",
+  "pt": "(?<![\\p{L}])(?:transfer[êe]ncia\\p{L}*|internacional|estrangeir\\p{L}*|territ[óo]rio|[âa]mbito|representante\\p{L}*|encarregado|crian[çc]a\\p{L}*|adolescente\\p{L}*|registro\\p{L}*|jornal[íi]stic\\p{L}*|acad[êe]mic\\p{L}*|pesquisa\\p{L}*|particulares)(?![\\p{L}])",
+  "fr": "(?<![\\p{L}])(?:transferts?|pays tiers|hors (?:du territoire|de la principaut[ée]|de l.Union)|[ée]tabli\\p{L}*|territori\\p{L}*|repr[ée]sentant\\p{L}*|mineur\\p{L}*|enfants?|[âa]ge|d[ée]claration\\p{L}*|journalisti\\p{L}*|universitaire\\p{L}*|recherche\\p{L}*|domestique\\p{L}*)(?![\\p{L}])",
+  "de": "(?<![\\p{L}])(?:Anwendungsbereich|Drittl[aä]nd\\p{L}*|Übermittlung\\p{L}*|Vertreter\\p{L}*|Kind\\p{L}*|[Mm]inderjährig\\p{L}*|außerhalb|niedergelassen\\p{L}*|Niederlassung\\p{L}*|Forschung\\p{L}*|journalistisch\\p{L}*|persönlich\\p{L}*)(?![\\p{L}])",
+  "nl": "(?<![\\p{L}])(?:toepassingsgebied|derde land\\p{L}*|doorgifte|vertegenwoordiger\\p{L}*|kind\\p{L}*|minderjarig\\p{L}*|jonger dan|journalisti\\p{L}*|wetenschappelijk\\p{L}*|onderzoek\\p{L}*)(?![\\p{L}])",
+  "nb": "(?<![\\p{L}])(?:virkeområde|stedlig\\p{L}*|tredjeland\\p{L}*|overføring\\p{L}*|representant\\p{L}*|barn|mindreårig\\p{L}*|journalisti\\p{L}*|forskning\\p{L}*)(?![\\p{L}])",
+  "ru": "(?<![\\p{L}])(?:территори\\p{L}*|за пределами|трансграничн\\p{L}*|иностран\\p{L}*|представител\\p{L}*|несовершеннолет\\p{L}*|ребен\\p{L}*|граждан\\p{L}* Российской Федерации|баз\\p{L}* данных)(?![\\p{L}])"
  },
  "constitute": {
   "names": {},
@@ -256,7 +267,8 @@
    ],
    "title": "個人情報の保護に関する法律",
    "format": "egov",
-   "official": "e-Gov 法令検索（デジタル庁、公式）"
+   "official": "e-Gov 法令検索（デジタル庁、公式）",
+   "dp": true
   },
   {
    "id": "JPN-keihanzai",
@@ -308,7 +320,11 @@
    ],
    "title": "商標法",
    "format": "egov",
-   "official": "e-Gov 法令検索（デジタル庁、公式）"
+   "official": "e-Gov 法令検索（デジタル庁、公式）",
+   "kw": {
+    "symbols": "国旗|国章|紋章|記章|外国の|国際機関|公の機関|監督用",
+    "honours": "勲章|褒章|記章|称号"
+   }
   },
   {
    "id": "JPN-chosaku",
@@ -338,7 +354,10 @@
    ],
    "title": "消費者契約法",
    "format": "egov",
-   "official": "e-Gov 法令検索（デジタル庁、公式）"
+   "official": "e-Gov 法令検索（デジタル庁、公式）",
+   "kw": {
+    "fraud": "誤認|不実|断定的|免除|無効|事業者」とは|消費者」とは|消費者契約」とは"
+   }
   },
   {
    "id": "JPN-joho",
@@ -417,16 +436,13 @@
    "accept_lang": "eng",
    "group": "EU",
    "official": "EU 刊行局 Cellar（公式）",
-   "note": "EEA 協定により、アイスランド・リヒテンシュタイン・ノルウェーにも及ぶ"
+   "note": "EEA 協定により、アイスランド・リヒテンシュタイン・ノルウェーにも及ぶ",
+   "dp": true
   },
   {
-   "id": "WIPO-berne",
+   "id": "JPN-berne",
    "countries": [
-    "JPN",
-    "GBR",
-    "USA",
-    "DEU",
-    "FRA"
+    "JPN"
    ],
    "instrument": "Berne Convention for the Protection of Literary and Artistic Works (Paris Act 1971)",
    "url": "https://www.law.cornell.edu/treaties/berne/10.html",
@@ -436,10 +452,9 @@
    ],
    "title": "Berne",
    "format": "section",
-   "start": "Article 10",
-   "end": "Article 10bis|Article 11",
+   "start": "Article 10 \\(1\\)",
+   "end": "Article 10bis",
    "article": "Article 10",
-   "group": "BERNE",
    "official": "Cornell LII による条約の写し（公式ではない）"
   },
   {
@@ -502,7 +517,8 @@
    ],
    "title": "Data Protection Act 2018",
    "format": "clml",
-   "official": "legislation.gov.uk（The National Archives、公式）"
+   "official": "legislation.gov.uk（The National Archives、公式）",
+   "dp": true
   },
   {
    "id": "GBR-ukgdpr",
@@ -518,7 +534,8 @@
    "title": "2016/679",
    "format": "clml",
    "label": "Article",
-   "official": "legislation.gov.uk（The National Archives、公式）"
+   "official": "legislation.gov.uk（The National Archives、公式）",
+   "dp": true
   },
   {
    "id": "GBR-tma",
@@ -720,7 +737,8 @@
    "start": "§\\s*6502\\.",
    "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
    "article": "15 U.S.C. § 6502",
-   "official": "govinfo（米国政府出版局、公式）"
+   "official": "govinfo（米国政府出版局、公式）",
+   "dp": true
   },
   {
    "id": "CAN-criminal",
@@ -754,7 +772,8 @@
    ],
    "title": "Personal Information Protection",
    "format": "canada",
-   "official": "Justice Laws Website（カナダ司法省、公式）"
+   "official": "Justice Laws Website（カナダ司法省、公式）",
+   "dp": true
   },
   {
    "id": "CAN-tma",
@@ -799,7 +818,9 @@
     "data"
    ],
    "title": "Privacy Act 1988",
-   "official": "Federal Register of Legislation（豪州政府、公式）"
+   "format": "numbered",
+   "official": "Federal Register of Legislation（豪州政府、公式）",
+   "dp": true
   },
   {
    "id": "AUS-criminal",
@@ -817,6 +838,7 @@
     "defamation"
    ],
    "title": "Criminal Code",
+   "format": "numbered",
    "official": "Federal Register of Legislation（豪州政府、公式）"
   },
   {
@@ -832,6 +854,7 @@
     "symbols"
    ],
    "title": "Defence Act 1903",
+   "format": "numbered",
    "official": "Federal Register of Legislation（豪州政府、公式）"
   },
   {
@@ -848,6 +871,7 @@
     "sovereignty"
    ],
    "title": "Flags, Emblems, and Names Protection Act",
+   "format": "numbered",
    "official": "New Zealand Legislation（議会顧問局、公式）"
   },
   {
@@ -862,7 +886,9 @@
     "data"
    ],
    "title": "Privacy Act 2020",
-   "official": "New Zealand Legislation（議会顧問局、公式）"
+   "format": "numbered",
+   "official": "New Zealand Legislation（議会顧問局、公式）",
+   "dp": true
   },
   {
    "id": "NZL-crimes",
@@ -880,6 +906,7 @@
     "defamation"
    ],
    "title": "Crimes Act 1961",
+   "format": "numbered",
    "official": "New Zealand Legislation（議会顧問局、公式）"
   },
   {
@@ -894,6 +921,7 @@
     "defamation"
    ],
    "title": "Defamation Act 1992",
+   "format": "numbered",
    "official": "New Zealand Legislation（議会顧問局、公式）"
   },
   {
@@ -908,7 +936,8 @@
     "data"
    ],
    "title": "Data Protection Act 2018",
-   "official": "Irish Statute Book（司法長官府、公式。制定時の文）"
+   "official": "Irish Statute Book（司法長官府、公式。制定時の文）",
+   "dp": true
   },
   {
    "id": "IRL-defamation",
@@ -1000,7 +1029,8 @@
     "data"
    ],
    "title": "Bundesdatenschutzgesetz",
-   "official": "Gesetze im Internet（連邦司法省、公式）"
+   "official": "Gesetze im Internet（連邦司法省、公式）",
+   "dp": true
   },
   {
    "id": "DEU-uwg",
@@ -1046,7 +1076,8 @@
     "data"
    ],
    "title": "Datenschutzgesetz",
-   "official": "RIS（連邦首相府、公式）"
+   "official": "RIS（連邦首相府、公式）",
+   "dp": true
   },
   {
    "id": "CHE-fadp",
@@ -1060,7 +1091,8 @@
     "data"
    ],
    "title": "Data Protection",
-   "official": "Fedlex（連邦官房、公式。英訳は法的効力のない訳）"
+   "official": "Fedlex（連邦官房、公式。英訳は法的効力のない訳）",
+   "dp": true
   },
   {
    "id": "NLD-sr",
@@ -1092,7 +1124,8 @@
     "data"
    ],
    "title": "gegevensbescherming",
-   "official": "wetten.overheid.nl（内務省、公式）"
+   "official": "wetten.overheid.nl（内務省、公式）",
+   "dp": true
   },
   {
    "id": "ESP-cp",
@@ -1124,7 +1157,8 @@
     "data"
    ],
    "title": "Protección de Datos Personales",
-   "official": "BOE（官報、公式の統合版）"
+   "official": "BOE（官報、公式の統合版）",
+   "dp": true
   },
   {
    "id": "ESP-lcd",
@@ -1233,7 +1267,8 @@
     "data"
    ],
    "title": "personopplysning",
-   "official": "Lovdata（公式の法令データベース）"
+   "official": "Lovdata（公式の法令データベース）",
+   "dp": true
   },
   {
    "id": "SWE-brb",
@@ -1288,7 +1323,8 @@
     "data"
    ],
    "title": "персональных данных",
-   "official": "大統領府（公式）"
+   "official": "大統領府（公式）",
+   "dp": true
   },
   {
    "id": "KAZ-pd",
@@ -1302,7 +1338,8 @@
     "data"
    ],
    "title": "персональных данных",
-   "official": "Adilet（法務省、公式）"
+   "official": "Adilet（法務省、公式）",
+   "dp": true
   },
   {
    "id": "TUR-kvkk",
@@ -1316,7 +1353,8 @@
     "data"
    ],
    "title": "Personal Data",
-   "official": "個人データ保護庁（公式の英訳）"
+   "official": "個人データ保護庁（公式の英訳）",
+   "dp": true
   },
   {
    "id": "MCO-1565",
@@ -1330,7 +1368,8 @@
     "data"
    ],
    "title": "donn[ée]es",
-   "official": "Legimonaco（政府、公式）"
+   "official": "Legimonaco（政府、公式）",
+   "dp": true
   },
   {
    "id": "MLT-cc",
@@ -1362,7 +1401,8 @@
     "data"
    ],
    "title": "DATA PROTECTION",
-   "official": "legislation.mt（公式）"
+   "official": "legislation.mt（公式）",
+   "dp": true
   },
   {
    "id": "LVA-crim",
@@ -1394,7 +1434,8 @@
     "data"
    ],
    "title": "Personal Data",
-   "official": "Likumi.lv（官報、公式の英訳）"
+   "official": "Likumi.lv（官報、公式の英訳）",
+   "dp": true
   },
   {
    "id": "FRA-cp",
@@ -1426,7 +1467,8 @@
     "data"
    ],
    "title": "informatique",
-   "official": "Légifrance（政府、公式）"
+   "official": "Légifrance（政府、公式）",
+   "dp": true
   },
   {
    "id": "FRA-presse",
@@ -1472,7 +1514,8 @@
     "data"
    ],
    "title": "DATOS PERSONALES",
-   "official": "Cámara de Diputados（連邦議会下院、公式の PDF）"
+   "official": "Cámara de Diputados（連邦議会下院、公式の PDF）",
+   "dp": true
   },
   {
    "id": "MEX-lebhn",
@@ -1532,7 +1575,8 @@
     "data"
    ],
    "title": "DATOS PERSONALES",
-   "official": "InfoLEG（経済省、公式）"
+   "official": "InfoLEG（経済省、公式）",
+   "dp": true
   },
   {
    "id": "BRA-lgpd",
@@ -1546,7 +1590,8 @@
     "data"
    ],
    "title": "Lei Geral de Prote",
-   "official": "Câmara dos Deputados（下院、制定時の文）"
+   "official": "Câmara dos Deputados（下院、制定時の文）",
+   "dp": true
   },
   {
    "id": "BRA-cp",
@@ -1626,7 +1671,8 @@
     "data"
    ],
    "title": "VIDA PRIVADA",
-   "official": "Ley Chile（国会図書館、公式）"
+   "official": "Ley Chile（国会図書館、公式）",
+   "dp": true
   },
   {
    "id": "COL-1581",
@@ -1640,7 +1686,8 @@
     "data"
    ],
    "title": "1581",
-   "official": "Secretaría del Senado（上院、公式）"
+   "official": "Secretaría del Senado（上院、公式）",
+   "dp": true
   },
   {
    "id": "URY-18331",
@@ -1654,7 +1701,8 @@
     "data"
    ],
    "title": "18331|18.331",
-   "official": "IMPO（官報、公式）"
+   "official": "IMPO（官報、公式）",
+   "dp": true
   },
   {
    "id": "CRI-8968",
@@ -1668,7 +1716,8 @@
     "data"
    ],
    "title": "datos personales",
-   "official": "SCIJ（検事総長府、公式）"
+   "official": "SCIJ（検事総長府、公式）",
+   "dp": true
   },
   {
    "id": "KOR-pipa",
@@ -1682,7 +1731,8 @@
     "data"
    ],
    "title": "PERSONAL INFORMATION PROTECTION ACT",
-   "official": "韓国法制研究院（政府の研究機関、法的効力のない英訳）"
+   "official": "韓国法制研究院（政府の研究機関、法的効力のない英訳）",
+   "dp": true
   },
   {
    "id": "CHN-pipl",
@@ -1700,7 +1750,8 @@
     "data"
    ],
    "title": "Personal Information Protection Law",
-   "official": "全国人民代表大会（英訳）"
+   "official": "全国人民代表大会（英訳）",
+   "dp": true
   },
   {
    "id": "IND-dpdp",
@@ -1714,7 +1765,8 @@
     "data"
    ],
    "title": "DIGITAL PERSONAL DATA PROTECTION",
-   "official": "PRS Legislative Research による官報の写し（公式ではない）"
+   "official": "PRS Legislative Research による官報の写し（公式ではない）",
+   "dp": true
   },
   {
    "id": "THA-pdpa",
@@ -1728,7 +1780,8 @@
     "data"
    ],
    "title": "Personal Data Protection",
-   "official": "電子取引開発庁（政府、法的効力のない英訳）"
+   "official": "電子取引開発庁（政府、法的効力のない英訳）",
+   "dp": true
   },
   {
    "id": "SAU-pdpl",
@@ -1742,7 +1795,8 @@
     "data"
    ],
    "title": "Personal Data",
-   "official": "SDAIA（政府、英訳）"
+   "official": "SDAIA（政府、英訳）",
+   "dp": true
   },
   {
    "id": "PHL-10173",
@@ -1756,7 +1810,8 @@
     "data"
    ],
    "title": "10173",
-   "official": "Official Gazette（政府、公式）"
+   "official": "Official Gazette（政府、公式）",
+   "dp": true
   },
   {
    "id": "PHL-rpc",
@@ -1788,7 +1843,8 @@
     "data"
    ],
    "title": "Personal Data Protection Act",
-   "official": "Singapore Statutes Online（法務長官府、公式）"
+   "official": "Singapore Statutes Online（法務長官府、公式）",
+   "dp": true
   },
   {
    "id": "ZAF-popia",
@@ -1802,7 +1858,8 @@
     "data"
    ],
    "title": "Protection of Personal Information",
-   "official": "南アフリカ政府（官報の写し）"
+   "official": "南アフリカ政府（官報の写し）",
+   "dp": true
   },
   {
    "id": "KEN-dpa",
@@ -1816,7 +1873,8 @@
     "data"
    ],
    "title": "Data Protection",
-   "official": "Kenya Law（国家法律報告評議会、公式）"
+   "official": "Kenya Law（国家法律報告評議会、公式）",
+   "dp": true
   },
   {
    "id": "KEN-penal",
@@ -1848,7 +1906,8 @@
     "data"
    ],
    "title": "Data Protection and Privacy",
-   "official": "ULII（法情報機関による写し、公式ではない）"
+   "official": "ULII（法情報機関による写し、公式ではない）",
+   "dp": true
   },
   {
    "id": "ZMB-dpa",
@@ -1862,9 +1921,13 @@
     "data"
    ],
    "title": "Data Protection",
-   "official": "ZambiaLII（法情報機関による写し、公式ではない）"
+   "official": "ZambiaLII（法情報機関による写し、公式ではない）",
+   "dp": true
   }
  ],
  "unsourced_default": "取り寄せ先を定めていない（公式の法令データベースで機械が読める所在を、この調べでは見つけていない）",
- "unsourced": {}
+ "unsourced": {},
+ "unsourced_topic": {
+  "quotation": "対象外：Sophaxis の引用は、日本の著作権法第32条（運営の地の法）と、載せる作品の CC BY 4.0 の許諾に拠り、各国の引用の例外には拠らない。2026-11-12 に Claude が決めました。"
+ }
 }
