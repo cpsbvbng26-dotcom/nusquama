@@ -110,6 +110,21 @@ function splitLines(ls, lang) {
   return arts;
 }
 
+/* Acts that number their sections without a word (Australia, New Zealand): a short line that is a number followed by a
+ * heading in capitals ("51 Legislative powers of the Parliament") opens a section. */
+function splitNumbered(ls) {
+  const arts = [];
+  let cur = null;
+  for (const l of ls) {
+    const m = /^(\d{1,4}[A-Z]{0,3})\s+([A-Z][^.;:]{2,140})$/.exec(l);
+    if (m && !/^\d{4}\s+(No|c)\b/.test(l)) { if (cur && cur.paras.length) arts.push(cur); cur = { label: 'Section ' + m[1], caption: m[2], paras: [] }; continue; }
+    if (PART.test(l) && l.length < 160) { if (cur && cur.paras.length) arts.push(cur); cur = null; continue; }
+    if (cur) cur.paras.push(l);
+  }
+  if (cur && cur.paras.length) arts.push(cur);
+  return arts;
+}
+
 /* PDF text has no line ends: an article heading is taken only where it follows the end of a sentence or the number of a
  * page, and is followed by a full stop, a colon, a dash, an ordinal sign or a capital letter. A reference inside a
  * sentence ("under Article 5 of") is not taken. */
@@ -167,12 +182,21 @@ function splitCanada(xml) {
 function splitConstitute(html) {
   const arts = [];
   let cur = null;
+  const parent = {}; // the latest article-like heading at each level, for sections inside articles ("Article I, Section 9")
   for (const m of html.matchAll(/<(h[1-6])\b[^>]*>([\s\S]*?)<\/\1>|<p\b[^>]*>([\s\S]*?)<\/p>|<li\b[^>]*>([\s\S]*?)<\/li>/g)) {
     const t = flat(m[2] || m[3] || m[4] || '');
     if (!t) continue;
     if (m[1]) {
+      const lv = +m[1][1];
       if (cur && cur.paras.length) arts.push(cur);
-      cur = HEAD.test(t) || /^preamble$/i.test(t) ? { label: t, paras: [] } : null;
+      for (let k = lv; k <= 6; k++) delete parent[k];
+      const numbered = /^\d+[A-Z]?\.?\s+\S/.test(t) || /^\d+[A-Z]?\.?$/.test(t);
+      if (HEAD.test(t) || numbered || /^preamble$/i.test(t)) {
+        const up = Object.keys(parent).filter((k) => +k < lv).sort().map((k) => parent[k]).pop();
+        const short = t.length > 80 ? t.slice(0, 80) : t;
+        cur = { label: up && /^(Section|SECTION|Sec\.|§|\d)/.test(t) ? up + ', ' + short : short, paras: [] };
+      } else cur = null;
+      if (/^(Article|ARTICLE|Art\.)\s+[IVXLCDM\d]+\b/.test(t)) parent[lv] = t.length > 80 ? t.slice(0, 80) : t;
       continue;
     }
     if (cur) cur.paras.push(t);
@@ -194,25 +218,30 @@ function splitSection(text, s) {
 /* ---- searching ---- */
 
 const RX = {};
-function rx(topic, lang) {
-  const k = topic + ':' + lang;
-  if (!(k in RX)) { const src = (CONF.keywords[topic] || {})[lang]; RX[k] = src ? new RegExp(src, lang === 'de' ? 'u' : 'iu') : null; }
+/* The keyword set of a topic for a source: the source's own (kw), the narrower set for a general data protection law
+ * (keywords_dp: scope, representative, transfer abroad, minors, registration, exemptions), or the topic's set. */
+function rx(topic, lang, s = {}) {
+  const src = (s.kw || {})[topic] || (s.dp && topic === 'data' ? (CONF.keywords_dp || {})[lang] : null) || (CONF.keywords[topic] || {})[lang];
+  if (!src) return null;
+  const k = src + ':' + lang;
+  if (!(k in RX)) RX[k] = new RegExp(src, lang === 'de' ? 'u' : 'iu');
   return RX[k];
 }
-const searchable = (topic, lang) => !!rx(topic, lang);
+const searchable = (topic, lang, s) => !!rx(topic, lang, s);
 
 /* The kept text: the whole article if it is short, otherwise each paragraph a keyword matched. */
 const LONG = 2500, CAP = 6000;
-function search(arts, lang, topics) {
+function search(arts, lang, topics, s = {}) {
   const out = [];
+  const R = (t) => rx(t, lang, s);
   for (const a of arts) {
     const whole = [a.caption, ...a.paras].filter(Boolean).join(' ');
-    const hit = topics.filter((t) => rx(t, lang).test(whole));
+    const hit = topics.filter((t) => R(t).test(whole));
     if (!hit.length) continue;
     if (whole.length <= LONG) { out.push({ article: a.label, caption: a.caption, part: 'article', topics: hit, text: whole }); continue; }
     a.paras.forEach((p, i) => {
       /* A keyword in the caption alone keeps the first paragraph, so that the article is not lost. */
-      const tp = topics.filter((t) => rx(t, lang).test(p) || (i === 0 && a.caption && rx(t, lang).test(a.caption)));
+      const tp = topics.filter((t) => R(t).test(p) || (i === 0 && a.caption && R(t).test(a.caption)));
       if (tp.length) out.push({ article: a.label, caption: a.caption, part: 'paragraph ' + (i + 1), topics: tp, text: p.length > CAP ? p.slice(0, CAP) : p, cut: p.length > CAP || undefined });
     });
   }
@@ -226,7 +255,8 @@ function split(s, text, pdf) {
   if (s.format === 'clml') return splitClml(text, s.label);
   if (s.format === 'canada') return splitCanada(text);
   if (s.format === 'constitute') return splitConstitute(text);
-  if (s.format === 'section') return splitSection(flat(text), s);
+  if (s.format === 'section') return splitSection(lines(text).join(' '), s);
+  if (s.format === 'numbered') return splitNumbered(lines(text));
   if (pdf || s.format === 'inline') return splitInline(flat(text));
   return splitLines(lines(text), s.lang);
 }
@@ -260,11 +290,11 @@ async function fetchSource(s) {
     if (s.title && !new RegExp(s.title, 'iu').test(plain)) { notes.push(via + '：題「' + s.title + '」が見つからない（別の頁か、拒む応答）'); continue; }
     const arts = split(s, text, pdf);
     if (!arts.length) { notes.push(via + '：条に分けられない'); continue; }
-    const topics = rec.topics.filter((t) => searchable(t, s.lang));
+    const topics = rec.topics.filter((t) => searchable(t, s.lang, s));
     Object.assign(rec, { via, final: finals.length === 1 ? finals[0] : finals, status: 200, length: plain.length, sha256_full: sha(plain), articles: arts.length, searched: topics });
     if (topics.length < rec.topics.length) rec.unsearchable = rec.topics.filter((t) => !topics.includes(t));
     if (notes.length) rec.notes = notes;
-    return { rec, found: search(arts, s.lang, topics) };
+    return { rec, found: search(arts, s.lang, topics, s) };
   }
   rec.error = notes.join(' / ');
   return { rec, found: [] };
@@ -358,24 +388,27 @@ async function probe(urls) {
 
 /* ---- coverage ---- */
 
-function coverage() {
+/* The coverage table, as text, from the list of countries, the settings and the data files (a pure function, so that
+ * verification/world/check.js can confirm that coverage.json is what this makes). */
+function coverageText(countries, conf, data) {
+  const topics = Object.keys(conf.topics);
+  const shared = Object.entries(data).filter(([f]) => f.startsWith('_')).map(([, d]) => d);
   const rows = [];
-  const shared = fs.readdirSync(DATA).filter((f) => f.startsWith('_')).map((f) => readJSON(path.join(DATA, f)));
-  for (const c of COUNTRIES) {
-    const f = path.join(DATA, c.iso3 + '.json');
-    const d = fs.existsSync(f) ? readJSON(f) : { sources: {}, provisions: [] };
+  for (const c of countries) {
+    const d = data[c.iso3 + '.json'] || { sources: {}, provisions: [] };
     const srcs = Object.entries(d.sources).map(([id, r]) => ({ id, r, provs: d.provisions.filter((p) => p.source === id) }));
     for (const sh of shared) for (const [id, r] of Object.entries(sh.sources)) if ((r.countries || []).includes(c.iso3)) srcs.push({ id, r, provs: sh.provisions.filter((p) => p.source === id) });
     const cons = srcs.filter((x) => x.r.kind === 'constitution');
     const row = {
       country: c.iso3, name: c.name, name_ja: c.name_ja,
-      constitution: cons.map((x) => (x.r.error ? { source: x.id, fetched: false, reason: x.r.error }
-        : { source: x.id, fetched: true, title: x.r.title || x.r.instrument, version: x.r.year_updated || x.r.year_enacted || x.r.version || null, date: x.r.fetched, url: x.r.page || (Array.isArray(x.r.final) ? x.r.final[0] : x.r.final), via: x.r.via })),
+      constitution: cons.length ? cons.map((x) => (x.r.error ? { source: x.id, fetched: false, reason: x.r.error }
+        : { source: x.id, fetched: true, title: x.r.title || x.r.instrument, version: x.r.year_updated || x.r.year_enacted || null, date: x.r.fetched, url: x.r.page || (Array.isArray(x.r.final) ? x.r.final[0] : x.r.final), via: x.r.via }))
+        : [{ source: null, fetched: false, reason: 'まだ取り寄せていない' }],
       constitution_articles: [...new Set(cons.flatMap((x) => x.provs.map((p) => x.id + ' ' + p.article)))],
       topics: {},
     };
-    for (const t of TOPICS) {
-      const cs = srcs.filter((x) => x.r.kind !== 'constitution' && (x.r.topics || TOPICS).includes(t));
+    for (const t of topics) {
+      const cs = srcs.filter((x) => x.r.kind !== 'constitution' && (x.r.topics || topics).includes(t));
       const ok = cs.filter((x) => !x.r.error && (x.r.searched || []).includes(t));
       if (ok.length) {
         const ps = ok.flatMap((x) => x.provs.filter((p) => p.topics.includes(t)).map((p) => p.id));
@@ -383,15 +416,20 @@ function coverage() {
       } else if (cs.length) {
         row.topics[t] = { state: 'not fetched', reason: cs.map((x) => x.id + '：' + (x.r.error || 'この言語の検索語の組がない')).join(' / ') };
       } else {
-        const u = CONF.unsourced[c.iso3] || {};
-        row.topics[t] = { state: 'not fetched', reason: u[t] || u['*'] || CONF.unsourced_default };
+        const u = conf.unsourced[c.iso3] || {};
+        row.topics[t] = { state: 'not fetched', reason: u[t] || u['*'] || (conf.unsourced_topic || {})[t] || conf.unsourced_default };
       }
     }
     rows.push(row);
   }
-  const out = '{\n "_": "tools/world.js coverage が data/ から作る。手で直さない。",\n "countries": [\n' + rows.map((r) => '  ' + JSON.stringify(r)).join(',\n') + '\n ]\n}\n';
-  fs.writeFileSync(path.join(DIR, 'coverage.json'), out);
-  return rows;
+  return '{\n "_": "tools/world.js coverage が data/ から作る。手で直さない。",\n "countries": [\n' + rows.map((r) => '  ' + JSON.stringify(r)).join(',\n') + '\n ]\n}\n';
+}
+function coverage() {
+  const data = {};
+  for (const f of fs.readdirSync(DATA).sort()) data[f] = readJSON(path.join(DATA, f));
+  const text = coverageText(COUNTRIES, CONF, data);
+  fs.writeFileSync(path.join(DIR, 'coverage.json'), text);
+  return JSON.parse(text).countries;
 }
 
 /* ---- main ---- */
@@ -414,5 +452,5 @@ async function main() {
   await codes(CONF.codes.filter((s) => single(s) && s.countries[0] !== 'JPN' && isos.includes(s.countries[0])));
 }
 
-module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, TOPICS };
+module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, coverageText, TOPICS };
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });
