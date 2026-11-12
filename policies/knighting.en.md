@@ -8,6 +8,7 @@ This is an English translation. The [Japanese version](./knighting.md) governs; 
 
 Knighting is giving the name of knight, within a work of fiction.
 It brings no legal effect, status, privilege or honour.
+Knighting does not confer a decoration, honour or rank of knighthood of any country.
 Knighting is free. It is never given in exchange for money, goods or services (Basic Law, Article 6).
 Knighting issues no document or object, such as a letter of appointment, a certificate or an insignia. It only puts an account name on the roll.
 

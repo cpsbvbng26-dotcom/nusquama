@@ -13,7 +13,7 @@ Nusquama is a work of fiction, not a state. Exchange, too, takes place within th
 
 - Exchange is limited to greetings and links to each other's pages.
 - No treaty, alliance or document of mutual recognition is concluded, so that no promise looks like a relation between states.
-- No title, decoration or rank is conferred on each other. The only thing Nusquama gives is knighthood under the Rules on Knighting.
+- No title, decoration or rank is conferred on each other. The only thing Nusquama gives is the name of knight under the Rules on Knighting.
 - No exchange involves money, goods or services.
 - There is no exchange with anything that claims to be a real state, royal house or order of knighthood, that sells titles, or that deceives people.
 - The other party's country is respected as the other party's own creation. Nusquama neither accepts nor denies that country's claims.

@@ -1,6 +1,6 @@
 # For anyone introducing Nusquama
 
-> This is a work of fiction, written for fun. Nusquama is not a state, and the titles it gives have no legal effect.
+> This is a work of fiction, written for fun. Nusquama is not a state, and the knightly names it gives are not decorations, honours or ranks of knighthood, and have no legal effect.
 
 This is an English translation. The [Japanese version](PRESS.md) governs; if the two differ, the Japanese version applies.
 
@@ -16,7 +16,7 @@ Text and numbers for anyone introducing Nusquama in an article or a post are gat
 
 An introduction carries these two passages.
 
-This is a work of fiction, written for fun. Nusquama is not a state, and the titles it gives have no legal effect.
+This is a work of fiction, written for fun. Nusquama is not a state, and the knightly names it gives are not decorations, honours or ranks of knighthood, and have no legal effect.
 
 Nusquama is a playful fiction. It has no connection with the operator's other activities.
 
