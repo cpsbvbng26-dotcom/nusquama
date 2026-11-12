@@ -8,6 +8,8 @@ body:
       value: |
         この issue は公開されます。問題の個人情報そのものを書き写さず、どこにあるかだけを書いてください。
         公開の場で書けない事情があるときは、種類で「非公開の連絡を求める」を選び、ほかは空のままにしてください。
+        運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。連絡先がないときは、個人の事柄を書かずに、この issue で答えます。
+        The operator answers privately only to a contact made public on the person's own GitHub profile. Without one, the answer is given in this issue, without personal details.
         費用はかかりません。手順は「削除・訂正・辞退の求め」の規程にあります。
         書いたものは、この求めに応じることにだけ使います。
         求めは、住んでいる国や国籍を問わず、どの国の人からも同じ手順で受け、同じ速さで答えます。日本語でも英語でも受けます。
