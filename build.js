@@ -39,8 +39,8 @@ const DRAWN = ['territory.svg'];
 const GENERATED = /^(territory(-\d{4})?\.svg|calendar\.ics|(errata|gazette|story)\/\d+(\.en)?\.html|monthly\/\d{4}-\d{2}(\.en)?\.html|(territory-years|symbols-construction)(\.en)?\.html)$/;
 
 /* どの頁にも先頭に出す断り。README の冒頭と同じ内容である。 */
-const NOTICE = 'これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。';
-const NOTICE_EN = 'This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The titles it gives have no legal effect.';
+const NOTICE = 'これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで贈る騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。';
+const NOTICE_EN = 'This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. The knightly names it gives are not decorations, honours or ranks of knighthood, and have no legal effect.';
 
 /* どの頁の下の欄にも出す一文。この国は運営者の研究とは別のもので、その一部ではない（免責事項「運営者の研究との関係」）。
  * 研究の系列の名もリンクも書かない（決めごと 4）。 */
