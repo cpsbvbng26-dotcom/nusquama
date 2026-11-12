@@ -445,7 +445,21 @@ function timelineRows() {
 const MILESTONE = 100;
 /* 号の台帳。一度振った号を、行の鍵ごとに固定する。build.js が site/ を作るときに、新しい号だけを書き足す。手で直さない。 */
 const LEDGER = path.join(ROOT, 'verification', 'gazette-numbers.json');
-const readLedger = () => (fs.existsSync(LEDGER) ? JSON.parse(fs.readFileSync(LEDGER, 'utf8')) : {});
+/* 日付を改めた年表の行。行の鍵は日付と文から作るので、日付を改めると鍵が変わる。ここに挙げた行は、改める前の鍵の号を、改めた日付の鍵へ引き継ぐ。
+ * 号は動かさない（一度振った号は台帳が固める）。行を挙げるのは、日付が公開の日（日本時間）と違っていたときだけで、引き継いだあとも表から消さない。
+ * 2026-11-13 に改めた。一行は日本時間の 2026-11-11 に、三行は 2026-11-13 に公開したが、どれも作業の時計（協定世界時）の日付を書いていた（王の正誤表 32）。 */
+const REDATED = {
+  'T:2026-11-10:0414e8d565ac': '2026-11-11',
+  'T:2026-11-12:4392d7625560': '2026-11-13',
+  'T:2026-11-12:58c6566ef566': '2026-11-13',
+  'T:2026-11-12:753c5ea59987': '2026-11-13',
+};
+const redatedKey = (k) => 'T:' + REDATED[k] + ':' + k.split(':')[2];
+/* 台帳を読む。日付を改めた行の古い鍵は、同じ号のまま新しい鍵に替える（build.js が site/ を作るときに、替えた台帳を書き戻す）。 */
+function readLedger() {
+  const raw = fs.existsSync(LEDGER) ? JSON.parse(fs.readFileSync(LEDGER, 'utf8')) : {};
+  return Object.fromEntries(Object.entries(raw).map(([k, n]) => [Object.prototype.hasOwnProperty.call(REDATED, k) ? redatedKey(k) : k, n]));
+}
 /* 行の鍵。年表の行は日付と文から、正誤と叙任と記念の号は番から作る。年表の文を書き換えると鍵が変わり、検査が台帳との食い違いを見つける。 */
 const timelineKey = (date, text) => 'T:' + date + ':' + crypto.createHash('sha256').update(text, 'utf8').digest('hex').slice(0, 12);
 
@@ -929,7 +943,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
