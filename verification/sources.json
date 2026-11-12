@@ -1,6 +1,6 @@
 {
   "_": "適法性の説明が引く外国の一次資料。quote は sources-raw.json の窓（tools/sources.js が取り寄せた文）に現れる文で、閉じ括弧と句読点の前の空白だけを詰めてある。検査が、同じ詰め方をした窓に現れることを確かめる。",
-  "fetched": "2026-11-11",
+  "fetched": "2026-11-12",
   "sources": {
     "モンテビデオ条約 第1条": {
       "from": "montevideo",
@@ -49,6 +49,30 @@
       "url": "https://vercel.com/docs/limits/fair-use-guidelines",
       "lang": "en",
       "quote": "Hobby teams are restricted to non-commercial personal use only."
+    },
+    "GDPR 第27条": {
+      "from": "gdpr-art27",
+      "name": "一般データ保護規則（EU 2016/679）第27条第1項・第2項",
+      "name_en": "General Data Protection Regulation (EU) 2016/679, Article 27(1) and (2)",
+      "url": "https://publications.europa.eu/resource/celex/32016R0679",
+      "lang": "en",
+      "quote": "1. Where Article 3(2) applies, the controller or the processor shall designate in writing a representative in the Union. 2. The obligation laid down in paragraph 1 of this Article shall not apply to: (a) processing which is occasional, does not include, on a large scale, processing of special categories of data as referred to in Article 9(1) or processing of personal data relating to criminal convictions and offences referred to in Article 10, and is unlikely to result in a risk to the rights and freedoms of natural persons, taking into account the nature, context, scope and purposes of the processing; or (b) a public authority or body."
+    },
+    "イタリア 2016 年委任立法第8号 第1条": {
+      "from": "italy-depenalizzazione",
+      "name": "イタリア 2016 年 1 月 15 日委任立法第 8 号 第 1 条第 1 項",
+      "name_en": "Italy, Legislative Decree No. 8 of 15 January 2016, Article 1(1)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2016-01-15;8~art1",
+      "lang": "it",
+      "quote": "1. Non costituiscono reato e sono soggette alla sanzione amministrativa del pagamento di una somma di denaro tutte le violazioni per le quali è prevista la sola pena della multa o dell'ammenda."
+    },
+    "Vercel 利用規約 第4条": {
+      "from": "vercel-terms",
+      "name": "Vercel「Terms of Service」第 4 条「Hobby Plan」",
+      "name_en": "Vercel, “Terms of Service”, section 4, “Hobby Plan”",
+      "url": "https://vercel.com/legal/terms",
+      "lang": "en",
+      "quote": "You shall only use the Services under a Hobby plan for your personal or non-commercial use."
     }
   }
 }

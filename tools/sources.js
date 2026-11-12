@@ -21,6 +21,11 @@ const SOURCES = [
   { key: 'italy', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8', needles: ['Art. 8', 'cavaliere', 'onorificenz'] },
   { key: 'ccpa', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['Business'] },
   { key: 'vercel', url: 'https://vercel.com/docs/limits/fair-use-guidelines', needles: ['commercial'] },
+  { key: 'gdpr-art27', url: 'https://publications.europa.eu/resource/celex/32016R0679', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Representatives of controllers or processors not established in the Union'] },
+  { key: 'vercel-terms', url: 'https://vercel.com/legal/terms', needles: ['Hobby', 'train', 'arbitration', 'AS IS'] },
+  { key: 'ppc-qa', url: 'https://www.ppc.go.jp/personalinfo/faq/APPI_QA/', needles: ['Q1-62', 'Q13-', 'Q12-'] },
+  { key: 'italy-cp-10', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398~art10', needles: ['Art. 10', 'straniero'] },
+  { key: 'italy-depenalizzazione', url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2016-01-15;8~art1', needles: ['Art. 1', 'pena della multa o dell'] },
   { key: 'egov', url: 'https://laws.e-gov.go.jp/law/140AC0000000045', needles: ['刑法'] },
 ];
 
