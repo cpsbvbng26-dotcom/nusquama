@@ -1239,14 +1239,21 @@
     "AUT"
    ],
    "instrument": "Gesetz vom 3. April 1919 über die Aufhebung des Adels, der weltlichen Ritter- und Damenorden und gewisser Titel und Würden (StGBl. Nr. 211/1919)",
-   "url": "https://ogd.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10000036",
+   "url": [
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000678/NOR12000678.html",
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000680/NOR12000680.html",
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000682/NOR12000682.html",
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000684/NOR12000684.html",
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40093252/NOR40093252.html",
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000687/NOR12000687.html"
+   ],
    "lang": "de",
    "topics": [
     "honours"
    ],
    "title": "Aufhebung des Adels|Adelsaufhebungsgesetz",
    "official": "RIS（連邦首相府、公式）",
-   "note": "憲法の第149条が憲法の法律とみなす法律。2026-11-13 に、第149条を一つずつ読み直すために足した。所在は、RIS の公開データの API（data.bka.gv.at）が答えた法令の番号（Gesetzesnummer 10000036）と、公開データの所在（ogd.ris.bka.gv.at）。www.ris.bka.gv.at は Actions からの求めに 503 を返した"
+   "note": "憲法の第149条が憲法の法律とみなす法律。2026-11-13 に、第149条を一つずつ読み直すために足した。所在は、RIS の公開データの API（data.bka.gv.at）が答えた、この法律（Gesetzesnummer 10000036）の効力のある条（§ 1 から § 5 と § 7）の文書で、公開データの所在（ogd.ris.bka.gv.at）にある。§ 6 と前の版の § 5 は、API が効力を失ったと答えたので入れない。www.ris.bka.gv.at と、ogd.ris.bka.gv.at の法令全体の頁は、Actions からの求めに 503 を返した"
   },
   {
    "id": "CHE-fadp",
