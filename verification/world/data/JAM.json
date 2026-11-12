@@ -1,0 +1,10 @@
+{
+ "country": "JAM",
+ "sources": {
+  "constitute": {"instrument":"Jamaica 1962 (rev. 2023)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Jamaica_2023&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Jamaica_2023&lang=en","status":200,"length":215860,"sha256_full":"a65f327539c8eea448363412800ed5ea0f9e859541baee5cf5bf407506961343","articles":133,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Jamaica_2023","title":"Jamaica 1962 (rev. 2023)","year_enacted":"1962","year_updated":"2023","page":"https://www.constituteproject.org/constitution/Jamaica_2023?lang=en"}
+ },
+ "provisions": [
+  {"id":"JAM constitution 13. Fundamental rights and freedoms ¶19","source":"constitute","country":"JAM","instrument":"Jamaica 1962 (rev. 2023)","kind":"constitution","article":"13. Fundamental rights and freedoms","part":"paragraph 19","lang":"en","topics":["data"],"text":"respect for and protection of private and family life, and privacy of the home; ,","url":"https://www.constituteproject.org/service/html?cons_id=Jamaica_2023&lang=en","fetched":"2026-11-12","sha256":"74b0f26fb0b4de3aa117e3608b301e5fe4d55d82196bd2b56486a0855737dc18"},
+  {"id":"JAM constitution 13. Fundamental rights and freedoms ¶20","source":"constitute","country":"JAM","instrument":"Jamaica 1962 (rev. 2023)","kind":"constitution","article":"13. Fundamental rights and freedoms","part":"paragraph 20","lang":"en","topics":["data"],"text":"protection of privacy of other property and of communication;","url":"https://www.constituteproject.org/service/html?cons_id=Jamaica_2023&lang=en","fetched":"2026-11-12","sha256":"765799c2de41a206b4aaaed14b04ae2649d720d4245fa0220635bf2181533c21"}
+ ]
+}

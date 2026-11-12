@@ -1179,6 +1179,7 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     'review.yml': { contents: 'read', issues: 'write' },
     'sources.yml': { contents: 'write' },
     'statutes.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
+    'world.yml': { contents: 'write' },
   };
   const wfs = fs.readdirSync(path.join(ROOT, '.github', 'workflows')).sort();
   const bad = [];
@@ -1883,6 +1884,9 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から 2026
     !!ej && ej.kind.ja === '範囲' && ej.wrong.includes('叙任の願い出の様式で issue を開く。') && ej.right.includes('2026-11-12 に Claude が決めました。') && (ej.en[4] || '').includes('The owner decided this on 2026-11-12.')
     && B.timelineRows().some((r) => r[0].startsWith('2026-11-12') && r[1].includes('叙任の願い出の受付を止める') && r[2].includes('Applications for knighting are paused')));
 }
+
+console.log('\n64. 各国の憲法と法令の調べ（2026-11-12）');
+require('./world/check.js').run(ok);
 
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }

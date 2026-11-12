@@ -1,0 +1,9 @@
+{
+ "country": "SMR",
+ "sources": {
+  "constitute": {"kind":"constitution","instrument":"Constitution","error":"Constitute Project の一覧にこの国の文がなく、ほかの公式の所在もこの調べでは定めていない","fetched":"2026-11-12"}
+ },
+ "provisions": [
+
+ ]
+}
