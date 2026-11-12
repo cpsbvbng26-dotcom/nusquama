@@ -80,7 +80,8 @@
       "name_en": "Italy, Penal Code (annex to Royal Decree No. 1398 of 1930), Article 10, first paragraph",
       "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10",
       "lang": "it",
-      "quote": "Lo straniero, che, fuori dei casi indicati negli articoli 7 e 8, commette in territorio estero, a danno dello Stato o di un cittadino, un delitto per il quale la legge italiana stabilisce la pena di morte o l'ergastolo, o la reclusione non inferiore nel minimo a un anno, è punito secondo la legge medesima, sempre che si trovi nel territorio dello Stato, e vi sia richiesta del Ministro della giustizia, ovvero istanza o querela della persona offesa."
+      "quote": "Lo straniero, che, fuori dei casi indicati negli articoli 7 e 8, commette in territorio estero, a danno dello Stato o di un cittadino, un delitto per il quale la legge italiana stabilisce la pena di morte o l'ergastolo, o la reclusione non inferiore nel minimo a un anno, è punito secondo la legge medesima, sempre che si trovi nel territorio dello Stato, e vi sia richiesta del Ministro della giustizia, ovvero istanza o querela della persona offesa.",
+      "window_sha256": "4e2512179116db384fc5794b5009d0867a38c3b967c9ef4172f22ad406be3bcd"
     },
     "イタリア 刑法典 第6条": {
       "from": "italy-cp-6",
@@ -88,7 +89,8 @@
       "name_en": "Italy, Penal Code, Article 6, second paragraph",
       "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art6",
       "lang": "it",
-      "quote": "Il reato si considera commesso nel territorio dello Stato, quando l'azione o l'omissione, che lo costituisce, è ivi avvenuta in tutto o in parte, ovvero si è ivi verificato l'evento che è la conseguenza dell'azione od omissione."
+      "quote": "Il reato si considera commesso nel territorio dello Stato, quando l'azione o l'omissione, che lo costituisce, è ivi avvenuta in tutto o in parte, ovvero si è ivi verificato l'evento che è la conseguenza dell'azione od omissione.",
+      "window_sha256": "f1e80df77fdeb794c2ff5f1981b213a9309748ba13f23efa08eb6ae06bb88017"
     },
     "イタリア 刑法典 第9条": {
       "from": "italy-cp-9",
@@ -96,15 +98,17 @@
       "name_en": "Italy, Penal Code, Article 9, first paragraph",
       "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art9",
       "lang": "it",
-      "quote": "Il cittadino, che, fuori dei casi indicati nei due articoli precedenti, commette in territorio estero un delitto per il quale la legge italiana stabilisce la pena di morte o l'ergastolo, o la reclusione non inferiore nel minimo a tre anni, è punito secondo la legge medesima, sempre che si trovi nel territorio dello Stato."
+      "quote": "Il cittadino, che, fuori dei casi indicati nei due articoli precedenti, commette in territorio estero un delitto per il quale la legge italiana stabilisce la pena di morte o l'ergastolo, o la reclusione non inferiore nel minimo a tre anni, è punito secondo la legge medesima, sempre che si trovi nel territorio dello Stato.",
+      "window_sha256": "affd20bb5b416b61db747eac56072d8a208b3af5de04ad3e40a8f03a3f476ad5"
     },
     "イタリア 1951 年法律第178号 第7条": {
       "from": "italy-178-art7",
-      "name": "イタリア 1951 年 3 月 3 日法律第 178 号 第 7 条第 1 項",
+      "name": "イタリア 1951 年 3 月 3 日法律第 178 号 第 7 条（第 1 項）",
       "name_en": "Italy, Law No. 178 of 3 March 1951, Article 7, first paragraph",
       "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art7",
       "lang": "it",
-      "quote": "I cittadini italiani non possono usare nel territorio della Repubblica onorificenze o distinzioni cavalleresche loro conferite in Ordini non nazionali o da Stati esteri, se non sono autorizzati con decreto del Presidente della Repubblica, su proposta del Ministro per gli affari esteri."
+      "quote": "I cittadini italiani non possono usare nel territorio della Repubblica onorificenze o distinzioni cavalleresche loro conferite in Ordini non nazionali o da Stati esteri, se non sono autorizzati con decreto del Presidente della Repubblica, su proposta del Ministro per gli affari esteri.",
+      "window_sha256": "c9579a4f8e62c5ea05d775b1f411f88d371b605c42efcdfcdb6da6204809a818"
     },
     "イタリア 2016 年委任立法第8号 第1条第3項": {
       "from": "italy-depenalizzazione",
@@ -112,7 +116,8 @@
       "name_en": "Italy, Legislative Decree No. 8 of 15 January 2016, Article 1(3)",
       "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2016-01-15;8~art1",
       "lang": "it",
-      "quote": "3. La disposizione del comma 1 non si applica ai reati previsti dal codice penale, fatto salvo quanto previsto dall'articolo 2, comma 6, e a quelli compresi nell'elenco allegato al presente decreto."
+      "quote": "3. La disposizione del comma 1 non si applica ai reati previsti dal codice penale, fatto salvo quanto previsto dall'articolo 2, comma 6, e a quelli compresi nell'elenco allegato al presente decreto.",
+      "window_sha256": "28455b745d422bb64f95b5699e6eccaf4c1914cb4efe4ebfe27eb07fe08879bc"
     },
     "イタリア 2016 年委任立法第8号 別表": {
       "from": "italy-depenalizzazione-allegato",
@@ -120,7 +125,8 @@
       "name_en": "Italy, Legislative Decree No. 8 of 2016, Annex (the laws excluded from decriminalisation, as published in the Gazzetta Ufficiale)",
       "url": "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=16G00011&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2016-01-22&art.progressivo=0",
       "lang": "it",
-      "quote": "ELENCO DELLE LEGGI CONTENENTI REATI PUNITI CON LA SOLA PENA PECUNIARIA ESCLUSI DALLA DEPENALIZZAZIONE A NORMA DELL'ART. 2 DELLA LEGGE N. 67/2014"
+      "quote": "ELENCO DELLE LEGGI CONTENENTI REATI PUNITI CON LA SOLA PENA PECUNIARIA ESCLUSI DALLA DEPENALIZZAZIONE A NORMA DELL'ART. 2 DELLA LEGGE N. 67/2014",
+      "window_sha256": "f4f160ef2ed44c3ef6ae75f0d3642fa5a107674498955af3c9639bc705984be8"
     },
     "イタリア 首相府 勲章の使用の案内（使う者）": {
       "from": "italy-pcm-uso-archive",
@@ -128,7 +134,8 @@
       "name_en": "Presidency of the Council of Ministers of Italy, Office of Ceremonial and Honours, “Uso delle onorificenze” (Internet Archive copy)",
       "url": "https://web.archive.org/web/20260608220314/https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html",
       "lang": "it",
-      "quote": "I cittadini italiani non possono usare nel territorio della Repubblica Italiana onorificenze o distinzioni cavalleresche loro conferite da Ordini non nazionali o da Stati esteri, se non autorizzati con decreto del Presidente del Consiglio dei Ministri. I contravventori sono puniti con la sanzione amministrativa sino a L. 2.500.000"
+      "quote": "I cittadini italiani non possono usare nel territorio della Repubblica Italiana onorificenze o distinzioni cavalleresche loro conferite da Ordini non nazionali o da Stati esteri, se non autorizzati con decreto del Presidente del Consiglio dei Ministri. I contravventori sono puniti con la sanzione amministrativa sino a L. 2.500.000",
+      "window_sha256": "3696680b8262fd36f82aa5d59fe391ab5713b2b273ed1f74f7b475928cb8b5a4"
     },
     "イタリア 首相府 勲章の使用の案内（授ける者）": {
       "from": "italy-pcm-uso-archive",
@@ -136,7 +143,8 @@
       "name_en": "Presidency of the Council of Ministers of Italy, Office of Ceremonial and Honours, “Uso delle onorificenze” (Internet Archive copy)",
       "url": "https://web.archive.org/web/20260608220314/https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html",
       "lang": "it",
-      "quote": "E' vietato il conferimento di onorificenze, decorazioni o distinzioni cavalleresche da parte di enti, associazioni o privati. I trasgressori sono puniti con la reclusione da sei mesi a due anni"
+      "quote": "E' vietato il conferimento di onorificenze, decorazioni o distinzioni cavalleresche da parte di enti, associazioni o privati. I trasgressori sono puniti con la reclusione da sei mesi a due anni",
+      "window_sha256": "3696680b8262fd36f82aa5d59fe391ab5713b2b273ed1f74f7b475928cb8b5a4"
     },
     "モンテビデオ条約 当事国の一覧": {
       "from": "montevideo-parties",
@@ -144,7 +152,8 @@
       "name_en": "Organization of American States, “A-40: Convention on Rights and Duties of States”, signatories and ratifications",
       "url": "https://www.oas.org/juridico/english/sigs/a-40.html",
       "lang": "en",
-      "quote": "DEPOSITORY: MINISTRY OF FOREIGN AFFAIRS OF URUGUAY (ORIGINAL INSTRUMENT) GENERAL SECRETARIAT, OAS (RATIFICATIONS)"
+      "quote": "DEPOSITORY: MINISTRY OF FOREIGN AFFAIRS OF URUGUAY (ORIGINAL INSTRUMENT) GENERAL SECRETARIAT, OAS (RATIFICATIONS)",
+      "window_sha256": "182722c0977e69e37ce780ccf9ec71165d4907bee7520820b3da76204e15f732"
     },
     "CCPA 第1798.140条(d)": {
       "from": "ccpa-archive",
@@ -152,7 +161,8 @@
       "name_en": "California Civil Code, section 1798.140(d) (Internet Archive copy of the State’s page)",
       "url": "https://web.archive.org/web/20261002012921/https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140",
       "lang": "en",
-      "quote": "(d) “Business” means: (1) A sole proprietorship, partnership, limited liability company, corporation, association, or other legal entity that is organized or operated for the profit or financial benefit of its shareholders or other owners,"
+      "quote": "(d) “Business” means: (1) A sole proprietorship, partnership, limited liability company, corporation, association, or other legal entity that is organized or operated for the profit or financial benefit of its shareholders or other owners,",
+      "window_sha256": "6c977aa36efd18d20792861b66178f966c9f5910353cb52d796050d1074bcea4"
     },
     "Vercel 利用規約 第8条": {
       "from": "vercel-terms-sections",
@@ -160,7 +170,8 @@
       "name_en": "Vercel, “Terms of Service”, section 8, “Acceptable Use”",
       "url": "https://vercel.com/legal/terms",
       "lang": "en",
-      "quote": "Your use of the Services (which include, for the purposes of this Section 8, participation in the Vercel Community or similar discussion forums, if applicable) must comply with Vercel’s Acceptable Use Policy, which is incorporated by reference."
+      "quote": "Your use of the Services (which include, for the purposes of this Section 8, participation in the Vercel Community or similar discussion forums, if applicable) must comply with Vercel’s Acceptable Use Policy, which is incorporated by reference.",
+      "window_sha256": "52df5d53b913eb424127b6c00a709dd1f5d3c3a179234e573f1fd64cabb45af7"
     },
     "Vercel 利用規約 第10.1条": {
       "from": "vercel-terms-sections",
@@ -168,7 +179,8 @@
       "name_en": "Vercel, “Terms of Service”, section 10.1, “General”",
       "url": "https://vercel.com/legal/terms",
       "lang": "en",
-      "quote": "You shall configure Your Content, including any of your projects or deployments, such that the transmission, storage, or use in any way will not expose personal data or personal information without proper consent from individuals as determined by applicable law."
+      "quote": "You shall configure Your Content, including any of your projects or deployments, such that the transmission, storage, or use in any way will not expose personal data or personal information without proper consent from individuals as determined by applicable law.",
+      "window_sha256": "9a627d2112b597e7708beef8ae20cfd78cd0569c67db2866bd96a5e62e18e5dc"
     },
     "Vercel 許容される利用の方針（なりすまし）": {
       "from": "vercel-aup",
@@ -176,7 +188,8 @@
       "name_en": "Vercel, “Acceptable Use Policy”, section 2",
       "url": "https://vercel.com/legal/acceptable-use-policy",
       "lang": "en",
-      "quote": "Impersonation, phishing, or misrepresenting authorization to act on behalf of others or Vercel;"
+      "quote": "Impersonation, phishing, or misrepresenting authorization to act on behalf of others or Vercel;",
+      "window_sha256": "17a842db816b7a29abacadababf2e4a62c2dd26ab292ed3ac130ceb858352479"
     },
     "Vercel 許容される利用の方針（好ましくない目的）": {
       "from": "vercel-aup",
@@ -184,7 +197,8 @@
       "name_en": "Vercel, “Acceptable Use Policy”, section 2",
       "url": "https://vercel.com/legal/acceptable-use-policy",
       "lang": "en",
-      "quote": "Further, customers on a non-Enterprise subscription may not: Use a service for an objectionable purpose."
+      "quote": "Further, customers on a non-Enterprise subscription may not: Use a service for an objectionable purpose.",
+      "window_sha256": "2870575bd1268cf7a3081eaa389dc03e5dafea4ae0a4006ef1b1e20d5dfea65a"
     },
     "個人情報保護委員会 Q&A Q1-62": {
       "from": "ppc-qa",
@@ -192,7 +206,8 @@
       "name_en": "Personal Information Protection Commission, Q&A on the Guidelines, answer to Q1-62",
       "url": "https://www.ppc.go.jp/personalinfo/faq/APPI_QA/",
       "lang": "ja",
-      "quote": "Ａ１－62 法定代理人等から同意を得る必要がある子どもの具体的な年齢は、対象となる個人情報の項目や事業の性質等によって、個別具体的に判断されるべきですが、一般的には12歳から15歳までの年齢以下の子どもについて、法定代理人等から同意を得る必要があると考えられます。"
+      "quote": "Ａ１－62 法定代理人等から同意を得る必要がある子どもの具体的な年齢は、対象となる個人情報の項目や事業の性質等によって、個別具体的に判断されるべきですが、一般的には12歳から15歳までの年齢以下の子どもについて、法定代理人等から同意を得る必要があると考えられます。",
+      "window_sha256": "99eb198e1f7a74636d6e75efb8eb060d38948e88f6c6d0becbd7c3f679fcaf1c"
     },
     "個人情報保護委員会 Q&A Q12-3": {
       "from": "ppc-qa",
@@ -200,7 +215,8 @@
       "name_en": "The same Q&A, answer to Q12-3",
       "url": "https://www.ppc.go.jp/personalinfo/faq/APPI_QA/",
       "lang": "ja",
-      "quote": "Ａ12－３ 個人情報取扱事業者自らが外国に設置し、自ら管理・運営するサーバに個人データを保存することは、外国にある第三者への提供（法第28条第１項）に該当しません。 また、個人情報取扱事業者が、外国にある事業者が外国に設置し、管理・運営するサーバに個人データを保存する場合であっても、当該サーバを運営する当該外国にある事業者が、当該サーバに保存された個人データを取り扱わないこととなっている場合には、外国にある第三者への提供（法第28条第１項）に該当しません。"
+      "quote": "Ａ12－３ 個人情報取扱事業者自らが外国に設置し、自ら管理・運営するサーバに個人データを保存することは、外国にある第三者への提供（法第28条第１項）に該当しません。 また、個人情報取扱事業者が、外国にある事業者が外国に設置し、管理・運営するサーバに個人データを保存する場合であっても、当該サーバを運営する当該外国にある事業者が、当該サーバに保存された個人データを取り扱わないこととなっている場合には、外国にある第三者への提供（法第28条第１項）に該当しません。",
+      "window_sha256": "7cc32ddc4282dc75650a85967f8738342ba85b3f330cf38b4e102c01d6a819f0"
     },
     "個人情報保護委員会 Q&A Q12-10": {
       "from": "ppc-qa",
@@ -208,7 +224,8 @@
       "name_en": "The same Q&A, answer to Q12-10",
       "url": "https://www.ppc.go.jp/personalinfo/faq/APPI_QA/",
       "lang": "ja",
-      "quote": "Ａ12－10 個別の事案ごとに判断されますが、例えば、施行規則第17条第２項から第４項までの規定により求められる情報が掲載されたWebページが存在する場合に、当該WebページのURLを自社のホームページに掲載し、当該URLに掲載された情報を本人に閲覧させる方法も、施行規則第17条第１項における「適切な方法」に該当すると考えられます。 ただし、この場合であっても、例えば、当該URLを本人にとって分かりやすい場所に掲載した上で、同意の可否の判断の前提として、本人に対して当該情報の確認を明示的に求めるなど、本人が当該URLに掲載された情報を閲覧すると合理的に考えられる形で、情報提供を行う必要があると考えられます。"
+      "quote": "Ａ12－10 個別の事案ごとに判断されますが、例えば、施行規則第17条第２項から第４項までの規定により求められる情報が掲載されたWebページが存在する場合に、当該WebページのURLを自社のホームページに掲載し、当該URLに掲載された情報を本人に閲覧させる方法も、施行規則第17条第１項における「適切な方法」に該当すると考えられます。 ただし、この場合であっても、例えば、当該URLを本人にとって分かりやすい場所に掲載した上で、同意の可否の判断の前提として、本人に対して当該情報の確認を明示的に求めるなど、本人が当該URLに掲載された情報を閲覧すると合理的に考えられる形で、情報提供を行う必要があると考えられます。",
+      "window_sha256": "c1984d1abf5a31041c61b790d4297c6c01564d70f5a35d93b9e28383ac7ab4f7"
     },
     "個人情報保護委員会 Q&A Q13-2": {
       "from": "ppc-qa",
@@ -216,7 +233,8 @@
       "name_en": "The same Q&A, answer to Q13-2",
       "url": "https://www.ppc.go.jp/personalinfo/faq/APPI_QA/",
       "lang": "ja",
-      "quote": "Ａ13－２ 外国にある第三者に個人データを提供する場合でも、原則として、法第29条に基づく記録義務は適用されます。"
+      "quote": "Ａ13－２ 外国にある第三者に個人データを提供する場合でも、原則として、法第29条に基づく記録義務は適用されます。",
+      "window_sha256": "f03c83e48ab60814dd8f117cfcb0b53f2c56e0e1c4b9c8b8d741d00e5d30943a"
     },
     "個人情報保護委員会 ガイドライン 通則編 2-5": {
       "from": "ppc-guideline-general",
@@ -224,7 +242,8 @@
       "name_en": "Personal Information Protection Commission, Guidelines (General Rules), 2-5",
       "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/",
       "lang": "ja",
-      "quote": "ここでいう「事業の用に供している」の「事業」とは、一定の目的をもって反復継続して遂行される同種の行為であって、かつ社会通念上事業と認められるものをいい、営利・非営利の別は問わない。 また、個人情報データベース等を事業の用に供している者であれば、当該個人情報データベース等を構成する個人情報によって識別される特定の個人の数の多寡にかかわらず、個人情報取扱事業者に該当する。"
+      "quote": "ここでいう「事業の用に供している」の「事業」とは、一定の目的をもって反復継続して遂行される同種の行為であって、かつ社会通念上事業と認められるものをいい、営利・非営利の別は問わない。 また、個人情報データベース等を事業の用に供している者であれば、当該個人情報データベース等を構成する個人情報によって識別される特定の個人の数の多寡にかかわらず、個人情報取扱事業者に該当する。",
+      "window_sha256": "35a095813618cb96021e0278fe438a620ea658770ce27f28d8da734c165794e2"
     },
     "個人情報保護委員会 ガイドライン 外国第三者提供編 5-1": {
       "from": "ppc-guideline-offshore",
@@ -232,7 +251,8 @@
       "name_en": "The same Guidelines (Provision to Third Parties in Foreign Countries), 5-1",
       "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/",
       "lang": "ja",
-      "quote": "本人に対する情報提供は、規則第17条第2項から第4項までの規定により求められる情報を本人が確実に認識できると考えられる適切な方法で行わなければならない。なお、提供する情報は本人にとって分かりやすいものであることが重要である。 【適切な方法に該当する事例】 事例1）必要な情報を電子メールにより本人に送付する方法 事例2）必要な情報を記載した書面を本人に直接交付する方法 事例3）必要な情報を本人に口頭で説明する方法 事例4）必要な情報をホームページに掲載し、本人に閲覧させる方法"
+      "quote": "本人に対する情報提供は、規則第17条第2項から第4項までの規定により求められる情報を本人が確実に認識できると考えられる適切な方法で行わなければならない。なお、提供する情報は本人にとって分かりやすいものであることが重要である。 【適切な方法に該当する事例】 事例1）必要な情報を電子メールにより本人に送付する方法 事例2）必要な情報を記載した書面を本人に直接交付する方法 事例3）必要な情報を本人に口頭で説明する方法 事例4）必要な情報をホームページに掲載し、本人に閲覧させる方法",
+      "window_sha256": "36534a7c0763726d4cc04504d19e27a9b167e74a342c5bbcb3d2e5188aa58bad"
     },
     "個人情報保護委員会 ガイドライン 外国第三者提供編 5-2": {
       "from": "ppc-guideline-offshore",
@@ -240,7 +260,8 @@
       "name_en": "The same Guidelines (Provision to Third Parties in Foreign Countries), 5-2 (2) ② (b)",
       "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/",
       "lang": "ja",
-      "quote": "提供先の第三者が所在する外国の個人情報の保護に関する制度について、個人情報の保護の水準等に関する客観的な指標となり得る情報が存在する場合、当該指標となる情報が提供されることにより、個人データの越境移転に伴うリスクについての本人の予測可能性は一定程度担保されると考えられる。したがって、この場合には、当該指標となり得る情報を提供すれば足り、次の（ウ）に係る情報の提供は求められない。"
+      "quote": "提供先の第三者が所在する外国の個人情報の保護に関する制度について、個人情報の保護の水準等に関する客観的な指標となり得る情報が存在する場合、当該指標となる情報が提供されることにより、個人データの越境移転に伴うリスクについての本人の予測可能性は一定程度担保されると考えられる。したがって、この場合には、当該指標となり得る情報を提供すれば足り、次の（ウ）に係る情報の提供は求められない。",
+      "window_sha256": "36534a7c0763726d4cc04504d19e27a9b167e74a342c5bbcb3d2e5188aa58bad"
     },
     "個人情報保護委員会 ガイドライン 外国第三者提供編 5-3-2": {
       "from": "ppc-guideline-offshore",
@@ -248,7 +269,8 @@
       "name_en": "The same Guidelines (Provision to Third Parties in Foreign Countries), 5-3-2",
       "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/",
       "lang": "ja",
-      "quote": "個人情報取扱事業者は、法第28条第1項の規定により外国にある第三者への個人データの提供を認める旨の本人の同意を取得しようとする時点において、提供先の外国にある第三者が講ずる個人情報の保護のための措置に関する情報の提供ができない場合には、当該情報に代えて、当該情報を提供できない旨及びその理由について情報提供しなければならない。"
+      "quote": "個人情報取扱事業者は、法第28条第1項の規定により外国にある第三者への個人データの提供を認める旨の本人の同意を取得しようとする時点において、提供先の外国にある第三者が講ずる個人情報の保護のための措置に関する情報の提供ができない場合には、当該情報に代えて、当該情報を提供できない旨及びその理由について情報提供しなければならない。",
+      "window_sha256": "a0bf0706e9ac34911684e323f5aba7dd52dd71741ece98144f26fd860e590362"
     },
     "個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-1": {
       "from": "ppc-guideline-records",
@@ -256,7 +278,8 @@
       "name_en": "The same Guidelines (Confirmation and Record-Keeping), 2-2-1-1 (1)",
       "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_thirdparty/",
       "lang": "ja",
-      "quote": "（1）本人による提供 事業者が運営するSNS等に本人が入力した内容が、自動的に個人データとして不特定多数の第三者が取得できる状態に置かれている場合は、実質的に「本人による提供」をしているものである。"
+      "quote": "（1）本人による提供 事業者が運営するSNS等に本人が入力した内容が、自動的に個人データとして不特定多数の第三者が取得できる状態に置かれている場合は、実質的に「本人による提供」をしているものである。",
+      "window_sha256": "9ba64c95744b879fef2d3f11b03d52768080fb8ad47bddb9ddcaa0f9402bda20"
     },
     "個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-3": {
       "from": "ppc-guideline-records",
@@ -264,7 +287,8 @@
       "name_en": "The same Guidelines (Confirmation and Record-Keeping), 2-2-1-3",
       "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_thirdparty/",
       "lang": "ja",
-      "quote": "なお、当初に、個人データを公開に供する行為については、提供者として記録を作成しなければならない（規則第20条第1項第1号ロ括弧書き）。"
+      "quote": "なお、当初に、個人データを公開に供する行為については、提供者として記録を作成しなければならない（規則第20条第1項第1号ロ括弧書き）。",
+      "window_sha256": "9ba64c95744b879fef2d3f11b03d52768080fb8ad47bddb9ddcaa0f9402bda20"
     },
     "個人情報保護委員会 ガイドライン 確認記録義務編 4-2-1-2": {
       "from": "ppc-guideline-records",
@@ -272,7 +296,8 @@
       "name_en": "The same Guidelines (Confirmation and Record-Keeping), 4-2-1-2 (1)",
       "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_thirdparty/",
       "lang": "ja",
-      "quote": "例えば、個人情報取扱事業者のシステムの設定により、本人の同意を得た場合のみ第三者提供が実施されることとなっている場合には、それをもって同意の存在を示す証跡があるものとすることができる。"
+      "quote": "例えば、個人情報取扱事業者のシステムの設定により、本人の同意を得た場合のみ第三者提供が実施されることとなっている場合には、それをもって同意の存在を示す証跡があるものとすることができる。",
+      "window_sha256": "4e5d97a34fee6a64a881eab2ed87d813e11a016a32b6cdd7c72f25091a7d0d69"
     },
     "個人情報保護委員会 外国制度 米国（指標）": {
       "from": "ppc-us",
@@ -280,7 +305,8 @@
       "name_en": "Personal Information Protection Commission, “Foreign systems (United States)”, federal",
       "url": "https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/",
       "lang": "ja",
-      "quote": "EU の十分性認定 ※2 ：なし APEC の CBPR システム ※3 ：2012 年 7 月 25 日参加"
+      "quote": "EU の十分性認定 ※2 ：なし APEC の CBPR システム ※3 ：2012 年 7 月 25 日参加",
+      "window_sha256": "41e774a64edac3a0537f151f961a95bed76058f28221cc402cbce89f521d7f35"
     },
     "個人情報保護委員会 外国制度 米国（政府の情報収集）": {
       "from": "ppc-us",
@@ -288,7 +314,8 @@
       "name_en": "Personal Information Protection Commission, “Foreign systems (United States)”, federal",
       "url": "https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/",
       "lang": "ja",
-      "quote": "事業者に対し政府の情報収集活動への協力義務を課す制度であって、本人の権利利益に重大な影響を及ぼす可能性のあるもの －"
+      "quote": "事業者に対し政府の情報収集活動への協力義務を課す制度であって、本人の権利利益に重大な影響を及ぼす可能性のあるもの －",
+      "window_sha256": "41e774a64edac3a0537f151f961a95bed76058f28221cc402cbce89f521d7f35"
     },
     "個人情報保護委員会 外国制度 米国（時点）": {
       "from": "ppc-us",
@@ -296,7 +323,8 @@
       "name_en": "Personal Information Protection Commission, “Foreign systems (United States)”, federal, notes",
       "url": "https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/",
       "lang": "ja",
-      "quote": "当委員会が提供する上記参考情報は、当委員会が行った「外国における個人情報の保護に関する制度等の調査」の結果に基づくものであり、あくまで当該調査を実施した 2021 年 10 月の時点における情報に基づくものである。"
+      "quote": "当委員会が提供する上記参考情報は、当委員会が行った「外国における個人情報の保護に関する制度等の調査」の結果に基づくものであり、あくまで当該調査を実施した 2021 年 10 月の時点における情報に基づくものである。",
+      "window_sha256": "41e774a64edac3a0537f151f961a95bed76058f28221cc402cbce89f521d7f35"
     },
     "総務省 電気通信事業参入マニュアル（事業）": {
       "from": "soumu-entry-manual",
@@ -304,7 +332,8 @@
       "name_en": "Ministry of Internal Affairs and Communications, Telecommunications Business Entry Manual (Supplement), revised 30 January 2023, “business”",
       "url": "https://www.soumu.go.jp/main_content/000477428.pdf",
       "lang": "ja",
-      "quote": "「事業」性の判断要素として、提供者にサービスを提供するという積極的意思（これは、提供条件の公示等客観的に判断されるものである。）があることは必要であり、営利目的があることは、事業性があることの判断要素にはなり得るが、営利性がないからといってそれが「事業」性がないことの根拠にはならない。"
+      "quote": "「事業」性の判断要素として、提供者にサービスを提供するという積極的意思（これは、提供条件の公示等客観的に判断されるものである。）があることは必要であり、営利目的があることは、事業性があることの判断要素にはなり得るが、営利性がないからといってそれが「事業」性がないことの根拠にはならない。",
+      "window_sha256": "2921f4bb76f5aec52d51428d55a40aab8b4834d6d11fa2d6532d776c8f2c3293"
     },
     "総務省 電気通信事業参入マニュアル（Webサイト）": {
       "from": "soumu-entry-manual",
@@ -312,7 +341,8 @@
       "name_en": "The same manual, example of a website by an individual or a company",
       "url": "https://www.soumu.go.jp/main_content/000477428.pdf",
       "lang": "ja",
-      "quote": "個人や企業等が、電気通信設備（サーバ等）を用いて Webサイトを開設し、インターネット経由で自らの情報のみを発信し、専ら自らの情報の提供を目的とするものをいう。「他人の通信」の概念には、自己と他人との間の通信を含むことから、自己の電気通信設備をWebサイト閲覧者（他人）との通信に使用することは、当該設備を通信相手たる他人の通信の用に供していることとなり、電気通信役務に該当するものの、専ら自らの情報を発信する手段として電気通信役務を提供することは、自己の需要に応ずるものであり、他人の需要に応ずるものではないことから、電気通信事業に該当しないと判断される。"
+      "quote": "個人や企業等が、電気通信設備（サーバ等）を用いて Webサイトを開設し、インターネット経由で自らの情報のみを発信し、専ら自らの情報の提供を目的とするものをいう。「他人の通信」の概念には、自己と他人との間の通信を含むことから、自己の電気通信設備をWebサイト閲覧者（他人）との通信に使用することは、当該設備を通信相手たる他人の通信の用に供していることとなり、電気通信役務に該当するものの、専ら自らの情報を発信する手段として電気通信役務を提供することは、自己の需要に応ずるものであり、他人の需要に応ずるものではないことから、電気通信事業に該当しないと判断される。",
+      "window_sha256": "4dbe07ce3abd2d3527302fd7428382a37d3481dda223c3bb341068c8417ccb6b"
     },
     "総務省 電気通信事業参入マニュアル（問合せの受付）": {
       "from": "soumu-entry-manual",
@@ -320,7 +350,8 @@
       "name_en": "The same manual, example of a mail form or chatbot",
       "url": "https://www.soumu.go.jp/main_content/000477428.pdf",
       "lang": "ja",
-      "quote": "顧客や住民等からの問合せ等を受け付けるに当たって電気通信役務を提供することは、自己の需要に応ずるものであって、他人の需要に応ずるものではないことから、このサービスは、電気通信事業に該当しないと判断される。"
+      "quote": "顧客や住民等からの問合せ等を受け付けるに当たって電気通信役務を提供することは、自己の需要に応ずるものであって、他人の需要に応ずるものではないことから、このサービスは、電気通信事業に該当しないと判断される。",
+      "window_sha256": "4dbe07ce3abd2d3527302fd7428382a37d3481dda223c3bb341068c8417ccb6b"
     },
     "総務省 電気通信事業参入マニュアル（電子掲示板）": {
       "from": "soumu-entry-manual",
@@ -328,7 +359,8 @@
       "name_en": "The same manual, example of an electronic bulletin board",
       "url": "https://www.soumu.go.jp/main_content/000477428.pdf",
       "lang": "ja",
-      "quote": "電子掲示板 インターネット経由で不特定多数の利用者が文字情報等を交換することができる「場」を提供するものをいう。このサービスは、他人の通信を媒介していないことから、サービス提供者が電気通信回線設備を設置していない場合には、登録及び届出が不要な電気通信事業と判断される。"
+      "quote": "電子掲示板 インターネット経由で不特定多数の利用者が文字情報等を交換することができる「場」を提供するものをいう。このサービスは、他人の通信を媒介していないことから、サービス提供者が電気通信回線設備を設置していない場合には、登録及び届出が不要な電気通信事業と判断される。",
+      "window_sha256": "4dbe07ce3abd2d3527302fd7428382a37d3481dda223c3bb341068c8417ccb6b"
     },
     "総務省 外部送信規律 FAQ 問1-8": {
       "from": "soumu-gaibu-faq",
@@ -336,7 +368,8 @@
       "name_en": "Ministry of Internal Affairs and Communications, FAQ on the external transmission rules, answer to 1-8",
       "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu_00002.html",
       "lang": "ja",
-      "quote": "答 ：電気通信事業者又は第三号事業を営む者（いずれも電気通信事業を営む者）で、「利用者の利益に及ぼす影響が少なくない電気通信役務」を提供している電気通信事業者です。「利用者の利益に及ぼす影響が少なくない電気通信役務」については、「1-9」に記載しているとおりです。 なお、「電気通信事業（電気通信事業法（以下「法」という。）第2条第4号）」を営んでいない場合は、法の適用を受けないので、仮に情報の外部送信が行われていたとしても、外部送信規律の対象にはなりません。"
+      "quote": "答 ：電気通信事業者又は第三号事業を営む者（いずれも電気通信事業を営む者）で、「利用者の利益に及ぼす影響が少なくない電気通信役務」を提供している電気通信事業者です。「利用者の利益に及ぼす影響が少なくない電気通信役務」については、「1-9」に記載しているとおりです。 なお、「電気通信事業（電気通信事業法（以下「法」という。）第2条第4号）」を営んでいない場合は、法の適用を受けないので、仮に情報の外部送信が行われていたとしても、外部送信規律の対象にはなりません。",
+      "window_sha256": "94a48fe488c663d1152b7d54a11463c379a938ec43cd84fd4ce34d08e5094c4a"
     }
   }
 }
