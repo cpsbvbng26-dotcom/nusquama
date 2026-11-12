@@ -69,6 +69,11 @@ const SOURCES = [
   /* PDFs, read by tools/pdftext.js. */
   { key: 'caa-annotation-2', url: 'https://www.caa.go.jp/policies/policy/consumer_system/consumer_contract_act/annotations/assets/consumer_system_cms203_230915_04.pdf', pdf: true, needles: ['「事業」とは'] },
   { key: 'soumu-entry-manual', url: 'https://www.soumu.go.jp/main_content/000477428.pdf', pdf: true, needles: ['営利目的があることは、事業性があることの判断要素', '個人や企業によるWebサイトの開設', '電子掲示板 インターネット経由で不特定多数'] },
+  /* 2026-11-13 (the eighth pass): the GitHub Terms of Service and the GitHub Terms for Additional Products and Features, at the
+   * commit the weekly watch recorded (verification/statutes.json). Section I of the first incorporates the second, whose
+   * section on Actions limits what the workflows may be used for. GitHub's site-policy repository is under CC0 1.0. */
+  { key: 'github-terms', url: 'https://raw.githubusercontent.com/github/site-policy/' + JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'statutes.json'), 'utf8')).policies.find((p) => p.path === 'Policies/github-terms/github-terms-of-service.md').commit + '/Policies/github-terms/github-terms-of-service.md', needles: ['## I. GitHub Additional Product Terms'] },
+  { key: 'github-additional-terms', url: 'https://raw.githubusercontent.com/github/site-policy/' + JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'statutes.json'), 'utf8')).policies.find((p) => p.path === 'Policies/github-terms/github-terms-for-additional-products-and-features.md').commit + '/Policies/github-terms/github-terms-for-additional-products-and-features.md', needles: ['## Actions'] },
 ];
 
 const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
