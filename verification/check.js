@@ -1390,6 +1390,26 @@ console.log('\n55. 規程の分かりにくい文の言い直し（王の正誤�
     && read('policies/requests.md').includes('様式の種類で「非公開の連絡を求める」を選び') && read('.github/ISSUE_TEMPLATE/request.yml').includes('        - 非公開の連絡を求める\n'));
 }
 
+console.log('\n56. 休止の告知（下書き。いまは掲げていない）');
+{
+  const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
+  const part = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = t.indexOf('\n## ', i + 5); return t.slice(i + 1, j < 0 ? undefined : j); };
+  const quote = (t) => t.split('\n').filter((l) => l.startsWith('> ')).map((l) => l.slice(2));
+  const nj = quote(part(ij, '休止の告知')), ne = quote(part(ie, 'Notice of suspension'));
+  const fj = part(ij, '凍結'), fe = part(ie, 'Freezing');
+  /* 告知の文は、凍結の箇条（願い出を受けない・そのまま公開に残す・求めにはできる限り応える）を、そのまま言い換えたものに限る。 */
+  ok('休止の告知の下書きは、日本語と英語で同じ行の数（' + nj.length + '）を持ち、日付を空けておき、凍結の箇条と同じことだけを告げ、創作だと断る',
+    nj.length === 6 && ne.length === nj.length && nj[0].includes('（日付）から休止しています（国の仕組み「凍結」）') && ne[0].includes('suspended since (date) (Institutions, "Freezing")')
+    && fj.includes('- 叙任の願い出を受けません。') && nj.includes('叙任の願い出は、受けていません。')
+    && fj.includes('- 名簿・正誤表・規程は、そのときのまま公開に残します。') && nj.includes('騎士の名簿・王の正誤表・規程は、休止したときのまま公開しています。')
+    && fj.includes('- 削除・訂正・辞退の求めには、できる限り応えます。') && nj.some((l) => l.startsWith('削除・訂正・辞退の求めは、') && l.endsWith('できる限り応えます。') && l.includes('?template=request.yml'))
+    && nj[nj.length - 1] === 'これは創作であり、遊びです。' && ne[ne.length - 1] === 'This is a work of fiction, written for fun.'
+    && fj.includes('そのとき、下の「休止の告知」も添えます。') && fe.includes('The "Notice of suspension" below is put up with them.'));
+  const live = B.SOURCES.filter(([src]) => !/^INSTITUTIONS(\.en)?\.md$/.test(src) && /から休止しています|has been suspended since/.test(read(src))).map(([src]) => src)
+    .concat(['site/index.html', 'site/founding.en.html', 'site/llms.txt'].filter((f) => /から休止しています|has been suspended since/.test(read(f))));
+  ok('休止の告知は下書きのままで、トップの頁にも、ほかのどの頁にも掲げていない（国の仕組みの頁だけにある）', live.length === 0, live.join(', '));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
