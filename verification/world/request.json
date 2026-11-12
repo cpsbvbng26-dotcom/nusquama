@@ -1,4 +1,10 @@
 {
   "_": "枝でこのファイルを書き換えると、world.yml が batch の組を取り寄せる。手で動かすときは、ワークフローの入力 batch が先に立つ。",
-  "batch": "shared"
+  "batch": "probe",
+  "probe": [
+    "https://www.constituteproject.org/service/html?cons_id=Algeria_2020&lang=en",
+    "https://www.constituteproject.org/service/html?cons_id=Liechtenstein_2020&lang=en",
+    "https://www.constituteproject.org/service/html?cons_id=Tunisia_2022&lang=en",
+    "https://www.irishstatutebook.ie/eli/2009/act/31/enacted/en/print.html"
+  ]
 }
