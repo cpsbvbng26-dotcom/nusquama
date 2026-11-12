@@ -110,7 +110,8 @@
 2. その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
 3. 王が訂正を確かめ、[正誤表騎士団の名簿](KNIGHTS.md)に名を加える。
 
-2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。国籍は問いません。
+2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。
+2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
 ただし、訂正へのリンクの先から、身元が分かることがあります。
 叙任は創作の中のことで、法的な効力も、現実の栄誉もありません。
@@ -144,6 +145,7 @@
 | 2026-11-12（日本時間） | 国の仕組みに、凍結して休むときに終わりの言葉に添えて掲げる、休止の告知の下書きを置く | A draft notice of suspension, to be put up beside the closing words when the kingdom is frozen, is added to the Institutions |
 | 2026-11-12（日本時間） | 叙任の規程に、叙任したときに願い出の issue へ名簿の行へのリンクを添えて答え、issue を完了として閉じることを書き足し、名簿の記し方に、行を叙任を決めた日のうちに足すことを書く | The Rules on Knighting say that, on knighting, the application issue is answered with a link to the row of the roll and closed as completed, and "How entries are recorded" on the roll says that the row is added on the day the knighting is decided |
 | 2026-11-12（日本時間） | 適法性の説明を条ごとに点検し直し、言い切りすぎた結論と、事業と著作物の写しについての文を改め、電気通信事業と定型約款の節と、各節の点検で足したことを書き足し、点検の記録を置く。個人情報の取り扱いに、名簿に載せることの記録と、第三者から個人データを受け取らないことを書き足す | The Legality Statement is reviewed again article by article: the overstated conclusion and the sentences on business and on copying others' works are corrected, sections on the telecommunications business and on standard terms and the additions of the review are written, and a record of the review is kept. The Privacy page adds how listing on the roll is recorded and that no personal data is received from third parties |
+| 2026-11-12（日本時間） | 叙任の規程・利用規約・適法性の説明・願い出の様式に、2026-11-22 からイタリアの国籍を持つ人の願い出を受けないことと、叙任は称号を遊びとして扱う良識ある人を前提とすることを書き、利用規約で予告する | The Rules on Knighting, the Terms of Use, the Legality Statement and the application form state that, from 2026-11-22, applications from people who hold Italian nationality are not accepted and knighting presumes a person of good sense who treats the title as play; the Terms of Use give notice of both |
 
 ---
 

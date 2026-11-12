@@ -120,7 +120,8 @@ Source: https://nusquama.vercel.app/
 2. その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
 3. 王が訂正を確かめ、[正誤表騎士団の名簿](KNIGHTS.md)に名を加える。
 
-2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。国籍は問いません。
+2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。
+2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
 ただし、訂正へのリンクの先から、身元が分かることがあります。
 叙任は創作の中のことで、法的な効力も、現実の栄誉もありません。
@@ -154,6 +155,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-12（日本時間） | 国の仕組みに、凍結して休むときに終わりの言葉に添えて掲げる、休止の告知の下書きを置く | A draft notice of suspension, to be put up beside the closing words when the kingdom is frozen, is added to the Institutions |
 | 2026-11-12（日本時間） | 叙任の規程に、叙任したときに願い出の issue へ名簿の行へのリンクを添えて答え、issue を完了として閉じることを書き足し、名簿の記し方に、行を叙任を決めた日のうちに足すことを書く | The Rules on Knighting say that, on knighting, the application issue is answered with a link to the row of the roll and closed as completed, and "How entries are recorded" on the roll says that the row is added on the day the knighting is decided |
 | 2026-11-12（日本時間） | 適法性の説明を条ごとに点検し直し、言い切りすぎた結論と、事業と著作物の写しについての文を改め、電気通信事業と定型約款の節と、各節の点検で足したことを書き足し、点検の記録を置く。個人情報の取り扱いに、名簿に載せることの記録と、第三者から個人データを受け取らないことを書き足す | The Legality Statement is reviewed again article by article: the overstated conclusion and the sentences on business and on copying others' works are corrected, sections on the telecommunications business and on standard terms and the additions of the review are written, and a record of the review is kept. The Privacy page adds how listing on the roll is recorded and that no personal data is received from third parties |
+| 2026-11-12（日本時間） | 叙任の規程・利用規約・適法性の説明・願い出の様式に、2026-11-22 からイタリアの国籍を持つ人の願い出を受けないことと、叙任は称号を遊びとして扱う良識ある人を前提とすることを書き、利用規約で予告する | The Rules on Knighting, the Terms of Use, the Legality Statement and the application form state that, from 2026-11-22, applications from people who hold Italian nationality are not accepted and knighting presumes a person of good sense who treats the title as play; the Terms of Use give notice of both |
 
 ---
 
@@ -271,6 +273,7 @@ Source: https://nusquama.vercel.app/errata.html
 | 17 | 2026-11-12 | 適法性の説明「取引に関わる法令」 | 何も売らず、広告を出さず、事業を営まない。 | 消費者契約法第2条第2項の「事業者」は、事業として、または事業のために契約の当事者となる個人を含み、条文は事業に営利が要るとは書いていない。「事業を営まない」は、条文が支えない言い切りだった。「営利の事業を営まない」と改め、同法が適用される場合の扱いを条ごとに書き足した。 | 消費者契約法第2条（e-Gov 法令 API で取り寄せた条文） | 法 | Insula Legis IV |
 | 18 | 2026-11-12 | 適法性の説明「著作権」 | 他人の著作物を写していない。／当てはまらない理由：他人の著作物を複製していない。 | 同じ頁の「条文」と「原文」の欄は、条約・法令・規約・説明の文を引いている。他人の著作物を写していないとは言えなかった。引用のほかは写していないと改め、引用を著作権法第32条と照らす文を書き足した。 | 著作権法第32条・第48条（e-Gov 法令 API で取り寄せた条文）と verification/sources.json | 事実 | Insula Facti III |
 | 19 | 2026-11-12 | 適法性の説明「結論」 | 違法となるおそれは、きわめて小さいと考えます。 | 分析が支える以上に強い言い方だった。2026-11-12 の点検で、並べていなかった法令（電気通信事業法、情報流通プラットフォーム対処法、定型約款、引用など）と、解釈の分かれる要件（消費者契約法の「事業」など）が見つかった。おそれの大きさを言い切らない文に改めた。 | 法令の点検の記録（docs/legal-audit-2026-11-12.md） | 法 | Insula Legis V |
+| 20 | 2026-11-12 | 叙任の規程「願い出ることができる人」「運営者が確かめること」「確かめないこと」「断ること」、利用規約「してはいけないこと」「変更と終了」、適法性の説明「前提となる事実」「称号の詐称と標章の使用」「日本の外の法令」「規程の外で、要件に近づく行い」、叙任の願い出の様式 | 国籍は問いません。（叙任の規程、利用規約の予告、様式の日本にいる印）／国籍は問わない。（適法性の説明）／訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、16 歳未満であることが、はっきり書かれていないこと。（叙任の規程「運営者が確かめること」）／年齢・住んでいる国・願い出のときにいる国は、様式の誓いへの印による本人の申告で受けます。（叙任の規程「確かめないこと」。適法性の説明「前提となる事実」も同じ並び）／願い出の条件（年齢・住んでいる国・願い出のときにいる国）（叙任の規程「断ること」）／例として、年齢、住んでいる国、訂正が自分の誤りであることがあります。／ヌスクァマが願い出を受けないとする国に住む人を受けたことにはなりません。（利用規約「してはいけないこと」）／住んでいる国は本人の申告で受け、確かめない（叙任の規程「確かめないこと」）。／住む国で願い出を限っても／イタリアの刑法が、国外で外国人がした行いをどこまで罰するかは、刑法の条文を取り寄せられず、確かめていない。／この限定によって、日本の外の法令が及ぶおそれがなくなるわけではない。／限定は、そうした国の人を受けることを減らすためのもので、及ぶおそれを断つものではない。／訂正のリンク先に日本の外に住むことや、願い出のときに日本の外にいること、16 歳未満であることがはっきり書かれていれば／日本の外に住みながら、住む国を偽って願い出る（適法性の説明「日本の外の法令」と表） | 誤りではなく、範囲を改めた。2026-11-22 から、イタリアの国籍を持つ人（ほかの国籍と重ねて持つ人を含む）の願い出を受けない。2026-11-12 に利用者が決めました。イタリアの国民が日本のミクロネーションの騎士になることは、常識に照らしてそもそも場違いだからです。あわせて、イタリアの 1951 年法律第 178 号第 8 条は使う者も罰し、国外での授与にも及ぶので、称号を受けて使ったイタリアの国民が、同条がヌスクァマに届くいちばん現実の道だからです。この限りで及ぶおそれは減るが、なくならない。同じく 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とする（叙任の規程「良識の前提」）。2026-11-12 に利用者が決めました。前提は、利用規約がすでに定める称号の使い方の決まりを守ることを指し、当たらないことがはっきり分かれば叙任せず、叙任の後なら「辞退と取り消し」の定めで取り消すためです。様式には、イタリアの国籍を持たない印と、この前提の印を足し、自動の確認がその日から見る。効力の日は 2026-11-22 とした。2026-11-12 に Claude が決めました。利用規約は不利な変更を効力の前に示すと定めるだけで期間を定めておらず、先に予告した日本に住む人への限定と同じ日にそろえるためです。取り消すときに issue に当たらなかった決まりだけを書くことも、2026-11-12 に Claude が決めました。断るときの一文と同じく、人を評さずに理由を示すためです。条件を挙げるほかの文は、国籍を足すか、条件を一つずつ挙げない形に改めた。適法性の説明は、頁の重さを 128 KiB に収めるため、重なる文を削った。 | verification/sources-raw.json（Normattiva から取り寄せたイタリア 1951 年法律第 178 号第 8 条の文）と、利用規約「変更と終了」。イタリアの刑法典第 10 条は取り寄せられず、確かめていない | 範囲 | Insula Finis IX |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -804,6 +807,7 @@ Source: https://nusquama.vercel.app/institutions.html
 - 土地・通貨・旅券・証書・物は作りません。
 - 位を増やしません。位は騎士の一つだけです。
 - 日本の外に住む人や、願い出のときに日本の外にいる人の願い出は、その国の法令を確かめるまで受けません。
+- イタリアの国籍を持つ人の願い出は受けません。
 
 続けるものもあります。
 
@@ -863,7 +867,7 @@ Source: https://nusquama.vercel.app/press.html
 
 ミクロネーションの wiki や集まりで、ヌスクァマを英語で紹介するときの文です。英語の頁に、この文の英語の版があります。最初の文で、創作であることを断ります。
 
-これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。
+これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。叙任は、称号を遊びとして扱う良識ある人であることを前提とします。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。
 
 ## 界隈の言い回しとの対応
 
@@ -999,7 +1003,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 
 # 利用規約
 
-最終更新：2026-11-09。
+最終更新：2026-11-12。
 
 ## この規約が及ぶ人
 
@@ -1050,11 +1054,11 @@ Source: https://nusquama.vercel.app/policies/terms.html
 - ヌスクァマの称号や国章を、実在の称号・叙勲・団体の記章であるかのように使うこと。
 - ヌスクァマの名で、金銭や物品を集めること。
 - サイトや様式を壊そうとすること。
-- 願い出の様式で、事実でないことに印を付けること。例として、年齢、住んでいる国、訂正が自分の誤りであることがあります。
+- 願い出の様式で、事実でないことに印を付けること。例として、年齢、住んでいる国、国籍、訂正が自分の誤りであることがあります。
 
 運営者は、これらに当たる願い出を断り、issue を閉じ、名簿から名を外すことがあります。
 印が事実でないと分かったときは、運営者は、知った時点で名簿から名を外します。2026-11-22 からは、同じ GitHub アカウントからのその後の願い出を断ることもあります。
-運営者は、印を信頼して受け、確かめません。事実でない印で叙任された人がいても、ヌスクァマが願い出を受けないとする国に住む人を受けたことにはなりません。
+運営者は、印を信頼して受け、確かめません。事実でない印で叙任された人がいても、ヌスクァマが願い出を受けないとする国に住む人や、受けないとする国籍を持つ人を受けたことにはなりません。
 印は、本人の求めで削除するまで、公開の issue に残るので、何にいつ印を付けたかを示せます。
 願い出た人に、違約金や、法令が定める以上の損害の賠償を求めることはありません。
 
@@ -1069,7 +1073,9 @@ Source: https://nusquama.vercel.app/policies/terms.html
 この規約とほかの規程は、変わることがあります。
 各頁の日付が最後の変更を示し、過去の版は公開のリポジトリに残ります。
 読む人や騎士に不利になる変更は、変える内容と効力の生じる日を、効力の生じる前にこの頁で示します。
-予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません（[叙任の規程](./knighting.md)「願い出ることができる人」）。
+予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人を除き、国籍は問いません（[叙任の規程](./knighting.md)「願い出ることができる人」）。
+予告：2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません（[叙任の規程](./knighting.md)「願い出ることができる人」）。
+予告：2026-11-22 から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし、様式でこの前提に印のない願い出は受けません（[叙任の規程](./knighting.md)「良識の前提」）。
 予告：2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります（「してはいけないこと」）。
 どの変更によっても、料金は生じません。
 ヌスクァマは、予告なく終わることがあります。終わる場合も、騎士の名簿は、本人から辞退の求めがない限り、リポジトリに残します。
@@ -1322,10 +1328,31 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 訂正は、論文の正誤表、ブログや記事の追記、コードの修正、発言の取り消しなど、公開されていて誰でも確かめられるものに限ります。
 16 歳未満の人は願い出ることができません。
 住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。例として、イタリアの 1951 年法律第 178 号第 8 条は、私人や団体が、名称を問わず騎士の称号などを授けることを禁じています。
-2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。国籍は問いません。
+2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人を除き、国籍は問いません。
 2026-11-22 から、日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。
 2026-11-22 から、日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。
+2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。理由は二つです。
+一つめに、イタリアの国民が日本のミクロネーションの騎士になることは、常識に照らして、そもそも場違いです。
+二つめに、イタリアの 1951 年法律第 178 号第 8 条は、称号を使う者も罰し、授けたのが国外であっても及ぶとしています。称号を受けて使ったイタリアの国民が、同条がヌスクァマに及ぶいちばん現実の道です。
+この限りで、同条が及ぶおそれは減りますが、なくなりはしません（[適法性の説明](./legality.md)「日本の外の法令」）。
 旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
+
+## 良識の前提
+
+2026-11-22 から、叙任は、願い出る人が、称号を遊びとして扱う良識ある人であることを前提とします。
+この前提は、称号を創作の中でだけ使い、次の決まりを守ることを指します。
+
+- 称号を、この国の中でだけ使う（[利用規約](./terms.md)「称号の扱い」、王国基本法第八条）。
+- 称号を、実在の称号・叙勲・団体の記章であるかのように示さない。
+- 称号を、履歴書・論文・名刺・公的な書類・商取引・広告に書かない。
+- 称号を売らず、称号を使って金銭や物品を集めない。
+- 称号を、人をだますために使わない。
+
+これらは、利用規約の「称号の扱い」「してはいけないこと」「悪意がないことと、法令を守ること」と王国基本法第八条の決まりを、称号の使い方として並べたものです。
+2026-11-22 から、願い出る人は、様式でこの前提に印を付けます。
+願い出た人が書いたことや訂正のリンク先から、この前提に当たらないことがはっきり分かったときは、叙任しません（「断ること」）。
+叙任した後に分かったときは、「辞退と取り消し」の定めにより、叙任を取り消します。
+取り消すときは、願い出の issue に、当たらなかった決まりだけを短く書き、人を評しません。本人の求めがあれば、その issue を削除します。
 
 ## 願い出の手順
 
@@ -1345,7 +1372,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 - 訂正したのが、願い出た人自身の誤りであると読めること。
 - 他人の個人情報や、他人を傷つける内容が含まれていないこと。
 - 様式の誓いのすべてに印があること。
-- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、16 歳未満であることが、はっきり書かれていないこと。書かれていれば、本人に尋ね、願い出の条件に当たると確かめられなければ叙任しません。
+- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、イタリアの国籍を持つこと、16 歳未満であることが、はっきり書かれていないこと。書かれていれば、本人に尋ね、願い出の条件に当たると確かめられなければ叙任しません。
 
 運営者は、訂正の中身が正しいかどうかを判断しません。判断するのは、訂正があったことだけです。
 
@@ -1356,7 +1383,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 
 運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。
 ヌスクァマは国籍を与えません。騎士は国民ではありません。
-年齢・住んでいる国・願い出のときにいる国は、様式の誓いへの印による本人の申告で受けます。
+年齢・住んでいる国・願い出のときにいる国・イタリアの国籍を持たないことは、様式の誓いへの印による本人の申告で受けます。
 ただし、訂正のリンク先にはっきり書かれていることは、見落としません。
 本人として扱うのは、願い出た GitHub のアカウントです。
 願い出の条件に当たらなかったことが分かったときは、名簿から名を外します。
@@ -1369,7 +1396,8 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 - 誤りの訂正ではないもの（宣伝、自己紹介、他人の誤りの指摘など）。
 - 確かめられないもの（非公開のもの、リンクが開けないもの）。
 - 利用規約の「してはいけないこと」に当たるもの。
-- 願い出の条件（年齢・住んでいる国・願い出のときにいる国）に当たらないことが、訂正のリンク先からはっきり読めるもの。
+- 願い出の条件（年齢・住んでいる国・願い出のときにいる国・国籍）に当たらないことが、訂正のリンク先からはっきり読めるもの。
+- 2026-11-22 から、「良識の前提」に当たらないことが、願い出た人が書いたことや訂正のリンク先からはっきり読めるもの。
 
 断るときは、決めた一文（「叙任の条件に当たりません。」）だけを issue に書き、人を評しません。本人の求めがあれば、その issue を削除します。
 
@@ -1518,7 +1546,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - 扱う個人情報は、GitHub のアカウント名と、本人が公開した訂正へのリンクと、本人が書いた説明だけ。リンクの先から本名や所属が分かることがあり、そのことを様式で知らせている。
 - 誤りの知らせと求めの issue では、GitHub のアカウント名と、本人が書いたことを扱う。
 - 16 歳未満の人と、住んでいる国の法令が私人の授ける騎士の称号を禁じている人の願い出は受けない。
-- 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国は、様式の誓いによる本人の申告で受ける。
+- 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国・国籍は、様式の誓いによる本人の申告で受ける。
 - どの頁も、創作であり、実在の何とも関係がないと断っている。
 
 ## 法令ごとの整理
@@ -1537,7 +1565,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **要件の要旨**：官公職・位階勲等・学位その他法令で定められた称号、または外国におけるこれらに準ずるものを、偽って名乗ること（詐称）。または、資格がないのに、法令で定められた制服・勲章・記章その他の標章や、それらに似せて作った物を用いること。
 - **ヌスクァマの事実**：騎士王・騎士は、どの国の法令にも定められていない、創作の中の言葉である。ヌスクァマは国家ではないので、その称号は「外国におけるこれらに準ずるもの」にも当たらない。勲章・記章・制服などの物は作らず、国章は実在のどの記章にも似せていない。
 - **当てはまらない理由**：名乗っているのは法令上の称号ではなく、物の標章も用いていない。さらに、法令上の称号と誤認させる使い方そのものを禁じている。
-- **保つための決め**：[利用規約](./terms.md)「称号の扱い」（法令上の称号と誤認させる使い方の禁止、履歴書・名刺・公的な書類への記載の禁止）、王国基本法第八条、[名称と権利](./names.md)「国章」。
+- **保つための決め**：[利用規約](./terms.md)「称号の扱い」（法令上の称号と誤認させる使い方の禁止、履歴書・名刺・公的な書類への記載の禁止）、王国基本法第八条、[名称と権利](./names.md)「国章」、[叙任の規程](./knighting.md)「良識の前提」（おそれは断たない）。
 
 <!-- 条文 軽犯罪法 第1条第15号 -->
 
@@ -1662,16 +1690,17 @@ Source: https://nusquama.vercel.app/policies/legality.html
 ### 日本の外の法令
 
 - ヌスクァマは日本から運営する、非営利の創作である。どの国でも、事業も取引もせず、金銭や有料の会員の勧誘もしない。
-- 国によっては、自国の栄典や称号を偽って名乗ることを禁じている。ヌスクァマは、称号をこの国の外で使うことと、実在の称号や叙勲と誤認させる使い方を禁じている（王国基本法第八条、利用規約「称号の扱い」）。
-- 例として、イタリアの 1951 年法律第 178 号第 8 条は、私人や団体が、名称を問わず騎士の称号などを授けることを禁じている。同条は、そうした称号を使う者も罰し、授けたのが国外であっても及ぶ、としている。条文は、イタリアの公式の法令データベース [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8) で、2026-11-08 に確かめた。こうした国に住む人の願い出は受けない（[叙任の規程](./knighting.md)「願い出ることができる人」）。住んでいる国は本人の申告で受け、確かめない（[叙任の規程](./knighting.md)「確かめないこと」）。
-- **点検で足したこと（2026-11-12）**：同条が禁じるのは、私人や団体が授けることで、受ける人の住む国を要件にしていない。同条の終わりの文は、第二項と第三項（授けた者の罰と、使う者の罰と読める）が、授けたのが国外であっても及ぶとしている。住む国で願い出を限っても、同条の文言の上では、運営者が授けることそのものが同条に当たりうる。イタリアの刑法が、国外で外国人がした行いをどこまで罰するかは、刑法の条文を取り寄せられず、確かめていない。使う者の罰は罰金（ammenda）だけなので、2016 年の委任立法第 8 号第 1 条により行政罰に替わった可能性がある。ただし、同条の除外の一覧は取り寄せておらず、確かめていない。
+- 国によっては、自国の栄典や称号を偽って名乗ることを禁じている。ヌスクァマは、称号をこの国の外で使うことと、実在の称号や叙勲と誤認させる使い方を禁じている（王国基本法第八条、利用規約「称号の扱い」）。良識の前提（叙任の規程）も同じだが、おそれを断たない。
+- 例として、イタリアの 1951 年法律第 178 号第 8 条は、私人や団体が、名称を問わず騎士の称号などを授けることを禁じている。同条は、そうした称号を使う者も罰し、授けたのが国外であっても及ぶ、としている。条文は、イタリアの公式の法令データベース [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8) で、2026-11-08 に確かめた。こうした国に住む人の願い出は受けない（[叙任の規程](./knighting.md)「願い出ることができる人」）。
+- **点検で足したこと（2026-11-12）**：同条が禁じるのは、私人や団体が授けることで、受ける人の住む国を要件にしていない。同条の終わりの文は、第二項と第三項（授けた者の罰と、使う者の罰と読める）が、授けたのが国外であっても及ぶとしている。住む国や国籍で願い出を限っても、同条の文言の上では、運営者が授けることそのものが同条に当たりうる。イタリアが国外で外国人がした行いをどこまで罰するかは、刑法典第 10 条を取り寄せられず、確かめていない。使う者の罰は罰金（ammenda）だけなので、2016 年の委任立法第 8 号第 1 条により行政罰に替わった可能性がある。ただし、同条の除外の一覧は取り寄せておらず、確かめていない。
 - EU の一般データ保護規則（GDPR）は、EU の外の者にも、EU にいる人に役務を提供するときなどに及ぶことがある。及ぶ場合に備えて、扱う情報を本人が公開するものに限り、同意で受け、開示・訂正・削除の求めに無償で応じている（[個人情報の取り扱い](./privacy.md)）。GDPR 第 3 条第 2 項は、EU の外の管理者にも、EU にいる人に、支払いの有無を問わず物や役務を提供するときなどに及ぶ、としている。条文は [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679) で、2026-11-08 に確かめた。
 - **点検で足したこと（2026-11-12）**：GDPR が第 3 条第 2 項で及ぶときは、EU の外の管理者は、EU の中に代理人を書面で指名する（GDPR 第27条）。ただし、取り扱いが時々のもので、特別な種類のデータを大規模に扱わず、人の権利と自由に危険を生じさせそうにないときは、指名の義務がない（同条の第 2 項 (a)）。ヌスクァマは EU の人に向けて役務を差し出しておらず、2026-11-22 からは日本の外にいる人の願い出を受けない。及ぶとしても、名簿の取り扱いは第 2 項 (a) に当たると考え、代理人は指名していない。2026-11-12 に Claude が決めました。名簿が扱うのはアカウント名と訂正の要約だけで、特別な種類のデータを求めていないためです。
 - 米国カリフォルニア州の消費者プライバシー法（CCPA）は、営利の事業者を対象とする。ヌスクァマは営利の事業をしないので、当たらないと考える。カリフォルニア州司法長官の [CCPA の頁](https://oag.ca.gov/privacy/ccpa)で、営利の事業者が対象で、非営利の団体には一般に及ばないことを、2026-11-08 に確かめた。州の法令の頁は、機械からの取得を止める仕組みがあるので、読んでいない。
 - そのほかの国の法令については、運営者は個別に確かめていない。
-- 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。国籍は問わない。日本の外の法令は国ごとに確かめきれないので、及ぶおそれのある国に住む人を、はじめから受けない。外国の法令には、そこにいる人に及ぶものがあるので、旅行・出張・留学などで日本の外にいるあいだの願い出も受けない（[叙任の規程](./knighting.md)「願い出ることができる人」）。
-- この限定によって、日本の外の法令が及ぶおそれがなくなるわけではない。上のイタリアの条のように、授ける者を罰し、国外で授けた場合にも及ぶとする法令がある。自国の国民に、国の外でも及ぶ法令もありうる。限定は、そうした国の人を受けることを減らすためのもので、及ぶおそれを断つものではない。
-- 本人の申告は確かめないが、訂正のリンク先に日本の外に住むことや、願い出のときに日本の外にいること、16 歳未満であることがはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。気づくことができた事柄を見落とさないためである（[叙任の規程](./knighting.md)「運営者が確かめること」）。
+- 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。日本の外の法令は国ごとに確かめきれないので、及ぶおそれのある国に住む人を、はじめから受けない。外国の法令には、そこにいる人に及ぶものがあるので、旅行・出張・留学などで日本の外にいるあいだの願い出も受けない（[叙任の規程](./knighting.md)「願い出ることができる人」）。
+- 2026-11-22 から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。理由は、イタリアの国民が日本のミクロネーションの騎士になるのは常識に照らして場違いであることと、上の条が届くいちばん現実の道が、称号を受けて使ったイタリアの国民であることである。
+- これらの限定によって、日本の外の法令が及ぶおそれは減るが、なくなるわけではない。上のイタリアの条のように、授ける者を罰し、国外で授けた場合にも及ぶとする法令がある。自国の国民に、国の外でも及ぶ法令もありうる。
+- 本人の申告は確かめないが、願い出の条件に当たらないことが訂正のリンク先にはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。気づくことができた事柄を見落とさないためである（[叙任の規程](./knighting.md)「運営者が確かめること」）。
 
 <!-- 条文 イタリア 1951 年法律第178号 第8条、GDPR 第3条第2項、CCPA 司法長官の説明 -->
 
@@ -1697,7 +1726,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 | 行い | 近づく法令 | 忠告 |
 | --- | --- | --- |
 | 称号を、履歴書・名刺・論文・公的な書類・肩書きに書く。実在の称号や叙勲のように示す | 軽犯罪法第1条第15号 | しない。[利用規約](./terms.md)「称号の扱い」が禁じている |
-| 称号を日本の外で使う。日本の外に住みながら、住む国を偽って願い出る | 日本の外の法令（イタリアの 1951 年法律第 178 号第 8 条など） | しない。王国基本法第八条と[叙任の規程](./knighting.md)が禁じている。分かった時点で、叙任を取り消す |
+| 称号を日本の外で使う。住む国・いる国・国籍を偽って願い出る | 日本の外の法令（イタリアの 1951 年法律第 178 号第 8 条など） | しない。王国基本法第八条と[叙任の規程](./knighting.md)が禁じている。分かった時点で、叙任を取り消す |
 | ヌスクァマの名で、称号・証書・記章・会員の資格を売る。寄付や会費を集める | 刑法第246条、特定商取引法第2条、景品表示法第5条 | しない。ヌスクァマは何も売らず、寄付も受けない（[利用規約](./terms.md)「費用」）。そうする者とヌスクァマは関係がない |
 | 「ヌスクァマの旅券」「国民証」などの書面を自分で作り、身分を示すために人に見せる | 刑法第155条、旅券法第23条 | 作らない。見せない。ヌスクァマは旅券も国籍も持たない。実在の役所や国の文書と誤認させる作り方をすれば、罪に近づく |
 | 国章や「ヌスクァマ」の名を、商品・役務・広告に付ける | 商標法第25条、不正競争防止法第2条第1項第1号・第2号、景品表示法第5条 | 営業に使わない。扱いは[名称と権利](./names.md)にある |
@@ -1827,7 +1856,7 @@ Source: https://nusquama.vercel.app/policies/terms.en.html
 
 # Terms of Use
 
-Last updated: 2026-11-09.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -1880,11 +1909,11 @@ Anyone who claims to grant Nusquama's titles for a fee has nothing to do with Nu
 - Using Nusquama's titles or emblem as if they were a real title, decoration or the insignia of a real organisation.
 - Collecting money or goods in Nusquama's name.
 - Trying to break the site or the forms.
-- Ticking a box in the application form for something that is not true, such as your age, the country you live in, or that the correction is of your own error.
+- Ticking a box in the application form for something that is not true, such as your age, the country you live in, your nationality, or that the correction is of your own error.
 
 The operator may refuse such applications, close the issues, and remove names from the roll.
 If a ticked box turns out to be untrue, the operator removes the name from the roll as soon as the operator learns of it. From 2026-11-22, the operator may also refuse further applications from the same GitHub account.
-The operator relies on the ticked boxes in good faith and does not check them. A person knighted on an untrue box does not mean that Nusquama accepts applications from a country where it says it does not.
+The operator relies on the ticked boxes in good faith and does not check them. A person knighted on an untrue box does not mean that Nusquama accepts applications from a country, or from holders of a nationality, from which it says it does not.
 The ticked boxes stay in the public issue until it is deleted at the person's request, so that what was ticked, and when, can be shown.
 Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.
 
@@ -1899,7 +1928,9 @@ The [Disclaimer](./disclaimer.en.md) has the details.
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
 A change that is unfavourable to readers or knights will be shown on this page, with its content and the date it takes effect, before it takes effect.
-Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood, whatever their nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
+Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality are excluded ([Rules on Knighting](./knighting.en.md), "Who may apply").
+Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
+Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play, and an application without the box for this premise ticked is not accepted ([Rules on Knighting](./knighting.en.md), "The premise of good sense").
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
@@ -2158,10 +2189,31 @@ A person who has publicly corrected one of their own mistakes.
 The correction must be public and checkable by anyone, such as an erratum to a paper, a note added to a blog post or article, a fix to code, or a statement withdrawn.
 A person under 16 may not apply.
 A person whom the law of the country where they live forbids to receive or use a title of knighthood given by a private person may not apply either. For example, Article 8 of Italy's Law No. 178 of 1951 forbids private persons and bodies to confer titles of knighthood under any name.
-From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality.
+From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. Nationality does not matter, except that people who hold Italian nationality are excluded.
 From 2026-11-22, people who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
 From 2026-11-22, a person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
+From 2026-11-22, a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality. There are two reasons.
+First, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with.
+Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses such a title, and applies even when it was conferred abroad. An Italian national who received and used the title is the most realistic path by which that article could reach Nusquama.
+This limit reduces the possibility that the article applies; it does not remove it ([Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
+
+## The premise of good sense
+
+From 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play.
+This premise means using the title only within the fiction, and keeping the following rules.
+
+- Use the title only within the kingdom ([Terms of Use](./terms.en.md), "Titles"; Basic Law, Article 8).
+- Do not present the title as if it were a real title, decoration or insignia of an organisation.
+- Do not put the title on a CV, a paper, a business card, an official document, a business transaction or an advertisement.
+- Do not sell the title, and do not use it to collect money or goods.
+- Do not use the title to deceive anyone.
+
+These set out, as ways of using the title, the rules in the Terms of Use ("Titles", "What is not allowed", "No ill intent, and obeying the law") and Article 8 of the Basic Law.
+From 2026-11-22, the applicant ticks a box in the form for this premise.
+If what the applicant wrote, or the linked correction, shows clearly that this premise does not hold, the applicant is not knighted ("What is declined").
+If it becomes clear after knighting, the knighting is revoked under "Withdrawal and revocation".
+When revoking, the operator writes in the application issue only which rule was not kept, briefly, and comments on no one. The issue is deleted if the person asks.
 
 ## How to apply
 
@@ -2181,7 +2233,7 @@ Do not write your real name, address, affiliation or contact details.
 - That it reads as a correction of the applicant's own mistake.
 - That it contains no personal data of others and nothing that hurts others.
 - That every pledge in the form is ticked.
-- That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
+- That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality, or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
 
@@ -2192,7 +2244,7 @@ The automatic check decides nothing. The operator decides on knighting.
 
 The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
 Nusquama gives no nationality. Knights are not its people.
-Age, country of residence and the country where the applicant is when applying are taken from the applicant's own declaration, by the ticks in the form.
+Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality are taken from the applicant's own declaration, by the ticks in the form.
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
@@ -2205,7 +2257,8 @@ No knighthood is given for:
 - Anything that is not a correction of a mistake (advertising, self-introduction, pointing out someone else's mistake, and so on).
 - Anything that cannot be checked (something not public, or a link that does not open).
 - Anything that falls under "What is not allowed" in the Terms of Use.
-- An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, or the country where the applicant is when applying).
+- An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
+- From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 
@@ -2360,7 +2413,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
 - Issues reporting mistakes and issues making requests handle the GitHub account name and what the person writes.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
-- It collects no documents to check nationality, age, country of residence or real name. Age, country of residence and the country the applicant is in when applying are taken from the applicant's own declaration, made by ticking the oaths in the form.
+- It collects no documents to check nationality, age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
 
 ## Law by law
@@ -2379,7 +2432,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Elements, in summary**: falsely claiming an official post, court rank or decoration, academic degree or other title set by law, or a foreign equivalent of these; or, without the right to do so, using a uniform, decoration, badge or other insignia set by law, or anything made to look like one.
 - **Nusquama's facts**: Knight-King and knight are words inside a work of fiction, set by no country's law. Because Nusquama is not a state, its titles are not "foreign equivalents" either. It makes no physical decorations, badges or uniforms, and its emblem imitates no real insignia.
 - **Why the law does not apply**: the titles used are not titles set by law, and no physical insignia are used. Using the titles in a way that could be mistaken for a legal title is itself forbidden.
-- **Rules that keep this true**: Terms of Use, "Titles" (no use that could be mistaken for a legal title; nothing on CVs, business cards or official documents); Basic Law, Article 8; [Names and rights](./names.en.md), "The emblem".
+- **Rules that keep this true**: Terms of Use, "Titles" (no use that could be mistaken for a legal title; nothing on CVs, business cards or official documents); Basic Law, Article 8; [Names and rights](./names.en.md), "The emblem"; [Rules on Knighting](./knighting.en.md), "The premise of good sense" (which does not remove the risk).
 
 <!-- 条文 軽犯罪法 第1条第15号 -->
 
@@ -2504,16 +2557,17 @@ The analysis below rests on the following facts. Each can be checked in the publ
 ### Laws outside Japan
 
 - Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
-- Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
-- For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. The same article also punishes anyone who uses such a distinction, and applies even when it was conferred abroad. The text was checked on 2026-11-08 in [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8), Italy's official database of legislation. Applications from people living in such countries are not accepted ([Rules on Knighting](./knighting.en.md), "Who may apply"). The country of residence is taken from the applicant's own declaration and is not checked ([Rules on Knighting](./knighting.en.md), "What is not checked").
-- **Added in the review (2026-11-12)**: what the article forbids is conferring by private persons and bodies; the recipient's country of residence is not an element. Its last sentence says that the second and third paragraphs (read as the penalty for the one who confers and the penalty for the one who uses) apply even when the conferring happened abroad. Limiting applications by country of residence does not, on the words of the article, stop the operator's conferring itself from falling under it. How far Italy's Penal Code punishes acts of foreigners abroad has not been checked, because its text could not be fetched. The penalty for use is a fine (ammenda) only, so it may have become an administrative penalty under Article 1 of Legislative Decree No. 8 of 2016. The list of exclusions to that article was not fetched, and this has not been checked.
+- Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles"). The premise of good sense (Rules on Knighting) does the same, but does not remove the risk.
+- For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. The same article also punishes anyone who uses such a distinction, and applies even when it was conferred abroad. The text was checked on 2026-11-08 in [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8), Italy's official database of legislation. Applications from people living in such countries are not accepted ([Rules on Knighting](./knighting.en.md), "Who may apply").
+- **Added in the review (2026-11-12)**: what the article forbids is conferring by private persons and bodies; the recipient's country of residence is not an element. Its last sentence says that the second and third paragraphs (read as the penalty for the one who confers and the penalty for the one who uses) apply even when the conferring happened abroad. Limiting applications by country of residence or nationality does not, on the words of the article, stop the operator's conferring itself from falling under it. How far Italy punishes acts of foreigners abroad has not been checked, because Article 10 of its Penal Code could not be fetched. The penalty for use is a fine (ammenda) only, so it may have become an administrative penalty under Article 1 of Legislative Decree No. 8 of 2016. The list of exclusions to that article was not fetched, and this has not been checked.
 - The EU General Data Protection Regulation (GDPR) can reach those outside the EU, for example when they offer services to people in the EU. In case it does, Nusquama handles only what the person makes public themselves, takes it with consent, and answers requests for access, correction and erasure free of charge ([Privacy](./privacy.en.md)). Article 3(2) of the GDPR applies to a controller outside the EU where it offers goods or services, irrespective of payment, to people in the EU, among other cases. The text was checked on 2026-11-08 in [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679).
 - **Added in the review (2026-11-12)**: where the GDPR applies under Article 3(2), a controller outside the EU designates in writing a representative in the EU (GDPR, Article 27). That duty does not apply to processing that is occasional, does not include large-scale processing of special categories of data, and is unlikely to result in a risk to the rights and freedoms of natural persons (paragraph 2(a) of that Article). Nusquama does not offer its service to people in the EU, and from 2026-11-22 it accepts no application from anyone outside Japan. Even if the GDPR applies, the operator considers the handling of the roll to fall under paragraph 2(a), and has designated no representative. Claude decided this on 2026-11-12, because the roll handles only account names and summaries of corrections, and asks for no special categories of data.
 - The California Consumer Privacy Act (CCPA) covers businesses run for profit. Nusquama runs no business for profit, so the operator considers that it does not apply. This was checked on 2026-11-08 on the [CCPA page of the California Attorney General](https://oag.ca.gov/privacy/ccpa), which says the Act covers for-profit businesses and generally does not apply to nonprofit organisations. The page of the statute itself blocks automated access, and was not read.
 - The operator has not checked the laws of other countries one by one.
-- From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either ([Rules on Knighting](./knighting.en.md), "Who may apply").
-- This limit does not remove the possibility that laws outside Japan apply. Like the Italian article above, some laws punish the one who confers and reach conferring done abroad. Some laws may also reach their own nationals abroad. The limit reduces how often people from such countries are accepted; it does not cut off the possibility.
-- The applicant's declaration is not checked, but if the linked correction states clearly that the applicant lives outside Japan, is outside Japan when applying, or is under 16, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked ([Rules on Knighting](./knighting.en.md), "What the operator checks").
+- From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either ([Rules on Knighting](./knighting.en.md), "Who may apply").
+- From 2026-11-22, applications from people who hold Italian nationality (including dual nationals) are not accepted either. The reasons are that, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with, and that the most realistic path by which the article above could reach Nusquama is an Italian national who received and used the title.
+- These limits reduce, but do not remove, the possibility that laws outside Japan apply. Like the Italian article above, some laws punish the one who confers and reach conferring done abroad. Some laws may also reach their own nationals abroad.
+- The applicant's declaration is not checked, but if the linked correction states clearly that the applicant does not meet the conditions, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 
 <!-- 条文 イタリア 1951 年法律第178号 第8条、GDPR 第3条第2項、CCPA 司法長官の説明 -->
 
@@ -2539,7 +2593,7 @@ It lists possible paths. It does not say that a listed act is always an offence 
 | Act | Law it comes near | Caution |
 | --- | --- | --- |
 | Writing a title on a CV, business card, paper, official document or job title, or presenting it like a real title or honour | Minor Offenses Act, Article 1, item 15 | Do not. The [Terms of Use](./terms.en.md), "Titles", forbid it |
-| Using a title outside Japan, or applying while living outside Japan and giving a false country | Laws outside Japan (such as Article 8 of Italy's Law No. 178 of 1951) | Do not. Article 8 of the Basic Law and the [Rules on Knighting](./knighting.en.md) forbid it. Once known, the knighting is withdrawn |
+| Using a title outside Japan, or applying with a false country of residence, location or nationality | Laws outside Japan (such as Article 8 of Italy's Law No. 178 of 1951) | Do not. Article 8 of the Basic Law and the [Rules on Knighting](./knighting.en.md) forbid it. Once known, the knighting is withdrawn |
 | Selling titles, certificates, insignia or membership in Nusquama's name, or collecting donations or fees | Penal Code, Article 246; Act on Specified Commercial Transactions, Article 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not. Nusquama sells nothing and takes no donations ([Terms of Use](./terms.en.md), "Fees"). Anyone who does so has no connection with Nusquama |
 | Making a "Nusquama passport", "citizen card" or similar paper, and showing it to prove who one is | Penal Code, Article 155; Passport Act, Article 23 | Do not make or show one. Nusquama has no passports and no nationality. Making it so that it may be taken for a document of a real office or state comes near an offence |
 | Putting the emblem or the name "Nusquama" on goods, services or advertising | Trademark Act, Article 25; Unfair Competition Prevention Act, Article 2, paragraph 1, items 1 and 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not use them in trade. How they may be used is on the [Names and Rights](./names.en.md) page |
@@ -2807,7 +2861,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 3 | 2026-11-08 | Founding Declaration; Names and rights, "Where the names come from" | "Latin for 'a place that is nowhere'." | The Latin nusquam is an adverb meaning "nowhere". Nusquama is More's name formed from it. The text of the rules was changed the same day. | None. The meaning of the word is general knowledge, not checked in a dictionary | Word | Insula Verbi I |
 | 4 | 2026-11-08 | Legality Statement, "Facts relied on" | "The titles are used, as words within the fiction, only in the repository and on the site." | The King wrote an article on MicroWiki himself and uses the titles there too. The sentence was changed to "only in the repository, on the site, and in the article on MicroWiki that the King wrote himself". | The King's article (README, "ほかの場所" (Elsewhere)) | Scope | Insula Finis I |
 | 5 | 2026-11-08 | Disclaimer, "Liability" | "The operator is not liable, to the extent permitted by law, for loss arising from use of the site or the repository." | "To the extent permitted by law" is a partial exclusion that does not make clear it is limited to slight negligence, and may be void under Article 8(3) of the Consumer Contract Act. It was changed to exclude liability except for intent or gross negligence, and not to apply where that Act applies. | Article 8 of the Consumer Contract Act (text obtained through the e-Gov Laws API) | Law | Insula Legis I |
-| 6 | 2026-11-08 | Rules on Knighting, "Withdrawal and revocation"; Legality Statement, "Laws outside Japan" | "when a title is used outside this kingdom (the repository and the site)" | The King also uses the titles in the MicroWiki article (4), which did not fit the scope in brackets. What "within this kingdom" means was set in one place, "Titles" in the Terms of Use, and the other pages were changed to point there. | The Legality Statement, "Facts relied on", and entry 4 of these errata | Scope | Insula Finis II |
+| 6 | 2026-11-08 | Rules on Knighting, "Withdrawal and revocation"; Legality Statement, "Laws outside Japan" | "when a title is used outside this kingdom (the repository and the site)" | The King also uses the titles in the MicroWiki article (4), which did not fit the scope in brackets. What "within this kingdom" means was set in one place, "Titles" in the Terms of Use, and the other pages were changed to point there. | The Legality Statement, "The facts relied on", and entry 4 of these errata | Scope | Insula Finis II |
 | 7 | 2026-11-08 | Terms of Use, "Titles"; Legality Statement, "Facts relied on" | "an article the operator wrote himself to introduce this country" (Terms of Use); "only in the article on MicroWiki that the King wrote himself" (Legality Statement) | Not a mistake; the scope was changed. As the King also announced the founding on X, calling himself Nemo I, Knight-King, it became "articles or posts" written by himself to introduce it, each listed under "ほかの場所" (Elsewhere) in the README. | The King's post (README, "ほかの場所" (Elsewhere)) | Scope | Insula Finis III |
 | 8 | 2026-11-08 | Legality Statement, "Standing in international law" | "Recognition by other states also bears on whether something is treated as a state. The text of the convention was not checked; this rests on general knowledge." | Placed right after the convention was named, it read as if the convention said so. Article 3 of the convention says the opposite: the political existence of a state is independent of recognition by other states. Article 3 is now quoted as it is, with where the text of the convention and its parties were checked. | Montevideo Convention ([English text at the Avalon Project](https://avalon.law.yale.edu/20th_century/intam03.asp), [list of parties at the Organization of American States](https://www.oas.org/juridico/english/sigs/a-40.html)) | Law | Insula Legis II |
 | 9 | 2026-11-08 | Terms of Use, "Who these terms cover" | "Using the site or the repository means accepting these terms." | There is no agreement with those who only read, and standard terms reach only those who agreed or were told beforehand that the terms would form part of a contract (Civil Code, Article 548-2). Consent is now taken in the application form, and reading is not treated as consent. For readers, the law sets what each side owes. | Article 548-2 of the Civil Code | Law | Insula Legis III |
@@ -2821,6 +2875,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 17 | 2026-11-12 | Legality Statement, "Trade" | "it sells nothing, shows no advertising and runs no business." | A "business" under Article 2(2) of the Consumer Contract Act includes an individual who becomes a party to a contract as a business or for a business, and the text does not say a business must be run for profit. "Runs no business" was a flat statement the text does not support. It was changed to "runs no business for profit", and how each article of that Act would be met, if it applies, was added. | Article 2 of the Consumer Contract Act (text obtained through the e-Gov Laws API) | Law | Insula Legis IV |
 | 18 | 2026-11-12 | Legality Statement, "Copyright" | "No one else's work is copied." / "Why the law does not apply: no one else's work is reproduced." | The "Text of" blocks on the same page quote treaties, laws, terms and explanations, so it could not be said that no one else's work is copied. It was changed to say that nothing is copied apart from quotation, and a check of the quotations against Article 32 of the Copyright Act was added. | Articles 32 and 48 of the Copyright Act (texts obtained through the e-Gov Laws API) and verification/sources.json | Fact | Insula Facti III |
 | 19 | 2026-11-12 | Legality Statement, "Conclusion" | "The operator considers the risk of illegality to be very small." | This said more than the analysis supports. The review of 2026-11-12 found laws that had not been set out (the Telecommunications Business Act, the Act on Responses to Rights Infringement on Information Distribution Platforms, standard terms, quotation and others) and elements read in more than one way ("business" under the Consumer Contract Act and others). The sentence was changed so as not to claim how small the risk is. | Legal review record (docs/legal-audit-2026-11-12.md) | Law | Insula Legis V |
+| 20 | 2026-11-12 | Rules on Knighting, "Who may apply", "What the operator checks", "What is not checked" and "What is declined"; Terms of Use, "What is not allowed" and "Changes and ending"; Legality Statement, "The facts relied on", "False titles and insignia", "Laws outside Japan" and the table of acts outside the rules; the application form for knighthood | "whatever their nationality" (Rules on Knighting, notice in the Terms of Use; "国籍は問いません" in the form's box for being in Japan, and "国籍は問わない" in the Legality Statement) / "That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, or is under 16." (Rules on Knighting, "What the operator checks") / "Age, country of residence and the country where the applicant is when applying are taken from the applicant's own declaration" (Rules on Knighting, "What is not checked"; the same list in the Legality Statement) / "the conditions (age, country of residence, or the country where the applicant is when applying)" (Rules on Knighting, "What is declined") / "such as your age, the country you live in, or that the correction is of your own error" / "does not mean that Nusquama accepts applications from a country where it says it does not" (Terms of Use) / "The country of residence is taken from the applicant's own declaration and is not checked" / "Limiting applications by country of residence does not" / "How far Italy's Penal Code punishes acts of foreigners abroad has not been checked, because its text could not be fetched." / "This limit does not remove the possibility that laws outside Japan apply." / "The limit reduces how often people from such countries are accepted; it does not cut off the possibility." / "if the linked correction states clearly that the applicant lives outside Japan, is outside Japan when applying, or is under 16" / "applying while living outside Japan and giving a false country" (Legality Statement) | Not a mistake; the scope was changed. From 2026-11-22, applications from people who hold Italian nationality (including those who also hold another nationality) are not accepted. The owner decided this on 2026-11-12. By plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with. Also, Article 8 of Italy's Law No. 178 of 1951 punishes anyone who uses such a title and reaches conferring done abroad, so an Italian national who received and used the title is the most realistic path by which that article could reach Nusquama. The limit reduces that possibility; it does not remove it. Also from 2026-11-22, knighting presumes a person of good sense who treats the title as play (Rules on Knighting, "The premise of good sense"). The owner decided this on 2026-11-12. The premise means keeping the rules on using the title that the Terms of Use already set; where it plainly does not hold, the applicant is not knighted, or, after knighting, the knighting is revoked under "Withdrawal and revocation". The form gains a box for not holding Italian nationality and a box for this premise, and the automatic check looks for them from that date. The date of effect, 2026-11-22, was decided by Claude on 2026-11-12: the Terms of Use only say that an unfavourable change is shown before it takes effect, with no set period, so it was aligned with the limit to people living in Japan announced earlier. Claude also decided on 2026-11-12 that, when revoking, only the rule not kept is written in the issue, so that a reason is given without judging the person, as with the fixed sentence for declining. Other sentences that list the conditions were changed to add nationality, or to stop listing the conditions one by one. In the Legality Statement, overlapping sentences were removed to keep the page within 128 KiB. | verification/sources-raw.json (the text of Article 8 of Italy's Law No. 178 of 1951, fetched from Normattiva) and the Terms of Use, "Changes and ending". Article 10 of Italy's Penal Code could not be fetched and has not been checked | Scope | Insula Finis IX |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
@@ -3366,6 +3421,7 @@ Some things will not grow, even in ten years.
 - No land, currency, passports, certificates or objects will be made.
 - No ranks will be added. There is only one: knight.
 - Requests from people who live outside Japan, or who are outside Japan when applying, will not be accepted until the laws of that country have been checked.
+- Applications from people who hold Italian nationality will not be accepted.
 
 Some things will go on.
 
@@ -3427,7 +3483,7 @@ To the operator of ○○: this is Nemo I, Knight-King of Nusquama. Nusquama is 
 
 Text for introducing Nusquama in English on micronation wikis and forums. Its first sentence says that Nusquama is fiction.
 
-This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money.
+This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality may not apply, even if they also hold another nationality. Knighting presumes a person of good sense who treats the title as play. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money.
 
 ## Terms used in the micronation community
 

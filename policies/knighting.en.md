@@ -17,10 +17,31 @@ A person who has publicly corrected one of their own mistakes.
 The correction must be public and checkable by anyone, such as an erratum to a paper, a note added to a blog post or article, a fix to code, or a statement withdrawn.
 A person under 16 may not apply.
 A person whom the law of the country where they live forbids to receive or use a title of knighthood given by a private person may not apply either. For example, Article 8 of Italy's Law No. 178 of 1951 forbids private persons and bodies to confer titles of knighthood under any name.
-From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality.
+From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. Nationality does not matter, except that people who hold Italian nationality are excluded.
 From 2026-11-22, people who live outside Japan may not apply, whatever their nationality, because the laws outside Japan cannot all be checked country by country.
 From 2026-11-22, a person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
+From 2026-11-22, a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality. There are two reasons.
+First, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with.
+Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses such a title, and applies even when it was conferred abroad. An Italian national who received and used the title is the most realistic path by which that article could reach Nusquama.
+This limit reduces the possibility that the article applies; it does not remove it ([Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
+
+## The premise of good sense
+
+From 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play.
+This premise means using the title only within the fiction, and keeping the following rules.
+
+- Use the title only within the kingdom ([Terms of Use](./terms.en.md), "Titles"; Basic Law, Article 8).
+- Do not present the title as if it were a real title, decoration or insignia of an organisation.
+- Do not put the title on a CV, a paper, a business card, an official document, a business transaction or an advertisement.
+- Do not sell the title, and do not use it to collect money or goods.
+- Do not use the title to deceive anyone.
+
+These set out, as ways of using the title, the rules in the Terms of Use ("Titles", "What is not allowed", "No ill intent, and obeying the law") and Article 8 of the Basic Law.
+From 2026-11-22, the applicant ticks a box in the form for this premise.
+If what the applicant wrote, or the linked correction, shows clearly that this premise does not hold, the applicant is not knighted ("What is declined").
+If it becomes clear after knighting, the knighting is revoked under "Withdrawal and revocation".
+When revoking, the operator writes in the application issue only which rule was not kept, briefly, and comments on no one. The issue is deleted if the person asks.
 
 ## How to apply
 
@@ -40,7 +61,7 @@ Do not write your real name, address, affiliation or contact details.
 - That it reads as a correction of the applicant's own mistake.
 - That it contains no personal data of others and nothing that hurts others.
 - That every pledge in the form is ticked.
-- That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
+- That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality, or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
 
@@ -51,7 +72,7 @@ The automatic check decides nothing. The operator decides on knighting.
 
 The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
 Nusquama gives no nationality. Knights are not its people.
-Age, country of residence and the country where the applicant is when applying are taken from the applicant's own declaration, by the ticks in the form.
+Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality are taken from the applicant's own declaration, by the ticks in the form.
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
@@ -64,7 +85,8 @@ No knighthood is given for:
 - Anything that is not a correction of a mistake (advertising, self-introduction, pointing out someone else's mistake, and so on).
 - Anything that cannot be checked (something not public, or a link that does not open).
 - Anything that falls under "What is not allowed" in the Terms of Use.
-- An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, or the country where the applicant is when applying).
+- An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
+- From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 
