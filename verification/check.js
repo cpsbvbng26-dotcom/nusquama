@@ -855,8 +855,11 @@ console.log('\n34. 条文の引用と、規程の外の行い');
   ok('引く日本の条文（' + conf.statutes.length + '）は、見張りが記した値と同じ文', badHash.length === 0, badHash.join(' / '));
   // 外国の一次資料の引用は、取り寄せた文にそのまま現れる（閉じ括弧と句読点の前の空白だけを詰める）。
   const squeeze = (x) => x.replace(/ ([).,;])/g, '$1');
-  const badQuote = Object.entries(prim.sources).filter(([k, v]) => !raw.sources[v.from] || !(raw.sources[v.from].windows || []).some((w) => squeeze(w).includes(v.quote))).map(([k]) => k);
-  ok('外国の一次資料の引用（' + Object.keys(prim.sources).length + '）は、取り寄せた文にそのまま現れ、取り寄せた日が頁の断りと同じ',
+  // 窓（法令・条約と国の機関の文）か、抜き出した箇所（それ以外の文。引いた箇所と検査が拠る箇所だけ）に現れ、
+  // 引用に記した全文の SHA-256 が、いま取り寄せた全文の SHA-256 と同じ。取り寄せ直して文が変わっていれば落ちる。
+  const badQuote = Object.entries(prim.sources).filter(([k, v]) => !raw.sources[v.from] || !(raw.sources[v.from].windows || []).concat(raw.sources[v.from].spans || []).some((w) => squeeze(w).includes(v.quote))
+    || !/^[0-9a-f]{64}$/.test(v.sha256_full || '') || raw.sources[v.from].sha256_full !== v.sha256_full).map(([k]) => k);
+  ok('外国の一次資料の引用（' + Object.keys(prim.sources).length + '）は、取り寄せた文にそのまま現れ、記した全文の SHA-256 が取り寄せた全文と同じで、取り寄せた日が頁の断りと同じ',
     badQuote.length === 0 && prim.fetched === raw.fetched && read('policies/legality.md').includes(prim.fetched + ' に取り寄せた文から引き') && read('policies/legality.en.md').includes('fetched on ' + prim.fetched), badQuote.join(' / '));
   // 見出しに挙げた条は、その節の終わりにすべて引く。英語の頁も同じ印を持つ。
   const leg = read('policies/legality.md'), legEn = read('policies/legality.en.md');
@@ -1754,16 +1757,18 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     }
     /* 引いた文：印の名は一次資料の表にあり、引用は表の文と一字一句同じ。表の文は、SHA-256 を記した取り寄せた窓に現れる。 */
     const quotes = [...sec.matchAll(/<!-- 原文 (.+?) -->\n> (.+)\n/g)];
-    const fresh = Object.keys(P.sources).filter((k) => P.sources[k].window_sha256);
+    const fresh = Object.keys(P.sources).filter((k) => P.sources[k].quoted_in === F62);
     if (fresh.length < 30 || !fresh.every((k) => quotes.some((q) => q[1] === k))) bad.push('引いていない文がある');
     for (const [, k, q] of quotes) {
       const v = P.sources[k];
       if (!v || v.quote !== q) { bad.push('引用が表と違う：' + k); continue; }
-      const w = ((R.sources[v.from] || {}).windows || []).find((y) => squeeze(y).includes(v.quote));
-      if (!w || (v.window_sha256 && sha(w) !== v.window_sha256)) bad.push('取り寄せた窓と違う：' + k);
+      const r = R.sources[v.from] || {};
+      /* 法令・条約と国の機関の文は窓に、それ以外の文は抜き出した箇所に現れる。窓は記した値と同じ。全文の値は記した値と同じ。 */
+      const w = (r.whole ? r.windows || [] : r.spans || []).find((y) => squeeze(y).includes(v.quote));
+      if (!w || (r.whole && sha(w) !== v.window_sha256) || r.sha256_full !== v.sha256_full) bad.push('取り寄せた窓と違う：' + k);
     }
     /* 取り寄せた文から読める事実：除外の一覧に 1951 年法律第 178 号がなく、米州機構の一覧に日本がない。 */
-    const win = (key) => ((R.sources[key] || {}).windows || []).join(' ');
+    const win = (key) => ((R.sources[key] || {}).windows || []).concat((R.sources[key] || {}).spans || []).join(' ');
     if (!win('italy-depenalizzazione-allegato').includes('Proprieta\' intellettuale e industriale') || /3 marzo 1951/.test(win('italy-depenalizzazione-allegato'))) bad.push('除外の一覧の全体が窓にない、または 1951 年法律第 178 号が載っている');
     if (!win('montevideo-parties').includes('Venezuela') || /Japan/.test(win('montevideo-parties'))) bad.push('米州機構の一覧の全体が窓にない、または日本が載っている');
     /* 取り寄せられなかった文は、書いた数のとおりに並ぶ。 */
@@ -1807,6 +1812,9 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     ['引いた文を一字変える', mut(F62, '> ' + P0.sources[k10].quote, '> ' + P0.sources[k10].quote.replace('un anno', 'due anni'))],
     ['一次資料の表の文を一字変える', mut('verification/sources.json', P0.sources[k10].quote, P0.sources[k10].quote.replace('un anno', 'due anni'))],
     ['窓の SHA-256 を変える', mut('verification/sources.json', P0.sources[k10].window_sha256, '0'.repeat(64))],
+    ['案内の引用に記した全文の SHA-256 を変える（取り寄せ直して文が変わったのと同じ）', mut('verification/sources.json', P0.sources['イタリア 首相府 勲章の使用の案内（使う者）'].sha256_full, '0'.repeat(64))],
+    ['取り寄せた案内の全文の SHA-256 を変える', mut('verification/sources-raw.json', JSON.parse(real['verification/sources-raw.json']).sources['italy-pcm-uso-archive'].sha256_full, '1'.repeat(64))],
+    ['案内の抜き出した箇所から引用を外す', mut('verification/sources-raw.json', JSON.stringify(JSON.parse(real['verification/sources-raw.json']).sources['italy-pcm-uso-archive'].spans[0]).slice(1, 40), 'X')],
     ['判定の数を変える', mut(F62, '問題なし 13 件で、合わせて 21 件です。', '問題なし 14 件で、合わせて 21 件です。')],
     ['表に一次資料の表にない文書を挙げる', mut(F62, '| イタリア 刑法典 第10条 |', '| イタリア 刑法典 第11条 |')],
     ['取り寄せられなかった文の数を変える', mut(F62, '次の 5 件です。', '次の 4 件です。')],
@@ -1973,7 +1981,7 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     const r = x[REC];
     const ri = r.indexOf('\n## 2026-11-12 の続き：当てはめ\n'), rs = ri < 0 ? '' : r.slice(ri, r.indexOf('\n## ', ri + 5) < 0 ? undefined : r.indexOf('\n## ', ri + 5));
     const quotes = [...rs.matchAll(/<!-- 条 (.+?) -->\n> (.+)\n/g)];
-    for (const [, id, q] of quotes) if (!prov[id] || !prov[id].text.includes(q)) bad.push('記録の引用が取り寄せた文にない：' + id);
+    for (const [, id, q] of quotes) if (!prov[id] || !require('../tools/world.js').body(prov[id]).split('\n').some((y) => y.includes(q))) bad.push('記録の引用が取り寄せた文にない：' + id);
     const quoted = new Set(quotes.map((q) => q[1]));
     for (const id of Object.values(want).flat()) if (!quoted.has(id)) bad.push('除く国の条を記録に引いていない：' + id);
     const t0 = rs.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
@@ -2022,6 +2030,100 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
   ];
   const caught = breaks.filter(([, x, d]) => verdict(x, d).length > 0).map(([n]) => n);
   ok('壊して確かめる：表・決め・数・様式・受付のコード・日付・呼び名の決まり・挙げた条・予告・削除の求め・第233条・記録の引用と件数・読み直した数・取り寄せ直した数、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
+}
+
+console.log('\n66. リポジトリに記す他人の文：法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけ（2026-11-12）');
+{
+  /* 2026-11-12 に Claude が決めた。法令・条約と国の機関の文（著作権法第13条）のほかは、取り寄せた文の全文を git に記さない。
+   * 記すのは、所在・最後の所在・取り寄せた日・全文の SHA-256 と、引いた箇所と検査が拠る箇所だけ。全文は取り寄せの実行の artifact に残す。
+   * sources-raw.json の出典は、窓を記す法令・条約の出典（下の WHOLE）と、引いた箇所だけを記す出典に分かれ、後者の箇所は一次資料の表の引用か、
+   * 検査が拠る米州機構の表だけ。各国の法令の調べの私的な団体の文は verification/world/check.js が確かめる。
+   * ライセンスの断り（日本語と英語）、適法性の説明の改めた文、王の正誤表 28、年表、記録の節の表と数が、数えた数とそろう。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const REC = 'docs/world-law-2026-11-12.md';
+  const files = ['verification/sources-raw.json', 'verification/sources.json', 'verification/world/sources.json', 'verification/world/README.md', 'README.md', 'policies/names.md', 'policies/names.en.md',
+    'policies/legality.md', 'policies/legality.en.md', 'ERRATA.md', 'ERRATA.en.md', REC];
+  const WHOLE = ['montevideo', 'gdpr', 'gdpr-cellar', 'italy', 'ccpa', 'gdpr-art27', 'italy-cp-10', 'italy-depenalizzazione', 'egov', 'italy-cp-6', 'italy-cp-9', 'italy-178-art7', 'italy-depenalizzazione-allegato', 'ccpa-archive'];
+  const LIC_JA = '検証のために引いたり記したりした他人の文は、CC BY 4.0 の対象ではなく、それぞれの権利者のものです。';
+  const LIC_EN = 'Third-party texts quoted or stored for verification are not under CC BY 4.0 and remain their owners\'.';
+  const KINDS66 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const W66 = require('./world/check.js').state();
+  const art13 = JSON.parse(read('verification/statutes-texts.json'))['著作権法 第13条'];
+  function verdict(x) {
+    const bad = [];
+    const need = (f, list) => list.forEach((t) => { if (!x[f].includes(t)) bad.push(f + '：' + t.slice(0, 40)); });
+    let R, P, WS;
+    try { R = JSON.parse(x['verification/sources-raw.json']).sources; P = JSON.parse(x['verification/sources.json']).sources; WS = JSON.parse(x['verification/world/sources.json']); } catch (e) { return ['JSON が読めない']; }
+    /* 窓を記す出典は、法令・条約の出典と過不足なく同じ。ほかの出典は窓を持たず、箇所は引用か米州機構の表だけ。 */
+    const whole = Object.keys(R).filter((k) => R[k].whole === true);
+    if (whole.slice().sort().join() !== WHOLE.slice().sort().join() || !Object.values(R).every((r) => typeof r.whole === 'boolean')) bad.push('窓を記す出典が、法令・条約の出典と違う');
+    let spanChars = 0;
+    for (const [k, r] of Object.entries(R)) {
+      if (!r.error && !/^[0-9a-f]{64}$/.test(r.sha256_full || '')) bad.push(k + '：全文の SHA-256 がない');
+      if (r.whole) continue;
+      if (r.windows) bad.push(k + '：法令・条約でない文の窓を記している');
+      if ((r.head || '').length > 300) bad.push(k + '：冒頭を 300 字より長く記している');
+      if (r.missing) bad.push(k + '：引いた文が取り寄せた全文にない（' + r.missing.join('・') + '）');
+      const quotes = Object.values(P).filter((v) => v.from === k).map((v) => v.quote);
+      for (const sp of r.spans || []) { spanChars += sp.length; if (!quotes.includes(sp) && !(k === 'montevideo-parties' && sp.startsWith('COUNTRY SIGNATURE') && !sp.includes('*DECLARATIONS'))) bad.push(k + '：引用でも検査が拠る表でもない箇所を記している'); }
+    }
+    if (!WS.spans_only || !WS.spans_only.constitute || !WS.spans_only['KOR-pipa']) bad.push('各国の法令の調べで、私的な団体の文の出典を挙げていない');
+    /* ライセンスの断りと、調べの README。 */
+    need('README.md', ['文と国章は CC BY 4.0 です。\n' + LIC_JA]);
+    need('policies/names.md', ['最終更新：2026-11-12。', LIC_JA]);
+    need('policies/names.en.md', ['Last updated: 2026-11-12.', LIC_EN]);
+    need('verification/world/README.md', ['ここに記した他人の文は、CC BY 4.0 の対象ではなく、それぞれの権利者のものです。', '全文は、取り寄せの実行の artifact（`world-full`）に残し、git には入れていません。']);
+    /* 適法性の説明の改めた文。前の文は残らない。 */
+    need('policies/legality.md', ['頁は引用のほかに他人の著作物を載せず、リポジトリも、法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。']);
+    need('policies/legality.en.md', ['the repository, too, keeps of texts other than laws, treaties and texts of state organs only the passages quoted and the passages its checks rely on.']);
+    if (x['policies/legality.md'].includes('引用のほかは、他人の著作物を複製していない。') || x['policies/legality.en.md'].includes('apart from quotation, no one else\'s work is reproduced.')) bad.push('適法性の説明に前の文が残る');
+    /* 王の正誤表 28 は前の文を残し、事実の分類で、日本語と英語にある。 */
+    const row = (t, n) => t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
+    const e28 = row(x['ERRATA.md'], 28), e28en = row(x['ERRATA.en.md'], 28);
+    if (!e28.includes('当てはまらない理由：引用のほかは、他人の著作物を複製していない。') || !e28.includes('2026-11-12 に Claude が決めました。') || !/\| 事実 \| Insula Facti V \|$/.test(e28)) bad.push('王の正誤表 28');
+    if (!e28en.includes('apart from quotation, no one else\'s work is reproduced.') || !/\| Fact \| Insula Facti V \|$/.test(e28en)) bad.push('英語の王の正誤表 28');
+    need('README.md', ['| 2026-11-12（日本時間） | リポジトリに記す他人の文を減らす。']);
+    /* 記録の節：表の形と判定の数、書いた数は数えた数、引いた第13条は取り寄せた文。 */
+    const r = x[REC], i = r.indexOf('\n## 2026-11-12 の続き：見落としていたもの\n'), j = i < 0 ? -1 : r.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : r.slice(i, j < 0 ? undefined : j);
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS66.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [])[1]);
+    if (!KINDS66.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    const priv = Object.values(W66.data).flatMap((d) => d.provisions).filter((p) => p.spans);
+    const n = (src) => priv.filter((p) => p.source === src).length;
+    const sum = (f) => priv.reduce((a, p) => a + f(p), 0);
+    const nums = ['出典は ' + Object.keys(R).length + ' です', '法令・条約の ' + whole.length + ' で', '検査が拠る箇所だけを記すのは ' + (Object.keys(R).length - whole.length) + ' です', 'あわせて ' + spanChars + ' 字です',
+      '文を外した条は ' + priv.length + ' 件です', '英語の文が ' + n('constitute') + ' 件', '英訳が ' + n('KOR-pipa') + ' 件', '文は、あわせて ' + sum((p) => p.length) + ' 字でした', '記した箇所は、あわせて ' + sum((p) => p.spans.join('').length) + ' 字です'];
+    for (const s of nums) if (!sec.includes(s)) bad.push('記録の数が数えた数と違う：' + s);
+    if (!sec.includes('<!-- 条文 著作権法 第13条 -->\n> ' + art13 + '\n')) bad.push('記録の第13条の文が取り寄せた文と違う');
+    if (!sec.includes('弁護士の確認は受けていません。') || (sec.match(/2026-11-12 に Claude が決めました。/g) || []).length < 3) bad.push('記録に、弁護士の文か決めた者と理由がない');
+    return bad;
+  }
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const bad = verdict(real);
+  ok('リポジトリに記す他人の文は、法令・条約の窓と、引いた箇所と検査が拠る箇所だけで、全文の SHA-256 を持ち、ライセンスの断り・適法性の説明・王の正誤表 28・年表・記録の表と数が、日本語と英語でそろう', bad.length === 0, bad.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const raw0 = JSON.parse(real['verification/sources-raw.json']);
+  const withRaw = (fn) => { const t = JSON.parse(JSON.stringify(raw0)); fn(t.sources); return Object.assign({}, real, { 'verification/sources-raw.json': JSON.stringify(t) }); };
+  const breaks = [
+    ['規約の出典に窓を戻す', withRaw((S) => { S['vercel-terms'].windows = ['Hobby plan …']; })],
+    ['規約の出典を法令の扱いに替える', withRaw((S) => { S['vercel-terms'].whole = true; })],
+    ['規約の出典に、引用でない箇所を足す', withRaw((S) => { S['vercel-terms'].spans.push('Vercel may change these Terms at any time.'); })],
+    ['米州機構の表に宣言の文まで足す', withRaw((S) => { const k = S['montevideo-parties'].spans.findIndex((y) => y.startsWith('COUNTRY SIGNATURE')); S['montevideo-parties'].spans[k] += ' *DECLARATIONS/RESERVATIONS'; })],
+    ['出典の全文の SHA-256 を消す', withRaw((S) => { delete S['ppc-qa'].sha256_full; })],
+    ['冒頭を長く記す', withRaw((S) => { S['vercel'].head = 'x'.repeat(301); })],
+    ['名称と権利からライセンスの断りを外す', mut('policies/names.md', LIC_JA, '')],
+    ['英語の名称と権利からライセンスの断りを外す', mut('policies/names.en.md', LIC_EN, '')],
+    ['適法性の説明を前の文に戻す', mut('policies/legality.md', '頁は引用のほかに他人の著作物を載せず、リポジトリも、法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。', '引用のほかは、他人の著作物を複製していない。')],
+    ['王の正誤表 28 の分類を変える', mut('ERRATA.md', '| 事実 | Insula Facti V |', '| 法 | Insula Legis VIII |')],
+    ['記録の表の判定の数を変える', mut(REC, '漏れ 4 件、表現 0 件', '漏れ 5 件、表現 0 件')],
+    ['記録の文字数を変える', mut(REC, /記した箇所は、あわせて (\d+) 字です/, (m0, d) => '記した箇所は、あわせて ' + (Number(d) - 1) + ' 字です')],
+    ['記録の第13条の文を一字変える', mut(REC, '一 憲法その他の法令', '一 憲法その他の法律')],
+  ];
+  const caught = breaks.filter(([, x]) => verdict(x).length > 0).map(([k]) => k);
+  ok('壊して確かめる：窓・扱い・箇所・表・値・冒頭・ライセンスの断り・前の文・正誤表・判定の数・文字数・第13条のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));
