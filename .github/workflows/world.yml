@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: world-${{ github.ref }}
+  group: world-${{ github.ref }}-${{ inputs.batch }}
   cancel-in-progress: false
 
 jobs:
@@ -34,13 +34,12 @@ jobs:
       - run: node tools/world.js
         env:
           WORLD_BATCH: ${{ inputs.batch }}
-          RAW_LEN: 6000
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add verification/world
-          git commit -m "各国の法令：取り寄せた条を記す（${WORLD_BATCH:-request}）" || exit 0
-          for k in 1 2 3; do git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep 10; done
+          git commit -m "各国の法令：取り寄せた条を記す（${WORLD_BATCH:-$(node -p "require('./verification/world/request.json').batch")}）" || exit 0
+          for k in 1 2 3; do git pull --rebase -X theirs origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep 10; done
           exit 1
         env:
           WORLD_BATCH: ${{ inputs.batch }}
