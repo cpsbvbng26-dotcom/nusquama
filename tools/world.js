@@ -349,17 +349,20 @@ async function constitutions(list) {
     return;
   }
   const all = JSON.parse(decode(r).text);
-  /* What Constitute lists as in force, kept for the record of which text was matched to which country. */
-  const index = all.filter((x) => x.in_force !== false && !x.is_draft && !x.is_historic).map((x) => ({ id: x.id, country_id: x.country_id, title: x.title, year_enacted: x.year_enacted, year_updated: x.year_updated }));
-  fs.writeFileSync(path.join(DIR, 'constitute-index.json'), '{\n "_": "Constitute Project の一覧（効力のあるもの）。tools/world.js が ' + TODAY + ' に取り寄せた。",\n "constitutions": [\n' + index.map((x) => '  ' + JSON.stringify(x)).join(',\n') + '\n ]\n}\n');
+  /* What Constitute lists (drafts left out), kept for the record of which text was matched to which country. */
+  const index = all.filter((x) => !x.is_draft).map((x) => ({ id: x.id, country_id: x.country_id, title: x.title, year_enacted: x.year_enacted, year_updated: x.year_updated, in_force: x.in_force, is_historic: x.is_historic }));
+  fs.writeFileSync(path.join(DIR, 'constitute-index.json'), '{\n "_": "Constitute Project の一覧（草案を除く）。tools/world.js が ' + TODAY + ' に取り寄せた。",\n "constitutions": [\n' + index.map((x) => '  ' + JSON.stringify(x)).join(',\n') + '\n ]\n}\n');
+  const norm = (x) => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]+/g, ' ').trim().replace(/^the /, '').replace(/ the$/, '');
   for (const c of list) {
     const o = (CONF.constitute.overrides || {})[c.iso3];
     let e = null;
     if (typeof o === 'string') e = all.find((x) => x.id === o) || null;
     else if (o !== null) {
-      const names = [c.name, ...((CONF.constitute.names || {})[c.iso3] || [])].map((n) => n.toLowerCase());
-      const cands = all.filter((x) => x.in_force !== false && !x.is_draft && !x.is_historic && names.includes(String(x.country_id || '').replace(/_/g, ' ').toLowerCase()));
-      e = cands.sort((a, b) => (b.year_updated || b.year_enacted || 0) - (a.year_updated || a.year_enacted || 0))[0] || null;
+      const names = [c.name, ...((CONF.constitute.names || {})[c.iso3] || [])].map(norm);
+      const mine = all.filter((x) => !x.is_draft && names.includes(norm(x.country_id)));
+      const newest = (xs) => xs.sort((a, b) => (+(b.year_updated || b.year_enacted || 0)) - (+(a.year_updated || a.year_enacted || 0)))[0] || null;
+      /* The newest text Constitute marks as in force; if it marks none, the newest it has, with that fact recorded. */
+      e = newest(mine.filter((x) => x.in_force !== false && !x.is_historic)) || newest(mine.slice());
     }
     const d = load(c.iso3);
     if (!e) {
@@ -371,7 +374,7 @@ async function constitutions(list) {
     }
     const s = { instrument: e.title || e.id, kind: 'constitution', lang: 'en', format: 'constitute', archive: false, official: 'Constitute Project（英訳）', url: 'https://www.constituteproject.org/service/html?cons_id=' + encodeURIComponent(e.id) + '&lang=en' };
     const { rec, found } = await fetchSource(s);
-    Object.assign(rec, { constitute_id: e.id, title: e.title, year_enacted: e.year_enacted, year_updated: e.year_updated, page: 'https://www.constituteproject.org/constitution/' + e.id + '?lang=en' });
+    Object.assign(rec, { constitute_id: e.id, title: e.title, year_enacted: e.year_enacted, year_updated: e.year_updated, ...(e.in_force === false || e.is_historic ? { constitute_not_in_force: true } : {}), page: 'https://www.constituteproject.org/constitution/' + e.id + '?lang=en' });
     store(c.iso3, 'constitute', s, rec, found);
     console.log(c.iso3, 'constitute', e.id, rec.error || rec.articles + ' articles, ' + found.length + ' kept');
   }
