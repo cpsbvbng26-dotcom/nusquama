@@ -149,7 +149,7 @@ The gaps found are listed below.
 | --- | --- | --- |
 | 1 | Build the text of the application issue from the form. | None. The headings the automatic check reads are the same as the headings of the form |
 | 2 | The automatic check runs on the label the form adds. | None. The label is the one the labels workflow creates and the one the check workflow waits for |
-| 3 | The automatic check looks at the ticks, the link and the explanation, and comments. | None. The link was not opened; a response status was passed in. From 2026-11-12, the automatic check does not open the link, and looks only at whether it is an https URL that does not point to a refused destination (King's errata 30) |
+| 3 | The automatic check looks at the ticks, the link and the explanation, and comments. | None. The link was not opened; a response status was passed in. From 2026-11-13, the automatic check does not open the link, and looks only at whether it is an https URL that does not point to a refused destination (King's errata 30) |
 | 4 | The operator reads the linked page and checks it. | This is reading by a person, so the checks cannot walk it through |
 | 5 | Add one row to the roll, as "How entries are recorded" says. | No check compared the rows of the English roll with the Japanese roll. One was added on 2026-11-12 (the number, the knight, the day of knighting and the application must match) |
 | 6 | A gazette issue appears, and the knight enters the population and the feed. | None |

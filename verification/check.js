@@ -1746,8 +1746,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-7).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-8).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2150,8 +2150,8 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f),
     ...fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f)];
   const OLD = ['非公開で連絡する方法を返します', 'a way to make contact privately', '非公開の連絡で遅滞なく', 'through a private channel', 'through the private channel', '「公開できない求め」に沿った連絡で', '「公開できない求め」に沿って行います'];
-  const PVR_JA = 'GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません（2026-11-12 に GitHub の API で確かめました）。';
-  const PVR_EN = "GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-12).";
+  const PVR_JA = 'GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません（2026-11-13 に GitHub の API で確かめました）。';
+  const PVR_EN = "GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-13).";
   const NAME_JA = '運営者の氏名と住所は、求めた人が自分の GitHub のプロフィールに公開している連絡先へ、遅滞なく知らせます。';
   const KINDS67 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
   const T67 = JSON.parse(read('verification/statutes-texts.json'));
@@ -2176,7 +2176,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     /* 規程の最終更新は、日本語と英語で同じ日。 */
     for (const p of ['requests', 'privacy', 'terms', 'legality']) {
       const dj = (/^最終更新：(\d{4}-\d{2}-\d{2})。$/m.exec(x['policies/' + p + '.md']) || [])[1], de = (/^Last updated: (\d{4}-\d{2}-\d{2})\.$/m.exec(x['policies/' + p + '.en.md']) || [])[1];
-      if (!(dj && dj >= '2026-11-12' && dj === de)) bad.push(p + '：最終更新');
+      if (!(dj && dj >= '2026-11-13' && dj === de)) bad.push(p + '：最終更新');
     }
     /* 王の正誤表 29：前の文を残し、事実の分類で、Claude が決めたことと理由がある（日本語と英語）。年表に行がある。 */
     const row = (t, n) => t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
@@ -2184,7 +2184,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     if (!e29.includes('運営者から、非公開で連絡する方法を返します。') || !e29.includes('運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。') || !e29.includes('これは事実の訂正で、範囲を改めたものではない。')
       || (e29.match(/2026-11-12 に Claude が決めました。/g) || []).length !== 2 || !/\| 事実 \| Insula Facti VI \|$/.test(e29)) bad.push('王の正誤表 29');
     if (!e29en.includes('"The operator answers with a way to make contact privately."') || !e29en.includes('This is a correction of a fact, not a change of scope.') || (e29en.match(/Claude decided this on 2026-11-12/g) || []).length !== 2 || !/\| Fact \| Insula Facti VI \|$/.test(e29en)) bad.push('英語の王の正誤表 29');
-    need('README.md', ['| 2026-11-12（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| The promise of a private contact is corrected to the route that exists.']);
+    need('README.md', ['| 2026-11-13（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| The promise of a private contact is corrected to the route that exists.']);
     /* 点検の記録の節：表の形、件数、条は見張りの表にある、条文は取り寄せた文、残る危険、弁護士の文、決めた者と理由。 */
     const a = x[AUD], i = a.indexOf('\n## 2026-11-12 の続き：二度目の見落とし\n'), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
@@ -2214,10 +2214,10 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     ['適法性の説明から残る危険を外す', mut('policies/legality.md', 'ただし第32条の氏名と住所は、連絡先を公開していない人に知らせる道がない。', '')],
     ['様式から答え方を外す', mut('.github/ISSUE_TEMPLATE/request.yml', '運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。', '')],
     ['義務の表を前の文に戻す', mut('verification/duties.json', NAME_JA, '運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。')],
-    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-12.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 29 を範囲の分類にする', mut('ERRATA.md', '| 事実 | Insula Facti VI |', '| 範囲 | Insula Finis XIII |')],
     ['英語の王の正誤表 29 から前の文を外す', mut('ERRATA.en.md', '"The operator answers with a way to make contact privately." (Requests; the security page) / ', '')],
-    ['年表の行を外す', mut('README.md', '| 2026-11-12（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| 2026-11-12（日本時間） | 改める。')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| 2026-11-13（日本時間） | 改める。')],
     ['記録の判定の数を変える', mut(AUD, '誤り 2 件、根拠不足 2 件', '誤り 3 件、根拠不足 2 件')],
     ['記録の第32条の文を一字変える', mut(AUD, '当該個人情報取扱事業者の氏名又は名称及び住所', '当該個人情報取扱事業者の氏名又は名称及び居所')],
     ['記録の表に見張っていない条を挙げる', mut(AUD, '| 開示の求め | 個人情報保護法第33条 |', '| 開示の求め | 個人情報保護法第99条 |')],
@@ -2287,11 +2287,11 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     need('policies/knighting.en.md', ['The automatic check does not open the link to the correction. The operator is the one who opens and reads it.', 'The refused destinations are localhost; ' + se + '; addresses written as numbers; names without a dot; and URLs that contain a user name or password.']);
     need('policies/privacy.md', ['自動の確認は、訂正へのリンクを開きません。リンク先へは何も要求せず、リンク先の中身はどこにも残しません。', 'リンク先を開いて読むのは運営者です（[叙任の規程](./knighting.md)「運営者が確かめること」）。']);
     need('policies/privacy.en.md', ['The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.']);
-    need('INSTITUTIONS.md', ['2026-11-12 から、自動の確認はリンクを開かず、https の URL で受けない先を指さないことだけを見る（王の正誤表 30）']);
-    need('INSTITUTIONS.en.md', ['From 2026-11-12, the automatic check does not open the link']);
+    need('INSTITUTIONS.md', ['2026-11-13 から、自動の確認はリンクを開かず、https の URL で受けない先を指さないことだけを見る（王の正誤表 30）']);
+    need('INSTITUTIONS.en.md', ['From 2026-11-13, the automatic check does not open the link']);
     for (const p of ['knighting', 'privacy']) {
       const dj = (/^最終更新：(\d{4}-\d{2}-\d{2})。$/m.exec(x['policies/' + p + '.md']) || [])[1], de = (/^Last updated: (\d{4}-\d{2}-\d{2})\.$/m.exec(x['policies/' + p + '.en.md']) || [])[1];
-      if (!(dj && dj >= '2026-11-12' && dj === de)) bad.push(p + '：最終更新');
+      if (!(dj && dj >= '2026-11-13' && dj === de)) bad.push(p + '：最終更新');
     }
     /* 王の正誤表 30：前の文を残し、範囲の分類で、Claude が決めたことと理由が三つある（日本語と英語）。年表に行がある。 */
     const row = (t, n) => t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
@@ -2299,7 +2299,7 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     if (!e30.includes('訂正へのリンクを一度開きます。リンクについては、開けるかどうかを示す応答の状態だけを見ます。') || !e30.includes('訂正へのリンクが開けるかどうかを確かめ、結果を issue にコメントします。') || !e30.includes('誤りではなく、範囲を改めた。')
       || !e30.includes(sj) || (e30.match(/2026-11-12 に Claude が決めました。/g) || []).length !== 3 || !e30.split('2026-11-12 に Claude が決めました。').slice(1).every((z) => /^[^|]*?ためです。/.test(z)) || !/\| 範囲 \| Insula Finis XIII \|$/.test(e30)) bad.push('王の正誤表 30');
     if (!e30en.includes('opens the link to the correction once.') || !e30en.includes('Not a mistake; the scope was changed.') || !e30en.includes(se) || (e30en.match(/Claude decided this on 2026-11-12/g) || []).length !== 3 || !/\| Scope \| Insula Finis XIII \|$/.test(e30en)) bad.push('英語の王の正誤表 30');
-    need('README.md', ['| 2026-11-12（日本時間） | 叙任の願い出の自動の確認が、訂正へのリンクを開かないように改める。', '| The automatic check of applications for knighting no longer opens the link to the correction.']);
+    need('README.md', ['| 2026-11-13（日本時間） | 叙任の願い出の自動の確認が、訂正へのリンクを開かないように改める。', '| The automatic check of applications for knighting no longer opens the link to the correction.']);
     /* 点検の記録の節：表の形、件数、受けない先の一覧、弁護士の文、決めた者と理由。 */
     const a = x[AUD], i = a.indexOf('\n## 2026-11-12 の続き：三度目の見落とし\n'), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
@@ -2338,12 +2338,12 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     ['叙任の規程の一覧から .onion を外す', mut('policies/knighting.md', '・.invalid・.onion で終わる名', '・.invalid で終わる名')],
     ['英語の叙任の規程から開かないことを外す', mut('policies/knighting.en.md', 'The automatic check does not open the link to the correction. ', '')],
     ['英語の個人情報の取り扱いから要求しないことを外す', mut('policies/privacy.en.md', 'It sends no request to the linked site, ', '')],
-    ['国の仕組みの追記を外す', mut('INSTITUTIONS.md', '。2026-11-12 から、自動の確認はリンクを開かず、https の URL で受けない先を指さないことだけを見る（王の正誤表 30）', '')],
-    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', 'Last updated: 2026-11-12.', 'Last updated: 2026-11-11.')],
+    ['国の仕組みの追記を外す', mut('INSTITUTIONS.md', '。2026-11-13 から、自動の確認はリンクを開かず、https の URL で受けない先を指さないことだけを見る（王の正誤表 30）', '')],
+    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 30 を事実の分類にする', mut('ERRATA.md', '| 範囲 | Insula Finis XIII |', '| 事実 | Insula Facti VII |')],
     ['王の正誤表 30 から理由を一つ外す', mut('ERRATA.md', '規約を読めない先へ、機械で要求を出さないためです。', '規約を読めない先へ、機械で要求を出さない。')],
     ['英語の王の正誤表 30 から前の文を外す', mut('ERRATA.en.md', 'opens the link to the correction once.', 'checks the link.')],
-    ['年表の行を外す', mut('README.md', '| 2026-11-12（日本時間） | 叙任の願い出の自動の確認が、訂正へのリンクを開かないように改める。', '| 2026-11-12（日本時間） | 改める。')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 叙任の願い出の自動の確認が、訂正へのリンクを開かないように改める。', '| 2026-11-13（日本時間） | 改める。')],
     ['記録の判定の数を変える', mut(AUD, '漏れ 3 件、問題なし 3 件', '漏れ 2 件、問題なし 3 件')],
     ['記録の一覧から .test を外す', mut(AUD, '・`.test`・', '・')],
     ['記録から漏れの行を問題なしにする', mut(AUD, '前もって読めない | 漏れ |', '前もって読めない | 問題なし |')],
@@ -2413,7 +2413,7 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
     if (/専属|裁判所|court/.test(x['.github/ISSUE_TEMPLATE/knighting.yml'])) bad.push('様式が合意管轄の文を写す');
     for (const p of ['terms', 'legality']) {
       const dj = (/^最終更新：(\d{4}-\d{2}-\d{2})。$/m.exec(x['policies/' + p + '.md']) || [])[1], de = (/^Last updated: (\d{4}-\d{2}-\d{2})\.$/m.exec(x['policies/' + p + '.en.md']) || [])[1];
-      if (!(dj && dj >= '2026-11-12' && dj === de)) bad.push(p + '：最終更新');
+      if (!(dj && dj >= '2026-11-13' && dj === de)) bad.push(p + '：最終更新');
     }
     /* 王の正誤表 31：前の文を残し、法の分類で、Claude が決めたことと理由が三つある（日本語と英語）。年表に行がある。 */
     const row = (t, n) => t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
@@ -2421,7 +2421,7 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
     if (!e31.includes('示談で解決しない紛争は、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の専属的合意管轄裁判所とします。') || !e31.includes('合意で定めた専属管轄は、移送の制限の外にある（民事訴訟法第20条第1項）。') || !e31.includes('民事訴訟法第11条第2項')
       || (e31.match(/2026-11-12 に Claude が決めました。/g) || []).length !== 3 || !e31.split('2026-11-12 に Claude が決めました。').slice(1).every((z) => /^[^|]*?ためです。/.test(z)) || !e31.includes('読む人や騎士に不利になる変更ではない。') || !/\| 法 \| Insula Legis VIII \|$/.test(e31)) bad.push('王の正誤表 31');
     if (!e31en.includes('as the exclusive agreed court of first instance.') || !e31en.includes('Article 11(2)') || (e31en.match(/Claude decided this on 2026-11-12/g) || []).length !== 3 || !e31en.includes('This is not a change to the disadvantage of readers or knights.') || !/\| Law \| Insula Legis VIII \|$/.test(e31en)) bad.push('英語の王の正誤表 31');
-    if (!x['README.md'].includes('| 2026-11-12（日本時間） | 利用規約の合意管轄を、専属的でないものに改める。') || !x['README.md'].includes('| The agreed court in the Terms of Use is no longer exclusive.')) bad.push('年表の行');
+    if (!x['README.md'].includes('| 2026-11-13（日本時間） | 利用規約の合意管轄を、専属的でないものに改める。') || !x['README.md'].includes('| The agreed court in the Terms of Use is no longer exclusive.')) bad.push('年表の行');
     /* 点検の記録の節：第11条第2項と引いた条文が取り寄せた文と同じ、表の形、件数、前の行が誤りだったこと、弁護士の文、決めた者と理由。 */
     const a = x[AUD], i = a.indexOf(SEC), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
@@ -2461,22 +2461,140 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
     ['適法性の説明に第20条を戻す', mut('policies/legality.md', '（民事訴訟法第17条）。', '（民事訴訟法第17条）。合意で定めた裁判所は、移送の制限の外にある（民事訴訟法第20条第1項）。')],
     ['英語の適法性の説明から読む人の文を外す', mut('policies/legality.en.md', 'There is no written agreement with those who only read; for them, and for other disputes, the court', 'The court')],
     ['様式に合意管轄を写す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '願い出の日の版に同意します', '願い出の日の版と、宇都宮の裁判所の専属に同意します')],
-    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-12.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 31 から前の文を外す', mut('ERRATA.md', '合意で定めた専属管轄は、移送の制限の外にある（民事訴訟法第20条第1項）。／', '')],
     ['王の正誤表 31 を範囲の分類にする', mut('ERRATA.md', '| 法 | Insula Legis VIII |', '| 範囲 | Insula Finis XIV |')],
     ['王の正誤表 31 から理由を一つ外す', mut('ERRATA.md', '誰の道も前より狭めないためです。', '誰の道も前より狭めない。')],
     ['英語の王の正誤表 31 から不利でない文を外す', mut('ERRATA.en.md', 'This is not a change to the disadvantage of readers or knights. Claude decided this on 2026-11-12, because knights may sue', 'Claude decided this on 2026-11-12, because knights may sue')],
-    ['年表の行を外す', mut('README.md', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、専属的でないものに改める。', '| 2026-11-12（日本時間） | 改める。')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 利用規約の合意管轄を、専属的でないものに改める。', '| 2026-11-13（日本時間） | 改める。')],
     ['記録の第11条第2項を書き換える', mut(AUD, '一定の法律関係に基づく訴えに関し、かつ、書面でしなければ、その効力を生じない。」と定めています。', '一定の法律関係に基づく訴えに関し、書面でしなければ、その効力を生じない。」と定めています。')],
     ['記録の第4条の引用を書き換える', mut(AUD, '第4条第1項の「訴えは、被告の', '第4条第1項の「訴えは、原告の')],
     ['記録の判定の数を変える', mut(AUD, '誤り 3 件、根拠不足 2 件', '誤り 2 件、根拠不足 2 件')],
     ['記録から誤りの行を問題なしにする', mut(AUD, '様式で同意していない読む人にも言っていた | 誤り |', '様式で同意していない読む人にも言っていた | 問題なし |')],
     ['記録から前の行の誤りを外す', mut(AUD, 'として「問題なし」としていたが、頁の要旨だけを見て、利用規約の文を見ていなかった | 誤り |', 'として「問題なし」としていた | 問題なし |')],
     ['記録から決めた理由を外す', mut(AUD, '合意していない人に合意を言わないためです。', '合意していない人に合意を言わない。')],
-    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：六度目の見落とし', '\n\n## 2026-11-12 の続き：六度目の見落とし')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：専属に戻す・人の限り・訴えの限り・法令の定める裁判所・運営者の訴える先・争わないこと・裁判所を替える・前の文を戻す・及ぶ人の文・英語の規約・生成した頁・第20条・読む人の文・様式・最終更新・正誤表・年表・第11条第2項・第4条・判定の数・誤りの行・前の行・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n70. 頁の日付は日本時間で、公開の日より前にならない（2026-11-13）');
+{
+  const { execFileSync } = require('child_process');
+  const AUD = 'docs/legal-audit-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：六度目の見落とし\n', WF = '.github/workflows/check.yml';
+  /* 日付は日本時間で読む（利用規約「変更と終了」）。git の日付も Asia/Tokyo の地方時に直して比べる。 */
+  const git = (args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', env: Object.assign({}, process.env, { TZ: 'Asia/Tokyo' }), stdio: ['ignore', 'pipe', 'ignore'] });
+  const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  let shallow = true;
+  try { shallow = git(['rev-parse', '--is-shallow-repository']).trim() !== 'false'; } catch (e) { shallow = true; }
+  const day = (args) => { try { return git(args).split('\n').filter(Boolean); } catch (e) { return []; } };
+  /* 頁の文を変えた最後の日。前の版と、最終更新の行のほかで違う版のうち、いちばん新しいコミットの日（最終更新の日だけを
+   * 改めたコミットは、文を変えたものとしない）。最後のコミットと文が違う頁は、今日（日本時間）に変えたものとする。
+   * 版は git cat-file で一度に読む。 */
+  const body = (s) => String(s || '').replace(/^(?:最終更新：\d{4}-\d{2}-\d{2}。|Last updated: \d{4}-\d{2}-\d{2}\.)$/gm, '');
+  const lastTextDays = (fs_) => {
+    const logs = Object.fromEntries(fs_.map((f) => [f, day(['log', '--format=%H %cd', '--date=format-local:%Y-%m-%d', '--', f]).map((l) => l.split(' '))]));
+    let buf = Buffer.alloc(0);
+    try { buf = execFileSync('git', ['cat-file', '--batch'], { cwd: ROOT, input: fs_.flatMap((f) => logs[f].map(([h]) => h + ':' + f)).join('\n') + '\n', maxBuffer: 1 << 30, stdio: ['pipe', 'pipe', 'ignore'] }); } catch (e) { buf = Buffer.alloc(0); }
+    const blobs = [];
+    for (let p = 0; p < buf.length;) {
+      const nl = buf.indexOf(10, p), m = / blob (\d+)$/.exec(buf.slice(p, nl).toString('utf8'));
+      if (!m) { blobs.push(null); p = nl + 1; continue; }
+      blobs.push(buf.slice(nl + 1, nl + 1 + Number(m[1])).toString('utf8')); p = nl + 1 + Number(m[1]) + 1;
+    }
+    const out = {};
+    let k = 0;
+    for (const f of fs_) {
+      const l = logs[f], v = l.map(() => blobs[k++]);
+      if (!l.length || body(read(f)) !== body(v[0])) { out[f] = today; continue; }
+      const i = v.findIndex((x, j) => j + 1 >= v.length || body(x) !== body(v[j + 1]));
+      out[f] = (l[i] || [])[1] || today;
+    }
+    return out;
+  };
+  /* 行の文が最初に入った日。まだどのコミットにもない文は、今日に入るものとする。 */
+  const firstDay = (f, s) => day(['log', '--reverse', '--format=%cd', '--date=format-local:%Y-%m-%d', '-S', s, '--', f])[0] || today;
+  const UPD = /^(?:最終更新：(\d{4}-\d{2}-\d{2})。|Last updated: (\d{4}-\d{2}-\d{2})\.)$/m;
+  const pages = walk(ROOT).filter((f) => f.endsWith('.md') && !/^(?:\.git|site|docs|verification|node_modules)\//.test(f) && UPD.test(read(f))).sort();
+  const cells = (l) => l.replace(/^\| | \|$/g, '').split(' | ');
+  const timeline = (t) => { const i = t.indexOf('\n## 年表\n'); return i < 0 ? [] : t.slice(i, t.indexOf('\n## ', i + 5)).split('\n').filter((l) => /^\| \d{4}-\d{2}-\d{2}/.test(l)).map(cells); };
+  const errata = (t) => t.split('\n').filter((l) => /^\| \d+ \| \d{4}-\d{2}-\d{2} \|/.test(l)).map(cells);
+  const files = ['README.md', 'ERRATA.md', 'policies/terms.md', 'policies/terms.en.md', AUD, WF].concat(pages.filter((f) => !['policies/terms.md', 'policies/terms.en.md'].includes(f)));
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  /* 履歴から読む日は、いまの文について一度だけ読む。壊して確かめるときも、同じ文には同じ日を使う。 */
+  const last = lastTextDays(pages);
+  const first = {};
+  for (const r of timeline(real['README.md'])) first['README.md\n' + r[1]] = firstDay('README.md', r[1]);
+  for (const r of errata(real['ERRATA.md'])) first['ERRATA.md\n' + r[3]] = firstDay('ERRATA.md', r[3]);
+  const ledgerRaw = JSON.parse(read('verification/gazette-numbers.json'));
+  const JST_JA = ['頁の日付と、年表・官報・正誤表・名簿の日付は、日本時間の日付です。', '文を取り寄せた日は、取り寄せの記録に残った協定世界時の日付です。', '建国の日の 2026-11-07 も、協定世界時の日付です。'];
+  const JST_EN = ['The dates on the pages, and in the timeline, the gazette, the errata and the roll, are dates in Japan time.', 'The day a text was fetched is the day in UTC that the record of the fetch keeps.', 'The founding day, 2026-11-07, is also a date in UTC.'];
+  const KINDS70 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const section = (txt, head) => { const i = txt.indexOf('\n## ' + head + '\n'); if (i < 0) return ''; const j = txt.indexOf('\n## ', i + 5); return txt.slice(i, j < 0 ? undefined : j); };
+  function verdict(x, h) {
+    const bad = [];
+    if (h.shallow) bad.push('履歴が浅いか、git が読めない（日付を照らせない）');
+    /* 頁の最終更新は、その頁を変えた最後のコミットの日（日本時間）より前にならない。 */
+    for (const f of pages) { const m = UPD.exec(x[f] || ''); const d = m && (m[1] || m[2]); if (!d || d < h.last[f]) bad.push(f + '：最終更新 ' + d + ' が、変えた日 ' + h.last[f] + ' より前'); }
+    /* 年表と王の正誤表の行の日付は、その文が最初に入ったコミットの日より前にならない。建国の日の行だけは、協定世界時の日付（利用規約）。 */
+    for (const r of timeline(x['README.md'])) { const d = r[0].slice(0, 10), w = h.first['README.md\n' + r[1]] || today; if (d < w && d !== B.FOUNDED) bad.push('年表の行 ' + d + ' が、入った日 ' + w + ' より前：' + r[1].slice(0, 20)); }
+    for (const r of errata(x['ERRATA.md'])) { const w = h.first['ERRATA.md\n' + r[3]] || today; if (r[1] < w) bad.push('王の正誤表 ' + r[0] + ' の記した日 ' + r[1] + ' が、入った日 ' + w + ' より前'); }
+    /* 年表の行が告げる効力の日は、行の日付より前にならない（日本語と英語）。 */
+    for (const r of timeline(x['README.md'])) {
+      const d = r[0].slice(0, 10);
+      const eff = [...r[1].matchAll(/(\d{4}-\d{2}-\d{2})(?: 0 時)?(?:（日本時間）)? ?から/g)].map((m) => m[1]).concat([...(r[2] || '').matchAll(/\b[Ff]rom (?:00:00 on )?(\d{4}-\d{2}-\d{2})/g)].map((m) => m[1]));
+      for (const e of eff) if (e < d) bad.push('年表の行 ' + d + ' が告げる効力の日 ' + e + ' が、行の日付より前');
+    }
+    /* 利用規約は、頁の日付が日本時間で、取り寄せた日と建国の日が協定世界時だと書く（日本語と英語）。 */
+    const cj = section(x['policies/terms.md'], '変更と終了'), ce = section(x['policies/terms.en.md'], 'Changes and ending');
+    if (!JST_JA.every((s) => cj.includes('\n' + s + '\n'))) bad.push('利用規約に、日付の時刻の文がない');
+    if (!JST_EN.every((s) => ce.includes('\n' + s + '\n'))) bad.push('英語の利用規約に、日付の時刻の文がない');
+    /* 日付を改めた行は、号の台帳で改めた日付の鍵を持ち、古い鍵を持たない。 */
+    for (const k of Object.keys(B.REDATED)) if (Object.prototype.hasOwnProperty.call(h.ledger, k) || !Object.prototype.hasOwnProperty.call(h.ledger, B.redatedKey(k)) || !B.gazetteItems().some((it) => it.key === B.redatedKey(k))) bad.push('号の台帳の鍵：' + k);
+    /* 検査の workflow は、履歴をすべて取る。 */
+    if (!/actions\/checkout@[0-9a-f]{40} # v[\d.]+\n {8}# [^\n]+\n {8}with:\n {10}fetch-depth: 0\n {6}- uses: actions\/setup-node@[0-9a-f]{40} # v[\d.]+\n {8}with:\n {10}node-version: 22\n {6}- run: node verification\/check\.js\n/.test(x[WF])) bad.push('検査の workflow が履歴をすべて取らない');
+    /* 点検の記録の節：表の形、件数、決めた者と理由、弁護士の文。 */
+    const a = x[AUD], i = a.indexOf(SEC), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map(cells);
+    if (rows.length < 10 || !rows.every((y) => y.length === 6 && KINDS70.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [0, -1])[1]);
+    if (!KINDS70.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    const decided = sec.split('2026-11-13 に Claude が決めました。').slice(1);
+    if (decided.length !== 6 || !decided.every((z) => /ためです。/.test(z.split('\n\n')[0]))) bad.push('記録に、決めた者と理由がない');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。')) bad.push('記録に弁護士の文がない');
+    return bad;
+  }
+  const facts = { shallow, last, first, ledger: ledgerRaw };
+  const bad = verdict(real, facts);
+  ok('頁の最終更新（' + pages.length + ' 頁）は文を変えた最後の日より、年表と王の正誤表の行の日付は文が入った日より前にならず（日本時間）、年表の告げる効力の日は行の日付より前にならない。利用規約が日付の時刻を書き、号の台帳は改めた日付の鍵を持ち、検査は履歴をすべて読む。点検の記録がそろう',
+    bad.length === 0, bad.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const breaks = [
+    ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-13。', '最終更新：2026-11-12。'), facts],
+    ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-12.'), facts],
+    ['文を変えていない頁の最終更新を、文を変えた日より前にする', mut('policies/names.md', '最終更新：2026-11-12。', '最終更新：2026-11-11。'), facts],
+    ['年表の行を作業の時計の日付に戻す', mut('README.md', '| 2026-11-13（日本時間） | 利用規約の合意管轄を、', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、'), facts],
+    ['年表の 2026-11-11 の行を前の日に戻す', mut('README.md', '| 2026-11-11（日本時間） | 建国の物語・', '| 2026-11-10（日本時間） | 建国の物語・'), facts],
+    ['王の正誤表 30 の記した日を前の日に戻す', mut('ERRATA.md', '| 30 | 2026-11-13 |', '| 30 | 2026-11-12 |'), facts],
+    ['新しい正誤を前の日付で記す', mut('ERRATA.md', '| 32 | 2026-11-13 |', '| 32 | 2026-11-12 |'), facts],
+    ['年表の行が、行の日付より前の効力の日を告げる', mut('README.md', '願い出の様式に、2026-11-22 からイタリアの国籍を持つ人の', '願い出の様式に、2026-11-11 からイタリアの国籍を持つ人の'), facts],
+    ['英語の年表の行が、行の日付より前の効力の日を告げる', mut('README.md', 'state that, from 2026-11-22, applications from people who hold Italian', 'state that, from 2026-11-11, applications from people who hold Italian'), facts],
+    ['利用規約から日本時間の文を外す', mut('policies/terms.md', JST_JA[0] + '\n', ''), facts],
+    ['利用規約から建国の日の文を外す', mut('policies/terms.md', JST_JA[2] + '\n', ''), facts],
+    ['英語の利用規約から取り寄せた日の文を外す', mut('policies/terms.en.md', JST_EN[1] + '\n', ''), facts],
+    ['履歴が浅い', real, Object.assign({}, facts, { shallow: true })],
+    ['頁を今日変えたのに最終更新を変えない', real, Object.assign({}, facts, { last: Object.assign({}, last, { 'policies/names.md': '2026-12-01' }) })],
+    ['号の台帳に古い鍵が残る', real, Object.assign({}, facts, { ledger: Object.assign({ 'T:2026-11-12:4392d7625560': 55 }, ledgerRaw) })],
+    ['検査の workflow から fetch-depth を外す', mut(WF, '          fetch-depth: 0\n', ''), facts],
+    ['記録の判定の数を変える', mut(AUD, '誤り 5 件、根拠不足 2 件、漏れ 2 件', '誤り 4 件、根拠不足 2 件、漏れ 2 件'), facts],
+    ['記録から決めた理由を外す', mut(AUD, '一度振った号を動かさないためです。', '一度振った号を動かさない。'), facts],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令'), facts],
+  ];
+  const caught = breaks.filter(([, y, h]) => verdict(y, h).length > 0).map(([k]) => k);
+  ok('壊して確かめる：最終更新・英語の最終更新・文を変えていない頁の最終更新・年表の行・2026-11-11 の行・王の正誤表の記した日・新しい正誤・効力の日（日本語と英語）・利用規約の三つの文・浅い履歴・今日変えた頁・号の台帳・fetch-depth・判定の数・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));

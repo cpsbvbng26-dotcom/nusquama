@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-13.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -76,6 +76,9 @@ The [Disclaimer](./disclaimer.en.md) has the details.
 
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
+The dates on the pages, and in the timeline, the gazette, the errata and the roll, are dates in Japan time.
+The day a text was fetched is the day in UTC that the record of the fetch keeps.
+The founding day, 2026-11-07, is also a date in UTC.
 A change that is unfavourable to readers or knights will be shown on this page, with its content and the date it takes effect, before it takes effect.
 Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded ([Rules on Knighting](./knighting.en.md), "Who may apply").
 Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
