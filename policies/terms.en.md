@@ -9,6 +9,7 @@ This is an English translation. The [Japanese version](./terms.md) governs; if t
 These terms cover everyone who reads Nusquama's site and repository, everyone who applies for knighting, and everyone whose name is on the roll of knights.
 A person who applies for knighting agrees, in the application form, to the version of these terms in force on that day.
 Reading the site or the repository is not taken as agreement to anything; for readers, these terms describe how Nusquama works, and the law decides what each side owes.
+The agreement on courts is made only with those who agreed in the application form for knighting ("Governing law and disputes").
 The [Disclaimer](./disclaimer.en.md), [Privacy](./privacy.en.md), the [Rules on Knighting](./knighting.en.md), the [Requests for removal, correction or withdrawal](./requests.en.md) and [Names and rights](./names.en.md) are also part of these terms.
 The reasons the operator believes Nusquama breaks no law are set out, law by law, in the [Legality Statement](./legality.en.md). The Legality Statement is not part of these terms; it explains the operator's understanding.
 
@@ -94,7 +95,11 @@ Disputes are to be settled by agreement first.
 Before bringing any claim, the operator first talks with the other party.
 The talks take place in an issue. When the other party has made a contact public on their own GitHub profile, they may also take place at that contact ([Requests for removal, correction or withdrawal](./requests.en.md), "Requests that cannot be made in public").
 If the other party offers to settle, the operator responds in good faith.
-A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.
+A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the court of first instance by agreement, for a person who has agreed to these terms in the application form for knighting, and only for suits based on these terms or on that person's own application for knighting, listing on the roll of knights or withdrawal.
+This agreement is not exclusive.
+Any other dispute, and any dispute with a person who has not agreed in the form, goes to the court that the law sets.
+When the operator brings a suit against a person these terms cover, the operator brings it only in the Utsunomiya District Court or the Utsunomiya Summary Court, or in the court with jurisdiction over the place of that person's general forum.
+When the other party brings a suit in the Utsunomiya District Court or the Utsunomiya Summary Court, the operator does not contest jurisdiction, whatever the dispute.
 This does not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
 
 ## GitHub's and Vercel's terms
