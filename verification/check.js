@@ -1486,12 +1486,14 @@ console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試し
     && kj.includes('- 叙任の日：王が叙任を決めた日（日本時間）です。名簿の行は、決めたその日のうちに足します。')
     && kj.includes('官報の号は、年表と名簿に行を足した順に振ります。叙任の日は行を足す日と同じなので、古い日付の号が、新しい日付の号の後に来ることはありません。')
     && ke.includes('- Knighted: the day the King decided on the knighting (Japan time). The row is added on that same day.')
-    && ke.includes('Gazette issues are numbered in the order rows are added to the timeline and the roll. As the day of knighting is the day the row is added, an older date never comes after a newer one.'));
+    && ke.includes('Gazette issues are numbered in the order rows are added to the timeline and the roll. As the day of knighting is the day the row is added, an older date never comes after a newer one.')
+    && kj.includes('\n2026-11-12 に Claude が決めました。叙任の通し稽古で') && ke.includes('\nDecided by Claude on 2026-11-12, after the dry run of knighting'));
   ok('ほか：叙任したときは、願い出の issue に名簿の行へのリンクを添えて答え、issue を完了として閉じる（叙任の規程「名簿」、日本語と英語）。通し稽古の表は、二つの抜けを埋めたと書き、王に委ねる文を残さない',
     read('policies/knighting.md').includes('叙任したときは、運営者が願い出の issue に、名簿の行へのリンクを添えたコメントを書き、issue を「完了」として閉じます。')
     && read('policies/knighting.en.md').includes('On knighting, the operator posts a comment on the application issue with a link to the row of the roll, and closes the issue as completed.')
-    && read('INSTITUTIONS.md').includes('叙任の日と号の並びの抜けと、願い出の issue への答えの抜けは、2026-11-12 に決めて埋めました。')
-    && read('INSTITUTIONS.en.md').includes('were filled by decisions on 2026-11-12.')
+    && read('INSTITUTIONS.md').includes('叙任の日と号の並びの抜けと、願い出の issue への答えの抜けは、2026-11-12 に Claude が決めて埋めました。')
+    && read('INSTITUTIONS.en.md').includes('were filled by decisions Claude made on 2026-11-12.')
+    && (read('INSTITUTIONS.md').match(/。2026-11-12 に Claude が決めて、/g) || []).length === 2 && (read('INSTITUTIONS.en.md').match(/\. Decided by Claude on 2026-11-12 and written in/g) || []).length === 2
     && !/埋めるかどうかは、王が決めます|is for the King to decide/.test(read('INSTITUTIONS.md') + read('INSTITUTIONS.en.md')));
   ok('いまの名簿は、日本語と英語で行がそろう（' + B.tableRows('KNIGHTS.md').length + ' 行）', twin(rowsOf(kj), rowsOf(ke)));
   const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
