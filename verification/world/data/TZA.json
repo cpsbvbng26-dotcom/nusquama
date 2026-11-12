@@ -1,7 +1,7 @@
 {
  "country": "TZA",
  "sources": {
-  "TZA-pdpa": {"instrument":"Personal Data Protection Act, 2022","kind":"code","lang":"en","url":"https://tanzlii.org/akn/tz/act/2022/11","fetched":"2026-11-12","topics":["data"],"official":"TanzLII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / archive：HTTP 404"},
+  "TZA-pdpa": {"instrument":"Personal Data Protection Act, 2022","kind":"code","lang":"en","url":"https://tanzlii.org/akn/tz/act/2022/11","fetched":"2026-11-12","topics":["data"],"official":"TanzLII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / alt1：fetch failed (ERR_TLS_CERT_ALTNAME_INVALID) / archive：HTTP 404 / archive-raw：HTTP 404"},
   "constitute": {"instrument":"Tanzania (United Republic of) 1977 (rev. 2005)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Tanzania_2005&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Tanzania_2005&lang=en","status":200,"length":208339,"sha256_full":"51c3b42cfcf22d8f2f5aff159ea8b10d84061ad21dd69ee681e13d6ac6b9b328","articles":160,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Tanzania_2005","title":"Tanzania (United Republic of) 1977 (rev. 2005)","year_enacted":"1977","year_updated":"2005","page":"https://www.constituteproject.org/constitution/Tanzania_2005?lang=en"}
  },
  "provisions": [

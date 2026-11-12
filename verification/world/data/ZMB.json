@@ -1,7 +1,7 @@
 {
  "country": "ZMB",
  "sources": {
-  "ZMB-dpa": {"instrument":"Data Protection Act, 2021 (No. 3 of 2021)","kind":"code","lang":"en","url":"https://zambialii.org/akn/zm/act/2021/3/eng@2021-03-24","fetched":"2026-11-12","topics":["data"],"official":"ZambiaLII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / archive：条に分けられない"},
+  "ZMB-dpa": {"instrument":"Data Protection Act, 2021 (No. 3 of 2021)","kind":"code","lang":"en","url":"https://zambialii.org/akn/zm/act/2021/3/eng@2021-03-24","fetched":"2026-11-12","topics":["data"],"official":"ZambiaLII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / alt1：fetch failed (UNABLE_TO_VERIFY_LEAF_SIGNATURE) / archive：条に分けられない / archive-raw：条に分けられない"},
   "constitute": {"instrument":"Zambia 1991 (rev. 2016)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Zambia_2016&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Zambia_2016&lang=en","status":200,"length":235641,"sha256_full":"63c7dac065fccbb04237bd123bb1e434bf002b223db08e1de849f0cee4172245","articles":277,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Zambia_2016","title":"Zambia 1991 (rev. 2016)","year_enacted":"1991","year_updated":"2016","page":"https://www.constituteproject.org/constitution/Zambia_2016?lang=en"}
  },
  "provisions": [

@@ -1,7 +1,7 @@
 {
  "country": "IND",
  "sources": {
-  "IND-dpdp": {"instrument":"Digital Personal Data Protection Act, 2023","kind":"code","lang":"en","url":"https://prsindia.org/files/bills_acts/acts_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf","fetched":"2026-11-12","topics":["data"],"official":"PRS Legislative Research による官報の写し（公式ではない）","error":"direct：条に分けられない / archive：条に分けられない"},
+  "IND-dpdp": {"instrument":"Digital Personal Data Protection Act, 2023","kind":"code","lang":"en","url":"https://prsindia.org/files/bills_acts/acts_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf","fetched":"2026-11-12","topics":["data"],"official":"PRS Legislative Research による官報の写し（公式ではない）","error":"direct：条に分けられない / alt1：HTTP 403 / alt2：fetch failed (UNABLE_TO_VERIFY_LEAF_SIGNATURE) / archive：条に分けられない / archive-raw：条に分けられない"},
   "constitute": {"instrument":"India 1949 (rev. 2023)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=India_2023&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=India_2023&lang=en","status":200,"length":617342,"sha256_full":"b0e1de6666237cf4ebcfada2e6412db73ef75ef4f17026d1706a279830385806","articles":544,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"India_2023","title":"India 1949 (rev. 2023)","year_enacted":"1949","year_updated":"2023","page":"https://www.constituteproject.org/constitution/India_2023?lang=en"}
  },
  "provisions": [

@@ -1,7 +1,7 @@
 {
  "country": "UGA",
  "sources": {
-  "UGA-dppa": {"instrument":"Data Protection and Privacy Act, 2019","kind":"code","lang":"en","url":"https://ulii.org/akn/ug/act/2019/9/eng@2019-05-03","fetched":"2026-11-12","topics":["data"],"official":"ULII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / archive：HTTP 403"},
+  "UGA-dppa": {"instrument":"Data Protection and Privacy Act, 2019","kind":"code","lang":"en","url":"https://ulii.org/akn/ug/act/2019/9/eng@2019-05-03","fetched":"2026-11-12","topics":["data"],"official":"ULII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / alt1：HTTP 404 / archive：fetch failed (UND_ERR_CONNECT_TIMEOUT) / archive-raw：fetch failed (UND_ERR_CONNECT_TIMEOUT)"},
   "constitute": {"instrument":"Uganda 1995 (rev. 2017)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Uganda_2017&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Uganda_2017&lang=en","status":200,"length":303539,"sha256_full":"c9f2d5b3eabf5220b8d98a49d8006b2c4feac102386744cf4c9244714e25ecf3","articles":319,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Uganda_2017","title":"Uganda 1995 (rev. 2017)","year_enacted":"1995","year_updated":"2017","page":"https://www.constituteproject.org/constitution/Uganda_2017?lang=en"}
  },
  "provisions": [

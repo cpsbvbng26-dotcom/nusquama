@@ -1,7 +1,7 @@
 {
  "country": "KAZ",
  "sources": {
-  "KAZ-pd": {"instrument":"Закон Республики Казахстан «О персональных данных и их защите» № 94-V","kind":"code","lang":"ru","url":"https://adilet.zan.kz/rus/docs/Z1300000094","fetched":"2026-11-12","topics":["data"],"official":"Adilet（法務省、公式）","error":"direct：本文がない（JavaScript で描く頁か、拒む応答） / archive：題「персональных данных」が見つからない（別の頁か、拒む応答。冒頭は「window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={\"autopla」）"},
+  "KAZ-pd": {"instrument":"Закон Республики Казахстан «О персональных данных и их защите» № 94-V","kind":"code","lang":"ru","url":"https://adilet.zan.kz/rus/docs/Z1300000094","fetched":"2026-11-12","topics":["data"],"official":"Adilet（法務省、公式）","error":"direct：本文がない（JavaScript で描く頁か、拒む応答） / alt1：本文がない（JavaScript で描く頁か、拒む応答） / archive：fetch failed (UND_ERR_CONNECT_TIMEOUT) / archive-raw：fetch failed (UND_ERR_CONNECT_TIMEOUT)"},
   "constitute": {"instrument":"Kazakhstan 2026","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Kazakhstan_2026&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Kazakhstan_2026&lang=en","status":200,"length":91552,"sha256_full":"d4f55947369f51df8109c5a77641fba43059b51a879879ff3f44d91605804bbb","articles":97,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Kazakhstan_2026","title":"Kazakhstan 2026","year_enacted":"2026","year_updated":null,"page":"https://www.constituteproject.org/constitution/Kazakhstan_2026?lang=en"}
  },
  "provisions": [
