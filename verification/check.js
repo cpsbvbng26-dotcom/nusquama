@@ -1819,6 +1819,71 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
   ok('壊して確かめる：引用・表・窓の値・件数・言い方・足した文・前の文に戻す、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
 }
 
+console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から 2026-11-22 0 時まで）');
+{
+  /* 2026-11-12 に利用者が決めた。2026-11-22 0 時（日本時間）より前に開かれた願い出は受けず、自動の確認が停止を書いて閉じる。
+   * 受けるかどうかは issue を開いた時刻だけで決まり、2026-11-22 0 時からは人の手を待たずに改めた規程で確かめる。
+   * 時刻を外から渡して、停止のあいだは止まり、その後は受けることを確かめる。様式・規程・利用規約・README の文が日本語と英語にそろう。
+   * 確かめる関数に壊したコードと文を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const files = ['tools/knighting.js', '.github/ISSUE_TEMPLATE/knighting.yml', 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'README.md', 'docs/legal-audit-2026-11-12.md'];
+  const load = (src) => { const m = { exports: {} }; new Function('require', 'module', 'exports', '__dirname', src.replace(/^#!.*\n/, ''))(require, m, m.exports, path.join(ROOT, 'tools')); return m.exports; };
+  const FORM = (boxes) => '### 訂正への公開のリンク\n\nhttps://example.org/fix\n\n### 何を誤り、どう正したか\n\n自分の記事の年を誤り、正誤表で正しました。\n\n### 誓い\n\n' + boxes.map((b) => '- [X] ' + b).join('\n') + '\n';
+  function verdict(x) {
+    const bad = [];
+    let K;
+    try { K = load(x['tools/knighting.js']); } catch (e) { return ['受付のコードが読めない：' + e.message]; }
+    /* 時刻を渡して確かめる：停止の始まりと終わりの両端。 */
+    const cases = [['2026-11-11T23:59:59+09:00', false], ['2026-11-12T00:00:00+09:00', true], ['2026-11-21T23:59:59+09:00', true], ['2026-11-21T14:59:59Z', true], ['2026-11-22T00:00:00+09:00', false], ['2026-11-21T15:00:00Z', false], ['2027-01-01T00:00:00+09:00', false]];
+    const wrong = cases.filter(([t, v]) => typeof K.paused !== 'function' || K.paused(t) !== v).map(([t]) => t);
+    if (wrong.length) bad.push('停止の時刻：' + wrong.join(', '));
+    if (K.PAUSE_UNTIL !== '2026-11-22T00:00:00+09:00' || K.PAUSE_UNTIL !== K.PRESENCE_FROM + 'T00:00:00+09:00' || K.PAUSE_UNTIL !== K.NATIONALITY_FROM + 'T00:00:00+09:00' || K.PAUSE_UNTIL !== K.PREMISE_FROM + 'T00:00:00+09:00') bad.push('停止の終わりと改めた規程の効力の日が食い違う');
+    /* 停止の後は受ける：改めた規程の印をすべて付けた願い出は、2026-11-22 0 時に開けば整っている。 */
+    const oaths = K.requiredOaths(x['.github/ISSUE_TEMPLATE/knighting.yml']);
+    const after = K.check(K.parse(FORM(oaths.concat(K.DATED.map((d) => d.text)))), '2026-11-22T00:00:00+09:00', 200, oaths);
+    if (!after.ok) bad.push('2026-11-22 0 時に開いた整った願い出が通らない');
+    const noPremise = K.check(K.parse(FORM(oaths.concat([K.PRESENCE, K.NATIONALITY]))), '2026-11-22T00:00:00+09:00', 200, oaths);
+    if (noPremise.ok) bad.push('2026-11-22 からの印のない願い出が通る');
+    /* 停止のあいだは、リンクを開く前に止め、停止を書いて閉じる（受けないものとして）。 */
+    const src = x['tools/knighting.js'];
+    const ip = src.indexOf('if (paused(opened)) {'), is = src.indexOf('await status(link)');
+    if (!(ip > 0 && is > ip && src.slice(ip, is).includes("state: 'closed', state_reason: 'not_planned'") && src.slice(ip, is).includes('return;'))) bad.push('停止のあいだに、閉じずに確かめに進む');
+    const c = K.pauseComment ? K.pauseComment() : '';
+    if (!(c.startsWith(K.MARK) && c.includes(K.PAUSE_TEXT) && c.includes(K.PAUSE_TEXT_EN) && K.PAUSE_TEXT.includes('2026-11-22 から、改めた規程') && K.PAUSE_TEXT_EN.includes('From 2026-11-22, a new issue may be opened'))) bad.push('停止のコメント');
+    const need = (f, list) => list.forEach((s) => { if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 40)); });
+    need('.github/ISSUE_TEMPLATE/knighting.yml', ['**2026-11-12 から 2026-11-22 0 時（日本時間）より前は、願い出の受付を止めています。**', 'Applications are paused from 2026-11-12 until 00:00 on 2026-11-22 (Japan time).']);
+    need('policies/knighting.md', ['\n## 受付の停止\n', '2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出を受けません。2026-11-12 に利用者が決めました。', '2026-11-12 に Claude が決めました。日付だけで決まり、人の手を待たない形にするためです。', '開いている叙任の願い出は 0 件', '- 2026-11-12 から 2026-11-22 0 時（日本時間）より前に開かれた願い出（「受付の停止」）。', '1. 2026-11-22 0 時（日本時間）から、[叙任の願い出]']);
+    need('policies/knighting.en.md', ['\n## Pause in receiving applications\n', 'The owner decided this on 2026-11-12.', 'Claude decided on 2026-11-12 that', 'there were no open applications for knighting', '1. From 00:00 on 2026-11-22 (Japan time), open an issue']);
+    need('policies/terms.md', ['2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出を受け付けません（[叙任の規程](./knighting.md)「受付の停止」）。']);
+    need('policies/terms.en.md', ['From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications").']);
+    need('README.md', ['2026-11-12 から 2026-11-22 0 時（日本時間）より前は、願い出の受付を止めています（[叙任の規程](policies/knighting.md)「受付の停止」）。']);
+    need('docs/legal-audit-2026-11-12.md', ['2026-11-22 までの窓は、この停止で閉じた', '\n### 追って：受付の停止\n', '「法令に触れるおそれが分かったときは、その部分を止めてから確かめ、直します。」', '「読む人や騎士に不利になる変更は、変える内容と効力の生じる日を、効力の生じる前にこの頁で示します。」']);
+    /* 引いた利用規約の文は、利用規約にそのまま現れる。 */
+    for (const q of ['法令に触れるおそれが分かったときは、その部分を止めてから確かめ、直します。', '読む人や騎士に不利になる変更は、変える内容と効力の生じる日を、効力の生じる前にこの頁で示します。']) if (!x['policies/terms.md'].includes(q)) bad.push('利用規約にない引用：' + q.slice(0, 20));
+    return bad;
+  }
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const bad = verdict(real);
+  ok('2026-11-22 0 時（日本時間）より前に開かれた願い出は受けずに閉じ、その時刻からは改めた規程で受ける（時刻を渡して確かめる）。断りが様式・規程・利用規約・README に日本語と英語でそろう', bad.length === 0, bad.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const breaks = [
+    ['停止の終わりを一日早める', mut('tools/knighting.js', "const PAUSE_UNTIL = '2026-11-22T00:00:00+09:00';", "const PAUSE_UNTIL = '2026-11-21T00:00:00+09:00';")],
+    ['停止の終わりを一日遅らせる', mut('tools/knighting.js', "const PAUSE_UNTIL = '2026-11-22T00:00:00+09:00';", "const PAUSE_UNTIL = '2026-11-23T00:00:00+09:00';")],
+    ['停止の判定を外す', mut('tools/knighting.js', 'return Number.isFinite(t) && t >= Date.parse(PAUSE_FROM) && t < Date.parse(PAUSE_UNTIL);', 'return false;')],
+    ['停止のあいだに閉じない', mut('tools/knighting.js', "    await github('PATCH', '/issues/' + n, { state: 'closed', state_reason: 'not_planned' });\n", '')],
+    ['停止の後の改めた規程の印を外す', mut('tools/knighting.js', "  { from: PREMISE_FROM, text: PREMISE, label: '称号を遊びとして扱う印（良識の前提）がある' },\n", '')],
+    ['様式の断りを外す', mut('.github/ISSUE_TEMPLATE/knighting.yml', 'Applications are paused from 2026-11-12 until 00:00 on 2026-11-22 (Japan time).', '')],
+    ['英語の規程の節を外す', mut('policies/knighting.en.md', '\n## Pause in receiving applications\n', '\n## Pause\n')],
+    ['利用規約の断りを外す', mut('policies/terms.md', '叙任の願い出を受け付けません（[叙任の規程](./knighting.md)「受付の停止」）。', '')],
+    ['記録の窓の行を前に戻す', mut('docs/legal-audit-2026-11-12.md', '2026-11-22 までの窓は、この停止で閉じた', '')],
+  ];
+  const caught = breaks.filter(([, x]) => verdict(x).length > 0).map(([n]) => n);
+  ok('壊して確かめる：停止の終わりをずらす・判定を外す・閉じない・改めた印を外す・断りを外す、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
+  const ej = B.errataEntries().find((e) => e.right.includes('叙任の願い出を受けない。2026-11-12 に利用者が決めました。'));
+  ok('王の正誤表に、前の手順の文と、利用者が決めたことと Claude が決めた細目を、理由とともに記し、年表に行がある（日本語と英語）',
+    !!ej && ej.kind.ja === '範囲' && ej.wrong.includes('叙任の願い出の様式で issue を開く。') && ej.right.includes('2026-11-12 に Claude が決めました。') && (ej.en[4] || '').includes('The owner decided this on 2026-11-12.')
+    && B.timelineRows().some((r) => r[0].startsWith('2026-11-12') && r[1].includes('叙任の願い出の受付を止める') && r[2].includes('Applications for knighting are paused')));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');

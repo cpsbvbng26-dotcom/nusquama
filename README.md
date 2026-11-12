@@ -107,9 +107,10 @@
 ## 騎士になるには
 
 1. 自分の誤りを一つ、公に訂正する。論文の正誤表でも、ブログの追記でも、コードの修正でもよい。
-2. その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
+2. 2026-11-22 0 時（日本時間）から、その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
 3. 王が訂正を確かめ、[正誤表騎士団の名簿](KNIGHTS.md)に名を加える。
 
+2026-11-12 から 2026-11-22 0 時（日本時間）より前は、願い出の受付を止めています（[叙任の規程](policies/knighting.md)「受付の停止」）。このあいだに開かれた願い出は、自動の確認が閉じます。
 2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
@@ -147,6 +148,7 @@
 | 2026-11-12（日本時間） | 適法性の説明を条ごとに点検し直し、言い切りすぎた結論と、事業と著作物の写しについての文を改め、電気通信事業と定型約款の節と、各節の点検で足したことを書き足し、点検の記録を置く。個人情報の取り扱いに、名簿に載せることの記録と、第三者から個人データを受け取らないことを書き足す | The Legality Statement is reviewed again article by article: the overstated conclusion and the sentences on business and on copying others' works are corrected, sections on the telecommunications business and on standard terms and the additions of the review are written, and a record of the review is kept. The Privacy page adds how listing on the roll is recorded and that no personal data is received from third parties |
 | 2026-11-12（日本時間） | 叙任の規程・利用規約・適法性の説明・願い出の様式に、2026-11-22 からイタリアの国籍を持つ人の願い出を受けないことと、叙任は称号を遊びとして扱う良識ある人を前提とすることを書き、利用規約で予告する | The Rules on Knighting, the Terms of Use, the Legality Statement and the application form state that, from 2026-11-22, applications from people who hold Italian nationality are not accepted and knighting presumes a person of good sense who treats the title as play; the Terms of Use give notice of both |
 | 2026-11-12（日本時間） | 法令の点検で取り寄せられなかった文と、条文を解釈する公の文書を取り寄せ、適法性の説明のイタリアの刑法典・カリフォルニア州法・電気通信事業・米州機構の一覧についての文を改める。個人情報の取り扱いに、米国の制度についての個人情報保護委員会の調べと、両社の措置を確かめられないことを書き足す。叙任は勲章・栄典・騎士の位を授けるものではないと書き、「授ける称号」を「贈る騎士の呼び名」と改める | The texts the legal review could not fetch, and the official documents interpreting the articles, are fetched. The Legality Statement's sentences on the Italian Penal Code, the California statute, the telecommunications business and the OAS list are revised. The Privacy page adds the Personal Information Protection Commission's survey of the United States and that the measures of GitHub and Vercel cannot be confirmed. Knighting is stated not to confer a decoration, honour or rank of knighthood, and "the titles it gives" becomes "the name of knight it gives" |
+| 2026-11-12（日本時間） | 2026-11-22 0 時（日本時間）まで、叙任の願い出の受付を止める。叙任の規程に「受付の停止」の節を置き、そのあいだに開かれた願い出は自動の確認が停止を書いて閉じ、2026-11-22 0 時からひとりでに受付に戻る | Applications for knighting are paused until 00:00 on 2026-11-22 (Japan time). The Rules on Knighting gain a section "Pause in receiving applications"; an application opened during the pause gets a comment from the automatic check and is closed, and receiving resumes by itself at 00:00 on 2026-11-22 |
 
 ---
 
