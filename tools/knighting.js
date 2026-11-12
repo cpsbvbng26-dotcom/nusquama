@@ -4,17 +4,18 @@
  * GitHub Actions（.github/workflows/knighting.yml）で動く：
  *   ISSUE_NUMBER, ISSUE_BODY, ISSUE_CREATED_AT, GITHUB_TOKEN, GITHUB_REPOSITORY
  *
- * 確かめるのは六つだけ：
+ * 確かめるのは七つだけ：
  *   - 様式の誓いのうち、必ず印を付けるものすべてに印があること
  *   - 2026-11-22 から（日本時間で issue を開いた日）、日本に住み、いま日本にいる印があること
  *   - 2026-11-22 から、イタリアの国籍を持っていない印があること（ほかの国籍と重ねて持つ場合も含む）
+ *   - 2026-11-22 から、外国の称号を縛る国（叙任の規程「外国の称号を縛る国」）の国籍を持っていない印があること
  *   - 2026-11-22 から、称号を遊びとして扱い、規程の禁じる使い方をしない印（良識の前提）があること
  *   - 訂正へのリンクが https で、開けること（応答の状態だけを見る。中身は読まず、残さない）
  *   - 何を誤り、どう正したかが書かれていること
  *
  * 受付の停止（2026-11-12 に利用者が決めた）：2026-11-12 から 2026-11-22 0 時（日本時間）より前に開かれた願い出は、
  * 上の確認をせずに、受付を止めていることをコメントし、issue を閉じる。日付だけで決まり、人の手を待たない。
- * 2026-11-22 0 時からは、ひとりでに受付に戻り、その日から求める印（日本にいる・イタリアの国籍・良識の前提）で確かめる。
+ * 2026-11-22 0 時からは、ひとりでに受付に戻り、その日から求める印（日本にいる・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提）で確かめる。
  */
 'use strict';
 const fs = require('fs');
@@ -27,11 +28,13 @@ const PRESENCE = '日本に住んでいて、いま日本にいます';
 const NATIONALITY_FROM = '2026-11-22';
 const NATIONALITY = 'イタリアの国籍を持っていません';
 const PREMISE_FROM = '2026-11-22';
+const FOREIGN_FROM = '2026-11-22';
+const FOREIGN = '次の国の国籍を持っていません：';
 const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
 const PAUSE_UNTIL = '2026-11-22T00:00:00+09:00';
-const PAUSE_TEXT = '2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。この願い出は受けず、この issue を閉じます。2026-11-22 から、改めた規程（日本に住み日本にいる人に限ること、イタリアの国籍を持つ人を除くこと、良識の前提）で、新しい issue を開いて願い出ることができます。';
-const PAUSE_TEXT_EN = 'From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"). This application is not accepted, and this issue is closed. From 2026-11-22, a new issue may be opened to apply under the revised rules (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense).';
+const PAUSE_TEXT = '2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。この願い出は受けず、この issue を閉じます。2026-11-22 から、改めた規程（日本に住み日本にいる人に限ること、イタリアの国籍を持つ人と外国の称号を縛る国の国籍を持つ人を除くこと、良識の前提）で、新しい issue を開いて願い出ることができます。';
+const PAUSE_TEXT_EN = 'From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"). This application is not accepted, and this issue is closed. From 2026-11-22, a new issue may be opened to apply under the revised rules (only people who live and are in Japan; people who hold Italian nationality, or the nationality of a country that restricts foreign titles, excluded; the premise of good sense).';
 
 /* 純：issue を開いた時が受付の停止のあいだか。opened は ISO の時刻。 */
 function paused(opened) {
@@ -57,6 +60,7 @@ const DATED = [
   { from: PRESENCE_FROM, text: PRESENCE, label: '日本に住み、いま日本にいる印がある' },
   { from: NATIONALITY_FROM, text: NATIONALITY, label: 'イタリアの国籍を持っていない印がある' },
   { from: PREMISE_FROM, text: PREMISE, label: '称号を遊びとして扱う印（良識の前提）がある' },
+  { from: FOREIGN_FROM, text: FOREIGN, label: '外国の称号を縛る国の国籍を持っていない印がある' },
 ];
 
 /* 純：様式の定義から、必ず印を付ける誓いの文を取り出す。 */
@@ -161,6 +165,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { PAUSE_FROM, PAUSE_UNTIL, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, DATED, requiredOaths, parse, check, comment, jstDay };
+module.exports = { PAUSE_FROM, PAUSE_UNTIL, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
