@@ -275,7 +275,8 @@ console.log('\n12. 受付と安全の知らせ');
   const opts = [...req.matchAll(/^        - (.+)$/gm)].map((m) => m[1]);
   ok('求めの様式の種類が、規程の「求めることができるもの」（' + kinds.length + ' 件）と非公開の連絡を覆う', kinds.length === 7 && opts.length === kinds.length + 1 && opts.includes('非公開の連絡を求める'), opts.join(' / '));
   const sec = read('SECURITY.md');
-  ok('SECURITY.md が冒頭で創作だと断り、非公開の手順へ案内する', sec.includes('> これは創作であり、遊びです。') && sec.includes('template=request.yml') && sec.includes('「非公開の連絡を求める」'));
+  ok('SECURITY.md が冒頭で創作だと断り、GitHub の非公開の報告が有効でないことと、プロフィールの連絡先へだけ非公開で答える手順へ案内する', sec.includes('> これは創作であり、遊びです。') && sec.includes('template=request.yml') && sec.includes('「非公開の連絡を求める」')
+    && sec.includes('GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません') && sec.includes('自分の GitHub のプロフィールに連絡先を公開しているときだけ'));
   const days = (s) => (/(\d+) 日以内に答える/.exec(s) || [])[1];
   ok('答えるまでの日数が、SECURITY.md と規程で同じ（' + days(rq) + ' 日）', days(rq) && days(sec) === days(rq));
   ok('求めの規程が様式と SECURITY.md へつなぐ', rq.includes('template=request.yml') && rq.includes('[安全の問題の知らせ方](../SECURITY.md)'));
@@ -1436,11 +1437,13 @@ console.log('\n55. 規程の分かりにくい文の言い直し（王の正誤�
   }
   ok('言い直した文（' + E.length + ' 件）は、改める前の文を日本語と英語の正誤表に残して規程から外し、最終更新を日本語と英語で同じ日に改め、年表に行がある', E.length >= 2 && bad.length === 0, bad.join(', '));
   const xj = read('policies/exchange.md'), xe = read('policies/exchange.en.md'), pj = read('policies/privacy.md'), pe = read('policies/privacy.en.md');
-  ok('交流の規程は相手の国を相手が作ったものとして尊重し、その主張を認めも否みもしない。運営者の氏名と住所は、求めた人に非公開の連絡で知らせ、求め方は求めの頁の手順による（日本語と英語）',
+  /* 2026-11-12 に改めた（王の正誤表 29）。非公開の窓口はなく、氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせる。前の文の約束は 67 が外れていることを確かめる。 */
+  ok('交流の規程は相手の国を相手が作ったものとして尊重し、その主張を認めも否みもしない。運営者の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先がなければ非公開の道はないと書き、求め方は求めの頁の手順による（日本語と英語）',
     xj.includes('- 相手の国は、相手が自ら作ったものとして尊重します。その国の主張を、ヌスクァマは認めも否みもしません。')
     && xe.includes("- The other party's country is respected as the other party's own creation. Nusquama neither accepts nor denies that country's claims.")
-    && pj.includes('運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。\n求めるときは、[削除・訂正・辞退の求め](./requests.md)の様式の種類で「非公開の連絡を求める」を選びます。')
-    && pe.includes("The operator's name and address are given without delay, through a private channel, to the person who asks for them.")
+    && pj.includes('運営者の氏名と住所は、求めた人が自分の GitHub のプロフィールに公開している連絡先へ、遅滞なく知らせます。\n求めるときは、[削除・訂正・辞退の求め](./requests.md)の様式の種類で「非公開の連絡を求める」を選びます。\nそうした連絡先がない人には、氏名と住所を非公開で知らせる道がありません。')
+    && pe.includes("The operator's name and address are given without delay to the person who asks for them, at a contact that person has made public on their own GitHub profile.")
+    && pe.includes('For a person with no such contact, there is no private route to give the name and address.')
     && read('policies/requests.md').includes('様式の種類で「非公開の連絡を求める」を選び') && read('.github/ISSUE_TEMPLATE/request.yml').includes('        - 非公開の連絡を求める\n'));
 }
 
@@ -1739,7 +1742,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    if (heads.slice(-4).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）は、この節のすぐ後に置く。並びは一通りに固める。 */
+    if (heads.slice(-5).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2124,6 +2128,100 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
   ];
   const caught = breaks.filter(([, x]) => verdict(x).length > 0).map(([k]) => k);
   ok('壊して確かめる：窓・扱い・箇所・表・値・冒頭・ライセンスの断り・前の文・正誤表・判定の数・文字数・第13条のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2026-11-12）');
+{
+  /* 2026-11-12 の二度目の読み直しで、非公開で連絡する方法を返すという約束が事実に合わないと分かった。GitHub の外に連絡先を持たず、
+   * GitHub の非公開の脆弱性の報告も有効でない（API で enabled: false）。規程・様式・SECURITY.md は、ある道だけを書く：
+   * 求めた人が自分の GitHub のプロフィールに公開した連絡先にだけ非公開で答え、ないときは個人の事柄を書かずに issue で答える。
+   * 氏名と住所は issue に書かない。前の約束の文は、王の正誤表と生成した正誤の頁のほかに残らない。
+   * 王の正誤表 29（事実、日本語と英語）、年表、適法性の説明の残る危険、義務の表、点検の記録の節（表・件数・条文・残る危険）がそろう。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md';
+  const files = ['SECURITY.md', 'policies/requests.md', 'policies/requests.en.md', 'policies/privacy.md', 'policies/privacy.en.md', 'policies/terms.md', 'policies/terms.en.md',
+    'policies/legality.md', 'policies/legality.en.md', '.github/ISSUE_TEMPLATE/request.yml', 'ERRATA.md', 'ERRATA.en.md', 'README.md', 'verification/duties.json', AUD];
+  const scanned = [...fs.readdirSync(ROOT).filter((f) => f.endsWith('.md') && !/^(ERRATA(\.en)?|CLAUDE)\.md$/.test(f)),
+    ...fs.readdirSync(path.join(ROOT, 'policies')).map((f) => 'policies/' + f),
+    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f),
+    ...fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f)];
+  const OLD = ['非公開で連絡する方法を返します', 'a way to make contact privately', '非公開の連絡で遅滞なく', 'through a private channel', 'through the private channel', '「公開できない求め」に沿った連絡で', '「公開できない求め」に沿って行います'];
+  const PVR_JA = 'GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません（2026-11-12 に GitHub の API で確かめました）。';
+  const PVR_EN = "GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-12).";
+  const NAME_JA = '運営者の氏名と住所は、求めた人が自分の GitHub のプロフィールに公開している連絡先へ、遅滞なく知らせます。';
+  const KINDS67 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const T67 = JSON.parse(read('verification/statutes-texts.json'));
+  const S67 = JSON.parse(read('verification/statutes.json'));
+  const have67 = new Set(S67.statutes.map((e) => e.name + ' ' + e.article));
+  function verdict(x) {
+    const bad = [];
+    const need = (f, list) => list.forEach((t) => { if (!x[f].includes(t)) bad.push(f + '：' + t.slice(0, 40)); });
+    /* 前の約束は、どこにも残らない（王の正誤表と、それから作る頁は除く）。 */
+    for (const f of Object.keys(x).filter((k) => k.startsWith('scan:'))) for (const o of OLD) if (x[f].includes(o)) bad.push(f.slice(5) + ' に前の約束が残る：' + o);
+    need('SECURITY.md', [PVR_JA, 'ヌスクァマには、非公開で知らせを受ける窓口がありません。', '運営者は、知らせた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答え、詳細を受け取ります。', 'そうした連絡先がないときは、詳細を非公開で受け取る道はありません。運営者は、詳細に触れずに issue で答えます。']);
+    need('policies/requests.md', ['ヌスクァマには、非公開で求めを受ける窓口がありません。\n' + PVR_JA, '運営者は、求めた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答えます。', 'そうした連絡先がないときは、非公開で答える道はありません。そのときは、個人の事柄を書かずに、issue で答えます。']);
+    need('policies/requests.en.md', ['Nusquama has no channel that receives requests privately.\n' + PVR_EN, 'The operator answers privately only when the person who asks has made a contact public on their own GitHub profile', 'When there is no such contact, there is no private route. The operator then answers in the issue, without personal details.']);
+    need('policies/privacy.md', [NAME_JA, 'そうした連絡先がない人には、氏名と住所を非公開で知らせる道がありません。issue には書きません（']);
+    need('policies/privacy.en.md', ['at a contact that person has made public on their own GitHub profile.', 'For a person with no such contact, there is no private route to give the name and address. They are not written in the issue']);
+    need('policies/terms.md', ['話し合いは、issue で行います。相手方が自分の GitHub のプロフィールに連絡先を公開しているときは、その連絡先で行うこともできます', '非公開の窓口はありません。運営者が非公開で答えるのは、']);
+    need('policies/terms.en.md', ['The talks take place in an issue. When the other party has made a contact public on their own GitHub profile', 'There is no private channel. The operator answers privately only in the case described']);
+    need('policies/legality.md', ['ただし第32条の氏名と住所は、連絡先を公開していない人に知らせる道がない。']);
+    need('policies/legality.en.md', ['except that the name and address under Article 32 cannot be given to a person who has made no contact public.']);
+    need('.github/ISSUE_TEMPLATE/request.yml', ['運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。', 'The operator answers privately only to a contact made public on the person\'s own GitHub profile.']);
+    need('verification/duties.json', ['"text": "' + NAME_JA + '"']);
+    /* 規程の最終更新は、日本語と英語で同じ日。 */
+    for (const p of ['requests', 'privacy', 'terms', 'legality']) {
+      const dj = (/^最終更新：(\d{4}-\d{2}-\d{2})。$/m.exec(x['policies/' + p + '.md']) || [])[1], de = (/^Last updated: (\d{4}-\d{2}-\d{2})\.$/m.exec(x['policies/' + p + '.en.md']) || [])[1];
+      if (!(dj && dj >= '2026-11-12' && dj === de)) bad.push(p + '：最終更新');
+    }
+    /* 王の正誤表 29：前の文を残し、事実の分類で、Claude が決めたことと理由がある（日本語と英語）。年表に行がある。 */
+    const row = (t, n) => t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
+    const e29 = row(x['ERRATA.md'], 29), e29en = row(x['ERRATA.en.md'], 29);
+    if (!e29.includes('運営者から、非公開で連絡する方法を返します。') || !e29.includes('運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。') || !e29.includes('これは事実の訂正で、範囲を改めたものではない。')
+      || (e29.match(/2026-11-12 に Claude が決めました。/g) || []).length !== 2 || !/\| 事実 \| Insula Facti VI \|$/.test(e29)) bad.push('王の正誤表 29');
+    if (!e29en.includes('"The operator answers with a way to make contact privately."') || !e29en.includes('This is a correction of a fact, not a change of scope.') || (e29en.match(/Claude decided this on 2026-11-12/g) || []).length !== 2 || !/\| Fact \| Insula Facti VI \|$/.test(e29en)) bad.push('英語の王の正誤表 29');
+    need('README.md', ['| 2026-11-12（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| The promise of a private contact is corrected to the route that exists.']);
+    /* 点検の記録の節：表の形、件数、条は見張りの表にある、条文は取り寄せた文、残る危険、弁護士の文、決めた者と理由。 */
+    const a = x[AUD], i = a.indexOf('\n## 2026-11-12 の続き：二度目の見落とし\n'), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS67.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [])[1]);
+    if (!KINDS67.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    for (const y of rows) if (!y[1].startsWith('なし')) for (const m of y[1].matchAll(/(個人情報保護法(?:施行令|施行規則)?)第(\d+)条/g)) if (!have67.has(m[1] + ' ' + m[2])) bad.push('記録の表の条が見張りの表にない：' + m[0]);
+    for (const k of ['個人情報保護法 第32条', '個人情報保護法 第37条']) if (!sec.includes('<!-- 条文 ' + k + ' -->\n> ' + T67[k] + '\n')) bad.push('記録の条文が取り寄せた文と違う：' + k);
+    if (!rows.some((y) => y[0].startsWith('判定の表の「個人情報保護法第32条') && y[4] === '誤り')) bad.push('前の「問題なし」の行が誤りだったと書いていない');
+    if (!sec.includes('\n### 残る危険\n') || !sec.includes('これは残る危険です。') || !sec.includes('`enabled: false`') || !sec.includes('ラベル「求め」の issue は、2026-11-12 の時点で 0 件でした。')) bad.push('記録の残る危険か事実');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。') || (sec.match(/2026-11-12 に Claude が決めました。/g) || []).length !== 3 || !sec.split('2026-11-12 に Claude が決めました。').slice(1).every((z) => /ためです。/.test(z.split('\n\n')[0]))) bad.push('記録に、弁護士の文か決めた者と理由がない');
+    return bad;
+  }
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]).concat(scanned.map((f) => ['scan:' + f, read(f)])));
+  const bad = verdict(real);
+  ok('非公開の連絡の約束は、ある道だけを書き（GitHub の非公開の報告は有効でない、プロフィールに公開した連絡先にだけ答える、ないときは issue で個人の事柄を書かずに答える）、前の約束は ' + scanned.length + ' の頁と様式に残らず、王の正誤表 29・年表・適法性の説明・義務の表・点検の記録がそろう（日本語と英語）', bad.length === 0, bad.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const breaks = [
+    ['求めの規程に前の約束を戻す', mut('scan:policies/requests.md', '運営者は、求めた人が', '運営者から、非公開で連絡する方法を返します。\n運営者は、求めた人が')],
+    ['英語の個人情報の取り扱いに前の約束を戻す', mut('scan:policies/privacy.en.md', 'at a contact that person', 'through a private channel, at a contact that person')],
+    ['生成した頁に前の約束が残る', mut('scan:site/policies/terms.html', '<h2', '非公開で連絡する方法を返します<h2')],
+    ['SECURITY.md から非公開の報告が有効でないことを外す', mut('SECURITY.md', PVR_JA, '')],
+    ['求めの規程から、連絡先がないときの答え方を外す', mut('policies/requests.md', 'そうした連絡先がないときは、非公開で答える道はありません。', '')],
+    ['個人情報の取り扱いから、issue に書かないことを外す', mut('policies/privacy.md', 'issue には書きません（', '（')],
+    ['適法性の説明から残る危険を外す', mut('policies/legality.md', 'ただし第32条の氏名と住所は、連絡先を公開していない人に知らせる道がない。', '')],
+    ['様式から答え方を外す', mut('.github/ISSUE_TEMPLATE/request.yml', '運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。', '')],
+    ['義務の表を前の文に戻す', mut('verification/duties.json', NAME_JA, '運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-12.', 'Last updated: 2026-11-11.')],
+    ['王の正誤表 29 を範囲の分類にする', mut('ERRATA.md', '| 事実 | Insula Facti VI |', '| 範囲 | Insula Finis XIII |')],
+    ['英語の王の正誤表 29 から前の文を外す', mut('ERRATA.en.md', '"The operator answers with a way to make contact privately." (Requests; the security page) / ', '')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-12（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| 2026-11-12（日本時間） | 改める。')],
+    ['記録の判定の数を変える', mut(AUD, '誤り 2 件、根拠不足 2 件', '誤り 3 件、根拠不足 2 件')],
+    ['記録の第32条の文を一字変える', mut(AUD, '当該個人情報取扱事業者の氏名又は名称及び住所', '当該個人情報取扱事業者の氏名又は名称及び居所')],
+    ['記録の表に見張っていない条を挙げる', mut(AUD, '| 開示の求め | 個人情報保護法第33条 |', '| 開示の求め | 個人情報保護法第99条 |')],
+    ['記録から残る危険を外す', mut(AUD, 'これは残る危険です。', '')],
+    ['記録から決めた理由を外す', mut(AUD, 'issue に書けば、求めた人だけでなく誰にでも公開されるためです。', 'issue に書けば、誰にでも公開されます。')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：前の約束を戻す・生成した頁に残す・非公開の報告・答え方・issue に書かないこと・残る危険・様式・義務の表・最終更新・正誤表・年表・判定の数・条文・条・理由のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));
