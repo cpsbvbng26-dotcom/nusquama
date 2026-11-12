@@ -1,0 +1,9 @@
+{
+ "country": "LIE",
+ "sources": {
+  "constitute": {"instrument":"Liechtenstein 1921 (rev. 2020)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Liechtenstein_2020&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Liechtenstein_2020&lang=en","status":200,"length":56517,"sha256_full":"3db6b90825a27b1af6a267bd9d464b8888a266a2f21e3898030256d162e4e5f0","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Liechtenstein_2020","title":"Liechtenstein 1921 (rev. 2020)","year_enacted":"1921","year_updated":"2020","page":"https://www.constituteproject.org/constitution/Liechtenstein_2020?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}
