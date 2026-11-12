@@ -407,7 +407,11 @@ console.log('\n17. 条文と規約の見張り');
   const leg = read('policies/legality.md');
   /* 適法性の説明が「〇〇法第N条」と挙げた条は、一つ残らず見張りの表にあること。 */
   const cited = new Set();
-  for (const m of leg.matchAll(/([一-龥]+法)((?:・?第\d+条(?:の\d+)?(?:第\d+項)?(?:第\d+号)?)+)/g)) {
+  /* 法令の名は、見張りの表の名を長い順に先に当てる（「情報流通プラットフォーム対処法」のように仮名を含む名、「〇〇法施行規則」も拾う）。
+   * 表にない名は、漢字の並びに「法」が続くものとして拾う。2026-11-12 に広げた。 */
+  const names17 = [...new Set(S.statutes.map((e) => e.name))].sort((a, b) => b.length - a.length).map((x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const re17 = new RegExp('(' + names17.join('|') + '|[一-龥]+法)((?:・?第\\d+条(?:の\\d+)?(?:第\\d+項)?(?:第\\d+号)?)+)', 'g');
+  for (const m of leg.matchAll(re17)) {
     if (m[1] === '同法') continue; // 直前に挙げた法を指す。その法の条として、すでに数えている。
     for (const a of m[2].matchAll(/第(\d+)条(?:の(\d+))?/g)) cited.add(m[1] + ' ' + a[1] + (a[2] ? '_' + a[2] : ''));
   }
@@ -838,7 +842,7 @@ console.log('\n34. 条文の引用と、規程の外の行い');
     const cited = ((/（([^）]*第[^）]*)）/.exec(head) || [])[1] || '').split('、').filter((x) => /第/.test(x)).flatMap((part) => {
       const m = /^(.+?)(第.+)$/.exec(part);
       const pieces = m[2].split('・');
-      return pieces.every((x) => /^第.+条$/.test(x)) ? pieces.map((x) => m[1] + ' ' + x) : [m[1] + ' ' + m[2]];
+      return pieces.every((x) => /^第.+条(?:の\d+)?$/.test(x)) ? pieces.map((x) => m[1] + ' ' + x) : [m[1] + ' ' + m[2]];
     });
     const quoted = marks(sec.split('\n## ')[0]).join('、').split('、');
     for (const c of cited) if (!quoted.includes(c)) missing.push(c);
@@ -1553,6 +1557,71 @@ console.log('\n59. 頁の上の欄（国章・国の名・ラテン語の名・�
   ok('案内のリンクは、どれも同じ言語の頁（宣言と基本法はその節の id）を指し、いまの頁を指す項にだけ aria-current を付ける', bad.link.length === 0, bad.link.slice(0, 8).join(', '));
   ok('どの頁も、同じ一つの様式（build.js の STYLE）を持つ', bad.style.length === 0, bad.style.slice(0, 8).join(', '));
   ok('案内は狭い画面で折り返し、印刷では隠す', /header nav ul \{[^}]*flex-wrap: wrap;/.test(B.STYLE) && /@media print \{[^}]*header nav[^}]*\{ display: none; \}/.test(B.STYLE));
+}
+
+console.log('\n60. 法令の点検の記録（2026-11-12）');
+{
+  /* 点検の記録は、箇所・法令と条・要件・事実・判定・対応の表で、判定は五つのどれか。散文に書いた数（判定ごとの件数、問いの肢の数）は、
+   * 表から数えた数と同じ（決めごと 5）。終わりに、調べた法令・取り寄せられなかった文・弁護士の確認を受けていないことを置く。
+   * 表の「法令と条」に挙げた条は、見張りの表か一次資料の表にある。正した文は、正した形で頁に残る。 */
+  const F = 'docs/legal-audit-2026-11-12.md';
+  const a = fs.existsSync(path.join(ROOT, F)) ? read(F) : '';
+  const part = (h) => { const i = a.indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = a.indexOf('\n## ', i + 5); return a.slice(i + 1, j < 0 ? undefined : j); };
+  const table = part('判定の表');
+  const KINDS60 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+  ok('点検の記録の表は、箇所・法令と条・要件・事実・判定・対応の六つの欄を持ち、どの行の判定も五つのどれか（' + rows.length + ' 行）',
+    table.includes('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n') && rows.length >= 40 && rows.every((r) => r.length === 6 && KINDS60.includes(r[4])),
+    rows.filter((r) => r.length !== 6 || !KINDS60.includes(r[4])).map((r) => r[0]).join(' / '));
+  const count = (k) => rows.filter((r) => r[4] === k).length;
+  const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(table) || [])[1]);
+  ok('判定ごとの件数と合計を、表から数えた数のとおりに書く（' + KINDS60.map((k) => k + ' ' + count(k)).join('、') + '）',
+    KINDS60.every((k) => said(k) === count(k)) && Number((/合わせて (\d+) 件です。/.exec(table) || [])[1]) === rows.length);
+  const S = JSON.parse(read('verification/statutes.json'));
+  const P = JSON.parse(read('verification/sources.json'));
+  const have = new Set(S.statutes.map((e) => e.name + ' ' + e.article.replace('_', 'の')));
+  const names = [...new Set(S.statutes.map((e) => e.name))].sort((x, y) => y.length - x.length);
+  const foreignKeys = Object.keys(P.sources).map((k) => k.replace(/\s+/g, ''));
+  const strays = [];
+  let cited = 0;
+  for (const r of rows) {
+    if (r[1].startsWith('なし')) continue;
+    for (const piece of r[1].split('、')) {
+      const law = names.find((n) => piece.startsWith(n));
+      if (law) {
+        for (const m of piece.slice(law.length).matchAll(/第(\d+)条(?:の(\d+))?/g)) { cited++; if (!have.has(law + ' ' + m[1] + (m[2] ? 'の' + m[2] : ''))) strays.push(r[0] + '：' + piece); }
+      } else if (!foreignKeys.some((k) => k.endsWith(piece.replace(/（[^）]*）/g, '').replace(/\s+/g, '')))) strays.push(r[0] + '：' + piece);
+    }
+  }
+  ok('表の「法令と条」に挙げた日本の条（' + cited + '）は見張りの表に、外国の条は一次資料の表にある', cited >= 60 && strays.length === 0, strays.join(' / '));
+  const quiz = part('適法性の説明の問い 38 肢');
+  const qs = [...quiz.matchAll(/^\| (\d+) \| (.) \| (.+) \|$/gm)];
+  const qc = (m) => qs.filter((q) => q[2] === m).length;
+  ok('問いの 38 肢は、1 から欠けずに並び、どれにも ○・×・？ と理由があり、肢の数を表から数えたとおりに書く（○ ' + qc('○') + '、× ' + qc('×') + '、？ ' + qc('？') + '）',
+    qs.length === 38 && qs.every((q, i) => Number(q[1]) === i + 1 && '○×？'.includes(q[2]) && q[3].length > 4)
+    && quiz.includes('問いの判定の数は、○ ' + qc('○') + ' 肢、× ' + qc('×') + ' 肢、？ ' + qc('？') + ' 肢です。'));
+  const decided = part('決めたこと');
+  const nDecided = decided.split('2026-11-12 に Claude が決めました。').length - 1;
+  ok('決めたことの数（' + nDecided + '）を、文に同じに書き、どれにも理由を添える', nDecided === 3 && decided.includes('点検で選ぶところが三つありました。') && decided.split('2026-11-12 に Claude が決めました。').slice(1).every((x) => /ためです。/.test(x.split('\n\n')[0])));
+  const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
+  ok('記録は、調べた法令・取り寄せられなかった文・弁護士の確認の順で終わり、弁護士の確認を受けていないと書く',
+    heads.slice(-3).join('|') === '調べた法令|取り寄せられなかった文|弁護士の確認' && part('弁護士の確認').includes('この点検は、弁護士の確認を受けていません。')
+    && part('取り寄せられなかった文').split('\n').filter((l) => l.startsWith('- ')).length >= 5);
+  const lj = read('policies/legality.md'), le = read('policies/legality.en.md');
+  const URL60 = 'https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md';
+  ok('適法性の説明は、点検の記録へつなぎ、言い切りすぎた結論・事業・写しの文を正した形で持つ（日本語と英語）',
+    lj.includes('(' + URL60 + ')') && le.includes('(' + URL60 + ')') && !lj.includes('きわめて小さい') && !le.includes('very small')
+    && lj.includes('並べていない法令と、解釈の分かれる要件が残るので、違法となるおそれがどれほど小さいかは言い切れません。')
+    && le.includes('so the operator does not claim to know how small the risk of illegality is.')
+    && lj.includes('- **ヌスクァマの事実**：何も売らず、広告を出さず、営利の事業を営まない。') && !lj.includes('広告を出さず、事業を営まない。')
+    && lj.includes('他人の著作物は、この頁の「条文」と「原文」の欄に条約・法令・規約・説明の文を引くほかは、写していない。') && !lj.includes('他人の著作物を写していない。'));
+  ok('日本に住む人に限っても日本の外の法令が及ぶおそれは断てないこと、イタリアの条は受ける人の住む国を要件にしないこと、GDPR の代理人を Claude が決めたことを書く（日本語と英語）',
+    lj.includes('- この限定によって、日本の外の法令が及ぶおそれがなくなるわけではない。') && le.includes('- This limit does not remove the possibility that laws outside Japan apply.')
+    && lj.includes('同条が禁じるのは、私人や団体が授けることで、受ける人の住む国を要件にしていない。') && le.includes("the recipient's country of residence is not an element")
+    && lj.includes('代理人は指名していない。2026-11-12 に Claude が決めました。') && le.includes('Claude decided this on 2026-11-12'));
+  ok('電気通信事業と定型約款の節を持ち、どちらも日本語と英語にある',
+    lj.includes('\n### 電気通信事業（電気通信事業法第164条）\n') && le.includes('\n### Telecommunications business (Telecommunications Business Act, Article 164)\n')
+    && lj.includes('\n### 定型約款（民法第548条の2・第548条の3・第548条の4）\n') && le.includes('\n### Standard terms (Civil Code, Articles 548-2, 548-3 and 548-4)\n'));
 }
 
 console.log('\n' + '-'.repeat(56));
