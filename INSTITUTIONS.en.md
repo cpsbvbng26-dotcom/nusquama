@@ -103,6 +103,7 @@ If the King can no longer keep the kingdom going, the kingdom is frozen. When it
 - Requests for deletion, correction or leaving are answered as far as possible.
 
 The freezing is announced by putting the "Closing words" below on the top page.
+The "Notice of suspension" below is put up with them.
 
 ## Dissolution
 
@@ -143,6 +144,18 @@ This is the draft of the text put up on freezing or dissolution. It is issued wi
 The kingdom that is nowhere returns to nowhere.
 The King's errata stay here. The mistakes are left behind, not erased.
 Knights, thank you for correcting mistakes with us.
+
+## Notice of suspension
+
+This is the draft of the notice put up beside the closing words when the kingdom is frozen and its work is suspended. It is not put up now.
+On the day it is put up, "(date)" is replaced with that day.
+
+> Nusquama has been suspended since (date) (Institutions, "Freezing").
+> Requests for knighthood are not being accepted.
+> The roll of knights, the King's errata and the rules stay public as they were when Nusquama was suspended.
+> Requests for deletion, correction or leaving are received with the same [form](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml) as before, and answered as far as possible.
+> Personal data is handled as the [Privacy](policies/privacy.en.md) page says.
+> This is a work of fiction, written for fun.
 
 ## Ten years ahead
 
