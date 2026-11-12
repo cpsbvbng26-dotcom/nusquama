@@ -104,13 +104,19 @@ const HEAD_SV = /^(\d+\s?[a-z]?\s?§)(?=\s|$)/;
 const HEAD_JA = /^(第[〇一二三四五六七八九十百千]+条(?:の[〇一二三四五六七八九十]+)*)/;
 const PART = /^(?:(?:Erster|Zweiter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter|Zehnter|Elfter|Zwölfter|Dreizehnter|Vierzehnter|Fünfzehnter) (?:Titel|Abschnitt|Unterabschnitt)|Besonderer Teil|Allgemeiner Teil|Nichtamtliches Inhaltsverzeichnis|Titel [IVXLC]+[A-Z]?\b|(?:Eerste|Tweede|Derde|Vierde) Boek)|^(CHAPTER|Chapter|PART|Part|Division|Subdivision|Schedule|SCHEDULE|TITLE|Title|TÍTULO|Título|CAPÍTULO|Capítulo|TITRE|Titre|CHAPITRE|Chapitre|TITOLO|Titolo|CAPO|Capo|Kapitel|KAPITEL|Abschnitt|ABSCHNITT|Hoofdstuk|HOOFDSTUK|Afdeling|Kapittel|Глава|Раздел)\b|^第[〇一二三四五六七八九十百]+[編章節款]/;
 
-/* Splits a run of lines into articles. A line that is only a chapter or part heading closes the article before it. */
-function splitLines(ls, lang) {
+/* Splits a run of lines into articles. A line that is only a chapter or part heading closes the article before it.
+ * A source may name lines to leave out before splitting (drop: the number of a paragraph alone in a table of data about
+ * the document, which would otherwise open an article of its own) and lines that close the article (stop: the notes
+ * and data that a database prints after the text). */
+function splitLines(ls, lang, s = {}) {
+  const drop = s.drop ? new RegExp(s.drop, 'u') : null, stop = s.stop ? new RegExp(s.stop, 'u') : null;
   const arts = [];
   let cur = null;
   const close = () => { if (cur && cur.paras.join('').length > cur.label.length + 2) arts.push(cur); cur = null; };
   for (const l of ls) {
     let m;
+    if (drop && drop.test(l)) continue;
+    if (stop && stop.test(l)) { close(); continue; }
     if ((m = HEAD.exec(l)) || ((lang === 'sv' || lang === 'da') && (m = HEAD_SV.exec(l))) || (lang === 'ja' && (m = HEAD_JA.exec(l)))) {
       close();
       cur = { label: (m[2] ? m[1] + ' ' + m[2] : m[1]).replace(/\s+/g, ' '), paras: [l] };
@@ -345,7 +351,7 @@ function split(s, text, pdf) {
   if (s.format === 'section') return splitSection(lines(text).join(' '), s);
   if (s.format === 'numbered') return splitNumbered(lines(text));
   if (pdf || s.format === 'inline') return splitInline(flat(text));
-  return splitLines(lines(text), s.lang);
+  return splitLines(lines(text), s.lang, s);
 }
 
 async function fetchSource(s) {
