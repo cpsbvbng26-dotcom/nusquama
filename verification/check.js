@@ -232,8 +232,10 @@ console.log('\n11. 配色（WCAG の比）');
   const dark = tok((/prefers-color-scheme: dark\) \{ :root \{([^}]*)\}/.exec(css) || [])[1]);
   const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
   const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
-  const TEXT = [['fg', 'bg'], ['muted', 'bg'], ['accent', 'bg'], ['fg', 'notice'], ['accent', 'notice'], ['muted', 'notice']];
-  const RING = [['gold', 'bg'], ['gold', 'notice']];
+  /* 頁の上と下の欄は紺の帯（band）、トップの入口と断りの枠は札の地（card）。国名のラテン語は金（gold）の文字で書く。 */
+  const TEXT = [['fg', 'bg'], ['muted', 'bg'], ['accent', 'bg'], ['gold', 'bg'], ['fg', 'notice'], ['accent', 'notice'], ['muted', 'notice'],
+    ['fg', 'card'], ['muted', 'card'], ['accent', 'card'], ['onband', 'band'], ['bandgold', 'band'], ['bandmuted', 'band']];
+  const RING = [['gold', 'bg'], ['gold', 'notice'], ['gold', 'card'], ['bandgold', 'band']];
   for (const [name, t] of [['明るい配色', light], ['暗い配色', dark]]) {
     const low = TEXT.filter(([f, b]) => !(t[f] && t[b] && ratio(t[f], t[b]) >= 4.5)).map(([f, b]) => f + '/' + b);
     ok(name + '：文字と背景の組（' + TEXT.length + ' 組）がどれも 4.5:1 以上', Object.keys(t).length > 0 && low.length === 0, low.join(', '));
@@ -925,14 +927,17 @@ console.log('\n36. GitHub で読んでもリンクが切れない');
   ok('Markdown の相対のリンク（' + n + '）は、どれもリポジトリの中のファイルを指す', broken.length === 0 && n > 200, broken.slice(0, 8).join(' / '));
 }
 
-console.log('\n37. 種類と状態の札、娯楽の創作だという断り（トップ）');
+console.log('\n37. 種類と状態の札（README だけ）、娯楽の創作だという断り（トップ）');
 {
   const readme = read('README.md');
   const lines = readme.split('\n');
   const h = lines.findIndex((l) => l.startsWith('# '));
   const next = lines.slice(h + 1).find((l) => l.trim());
   const LABEL = '種類：エンターテインメント　状態：運営中';
-  ok('README の題のすぐ下に、種類と状態の札がある（' + LABEL + '）', h === 0 && next === LABEL && read('site/index.html').includes('</h1>\n<p>' + LABEL + '</p>'), next);
+  ok('README の題のすぐ下に、種類と状態の札がある（' + LABEL + '）', h === 0 && next === LABEL && B.LABEL === LABEL, next);
+  /* 札は GitHub で読む人のためのもの。サイトでは頁の上の欄と最初の画面が同じ役を務めるので、どの頁にも出さない。 */
+  const shown = walk(path.join(ROOT, 'site')).filter((f) => f.endsWith('.html') && read('site/' + f).includes(LABEL));
+  ok('種類と状態の札は、サイトのどの頁にも出さない', shown.length === 0, shown.slice(0, 8).join(', '));
   const top = readme.slice(0, readme.indexOf('\n## '));
   const JA = '> ヌスクァマは、娯楽のために作った架空の国です。学術の研究ではなく、研究の成果を示すものでもありません。';
   const EN = '> English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.';
@@ -1491,15 +1496,50 @@ console.log('\n58. トップの最初の画面と、狭い画面での読みや�
   const idx = read('site/index.html');
   const fig = (/<figure class="first">([\s\S]*?)<\/figure>/.exec(idx) || [])[0] || '';
   const readme = read('README.md');
-  ok('トップの最初の画面に、国旗（国のしるしへ）と版図の地図（王の正誤表へ）を、題の札のすぐ後、創作の断りの前に置く。GitHub では印だけで見えない',
-    !!fig && idx.indexOf(fig) > idx.indexOf('<p>種類：エンターテインメント　状態：運営中</p>') && idx.indexOf(fig) < idx.indexOf('<blockquote>')
-    && /<a href="symbols\.html"><img src="flag\.svg" alt="ヌスクァマの国旗（創作）"/.test(fig) && /<a href="errata\.html"><img src="territory\.svg" alt="ヌスクァマの版図の地図（創作）"/.test(fig)
+  const hero = (/<main id="main">\n<div class="hero">\n([\s\S]*?)\n<\/div>\n<blockquote>/.exec(idx) || [])[1] || '';
+  ok('トップの最初の画面に、国の名（題）・一文・国旗（国のしるしへ）・国章・版図の地図（王の正誤表へ）を一つの枠に収め、創作の断りをそのすぐ後に置く。GitHub では印だけで見えない',
+    !!fig && hero.startsWith('<h1>' + B.NAME + '<span class="la" lang="la">Regnum Nusquamae</span></h1>\n<p class="lede">' + B.LEDE + '</p>\n') && hero.endsWith(fig)
+    && read('README.md').includes('\n> ' + B.LEDE)
+    && /^<a href="symbols\.html"><img src="flag\.svg" alt="ヌスクァマの国旗（創作）"[^>]*><\/a><img class="crest" src="emblem\.svg" alt="ヌスクァマの国章（創作）"[^>]*><a href="errata\.html"><img src="territory\.svg" alt="ヌスクァマの版図の地図（創作）"/.test(fig.replace(/^<figure class="first">/, ''))
+    && (idx.match(/src="emblem\.svg"/g) || []).length === 1
     && (idx.match(/<figure class="first">/g) || []).length === 1 && B.SOURCES.filter(([, d]) => d !== 'index.html').every(([, d]) => !read('site/' + d).includes('<figure class="first">'))
     && readme.indexOf('\n<!-- first -->\n') > 0 && readme.indexOf('\n<!-- first -->\n') < readme.indexOf('\n> これは創作であり、遊びです。'));
   ok('最初の画面の図の題は、地図が王の誤りで広がることを書き、色・形・数は代替テキストに書かない',
-    fig.includes('<figcaption>国旗と、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption>') && !/alt="[^"]*(紺|金|\d)/.test(fig));
-  ok('見出しは、日本語の語の途中で折り返さない（word-break: auto-phrase）。最初の画面の図は、狭い画面で低くし、640 px から高くする',
-    B.STYLE.includes('h1, h2, h3 { word-break: auto-phrase; }') && B.STYLE.includes('.first img { display: block; height: 88px; width: auto; }') && B.STYLE.includes('@media (min-width: 640px) { .first img { height: 128px; } }'));
+    fig.includes('<figcaption>国旗、国章、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption>') && !/alt="[^"]*(紺|金|\d)/.test(fig));
+  ok('見出しは、日本語の語の途中で折り返さない（word-break: auto-phrase）。最初の画面の図は、狭い画面で低くし、640 px から高くする（国章は旗と地図より高く）',
+    B.STYLE.includes('h1, h2, h3 { word-break: auto-phrase; }') && B.STYLE.includes('.first img { display: block; height: 80px; width: auto; }') && B.STYLE.includes('.first img.crest { height: 104px; }')
+    && B.STYLE.includes('@media (min-width: 640px) { .first img { height: 128px; } .first img.crest { height: 160px; }'));
+}
+
+console.log('\n59. 頁の上の欄（国章・国の名・ラテン語の名・案内・言語の切り替え）と、どの頁にも同じ様式');
+{
+  const html = walk(path.join(ROOT, 'site')).filter((f) => f.endsWith('.html'));
+  const WANT = { ja: ['宣言', '基本法', '制度', '騎士名簿', '官報', '暦', '王の正誤表'], en: ['Declaration', 'Basic Law', 'Institutions', 'Knights', 'Gazette', 'Calendar', 'Errata'] };
+  const bad = { bar: [], nav: [], link: [], style: [] };
+  for (const f of html) {
+    const t = read('site/' + f);
+    const en = /<html lang="en">/.test(t);
+    const head = (/<header>([\s\S]*?)<\/header>/.exec(t) || [])[1] || '';
+    /* 欄の形：国章（飾り）、国の名とラテン語の名のリンク、右端に言語の切り替え。その下に案内。 */
+    const m = /^<div class="wrap">\n<div class="bar">([\s\S]*?)<\/div>\n<nav aria-label="([^"]+)"><ul>([\s\S]*?)<\/ul><\/nav>\n<\/div>$/.exec(head) || [];
+    if (!new RegExp('^<img src="[^"]*emblem\\.svg" alt="" width="40" height="48"><a class="home" href="[^"]*index\\.html"><span class="name"' + (en ? ' lang="ja"' : '') + '>' + B.NAME + '</span><span class="la" lang="la">Regnum Nusquamae</span></a><a class="lang" [^>]+>[^<]+</a>$').test(m[1] || '')) bad.bar.push(f);
+    const items = [...(m[3] || '').matchAll(/<li><a href="([^"]+)"( aria-current="page")?>([^<]+)<\/a><\/li>/g)];
+    if (m[2] !== (en ? 'Main pages' : '主な頁') || items.map((x) => x[0]).join('') !== (m[3] || '') || JSON.stringify(items.map((x) => x[3])) !== JSON.stringify(WANT[en ? 'en' : 'ja'])) bad.nav.push(f);
+    for (const [, href, cur] of items) {
+      const [p, hash] = href.split('#');
+      const target = f === '404.html' ? p.replace(/^\//, '') : path.posix.normalize(path.posix.join(path.posix.dirname(f), p));
+      if (!fs.existsSync(path.join(ROOT, 'site', target))) { bad.link.push(f + ' → ' + href); continue; }
+      const there = read('site/' + target);
+      /* 案内は頁と同じ言語の頁を指し、節を指すときはその節の id が一つだけある。いまの頁を指す項にだけ aria-current を付ける。 */
+      if (en !== target.endsWith('.en.html') || (hash && there.split(' id="' + hash + '"').length !== 2) || !!cur !== (!hash && target === f)) bad.link.push(f + ' → ' + href);
+    }
+    if ((/<style>([\s\S]*?)<\/style>/.exec(t) || [])[1] !== B.STYLE || (t.match(/<style>/g) || []).length !== 1) bad.style.push(f);
+  }
+  ok('どの頁（' + html.length + '）も、頁の上の欄に国章・国の名・ラテン語の名（Regnum Nusquamae）を並べ、言語の切り替えを右端に置く', bad.bar.length === 0, bad.bar.slice(0, 8).join(', '));
+  ok('どの頁も、案内に宣言・基本法・制度・騎士名簿・官報・暦・王の正誤表の七つを、この順に、頁の言語で置く', bad.nav.length === 0, bad.nav.slice(0, 8).join(', '));
+  ok('案内のリンクは、どれも同じ言語の頁（宣言と基本法はその節の id）を指し、いまの頁を指す項にだけ aria-current を付ける', bad.link.length === 0, bad.link.slice(0, 8).join(', '));
+  ok('どの頁も、同じ一つの様式（build.js の STYLE）を持つ', bad.style.length === 0, bad.style.slice(0, 8).join(', '));
+  ok('案内は狭い画面で折り返し、印刷では隠す', /header nav ul \{[^}]*flex-wrap: wrap;/.test(B.STYLE) && /@media print \{[^}]*header nav[^}]*\{ display: none; \}/.test(B.STYLE));
 }
 
 console.log('\n' + '-'.repeat(56));

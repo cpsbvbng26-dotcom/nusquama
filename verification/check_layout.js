@@ -7,7 +7,8 @@
  * 幅は 1280・640・390・360・320 px。640 px は、1280 px の窓を 200% に拡大したときの幅である。
  * 320 px は 1280 px を 400% にしたときの幅で、WCAG 2.2 の 1.4.10（リフロー）が求める幅である。
  * 表は .table の中で横に送るので、頁そのものは横に送らない。
- * トップの頁は、最初の画面（スクロールする前に見える範囲）に、国旗と版図の地図と、創作の断りの始まりが収まるかも見る。
+ * トップの頁は、最初の画面（スクロールする前に見える範囲）に、国旗と国章と版図の地図と、創作の断りの始まりが収まるかも見る。
+ * どの頁も、頁の上の欄の案内の七つが、どの幅でも切れずに、一項ずつ一行で窓の中に描かれるかを見る（項と項の間は折り返してよい）。
  *
  * 要: playwright と Chromium。どちらもないときは 1 で止まる（走らなかった検査は、通った検査ではない）。
  * CI では、ブラウザの故障を頁の誤りと取り違えないよう、別の job で走らせる（.github/workflows/check.yml）。
@@ -92,15 +93,20 @@ async function main() {
               if (b.right > vw + 0.5 && !el.closest('.table')) { widest = el.tagName.toLowerCase() + (el.className ? '.' + el.className : ''); break; }
             }
           }
-          return { over, widest };
+          const nav = [...document.querySelectorAll('header nav a')];
+          /* 項は一行で描く（語の途中で折れた項は、切れた項と同じに数える）。 */
+          const lines = (a) => { const g = document.createRange(); g.selectNodeContents(a); return new Set([...g.getClientRects()].map((x) => Math.round(x.top))).size; };
+          const cut = nav.filter((a) => { const b = a.getBoundingClientRect(); return !b.width || !b.height || b.left < 0 || b.right > vw + 0.5 || lines(a) !== 1; }).map((a) => a.textContent);
+          return { over, widest, nav: nav.length, cut };
         });
         n++;
         if (r.over > 0) bad.push(p + ' @' + w + 'px ' + scheme + '：' + r.over + ' px はみ出す（' + r.widest + '）');
+        if (r.nav !== 7 || r.cut.length) bad.push(p + ' @' + w + 'px ' + scheme + '：頁の上の案内（' + r.nav + '）が切れる（' + r.cut.join('・') + '）');
       }
       await ctx.close();
     }
   }
-  /* トップの最初の画面（スクロールする前に見える範囲）に、国旗と版図の地図が読み込まれて収まり、創作の断りも始まっていること。
+  /* トップの最初の画面（スクロールする前に見える範囲）に、国旗と国章と版図の地図が読み込まれて収まり、創作の断りも始まっていること。
    * 幅と高さは、狭い電話（360×640）、よくある電話（390×844）、拡大した窓（640×400、1280×800 の 200%）、広い窓（1280×800）。 */
   const SCREENS = [[360, 640], [390, 844], [640, 400], [1280, 800]];
   for (const [w, h] of SCREENS) {
@@ -114,14 +120,14 @@ async function main() {
         quoteTop: quote ? quote.getBoundingClientRect().top : Infinity };
     });
     n++;
-    if (r.n !== 2 || r.out.length || r.quoteTop >= h) bad.push('index.html @' + w + '×' + h + '：最初の画面に、国旗と地図（' + r.n + '、外れたもの ' + (r.out.join('・') || 'なし') + '）と、断りの始まり（上から ' + Math.round(r.quoteTop) + ' px）が収まらない');
+    if (r.n !== 3 || r.out.length || r.quoteTop >= h) bad.push('index.html @' + w + '×' + h + '：最初の画面に、国旗と国章と地図（' + r.n + '、外れたもの ' + (r.out.join('・') || 'なし') + '）と、断りの始まり（上から ' + Math.round(r.quoteTop) + ' px）が収まらない');
     await ctx.close();
   }
   await browser.close();
   server.close();
   console.log('頁 ' + list.length + '、幅 ' + WIDTHS.join('・') + ' px、明るい配色と暗い配色で描き、トップの最初の画面を ' + SCREENS.length + ' つの大きさで見て、' + n + ' 通りを確かめた。');
   if (bad.length) { console.log('通らなかった（' + bad.length + ' 通り）：\n  ' + bad.slice(0, 30).join('\n  ')); process.exit(1); }
-  console.log('どれも横にはみ出さず、トップの最初の画面に国旗と地図と断りの始まりが収まった。');
+  console.log('どれも横にはみ出さず、頁の上の案内は切れず、トップの最初の画面に国旗と国章と地図と断りの始まりが収まった。');
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
