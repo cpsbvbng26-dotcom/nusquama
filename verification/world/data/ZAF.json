@@ -1,7 +1,7 @@
 {
  "country": "ZAF",
  "sources": {
-  "ZAF-popia": {"instrument":"Protection of Personal Information Act 4 of 2013","kind":"code","lang":"en","url":"https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf","fetched":"2026-11-12","topics":["data"],"official":"南アフリカ政府（官報の写し）","error":"direct：fetch failed (UND_ERR_CONNECT_TIMEOUT) / archive：本文がない（JavaScript で描く頁か、拒む応答）"},
+  "ZAF-popia": {"instrument":"Protection of Personal Information Act 4 of 2013","kind":"code","lang":"en","url":"https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf","fetched":"2026-11-12","topics":["data"],"official":"南アフリカ政府（官報の写し）","error":"direct：本文がない（JavaScript で描く頁か、拒む応答） / archive：本文がない（JavaScript で描く頁か、拒む応答）"},
   "constitute": {"instrument":"South Africa 1996 (rev. 2012)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=South_Africa_2012&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=South_Africa_2012&lang=en","status":200,"length":276024,"sha256_full":"e78a952c9dbf95c21ccf977187770ca411fde3b5137a86868c31b0dbedf75110","articles":304,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"South_Africa_2012","title":"South Africa 1996 (rev. 2012)","year_enacted":"1996","year_updated":"2012","page":"https://www.constituteproject.org/constitution/South_Africa_2012?lang=en"}
  },
  "provisions": [
