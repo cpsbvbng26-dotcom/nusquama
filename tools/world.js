@@ -21,6 +21,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { pdfText } = require('./pdftext.js');
+const { scanText } = require('./scan.js');
 
 const ROOT = path.join(__dirname, '..');
 const DIR = path.join(ROOT, 'verification', 'world');
@@ -330,11 +331,18 @@ async function fetchSource(s) {
       }
     }
     if (!arts.length) { notes.push(via + '：条に分けられない'); continue; }
+    /* Editorial notes of a database (Justel's "<L 2000-06-26/42, art. 2, En vigueur : 01-01-2002>") are not the article's
+     * text; a source names them in strip, and they are taken out of every paragraph before it is searched. */
+    if (s.strip) { const st = new RegExp(s.strip, 'g'); for (const a of arts) { a.paras = a.paras.map((x) => x.replace(st, ' ').replace(/\s+/g, ' ').trim()); if (a.caption) a.caption = a.caption.replace(st, ' ').trim(); } }
     const topics = rec.topics.filter((t) => searchable(t, s.lang, s));
     Object.assign(rec, { via, final: finals.length === 1 ? finals[0] : finals, status: 200, length: plain.length, sha256_full: sha(plain), articles: arts.length, searched: topics });
     if (topics.length < rec.topics.length) rec.unsearchable = rec.topics.filter((t) => !topics.includes(t));
     if (notes.length) rec.notes = notes;
-    return { rec, found: search(arts, s.lang, topics, s) };
+    /* A provision whose text has the form of a contact detail (tools/scan.js) is not kept: the repository holds none. */
+    const found = search(arts, s.lang, topics, s);
+    const kept = found.filter((f) => !scanText(f.text).length);
+    if (kept.length < found.length) rec.withheld = found.filter((f) => scanText(f.text).length).map((f) => f.article + '（連絡先の形に見える文字列を含むので記していない）');
+    return { rec, found: kept };
   }
   rec.error = notes.join(' / ');
   return { rec, found: [] };
@@ -361,7 +369,8 @@ function store(owner, id, s, rec, found) {
   const seen = new Map();
   const url = Array.isArray(rec.final) ? rec.final[0] : rec.final;
   for (const f of found) {
-    let pid = id + ' ' + f.article + (f.part === 'article' ? '' : ' ¶' + f.part.split(' ')[1]);
+    /* The constitution of every country has the source id "constitute"; its provisions carry the country in front. */
+    let pid = (id === 'constitute' ? owner + ' constitution' : id) + ' ' + f.article + (f.part === 'article' ? '' : ' ¶' + f.part.split(' ')[1]);
     const n = (seen.get(pid) || 0) + 1; seen.set(pid, n); if (n > 1) pid += ' (' + n + ')';
     d.provisions.push({ id: pid, source: id, country: owner, instrument: s.instrument, kind: rec.kind, article: f.article, ...(f.caption ? { caption: f.caption } : {}), part: f.part, lang: s.lang, topics: f.topics, text: f.text, ...(f.cut ? { cut: true } : {}), url, fetched: TODAY, sha256: sha(f.text) });
   }
