@@ -204,6 +204,21 @@ function splitConstitute(html) {
     cur = null;
   }
   if (cur && cur.paras.length) arts.push(cur);
+  /* Some texts put the article headings inside the body paragraphs ("Article 2: …"). When the titles gave almost no
+   * articles, every paragraph that opens with an article heading opens an article. */
+  if (arts.length < 10) {
+    const alt = [];
+    let c2 = null;
+    for (const m of html.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>|<(h[1-6])\b[^>]*>([\s\S]*?)<\/\2>/g)) {
+      const t = flat(m[1] || m[3] || '');
+      if (!t) continue;
+      const h = /^(Article|ARTICLE|Art\.?)\s+(\d+[A-Za-z]?)\b[\s.:\-–]*/.exec(t);
+      if (h) { if (c2 && c2.paras.length) alt.push(c2); c2 = { label: 'Article ' + h[2], paras: t.slice(h[0].length) ? [t.slice(h[0].length)] : [] }; continue; }
+      if (c2) c2.paras.push(t);
+    }
+    if (c2 && c2.paras.length) alt.push(c2);
+    if (alt.length > arts.length) return alt;
+  }
   return arts;
 }
 
