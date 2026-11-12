@@ -1,7 +1,7 @@
 {
  "country": "TUV",
  "sources": {
-  "constitute": {"instrument":"Tuvalu 2023","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Tuvalu_2023&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Tuvalu_2023&lang=en","status":200,"length":229258,"sha256_full":"ccbb94339b651708e8ca24f31b0b39a3fa0940650eb865d2976fcc33820f5028","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Tuvalu_2023","title":"Tuvalu 2023","year_enacted":"2023","year_updated":null,"page":"https://www.constituteproject.org/constitution/Tuvalu_2023?lang=en"}
+  "constitute": {"instrument":"Tuvalu 2023","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Tuvalu_2023&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Tuvalu_2023&lang=en","status":200,"length":229258,"sha256_full":"ccbb94339b651708e8ca24f31b0b39a3fa0940650eb865d2976fcc33820f5028","articles":58,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Tuvalu_2023","title":"Tuvalu 2023","year_enacted":"2023","year_updated":null,"page":"https://www.constituteproject.org/constitution/Tuvalu_2023?lang=en"}
  },
  "provisions": [
 
