@@ -92,7 +92,7 @@ These terms are governed by Japanese law.
 Nothing in these terms limits a right that the law does not allow to be limited.
 Disputes are to be settled by agreement first.
 Before bringing any claim, the operator first talks with the other party.
-The talks take place in an issue, or through the private channel described under "Requests that cannot be made in public" in the [Requests for removal, correction or withdrawal](./requests.en.md).
+The talks take place in an issue. When the other party has made a contact public on their own GitHub profile, they may also take place at that contact ([Requests for removal, correction or withdrawal](./requests.en.md), "Requests that cannot be made in public").
 If the other party offers to settle, the operator responds in good faith.
 A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.
 This does not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
@@ -116,4 +116,4 @@ What they say that matters to people who use Nusquama:
 ## Contact
 
 Contact is by [issue](https://github.com/cpsbvbng26-dotcom/nusquama/issues) in the repository.
-Contact that cannot be made in public follows "Requests that cannot be made in public" in the [Requests for removal, correction or withdrawal](./requests.en.md).
+There is no private channel. The operator answers privately only in the case described under "Requests that cannot be made in public" in the [Requests for removal, correction or withdrawal](./requests.en.md).
