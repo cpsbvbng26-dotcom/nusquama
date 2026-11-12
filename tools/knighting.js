@@ -11,6 +11,10 @@
  *   - 2026-11-22 から、称号を遊びとして扱い、規程の禁じる使い方をしない印（良識の前提）があること
  *   - 訂正へのリンクが https で、開けること（応答の状態だけを見る。中身は読まず、残さない）
  *   - 何を誤り、どう正したかが書かれていること
+ *
+ * 受付の停止（2026-11-12 に利用者が決めた）：2026-11-12 から 2026-11-22 0 時（日本時間）より前に開かれた願い出は、
+ * 上の確認をせずに、受付を止めていることをコメントし、issue を閉じる。日付だけで決まり、人の手を待たない。
+ * 2026-11-22 0 時からは、ひとりでに受付に戻り、その日から求める印（日本にいる・イタリアの国籍・良識の前提）で確かめる。
  */
 'use strict';
 const fs = require('fs');
@@ -24,6 +28,30 @@ const NATIONALITY_FROM = '2026-11-22';
 const NATIONALITY = 'イタリアの国籍を持っていません';
 const PREMISE_FROM = '2026-11-22';
 const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
+const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
+const PAUSE_UNTIL = '2026-11-22T00:00:00+09:00';
+const PAUSE_TEXT = '2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。この願い出は受けず、この issue を閉じます。2026-11-22 から、改めた規程（日本に住み日本にいる人に限ること、イタリアの国籍を持つ人を除くこと、良識の前提）で、新しい issue を開いて願い出ることができます。';
+const PAUSE_TEXT_EN = 'From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"). This application is not accepted, and this issue is closed. From 2026-11-22, a new issue may be opened to apply under the revised rules (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense).';
+
+/* 純：issue を開いた時が受付の停止のあいだか。opened は ISO の時刻。 */
+function paused(opened) {
+  const t = Date.parse(opened);
+  return Number.isFinite(t) && t >= Date.parse(PAUSE_FROM) && t < Date.parse(PAUSE_UNTIL);
+}
+
+/* 純：受付の停止のあいだに開かれた願い出へのコメント。 */
+function pauseComment() {
+  return `${MARK}
+**受付の停止**
+
+${PAUSE_TEXT}
+
+${PAUSE_TEXT_EN}
+
+これは創作であり、遊びです。称号に法的な効力はありません。
+`;
+}
+
 /* 日付から見る印。様式では必須にせず（その日より前の願い出を止めないため）、ここで日付を見て求める。 */
 const DATED = [
   { from: PRESENCE_FROM, text: PRESENCE, label: '日本に住み、いま日本にいる印がある' },
@@ -112,16 +140,27 @@ async function github(method, p, body) {
 
 async function main() {
   const n = process.env.ISSUE_NUMBER;
+  const opened = process.env.ISSUE_CREATED_AT || new Date().toISOString();
+  const mine0 = ((await github('GET', '/issues/' + n + '/comments?per_page=100')) || []).find((c) => c.user.type === 'Bot' && c.body.startsWith(MARK));
+  if (paused(opened)) {
+    /* 受付の停止のあいだに開かれた願い出：訂正へのリンクも開かず、停止を書いて閉じる（完了ではなく、受けないものとして）。 */
+    const body = pauseComment();
+    if (mine0) await github('PATCH', '/issues/comments/' + mine0.id, { body });
+    else await github('POST', '/issues/' + n + '/comments', { body });
+    await github('PATCH', '/issues/' + n, { state: 'closed', state_reason: 'not_planned' });
+    console.log('受付の停止のあいだ');
+    return;
+  }
   const form = parse(process.env.ISSUE_BODY);
   const link = (form['訂正への公開のリンク'] || '').trim();
-  const result = check(form, process.env.ISSUE_CREATED_AT || new Date().toISOString(), /^https:\/\/[^\s]+$/.test(link) ? await status(link) : null);
+  const result = check(form, opened, /^https:\/\/[^\s]+$/.test(link) ? await status(link) : null);
   const body = comment(result);
-  const mine = ((await github('GET', '/issues/' + n + '/comments?per_page=100')) || []).find((c) => c.user.type === 'Bot' && c.body.startsWith(MARK));
+  const mine = mine0;
   if (mine) await github('PATCH', '/issues/comments/' + mine.id, { body });
   else await github('POST', '/issues/' + n + '/comments', { body });
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, DATED, requiredOaths, parse, check, comment, jstDay };
+module.exports = { PAUSE_FROM, PAUSE_UNTIL, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, DATED, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });

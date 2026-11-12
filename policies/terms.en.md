@@ -77,6 +77,7 @@ Notice: from 2026-11-22, only people who live in Japan and are in Japan when the
 Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
 Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play, and an application without the box for this premise ticked is not accepted ([Rules on Knighting](./knighting.en.md), "The premise of good sense").
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
+From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
 
