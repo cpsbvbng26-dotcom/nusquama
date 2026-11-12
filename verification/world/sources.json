@@ -236,7 +236,10 @@
    ]
   },
   "overrides": {},
-  "missing": {}
+  "missing": {
+   "SMR": "Constitute Project の一覧にこの国の文がなく、ほかの公式の所在もこの調べでは定めていない",
+   "VAT": "Constitute Project の一覧にこの国の文がなく、ほかの公式の所在もこの調べでは定めていない"
+  }
  },
  "codes": [
   {
@@ -1222,7 +1225,8 @@
     "defamation"
    ],
    "title": "Wetboek van Strafrecht",
-   "official": "wetten.overheid.nl（内務省、公式）"
+   "official": "wetten.overheid.nl（内務省、公式）",
+   "strip": "Toon relaties in LiDO Maak een permanente link Toon wetstechnische informatie \\.\\.\\. Druk het regelingonderdeel af Sla het regelingonderdeel op"
   },
   {
    "id": "NLD-uavg",
@@ -1237,6 +1241,7 @@
    ],
    "title": "gegevensbescherming",
    "official": "wetten.overheid.nl（内務省、公式）",
+   "strip": "Toon relaties in LiDO Maak een permanente link Toon wetstechnische informatie \\.\\.\\. Druk het regelingonderdeel af Sla het regelingonderdeel op",
    "dp": true
   },
   {
@@ -2049,6 +2054,7 @@
    ],
    "title": "protection des personnes physiques",
    "official": "Justel（法務省、公式）",
+   "strip": "<(?:L|W|inséré|Inséré|Insérée|insérée|ingevoegd|Ingevoegd)\\b[^<>]{0,200}>|\\(inséré par <[^<>]{0,200}>\\)",
    "dp": true
   },
   {
@@ -2067,7 +2073,8 @@
     "defamation"
    ],
    "title": "Code p[ée]nal",
-   "official": "Justel（法務省、公式）"
+   "official": "Justel（法務省、公式）",
+   "strip": "<(?:L|W|inséré|Inséré|Insérée|insérée|ingevoegd|Ingevoegd)\\b[^<>]{0,200}>|\\(inséré par <[^<>]{0,200}>\\)"
   },
   {
    "id": "ARE-pdpl",
