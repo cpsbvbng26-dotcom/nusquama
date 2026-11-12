@@ -1,8 +1,8 @@
 {
   "_": "枝でこのファイルを書き換えると、world.yml が batch の組を取り寄せる。手で動かすときは、ワークフローの入力 batch が先に立つ。",
   "batch": "probe",
-  "len": 6000,
-  "find": "Kurztitel",
+  "len": 5000,
+  "find": "§ 2",
   "probe": [
     "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000680/NOR12000680.html"
   ]
