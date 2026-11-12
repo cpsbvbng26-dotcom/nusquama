@@ -740,6 +740,27 @@ Source: https://nusquama.vercel.app/institutions.html
 
 段 4 と段 5 の抜けは、2026-11-11 に王が決めて埋めました。サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めを受ける窓口を開けておきます（上の「解散」の 4〜6）。改める前の文は[王の正誤表](ERRATA.md)にあります。
 
+## 叙任の通し稽古
+
+2026-11-12 に、叙任の願い出の流れを、試しの一件で通して確かめました。本物の issue は開いていません。
+検査（`verification/check.js`「叙任の通し稽古」）が、様式の定義から願い出の本文を組み、名簿の行・官報の号・人口・新着の配信までを、検査のたびに通し直します。
+試しの一件は、名簿にも官報にも載せていません。
+見つけた抜けを、下に並べます。
+
+| 段 | 通して見たこと | 抜け |
+| --- | --- | --- |
+| 1 | 様式から、願い出の issue の本文を組む | なし。自動の確認が読む題は、様式の題と同じだった |
+| 2 | 様式が付けるラベルで、自動の確認が動く | なし。ラベルは、ラベルの workflow が作るものと、確認の workflow が待つものと同じだった |
+| 3 | 自動の確認が、印・リンク・説明を確かめてコメントする | なし。リンクは開かず、応答の状態を渡して通した |
+| 4 | 運営者が、リンク先を読んで確かめる | 人が読むことなので、検査では通せない |
+| 5 | 記し方のとおりに、名簿に一行を足す | 英語の名簿の行を、日本語の名簿と突き合わせる検査がなかった。2026-11-12 に足した（番・騎士・叙任の日・願い出がそろうこと） |
+| 6 | 官報に号が出て、人口と新着の配信に入る | なし |
+| ほか | 本物の最初の騎士が載ったとき | 騎士の号を確かめる検査が、名簿を空のままとみなしていた。最初の騎士が載ると、整った行でも落ちるところだった。2026-11-12 に、いまの名簿の次の番で確かめる形に直した |
+| ほか | 叙任の日と号の並び | 叙任を決めた日より後の日付の行が年表にあると、号の並びが日付の順から外れ、検査が落ちる。名簿の行は決めた日のうちに足すことになるが、記し方に書いていない |
+| ほか | 願い出の issue への答え | 叙任したときに issue に何を書き、issue を閉じるかどうかが書いていない。決まっているのは、断るときの一文だけ |
+
+段 5 の抜けと、最初の騎士が載ったときの抜けは、検査を直して埋めました。残りの抜けを埋めるかどうかは、王が決めます。
+
 ## 終わりの言葉
 
 凍結や解散のときに掲げる文の下書きです。掲げる日に、日付を付けて出します。
@@ -3178,6 +3199,27 @@ The gaps found are listed below. Whether to fill them is for the King to decide.
 | Other | Ten years ahead | The gazette issue on the outlook in 2036 cannot appear after dissolution |
 
 The gaps found at steps 4 and 5 were filled by the King on 2026-11-11: the site is kept and served, and the repository is not archived, so that requests can still be received (steps 4 to 6 of "Dissolution" above). The earlier text is in [the King's errata](ERRATA.en.md).
+
+## A dry run of knighting
+
+On 2026-11-12 the path of an application for knighthood was walked through once, with a trial application. No real issue was opened.
+A check (`verification/check.js`, "A dry run of knighting") builds the text of an application from the definition of the form, and walks it through to the row of the roll, the gazette issue, the population and the feed, every time the checks run.
+The trial application is on neither the roll nor the gazette.
+The gaps found are listed below.
+
+| Step | What was walked through | Gap |
+| --- | --- | --- |
+| 1 | Build the text of the application issue from the form. | None. The headings the automatic check reads are the same as the headings of the form |
+| 2 | The automatic check runs on the label the form adds. | None. The label is the one the labels workflow creates and the one the check workflow waits for |
+| 3 | The automatic check looks at the ticks, the link and the explanation, and comments. | None. The link was not opened; a response status was passed in |
+| 4 | The operator reads the linked page and checks it. | This is reading by a person, so the checks cannot walk it through |
+| 5 | Add one row to the roll, as "How entries are recorded" says. | No check compared the rows of the English roll with the Japanese roll. One was added on 2026-11-12 (the number, the knight, the day of knighting and the application must match) |
+| 6 | A gazette issue appears, and the knight enters the population and the feed. | None |
+| Other | When the first real knight is entered | The check of the knights' gazette issues assumed an empty roll. Once the first knight was entered, it would have failed even for a correct row. On 2026-11-12 it was changed to check with the next number after the current roll |
+| Other | The day of knighting and the order of issues | If the timeline has a row dated after the day the knighting was decided, the issues fall out of date order and the checks fail. The row of the roll has to be added on the day of the decision, but "How entries are recorded" does not say so |
+| Other | Answering the application issue | What to write on the issue on knighting, and whether to close it, is not written. Only the one sentence for a refusal is fixed |
+
+The gap at step 5 and the gap for the first knight were filled by changing the checks. Whether to fill the remaining gaps is for the King to decide.
 
 ## Closing words
 
