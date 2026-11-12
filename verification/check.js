@@ -1480,8 +1480,21 @@ console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試し
     && items.every((x) => (g.find((y) => y.key === x.key) || {}).no === x.no) && B.population(undefined, rows) === B.population() + 1
     && ax.includes('<title>第 ' + n + ' 番の騎士：' + TRIAL.account + '</title>') && ax.includes('<updated>' + TRIAL.day + 'T00:00:00+09:00</updated>') && !/\]\(https:/.test(ax));
   const late = B.gazetteItems(Object.assign({}, base, { knights: rows.map((r, i) => (i === n - 1 ? r.map((x, k) => (k === 2 ? '2026-11-07' : x)) : r)) }));
-  ok('ほか：年表の最後の行より前の日を叙任の日にすると、号の並びが日付の順から外れる（通し稽古の表に、抜けとして書いた）',
-    !late.every((x, i) => i === 0 || late[i - 1].no === x.no + 1) && read('INSTITUTIONS.md').includes('叙任を決めた日より後の日付の行が年表にあると'));
+  /* 通し稽古で見つけた二つの抜けは、2026-11-12 に決めて埋めた。抜けの文を表に残し、決めたことを記し方と叙任の規程に書く（日本語と英語）。 */
+  ok('ほか：年表の最後の行より前の日を叙任の日にすると、号の並びが日付の順から外れる（通し稽古の表に、抜けとして書き、名簿の記し方で、行を決めた日のうちに足すと決めた）',
+    !late.every((x, i) => i === 0 || late[i - 1].no === x.no + 1) && read('INSTITUTIONS.md').includes('叙任を決めた日より後の日付の行が年表にあると')
+    && kj.includes('- 叙任の日：王が叙任を決めた日（日本時間）です。名簿の行は、決めたその日のうちに足します。')
+    && kj.includes('官報の号は、年表と名簿に行を足した順に振ります。叙任の日は行を足す日と同じなので、古い日付の号が、新しい日付の号の後に来ることはありません。')
+    && ke.includes('- Knighted: the day the King decided on the knighting (Japan time). The row is added on that same day.')
+    && ke.includes('Gazette issues are numbered in the order rows are added to the timeline and the roll. As the day of knighting is the day the row is added, an older date never comes after a newer one.')
+    && kj.includes('\n2026-11-12 に Claude が決めました。叙任の通し稽古で') && ke.includes('\nDecided by Claude on 2026-11-12, after the dry run of knighting'));
+  ok('ほか：叙任したときは、願い出の issue に名簿の行へのリンクを添えて答え、issue を完了として閉じる（叙任の規程「名簿」、日本語と英語）。通し稽古の表は、二つの抜けを埋めたと書き、王に委ねる文を残さない',
+    read('policies/knighting.md').includes('叙任したときは、運営者が願い出の issue に、名簿の行へのリンクを添えたコメントを書き、issue を「完了」として閉じます。')
+    && read('policies/knighting.en.md').includes('On knighting, the operator posts a comment on the application issue with a link to the row of the roll, and closes the issue as completed.')
+    && read('INSTITUTIONS.md').includes('叙任の日と号の並びの抜けと、願い出の issue への答えの抜けは、2026-11-12 に Claude が決めて埋めました。')
+    && read('INSTITUTIONS.en.md').includes('were filled by decisions Claude made on 2026-11-12.')
+    && (read('INSTITUTIONS.md').match(/。2026-11-12 に Claude が決めて、/g) || []).length === 2 && (read('INSTITUTIONS.en.md').match(/\. Decided by Claude on 2026-11-12 and written in/g) || []).length === 2
+    && !/埋めるかどうかは、王が決めます|is for the King to decide/.test(read('INSTITUTIONS.md') + read('INSTITUTIONS.en.md')));
   ok('いまの名簿は、日本語と英語で行がそろう（' + B.tableRows('KNIGHTS.md').length + ' 行）', twin(rowsOf(kj), rowsOf(ke)));
   const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
   const tab = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return i < 0 ? [] : t.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\| (\d+|ほか|Other) \|/.test(l)).map((l) => l.split(' | ')[0].slice(2)); };
