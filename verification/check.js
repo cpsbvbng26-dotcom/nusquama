@@ -1746,8 +1746,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-9).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（72）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-10).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -1764,7 +1764,9 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
       else if (!keys.includes(piece.replace(/\s+/g, '')) && !keys.some((k) => k.endsWith(piece.replace(/\s+/g, '')))) bad.push('一次資料の表にない：' + piece);
     }
     /* 引いた文：印の名は一次資料の表にあり、引用は表の文と一字一句同じ。表の文は、SHA-256 を記した取り寄せた窓に現れる。 */
-    const quotes = [...sec.matchAll(/<!-- 原文 (.+?) -->\n> (.+)\n/g)];
+    /* 八度目の見落とし（72）の節も、GitHub の規約の文をここと同じ形で引く。 */
+    const i8 = a.indexOf('\n## 2026-11-12 の続き：八度目の見落とし\n'), sec8 = i8 < 0 ? '' : a.slice(i8, a.indexOf('\n## ', i8 + 5));
+    const quotes = [...(sec + sec8).matchAll(/<!-- 原文 (.+?) -->\n> (.+)\n/g)];
     const fresh = Object.keys(P.sources).filter((k) => P.sources[k].quoted_in === F62);
     if (fresh.length < 30 || !fresh.every((k) => quotes.some((q) => q[1] === k))) bad.push('引いていない文がある');
     for (const [, k, q] of quotes) {
@@ -2102,7 +2104,11 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
     const priv = Object.values(W66.data).flatMap((d) => d.provisions).filter((p) => p.spans);
     const n = (src) => priv.filter((p) => p.source === src).length;
     const sum = (f) => priv.reduce((a, p) => a + f(p), 0);
-    const nums = ['出典は ' + Object.keys(R).length + ' です', '法令・条約の ' + whole.length + ' で', '検査が拠る箇所だけを記すのは ' + (Object.keys(R).length - whole.length) + ' です', 'あわせて ' + spanChars + ' 字です',
+    /* この節の数は、その日に記していた出典の数。のちの点検（八度目、2026-11-13）が足した GitHub の二つの規約は数えない。 */
+    const LATER = ['github-terms', 'github-additional-terms'];
+    const nR = Object.keys(R).filter((k) => !LATER.includes(k)).length;
+    const laterChars = LATER.reduce((a, k) => a + ((R[k] || {}).spans || []).reduce((b, sp) => b + sp.length, 0), 0);
+    const nums = ['出典は ' + nR + ' です', '法令・条約の ' + whole.length + ' で', '検査が拠る箇所だけを記すのは ' + (nR - whole.length) + ' です', 'あわせて ' + (spanChars - laterChars) + ' 字です',
       '文を外した条は ' + priv.length + ' 件です', '英語の文が ' + n('constitute') + ' 件', '英訳が ' + n('KOR-pipa') + ' 件', '文は、あわせて ' + sum((p) => p.length) + ' 字でした', '記した箇所は、あわせて ' + sum((p) => p.spans.join('').length) + ' 字です'];
     for (const s of nums) if (!sec.includes(s)) bad.push('記録の数が数えた数と違う：' + s);
     if (!sec.includes('<!-- 条文 著作権法 第13条 -->\n> ' + art13 + '\n')) bad.push('記録の第13条の文が取り寄せた文と違う');
@@ -2697,12 +2703,93 @@ console.log('\n71. 叙任を誘う文は、叙任の規程を挙げる（日本�
     ['記録の判定の数を変える', mut(AUD, '誤り 2 件、根拠不足 0 件、漏れ 5 件', '誤り 2 件、根拠不足 0 件、漏れ 4 件')],
     ['記録から誤りの行を問題なしにする', mut(AUD, '英語は「Anyone」で始まっていた | 誤り | 叙任の規程の', '英語は「Anyone」で始まっていた | 問題なし | 叙任の規程の')],
     ['記録から決めた理由を外す', mut(AUD, '同じ見落としを機械で止めるためです。', '同じ見落としを機械で止める。')],
-    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：八度目の見落とし', '\n\n## 2026-11-12 の続き：八度目の見落とし')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：紹介の頁・物語の前の文（日本語と英語）・生成した頁・llms-full.txt・「誰でも」・「Anyone」・規程と国の仕組みの文（日本語と英語）・基本法の後ろの注（日本語と英語）・第六条を改める（日本語と英語）・王の正誤表 33・年表・判定の数・誤りの行・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
+
+console.log('\n72. GitHub Actions の規約：追加製品の規約を取り寄せて見張り、どのワークフローも点検の記録の表に行を持つ（2026-11-13）');
+{
+  /* GitHub の利用規約は I 節で追加製品の規約を取り込み、その Actions の節は、GitHub の実行環境での使い方を、リポジトリの
+   * ソフトウェアのプロジェクトの制作・検査・配備・公開に限る。規約は見張り（statutes.json）と取り寄せ（tools/sources.js）の
+   * 両方に置き、引いた文と全文の SHA-256 を記す。`.github/workflows/` のどのファイルも、点検の記録の八度目の節の表に行を持つ。
+   * 免責事項は、Actions が止まれば自動の手順を運営者が手で行い、すぐには行われないと書く（日本語と英語）。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：八度目の見落とし\n';
+  const FILE_T = 'Policies/github-terms/github-terms-of-service.md', FILE_A = 'Policies/github-terms/github-terms-for-additional-products-and-features.md';
+  const SHA = { 'github-terms': '8931fad4aa5408fea26dd1b42e21b0c76c4b378a3f163570a8850740b5570336', 'github-additional-terms': '93b173250d5ab431ce90b677c39db86c72bc11dd788bc420619494a739628325' };
+  const NEED = { 'github-terms': ['GitHub の利用規約 I 節'], 'github-additional-terms': ['GitHub の追加製品の規約 Actions（前置き）', 'GitHub の追加製品の規約 Actions（負荷）', 'GitHub の追加製品の規約 Actions（目的）', 'GitHub の追加製品の規約 Actions（誤用）'] };
+  const SAY = {
+    'policies/disclaimer.md': ['GitHub の規約は、GitHub が GitHub Actions の利用を制限することを認めています。', '運営者が手で行い、すぐには行われません。', '記載を判断の前に外すことは、初めから運営者が手で行っており、GitHub Actions には頼りません。'],
+    'policies/disclaimer.en.md': ["GitHub's terms let GitHub restrict the use of GitHub Actions, and Actions can stop.", 'The operator does them by hand, and not at once.', "Taking an entry down before a decision has always been done by the operator's hand, and does not depend on GitHub Actions."],
+  };
+  const WF = fs.readdirSync(path.join(ROOT, '.github', 'workflows')).filter((f) => /\.ya?ml$/.test(f)).sort();
+  const files = ['verification/statutes.json', 'verification/sources.json', 'verification/sources-raw.json', 'tools/sources.js', AUD].concat(Object.keys(SAY));
+  const real = Object.assign(Object.fromEntries(files.map((f) => [f, read(f)])), { wf: WF });
+  const KINDS72 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const cells = (l) => l.replace(/^\| | \|$/g, '').split(' | ');
+  function verdict(x) {
+    const bad = [];
+    let ST, P, R;
+    try { ST = JSON.parse(x['verification/statutes.json']); P = JSON.parse(x['verification/sources.json']).sources; R = JSON.parse(x['verification/sources-raw.json']).sources; } catch (e) { return ['JSON が読めない']; }
+    const pol = (ST.policies || []).find((p) => p.path === FILE_A);
+    const tos = (ST.policies || []).find((p) => p.path === FILE_T);
+    if (!pol || pol.repo !== 'github/site-policy' || !/^[0-9a-f]{40}$/.test(pol.commit || '')) bad.push('追加製品の規約を見張っていない');
+    for (const [k, f] of [['github-terms', FILE_T], ['github-additional-terms', FILE_A]]) {
+      if (!x['tools/sources.js'].includes("{ key: '" + k + "', url: 'https://raw.githubusercontent.com/github/site-policy/' + JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'statutes.json'), 'utf8')).policies.find((p) => p.path === '" + f + "').commit + '/" + f + "'")) bad.push(k + ' を見張りの記したコミットで取り寄せない');
+      const c = f === FILE_A ? pol : tos, r = R[k] || {};
+      if (!c || r.url !== 'https://raw.githubusercontent.com/github/site-policy/' + c.commit + '/' + f || r.status !== 200 || r.whole !== false || r.sha256_full !== SHA[k] || r.windows) bad.push(k + ' が、引いた箇所と全文の SHA-256 だけで記されていない');
+      for (const n of NEED[k]) {
+        const v = P[n];
+        if (!v || v.from !== k || v.sha256_full !== SHA[k] || v.quoted_in !== AUD || !(r.spans || []).includes(v.quote)) bad.push('引いた文がない：' + n);
+      }
+    }
+    const a = x[AUD], i = a.indexOf(SEC), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map(cells);
+    if (!rows.length || !rows.every((y) => y.length === 6 && KINDS72.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [0, -1])[1]);
+    if (!KINDS72.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    const named = rows.map((y) => (/^`\.github\/workflows\/([^`]+)`/.exec(y[0]) || [])[1]).filter(Boolean);
+    for (const f of x.wf) if (!named.includes(f)) bad.push('記録の表に行のないワークフロー：' + f);
+    for (const f of named) if (!x.wf.includes(f)) bad.push('ないワークフローの行：' + f);
+    for (const n of Object.values(NEED).flat()) if (!sec.includes('<!-- 原文 ' + n + ' -->\n> ' + (P[n] || {}).quote + '\n')) bad.push('記録に引いていない：' + n);
+    const decided = sec.split('2026-11-13 に Claude が決めました。').slice(1);
+    if (decided.length < 4 || !decided.every((z) => /ためです。/.test(z.split('\n\n')[0]))) bad.push('記録に、決めた者と理由がない');
+    if (!/取り寄せの実行は \d{8,} で、結果は枝 `sources\/\d{8}-\d{4}` にあります。/.test(sec)) bad.push('記録に取り寄せの実行がない');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。')) bad.push('記録に弁護士の文がない');
+    for (const [f, xs] of Object.entries(SAY)) for (const s of xs) if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 30));
+    return bad;
+  }
+  const bad = verdict(real);
+  ok('GitHub の追加製品の規約を見張りと取り寄せに置き、Actions の節の引いた文と全文の SHA-256 を記し、' + WF.length + ' のワークフローがどれも点検の記録の表に行を持ち、免責事項が Actions の止まるときを書く（日本語と英語）',
+    bad.length === 0, bad.join(' / '));
+  const mut = (f, a2, b2) => Object.assign({}, real, { [f]: real[f].replace(a2, b2) });
+  const raw0 = JSON.parse(real['verification/sources-raw.json']);
+  const withRaw = (fn) => { const t = JSON.parse(JSON.stringify(raw0)); fn(t.sources); return Object.assign({}, real, { 'verification/sources-raw.json': JSON.stringify(t) }); };
+  const breaks = [
+    ['見張りから規約を外す', mut('verification/statutes.json', '"path": "' + FILE_A + '"', '"path": "Policies/x.md"')],
+    ['取り寄せを別のコミットにする', mut('tools/sources.js', "{ key: 'github-additional-terms', url: 'https://raw.githubusercontent.com/github/site-policy/' + JSON", "{ key: 'github-additional-terms', url: 'https://raw.githubusercontent.com/github/site-policy/main/' + JSON")],
+    ['全文の SHA-256 を変える', withRaw((s) => { s['github-additional-terms'].sha256_full = '0'.repeat(64); })],
+    ['引いた箇所を外す', withRaw((s) => { s['github-additional-terms'].spans = s['github-additional-terms'].spans.slice(1); })],
+    ['全文の窓を記す', withRaw((s) => { s['github-terms'].windows = ['the whole text']; })],
+    ['引用を一字変える', mut('verification/sources.json', 'or publication of the software project', 'or promotion of the software project')],
+    ['新しいワークフローに行がない', Object.assign({}, real, { wf: WF.concat(['newsletter.yml']) })],
+    ['消したワークフローの行が残る', Object.assign({}, real, { wf: WF.filter((f) => f !== 'labels.yml') })],
+    ['表から行を外す', mut(AUD, /\n\| `\.github\/workflows\/review\.yml`[^\n]*/, '')],
+    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 10 件で、合わせて 13 件です。', '漏れ 2 件、表現 0 件、問題なし 10 件で、合わせて 13 件です。')],
+    ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
+    ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+    ['免責事項から手の手順を外す', mut('policies/disclaimer.md', '運営者が手で行い、すぐには行われません。', '')],
+    ['英語の免責事項から条件を外す', mut('policies/disclaimer.en.md', "GitHub's terms let GitHub restrict the use of GitHub Actions, and Actions can stop.", '')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：見張り・取り寄せのコミット・全文の SHA-256・引いた箇所・窓・引用・新しいワークフロー・消したワークフロー・表の行・判定の数・記録の引用・決めた理由・弁護士の文・免責事項（日本語と英語）のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
