@@ -1,19 +1,53 @@
 #!/usr/bin/env node
-/* probe version */
+/* A survey of every country's constitution and of the provisions of its codes that Nusquama or Sophaxis could touch.
+ *
+ * It fetches each text named in verification/world/sources.json (and every constitution in force that the Constitute
+ * Project publishes), splits it into articles, searches each article with the keyword sets of its language, and keeps
+ * only the articles (or, for a long article, the paragraphs) that a keyword matched. Whole codes are not kept.
+ * Each kept provision carries its country, instrument, article, language, text, source address, the day it was
+ * fetched and the SHA-256 of its text. verification/world/check.js confirms the hashes and the coverage table.
+ *
+ * The hosts are not reachable from every machine; the fetches run on GitHub Actions (.github/workflows/world.yml),
+ * one batch (a region, Japan, or the instruments shared by several countries) at a time, one request after another.
+ *
+ *   WORLD_BATCH=europe node tools/world.js           fetch a batch and write verification/world/data/
+ *   WORLD_BATCH=europe:DEU,FRA node tools/world.js   only these countries of the batch
+ *   WORLD_BATCH=src:GBR-honours node tools/world.js  only these sources
+ *   node tools/world.js coverage                     rebuild verification/world/coverage.json from data/ (no fetch)
+ *   WORLD_BATCH=probe node tools/world.js            print what each address of request.json answers
+ */
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { pdfText } = require('./pdftext.js');
+
 const ROOT = path.join(__dirname, '..');
 const DIR = path.join(ROOT, 'verification', 'world');
-const UA = 'nusquama-world-law-survey (https://github.com/cpsbvbng26-dotcom/nusquama)';
+const DATA = path.join(DIR, 'data');
+const UA = 'nusquama-world-law-survey (+https://github.com/cpsbvbng26-dotcom/nusquama)';
+const DELAY = 2500;
+const TODAY = new Date().toISOString().slice(0, 10);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const sha = (x) => crypto.createHash('sha256').update(x, 'utf8').digest('hex');
+const readJSON = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
+const COUNTRIES = readJSON(path.join(DIR, 'countries.json')).countries;
+const CONF = readJSON(path.join(DIR, 'sources.json'));
+const TOPICS = Object.keys(CONF.topics);
 
+/* ---- fetching ---- */
+
+let lastHost = '';
 async function get(url, opt = {}) {
+  const host = new URL(url).host;
+  await sleep(host === lastHost ? DELAY + 1000 : DELAY);
+  lastHost = host;
   let res, err;
   for (let k = 0; k < 3 && !res; k++) {
-    try { res = await fetch(url, { headers: { 'User-Agent': UA, 'Accept-Language': opt.lang || 'en', ...(opt.accept ? { Accept: opt.accept } : {}) }, redirect: 'follow', signal: AbortSignal.timeout(90000) }); }
-    catch (e) { err = String(e.message || e) + (e.cause ? ' (' + (e.cause.code || e.cause.message) + ')' : ''); await sleep(5000); }
+    try {
+      res = await fetch(url, { headers: { 'User-Agent': UA, 'Accept-Language': opt.lang || 'en', ...(opt.accept ? { Accept: opt.accept } : {}) }, redirect: 'follow', signal: AbortSignal.timeout(120000) });
+      if (res.status >= 500 || res.status === 429) { err = 'HTTP ' + res.status; res = undefined; await sleep(8000 * (k + 1)); }
+    } catch (e) { err = String(e.message || e) + (e.cause ? ' (' + (e.cause.code || e.cause.message) + ')' : ''); await sleep(8000 * (k + 1)); }
   }
   if (!res) return { error: err };
   const bytes = Buffer.from(await res.arrayBuffer());
@@ -21,27 +55,364 @@ async function get(url, opt = {}) {
 }
 
 function decode(r) {
-  if (/pdf/i.test(r.type) || r.bytes.subarray(0, 5).toString('latin1') === '%PDF-') return pdfText(r.bytes);
-  const cs = ((/charset=["']?([\w-]+)/i.exec(r.type) || /<meta[^>]+charset=["']?([\w-]+)/i.exec(r.bytes.subarray(0, 4096).toString('latin1')) || [])[1] || 'utf-8').toLowerCase();
-  try { return new TextDecoder(['sjis', 'x-sjis'].includes(cs) ? 'shift_jis' : cs).decode(r.bytes); } catch (e) { return r.bytes.toString('utf8'); }
+  if (/pdf/i.test(r.type) || r.bytes.subarray(0, 5).toString('latin1') === '%PDF-') return { pdf: true, text: pdfText(r.bytes) };
+  const head = r.bytes.subarray(0, 4096).toString('latin1');
+  const cs = ((/charset=["']?([\w-]+)/i.exec(r.type) || /<meta[^>]+charset=["']?([\w-]+)/i.exec(head) || /encoding=["']([\w-]+)/i.exec(head.slice(0, 200)) || [])[1] || 'utf-8').toLowerCase();
+  let text;
+  try { text = new TextDecoder(['sjis', 'x-sjis'].includes(cs) ? 'shift_jis' : cs).decode(r.bytes); } catch (e) { text = r.bytes.toString('utf8'); }
+  return { pdf: false, text };
+}
+
+/* ---- text ---- */
+
+const ENT = { nbsp: ' ', amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”', ndash: '–', mdash: '—', hellip: '…', laquo: '«', raquo: '»', sect: '§', ordm: 'º', ordf: 'ª', deg: '°', shy: '', szlig: 'ß', aelig: 'æ', AElig: 'Æ', oslash: 'ø', Oslash: 'Ø', eth: 'ð', thorn: 'þ', iexcl: '¡', iquest: '¿' };
+const ACC = { acute: '́', grave: '̀', circ: '̂', tilde: '̃', uml: '̈', ring: '̊', cedil: '̧', caron: '̌' };
+function entities(s) {
+  return s.replace(/&#x([0-9a-f]+);/gi, (m, h) => String.fromCodePoint(parseInt(h, 16))).replace(/&#(\d+);/g, (m, d) => String.fromCodePoint(+d))
+    .replace(/&([A-Za-z])(acute|grave|circ|tilde|uml|ring|cedil|caron);/g, (m, v, k) => v + ACC[k])
+    .replace(/&([A-Za-z]+);/g, (m, k) => (k in ENT ? ENT[k] : m));
+}
+/* HTML to lines: block elements end a line; everything else is joined; white space inside a line is collapsed. */
+function lines(html) {
+  const t = html.replace(/<!--[\s\S]*?-->/g, ' ').replace(/<(script|style|noscript|head)\b[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<br\s*\/?>/gi, '\n').replace(/<\/?(p|div|li|tr|h[1-6]|table|ul|ol|section|article|blockquote|dd|dt|td|th|pre|header|footer|nav|title)\b[^>]*>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ');
+  return entities(t).normalize('NFC').split('\n').map((l) => l.replace(/[\s ​]+/g, ' ').trim()).filter(Boolean);
+}
+const flat = (x) => entities(x.replace(/<[^>]+>/g, ' ')).normalize('NFC').replace(/[\s ​]+/g, ' ').trim();
+
+/* A heading that opens an article, in the languages the survey reads. Group 2 is the number. */
+const HEADS = 'Article|ARTICLE|Art\\.|ART\\.|Artículo|ARTÍCULO|Articulo|ARTICULO|Artigo|ARTIGO|Articolo|ARTICOLO|Artikel|ARTIKEL|Section|SECTION|Sec\\.|SEC\\.|§|Статья|Článek|Čl\\.';
+const NUM = '(\\d+[A-Za-z]?(?:[.\\-–]\\d+[A-Za-z]?)*(?:\\s?(?:bis|ter|quater|quinquies|sexies|septies|octies|novies|decies)\\b)?)';
+const HEAD = new RegExp('^(' + HEADS + ')\\s*' + NUM + '(?=[\\s.:º°ª\\-–)]|$)');
+/* Swedish and Danish write the number first: "1 §". */
+const HEAD_SV = /^(\d+\s?[a-z]?\s?§)(?=\s|$)/;
+/* Japanese: 第十四条, 第五百四十八条の二. */
+const HEAD_JA = /^(第[〇一二三四五六七八九十百千]+条(?:の[〇一二三四五六七八九十]+)*)/;
+const PART = /^(CHAPTER|Chapter|PART|Part|TITLE|Title|TÍTULO|Título|CAPÍTULO|Capítulo|TITRE|Titre|CHAPITRE|Chapitre|TITOLO|Titolo|CAPO|Capo|Kapitel|KAPITEL|Abschnitt|ABSCHNITT|Hoofdstuk|HOOFDSTUK|Afdeling|Kapittel|Глава|Раздел)\b|^第[〇一二三四五六七八九十百]+[編章節款]/;
+
+/* Splits a run of lines into articles. A line that is only a chapter or part heading closes the article before it. */
+function splitLines(ls, lang) {
+  const arts = [];
+  let cur = null;
+  const close = () => { if (cur && cur.paras.join('').length > cur.label.length + 2) arts.push(cur); cur = null; };
+  for (const l of ls) {
+    let m;
+    if ((m = HEAD.exec(l)) || ((lang === 'sv' || lang === 'da') && (m = HEAD_SV.exec(l))) || (lang === 'ja' && (m = HEAD_JA.exec(l)))) {
+      close();
+      cur = { label: (m[2] ? m[1] + ' ' + m[2] : m[1]).replace(/\s+/g, ' '), paras: [l] };
+      continue;
+    }
+    if (PART.test(l) && l.length < 160) { close(); continue; }
+    if (cur) cur.paras.push(l);
+  }
+  close();
+  return arts;
+}
+
+/* PDF text has no line ends: an article heading is taken only where it follows the end of a sentence or the number of a
+ * page, and is followed by a full stop, a colon, a dash, an ordinal sign or a capital letter. A reference inside a
+ * sentence ("under Article 5 of") is not taken. */
+function splitInline(text) {
+  const re = new RegExp('(?:^|(?<=[.;:!?)\\]”"»]\\s{0,3})|(?<=\\s\\d{1,4}\\s))(' + HEADS + ')\\s*' + NUM + '(?=\\s*[.:º°ª\\-–]|\\s+[A-ZÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄÖÜÇÑА-Я(])', 'g');
+  const cuts = [];
+  let m;
+  while ((m = re.exec(text))) cuts.push({ at: m.index, label: (m[1] + ' ' + m[2]).replace(/\s+/g, ' ') });
+  return cuts.map((c, i) => ({ label: c.label, paras: [text.slice(c.at, i + 1 < cuts.length ? cuts[i + 1].at : Math.min(text.length, c.at + 20000)).trim()] }));
+}
+
+/* e-Gov law XML: <Article Num="…"><ArticleCaption>…<ArticleTitle>第…条</ArticleTitle><Paragraph>… */
+function splitEgov(xml) {
+  const main = (/<MainProvision[\s\S]*?<\/MainProvision>/.exec(xml) || [''])[0];
+  const clean = (x) => flat(x.replace(/<Rt>[^<]*<\/Rt>/g, ''));
+  const arts = [];
+  for (const a of main.matchAll(/<Article\s[^>]*Num="([^"]+)"[^>]*>([\s\S]*?)<\/Article>/g)) {
+    const title = clean((/<ArticleTitle>([\s\S]*?)<\/ArticleTitle>/.exec(a[2]) || [, ''])[1]);
+    const caption = clean((/<ArticleCaption>([\s\S]*?)<\/ArticleCaption>/.exec(a[2]) || [, ''])[1]);
+    const paras = [...a[2].matchAll(/<Paragraph\s[^>]*>([\s\S]*?)<\/Paragraph>/g)].map((p) => clean(p[1]));
+    arts.push({ label: title, caption, paras: paras.length ? paras : [clean(a[2])] });
+  }
+  return arts;
+}
+
+/* legislation.gov.uk (CLML): a section is a <P1group> with a <Title> and one or more <P1> with a <Pnumber>. */
+function splitClml(xml, prefix) {
+  const arts = [];
+  for (const g of xml.matchAll(/<P1group\b[^>]*>([\s\S]*?)<\/P1group>/g)) {
+    const title = flat((/<Title>([\s\S]*?)<\/Title>/.exec(g[1]) || [, ''])[1]);
+    for (const p of g[1].matchAll(/<P1\b[^>]*>([\s\S]*?)<\/P1>/g)) {
+      const num = flat((/<Pnumber[^>]*>([\s\S]*?)<\/Pnumber>/.exec(p[1]) || [, ''])[1]);
+      const paras = [...p[1].matchAll(/<P2\b[^>]*>([\s\S]*?)<\/P2>/g)].map((q) => flat(q[1]));
+      arts.push({ label: (prefix || 'Section') + ' ' + num, caption: title, paras: paras.length ? paras : [flat(p[1].replace(/<Pnumber[^>]*>[\s\S]*?<\/Pnumber>/, ''))] });
+    }
+  }
+  return arts;
+}
+
+/* Justice Laws (Canada) XML: <Section><MarginalNote>…</MarginalNote><Label>419</Label>… */
+function splitCanada(xml) {
+  const arts = [];
+  for (const s of xml.matchAll(/<Section\b[^>]*>([\s\S]*?)<\/Section>/g)) {
+    const label = flat((/<Label>([\s\S]*?)<\/Label>/.exec(s[1]) || [, ''])[1]);
+    const caption = flat((/<MarginalNote[^>]*>([\s\S]*?)<\/MarginalNote>/.exec(s[1]) || [, ''])[1]);
+    const inner = s[1].replace(/<HistoricalNote>[\s\S]*?<\/HistoricalNote>/g, '').replace(/<MarginalNote[^>]*>[\s\S]*?<\/MarginalNote>/g, '');
+    const subs = [...inner.matchAll(/<Subsection\b[^>]*>([\s\S]*?)<\/Subsection>/g)].map((q) => flat(q[1]));
+    arts.push({ label: 'Section ' + label, caption, paras: subs.length ? subs : [flat(inner.replace(/^\s*<Label>[\s\S]*?<\/Label>/, ''))] });
+  }
+  return arts;
+}
+
+/* Constitute: headings (h1–h6) and paragraphs (p, li). An article opens at a heading such as "Article 14"; any other
+ * heading closes it. The preamble is kept as an article of its own. */
+function splitConstitute(html) {
+  const arts = [];
+  let cur = null;
+  for (const m of html.matchAll(/<(h[1-6])\b[^>]*>([\s\S]*?)<\/\1>|<p\b[^>]*>([\s\S]*?)<\/p>|<li\b[^>]*>([\s\S]*?)<\/li>/g)) {
+    const t = flat(m[2] || m[3] || m[4] || '');
+    if (!t) continue;
+    if (m[1]) {
+      if (cur && cur.paras.length) arts.push(cur);
+      cur = HEAD.test(t) || /^preamble$/i.test(t) ? { label: t, paras: [] } : null;
+      continue;
+    }
+    if (cur) cur.paras.push(t);
+  }
+  if (cur && cur.paras.length) arts.push(cur);
+  return arts;
+}
+
+/* A page that holds one section (the United States Code): the text from the section's heading (s.start) to the first
+ * mark of the notes that follow it (s.end), as one article. */
+function splitSection(text, s) {
+  const m = new RegExp(s.start, 'u').exec(text);
+  if (!m) return [];
+  const rest = text.slice(m.index);
+  const e = s.end ? new RegExp(s.end, 'u').exec(rest.slice(m[0].length)) : null;
+  return [{ label: s.article, paras: [rest.slice(0, e ? m[0].length + e.index : Math.min(rest.length, 8000)).trim()] }];
+}
+
+/* ---- searching ---- */
+
+const RX = {};
+function rx(topic, lang) {
+  const k = topic + ':' + lang;
+  if (!(k in RX)) { const src = (CONF.keywords[topic] || {})[lang]; RX[k] = src ? new RegExp(src, lang === 'de' ? 'u' : 'iu') : null; }
+  return RX[k];
+}
+const searchable = (topic, lang) => !!rx(topic, lang);
+
+/* The kept text: the whole article if it is short, otherwise each paragraph a keyword matched. */
+const LONG = 2500, CAP = 6000;
+function search(arts, lang, topics) {
+  const out = [];
+  for (const a of arts) {
+    const whole = [a.caption, ...a.paras].filter(Boolean).join(' ');
+    const hit = topics.filter((t) => rx(t, lang).test(whole));
+    if (!hit.length) continue;
+    if (whole.length <= LONG) { out.push({ article: a.label, caption: a.caption, part: 'article', topics: hit, text: whole }); continue; }
+    a.paras.forEach((p, i) => {
+      /* A keyword in the caption alone keeps the first paragraph, so that the article is not lost. */
+      const tp = topics.filter((t) => rx(t, lang).test(p) || (i === 0 && a.caption && rx(t, lang).test(a.caption)));
+      if (tp.length) out.push({ article: a.label, caption: a.caption, part: 'paragraph ' + (i + 1), topics: tp, text: p.length > CAP ? p.slice(0, CAP) : p, cut: p.length > CAP || undefined });
+    });
+  }
+  return out;
+}
+
+/* ---- one source ---- */
+
+function split(s, text, pdf) {
+  if (s.format === 'egov') return splitEgov(text);
+  if (s.format === 'clml') return splitClml(text, s.label);
+  if (s.format === 'canada') return splitCanada(text);
+  if (s.format === 'constitute') return splitConstitute(text);
+  if (s.format === 'section') return splitSection(flat(text), s);
+  if (pdf || s.format === 'inline') return splitInline(flat(text));
+  return splitLines(lines(text), s.lang);
+}
+
+async function fetchSource(s) {
+  const urls = Array.isArray(s.url) ? s.url : [s.url];
+  const rec = { instrument: s.instrument, kind: s.kind || 'code', lang: s.lang, url: s.url, fetched: TODAY, topics: s.topics || TOPICS };
+  if (s.official) rec.official = s.official;
+  const tries = [urls];
+  if (s.archive !== false) tries.push(urls.map((u) => 'https://web.archive.org/web/2026/' + u));
+  const notes = [];
+  for (const us of tries) {
+    const via = us === urls ? 'direct' : 'archive';
+    const texts = [], finals = [];
+    let pdf = false, failed = null;
+    for (const u of us) {
+      const r = await get(u, { lang: s.accept_lang || s.lang, accept: s.accept });
+      if (r.error) { failed = r.error; break; }
+      if (r.status !== 200) { failed = 'HTTP ' + r.status; break; }
+      const d = decode(r);
+      pdf = pdf || d.pdf;
+      let t = d.text;
+      if (s.format === 'constitute') { try { t = JSON.parse(t).html || ''; } catch (e) { failed = 'JSON でない応答'; break; } }
+      texts.push(t);
+      finals.push(r.final);
+    }
+    if (failed) { notes.push(via + '：' + failed); continue; }
+    const text = texts.join('\n');
+    const plain = flat(text);
+    if (plain.length < 300) { notes.push(via + '：本文がない（JavaScript で描く頁か、拒む応答）'); continue; }
+    if (s.title && !new RegExp(s.title, 'iu').test(plain)) { notes.push(via + '：題「' + s.title + '」が見つからない（別の頁か、拒む応答）'); continue; }
+    const arts = split(s, text, pdf);
+    if (!arts.length) { notes.push(via + '：条に分けられない'); continue; }
+    const topics = rec.topics.filter((t) => searchable(t, s.lang));
+    Object.assign(rec, { via, final: finals.length === 1 ? finals[0] : finals, status: 200, length: plain.length, sha256_full: sha(plain), articles: arts.length, searched: topics });
+    if (topics.length < rec.topics.length) rec.unsearchable = rec.topics.filter((t) => !topics.includes(t));
+    if (notes.length) rec.notes = notes;
+    return { rec, found: search(arts, s.lang, topics) };
+  }
+  rec.error = notes.join(' / ');
+  return { rec, found: [] };
+}
+
+/* ---- data files ---- */
+
+function load(iso) {
+  const f = path.join(DATA, iso + '.json');
+  return fs.existsSync(f) ? readJSON(f) : { country: iso, sources: {}, provisions: [] };
+}
+/* One provision or source to a line, so that a difference shows which provision changed. */
+function save(d) {
+  fs.mkdirSync(DATA, { recursive: true });
+  d.provisions.sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }));
+  const src = Object.keys(d.sources).sort().map((k) => '  ' + JSON.stringify(k) + ': ' + JSON.stringify(d.sources[k]));
+  const out = '{\n "country": ' + JSON.stringify(d.country) + ',\n "sources": {\n' + src.join(',\n') + '\n },\n "provisions": [\n' + d.provisions.map((p) => '  ' + JSON.stringify(p)).join(',\n') + '\n ]\n}\n';
+  fs.writeFileSync(path.join(DATA, d.country + '.json'), out);
+}
+function store(owner, id, s, rec, found) {
+  const d = load(owner);
+  d.sources[id] = rec;
+  d.provisions = d.provisions.filter((p) => p.source !== id);
+  const seen = new Map();
+  const url = Array.isArray(rec.final) ? rec.final[0] : rec.final;
+  for (const f of found) {
+    let pid = id + ' ' + f.article + (f.part === 'article' ? '' : ' ¶' + f.part.split(' ')[1]);
+    const n = (seen.get(pid) || 0) + 1; seen.set(pid, n); if (n > 1) pid += ' (' + n + ')';
+    d.provisions.push({ id: pid, source: id, country: owner, instrument: s.instrument, kind: rec.kind, article: f.article, ...(f.caption ? { caption: f.caption } : {}), part: f.part, lang: s.lang, topics: f.topics, text: f.text, ...(f.cut ? { cut: true } : {}), url, fetched: TODAY, sha256: sha(f.text) });
+  }
+  save(d);
+}
+
+/* ---- batches ---- */
+
+async function constitutions(list) {
+  const r = await get('https://www.constituteproject.org/service/constitutions?lang=en');
+  if (r.error || r.status !== 200) {
+    for (const c of list) { const d = load(c.iso3); d.sources.constitute = { kind: 'constitution', instrument: 'Constitution', error: 'Constitute の一覧を取れない：' + (r.error || 'HTTP ' + r.status), fetched: TODAY }; save(d); }
+    return;
+  }
+  const all = JSON.parse(decode(r).text);
+  /* What Constitute lists as in force, kept for the record of which text was matched to which country. */
+  const index = all.filter((x) => x.in_force !== false && !x.is_draft && !x.is_historic).map((x) => ({ id: x.id, country_id: x.country_id, title: x.title, year_enacted: x.year_enacted, year_updated: x.year_updated }));
+  fs.writeFileSync(path.join(DIR, 'constitute-index.json'), '{\n "_": "Constitute Project の一覧（効力のあるもの）。tools/world.js が ' + TODAY + ' に取り寄せた。",\n "constitutions": [\n' + index.map((x) => '  ' + JSON.stringify(x)).join(',\n') + '\n ]\n}\n');
+  for (const c of list) {
+    const o = (CONF.constitute.overrides || {})[c.iso3];
+    let e = null;
+    if (typeof o === 'string') e = all.find((x) => x.id === o) || null;
+    else if (o !== null) {
+      const names = [c.name, ...((CONF.constitute.names || {})[c.iso3] || [])].map((n) => n.toLowerCase());
+      const cands = all.filter((x) => x.in_force !== false && !x.is_draft && !x.is_historic && names.includes(String(x.country_id || '').replace(/_/g, ' ').toLowerCase()));
+      e = cands.sort((a, b) => (b.year_updated || b.year_enacted || 0) - (a.year_updated || a.year_enacted || 0))[0] || null;
+    }
+    const d = load(c.iso3);
+    if (!e) {
+      d.sources.constitute = { kind: 'constitution', instrument: 'Constitution', error: (CONF.constitute.missing || {})[c.iso3] || 'Constitute の一覧に、この国の効力のある憲法の英文が見当たらない', fetched: TODAY };
+      d.provisions = d.provisions.filter((p) => p.source !== 'constitute');
+      save(d);
+      console.log(c.iso3, 'constitute: none');
+      continue;
+    }
+    const s = { instrument: e.title || e.id, kind: 'constitution', lang: 'en', format: 'constitute', archive: false, official: 'Constitute Project（英訳）', url: 'https://www.constituteproject.org/service/html?cons_id=' + encodeURIComponent(e.id) + '&lang=en' };
+    const { rec, found } = await fetchSource(s);
+    Object.assign(rec, { constitute_id: e.id, title: e.title, year_enacted: e.year_enacted, year_updated: e.year_updated, page: 'https://www.constituteproject.org/constitution/' + e.id + '?lang=en' });
+    store(c.iso3, 'constitute', s, rec, found);
+    console.log(c.iso3, 'constitute', e.id, rec.error || rec.articles + ' articles, ' + found.length + ' kept');
+  }
+}
+
+async function codes(sources) {
+  for (const s of sources) {
+    const { rec, found } = await fetchSource(s);
+    /* An instrument shared by several countries (GDPR, a treaty) is kept once, under its group (data/_EU.json). */
+    const owner = s.countries.length > 1 ? '_' + s.group : s.countries[0];
+    if (s.countries.length > 1) rec.countries = s.countries;
+    store(owner, s.id, s, rec, found);
+    console.log(s.id, rec.error || (rec.via + ' ' + rec.articles + ' articles, ' + found.length + ' kept'));
+  }
 }
 
 async function probe(urls) {
   for (const u of urls) {
     const r = await get(u);
     if (r.error) { console.log('PROBE', u, 'ERROR', r.error); continue; }
-    const t = decode(r);
-    const plain = t.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-    console.log('PROBE', u, r.status, r.type, r.final === u ? '' : '-> ' + r.final, 'bytes=' + r.bytes.length, 'plain=' + plain.length);
-    console.log('  HEAD ' + plain.slice(0, 500));
-    console.log('  RAW ' + t.slice(+(process.env.RAW_FROM||0), +(process.env.RAW_FROM||0) + (+(process.env.RAW_LEN || 300))).replace(/\s+/g, ' '));
-    await sleep(2000);
+    const t = decode(r).text;
+    console.log('PROBE', u, r.status, r.type, r.final === u ? '' : '-> ' + r.final, 'bytes=' + r.bytes.length);
+    console.log('  HEAD ' + flat(t).slice(+(process.env.RAW_FROM || 0), +(process.env.RAW_FROM || 0) + +(process.env.RAW_LEN || 400)));
   }
 }
 
-async function main() {
-  const req = JSON.parse(fs.readFileSync(path.join(DIR, 'request.json'), 'utf8'));
-  const batch = process.env.WORLD_BATCH || req.batch;
-  if (batch === 'probe') return probe(req.probe || []);
+/* ---- coverage ---- */
+
+function coverage() {
+  const rows = [];
+  const shared = fs.readdirSync(DATA).filter((f) => f.startsWith('_')).map((f) => readJSON(path.join(DATA, f)));
+  for (const c of COUNTRIES) {
+    const f = path.join(DATA, c.iso3 + '.json');
+    const d = fs.existsSync(f) ? readJSON(f) : { sources: {}, provisions: [] };
+    const srcs = Object.entries(d.sources).map(([id, r]) => ({ id, r, provs: d.provisions.filter((p) => p.source === id) }));
+    for (const sh of shared) for (const [id, r] of Object.entries(sh.sources)) if ((r.countries || []).includes(c.iso3)) srcs.push({ id, r, provs: sh.provisions.filter((p) => p.source === id) });
+    const cons = srcs.filter((x) => x.r.kind === 'constitution');
+    const row = {
+      country: c.iso3, name: c.name, name_ja: c.name_ja,
+      constitution: cons.map((x) => (x.r.error ? { source: x.id, fetched: false, reason: x.r.error }
+        : { source: x.id, fetched: true, title: x.r.title || x.r.instrument, version: x.r.year_updated || x.r.year_enacted || x.r.version || null, date: x.r.fetched, url: x.r.page || (Array.isArray(x.r.final) ? x.r.final[0] : x.r.final), via: x.r.via })),
+      constitution_articles: [...new Set(cons.flatMap((x) => x.provs.map((p) => x.id + ' ' + p.article)))],
+      topics: {},
+    };
+    for (const t of TOPICS) {
+      const cs = srcs.filter((x) => x.r.kind !== 'constitution' && (x.r.topics || TOPICS).includes(t));
+      const ok = cs.filter((x) => !x.r.error && (x.r.searched || []).includes(t));
+      if (ok.length) {
+        const ps = ok.flatMap((x) => x.provs.filter((p) => p.topics.includes(t)).map((p) => p.id));
+        row.topics[t] = ps.length ? { state: 'found', provisions: ps } : { state: 'none', searched: ok.map((x) => x.id) };
+      } else if (cs.length) {
+        row.topics[t] = { state: 'not fetched', reason: cs.map((x) => x.id + '：' + (x.r.error || 'この言語の検索語の組がない')).join(' / ') };
+      } else {
+        const u = CONF.unsourced[c.iso3] || {};
+        row.topics[t] = { state: 'not fetched', reason: u[t] || u['*'] || CONF.unsourced_default };
+      }
+    }
+    rows.push(row);
+  }
+  const out = '{\n "_": "tools/world.js coverage が data/ から作る。手で直さない。",\n "countries": [\n' + rows.map((r) => '  ' + JSON.stringify(r)).join(',\n') + '\n ]\n}\n';
+  fs.writeFileSync(path.join(DIR, 'coverage.json'), out);
+  return rows;
 }
-main();
+
+/* ---- main ---- */
+
+async function main() {
+  if (process.argv[2] === 'coverage') { console.log(coverage().length + ' rows'); return; }
+  const req = readJSON(path.join(DIR, 'request.json'));
+  const spec = process.env.WORLD_BATCH || req.batch;
+  const [batch, only] = spec.split(':');
+  const pick = only ? only.split(',') : null;
+  const single = (s) => s.countries.length === 1;
+  if (batch === 'probe') return probe(req.probe || []);
+  if (batch === 'src') return codes(CONF.codes.filter((s) => pick.includes(s.id)));
+  if (batch === 'shared') return codes(CONF.codes.filter((s) => !single(s) && (!pick || pick.includes(s.id))));
+  if (batch === 'japan') return codes(CONF.codes.filter((s) => single(s) && s.countries[0] === 'JPN' && (!pick || pick.includes(s.id))));
+  const list = COUNTRIES.filter((c) => c.batch === batch && (!pick || pick.includes(c.iso3)));
+  if (!list.length) throw new Error('組がない：' + spec);
+  const isos = list.map((c) => c.iso3);
+  if (!req.skip_constitutions) await constitutions(list);
+  await codes(CONF.codes.filter((s) => single(s) && s.countries[0] !== 'JPN' && isos.includes(s.countries[0])));
+}
+
+module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, TOPICS };
+if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });
