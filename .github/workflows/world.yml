@@ -34,6 +34,7 @@ jobs:
       - run: node tools/world.js
         env:
           WORLD_BATCH: ${{ inputs.batch }}
+          RAW_LEN: 6000
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

@@ -34,7 +34,7 @@ async function probe(urls) {
     const plain = t.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
     console.log('PROBE', u, r.status, r.type, r.final === u ? '' : '-> ' + r.final, 'bytes=' + r.bytes.length, 'plain=' + plain.length);
     console.log('  HEAD ' + plain.slice(0, 500));
-    console.log('  RAW ' + t.slice(0, 300).replace(/\s+/g, ' '));
+    console.log('  RAW ' + t.slice(+(process.env.RAW_FROM||0), +(process.env.RAW_FROM||0) + (+(process.env.RAW_LEN || 300))).replace(/\s+/g, ' '));
     await sleep(2000);
   }
 }
