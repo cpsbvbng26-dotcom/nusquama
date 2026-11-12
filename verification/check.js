@@ -1306,20 +1306,23 @@ console.log('\n51. 官報の号の台帳・記念の号・騎士の号');
   const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
   ok('国の仕組みの記念の号は、' + B.MILESTONE + ' の倍数で、物・記章・証書を作らず、称号を授けないと書く（日本語と英語）', ij.includes('王の正誤表の件数が ' + B.MILESTONE + ' の倍数に達したときは、官報に記念の号を一つ載せます。')
     && ij.includes('記念に、物・記章・証書を作りません。称号も授けず、祝日も足しません。') && ie.includes('reaches a multiple of ' + B.MILESTONE + ', one commemorative issue') && ie.includes('No object, badge or certificate is made for it.'));
-  const k1 = ['1', 'アカウント名', '2026-12-01', '要約', '願い出'];
-  const g1 = B.gazetteItems(Object.assign({}, base, { knights: [k1] }));
-  const kn = g1.find((x) => x.key === 'K:1');
+  /* 次の騎士は、いまの名簿の次の番（名簿が空なら第 1 番）。本物の騎士が載ったあとも同じ形を確かめる（叙任の通し稽古で見つけた）。 */
+  const N = base.knights.length + 1, as1 = (t) => t.replace(/^第 \d+ 番/, '第 1 番').replace(/no\. \d+/, 'no. 1');
+  const k1 = [String(N), 'アカウント名', '2026-12-01', '要約', '願い出'];
+  const g1 = B.gazetteItems(Object.assign({}, base, { knights: base.knights.concat([k1]) }));
+  const kn = g1.find((x) => x.key === 'K:' + N);
   const kj = read('KNIGHTS.md'), ke = read('KNIGHTS.en.md');
   ok('最初の騎士の号は、名簿の「記し方」に書いた形（ほかの騎士と同じ形）で、次の号になり、人口は 1 になる（日本語と英語）', kn && kn.no === items.length + 1 && same(g1)
-    && kj.includes('官報の布告は「' + kn.text + '」の形になります。') && ke.includes('The gazette proclaims "' + kn.textEn.replace('アカウント名', 'Account-name') + '".') && B.population(undefined, [k1]) === 1);
+    && kj.includes('官報の布告は「' + as1(kn.text) + '」の形になります。') && ke.includes('The gazette proclaims "' + as1(kn.textEn).replace('アカウント名', 'Account-name') + '".') && B.population(undefined, [k1]) === 1
+    && B.population(undefined, base.knights.concat([k1])) === B.population() + 1);
   const cols = (t) => { const l = t.split('\n').find((x) => /^\| (番|No\.) \|/.test(x)); return l ? l.split('|').map((c) => c.trim()).filter(Boolean) : []; };
   const bul = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); return t.slice(i).split('\n').filter((l) => /^- [^：:]+[：:]/.test(l)).map((l) => l.slice(2).split(/[：:]/)[0]); };
   ok('名簿の「記し方」は、表の欄（' + cols(kj).length + '）を一つずつ、同じ名で説明する（日本語と英語）', JSON.stringify(bul(kj, '記し方')) === JSON.stringify(cols(kj)) && JSON.stringify(bul(ke, 'How entries are recorded')) === JSON.stringify(cols(ke)));
   const led1 = B.ledgerWith(g1, ledger);
-  const k1w = ['1', '辞退（2027-01-05）', '2026-12-01', '', ''];
-  const gw = B.gazetteItems(Object.assign({}, base, { knights: [k1w], ledger: led1 })).find((x) => x.key === 'K:1');
+  const k1w = [String(N), '辞退（2027-01-05）', '2026-12-01', '', ''];
+  const gw = B.gazetteItems(Object.assign({}, base, { knights: base.knights.concat([k1w]), ledger: led1 })).find((x) => x.key === 'K:' + N);
   ok('辞退した騎士の号は、同じ番号のまま名を外した形になり、その年から人口に数えない（名簿の「辞退したとき」の形のまま）', gw && gw.no === kn.no && !gw.text.includes('アカウント名')
-    && kj.includes('名を外した形（' + gw.text + '）') && ke.includes('("' + gw.textEn.replace(/^K/, 'K') + '")') && B.population('2026', [k1w]) === 1 && B.population('2027', [k1w]) === 0);
+    && kj.includes('名を外した形（' + as1(gw.text) + '）') && ke.includes('("' + as1(gw.textEn) + '")') && B.population('2026', [k1w]) === 1 && B.population('2027', [k1w]) === 0);
   const ax = B.atom('knights', [k1]);
   ok('騎士の名簿の新着の配信は、叙任の日の欄から日付を取る', ax.includes('<updated>2026-12-01T00:00:00+09:00</updated>\n    <summary>') && (ax.match(/<updated>2026-12-01T/g) || []).length === 2);
 }
@@ -1408,6 +1411,66 @@ console.log('\n56. 休止の告知（下書き。いまは掲げていない）'
   const live = B.SOURCES.filter(([src]) => !/^INSTITUTIONS(\.en)?\.md$/.test(src) && /から休止しています|has been suspended since/.test(read(src))).map(([src]) => src)
     .concat(['site/index.html', 'site/founding.en.html', 'site/llms.txt'].filter((f) => /から休止しています|has been suspended since/.test(read(f))));
   ok('休止の告知は下書きのままで、トップの頁にも、ほかのどの頁にも掲げていない（国の仕組みの頁だけにある）', live.length === 0, live.join(', '));
+}
+
+console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試しの一件を様式から名簿まで通す）');
+{
+  const K = require('../tools/knighting.js');
+  const tpl = read('.github/ISSUE_TEMPLATE/knighting.yml');
+  /* 段 1：様式の定義から、GitHub が issue に書く形（### 題、空行、答え）で本文を組む。印はすべて付ける。 */
+  const fields = tpl.split(/\n  - type: /).slice(1).map((b) => ({ type: b.split('\n')[0].trim(), label: (/\n      label: (.+)/.exec(b) || [])[1],
+    options: [...b.matchAll(/\n        - label: (.+)\n          required: (?:true|false)/g)].map((m) => m[1]) })).filter((f) => f.type !== 'markdown');
+  /* 叙任の日は、日本にいる印を見始める 2026-11-22 と、いまの官報の最後の号の日の、遅いほう。 */
+  const lastDay = [K.PRESENCE_FROM].concat(B.gazetteItems().map((x) => x.date)).sort().pop();
+  const TRIAL = { link: 'https://example.org/erratum', what: 'ブログの記事で年を誤り、追記で正しました。', account: 'アカウント名', day: lastDay, opened: lastDay + 'T00:00:00Z' };
+  const answer = (f) => (f.type === 'checkboxes' ? f.options.map((o) => '- [X] ' + o).join('\n') : f.type === 'input' ? TRIAL.link : TRIAL.what);
+  const body = fields.map((f) => '### ' + f.label + '\n\n' + answer(f)).join('\n\n') + '\n';
+  const form = K.parse(body);
+  ok('段 1：様式の定義（' + fields.length + ' 項）から組んだ本文を、自動の確認が同じ題で読む', fields.length >= 3 && fields.every((f) => f.label && form[f.label] === answer(f))
+    && ['訂正への公開のリンク', '何を誤り、どう正したか', '誓い'].every((h) => fields.some((f) => f.label === h)));
+  /* 段 2：様式が付けるラベルを、ラベルの workflow が作り、確認の workflow が待つ。 */
+  const label = (/\nlabels: \["([^"]+)"\]/.exec(tpl) || [])[1];
+  ok('段 2：様式が付けるラベル（' + label + '）を、ラベルの workflow が作り、確認の workflow がそのラベルで動く', !!label && read('.github/workflows/labels.yml').includes('gh label create "' + label + '"')
+    && read('.github/workflows/knighting.yml').includes("contains(github.event.issue.labels.*.name, '" + label + "')"));
+  /* 段 3：自動の確認。リンクは開かず、応答の状態を渡す（通し稽古は外へ何も要求しない）。 */
+  const result = K.check(form, TRIAL.opened, 200), c = K.comment(result);
+  ok('段 3：試しの一件は自動の確認を通り（' + result.rows.length + ' 行）、コメントは整っていると書いて何も決めない。日本にいる印がなければ通らない',
+    result.ok && result.rows.length === 4 && c.startsWith(K.MARK) && c.includes('様式は整っています。') && c.includes('この確認は何も決めません。')
+    && !K.check(K.parse(body.replace('- [X] ' + K.PRESENCE, '- [ ] ' + K.PRESENCE)), TRIAL.opened, 200).ok);
+  /* 段 5：記し方のとおりに、日本語と英語の名簿の終わりへ一行ずつ足す（ファイルは書き換えない）。番は、いまの名簿の次の番。 */
+  const issue = B.REPO + '/issues/0';
+  const kj = read('KNIGHTS.md'), ke = read('KNIGHTS.en.md');
+  const rowsOf = (t) => t.split('\n').filter((l) => /^\| \d+ \|/.test(l)).map((l) => l.replace(/^\||\|$/g, '').split('|').map((x) => x.trim()));
+  const n = rowsOf(kj).length + 1;
+  const append = (t, row) => { const ls = t.split('\n'); let k = ls.indexOf('| --- | --- | --- | --- | --- |'); while (/^\| \d+ \|/.test(ls[k + 1] || '')) k++; ls.splice(k + 1, 0, row); return ls.join('\n'); };
+  const mdJ = append(kj, '| ' + n + ' | ' + TRIAL.account + ' | ' + TRIAL.day + ' | ブログの記事の年の誤りを、追記で正した（[訂正](' + TRIAL.link + ')） | [願い出](' + issue + ') |');
+  const mdE = append(ke, '| ' + n + ' | ' + TRIAL.account + ' | ' + TRIAL.day + ' | Corrected a wrong year in a blog post with an addendum ([correction](' + TRIAL.link + ')) | [Application](' + issue + ') |');
+  /* 英語の名簿は、番・騎士・叙任の日・願い出を日本語の名簿とそろえ、正した誤りの欄の空き方もそろえる（通し稽古で見つけた抜け）。 */
+  const href = (x) => (/\]\(([^)]+)\)/.exec(x || '') || [, x || ''])[1];
+  const twin = (a, b) => a.length === b.length && a.every((r, i) => b[i] && [0, 1, 2].every((k) => r[k] === b[i][k]) && href(r[4]) === href(b[i][4]) && !r[3] === !b[i][3]);
+  const rows = rowsOf(mdJ);
+  const html = B.page('KNIGHTS.md', 'knights.html', { md: mdJ, twin: 'knights.en.html' });
+  ok('段 5：記し方のとおりに足した行（第 ' + n + ' 番）が名簿の頁の表に出て、日本語と英語の名簿の行がそろう。英語の行を足し忘れると、そろわない',
+    rows.length === n && rows[n - 1][0] === String(n) && twin(rows, rowsOf(mdE)) && !twin(rows, rowsOf(ke)) && html.includes('<td>' + n + '</td><td>' + TRIAL.account + '</td><td>' + TRIAL.day + '</td>') && html.includes('<p class="notice">' + B.NOTICE + '</p>'));
+  /* 段 6：官報の号・人口・新着の配信。 */
+  const items = B.gazetteItems();
+  const base = { timeline: B.timelineRows(), errata: B.tableRows('ERRATA.md'), ledger: B.readLedger() };
+  const g = B.gazetteItems(Object.assign({}, base, { knights: rows })), kn = g.find((x) => x.key === 'K:' + n);
+  const ax = B.atom('knights', rows);
+  ok('段 6：試しの騎士は次の号（' + (items.length + 1) + '）に記し方の形で載り、人口は一人増え、新着の配信に叙任の日で出る。いまの号は動かない',
+    kn && kn.no === items.length + 1 && kn.date === TRIAL.day && kj.includes('官報の布告は「' + kn.text.replace(TRIAL.account, 'アカウント名').replace(/^第 \d+ 番/, '第 1 番') + '」の形になります。')
+    && items.every((x) => (g.find((y) => y.key === x.key) || {}).no === x.no) && B.population(undefined, rows) === B.population() + 1
+    && ax.includes('<title>第 ' + n + ' 番の騎士：' + TRIAL.account + '</title>') && ax.includes('<updated>' + TRIAL.day + 'T00:00:00+09:00</updated>') && !/\]\(https:/.test(ax));
+  const late = B.gazetteItems(Object.assign({}, base, { knights: rows.map((r, i) => (i === n - 1 ? r.map((x, k) => (k === 2 ? '2026-11-07' : x)) : r)) }));
+  ok('ほか：年表の最後の行より前の日を叙任の日にすると、号の並びが日付の順から外れる（通し稽古の表に、抜けとして書いた）',
+    !late.every((x, i) => i === 0 || late[i - 1].no === x.no + 1) && read('INSTITUTIONS.md').includes('叙任を決めた日より後の日付の行が年表にあると'));
+  ok('いまの名簿は、日本語と英語で行がそろう（' + B.tableRows('KNIGHTS.md').length + ' 行）', twin(rowsOf(kj), rowsOf(ke)));
+  const ij = read('INSTITUTIONS.md'), ie = read('INSTITUTIONS.en.md');
+  const tab = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); const j = t.indexOf('\n## ', i + 5); return i < 0 ? [] : t.slice(i, j < 0 ? undefined : j).split('\n').filter((l) => /^\| (\d+|ほか|Other) \|/.test(l)).map((l) => l.split(' | ')[0].slice(2)); };
+  const tj = tab(ij, '叙任の通し稽古'), te = tab(ie, 'A dry run of knighting');
+  ok('国の仕組みの叙任の通し稽古の表は、段 1 から 6 とほかの行を持ち、日本語と英語で行がそろい、本物の issue を開いていないと書く',
+    JSON.stringify(tj.filter((x) => /^\d+$/.test(x))) === JSON.stringify(['1', '2', '3', '4', '5', '6']) && tj.length === te.length && tj.length > 6
+    && ij.includes('本物の issue は開いていません。') && ie.includes('No real issue was opened.'));
 }
 
 console.log('\n' + '-'.repeat(56));
