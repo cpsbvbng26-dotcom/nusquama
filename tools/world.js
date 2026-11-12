@@ -24,7 +24,8 @@
  *   node tools/world.js spans                        replace the text of provisions of spans_only sources by their spans
  *                                                    (only where the text is still there; a changed rule needs a new fetch)
  *   WORLD_BATCH=probe node tools/world.js            print what each address of request.json answers (the first
- *                                                    "len" characters of request.json, 400 when it gives none)
+ *                                                    "len" characters of request.json, 400 when it gives none,
+ *                                                    from 300 before "find" when request.json gives it)
  */
 'use strict';
 const fs = require('fs');
@@ -500,7 +501,7 @@ async function codes(sources) {
   }
 }
 
-async function probe(urls, len) {
+async function probe(urls, len, find) {
   for (const u of urls) {
     const r = await get(u);
     if (r.error) { console.log('PROBE', u, 'ERROR', r.error); continue; }
@@ -515,7 +516,8 @@ async function probe(urls, len) {
       continue;
     }
     const body = process.env.RAW ? t.replace(/\s+/g, ' ') : flat(t);
-    const from = process.env.RAW_FIND ? Math.max(0, body.indexOf(process.env.RAW_FIND) - 300) : +(process.env.RAW_FROM || 0);
+    const want = process.env.RAW_FIND || find;
+    const from = want ? Math.max(0, body.indexOf(want) - 300) : +(process.env.RAW_FROM || 0);
     console.log('  HEAD ' + body.slice(from, from + +(process.env.RAW_LEN || len || 400)));
   }
 }
@@ -633,7 +635,7 @@ async function main() {
   const [batch, only] = spec.split(':');
   const pick = only ? only.split(',') : null;
   const single = (s) => s.countries.length === 1;
-  if (batch === 'probe') return probe(req.probe || [], req.len);
+  if (batch === 'probe') return probe(req.probe || [], req.len, req.find);
   if (batch === 'src') return codes(CONF.codes.filter((s) => pick.includes(s.id)));
   if (batch === 'shared') return codes(CONF.codes.filter((s) => !single(s) && (!pick || pick.includes(s.id))));
   if (batch === 'japan') return codes(CONF.codes.filter((s) => single(s) && s.countries[0] === 'JPN' && (!pick || pick.includes(s.id))));
