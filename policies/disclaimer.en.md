@@ -1,6 +1,6 @@
 # Disclaimer
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-13.
 
 This is an English translation. The [Japanese version](./disclaimer.md) governs; if the two differ, the Japanese version applies.
 
@@ -65,6 +65,9 @@ The operator does not promise that they are free of errors, can always be read, 
 The site is served by Vercel, and the repository and issues are kept by GitHub. If those services stop, Nusquama can no longer be read.
 GitHub and Vercel each provide their services "as is", without warranty, and limit their liability under their own terms; Nusquama cannot promise more about their services than they do.
 The site is served on Vercel's free Hobby plan, on which Vercel may disable or remove a deployment with or without notice. What their terms provide is set out in the [Terms of Use](./terms.en.md), under "GitHub's and Vercel's terms".
+GitHub's terms let GitHub restrict the use of GitHub Actions, and Actions can stop.
+While it does not run, none of these runs by itself: the automatic check of applications for knighthood, the closing of applications while the reception is paused, the weekly watch, and the issue of the yearly review. The operator does them by hand, and not at once.
+Taking an entry down before a decision has always been done by the operator's hand, and does not depend on GitHub Actions.
 
 ## Not advice
 
