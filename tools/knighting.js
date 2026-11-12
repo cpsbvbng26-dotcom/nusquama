@@ -4,9 +4,11 @@
  * GitHub Actions（.github/workflows/knighting.yml）で動く：
  *   ISSUE_NUMBER, ISSUE_BODY, ISSUE_CREATED_AT, GITHUB_TOKEN, GITHUB_REPOSITORY
  *
- * 確かめるのは四つだけ：
+ * 確かめるのは六つだけ：
  *   - 様式の誓いのうち、必ず印を付けるものすべてに印があること
  *   - 2026-11-22 から（日本時間で issue を開いた日）、日本に住み、いま日本にいる印があること
+ *   - 2026-11-22 から、イタリアの国籍を持っていない印があること（ほかの国籍と重ねて持つ場合も含む）
+ *   - 2026-11-22 から、称号を遊びとして扱い、規程の禁じる使い方をしない印（良識の前提）があること
  *   - 訂正へのリンクが https で、開けること（応答の状態だけを見る。中身は読まず、残さない）
  *   - 何を誤り、どう正したかが書かれていること
  */
@@ -18,6 +20,16 @@ const ROOT = path.join(__dirname, '..');
 const MARK = '<!-- nusquama-knighting -->';
 const PRESENCE_FROM = '2026-11-22';
 const PRESENCE = '日本に住んでいて、いま日本にいます';
+const NATIONALITY_FROM = '2026-11-22';
+const NATIONALITY = 'イタリアの国籍を持っていません';
+const PREMISE_FROM = '2026-11-22';
+const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
+/* 日付から見る印。様式では必須にせず（その日より前の願い出を止めないため）、ここで日付を見て求める。 */
+const DATED = [
+  { from: PRESENCE_FROM, text: PRESENCE, label: '日本に住み、いま日本にいる印がある' },
+  { from: NATIONALITY_FROM, text: NATIONALITY, label: 'イタリアの国籍を持っていない印がある' },
+  { from: PREMISE_FROM, text: PREMISE, label: '称号を遊びとして扱う印（良識の前提）がある' },
+];
 
 /* 純：様式の定義から、必ず印を付ける誓いの文を取り出す。 */
 function requiredOaths(yml = fs.readFileSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'knighting.yml'), 'utf8')) {
@@ -49,9 +61,10 @@ function check(form, opened, linkStatus, oaths = requiredOaths()) {
   const ticked = (label) => oath.split('\n').some((l) => /^- \[[xX]\] /.test(l) && l.replace(/^- \[[xX]\] /, '').trim() === label);
   const missing = oaths.filter((o) => !ticked(o));
   add('必ず印を付ける誓いのすべてに印がある', missing.length === 0, missing.length ? missing.length + ' 件に印がない' : oaths.length + ' 件');
-  if (jstDay(opened) >= PRESENCE_FROM) {
-    const here = oath.split('\n').some((l) => /^- \[[xX]\] /.test(l) && l.includes(PRESENCE));
-    add('日本に住み、いま日本にいる印がある', here, here ? '' : PRESENCE_FROM + ' から、この印のない願い出は受けません');
+  for (const d of DATED) {
+    if (jstDay(opened) < d.from) continue;
+    const has = oath.split('\n').some((l) => /^- \[[xX]\] /.test(l) && l.includes(d.text));
+    add(d.label, has, has ? '' : d.from + ' から、この印のない願い出は受けません');
   }
   const link = (form['訂正への公開のリンク'] || '').trim();
   const https = /^https:\/\/[^\s]+$/.test(link);
@@ -109,6 +122,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { MARK, PRESENCE_FROM, PRESENCE, requiredOaths, parse, check, comment, jstDay };
+module.exports = { MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, DATED, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
