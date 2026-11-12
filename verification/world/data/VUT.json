@@ -1,0 +1,9 @@
+{
+ "country": "VUT",
+ "sources": {
+  "constitute": {"instrument":"Vanuatu 1980 (rev. 2023)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Vanuatu_2023&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Vanuatu_2023&lang=en","status":200,"length":55092,"sha256_full":"49b3adc213813c34e6b3d70cf5a650d5e99de8138aa27f963a93314f68982b4c","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Vanuatu_2023","title":"Vanuatu 1980 (rev. 2023)","year_enacted":"1980","year_updated":"2023","page":"https://www.constituteproject.org/constitution/Vanuatu_2023?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

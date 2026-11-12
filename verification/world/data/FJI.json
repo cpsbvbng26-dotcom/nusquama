@@ -1,0 +1,9 @@
+{
+ "country": "FJI",
+ "sources": {
+  "constitute": {"instrument":"Fiji 2013","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Fiji_2013&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Fiji_2013&lang=en","status":200,"length":241493,"sha256_full":"b53e82bade43d505dda99a42e54ba00cd7f3abf585e01b02ef930a4dbe99b375","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Fiji_2013","title":"Fiji 2013","year_enacted":"2013","year_updated":null,"page":"https://www.constituteproject.org/constitution/Fiji_2013?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

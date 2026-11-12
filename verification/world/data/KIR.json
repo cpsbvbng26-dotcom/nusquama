@@ -1,0 +1,9 @@
+{
+ "country": "KIR",
+ "sources": {
+  "constitute": {"instrument":"Kiribati 1979 (rev. 2018)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Kiribati_2018&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Kiribati_2018&lang=en","status":200,"length":149490,"sha256_full":"48ccfc69c946b26fda12ad48e9cd900d05b0ee216290abae815d529688f8b5ff","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Kiribati_2018","title":"Kiribati 1979 (rev. 2018)","year_enacted":"1979","year_updated":"2018","page":"https://www.constituteproject.org/constitution/Kiribati_2018?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

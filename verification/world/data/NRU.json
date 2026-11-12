@@ -1,0 +1,9 @@
+{
+ "country": "NRU",
+ "sources": {
+  "constitute": {"instrument":"Nauru 1968 (rev. 2025)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Nauru_2025&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Nauru_2025&lang=en","status":200,"length":79133,"sha256_full":"985f6e57ebcb990dde763b649ab4fc4e213b01e522d6143326ec04525c53c74d","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Nauru_2025","title":"Nauru 1968 (rev. 2025)","year_enacted":"1968","year_updated":"2025","page":"https://www.constituteproject.org/constitution/Nauru_2025?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

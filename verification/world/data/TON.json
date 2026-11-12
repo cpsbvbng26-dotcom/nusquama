@@ -1,0 +1,9 @@
+{
+ "country": "TON",
+ "sources": {
+  "constitute": {"instrument":"Tonga 1875 (rev. 2025)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Tonga_2025&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Tonga_2025&lang=en","status":200,"length":71689,"sha256_full":"3739d6b5ebb580e821c0ee1187eaa90544fe1772bcf212aec0d449b288a72a59","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Tonga_2025","title":"Tonga 1875 (rev. 2025)","year_enacted":"1875","year_updated":"2025","page":"https://www.constituteproject.org/constitution/Tonga_2025?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

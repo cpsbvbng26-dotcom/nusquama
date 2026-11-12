@@ -1,0 +1,12 @@
+{
+ "country": "AUS",
+ "sources": {
+  "AUS-criminal": {"instrument":"Criminal Code Act 1995","kind":"code","lang":"en","url":"https://www.legislation.gov.au/C2004A04868/latest/text","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","defamation"],"official":"Federal Register of Legislation（豪州政府、公式）","error":"direct：条に分けられない / archive：条に分けられない"},
+  "AUS-defence": {"instrument":"Defence Act 1903","kind":"code","lang":"en","url":"https://www.legislation.gov.au/C1903A00020/latest/text","fetched":"2026-11-12","topics":["honours","symbols"],"official":"Federal Register of Legislation（豪州政府、公式）","error":"direct：条に分けられない / archive：条に分けられない"},
+  "AUS-privacy": {"instrument":"Privacy Act 1988","kind":"code","lang":"en","url":"https://www.legislation.gov.au/C2004A03712/latest/text","fetched":"2026-11-12","topics":["data"],"official":"Federal Register of Legislation（豪州政府、公式）","error":"direct：条に分けられない / archive：条に分けられない"},
+  "constitute": {"instrument":"Australia 1901 (rev. 1985)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Australia_1985&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","error":"direct：条に分けられない","constitute_id":"Australia_1985","title":"Australia 1901 (rev. 1985)","year_enacted":"1901","year_updated":"1985","page":"https://www.constituteproject.org/constitution/Australia_1985?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "country": "WSM",
+ "sources": {
+  "constitute": {"instrument":"Samoa 1962 (rev. 2025)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Samoa_2025&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Samoa_2025&lang=en","status":200,"length":124509,"sha256_full":"bfccc7a4d0bd4ac7fc082549cd12d0423755e23d90608284d4b68760baf8e251","articles":1,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Samoa_2025","title":"Samoa 1962 (rev. 2025)","year_enacted":"1962","year_updated":"2025","page":"https://www.constituteproject.org/constitution/Samoa_2025?lang=en"}
+ },
+ "provisions": [
+
+ ]
+}
