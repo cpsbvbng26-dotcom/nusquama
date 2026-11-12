@@ -1234,6 +1234,24 @@
    ]
   },
   {
+   "id": "AUT-adelaufhg",
+   "countries": [
+    "AUT"
+   ],
+   "instrument": "Gesetz vom 3. April 1919 über die Aufhebung des Adels, der weltlichen Ritter- und Damenorden und gewisser Titel und Würden (StGBl. Nr. 211/1919)",
+   "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10000197",
+   "lang": "de",
+   "topics": [
+    "honours"
+   ],
+   "title": "Aufhebung des Adels|Adelsaufhebungsgesetz",
+   "official": "RIS（連邦首相府、公式）",
+   "note": "憲法の第149条が憲法の法律とみなす法律。2026-11-13 に、第149条を一つずつ読み直すために足した",
+   "alt": [
+    "https://www.ris.bka.gv.at/GeltendeFassung/Bundesnormen/10000197/AdelsaufhebungsG%2c%20Fassung%20vom%2013.11.2026.pdf"
+   ]
+  },
+  {
    "id": "CHE-fadp",
    "countries": [
     "CHE"
