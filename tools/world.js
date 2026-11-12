@@ -89,7 +89,7 @@ const HEAD = new RegExp('^(' + HEADS + ')\\s*' + NUM + '(?=[\\s.:º°ª\\-–)]|
 const HEAD_SV = /^(\d+\s?[a-z]?\s?§)(?=\s|$)/;
 /* Japanese: 第十四条, 第五百四十八条の二. */
 const HEAD_JA = /^(第[〇一二三四五六七八九十百千]+条(?:の[〇一二三四五六七八九十]+)*)/;
-const PART = /^(CHAPTER|Chapter|PART|Part|Division|Subdivision|Schedule|SCHEDULE|TITLE|Title|TÍTULO|Título|CAPÍTULO|Capítulo|TITRE|Titre|CHAPITRE|Chapitre|TITOLO|Titolo|CAPO|Capo|Kapitel|KAPITEL|Abschnitt|ABSCHNITT|Hoofdstuk|HOOFDSTUK|Afdeling|Kapittel|Глава|Раздел)\b|^第[〇一二三四五六七八九十百]+[編章節款]/;
+const PART = /^(?:(?:Erster|Zweiter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter|Zehnter|Elfter|Zwölfter|Dreizehnter|Vierzehnter|Fünfzehnter) (?:Titel|Abschnitt|Unterabschnitt)|Besonderer Teil|Allgemeiner Teil|Nichtamtliches Inhaltsverzeichnis|Titel [IVXLC]+[A-Z]?\b|(?:Eerste|Tweede|Derde|Vierde) Boek)|^(CHAPTER|Chapter|PART|Part|Division|Subdivision|Schedule|SCHEDULE|TITLE|Title|TÍTULO|Título|CAPÍTULO|Capítulo|TITRE|Titre|CHAPITRE|Chapitre|TITOLO|Titolo|CAPO|Capo|Kapitel|KAPITEL|Abschnitt|ABSCHNITT|Hoofdstuk|HOOFDSTUK|Afdeling|Kapittel|Глава|Раздел)\b|^第[〇一二三四五六七八九十百]+[編章節款]/;
 
 /* Splits a run of lines into articles. A line that is only a chapter or part heading closes the article before it. */
 function splitLines(ls, lang) {
@@ -320,7 +320,14 @@ async function fetchSource(s) {
         const best = new Map();
         for (const a of arts) { const k = norm(a.label), n = a.paras.join(' ').length; if (!best.has(k) || n > best.get(k).n) best.set(k, { a, n }); }
         arts = arts.filter((a) => best.get(norm(a.label)).a === a);
-      } else arts = arts.filter((a) => { const k = norm(a.label); if (seen.has(k)) return false; seen.add(k); return true; });
+      } else {
+        /* Otherwise the first occurrence that has a text of its own; a line of a table of contents ("§ 132a Mißbrauch von
+         * Titeln") has none, and the text comes later. */
+        const body = (a) => a.paras.join(' ').length - a.label.length;
+        const pick = new Map();
+        for (const a of arts) { const k = norm(a.label), cur = pick.get(k); if (!cur || (body(cur) < 80 && body(a) > body(cur))) pick.set(k, a); }
+        arts = arts.filter((a) => { const k = norm(a.label); if (seen.has(k) || pick.get(k) !== a) return false; seen.add(k); return true; });
+      }
     }
     if (!arts.length) { notes.push(via + '：条に分けられない'); continue; }
     const topics = rec.topics.filter((t) => searchable(t, s.lang, s));
