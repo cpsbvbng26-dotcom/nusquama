@@ -137,6 +137,7 @@
 | 2026-11-11（日本時間） | 解散の手順を改め、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めを受ける窓口を開けておくと定める | The procedure for dissolution is changed: the site is kept and served, the repository is not archived, and a way to receive requests stays open |
 | 2026-11-12（日本時間） | 交流の規程の、相手の国を尊重する文と、個人情報の取り扱いの、運営者の氏名と住所を知らせる文を、意味を変えずに言い直す | The sentence on respecting the other party's country in the Rules on exchange, and the sentence on giving the operator's name and address in the Privacy page, are reworded without changing their meaning |
 | 2026-11-12（日本時間） | 免責事項と、どの頁の下の欄にも、この国が運営者の研究とは別のもので、その一部ではないことを書く | The Disclaimer, and the footer of every page, state that Nusquama is separate from the operator's research and is not part of it |
+| 2026-11-12（日本時間） | 国の仕組みに、凍結して休むときに終わりの言葉に添えて掲げる、休止の告知の下書きを置く | A draft notice of suspension, to be put up beside the closing words when the kingdom is frozen, is added to the Institutions |
 
 ---
 
