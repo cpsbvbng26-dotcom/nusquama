@@ -1,6 +1,6 @@
 # Legality Statement
 
-Last updated: 2026-11-11.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -14,11 +14,13 @@ This page sets out the operator's understanding; it is neither legal advice nor 
 It has not been reviewed by a lawyer.
 The statutes are summarised, not quoted, and the law names are given in common English renderings.
 The summaries were checked on 2026-11-08 against the current texts obtained from the e-Gov law API. The articles checked are listed in each heading.
+On 2026-11-12 this page was reviewed again, article by article. The articles added in that review are named in each section under "Added in the review", and were fetched from the same API and read on the same day.
+The record of the review is in [Legal review record (2026-11-12)](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md) (in Japanese). This review, too, was not checked by a lawyer.
 The texts were obtained by querying the e-Gov law API (v1) from GitHub Actions.
 The original texts can be read on [e-Gov Laws Search](https://laws.e-gov.go.jp/) (in Japanese).
 At the end of each section, under "Text of", the wording itself is quoted.
 The Japanese articles are quoted unchanged from the texts obtained from the e-Gov law API and recorded by the watch.
-Foreign treaties, laws and explanations are quoted from the texts fetched on 2026-11-11 from the pages that publish them, without translation.
+Foreign treaties, laws and explanations are quoted from the texts fetched on 2026-11-12 from the pages that publish them, without translation.
 If the law or the facts change, this page will be revised.
 
 ## How Nusquama is run
@@ -40,6 +42,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - It makes and hands out no physical decorations, badges or uniforms.
 - Its titles are words inside the fiction, used only in the repository, on the site, and in the articles and posts the King wrote to introduce Nusquama (listed in the README under "ほかの場所").
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
+- Issues reporting mistakes and issues making requests handle the GitHub account name and what the person writes.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - It collects no documents to check nationality, age, country of residence or real name. Age, country of residence and the country the applicant is in when applying are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
@@ -70,6 +73,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: it makes no passports, identity documents, certificates or letters of appointment. Knighting only adds an account name to the roll and issues no document.
 - **Why the law does not apply**: no document that could be forged is made.
 - **Rules that keep this true**: Terms of Use, "What Nusquama is" (no passports, no nationality); [Rules on Knighting](./knighting.en.md), "What knighting is" (no documents or objects).
+- **Added in the review (2026-11-12)**: the "public office" and "public officer" of Article 155 of the Penal Code are, under Article 7 of the same Code, Japan's national and local officials and the places where they work. A paper made in Nusquama's name is not a public document in that sense. But making, with intent to use it, a document on rights, duties or the proof of facts in another person's name comes near the forgery of a private document (Penal Code, Article 159). A knight or third party who makes a "Nusquama passport" or the like in the name of the King or the kingdom comes near that article.
 
 <!-- 条文 刑法 第155条、旅券法 第23条 -->
 
@@ -79,17 +83,29 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: it receives no money or goods. It sells no titles, takes no donations, and knighting is free.
 - **Why the law does not apply**: no property or benefit changes hands.
 - **Rules that keep this true**: Terms of Use, "Fees"; Basic Law, Article 6; the fifth of the ten precepts. The Terms also say that anyone claiming to grant Nusquama's titles for a fee has nothing to do with Nusquama.
+- **Added in the review (2026-11-12)**: if a third party sells titles in Nusquama's name and the operator does not help, the operator is not an accessory either (Penal Code, Article 62). What the Terms say about such people is not the reason for this conclusion. Once the operator learns of it, the operator states that it has no connection with Nusquama ("Acts outside the rules that come near a law's elements").
 
 <!-- 条文 刑法 第246条 -->
 
 ### Trade (Act on Specified Commercial Transactions, Article 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5; Consumer Contract Act, Articles 2, 8 and 10)
 
 - **Elements, in summary**: a seller or service provider selling goods or services door to door, by mail order, by telephone solicitation and so on (Act on Specified Commercial Transactions). A business making representations about its own goods or services that mislead people into thinking they are much better or more favourable than they are (premiums and representations act). In a contract between a consumer and a person acting as a business, a clause that fully excludes the business's liability for damages, among others, is void (Consumer Contract Act).
-- **Nusquama's facts**: it sells nothing, shows no advertising and runs no business.
+- **Nusquama's facts**: it sells nothing, shows no advertising and runs no business for profit.
 - **Why the law does not apply**: the transactions these laws assume do not exist. In case the Consumer Contract Act ever applies, the "Liability" section of the [Disclaimer](./disclaimer.en.md) says that the exclusion does not apply and that the operator is liable, including for slight negligence. Article 8(1) of that Act voids full exclusions of liability, and Article 8(3) voids partial exclusions that do not make clear they apply only to slight negligence. The Disclaimer falls under neither.
 - **Rules that keep this true**: Terms of Use, "Fees".
+- **Added in the review (2026-11-12)**: under the premiums and representations act, a "representation" is an advertisement or other representation a business makes about the trade in goods or services it supplies itself (Article 2(4) of that Act). Nusquama has no such trade.
+- **Added in the review (2026-11-12)**: under the Consumer Contract Act, a "business" is a corporation or other body, or an individual who becomes a party to a contract as a business or for a business (Article 2(2) of that Act). The text does not say that a business must be run for profit. Running Nusquama, which repeatedly takes applications from anyone and obtains agreement to the Terms, may still count as acting "as a business". So the treatment in case the Act applies was checked article by article. Article 8(1) voids not only full exclusions of liability but also partial exclusions of liability for intent or gross negligence (items 2 and 4); the Disclaimer leaves intent and gross negligence outside the exclusion, and does not apply the exclusion where the Act applies. No clause falls under Article 8-2 (waiving the right to cancel) or Article 8-3 (cancellation because of guardianship and the like). On Article 9 (liquidated damages and penalties), the Terms say no penalty and no damages beyond what the law provides are asked for. On Article 10, the exclusive agreed court and the clause on changes remain as clauses that could restrict a consumer's rights. The Terms say they restrict no right that the law does not allow to be restricted, but whether Article 10 voids them is for a court to decide.
 
 <!-- 条文 特定商取引法 第2条、景品表示法 第5条、消費者契約法 第2条、消費者契約法 第8条、消費者契約法 第10条 -->
+
+### Standard terms (Civil Code, Articles 548-2, 548-3 and 548-4)
+
+- **Elements, in summary**: a person who agrees to enter into a standard transaction is deemed to agree to each clause of the standard terms, for example when agreeing that the standard terms form the contract (Article 548-2(1)). A clause found to harm the other party's interests one-sidedly is deemed not agreed (Article 548-2(2)). On request, the content of the standard terms is shown (Article 548-3). The terms may be changed when the change suits the general interest of the other party, or when it does not go against the purpose of the contract and is reasonable; the time the change takes effect and the new content are made known on the internet or by other means before it takes effect (Article 548-4).
+- **Nusquama's facts**: people applying for knighting agree, in the form, to the version of the Terms of that day. People who only read do not agree. All the pages are public in the repository and on the site. A change against readers' or knights' interests is shown in the Terms of Use, with what changes and the day it takes effect, before it takes effect.
+- **Why the law does not apply**: whether a free application for knighting is a "standard transaction" cannot be settled from the text. In case it is, agreement is obtained in the form, the content is public, and changes are shown before they take effect. The candidates for clauses deemed not agreed under Article 548-2(2) are, as under Article 10 of the Consumer Contract Act, the exclusive agreed court and the clause on changes.
+- **Rules that keep this true**: Terms of Use, "Who these terms cover" and "Changes and ending".
+
+<!-- 条文 民法 第548条の2、民法 第548条の3、民法 第548条の4 -->
 
 ### Currency and means of payment (Payment Services Act, Article 3)
 
@@ -106,15 +122,17 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: it does no business. Its names come from ordinary Latin words and words from the classics, and borrow no one's indication of goods or organisation. The emblem is the operator's own work.
 - **Why the law does not apply**: there is no use in business, and no one else's indication is used.
 - **Rules that keep this true**: [Names and rights](./names.en.md); Disclaimer, "Relation to real things".
+- **Added in the review (2026-11-12)**: under the Trademark Act, a "trademark" is a mark used by a person who produces or transfers goods, or provides services, as a business, on those goods or services (Article 2(1) of that Act). The way Nusquama uses its names, with no goods or services in business, is considered to be outside that definition. Whether the "business" of Article 2(1), items 1 and 2, of the Unfair Competition Prevention Act must be run for profit is not stated in the text and has not been checked.
 
 <!-- 条文 商標法 第25条、不正競争防止法 第2条第1項第1号・第2号 -->
 
 ### Copyright (Copyright Act, Articles 21 and 23)
 
 - **Elements, in summary**: reproducing a work, or transmitting it to the public (including making it transmittable), which the author has the exclusive right to do, without permission.
-- **Nusquama's facts**: the text and the emblem were written with Claude Code at the operator's request and checked by the operator. No one else's work is copied. Utopia and the Zhuangzi are named only as sources of the names, and none of their text is copied. Both are long out of copyright.
-- **Why the law does not apply**: no one else's work is reproduced.
+- **Nusquama's facts**: the text and the emblem were written with Claude Code at the operator's request and checked by the operator. No one else's work is copied, except the texts of treaties, laws, terms and explanations quoted under "Text of" on this page. Utopia and the Zhuangzi are named only as sources of the names, and none of their text is copied. Both are long out of copyright.
+- **Why the law does not apply**: apart from quotation, no one else's work is reproduced. The quotations are checked against Article 32 of the Copyright Act under "Added in the review" below.
 - **Rules that keep this true**: [Names and rights](./names.en.md); [Requests for removal, correction or withdrawal](./requests.en.md) (requests to remove content that infringes a right).
+- **Added in the review (2026-11-12)**: Japanese laws are not the subject of rights, under Article 13, item 1, of the Copyright Act. Whether foreign laws and treaties are "laws" in that item cannot be settled from the text. So the foreign texts, the explanation of the California Attorney General and Vercel's documents are treated as quotations (Article 32(1) of that Act). The elements of that paragraph are a work made public, a quotation compatible with fair practice, and a quotation within a scope justified by its purpose. The quoted texts come from public pages; only the passage needed to show what this page relies on is quoted, in a block set apart from the text, with a link to the page it comes from (the indication of source under Article 48(1), item 1). The operator therefore considers the elements met. But the text does not spell out "fair practice" or a "justified scope"; that is for a court. That text written with a language model may resemble someone else's text used in its training cannot be ruled out by the operator's checking.
 
 <!-- 条文 著作権法 第21条、著作権法 第23条 -->
 
@@ -124,6 +142,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: it handles only the GitHub account name, the link to the correction and the description the person writes, and asks for no real name, address or contact details. It states the purpose of use, that the information is public, and that it is handled by GitHub and Vercel in the United States, and the person consents in the application form. Withdrawal from the roll and removal are granted at any time, free of charge.
 - **Why the law does not apply**: the handling the law requires is met by the pages and the form.
 - **Duty by duty**: the duties of Articles 17, 18, 20–23, 25–28, 32–38 and 40 of the Act, Article 10 of its Cabinet Order and Articles 7, 8, 10 and 17 of its Rules are paired, paragraph by paragraph, with the sentences that meet them, in `verification/duties.json`. The texts were fetched from e-Gov and read on 2026-11-08. The check confirms that every sentence exists and that every article is watched.
+- **Added in the review (2026-11-12)**: a business handling personal information is anyone who uses a personal information database for a business, other than state organs and the like (Article 16(2) of the Act). Profit is not an element. The roll is a table of account names in the order of knighting, and the linked correction may reveal who the person is (Article 2(1) of the Act). The operator treats itself as a business handling personal information. There are no employees, and only the operator's account can change the roll (Article 24 of the Act). Listing on the roll is considered a provision to an unspecified large number of people. Its record (Article 29 of the Act; Articles 19 and 20 of its Rules) is the repository history in which the row was added. The retention period follows Article 21 of the Rules. When a name is removed from the roll on request, the history in which the row was added remains ([Requests](./requests.en.md), "What cannot be removed"). No personal data is received from third parties, so the confirmation of Article 30 of the Act does not arise.
 - **Rules that keep this true**: [Privacy](./privacy.en.md); [Rules on Knighting](./knighting.en.md), "Withdrawal and revocation"; the pledges in the application form.
 
 <!-- 条文 個人情報保護法 第17条、個人情報保護法 第18条、個人情報保護法 第27条、個人情報保護法 第28条 -->
@@ -135,8 +154,18 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: nothing damages anyone's reputation.
 - **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
 - **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); [Requests for removal, correction or withdrawal](./requests.en.md), "After a request".
+- **Added in the review (2026-11-12)**: issues are written on GitHub, where anyone may read them. Such a transmission is a "specified telecommunication" under Article 2, item 1, of the Act on Responses to Rights Infringement on Information Distribution Platforms. Whether the operator is a provider of that service (item 4 of the same Article) is unclear, because GitHub holds the equipment. If the operator is one, it is not liable for a post that infringes another person's rights unless it was technically possible to stop the transmission and it knew of the infringement, or there were reasonable grounds to find that it could have known (Article 3(1) of that Act). For harm to the writer caused by taking a post down, it is not liable when the takedown went no further than necessary and, among other cases, there were reasonable grounds to believe another person's rights were being unjustly infringed (Article 3(2)). Taking text down at once, before deciding anything else, reduces liability on the side of paragraph 1, but does not protect where paragraph 2's reasonable grounds are missing. So the matter is checked after the takedown. The duties of large-scale providers (Article 2, item 14) belong to those designated, and do not reach the operator.
 
 <!-- 条文 刑法 第230条、刑法 第231条、民法 第709条 -->
+
+### Telecommunications business (Telecommunications Business Act, Article 164)
+
+- **Elements, in summary**: a telecommunications business is a business providing, to meet the demand of others, a telecommunications service, that is, relaying others' communications with telecommunications equipment or otherwise making such equipment available for others' communications (Article 2, items 3 and 4). Whoever runs one registers (Article 9) or notifies (Article 16(1)). But the Act does not apply, except for the provisions listed in Article 164(3), to a business that provides a service other than relaying others' communications without installing telecommunications circuit facilities (Article 164(1), item 3).
+- **Nusquama's facts**: applications, requests and reports are received in GitHub issues. Vercel serves the site. The operator installs no telecommunications circuit facilities and relays no communications between users; an issue is a public post, not a communication carried to a particular recipient. The operator has not been designated by the Minister.
+- **Why the law does not apply**: even if receiving issues were "making equipment available for others' communications", it is not relaying and no circuit facilities are installed, so it would be a business under Article 164(1), item 3, to which the notification provisions do not apply. It can also be said that GitHub, not the operator, makes the equipment available. The text does not define "business", and that point has not been checked.
+- **Rules that keep this true**: [Requests](./requests.en.md), "How to ask" (GitHub is the only channel).
+
+<!-- 条文 電気通信事業法 第164条 -->
 
 ### Status under international law
 
@@ -161,20 +190,28 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
 - Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles").
 - For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. The same article also punishes anyone who uses such a distinction, and applies even when it was conferred abroad. The text was checked on 2026-11-08 in [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8), Italy's official database of legislation. Applications from people living in such countries are not accepted ([Rules on Knighting](./knighting.en.md), "Who may apply"). The country of residence is taken from the applicant's own declaration and is not checked ([Rules on Knighting](./knighting.en.md), "What is not checked").
+- **Added in the review (2026-11-12)**: what the article forbids is conferring by private persons and bodies; the recipient's country of residence is not an element. Its last sentence says that the second and third paragraphs (read as the penalty for the one who confers and the penalty for the one who uses) apply even when the conferring happened abroad. Limiting applications by country of residence does not, on the words of the article, stop the operator's conferring itself from falling under it. How far Italy's Penal Code punishes acts of foreigners abroad has not been checked, because its text could not be fetched. The penalty for use is a fine (ammenda) only, so it may have become an administrative penalty under Article 1 of Legislative Decree No. 8 of 2016. The list of exclusions to that article was not fetched, and this has not been checked.
 - The EU General Data Protection Regulation (GDPR) can reach those outside the EU, for example when they offer services to people in the EU. In case it does, Nusquama handles only what the person makes public themselves, takes it with consent, and answers requests for access, correction and erasure free of charge ([Privacy](./privacy.en.md)). Article 3(2) of the GDPR applies to a controller outside the EU where it offers goods or services, irrespective of payment, to people in the EU, among other cases. The text was checked on 2026-11-08 in [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679).
+- **Added in the review (2026-11-12)**: where the GDPR applies under Article 3(2), a controller outside the EU designates in writing a representative in the EU (GDPR, Article 27). That duty does not apply to processing that is occasional, does not include large-scale processing of special categories of data, and is unlikely to result in a risk to the rights and freedoms of natural persons (paragraph 2(a) of that Article). Nusquama does not offer its service to people in the EU, and from 2026-11-22 it accepts no application from anyone outside Japan. Even if the GDPR applies, the operator considers the handling of the roll to fall under paragraph 2(a), and has designated no representative. Claude decided this on 2026-11-12, because the roll handles only account names and summaries of corrections, and asks for no special categories of data.
 - The California Consumer Privacy Act (CCPA) covers businesses run for profit. Nusquama runs no business for profit, so the operator considers that it does not apply. This was checked on 2026-11-08 on the [CCPA page of the California Attorney General](https://oag.ca.gov/privacy/ccpa), which says the Act covers for-profit businesses and generally does not apply to nonprofit organisations. The page of the statute itself blocks automated access, and was not read.
 - The operator has not checked the laws of other countries one by one.
 - From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply, whatever their nationality. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either ([Rules on Knighting](./knighting.en.md), "Who may apply").
+- This limit does not remove the possibility that laws outside Japan apply. Like the Italian article above, some laws punish the one who confers and reach conferring done abroad. Some laws may also reach their own nationals abroad. The limit reduces how often people from such countries are accepted; it does not cut off the possibility.
 - The applicant's declaration is not checked, but if the linked correction states clearly that the applicant lives outside Japan, is outside Japan when applying, or is under 16, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 
 <!-- 条文 イタリア 1951 年法律第178号 第8条、GDPR 第3条第2項、CCPA 司法長官の説明 -->
+
+<!-- 条文 GDPR 第27条、イタリア 2016 年委任立法第8号 第1条 -->
 
 ### The terms of the services used
 
 - **GitHub**: the repository and issues are used in line with GitHub's terms. Nothing they forbid is placed there.
 - **Vercel**: the site is served on Vercel's Hobby plan, which is limited to personal, non-commercial use (Vercel's [Fair Use Guidelines](https://vercel.com/docs/limits/fair-use-guidelines), checked on 2026-11-08). Nusquama is non-commercial and meets that condition.
+- **Added in the review (2026-11-12)**: section 4 of Vercel's Terms of Service says the Hobby plan is to be used for personal or non-commercial use. The Fair Use Guidelines limit it to non-commercial personal use. The two documents are worded differently, but Nusquama is run by an individual and receives money from no one, so it meets both.
 
 <!-- 条文 Vercel Fair Use Guidelines -->
+
+<!-- 条文 Vercel 利用規約 第4条 -->
 
 ## Acts outside the rules that come near a law's elements
 
@@ -210,6 +247,9 @@ The conclusion of this page was checked in the five ways below.
 4. **Fault tree**: the ways the facts relied on could fail were listed, likelihood and severity were each estimated from 1 to 3, and the product was used to rank them. The numbers are the operator's estimates and serve only to rank.
 5. **Breaking on purpose**: each fixed sentence was altered in turn, and the check was seen to fail.
 
+This method works only when the elements are set out correctly and completely. Each law not set out, and each element read in more than one way, weakens the conclusion by that much.
+The review of 2026-11-12 found laws that had not been set out and elements read in more than one way. Both are under "Added in the review" in the sections above and in [the record of the review](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md).
+
 The review is not done once only. Once a week, the articles this page relies on and GitHub's terms are fetched from the e-Gov law API and from GitHub, and compared with the recorded values (`tools/statutes.js`). If they differ, a proposal is made by itself, with the difference between the old and the new text: a pull request, or an issue with a link that opens one in a single step. The operator reads the difference, checks this page, and adds the label 記す; a workflow then runs the checks on the merged result and records the change only if they pass. If a fetch fails, an issue opens. If this page names an article that the watch does not cover, the check fails.
 
 The ways the facts relied on could fail are these.
@@ -226,13 +266,15 @@ The ways the facts relied on could fail are these.
 | 8 | A service used changes its terms and can no longer be used | 1 | 1 | 1 | That part is stopped first, then checked |
 
 People aged 16 and 17 are minors under the Japanese Civil Code. An agreement made without the consent of a legal representative can be cancelled. Nusquama receives nothing that it would lose by such a cancellation.
+The age of majority is 18 (Civil Code, Article 4). Agreeing to the Terms includes what is not allowed and the agreement on courts, so the operator considers that it is not an act by which the person merely acquires a right (proviso to Article 5(1) of the Civil Code).
+If it is cancelled, the agreement to the Terms and the agreement on courts with that person are treated as never made. A request to cancel is received as a request to withdraw from the roll.
 
 <!-- 条文 民法 第5条 -->
 
 ## Conclusion
 
 In the operator's analysis, no fact meets the elements of any of the laws above.
-The operator considers the risk of illegality to be very small.
+Laws not set out and elements read in more than one way remain, so the operator does not claim to know how small the risk of illegality is.
 This is not a legal guarantee. If the facts relied on change, so does the conclusion.
 The facts relied on are fixed in the pages and the Basic Law.
 The repository's check (`verification/check.js`) fails if those sentences are removed.
@@ -247,6 +289,7 @@ The Terms of Use put settlement by agreement first, and then name an agreed cour
 - **The law, in summary**: the parties may, by agreement, choose the court of first instance. The agreement has no effect unless it concerns claims arising from a defined legal relationship and is made in writing or as an electronic record (Code of Civil Procedure, Article 11). An agreement on which country's courts will hear future disputes over a consumer contract has effect only in limited cases, such as when it allows claims in the courts of the country where the consumer lives (Code of Civil Procedure, Article 3-7, paragraph 5).
 - **Nusquama's facts**: people applying for knighting tick their agreement to the Terms of Use in the form, and the tick stays in the issue. People who only read the site or the repository tick nothing.
 - **How it works**: with those who agreed in the form, a record of the agreement remains as an electronic record. With those who only read, there is no written agreement, so the agreement on courts may have no effect. In that case, the court set by law has jurisdiction. The Terms state that they do not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.
+- **Added in the review (2026-11-12)**: the tick in the form points to where the rules are; it does not copy their text. Which version was agreed is checked by the date of the application and the repository history. If a request to delete the issue is granted, the record of agreement goes with it. Even the agreed court may transfer a case to another competent court where needed for fairness between the parties (Code of Civil Procedure, Article 17). An exclusive court chosen by agreement is outside the limit on transfer (Code of Civil Procedure, Article 20(1)). A consumer may sue in Japan if the consumer's domicile is in Japan (Code of Civil Procedure, Article 3-4(1)). Where the Consumer Contract Act applies, the exclusive agreed court may also be held void under Article 10 of that Act.
 - **Rules that keep this true**: Terms of Use, "Governing law and disputes"; the pledges in the application form.
 
 <!-- 条文 民事訴訟法 第11条、民事訴訟法 第3条の7 -->
