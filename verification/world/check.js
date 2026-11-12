@@ -159,7 +159,7 @@ function run(ok) {
     ['分類を手で「当たらない」に書き換える', (T) => { const c = Object.values(T.classes.provisions).find((x) => x.class !== 'does not apply'); c.class = 'does not apply'; }],
     ['一つずつ読んだ決めの元の文の値を変える', (T) => { const k = Object.keys(T.decisions.provisions)[0]; T.decisions.provisions[k].sha256 = '0'.repeat(64); }],
     ['記録の条の数を変える', (T) => { T.record = T.record.replace('当たった条は ' + n.provisions + ' 件', '当たった条は ' + (n.provisions + 1) + ' 件'); }],
-    ['記録から弁護士の文を消す', (T) => { T.record = T.record.replace('弁護士の確認は受けていません。', ''); }],
+    ['記録から弁護士の文を消す', (T) => { T.record = T.record.split('弁護士の確認は受けていません。').join(''); }],
     ['称号の条の一つずつ読んだ決めを消し、型で「当たりうる」に戻す', (T) => { const k = Object.keys(T.decisions.provisions).find((x) => T.decisions.provisions[x].class === 'could apply' && /constitution/.test(x) && T.decisions.provisions[x].project === 'Nusquama'); delete T.decisions.provisions[k]; T.classes.provisions = classesOf(T); T.record = T.record.replace(/「当たりうる」が \d+ 件/, '「当たりうる」が ' + counts(T).could + ' 件'); }],
   ];
   const caught = breaks.filter(([, f]) => { const T = clone(); f(T); return verdict(T, coverageOf, classesOf).length > 0; }).map(([k]) => k);
