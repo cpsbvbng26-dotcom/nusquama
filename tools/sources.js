@@ -15,28 +15,28 @@ const OUT = path.join(ROOT, 'verification', 'sources-raw.json');
 
 const Q = (q) => 'https://html.duckduckgo.com/html/?q=' + encodeURIComponent(q);
 const B = (q) => 'https://www.bing.com/search?q=' + encodeURIComponent(q);
+const A = 'https://web.archive.org/web/2026/';
+const NC = (a) => 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art' + a;
+const GU = (f, a) => 'https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=' + f + '&art.codiceRedazionale=16G00011&art.idArticolo=' + a + '&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2016-01-22&art.progressivo=0';
 const SOURCES = [
-  { key: 'cp-export', url: 'https://www.normattiva.it/esporta/attoCompleto?atto.dataPubblicazioneGazzetta=1930-10-26&atto.codiceRedazionale=030U1398', full: true },
-  { key: 'cp-akn', url: 'https://www.normattiva.it/do/atto/caricaAKN?dataGU=19301026&codiceRedaz=030U1398&dataVigenza=20261112', full: true },
-  { key: 'cp-art', url: 'https://www.normattiva.it/atto/caricaArticolo?art.versione=5&art.idGruppo=1&art.flagTipoArticolo=1&art.codiceRedazionale=030U1398&art.idArticolo=10&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=1930-10-26&art.progressivo=0', full: true },
-  { key: 'dlgs8-export', url: 'https://www.normattiva.it/esporta/attoCompleto?atto.dataPubblicazioneGazzetta=2016-01-22&atto.codiceRedazionale=16G00011', full: true },
-  { key: 'dlgs8-akn', url: 'https://www.normattiva.it/do/atto/caricaAKN?dataGU=20160122&codiceRedaz=16G00011&dataVigenza=20261112', full: true },
-  { key: 'gu-dlgs8', url: 'https://www.gazzettaufficiale.it/atto/vediMenuHTML?atto.dataPubblicazioneGazzetta=2016-01-22&atto.codiceRedazionale=16G00011&tipoSerie=serie_generale&tipoVigenza=originario', full: true, links: /./ },
-  { key: 'l178-export', url: 'https://www.normattiva.it/esporta/attoCompleto?atto.dataPubblicazioneGazzetta=1951-03-30&atto.codiceRedazionale=051U0178', full: true },
-  { key: 'gov-it-art7', url: 'https://presidenza.governo.it/onorificenze_araldica/araldica/normativa/art7_030551.html', full: true, links: /./ },
-  { key: 'gov-it-norm', url: 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/normativa.html', full: true, links: /./ },
-  { key: 'ppc-kaisei', url: 'https://www.ppc.go.jp/personalinfo/legal/kaiseihogohou/', full: true, links: /./ },
-  { key: 'vercel-aup', url: 'https://vercel.com/legal/acceptable-use-policy', full: true },
-  { key: 'd1', url: Q('presidenza.governo.it ordini cavallereschi non nazionali uso vietato'), links: /uddg/ },
-  { key: 'd2', url: Q('esteri.it autorizzazione uso onorificenze estere legge 178 1951'), links: /uddg/ },
-  { key: 'd3', url: Q('総務省 外部送信規律 FAQ'), links: /uddg/ },
-  { key: 'd4', url: Q('総務省 電気通信事業参入マニュアル 追補版 PDF'), links: /uddg/ },
-  { key: 'd5', url: Q('総務省 媒介相当電気通信役務 指定 告示'), links: /uddg/ },
-  { key: 'd6', url: Q('文化庁 著作物が自由に使える場合 引用'), links: /uddg/ },
-  { key: 'd7', url: Q('消費者庁 消費者契約法 逐条解説'), links: /uddg/ },
-  { key: 'd8', url: Q('個人情報保護委員会 外国における個人情報の保護に関する制度等の調査 米国'), links: /uddg/ },
-  { key: 'd9', url: Q('総務省 情報流通プラットフォーム対処法 逐条解説'), links: /uddg/ },
-  { key: 'd10', url: Q('総務省 電気通信事業 届出 不要 ブログ 掲示板 事業 該当性'), links: /uddg/ },
+  { key: 'cp6', url: NC(6), full: true },
+  { key: 'cp9', url: NC(9), full: true },
+  { key: 'gu-all', url: GU(1, 1), full: true },
+  { key: 'gu-art1', url: GU(0, 1), full: true },
+  { key: 'pres-uso', url: 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', full: true, links: /./ },
+  { key: 'pres-uso-a', url: A + 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html', full: true, links: /onorific|araldic/ },
+  { key: 'pres-art7-a', url: A + 'https://presidenza.governo.it/onorificenze_araldica/araldica/normativa/art7_030551.html', full: true, links: /onorific|araldic/ },
+  { key: 'pres-norm-a', url: A + 'https://presidenza.governo.it/onorificenze_araldica/onorificenze/normativa.html', full: true, links: /onorific|araldic/ },
+  { key: 'difesa', url: 'https://www.difesa.it/sgd-dna/staff/dg/persomil/circolari/direttiva-autorizzazione-a-fregiarsi-di-ordini-cavallereschibenemerenze-non-nazionali/47116.html', full: true, links: /pdf|allegat/ },
+  { key: 'ppc-us', url: 'https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/', full: true, links: /./ },
+  { key: 'soumu-gaibu', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu.html', full: true, links: /./ },
+  { key: 'soumu-gaibu2', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu_00002.html', full: true, links: /./ },
+  { key: 'soumu-news', url: 'https://www.soumu.go.jp/menu_news/s-news/01kiban04_02000229.html', full: true, links: /./ },
+  { key: 'soumu-ihoyugai', url: 'https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/ihoyugai.html', full: true, links: /./ },
+  { key: 'soumu-entry', url: 'https://www.soumu.go.jp/menu_kyotsuu/important/kinkyu02_000495.html', full: true, links: /./ },
+  { key: 'soumu-manual', url: 'https://www.soumu.go.jp/main_content/000477428.pdf', pdf: true },
+  { key: 'bunka', url: 'https://www.bunka.go.jp/seisaku/chosakuken/', full: true, links: /./ },
+  { key: 'caa', url: 'https://www.caa.go.jp/policies/policy/consumer_system/consumer_contract_act/annotations/', full: true, links: /./ },
 ];
 
 const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
@@ -58,10 +58,7 @@ async function main() {
       if (s.pdf) {
         const buf = Buffer.from(await res.arrayBuffer());
         r.bytes = buf.length;
-        const tmp = require('os').tmpdir() + '/x.pdf';
-        fs.writeFileSync(tmp, buf);
-        try { text = require('child_process').execFileSync('sh', ['-c', 'command -v pdftotext && pdftotext -layout ' + tmp + ' - || echo NO_PDFTOTEXT'], { encoding: 'utf8', maxBuffer: 1 << 28 }); } catch (e) { r.pdferr = String(e.message); text = ''; }
-        if (0) try { text = require('child_process').execFileSync('pdftotext', ['-layout', tmp, '-'], { encoding: 'utf8', maxBuffer: 1 << 28 }); } catch (e) { r.pdferr = String(e.message); text = ''; }
+        r.b64 = buf.toString('base64'); text = '';
       } else {
         const html = await res.text();
         if (s.links) r.links = [...new Set([...html.matchAll(/href=["']([^"']+)["']/g)].map((m) => m[1]).filter((h) => s.links.test(h)))].slice(0, 400);
