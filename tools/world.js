@@ -417,7 +417,9 @@ async function probe(urls) {
     if (r.error) { console.log('PROBE', u, 'ERROR', r.error); continue; }
     const t = decode(r).text;
     console.log('PROBE', u, r.status, r.type, r.final === u ? '' : '-> ' + r.final, 'bytes=' + r.bytes.length);
-    console.log('  HEAD ' + (process.env.RAW ? t.replace(/\s+/g, ' ') : flat(t)).slice(+(process.env.RAW_FROM || 0), +(process.env.RAW_FROM || 0) + +(process.env.RAW_LEN || 400)));
+    const body = process.env.RAW ? t.replace(/\s+/g, ' ') : flat(t);
+    const from = process.env.RAW_FIND ? Math.max(0, body.indexOf(process.env.RAW_FIND) - 300) : +(process.env.RAW_FROM || 0);
+    console.log('  HEAD ' + body.slice(from, from + +(process.env.RAW_LEN || 400)));
   }
 }
 
