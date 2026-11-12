@@ -63,7 +63,8 @@
 
 ## 外国の称号を縛る国
 
-2026-11-22 から、次の表の 15 か国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。2026-11-12 に Claude が決めました。
+2026-11-22 から、次の表の 18 か国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。2026-11-12 に Claude が決めました。
+表のうちイエメン・オーストリア・ギリシャは、2026-11-13 に Claude が足しました。型で「当たらない」に分けていた称号の条を一つずつ読み直し、型 1 か型 3 に当たる条が見つかったためです。オーストリアは、憲法の第149条が憲法の法律とみなす 1919 年の貴族の廃止の法律を取り寄せて読み、型 3 に当たると読みました。足した国の国籍を持つ人も、2026-11-22 から願い出ることができません。受付は 2026-11-22 まで止めているので、さかのぼって断られる人はいません。
 表の国の憲法や法律は、取り寄せて読んだ文の上で、次の三つの型のどれかに当たります。
 
 1. 型 1：外国の称号・勲章・栄典・位を受けることを禁じるか、受けるのに国の許しを求める。
@@ -79,8 +80,11 @@
 | --- | --- | --- |
 | アイルランド | Ireland 1937 (rev. 2019) ARTICLE 40, 2 | 型 1 |
 | アメリカ合衆国 | United States of America 1789 (rev. 1992) Article I, Section 9 | 型 1 |
+| イエメン | Yemen 1991 (rev. 2015) Article 119 | 型 1 |
 | インド | India 1949 (rev. 2023) 18. Abolition of titles | 型 1 |
+| オーストリア | Gesetz vom 3. April 1919 über die Aufhebung des Adels, der weltlichen Ritter- und Damenorden und gewisser Titel und Würden (StGBl. Nr. 211/1919) § 1、Gesetz vom 3. April 1919 über die Aufhebung des Adels, der weltlichen Ritter- und Damenorden und gewisser Titel und Würden (StGBl. Nr. 211/1919) § 2 | 型 3 |
 | オランダ | Wetboek van Strafrecht Artikel 435 | 型 1・型 2・型 3 |
+| ギリシャ | Greece 1975 (rev. 2019) Article 4 | 型 1 |
 | コロンビア | Colombia 1991 (rev. 2015) Article 129 | 型 1 |
 | ドミニカ共和国 | Dominican Republic 2015 Article 128. Powers of the President of the Republic（第 23 段落） | 型 1 |
 | ネパール | Nepal 2015 (rev. 2016) 277. Titles, honors, and decorations | 型 1 |

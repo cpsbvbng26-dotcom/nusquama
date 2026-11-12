@@ -65,7 +65,8 @@ When revoking, the operator writes in the application issue only which rule was 
 
 ## Countries that restrict foreign titles
 
-From 2026-11-22, a person who holds the nationality of any of the 15 countries in the table below may not apply, even if they live in Japan, and even if they also hold another nationality. Claude decided this on 2026-11-12.
+From 2026-11-22, a person who holds the nationality of any of the 18 countries in the table below may not apply, even if they live in Japan, and even if they also hold another nationality. Claude decided this on 2026-11-12.
+Austria, Greece and Yemen were added to the table by Claude on 2026-11-13: the provisions on titles that a type rule had classed as not applying were read again one by one, and provisions of type 1 or type 3 were found. For Austria, the 1919 law abolishing nobility, which Article 149 of the Constitution treats as constitutional law, was fetched and read, and was read as type 3. People who hold the nationality of a country added are also unable to apply from 2026-11-22. Applications are paused until 2026-11-22, so no one is refused retroactively.
 On the texts fetched and read, the constitution or a law of each country in the table is of one of three types.
 
 1. Type 1: it forbids accepting a foreign title, order, honour or rank, or requires the State's permission to accept one.
@@ -79,10 +80,12 @@ Some provisions bind only public officials or holders of State office. The opera
 
 | Country | Provision relied on | Type |
 | --- | --- | --- |
+| Austria | Gesetz vom 3. April 1919 über die Aufhebung des Adels, der weltlichen Ritter- und Damenorden und gewisser Titel und Würden (StGBl. Nr. 211/1919) § 1; Gesetz vom 3. April 1919 über die Aufhebung des Adels, der weltlichen Ritter- und Damenorden und gewisser Titel und Würden (StGBl. Nr. 211/1919) § 2 | Type 3 |
 | Bangladesh | Bangladesh 1972 (reinst. 1986, rev. 2018) 30. Prohibition of foreign titles, etc. | Type 1 |
 | Belgium | Code pénal Art. 230 | Type 3 |
 | Colombia | Colombia 1991 (rev. 2015) Article 129 | Type 1 |
 | Dominican Republic | Dominican Republic 2015 Article 128. Powers of the President of the Republic (paragraph 23) | Type 1 |
+| Greece | Greece 1975 (rev. 2019) Article 4 | Type 1 |
 | Honduras | Honduras 1982 (rev. 2013) Article 205 (paragraph 18) | Type 1 |
 | Hungary | Hungary 2011 (rev. 2016) Article 9 (paragraph 21) | Type 1 |
 | India | India 1949 (rev. 2023) 18. Abolition of titles | Type 1 |
@@ -94,6 +97,7 @@ Some provisions bind only public officials or holders of State office. The opera
 | Philippines | Philippines 1987 Sec 8 | Type 1 |
 | United States of America | United States of America 1789 (rev. 1992) Article I, Section 9 | Type 1 |
 | Venezuela | Venezuela (Bolivarian Republic of) 1999 (rev. 2009) Article 149; Venezuela (Bolivarian Republic of) 1999 (rev. 2009) Article 187 (paragraph 14) | Type 1 |
+| Yemen | Yemen 1991 (rev. 2015) Article 119 | Type 1 |
 
 Besides the countries in the table, a person whose country of nationality has a law of any of the three types may not apply either, because the laws of countries not fetched may have the same provisions.
 People who hold Italian nationality are excluded separately, under "Who may apply".
