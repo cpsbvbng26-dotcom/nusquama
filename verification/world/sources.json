@@ -1923,6 +1923,129 @@
    "title": "Data Protection",
    "official": "ZambiaLII（法情報機関による写し、公式ではない）",
    "dp": true
+  },
+  {
+   "id": "BEL-dp",
+   "countries": [
+    "BEL"
+   ],
+   "instrument": "Loi du 30 juillet 2018 relative à la protection des personnes physiques à l'égard des traitements de données à caractère personnel",
+   "url": "https://www.ejustice.just.fgov.be/eli/loi/2018/07/30/2018040581/justel",
+   "lang": "fr",
+   "topics": [
+    "data"
+   ],
+   "title": "protection des personnes physiques",
+   "official": "Justel（法務省、公式）",
+   "dp": true
+  },
+  {
+   "id": "BEL-cp",
+   "countries": [
+    "BEL"
+   ],
+   "instrument": "Code pénal",
+   "url": "https://www.ejustice.just.fgov.be/eli/loi/1867/06/08/1867060850/justel",
+   "lang": "fr",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Code p[ée]nal",
+   "official": "Justel（法務省、公式）"
+  },
+  {
+   "id": "ARE-pdpl",
+   "countries": [
+    "ARE"
+   ],
+   "instrument": "Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data",
+   "url": "https://uaelegislation.gov.ae/en/legislations/1972",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data",
+   "official": "UAE Legislation（政府、公式）",
+   "dp": true
+  },
+  {
+   "id": "QAT-pdpl",
+   "countries": [
+    "QAT"
+   ],
+   "instrument": "Law No. 13 of 2016 on Protecting Personal Data Privacy",
+   "url": "https://www.almeezan.qa/LawPage.aspx?id=7121&language=en",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data",
+   "official": "Al Meezan（法務省、公式の英訳）",
+   "dp": true
+  },
+  {
+   "id": "GHA-dpa",
+   "countries": [
+    "GHA"
+   ],
+   "instrument": "Data Protection Act, 2012 (Act 843)",
+   "url": "https://ghalii.org/akn/gh/act/2012/843",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection",
+   "official": "GhaLII（法情報機関による写し、公式ではない）",
+   "dp": true
+  },
+  {
+   "id": "TZA-pdpa",
+   "countries": [
+    "TZA"
+   ],
+   "instrument": "Personal Data Protection Act, 2022",
+   "url": "https://tanzlii.org/akn/tz/act/2022/11",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data Protection",
+   "official": "TanzLII（法情報機関による写し、公式ではない）",
+   "dp": true
+  },
+  {
+   "id": "ZWE-dpa",
+   "countries": [
+    "ZWE"
+   ],
+   "instrument": "Data Protection Act [Chapter 12:07]",
+   "url": "https://zimlii.org/akn/zw/act/2021/5",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection",
+   "official": "ZimLII（法情報機関による写し、公式ではない）",
+   "dp": true
+  },
+  {
+   "id": "PER-29733",
+   "countries": [
+    "PER"
+   ],
+   "instrument": "Ley N° 29733, Ley de Protección de Datos Personales",
+   "url": "https://www.leyes.congreso.gob.pe/Documentos/Leyes/29733.pdf",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "DATOS PERSONALES",
+   "official": "Congreso de la República（議会、制定時の文）",
+   "dp": true
   }
  ],
  "unsourced_default": "取り寄せ先を定めていない（公式の法令データベースで機械が読める所在を、この調べでは見つけていない）",
