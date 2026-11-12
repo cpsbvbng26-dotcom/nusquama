@@ -503,13 +503,14 @@ async function main() {
   if (batch === 'shared') return codes(CONF.codes.filter((s) => !single(s) && (!pick || pick.includes(s.id))));
   if (batch === 'japan') return codes(CONF.codes.filter((s) => single(s) && s.countries[0] === 'JPN' && (!pick || pick.includes(s.id))));
   /* "codes-europe": the codes of a region, without fetching its constitutions again. */
-  const codesOnly = batch.startsWith('codes-');
-  const region = codesOnly ? batch.slice(6) : batch;
+  /* "cons-europe": the constitutions of a region only. */
+  const codesOnly = batch.startsWith('codes-'), consOnly = batch.startsWith('cons-');
+  const region = codesOnly ? batch.slice(6) : consOnly ? batch.slice(5) : batch;
   const list = COUNTRIES.filter((c) => c.batch === region && (!pick || pick.includes(c.iso3)));
   if (!list.length) throw new Error('組がない：' + spec);
   const isos = list.map((c) => c.iso3);
   if (!codesOnly) await constitutions(list);
-  await codes(CONF.codes.filter((s) => single(s) && s.countries[0] !== 'JPN' && isos.includes(s.countries[0])));
+  if (!consOnly) await codes(CONF.codes.filter((s) => single(s) && s.countries[0] !== 'JPN' && isos.includes(s.countries[0])));
 }
 
 module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, coverageText, classifyAll, TOPICS };
