@@ -74,6 +74,10 @@ const SOURCES = [
    * section on Actions limits what the workflows may be used for. GitHub's site-policy repository is under CC0 1.0. */
   { key: 'github-terms', url: 'https://raw.githubusercontent.com/github/site-policy/' + JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'statutes.json'), 'utf8')).policies.find((p) => p.path === 'Policies/github-terms/github-terms-of-service.md').commit + '/Policies/github-terms/github-terms-of-service.md', needles: ['## I. GitHub Additional Product Terms'] },
   { key: 'github-additional-terms', url: 'https://raw.githubusercontent.com/github/site-policy/' + JSON.parse(fs.readFileSync(path.join(ROOT, 'verification', 'statutes.json'), 'utf8')).policies.find((p) => p.path === 'Policies/github-terms/github-terms-for-additional-products-and-features.md').commit + '/Policies/github-terms/github-terms-for-additional-products-and-features.md', needles: ['## Actions'] },
+  /* 2026-11-13 (the eleventh pass): the Internet Archive's terms of use, which govern the two pages above read from its copies.
+   * The page itself, and its copies of 2025 and 2026, ask for a script; this copy, made on 2024-01-01, holds the Terms of Use of
+   * 31 Dec 2014. Pinned to its timestamp, so that every run reads the same copy. */
+  { key: 'ia-terms-archived', url: 'https://web.archive.org/web/20240101002842id_/https://archive.org/about/terms.php', needles: ['Terms of Use 31 Dec 2014'] },
 ];
 
 const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
