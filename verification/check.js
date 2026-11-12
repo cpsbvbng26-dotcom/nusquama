@@ -50,7 +50,9 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     'policies/terms.md': ['国家ではありません。領土・国民・政府・通貨・旅券・国籍を持たず、主権も領有も主張しません。', 'どの国の法令に定められた称号でもなく、法的な効力も、身分も、特典もありません。',
       '官公職・位階勲等・学位・その他法令により定められた称号と誤認されるように使うことは、してはいけません。', 'ヌスクァマは、誰からも料金を取りません。', '称号を売らず、寄付を受けず、広告を出さず、何も販売しません。', 'この規約は日本法に準拠します。',
       '紛争は、示談による解決を優先します。', '相手方から示談の申し出があれば、運営者は誠実に応じます。',
-      '示談で解決しない紛争は、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の専属的合意管轄裁判所とします。'],
+      '叙任の願い出の様式でこの規約に同意した人との間では、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の合意管轄裁判所とします。\nこの合意は専属的なものではありません。\nそれ以外の紛争と、様式で同意していない人との間の紛争は、法令の定める裁判所が管轄します。',
+      '運営者がこの規約の及ぶ人に訴えを起こすときは、宇都宮地方裁判所・宇都宮簡易裁判所か、訴える相手の普通裁判籍の所在地を管轄する裁判所にだけ起こします。',
+      '相手方が宇都宮地方裁判所または宇都宮簡易裁判所に訴えを起こしたときは、運営者は、どの紛争でも管轄を争いません。', '裁判所の合意は、叙任の願い出の様式で同意した人との間にだけ置きます（「準拠法と紛争」）。'],
     'policies/disclaimer.md': ['国際法上の国家ではなく、国家としての承認を求めず、どの国の領土も主張しません。', '叙任は、現実の栄誉の授与ではありません。', 'アーサー王伝説を題材とする小説・映画・ゲーム・アニメなどの作品と、その権利者', 'Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。',
       '## 運営者の研究との関係\n\n' + B.SEPARATE + '\n', 'ヌスクァマの頁から運営者の研究の頁へはつながず、研究の頁からもヌスクァマへはつなぎません。'],
     'policies/privacy.md': ['サイトは、cookie を使わず、アクセス解析も広告も置いていません。', '本名・住所・所属・連絡先は求めません。', '16 歳未満の人は、叙任を願い出ることができません。',
@@ -64,7 +66,7 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     'policies/legality.md': ['この頁は、運営者の理解を書いたもので、法的な助言でも保証でもありません。', '弁護士の確認は受けていません。',
       '運営者の整理では、上のどの法令についても、要件に当たる事実がありません。',
       '要旨は、2026-11-08 に e-Gov 法令 API から取り寄せた現行の条文と突き合わせました。突き合わせた条は、各節の見出しに挙げています。',
-      '読むだけの人との間では、書面の合意がないので、管轄の合意は効力を生じないことがある。', 'ただし、これは法的な保証ではありません。前提となる事実が変われば、結論も変わります。'],
+      '読むだけの人とは書面の合意がなく、ほかの紛争とあわせて、法令の定める裁判所が管轄する。', 'ただし、これは法的な保証ではありません。前提となる事実が変われば、結論も変わります。'],
   };
   must['policies/terms.md'].push('通貨・点数・引換券・電子的な価値・旅券・身分証・証明書のどれも発行しません。', 'ヌスクァマは、勲章・記章・制服・証書などの物を作らず、配りません。');
   for (const f of ['policies/terms.md', 'policies/legality.md']) must[f].push('ヌスクァマに悪意はありません。人をだますことも、誰かを害することも、目的にしていません。', '運営者は、日本の法令と、使っているサービスの規約を守って運営します。', '適法かどうか迷う事柄は、行わないほうを選びます。');
@@ -347,7 +349,9 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
   const mustEn = {
     'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded', 'Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality', 'Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
-      'A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the exclusive agreed court of first instance.'],
+      'as the court of first instance by agreement, for a person who has agreed to these terms in the application form for knighting, and only for suits based on these terms or on that person\'s own application for knighting, listing on the roll of knights or withdrawal.\nThis agreement is not exclusive.\nAny other dispute, and any dispute with a person who has not agreed in the form, goes to the court that the law sets.',
+      'the operator brings it only in the Utsunomiya District Court or the Utsunomiya Summary Court, or in the court with jurisdiction over the place of that person\'s general forum.',
+      'the operator does not contest jurisdiction, whatever the dispute.', 'The agreement on courts is made only with those who agreed in the application form for knighting ("Governing law and disputes").'],
     'policies/disclaimer.en.md': ['Nusquama has no plan to obtain a domain of its own. Its only site is https://nusquama.vercel.app/.', 'A site under another domain that calls itself Nusquama is outside the kingdom and has no relation to the operator.', 'A post or statement not listed there is outside the kingdom, even if the operator wrote it.', 'The titles of Nusquama are not used in those activities, and Nusquama does not recommend them.', 'Where the Japanese Consumer Contract Act applies, the previous sentence does not apply.', 'Knighting is not the award of a real honour.', 'Claude is neither a knight nor a king, and is not an author of Nusquama.',
       "## The operator's research\n\n" + B.SEPARATE_EN + '\n', 'The pages of Nusquama do not link to the operator\'s research pages, and the research pages do not link to Nusquama.'],
     'policies/legality.en.md': ['This page sets out the operator\'s understanding; it is neither legal advice nor a guarantee.', 'It has not been reviewed by a lawyer.', 'This is not a legal guarantee. If the facts relied on change, so does the conclusion.',
@@ -1742,8 +1746,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-6).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-7).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2344,10 +2348,135 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     ['記録の一覧から .test を外す', mut(AUD, '・`.test`・', '・')],
     ['記録から漏れの行を問題なしにする', mut(AUD, '前もって読めない | 漏れ |', '前もって読めない | 問題なし |')],
     ['記録から決めた理由を外す', mut(AUD, '運営者が開く前に分けるためです。', '運営者が開く前に分けます。')],
-    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：五度目の見落とし', '\n\n## 2026-11-12 の続き：五度目の見落とし')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：開く関数・main で開く・別の道で外へ出る・確かめる中で開く・受けない先の一覧・数の先・点のない名・合言葉・http・コメント・注釈・前の文を戻す・生成した頁・規程・個人情報・国の仕組み・最終更新・正誤表・年表・判定の数・記録の一覧・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n69. 利用規約の合意管轄は、様式で同意した人との間の、規約とその人自身の願い出・名簿・辞退に基づく訴えに限り、専属的でない（2026-11-12）');
+{
+  /* 2026-11-12 の五度目の読み直しで、利用規約の合意管轄が、示談で解決しない紛争のすべてを、人も訴えも限らずに
+   * 宇都宮の二つの裁判所の専属としていたと分かった。民事訴訟法第11条第2項は、一定の法律関係に基づく訴えに関し、
+   * 書面でした合意にだけ効力を認める。合意は様式で同意した人との間にだけ置き、対象の訴えを限り、専属的でないとする。
+   * それ以外は法令の定める裁判所。運営者の訴える先を限り、宇都宮での訴えに管轄を争わない（誰の道も狭めない）。
+   * 裁判所は宇都宮地方裁判所・宇都宮簡易裁判所のまま（利用者が決めた）。前の文は、王の正誤表と生成した正誤の頁、
+   * 点検の記録のほかに残らない。記録の条文は取り寄せた文と同じ。確かめる関数に壊した入力を渡し、落ちることも確かめる。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：五度目の見落とし\n';
+  const T69 = JSON.parse(read('verification/statutes-texts.json'));
+  const P2 = '２ 前項の合意は、一定の法律関係に基づく訴えに関し、かつ、書面でしなければ、その効力を生じない。';
+  const files = ['policies/terms.md', 'policies/terms.en.md', 'policies/legality.md', 'policies/legality.en.md', 'ERRATA.md', 'ERRATA.en.md', 'README.md', '.github/ISSUE_TEMPLATE/knighting.yml', AUD];
+  const scanned = [...fs.readdirSync(ROOT).filter((f) => f.endsWith('.md') && !/^(ERRATA(\.en)?|CLAUDE)\.md$/.test(f)),
+    ...fs.readdirSync(path.join(ROOT, 'policies')).map((f) => 'policies/' + f),
+    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f),
+    ...fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f)];
+  const OLD = ['専属的合意管轄', '第一審の専属的', '合意で定めた専属管轄', '管轄の合意は効力を生じないことがある', 'exclusive agreed court', 'An exclusive court chosen by agreement', 'so the agreement on courts may have no effect'];
+  const KINDS69 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const JA = {
+    scope: '裁判所の合意は、叙任の願い出の様式で同意した人との間にだけ置きます（「準拠法と紛争」）。',
+    agree: '示談で解決しない紛争のうち、この規約に基づく訴えと、その人自身の叙任の願い出・名簿への記載・辞退に基づく訴えは、叙任の願い出の様式でこの規約に同意した人との間では、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の合意管轄裁判所とします。',
+    nonex: 'この合意は専属的なものではありません。',
+    other: 'それ以外の紛争と、様式で同意していない人との間の紛争は、法令の定める裁判所が管轄します。',
+    op: '運営者がこの規約の及ぶ人に訴えを起こすときは、宇都宮地方裁判所・宇都宮簡易裁判所か、訴える相手の普通裁判籍の所在地を管轄する裁判所にだけ起こします。',
+    nocontest: '相手方が宇都宮地方裁判所または宇都宮簡易裁判所に訴えを起こしたときは、運営者は、どの紛争でも管轄を争いません。',
+    keep: 'これは、消費者や日本国外の人が、法令によって別の裁判所で訴える権利を奪うものではありません。',
+  };
+  const EN = {
+    scope: 'The agreement on courts is made only with those who agreed in the application form for knighting ("Governing law and disputes").',
+    agree: "A dispute not settled by agreement goes, according to the amount in dispute, to the Utsunomiya District Court or the Utsunomiya Summary Court, as the court of first instance by agreement, for a person who has agreed to these terms in the application form for knighting, and only for suits based on these terms or on that person's own application for knighting, listing on the roll of knights or withdrawal.",
+    nonex: 'This agreement is not exclusive.',
+    other: 'Any other dispute, and any dispute with a person who has not agreed in the form, goes to the court that the law sets.',
+    op: "When the operator brings a suit against a person these terms cover, the operator brings it only in the Utsunomiya District Court or the Utsunomiya Summary Court, or in the court with jurisdiction over the place of that person's general forum.",
+    nocontest: 'When the other party brings a suit in the Utsunomiya District Court or the Utsunomiya Summary Court, the operator does not contest jurisdiction, whatever the dispute.',
+    keep: 'This does not take away the right of a consumer, or of a person outside Japan, to sue in another court where the law allows it.',
+  };
+  const section = (txt, head) => { const i = txt.indexOf('\n## ' + head + '\n'); if (i < 0) return ''; const j = txt.indexOf('\n## ', i + 5); return txt.slice(i, j < 0 ? undefined : j); };
+  function verdict(x) {
+    const bad = [];
+    /* 利用規約：合意の文は、人・訴え・専属でないこと・それ以外・運営者の訴える先・争わないことの順に、一続きで置く。 */
+    const gj = section(x['policies/terms.md'], '準拠法と紛争'), ge = section(x['policies/terms.en.md'], 'Governing law and disputes');
+    if (!gj.includes('\n' + [JA.agree, JA.nonex, JA.other, JA.op, JA.nocontest, JA.keep].join('\n') + '\n')) bad.push('利用規約の合意管轄の文');
+    if (!ge.includes('\n' + [EN.agree, EN.nonex, EN.other, EN.op, EN.nocontest, EN.keep].join('\n') + '\n')) bad.push('英語の利用規約の合意管轄の文');
+    if (/専属的(?!なものではありません)/.test(gj) || /\bexclusive\b(?!\.)/.test(ge.replace(EN.nonex, ''))) bad.push('利用規約に専属の文が残る');
+    if (!section(x['policies/terms.md'], 'この規約が及ぶ人').includes('\n' + JA.scope + '\n') || !section(x['policies/terms.en.md'], 'Who these terms cover').includes('\n' + EN.scope + '\n')) bad.push('この規約が及ぶ人に、裁判所の合意の人の限りがない');
+    /* 裁判所は利用者が決めた宇都宮の二つのまま。 */
+    if ((gj.match(/宇都宮地方裁判所/g) || []).length < 3 || (gj.match(/宇都宮簡易裁判所/g) || []).length < 3 || /(?:東京|大阪|運営者の住所地)[^。]*裁判所/.test(gj)) bad.push('合意の裁判所が宇都宮の二つでない');
+    /* 前の文は、どこにも残らない（王の正誤表・それから作る頁・点検の記録は除く）。 */
+    for (const f of Object.keys(x).filter((k) => k.startsWith('scan:'))) for (const o of OLD) if (x[f].includes(o)) bad.push(f.slice(5) + ' に前の文が残る：' + o);
+    /* 適法性の説明：効き方は改めた規約に合い、第20条第1項の文はない。 */
+    const kj = (/\n- \*\*効き方\*\*：([^\n]*)\n/.exec(x['policies/legality.md']) || [])[1] || '', ke = (/\n- \*\*How it works\*\*: ([^\n]*)\n/.exec(x['policies/legality.en.md']) || [])[1] || '';
+    if (!kj.startsWith('合意は、様式で同意した人との間で、規約と、その人自身の願い出・名簿への記載・辞退に基づく訴えにだけ置き、専属的ではない。') || !kj.includes('読むだけの人とは書面の合意がなく、ほかの紛争とあわせて、法令の定める裁判所が管轄する。') || !kj.includes('運営者から訴えるときは、宇都宮の裁判所か相手の普通裁判籍の地に限る。')) bad.push('適法性の説明の効き方');
+    if (!ke.startsWith('the agreement is made only with those who agreed in the form, only for suits based on the Terms or on their own application, listing on the roll or withdrawal, and is not exclusive.') || !ke.includes('There is no written agreement with those who only read') || !ke.includes('The operator sues only in the Utsunomiya courts')) bad.push('英語の適法性の説明の効き方');
+    const cj = section(x['policies/legality.md'], '管轄の合意の効き方'), ce = section(x['policies/legality.en.md'], 'How the agreement on courts works');
+    if (/第20条/.test(cj) || /Article 20/.test(ce) || /専属/.test(cj.replace('専属的ではない', '')) || /\bexclusive\b/.test(ce.replace('is not exclusive', ''))) bad.push('適法性の説明に専属の前提が残る');
+    /* 様式の同意の印は、規程の所在を指すだけで、合意管轄の文を写さない。 */
+    if (/専属|裁判所|court/.test(x['.github/ISSUE_TEMPLATE/knighting.yml'])) bad.push('様式が合意管轄の文を写す');
+    for (const p of ['terms', 'legality']) {
+      const dj = (/^最終更新：(\d{4}-\d{2}-\d{2})。$/m.exec(x['policies/' + p + '.md']) || [])[1], de = (/^Last updated: (\d{4}-\d{2}-\d{2})\.$/m.exec(x['policies/' + p + '.en.md']) || [])[1];
+      if (!(dj && dj >= '2026-11-12' && dj === de)) bad.push(p + '：最終更新');
+    }
+    /* 王の正誤表 31：前の文を残し、法の分類で、Claude が決めたことと理由が三つある（日本語と英語）。年表に行がある。 */
+    const row = (t, n) => t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
+    const e31 = row(x['ERRATA.md'], 31), e31en = row(x['ERRATA.en.md'], 31);
+    if (!e31.includes('示談で解決しない紛争は、訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を、第一審の専属的合意管轄裁判所とします。') || !e31.includes('合意で定めた専属管轄は、移送の制限の外にある（民事訴訟法第20条第1項）。') || !e31.includes('民事訴訟法第11条第2項')
+      || (e31.match(/2026-11-12 に Claude が決めました。/g) || []).length !== 3 || !e31.split('2026-11-12 に Claude が決めました。').slice(1).every((z) => /^[^|]*?ためです。/.test(z)) || !e31.includes('読む人や騎士に不利になる変更ではない。') || !/\| 法 \| Insula Legis VIII \|$/.test(e31)) bad.push('王の正誤表 31');
+    if (!e31en.includes('as the exclusive agreed court of first instance.') || !e31en.includes('Article 11(2)') || (e31en.match(/Claude decided this on 2026-11-12/g) || []).length !== 3 || !e31en.includes('This is not a change to the disadvantage of readers or knights.') || !/\| Law \| Insula Legis VIII \|$/.test(e31en)) bad.push('英語の王の正誤表 31');
+    if (!x['README.md'].includes('| 2026-11-12（日本時間） | 利用規約の合意管轄を、専属的でないものに改める。') || !x['README.md'].includes('| The agreed court in the Terms of Use is no longer exclusive.')) bad.push('年表の行');
+    /* 点検の記録の節：第11条第2項と引いた条文が取り寄せた文と同じ、表の形、件数、前の行が誤りだったこと、弁護士の文、決めた者と理由。 */
+    const a = x[AUD], i = a.indexOf(SEC), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    if (!T69['民事訴訟法 第11条'].includes(P2) || !sec.includes('民事訴訟法第11条第2項は、「' + P2 + '」と定めています。')) bad.push('記録の第11条第2項の文が取り寄せた文と違う');
+    for (const k of ['民事訴訟法 第11条', '民事訴訟法 第4条']) if (!sec.includes('<!-- 条文 ' + k + ' -->\n> ' + T69[k] + '\n')) bad.push('記録の条文が取り寄せた文と違う：' + k);
+    for (const q of [...sec.matchAll(/第[45]条(?:第1項)?の「([^」]+)」/g)].map((m) => m[1])) if (!T69['民事訴訟法 第4条'].includes(q) && !T69['民事訴訟法 第5条'].includes(q)) bad.push('記録の引用が取り寄せた文にない：' + q);
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS69.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [0, -1])[1]);
+    if (!KINDS69.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    if (!rows.some((y) => y[0] === '利用規約「準拠法と紛争」の合意管轄' && y[4] === '誤り')) bad.push('合意管轄の文を誤りとして書いていない');
+    if (!rows.some((y) => y[0].startsWith('判定の表の「適法性の説明「管轄の合意の効き方」」') && y[4] === '誤り') || !rows.some((y) => y[0].startsWith('判定の表の「民事訴訟法第4条、民事訴訟法第5条」') && y[4] === '誤り')) bad.push('頁の要旨だけを見た前の行を誤りと書いていない');
+    if (!rows.some((y) => y[0].startsWith('各国の法令の調べの記録') && y[4] !== '問題なし')) bad.push('各国の法令の調べの行を直していない');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。') || (sec.match(/2026-11-12 に Claude が決めました。/g) || []).length !== 3 || !sec.split('2026-11-12 に Claude が決めました。').slice(1).every((z) => /ためです。/.test(z.split('\n\n')[0]))) bad.push('記録に、弁護士の文か決めた者と理由がない');
+    if (!sec.includes('どの人の道も前より狭めないためです。')) bad.push('記録に、狭める変更でない理由がない');
+    return bad;
+  }
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]).concat(scanned.map((f) => ['scan:' + f, read(f)])));
+  const bad = verdict(real);
+  ok('利用規約の合意管轄は、様式で同意した人との間の、規約とその人自身の願い出・名簿・辞退に基づく訴えに限り、専属的でなく、それ以外は法令の定める裁判所で、運営者の訴える先を限り、裁判所は宇都宮の二つのまま。前の文は ' + scanned.length + ' のファイルに残らず、適法性の説明・王の正誤表 31・年表・点検の記録（第11条第2項は取り寄せた文のまま）がそろう（日本語と英語）', bad.length === 0, bad.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const breaks = [
+    ['規約を専属に戻す', mut('policies/terms.md', 'この合意は専属的なものではありません。', 'この合意は専属的なものとします。')],
+    ['規約から人の限りを外す', mut('policies/terms.md', '叙任の願い出の様式でこの規約に同意した人との間では、訴額に応じて', '訴額に応じて')],
+    ['規約から訴えの限りを外す', mut('policies/terms.md', '示談で解決しない紛争のうち、この規約に基づく訴えと、その人自身の叙任の願い出・名簿への記載・辞退に基づく訴えは、', '示談で解決しない紛争は、')],
+    ['規約から法令の定める裁判所を外す', mut('policies/terms.md', JA.other + '\n', '')],
+    ['規約から運営者の訴える先の限りを外す', mut('policies/terms.md', JA.op + '\n', '')],
+    ['規約から管轄を争わないことを外す', mut('policies/terms.md', JA.nocontest + '\n', '')],
+    ['裁判所を替える', mut('policies/terms.md', '訴額に応じて、宇都宮地方裁判所または宇都宮簡易裁判所を', '訴額に応じて、東京地方裁判所または東京簡易裁判所を')],
+    ['規約に前の文を戻す', mut('scan:policies/terms.md', '## 準拠法と紛争', '第一審の専属的合意管轄裁判所とします。\n## 準拠法と紛争')],
+    ['及ぶ人の文を外す', mut('policies/terms.md', JA.scope + '\n', '')],
+    ['英語の規約を専属に戻す', mut('policies/terms.en.md', EN.nonex, 'This agreement is exclusive.')],
+    ['英語の規約から人の限りを外す', mut('policies/terms.en.md', ', for a person who has agreed to these terms in the application form for knighting, and only for suits', ', and only for suits')],
+    ['英語の及ぶ人の文を外す', mut('policies/terms.en.md', EN.scope + '\n', '')],
+    ['生成した頁に前の文が残る', mut('scan:site/policies/terms.en.html', '<h2', 'as the exclusive agreed court of first instance.<h2')],
+    ['適法性の説明に第20条を戻す', mut('policies/legality.md', '（民事訴訟法第17条）。', '（民事訴訟法第17条）。合意で定めた裁判所は、移送の制限の外にある（民事訴訟法第20条第1項）。')],
+    ['英語の適法性の説明から読む人の文を外す', mut('policies/legality.en.md', 'There is no written agreement with those who only read; for them, and for other disputes, the court', 'The court')],
+    ['様式に合意管轄を写す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '願い出の日の版に同意します', '願い出の日の版と、宇都宮の裁判所の専属に同意します')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-12.', 'Last updated: 2026-11-11.')],
+    ['王の正誤表 31 から前の文を外す', mut('ERRATA.md', '合意で定めた専属管轄は、移送の制限の外にある（民事訴訟法第20条第1項）。／', '')],
+    ['王の正誤表 31 を範囲の分類にする', mut('ERRATA.md', '| 法 | Insula Legis VIII |', '| 範囲 | Insula Finis XIV |')],
+    ['王の正誤表 31 から理由を一つ外す', mut('ERRATA.md', '誰の道も前より狭めないためです。', '誰の道も前より狭めない。')],
+    ['英語の王の正誤表 31 から不利でない文を外す', mut('ERRATA.en.md', 'This is not a change to the disadvantage of readers or knights. Claude decided this on 2026-11-12, because knights may sue', 'Claude decided this on 2026-11-12, because knights may sue')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、専属的でないものに改める。', '| 2026-11-12（日本時間） | 改める。')],
+    ['記録の第11条第2項を書き換える', mut(AUD, '一定の法律関係に基づく訴えに関し、かつ、書面でしなければ、その効力を生じない。」と定めています。', '一定の法律関係に基づく訴えに関し、書面でしなければ、その効力を生じない。」と定めています。')],
+    ['記録の第4条の引用を書き換える', mut(AUD, '第4条第1項の「訴えは、被告の', '第4条第1項の「訴えは、原告の')],
+    ['記録の判定の数を変える', mut(AUD, '誤り 3 件、根拠不足 2 件', '誤り 2 件、根拠不足 2 件')],
+    ['記録から誤りの行を問題なしにする', mut(AUD, '様式で同意していない読む人にも言っていた | 誤り |', '様式で同意していない読む人にも言っていた | 問題なし |')],
+    ['記録から前の行の誤りを外す', mut(AUD, 'として「問題なし」としていたが、頁の要旨だけを見て、利用規約の文を見ていなかった | 誤り |', 'として「問題なし」としていた | 問題なし |')],
+    ['記録から決めた理由を外す', mut(AUD, '合意していない人に合意を言わないためです。', '合意していない人に合意を言わない。')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：専属に戻す・人の限り・訴えの限り・法令の定める裁判所・運営者の訴える先・争わないこと・裁判所を替える・前の文を戻す・及ぶ人の文・英語の規約・生成した頁・第20条・読む人の文・様式・最終更新・正誤表・年表・第11条第2項・第4条・判定の数・誤りの行・前の行・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));
