@@ -24,7 +24,7 @@ On knighting, one row is added to the table. The issue of the [gazette](GAZETTE.
 - Application: a link to the application issue.
 
 Gazette issues are numbered in the order rows are added to the timeline and the roll. As the day of knighting is the day the row is added, an older date never comes after a newer one.
-Decided on 2026-11-12, after the dry run of knighting found that a timeline row dated after the day of the decision puts the issues out of date order.
+Decided by Claude on 2026-11-12, after the dry run of knighting found that a timeline row dated after the day of the decision puts the issues out of date order.
 
 The gazette proclaims "Account-name is knighted as knight no. 1".
 The issue for the first knight has the same form as every other. The Basic Law sets no ranks (Article 7), so the first knight is given no added title or adornment.

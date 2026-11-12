@@ -136,7 +136,7 @@ The gaps found are listed below.
 | Other | Ten years ahead | The gazette issue on the outlook in 2036 cannot appear after dissolution |
 
 The gaps found at steps 4 and 5 were filled by the King on 2026-11-11: the site is kept and served, and the repository is not archived, so that requests can still be received (steps 4 to 6 of "Dissolution" above). The earlier text is in [the King's errata](ERRATA.en.md).
-The remaining gaps are filled when a dissolution is decided, before it is carried out. Decided on 2026-11-12: each of them is a step needed only when dissolving, and none changes how the kingdom works while it is not dissolving.
+The remaining gaps are filled when a dissolution is decided, before it is carried out. Decided by Claude on 2026-11-12: each of them is a step needed only when dissolving, and none changes how the kingdom works while it is not dissolving.
 
 ## A dry run of knighting
 
@@ -154,11 +154,11 @@ The gaps found are listed below.
 | 5 | Add one row to the roll, as "How entries are recorded" says. | No check compared the rows of the English roll with the Japanese roll. One was added on 2026-11-12 (the number, the knight, the day of knighting and the application must match) |
 | 6 | A gazette issue appears, and the knight enters the population and the feed. | None |
 | Other | When the first real knight is entered | The check of the knights' gazette issues assumed an empty roll. Once the first knight was entered, it would have failed even for a correct row. On 2026-11-12 it was changed to check with the next number after the current roll |
-| Other | The day of knighting and the order of issues | If the timeline has a row dated after the day the knighting was decided, the issues fall out of date order and the checks fail. The row of the roll has to be added on the day of the decision, but "How entries are recorded" does not say so. Decided on 2026-11-12 and written in "How entries are recorded" on the roll |
-| Other | Answering the application issue | What to write on the issue on knighting, and whether to close it, is not written. Only the one sentence for a refusal is fixed. Decided on 2026-11-12 and written in "The roll" in the Rules on Knighting (a comment with a link to the row of the roll, and the issue closed as completed) |
+| Other | The day of knighting and the order of issues | If the timeline has a row dated after the day the knighting was decided, the issues fall out of date order and the checks fail. The row of the roll has to be added on the day of the decision, but "How entries are recorded" does not say so. Decided by Claude on 2026-11-12 and written in "How entries are recorded" on the roll |
+| Other | Answering the application issue | What to write on the issue on knighting, and whether to close it, is not written. Only the one sentence for a refusal is fixed. Decided by Claude on 2026-11-12 and written in "The roll" in the Rules on Knighting (a comment with a link to the row of the roll, and the issue closed as completed) |
 
 The gap at step 5 and the gap for the first knight were filled by changing the checks.
-The gaps for the day of knighting and the order of issues, and for answering the application issue, were filled by decisions on 2026-11-12.
+The gaps for the day of knighting and the order of issues, and for answering the application issue, were filled by decisions Claude made on 2026-11-12.
 Step 4 is reading by a person, so the checks do not walk it through.
 
 ## Closing words
