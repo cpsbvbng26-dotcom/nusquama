@@ -2703,6 +2703,100 @@ console.log('\n71. 叙任を誘う文は、叙任の規程を挙げる（日本�
   ok('壊して確かめる：紹介の頁・物語の前の文（日本語と英語）・生成した頁・llms-full.txt・「誰でも」・「Anyone」・規程と国の仕組みの文（日本語と英語）・基本法の後ろの注（日本語と英語）・第六条を改める（日本語と英語）・王の正誤表 33・年表・判定の数・誤りの行・理由・弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
+console.log('\n72. 型で「当たらない」に分けた称号の条の読み直しと、外国の称号を縛る国に足した国（2026-11-13）');
+{
+  /* 2026-11-13 に Claude が決めた。型の決めで「当たらない」に分けていた称号・栄典の条を一つずつ読み直し、ギリシャ・イエメンと、
+   * 憲法の第149条が取り込む貴族の廃止の法律を取り寄せて読んだオーストリアを、外国の称号を縛る国に足す（2026-11-22 から）。
+   * 型の決めだけで分けた称号・栄典の条がないことは verification/world/check.js が、表と決めがそろうことは 65 が確かめる。
+   * ここでは、取り寄せた法律の出典、記録の節（決めた者と理由、六つの欄の表と件数、記録の数）、規程の足した文、利用規約の予告、
+   * 王の正誤表 34、年表の行が、日本語と英語でそろうことを確かめる。確かめる関数に壊した入力を渡し、落ちることも確かめる。 */
+  const W72 = require('./world/check.js');
+  const Wt = require('../tools/world.js');
+  const WS = W72.state();
+  const REC = 'docs/world-law-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：八度目の見落とし\n';
+  const SRC = 'AUT-adelaufhg';
+  const files = [REC, 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'ERRATA.md', 'ERRATA.en.md', 'README.md', 'verification/world/README.md'];
+  const KINDS72 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const REREAD = '2026-11-13 に一つずつ読み直しました。';
+  const cells = (l) => l.replace(/^\| | \|$/g, '').split(' | ');
+  const OLD_JA = '2026-11-22 から、次の表の 15 か国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。';
+  const OLD_FORM = '次の国の国籍を持っていません：アイルランド、アメリカ合衆国、インド、オランダ、コロンビア、ドミニカ共和国、ネパール、ハンガリー、バングラデシュ、パキスタン、フィリピン、ベネズエラ、ベルギー、ホンジュラス、メキシコ。';
+  const OLD_EN = '"From 2026-11-22, a person who holds the nationality of any of the 15 countries in the table below may not apply, even if they live in Japan, and even if they also hold another nationality."';
+  function verdict(x, S) {
+    const bad = [];
+    const need = (f, list) => list.forEach((s) => { if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 40)); });
+    /* 取り寄せた法律：公式の所在から取れ、効力のある条を記し、第1条と第2条を一つずつ読んで当たりうるとした。 */
+    const conf = S.sources.codes.find((c) => c.id === SRC) || {};
+    const rec = (S.data['AUT.json'] || { sources: {} }).sources[SRC] || {};
+    const provs = ((S.data['AUT.json'] || {}).provisions || []).filter((p) => p.source === SRC);
+    if (!conf.official || !conf.drop || !conf.stop || conf.alt || rec.error || rec.via !== 'direct' || !/^https:\/\/ogd\.ris\.bka\.gv\.at\//.test((rec.final || [])[0] || '')) bad.push('貴族の廃止の法律の出典が、公式の所在から取れていない');
+    const dec = (id) => (S.decisions.provisions || {})[id] || {};
+    if (!['§ 1', '§ 2'].every((a) => provs.some((p) => p.article === a && dec(p.id).sha256 === p.sha256 && dec(p.id).class === 'could apply'))) bad.push('貴族の廃止の法律の第1条と第2条を、読んで当たりうるとしていない');
+    /* 記録の節：見出しの並び、決めた者と理由、表の形と件数、弁護士の文。 */
+    const r = x[REC], i = r.indexOf(SEC), j = i < 0 ? -1 : r.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : r.slice(i, j < 0 ? undefined : j);
+    if (i < 0 || !r.startsWith('\n## 残る限り\n', j)) bad.push('記録の節がないか、「残る限り」の前にない');
+    const decided = sec.split('2026-11-13 に Claude が決めました。').slice(1);
+    if (decided.length < 5 || !decided.every((z) => /ためです。/.test(z.split('\n')[0]))) bad.push('記録に、決めた者と理由がない');
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map(cells);
+    if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS72.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [0, -1])[1]);
+    if (!KINDS72.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。')) bad.push('記録に弁護士の文がない');
+    /* 記録の数：型ごとの件数は、決めを外して型を当て直して数えたとおり（決めごと 5）。 */
+    const byRule = Wt.classifyAll(S.data, Object.assign({}, S.decisions, { provisions: {} })).out;
+    const re = Object.values(S.data).flatMap((d) => d.provisions).filter((p) => p.topics.includes('honours') && dec(p.id).sha256 === p.sha256 && (dec(p.id).reason || '').includes(REREAD));
+    const of = (rule) => re.filter((p) => (byRule[p.id] || {}).by === rule).length;
+    const main = ['C-honours-state', 'C-honours-uniform', 'C-honours-nobility', 'K-heading-nl', 'K-lperc'];
+    const rest = re.length - main.reduce((a, k) => a + of(k), 0);
+    const could = provs.filter((p) => dec(p.id).class === 'could apply').length;
+    const table = (x['policies/knighting.md'].match(/次の表の (\d+) か国/) || [])[1];
+    need(REC, ['型の決めだけで分けていた称号・栄典の条は ' + re.length + ' 件でした。型ごとには、国の機関が栄典を授ける権限の型が ' + of(main[0]) + ' 件、制服や一様の語の型が ' + of(main[1]) + ' 件、貴族の制度を設けない型が ' + of(main[2]) + ' 件、オランダの刑法典の題の型が ' + of(main[3]) + ' 件、メキシコの賞の法律の型が ' + of(main[4]) + ' 件、その他の型が ' + rest + ' 件です。',
+      'オーストリアの貴族の廃止の法律から記した条は ' + provs.length + ' 件で、そのうち ' + could + ' 件が「当たりうる」です。', '外国の称号を縛る国は、15 か国から ' + table + ' か国になりました。',
+      '| verification/world/decisions.json の称号・栄典の条 | 各国の憲法と法令の称号・栄典の条（' + re.length + ' 件） |']);
+    /* 規程の足した文、利用規約の予告（日本語と英語）、調べの README。 */
+    need('policies/knighting.md', ['表のうちイエメン・オーストリア・ギリシャは、2026-11-13 に Claude が足しました。', '足した国の国籍を持つ人も、2026-11-22 から願い出ることができません。受付は 2026-11-22 まで止めているので、さかのぼって断られる人はいません。']);
+    need('policies/knighting.en.md', ['Austria, Greece and Yemen were added to the table by Claude on 2026-11-13', 'Applications are paused until 2026-11-22, so no one is refused retroactively.']);
+    need('policies/terms.md', ['予告：2026-11-22 から、叙任の規程「外国の称号を縛る国」の表に、イエメン・オーストリア・ギリシャを足します。この三つの国の国籍を持つ人も、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません（2026-11-13 に示しました）。']);
+    need('policies/terms.en.md', ['Notice: from 2026-11-22, Yemen, Austria and Greece are added to the table in the Rules on Knighting, "Countries that restrict foreign titles".']);
+    need('verification/world/README.md', ['称号・栄典の主題の条は、2026-11-13 から、型の決めだけで分けません。']);
+    /* 王の正誤表 34：改める前の文、分類、地名。年表の行。 */
+    const e34 = cells(x['ERRATA.md'].split('\n').find((l) => l.startsWith('| 34 | ')) || ''), e34en = cells(x['ERRATA.en.md'].split('\n').find((l) => l.startsWith('| 34 | ')) || '');
+    if (!(e34[1] === '2026-11-13' && (e34[3] || '').includes(OLD_JA) && (e34[3] || '').includes(OLD_FORM) && e34[6] === '範囲' && (e34[4] || '').includes('2026-11-13 に Claude が決めました。'))) bad.push('王の正誤表 34 に、改める前の文か分類がない');
+    if (!(e34en[1] === '2026-11-13' && (e34en[3] || '').includes(OLD_EN) && e34en[6] === 'Scope' && (e34en[4] || '').includes('Claude decided this on 2026-11-13'))) bad.push('英語の王の正誤表 34');
+    if (!/^\| 2026-11-13（日本時間） \| 叙任の規程「外国の称号を縛る国」の表に、オーストリア・ギリシャ・イエメンを足す（2026-11-22 から）。[^|]+\| Austria, Greece and Yemen are added to the table/m.test(x['README.md'])) bad.push('年表の行がない');
+    return bad;
+  }
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const bad = verdict(real, WS);
+  ok('型で「当たらない」に分けた称号の条の読み直し：取り寄せた法律の出典と決め、記録の節（決めた者と理由・表・件数・型ごとの数）、規程と利用規約の予告、王の正誤表 34、年表が、日本語と英語でそろう', bad.length === 0, bad.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const S2 = (f) => { const T = JSON.parse(JSON.stringify(WS)); f(T); return T; };
+  const breaks = [
+    ['貴族の廃止の法律の取り寄せを失敗にする', real, S2((T) => { T.data['AUT.json'].sources[SRC].error = 'x'; })],
+    ['貴族の廃止の法律に別の所在を足す（取り寄せ直した出典の数が動く）', real, S2((T) => { T.sources.codes.find((c) => c.id === SRC).alt = ['https://example.org/']; })],
+    ['第2条の決めを当たらないにする', real, S2((T) => { T.decisions.provisions['AUT-adelaufhg § 2'].class = 'does not apply'; })],
+    ['記録の節の見出しを変える', mut(REC, SEC, '\n## 2026-11-12 の続き：八度目\n'), WS],
+    ['記録から決めた理由を外す', mut(REC, '型の決めは文の型を見るだけで、条が誰を縛るかや、他の法律を取り込むかまでは見ないためです。', '型の決めは文の型を見るだけです。'), WS],
+    ['記録の判定の数を変える', mut(REC, '漏れ 4 件、表現 1 件', '漏れ 3 件、表現 1 件'), WS],
+    ['記録の表の判定を五つのほかにする', mut(REC, '「型で分けた条は、一つずつは読んでいません」とだけ書いていた | 表現 |', '「型で分けた条は、一つずつは読んでいません」とだけ書いていた | 軽微 |'), WS],
+    ['記録の型ごとの数を変える', mut(REC, '制服や一様の語の型が 97 件', '制服や一様の語の型が 96 件'), WS],
+    ['記録の国の数を変える', mut(REC, '15 か国から 18 か国', '15 か国から 17 か国'), WS],
+    ['記録から弁護士の文を外す', mut(REC, '\nこの節も、弁護士の確認は受けていません。\n\n## 残る限り', '\n## 残る限り'), WS],
+    ['規程から足した国の文を外す', mut('policies/knighting.md', '表のうちイエメン・オーストリア・ギリシャは、2026-11-13 に Claude が足しました。', ''), WS],
+    ['英語の規程から足した国の文を外す', mut('policies/knighting.en.md', 'Austria, Greece and Yemen were added to the table by Claude on 2026-11-13', 'Countries were added'), WS],
+    ['利用規約の予告を外す', mut('policies/terms.md', '予告：2026-11-22 から、叙任の規程「外国の称号を縛る国」の表に、イエメン・オーストリア・ギリシャを足します。', ''), WS],
+    ['英語の利用規約の予告を外す', mut('policies/terms.en.md', 'Notice: from 2026-11-22, Yemen, Austria and Greece are added', 'Yemen, Austria and Greece are added'), WS],
+    ['王の正誤表 34 から改める前の文を外す', mut('ERRATA.md', OLD_FORM, ''), WS],
+    ['英語の王の正誤表 34 の分類を変える', mut('ERRATA.en.md', '| Scope | Insula Finis XIV |', '| Fact | Insula Finis XIV |'), WS],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 叙任の規程「外国の称号を縛る国」の表に、', '| 2026-11-13（日本時間） | 規程の表に、'), WS],
+    ['調べの README から決めを外す', mut('verification/world/README.md', '称号・栄典の主題の条は、2026-11-13 から、型の決めだけで分けません。', ''), WS],
+  ];
+  const caught = breaks.filter(([, x, S]) => verdict(x, S).length > 0).map(([k]) => k);
+  ok('壊して確かめる：取り寄せの失敗・別の所在・決め・記録の見出し・理由・判定の数と形・型ごとの数・国の数・弁護士の文・規程と利用規約（日本語と英語）・王の正誤表 34・年表・README のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');

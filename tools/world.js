@@ -23,7 +23,9 @@
  *   node tools/world.js coverage                     rebuild verification/world/coverage.json from data/ (no fetch)
  *   node tools/world.js spans                        replace the text of provisions of spans_only sources by their spans
  *                                                    (only where the text is still there; a changed rule needs a new fetch)
- *   WORLD_BATCH=probe node tools/world.js            print what each address of request.json answers
+ *   WORLD_BATCH=probe node tools/world.js            print what each address of request.json answers (the first
+ *                                                    "len" characters of request.json, 400 when it gives none,
+ *                                                    from 300 before "find" when request.json gives it)
  */
 'use strict';
 const fs = require('fs');
@@ -102,13 +104,19 @@ const HEAD_SV = /^(\d+\s?[a-z]?\s?§)(?=\s|$)/;
 const HEAD_JA = /^(第[〇一二三四五六七八九十百千]+条(?:の[〇一二三四五六七八九十]+)*)/;
 const PART = /^(?:(?:Erster|Zweiter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter|Zehnter|Elfter|Zwölfter|Dreizehnter|Vierzehnter|Fünfzehnter) (?:Titel|Abschnitt|Unterabschnitt)|Besonderer Teil|Allgemeiner Teil|Nichtamtliches Inhaltsverzeichnis|Titel [IVXLC]+[A-Z]?\b|(?:Eerste|Tweede|Derde|Vierde) Boek)|^(CHAPTER|Chapter|PART|Part|Division|Subdivision|Schedule|SCHEDULE|TITLE|Title|TÍTULO|Título|CAPÍTULO|Capítulo|TITRE|Titre|CHAPITRE|Chapitre|TITOLO|Titolo|CAPO|Capo|Kapitel|KAPITEL|Abschnitt|ABSCHNITT|Hoofdstuk|HOOFDSTUK|Afdeling|Kapittel|Глава|Раздел)\b|^第[〇一二三四五六七八九十百]+[編章節款]/;
 
-/* Splits a run of lines into articles. A line that is only a chapter or part heading closes the article before it. */
-function splitLines(ls, lang) {
+/* Splits a run of lines into articles. A line that is only a chapter or part heading closes the article before it.
+ * A source may name lines to leave out before splitting (drop: the number of a paragraph alone in a table of data about
+ * the document, which would otherwise open an article of its own) and lines that close the article (stop: the notes
+ * and data that a database prints after the text). */
+function splitLines(ls, lang, s = {}) {
+  const drop = s.drop ? new RegExp(s.drop, 'u') : null, stop = s.stop ? new RegExp(s.stop, 'u') : null;
   const arts = [];
   let cur = null;
   const close = () => { if (cur && cur.paras.join('').length > cur.label.length + 2) arts.push(cur); cur = null; };
   for (const l of ls) {
     let m;
+    if (drop && drop.test(l)) continue;
+    if (stop && stop.test(l)) { close(); continue; }
     if ((m = HEAD.exec(l)) || ((lang === 'sv' || lang === 'da') && (m = HEAD_SV.exec(l))) || (lang === 'ja' && (m = HEAD_JA.exec(l)))) {
       close();
       cur = { label: (m[2] ? m[1] + ' ' + m[2] : m[1]).replace(/\s+/g, ' '), paras: [l] };
@@ -343,7 +351,7 @@ function split(s, text, pdf) {
   if (s.format === 'section') return splitSection(lines(text).join(' '), s);
   if (s.format === 'numbered') return splitNumbered(lines(text));
   if (pdf || s.format === 'inline') return splitInline(flat(text));
-  return splitLines(lines(text), s.lang);
+  return splitLines(lines(text), s.lang, s);
 }
 
 async function fetchSource(s) {
@@ -499,7 +507,7 @@ async function codes(sources) {
   }
 }
 
-async function probe(urls) {
+async function probe(urls, len, find) {
   for (const u of urls) {
     const r = await get(u);
     if (r.error) { console.log('PROBE', u, 'ERROR', r.error); continue; }
@@ -514,8 +522,9 @@ async function probe(urls) {
       continue;
     }
     const body = process.env.RAW ? t.replace(/\s+/g, ' ') : flat(t);
-    const from = process.env.RAW_FIND ? Math.max(0, body.indexOf(process.env.RAW_FIND) - 300) : +(process.env.RAW_FROM || 0);
-    console.log('  HEAD ' + body.slice(from, from + +(process.env.RAW_LEN || 400)));
+    const want = process.env.RAW_FIND || find;
+    const from = want ? Math.max(0, body.indexOf(want) - 300) : +(process.env.RAW_FROM || 0);
+    console.log('  HEAD ' + body.slice(from, from + +(process.env.RAW_LEN || len || 400)));
   }
 }
 
@@ -632,7 +641,7 @@ async function main() {
   const [batch, only] = spec.split(':');
   const pick = only ? only.split(',') : null;
   const single = (s) => s.countries.length === 1;
-  if (batch === 'probe') return probe(req.probe || []);
+  if (batch === 'probe') return probe(req.probe || [], req.len, req.find);
   if (batch === 'src') return codes(CONF.codes.filter((s) => pick.includes(s.id)));
   if (batch === 'shared') return codes(CONF.codes.filter((s) => !single(s) && (!pick || pick.includes(s.id))));
   if (batch === 'japan') return codes(CONF.codes.filter((s) => single(s) && s.countries[0] === 'JPN' && (!pick || pick.includes(s.id))));
