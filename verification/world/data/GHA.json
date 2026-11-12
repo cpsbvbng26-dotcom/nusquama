@@ -1,6 +1,7 @@
 {
  "country": "GHA",
  "sources": {
+  "GHA-dpa": {"instrument":"Data Protection Act, 2012 (Act 843)","kind":"code","lang":"en","url":"https://ghalii.org/akn/gh/act/2012/843","fetched":"2026-11-12","topics":["data"],"official":"GhaLII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / archive：HTTP 404"},
   "constitute": {"instrument":"Ghana 1992 (rev. 1996)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Ghana_1996&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Ghana_1996&lang=en","status":200,"length":318241,"sha256_full":"20955c12cad9f21a76c556d5943497318e7619012e7b79ef17de6ad2b2b84cd6","articles":349,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Ghana_1996","title":"Ghana 1992 (rev. 1996)","year_enacted":"1992","year_updated":"1996","page":"https://www.constituteproject.org/constitution/Ghana_1996?lang=en"}
  },
  "provisions": [

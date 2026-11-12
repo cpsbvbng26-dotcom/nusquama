@@ -1,6 +1,7 @@
 {
  "country": "ZWE",
  "sources": {
+  "ZWE-dpa": {"instrument":"Data Protection Act [Chapter 12:07]","kind":"code","lang":"en","url":"https://zimlii.org/akn/zw/act/2021/5","fetched":"2026-11-12","topics":["data"],"official":"ZimLII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / archive：条に分けられない"},
   "constitute": {"instrument":"Zimbabwe 2013 (rev. 2021)","kind":"constitution","lang":"en","url":"https://www.constituteproject.org/service/html?cons_id=Zimbabwe_2021&lang=en","fetched":"2026-11-12","topics":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"official":"Constitute Project（英訳）","via":"direct","final":"https://www.constituteproject.org/service/html?cons_id=Zimbabwe_2021&lang=en","status":200,"length":338837,"sha256_full":"cefe94778c0a52a4658ec75dc34db51a9b02d0dc4848702e07c7385c9fd8d1b9","articles":387,"searched":["honours","sovereignty","symbols","fraud","data","defamation","quotation"],"constitute_id":"Zimbabwe_2021","title":"Zimbabwe 2013 (rev. 2021)","year_enacted":"2013","year_updated":"2021","page":"https://www.constituteproject.org/constitution/Zimbabwe_2021?lang=en"}
  },
  "provisions": [

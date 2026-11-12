@@ -1,6 +1,7 @@
 {
  "country": "TZA",
  "sources": {
+  "TZA-pdpa": {"instrument":"Personal Data Protection Act, 2022","kind":"code","lang":"en","url":"https://tanzlii.org/akn/tz/act/2022/11","fetched":"2026-11-12","topics":["data"],"official":"TanzLII（法情報機関による写し、公式ではない）","error":"direct：HTTP 403 / archive：HTTP 404"},
   "constitute": {"kind":"constitution","instrument":"Constitution","error":"Constitute の一覧に、この国の効力のある憲法の英文が見当たらない","fetched":"2026-11-12"}
  },
  "provisions": [
