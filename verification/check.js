@@ -35,7 +35,7 @@ console.log('\n2. どの頁も創作だと断る');
   const readme = read('README.md');
   ok('README の冒頭が、創作であること・無関係であること・効力がないことを断る',
     readme.indexOf('> これは創作であり、遊びです。') > 0 && readme.indexOf('> これは創作であり、遊びです。') < readme.indexOf('## ')
-    && readme.includes('いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく') && readme.includes('ここで授ける称号に、法的な効力はありません。') && readme.includes('> 悪意はなく、法令を守って運営しています。'));
+    && readme.includes('いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく') && readme.includes('> ここで贈る騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。') && !readme.includes('ここで授ける称号') && readme.includes('> 悪意はなく、法令を守って運営しています。'));
   for (const [src, dst] of B.SOURCES.concat([['', '404.html']])) {
     const html = read('site/' + dst);
     const has = dst === 'index.html' ? html.includes('これは創作であり、遊びです。') : html.includes('<p class="notice">' + (dst.endsWith('.en.html') ? B.NOTICE_EN : B.NOTICE) + '</p>');
@@ -786,7 +786,7 @@ console.log('\n32. 物語・言葉・仕組み・紹介・遊び・しるし');
     ok('紹介に添える段落の数（' + (pj.length - 1) + '）が、文に書いた数と同じ（日本語と英語）', nj > 0 && nj === pj.length - 1 && ne === pe.length - 1 && nj === ne, mj ? mj[1] : '数が見つからない');
   }
   ok('紹介に添える文は、創作であることと、運営者のほかの活動と関係がないことを書く（日本語と英語）',
-    read('PRESS.md').includes('これは創作であり、遊びです。ヌスクァマは国家ではなく、ここで授ける称号に法的な効力はありません。') && read('PRESS.md').includes('ヌスクァマは遊びの創作です。運営者のほかの活動とは関係がありません。')
+    read('PRESS.md').includes('これは創作であり、遊びです。ヌスクァマは国家ではなく、ここで贈る騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。') && !read('PRESS.md').includes('ここで授ける称号') && read('PRESS.md').includes('ヌスクァマは遊びの創作です。運営者のほかの活動とは関係がありません。')
     && read('PRESS.en.md').includes('Nusquama is a playful fiction. It has no connection with the operator\'s other activities.'));
   const inst = read('INSTITUTIONS.md');
   const sec = (h) => { const i = inst.indexOf('\n## ' + h + '\n'); return i < 0 ? '' : inst.slice(i + 1, inst.indexOf('\n## ', i + 5) < 0 ? undefined : inst.indexOf('\n## ', i + 5)); };
@@ -1708,6 +1708,115 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
   ok('王の正誤表に、前の文と、利用者が決めたことと Claude が決めた細目を、理由とともに記し、年表に行がある（日本語と英語）',
     !!ej && ej.kind.ja === '範囲' && ej.wrong.includes('国籍は問いません。') && (ej.right.match(/2026-11-12 に利用者が決めました。/g) || []).length === 2 && (ej.right.match(/2026-11-12 に Claude が決めました。/g) || []).length === 2
     && (ej.en[4] || '').includes('The owner decided this on 2026-11-12.') && B.timelineRows().some((r) => r[0].startsWith('2026-11-12') && r[1].includes('イタリアの国籍を持つ人') && r[1].includes('良識ある人') && r[2].includes('Italian nationality')));
+}
+
+console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、外国の法令に触れる点を減らす言い方（2026-11-12）');
+{
+  /* 点検で取り寄せられなかった文と、条を解釈する公の文書を取り寄せ、確かめ直した表を点検の記録に置いた。
+   * 表は六つの欄で、判定は五つのどれか。判定ごとの件数は表から数えたとおり（決めごと 5）。「法令と条」は見張りの表か一次資料の表にある。
+   * 引いた文は、一次資料の表の文と一字一句同じで、表の文は、取り寄せた窓（SHA-256 を記した）にそのまま現れる。
+   * 「授ける称号」を「贈る騎士の呼び名」に改め、勲章・栄典・騎士の位ではないと書いた文と、個人情報の取り扱いに足した文が、日本語と英語にそろう。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const crypto = require('crypto');
+  const F62 = 'docs/legal-audit-2026-11-12.md';
+  const S62 = JSON.parse(read('verification/statutes.json'));
+  const files = [F62, 'verification/sources.json', 'verification/sources-raw.json', 'policies/terms.md', 'policies/terms.en.md', 'policies/knighting.md', 'policies/knighting.en.md',
+    'KNIGHTS.md', 'KNIGHTS.en.md', 'README.md', 'PRESS.md', 'PRESS.en.md', '.github/ISSUE_TEMPLATE/knighting.yml', 'build.js', 'policies/privacy.md', 'policies/privacy.en.md',
+    'policies/legality.md', 'policies/legality.en.md', 'policies/exchange.md', 'policies/exchange.en.md'];
+  const NAME_JA = '騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。';
+  const NAME_EN = 'are not decorations, honours or ranks of knighthood, and have no legal effect.';
+  const KINDS62 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const squeeze = (x) => x.replace(/ ([).,;])/g, '$1');
+  const sha = (x) => crypto.createHash('sha256').update(x, 'utf8').digest('hex');
+  function verdict(x) {
+    const bad = [];
+    const a = x[F62];
+    const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j);
+    const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
+    if (heads.slice(-4).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
+    const table = t0 < 0 ? '' : sec.slice(t0, t1);
+    const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (!table.includes('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n') || rows.length < 20 || !rows.every((r) => r.length === 6 && KINDS62.includes(r[4]))) bad.push('確かめ直した表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(table) || [])[1]);
+    if (!KINDS62.every((k) => said(k) === rows.filter((r) => r[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(table) || [])[1]) !== rows.length) bad.push('確かめ直した表の件数');
+    const P = JSON.parse(x['verification/sources.json']), R = JSON.parse(x['verification/sources-raw.json']);
+    const have = new Set(S62.statutes.map((e) => e.name + ' ' + e.article.replace('_', 'の')));
+    const names = [...new Set(S62.statutes.map((e) => e.name))].sort((p, q) => q.length - p.length);
+    const keys = Object.keys(P.sources).map((k) => k.replace(/\s+/g, ''));
+    for (const r of rows) for (const piece of r[1].split('、')) {
+      const law = names.find((n) => piece.startsWith(n));
+      if (law) { for (const m of piece.slice(law.length).matchAll(/第(\d+)条(?:の(\d+))?/g)) if (!have.has(law + ' ' + m[1] + (m[2] ? 'の' + m[2] : ''))) bad.push('見張りの表にない条：' + piece); }
+      else if (!keys.includes(piece.replace(/\s+/g, '')) && !keys.some((k) => k.endsWith(piece.replace(/\s+/g, '')))) bad.push('一次資料の表にない：' + piece);
+    }
+    /* 引いた文：印の名は一次資料の表にあり、引用は表の文と一字一句同じ。表の文は、SHA-256 を記した取り寄せた窓に現れる。 */
+    const quotes = [...sec.matchAll(/<!-- 原文 (.+?) -->\n> (.+)\n/g)];
+    const fresh = Object.keys(P.sources).filter((k) => P.sources[k].window_sha256);
+    if (fresh.length < 30 || !fresh.every((k) => quotes.some((q) => q[1] === k))) bad.push('引いていない文がある');
+    for (const [, k, q] of quotes) {
+      const v = P.sources[k];
+      if (!v || v.quote !== q) { bad.push('引用が表と違う：' + k); continue; }
+      const w = ((R.sources[v.from] || {}).windows || []).find((y) => squeeze(y).includes(v.quote));
+      if (!w || (v.window_sha256 && sha(w) !== v.window_sha256)) bad.push('取り寄せた窓と違う：' + k);
+    }
+    /* 取り寄せた文から読める事実：除外の一覧に 1951 年法律第 178 号がなく、米州機構の一覧に日本がない。 */
+    const win = (key) => ((R.sources[key] || {}).windows || []).join(' ');
+    if (!win('italy-depenalizzazione-allegato').includes('Proprieta\' intellettuale e industriale') || /3 marzo 1951/.test(win('italy-depenalizzazione-allegato'))) bad.push('除外の一覧の全体が窓にない、または 1951 年法律第 178 号が載っている');
+    if (!win('montevideo-parties').includes('Venezuela') || /Japan/.test(win('montevideo-parties'))) bad.push('米州機構の一覧の全体が窓にない、または日本が載っている');
+    /* 取り寄せられなかった文は、書いた数のとおりに並ぶ。 */
+    const k0 = a.indexOf('\n## 取り寄せられなかった文\n'), k1 = a.indexOf('\n## ', k0 + 5);
+    const miss = k0 < 0 ? '' : a.slice(k0, k1);
+    const nMiss = miss.split('\n').filter((l) => l.startsWith('- ')).length;
+    if (!miss.includes('いまも公式の所在から取り寄せられないものは、次の ' + nMiss + ' 件です。') || nMiss < 1 || /Q1-62|当事国の一覧（米州機構）|第164条第1項第3号の指定/.test(miss)) bad.push('取り寄せられなかった文の数と中身');
+    /* 言い方：贈る騎士の呼び名。前の「授ける称号」はどこにも残らない。 */
+    const need = (f, list) => list.forEach((s) => { if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 30)); });
+    need('README.md', ['> ここで贈る' + NAME_JA]);
+    need('PRESS.md', ['ヌスクァマは国家ではなく、ここで贈る' + NAME_JA]);
+    need('PRESS.en.md', ['Nusquama is not a state, and the knightly names it gives ' + NAME_EN]);
+    need('.github/ISSUE_TEMPLATE/knighting.yml', ['ここで贈る' + NAME_JA, '下の誓いで同意する前に、その節を確かめてください。']);
+    need('build.js', ["ここで贈る" + NAME_JA + "';", 'The knightly names it gives ' + NAME_EN + "';"]);
+    need('policies/terms.md', ['叙任は、どの国の勲章・栄典・騎士の位（騎士団の位を含みます）を授けるものでもなく、']);
+    need('policies/terms.en.md', ['Knighting does not confer a decoration, honour or rank of knighthood (including a rank in an order) of any country;']);
+    need('policies/knighting.md', ['叙任は、どの国の勲章・栄典・騎士の位を授けるものでもありません。']);
+    need('policies/knighting.en.md', ['Knighting does not confer a decoration, honour or rank of knighthood of any country.']);
+    need('KNIGHTS.md', ['> 騎士の呼び名は、どの国の勲章・栄典・騎士の位でもありません。']);
+    need('KNIGHTS.en.md', ['> The name of knight is not a decoration, honour or rank of knighthood of any country.']);
+    need('policies/exchange.md', ['ヌスクァマが贈るのは、叙任の規程による騎士の呼び名だけです。']);
+    need('policies/exchange.en.md', ['The only thing Nusquama gives is the name of knight under the Rules on Knighting.']);
+    for (const f of ['README.md', 'PRESS.md', '.github/ISSUE_TEMPLATE/knighting.yml', 'build.js', 'policies/exchange.md']) if (/授ける称号に|ヌスクァマが授けるのは/.test(x[f])) bad.push(f + '：前の文言「授ける称号」が残る');
+    for (const f of ['PRESS.en.md', 'build.js', 'policies/exchange.en.md']) if (/the titles it gives have no legal effect|The titles it gives have no legal effect|gives is knighthood under/.test(x[f])) bad.push(f + '：前の英語の文言が残る');
+    /* 個人情報の取り扱い：米国の制度の調べと、両社の措置を確かめられないこと（日本語と英語）。 */
+    need('policies/privacy.md', ['米国は EU の十分性認定を受けておらず、APEC の CBPR システムに 2012 年 7 月 25 日から参加しています。', '運営者には確かめられません。', '（個人情報保護法施行規則第17条第4項）']);
+    need('policies/privacy.en.md', ['has no adequacy decision of the EU and has taken part in the APEC CBPR system since 25 July 2012.', 'The operator cannot confirm whether GitHub and Vercel take all the measures', '(Article 17(4) of the Enforcement Rules']);
+    /* 適法性の説明：取り寄せて確かめたことを、確かめていないと書かない（日本語と英語）。 */
+    need('policies/legality.md', ['刑法典第 10 条は、外国人の国外の罪を、下限が一年以上の拘禁刑の罪などに限るので', '批准の寄託先である[米州機構（OAS）の一覧]', '州法の条は、Internet Archive の写しで確かめた（点検の記録）。', '総務省の参入マニュアルは、自らの情報だけを発信するサイトと問合せの受付を、事業に当たらないとする。']);
+    need('policies/legality.en.md', ['Article 10 of the Italian Penal Code punishes crimes of foreigners abroad only where', 'which holds the ratifications.', 'was read on 2026-11-12 in an Internet Archive copy', "The Ministry's entry manual (supplement) treats a website"]);
+    if (/刑法典第 10 条を取り寄せられず|寄託者である\[米州機構|読んでいない。|この点は確かめていない。/.test(x['policies/legality.md'])) bad.push('適法性の説明に前の文が残る');
+    return bad;
+  }
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const bad = verdict(real);
+  ok('点検の続きの表・引いた文・取り寄せられなかった文、「贈る騎士の呼び名」と個人情報の取り扱いに足した文が、取り寄せた文と日本語と英語にそろう', bad.length === 0, bad.join(' / '));
+  const mut = (f, p, q) => Object.assign({}, real, { [f]: real[f].replace(p, q) });
+  const P0 = JSON.parse(real['verification/sources.json']);
+  const k10 = 'イタリア 刑法典 第10条';
+  const breaks = [
+    ['引いた文を一字変える', mut(F62, '> ' + P0.sources[k10].quote, '> ' + P0.sources[k10].quote.replace('un anno', 'due anni'))],
+    ['一次資料の表の文を一字変える', mut('verification/sources.json', P0.sources[k10].quote, P0.sources[k10].quote.replace('un anno', 'due anni'))],
+    ['窓の SHA-256 を変える', mut('verification/sources.json', P0.sources[k10].window_sha256, '0'.repeat(64))],
+    ['判定の数を変える', mut(F62, '問題なし 13 件で、合わせて 21 件です。', '問題なし 14 件で、合わせて 21 件です。')],
+    ['表に一次資料の表にない文書を挙げる', mut(F62, '| イタリア 刑法典 第10条 |', '| イタリア 刑法典 第11条 |')],
+    ['取り寄せられなかった文の数を変える', mut(F62, '次の 5 件です。', '次の 4 件です。')],
+    ['README を前の文言に戻す', mut('README.md', '> ここで贈る' + NAME_JA, '> ここで授ける称号に、法的な効力はありません。')],
+    ['頁の断りを前の文言に戻す', mut('build.js', "ここで贈る" + NAME_JA + "';", "ここで授ける称号に、法的な効力はありません。';")],
+    ['名簿の断りを外す', mut('KNIGHTS.en.md', '> The name of knight is not a decoration, honour or rank of knighthood of any country.\n', '')],
+    ['個人情報の取り扱いから両社の措置の文を外す', mut('policies/privacy.md', '運営者には確かめられません。', '')],
+    ['適法性の説明を前の文に戻す', mut('policies/legality.md', '州法の条は、Internet Archive の写しで確かめた（点検の記録）。', '州の法令の頁は、機械からの取得を止める仕組みがあるので、読んでいない。')],
+    ['除外の一覧に 1951 年法律第 178 号を載せる', mut('verification/sources-raw.json', 'Proprieta\' intellettuale e industriale', 'Legge 3 marzo 1951, n. 178. Proprieta\' intellettuale e industriale')],
+  ];
+  const caught = breaks.filter(([, x]) => verdict(x).length > 0).map(([n]) => n);
+  ok('壊して確かめる：引用・表・窓の値・件数・言い方・足した文・前の文に戻す、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));
