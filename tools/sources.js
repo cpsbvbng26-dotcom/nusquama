@@ -71,7 +71,8 @@ async function main() {
         r.bytes = buf.length;
         const tmp = require('os').tmpdir() + '/x.pdf';
         fs.writeFileSync(tmp, buf);
-        try { text = require('child_process').execFileSync('pdftotext', ['-layout', tmp, '-'], { encoding: 'utf8', maxBuffer: 1 << 28 }); } catch (e) { r.pdferr = String(e.message); text = ''; }
+        try { text = require('child_process').execFileSync('sh', ['-c', 'command -v pdftotext && pdftotext -layout ' + tmp + ' - || echo NO_PDFTOTEXT'], { encoding: 'utf8', maxBuffer: 1 << 28 }); } catch (e) { r.pdferr = String(e.message); text = ''; }
+        if (0) try { text = require('child_process').execFileSync('pdftotext', ['-layout', tmp, '-'], { encoding: 'utf8', maxBuffer: 1 << 28 }); } catch (e) { r.pdferr = String(e.message); text = ''; }
       } else {
         const html = await res.text();
         if (s.links) r.links = [...new Set([...html.matchAll(/href=["']([^"']+)["']/g)].map((m) => m[1]).filter((h) => s.links.test(h)))].slice(0, 400);
