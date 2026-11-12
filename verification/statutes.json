@@ -405,6 +405,294 @@
       "article": "17",
       "title": "個人情報の保護に関する法律施行規則",
       "sha256": "04c0bd7b768b36214f8acdd85da02def040874b70b2a5c7165e1d48df7d6a377"
+    },
+    {
+      "name": "刑法",
+      "label": "第7条",
+      "law_id": "140AC0000000045",
+      "article": "7",
+      "sha256": "9b2760cd0766a1138da09070363357f7545ebe6c5718f26a7f6b764c8256db3a",
+      "title": "刑法"
+    },
+    {
+      "name": "刑法",
+      "label": "第62条",
+      "law_id": "140AC0000000045",
+      "article": "62",
+      "sha256": "809fce0b26d94cd9cea7cfa50fec1cfc8c3c3819289ab772133385a19203bf01",
+      "title": "刑法"
+    },
+    {
+      "name": "刑法",
+      "label": "第159条",
+      "law_id": "140AC0000000045",
+      "article": "159",
+      "sha256": "b92cf163e70b18095582b1cc85f1cc80a7b34a2dc46c895efbce295f758f5f35",
+      "title": "刑法"
+    },
+    {
+      "name": "民法",
+      "label": "第4条",
+      "law_id": "129AC0000000089",
+      "article": "4",
+      "sha256": "c7f84c4a803d00dcde3f1fb75e65abbe7d3f59bc483ae69bb8cd1c32f65e1fd2",
+      "title": "民法"
+    },
+    {
+      "name": "民法",
+      "label": "第548条の3",
+      "law_id": "129AC0000000089",
+      "article": "548_3",
+      "sha256": "a885dc7b1d4c7b6c0b8540185aed7945ac58de577ce9ac4affb065f0bb9bf069",
+      "title": "民法"
+    },
+    {
+      "name": "民法",
+      "label": "第548条の4",
+      "law_id": "129AC0000000089",
+      "article": "548_4",
+      "sha256": "eaa6f8148934472095601c59fdf8ea7304519a550991208c805b9ef148f7cd0e",
+      "title": "民法"
+    },
+    {
+      "name": "消費者契約法",
+      "label": "第3条",
+      "law_id": "412AC0000000061",
+      "article": "3",
+      "sha256": "b33c20e112f271cc652f5e249dfc179b3aa18a8cb6fb80e84f63918be33a37fa",
+      "title": "消費者契約法"
+    },
+    {
+      "name": "消費者契約法",
+      "label": "第8条の2",
+      "law_id": "412AC0000000061",
+      "article": "8_2",
+      "sha256": "2dad1f9bb63baedaf8345c661f6a953897d9b3b346b6c4b2a1de1fae46c63e0a",
+      "title": "消費者契約法"
+    },
+    {
+      "name": "消費者契約法",
+      "label": "第8条の3",
+      "law_id": "412AC0000000061",
+      "article": "8_3",
+      "sha256": "966857117514fcc2aba70f7f9100019648ce6b7c8a91268b082870e9af0a7132",
+      "title": "消費者契約法"
+    },
+    {
+      "name": "消費者契約法",
+      "label": "第9条",
+      "law_id": "412AC0000000061",
+      "article": "9",
+      "sha256": "97d26ffe8a5818e4177677d24962e6372e7556985aadb1581232afcd16a447d4",
+      "title": "消費者契約法"
+    },
+    {
+      "name": "民事訴訟法",
+      "label": "第3条の4",
+      "law_id": "408AC0000000109",
+      "article": "3_4",
+      "sha256": "cc7424c6d0f24261f65e31220d5ffc0a9dfd545896b459e8bf18570cbde484ea",
+      "title": "民事訴訟法"
+    },
+    {
+      "name": "民事訴訟法",
+      "label": "第4条",
+      "law_id": "408AC0000000109",
+      "article": "4",
+      "sha256": "91dfb689b9b1dad769138397378cd64e7c7faaa69b746bf4dd9a7bdc8a5f4677",
+      "title": "民事訴訟法"
+    },
+    {
+      "name": "民事訴訟法",
+      "label": "第5条",
+      "law_id": "408AC0000000109",
+      "article": "5",
+      "sha256": "25c66e84e629ecf316851e93887129e32cf962c7ac47a5c93449534099f233f5",
+      "title": "民事訴訟法"
+    },
+    {
+      "name": "民事訴訟法",
+      "label": "第17条",
+      "law_id": "408AC0000000109",
+      "article": "17",
+      "sha256": "89de48bfdf04d34479457bb728efd9aaf162c53ba21e7888ecac4a753b423694",
+      "title": "民事訴訟法"
+    },
+    {
+      "name": "民事訴訟法",
+      "label": "第20条",
+      "law_id": "408AC0000000109",
+      "article": "20",
+      "sha256": "f3c6aa89740bf2afe738cf02199cf56f0579249e7c8b399ae6a8715495ae6fd8",
+      "title": "民事訴訟法"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第2条",
+      "law_id": "415AC0000000057",
+      "article": "2",
+      "sha256": "dbb929584c0cc1037622a578c68615157e3e46dbc821526be1381d2de3a6e660",
+      "title": "個人情報の保護に関する法律"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第16条",
+      "law_id": "415AC0000000057",
+      "article": "16",
+      "sha256": "8d063767088475dc02c184570f20854841ac91e00fb935ed3320409ad99e5b17",
+      "title": "個人情報の保護に関する法律"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第24条",
+      "law_id": "415AC0000000057",
+      "article": "24",
+      "sha256": "d021b171175630a56f24c88975fec47ba2752a7fbcacbc636db08b6f74581038",
+      "title": "個人情報の保護に関する法律"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第29条",
+      "law_id": "415AC0000000057",
+      "article": "29",
+      "sha256": "49d365e449f8ad08d72fd847645b570d8f2c3fbb5f77057a67f7fb7c0c00bc33",
+      "title": "個人情報の保護に関する法律"
+    },
+    {
+      "name": "個人情報保護法",
+      "label": "第30条",
+      "law_id": "415AC0000000057",
+      "article": "30",
+      "sha256": "d7ba2cc656585e9593a9429bde68223c169d6541480ef3682fc4a5d154cd3c98",
+      "title": "個人情報の保護に関する法律"
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第19条",
+      "law_id": "428M60020000003",
+      "article": "19",
+      "sha256": "5a1173eceecdeaab4e78e728885b5a5898fb30c6c4db5f8cead59345d92c92aa",
+      "title": "個人情報の保護に関する法律施行規則"
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第20条",
+      "law_id": "428M60020000003",
+      "article": "20",
+      "sha256": "be2c1a16960f3df83f482f985db20cf0b15997cd5fd3819596969f6c958b4827",
+      "title": "個人情報の保護に関する法律施行規則"
+    },
+    {
+      "name": "個人情報保護法施行規則",
+      "label": "第21条",
+      "law_id": "428M60020000003",
+      "article": "21",
+      "sha256": "bad7ea8f2a1d7a6eb28e3d91e6075f95657cc3bbaba2c226278321f4291bd742",
+      "title": "個人情報の保護に関する法律施行規則"
+    },
+    {
+      "name": "著作権法",
+      "label": "第13条",
+      "law_id": "345AC0000000048",
+      "article": "13",
+      "sha256": "1ab0df8c056c46acb67ede3b8d3c7497631a8406cb4a775f4d9eee9aa6d16ce5",
+      "title": "著作権法"
+    },
+    {
+      "name": "著作権法",
+      "label": "第32条",
+      "law_id": "345AC0000000048",
+      "article": "32",
+      "sha256": "0ae16e1fbe69099cfd598017df1a0eb511934db3372be7a9e8c237675c04b66d",
+      "title": "著作権法"
+    },
+    {
+      "name": "著作権法",
+      "label": "第48条",
+      "law_id": "345AC0000000048",
+      "article": "48",
+      "sha256": "58a361c4aa7f7e8e05b7c3347e98d8af8ccbb684502998ba1f8a2c8f6d1de64e",
+      "title": "著作権法"
+    },
+    {
+      "name": "商標法",
+      "label": "第2条",
+      "law_id": "334AC0000000127",
+      "article": "2",
+      "sha256": "b06ac9f823b9df067b259bc34d5bd65cd9dbaf7951229e61ed307696286dfe14",
+      "title": "商標法"
+    },
+    {
+      "name": "商標法",
+      "label": "第26条",
+      "law_id": "334AC0000000127",
+      "article": "26",
+      "sha256": "4b00d912c91f47ee295e8984131a4702fafadaf607f0e68420739f27424eba5f",
+      "title": "商標法"
+    },
+    {
+      "name": "景品表示法",
+      "label": "第2条",
+      "law_id": "337AC0000000134",
+      "article": "2",
+      "sha256": "f8549bbb1f79bd86d839e27798623709a37f4f2391783d9674ed7e2ea0803c2f",
+      "title": "不当景品類及び不当表示防止法"
+    },
+    {
+      "name": "電気通信事業法",
+      "label": "第2条",
+      "law_id": "359AC0000000086",
+      "article": "2",
+      "sha256": "4064b3e89929c50e26651aa7921f148519f3fd568cff97dfafa2fb4079e1cd5a",
+      "title": "電気通信事業法"
+    },
+    {
+      "name": "電気通信事業法",
+      "label": "第9条",
+      "law_id": "359AC0000000086",
+      "article": "9",
+      "sha256": "650ded4ffa30141b89418a4444b85a310219497e72b141c9b31af4e636459ab5",
+      "title": "電気通信事業法"
+    },
+    {
+      "name": "電気通信事業法",
+      "label": "第16条",
+      "law_id": "359AC0000000086",
+      "article": "16",
+      "sha256": "07d3630ecf9d6bab163240758f19e942bdabad892c88679ebd5e6a85c7b36b9b",
+      "title": "電気通信事業法"
+    },
+    {
+      "name": "電気通信事業法",
+      "label": "第164条",
+      "law_id": "359AC0000000086",
+      "article": "164",
+      "sha256": "92771b4c4cef00196dd0fd7790cc486b29f64b680697deafb9a8f2483982446a",
+      "title": "電気通信事業法"
+    },
+    {
+      "name": "情報流通プラットフォーム対処法",
+      "label": "第2条",
+      "law_id": "413AC0000000137",
+      "article": "2",
+      "sha256": "1da0d7c061741204ca2cc9abbb754b6e29ab6ea67adb721d1019dc1c2eba8b24",
+      "title": "特定電気通信による情報の流通によって発生する権利侵害等への対処に関する法律"
+    },
+    {
+      "name": "情報流通プラットフォーム対処法",
+      "label": "第3条",
+      "law_id": "413AC0000000137",
+      "article": "3",
+      "sha256": "9f05c7e2fe9ecab1efe8ede9c10d514666a5608c63b71baff767ccf15e8f3f32",
+      "title": "特定電気通信による情報の流通によって発生する権利侵害等への対処に関する法律"
+    },
+    {
+      "name": "情報流通プラットフォーム対処法",
+      "label": "第5条",
+      "law_id": "413AC0000000137",
+      "article": "5",
+      "sha256": "b4f46f837cf149cc8a63706b95ca924ec0dd4d4b0acd8e5de6903917b0c7bdd6",
+      "title": "特定電気通信による情報の流通によって発生する権利侵害等への対処に関する法律"
     }
   ],
   "policies": [
@@ -421,5 +709,5 @@
       "commit": "87906da47c95eda1a39ccc01f31ea2602d263dbe"
     }
   ],
-  "recorded": "2026-11-08"
+  "recorded": "2026-11-12"
 }
