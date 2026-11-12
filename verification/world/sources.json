@@ -1252,7 +1252,7 @@
     "honours"
    ],
    "title": "Adelsaufhebungsgesetz",
-   "drop": "^§ \\d+[a-z]?$",
+   "drop": "^§ \\d+[a-z]?(?: Paragraph \\d+[a-z]?)?$",
    "stop": "^(?:Anmerkung|Beachte|Schlagworte|Zuletzt aktualisiert am)\\b",
    "official": "RIS（連邦首相府、公式）",
    "note": "憲法の第149条が憲法の法律とみなす法律。2026-11-13 に、第149条を一つずつ読み直すために足した。所在は、RIS の公開データの API（data.bka.gv.at）が答えた、この法律（Gesetzesnummer 10000036）の効力のある条（§ 1 から § 5 と § 7）の文書で、公開データの所在（ogd.ris.bka.gv.at）にある。§ 6 と前の版の § 5 は、API が効力を失ったと答えたので入れない。www.ris.bka.gv.at と、ogd.ris.bka.gv.at の法令全体の頁は、Actions からの求めに 503 を返した"
