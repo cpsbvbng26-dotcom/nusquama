@@ -111,14 +111,14 @@
   }
  },
  "keywords_dp": {
-  "en": "(?<![\\p{L}])(?:territor\\p{L}*|outside|abroad|foreign|overseas|not established|established in|representatives?|transfer\\p{L}*|cross-border|third countr\\p{L}*|child\\p{L}*|minors?|under the age|years of age|parental|guardians?|regist\\p{L}*|locali[sz]\\p{L}*|non-profit|not-for-profit|household|purely personal|journalis\\p{L}*|academic|research)(?![\\p{L}])",
+  "en": "(?<![\\p{L}])(?:territor\\p{L}*|outside|abroad|foreign|overseas|not established|established in|representatives?|transfer\\p{L}*|cross-border|third countr\\p{L}*|child\\p{L}*|minors?|under the age|parental|guardians?|regist\\p{L}*|locali[sz]\\p{L}*|non-profit|not-for-profit|journalis\\p{L}*|academic)(?![\\p{L}])",
   "ja": "外国|国外|域外|適用の範囲|適用除外|代理人|未成年|十六歳|十八歳|子ども|児童|学術研究|報道|著述|届出|定義",
-  "es": "(?<![\\p{L}])(?:transferencias?|internacional\\p{L}*|extranjer\\p{L}*|fuera del territorio|territori\\p{L}*|[áa]mbito|representante\\p{L}*|menor\\p{L}*|niñ\\p{L}*|adolescent\\p{L}*|registr\\p{L}*|period[íi]stic\\p{L}*|acad[ée]mic\\p{L}*|investigaci[óo]n|dom[ée]stic\\p{L}*)(?![\\p{L}])",
-  "pt": "(?<![\\p{L}])(?:transfer[êe]ncia\\p{L}*|internacional|estrangeir\\p{L}*|territ[óo]rio|[âa]mbito|representante\\p{L}*|encarregado|crian[çc]a\\p{L}*|adolescente\\p{L}*|registro\\p{L}*|jornal[íi]stic\\p{L}*|acad[êe]mic\\p{L}*|pesquisa\\p{L}*|particulares)(?![\\p{L}])",
-  "fr": "(?<![\\p{L}])(?:transferts?|pays tiers|hors (?:du territoire|de la principaut[ée]|de l.Union)|[ée]tabli\\p{L}*|territori\\p{L}*|repr[ée]sentant\\p{L}*|mineur\\p{L}*|enfants?|[âa]ge|d[ée]claration\\p{L}*|journalisti\\p{L}*|universitaire\\p{L}*|recherche\\p{L}*|domestique\\p{L}*)(?![\\p{L}])",
-  "de": "(?<![\\p{L}])(?:Anwendungsbereich|Drittl[aä]nd\\p{L}*|Übermittlung\\p{L}*|Vertreter\\p{L}*|Kind\\p{L}*|[Mm]inderjährig\\p{L}*|außerhalb|niedergelassen\\p{L}*|Niederlassung\\p{L}*|Forschung\\p{L}*|journalistisch\\p{L}*|persönlich\\p{L}*)(?![\\p{L}])",
-  "nl": "(?<![\\p{L}])(?:toepassingsgebied|derde land\\p{L}*|doorgifte|vertegenwoordiger\\p{L}*|kind\\p{L}*|minderjarig\\p{L}*|jonger dan|journalisti\\p{L}*|wetenschappelijk\\p{L}*|onderzoek\\p{L}*)(?![\\p{L}])",
-  "nb": "(?<![\\p{L}])(?:virkeområde|stedlig\\p{L}*|tredjeland\\p{L}*|overføring\\p{L}*|representant\\p{L}*|barn|mindreårig\\p{L}*|journalisti\\p{L}*|forskning\\p{L}*)(?![\\p{L}])",
+  "es": "(?<![\\p{L}])(?:transferencias?|internacional\\p{L}*|extranjer\\p{L}*|fuera del territorio|territori\\p{L}*|[áa]mbito|representante\\p{L}*|menor\\p{L}*|niñ\\p{L}*|adolescent\\p{L}*|registr\\p{L}*|period[íi]stic\\p{L}*|acad[ée]mic\\p{L}*)(?![\\p{L}])",
+  "pt": "(?<![\\p{L}])(?:transfer[êe]ncia\\p{L}*|internacional|estrangeir\\p{L}*|territ[óo]rio|[âa]mbito|representante\\p{L}*|encarregado|crian[çc]a\\p{L}*|adolescente\\p{L}*|registro\\p{L}*|jornal[íi]stic\\p{L}*|acad[êe]mic\\p{L}*)(?![\\p{L}])",
+  "fr": "(?<![\\p{L}])(?:transferts?|pays tiers|hors (?:du territoire|de la principaut[ée]|de l.Union)|[ée]tabli\\p{L}*|territori\\p{L}*|repr[ée]sentant\\p{L}*|mineur\\p{L}*|enfants?|[âa]ge|d[ée]claration\\p{L}*|journalisti\\p{L}*|universitaire\\p{L}*)(?![\\p{L}])",
+  "de": "(?<![\\p{L}])(?:Anwendungsbereich|Drittl[aä]nd\\p{L}*|Übermittlung\\p{L}*|Vertreter\\p{L}*|Kind\\p{L}*|[Mm]inderjährig\\p{L}*|außerhalb|niedergelassen\\p{L}*|Niederlassung\\p{L}*|journalistisch\\p{L}*)(?![\\p{L}])",
+  "nl": "(?<![\\p{L}])(?:toepassingsgebied|derde land\\p{L}*|doorgifte|vertegenwoordiger\\p{L}*|kind\\p{L}*|minderjarig\\p{L}*|jonger dan|journalisti\\p{L}*|wetenschappelijk\\p{L}*)(?![\\p{L}])",
+  "nb": "(?<![\\p{L}])(?:virkeområde|stedlig\\p{L}*|tredjeland\\p{L}*|overføring\\p{L}*|representant\\p{L}*|barn|mindreårig\\p{L}*|journalisti\\p{L}*)(?![\\p{L}])",
   "ru": "(?<![\\p{L}])(?:территори\\p{L}*|за пределами|трансграничн\\p{L}*|иностран\\p{L}*|представител\\p{L}*|несовершеннолет\\p{L}*|ребен\\p{L}*|граждан\\p{L}* Российской Федерации|баз\\p{L}* данных)(?![\\p{L}])"
  },
  "constitute": {
