@@ -213,7 +213,7 @@
       "by": [
         {
           "file": "policies/privacy.md",
-          "text": "運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。"
+          "text": "運営者の氏名と住所は、求めた人が自分の GitHub のプロフィールに公開している連絡先へ、遅滞なく知らせます。"
         },
         {
           "file": "policies/privacy.md",
