@@ -331,7 +331,7 @@ async function fetchSource(s) {
       }
     }
     if (!arts.length) { notes.push(via + '：条に分けられない'); continue; }
-    /* Editorial notes of a database (Justel's "<L 2000-06-26/42, art. 2, En vigueur : 01-01-2002>") are not the article's
+    /* Editorial notes of a database (Justel's "<L …, art. …, En vigueur : …>") are not the article's
      * text; a source names them in strip, and they are taken out of every paragraph before it is searched. */
     if (s.strip) { const st = new RegExp(s.strip, 'g'); for (const a of arts) { a.paras = a.paras.map((x) => x.replace(st, ' ').replace(/\s+/g, ' ').trim()); if (a.caption) a.caption = a.caption.replace(st, ' ').trim(); } }
     const topics = rec.topics.filter((t) => searchable(t, s.lang, s));
