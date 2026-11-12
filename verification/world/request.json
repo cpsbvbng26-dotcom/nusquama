@@ -1,4 +1,10 @@
 {
   "_": "枝でこのファイルを書き換えると、world.yml が batch の組を取り寄せる。手で動かすときは、ワークフローの入力 batch が先に立つ。",
-  "batch": "src:AUT-adelaufhg"
+  "batch": "probe",
+  "len": 3000,
+  "find": "Text",
+  "probe": [
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000678/NOR12000678.html",
+    "https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12000687/NOR12000687.html"
+  ]
 }
