@@ -1,12 +1,12 @@
 name: 一次資料の取り寄せ
 
-# 探り（2026-11-13、十一度目の見落とし）：明治十六年太政官達第二十七号の本文を e-Gov 法令 API から取り寄せ、条ごとに記録へ書き出す。
-# main には入れない。何も押さない。
+# 探り（2026-11-13、十一度目の見落とし）：官報の発行に関する法律の第1条・第2条・第16条・第18条から第21条を、
+# 見張り（tools/statutes.js）と同じ手順で e-Gov 法令 API から取り寄せ、条文と SHA-256 を探りの枝にだけ記す。main には入れない。
 on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   fetch:
@@ -19,24 +19,28 @@ jobs:
           node-version: 22
       - run: |
           node -e '
-          const crypto = require("crypto");
+          const fs = require("fs"), crypto = require("crypto");
           const UA = { "User-Agent": "nusquama (https://github.com/cpsbvbng26-dotcom/nusquama)" };
           const plain = (x) => x.replace(/<Rt>[^<]*<\/Rt>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
           const sha = (x) => crypto.createHash("sha256").update(x, "utf8").digest("hex");
           (async () => {
-            const list = await (await fetch("https://laws.e-gov.go.jp/api/1/lawlists/1", { headers: UA })).text();
-            const hits = [];
-            for (const m of list.matchAll(/<LawNameListInfo>([\s\S]*?)<\/LawNameListInfo>/g)) {
-              const g = (t) => (new RegExp("<" + t + ">([^<]*)</" + t + ">").exec(m[1]) || [])[1] || "";
-              if (g("LawName").includes("官報")) hits.push({ id: g("LawId"), name: g("LawName"), num: g("LawNo"), date: g("PromulgationDate") });
+            const id = "505AC0000000085";
+            const xml = await (await fetch("https://laws.e-gov.go.jp/api/1/lawdata/" + id, { headers: UA })).text();
+            const title = (/<LawTitle[^>]*>([^<]*)<\/LawTitle>/.exec(xml) || [])[1] || "";
+            const main = (/<MainProvision[\s\S]*?<\/MainProvision>/.exec(xml) || [""])[0];
+            const out = { statutes: [], texts: {} };
+            for (const n of ["1", "2", "16", "18", "19", "20", "21"]) {
+              const m = new RegExp("<Article[^>]*\\sNum=\"" + n + "\"[^>]*>[\\s\\S]*?</Article>").exec(main);
+              const t = plain(m[0]);
+              out.statutes.push({ name: title, label: "第" + n + "条", law_id: id, article: n, title, sha256: sha(t) });
+              out.texts[title + " 第" + n + "条"] = t;
             }
-            console.log("LIST " + JSON.stringify(hits));
-            for (const h of hits.filter((x) => x.id === "116DT0000000027")) {
-              const xml = await (await fetch("https://laws.e-gov.go.jp/api/1/lawdata/" + h.id, { headers: UA })).text();
-              console.log("=====LAW " + h.id + " " + (/<LawTitle[^>]*>([^<]*)<\/LawTitle>/.exec(xml) || [])[1] + " " + (/<LawNum>([^<]*)<\/LawNum>/.exec(xml) || [])[1]);
-              const main = (/<MainProvision[\s\S]*?<\/MainProvision>/.exec(xml) || [""])[0];
-              for (const a of main.matchAll(/<Article[^>]*\sNum="([^"]+)"[^>]*>[\s\S]*?<\/Article>/g)) { const t = plain(a[0]); console.log("ART " + a[1] + " " + sha(t) + " " + t); }
-              for (const s of xml.matchAll(/<SupplProvision[\s\S]*?<\/SupplProvision>/g)) console.log("SUPPL " + plain(s[0]));
-              console.log("MAIN " + plain(main)); console.log("MAINLEN " + main.length + " ARTS " + [...main.matchAll(/<Article[^>]*\sNum="([^"]+)"/g)].length);
-            }
+            fs.writeFileSync("kanpo-probe.json", JSON.stringify(out, null, 2) + "\n");
+            console.log(JSON.stringify(out.statutes));
           })().catch((e) => { console.error(e); process.exit(1); });'
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add kanpo-probe.json
+          git commit -m "探り：官報の発行に関する法律の条文を記す（main に入れない）"
+          git push origin HEAD:refs/heads/claude/redteam11-probe-1113
