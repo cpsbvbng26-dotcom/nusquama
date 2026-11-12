@@ -32,6 +32,7 @@ When it is unclear whether something is lawful, the operator chooses not to do i
 
 Nusquama's titles (Knight-King, knight, member of the Order of Errata) are words inside a work of fiction.
 None of them is a title set by the law of any country, and none carries legal effect, status or privileges.
+Knighting does not confer a decoration, honour or rank of knighthood (including a rank in an order) of any country; it records on the roll the account name of a person who joined the game. The name of knight is a role name inside the fiction that goes with that entry.
 The titles are used only inside the kingdom.
 Inside the kingdom means this repository, the site, and the articles and posts the operator wrote to introduce Nusquama (listed in the [README](../README.md), in Japanese, under "ほかの場所").
 Nusquama makes and hands out no physical decorations, insignia, uniforms or certificates.

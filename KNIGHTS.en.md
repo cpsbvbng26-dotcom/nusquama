@@ -1,6 +1,7 @@
 # Roll of the Order of Errata (Ordo Erratorum)
 
 > This is a work of fiction, written for fun. The titles of those named here have no legal effect and no real honour.
+> The name of knight is not a decoration, honour or rank of knighthood of any country.
 
 This is an English translation. The [Japanese version](KNIGHTS.md) governs; if the two differ, the Japanese version applies.
 

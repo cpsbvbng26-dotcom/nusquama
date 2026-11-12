@@ -167,25 +167,238 @@ GDPR の代理人は、指名しません。2026-11-12 に Claude が決めま�
 
 問いの判定の数は、○ 24 肢、× 3 肢、？ 11 肢です。
 
+## 2026-11-12 の続き：取り寄せた周辺の文
+
+点検の後、同じ日に、取り寄せられなかった文と、点検が拠った条を解釈する公の文書（指針・Q&A・案内・手引き）を取り寄せました。
+取り寄せは、枝 `claude/legal-gaps-1112` で Actions の「一次資料の取り寄せ」と「条文と規約の見張り」を走らせて行いました。
+外国の文と公の文書は `verification/sources-raw.json` に、日本の条文は `verification/statutes-texts.json` にあり、引いた文はどれも、取り寄せた文と一字一句同じであることを検査が確かめます。
+PDF の文は、リポジトリの道具（`tools/pdftext.js`、Node.js の zlib だけを使う）で読みました。
+公式の頁が機械からの取得を止めたものは、Internet Archive の写しを読み、写しの日付を記しました。
+上の判定の表の行は、点検のときの記録なので、そのまま残しています。取り寄せた文で確かめ直した結果は、次の表に書きます。
+
+あわせて、利用者の求め（2026-11-12）により、確かめきれない結論は、厳しく読んだときにも成り立つほうを選び、外国の法令に触れる点を減らしました。
+選んだところは、どれも対応の欄に「2026-11-12 に Claude が決めました」と理由を書いています。
+利用者が決めたこと（イタリアの国籍を持つ人を受けないこと、良識の前提、どちらも 2026-11-22 から。合意管轄の裁判所）は変えていません。
+規程で、読む人や騎士に不利になる変更はしていません。
+
+### 確かめ直した表
+
+| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |
+| --- | --- | --- | --- | --- | --- |
+| 適法性の説明「日本の外の法令」（国外で授けること） | イタリア 刑法典 第10条 | 外国人が国外でした罪を罰するのは、下限が一年以上の拘禁刑の罪などで、国内にいることと、法務大臣の請求などを要する | 1951 年法律第178号 第8条の授けた者の罰は六月から二年の拘禁刑で、下限が一年に届かない | 問題なし | 頁の「確かめていない」を改めた（王の正誤表 21） |
+| 同（行いの一部が国内で起きたと見られる場合） | イタリア 刑法典 第6条 | 行いの全部か一部、またはその結果が国内で起きれば、国内の罪とする | 運営者は日本で名簿に記す。公開の頁はイタリアからも読める。授与の結果が国内で起きたと見るかは、条文からは決まらない | 根拠不足 | 確かめきれないと頁に書いた |
+| 同（使う者の罰） | イタリア 2016 年委任立法第8号 第1条第3項、イタリア 2016 年委任立法第8号 別表 | 罰金だけの罪は行政罰に替わる。刑法典の罪と、別表の法律の罪は除く | 別表に 1951 年法律第178号はなく、刑法典の罪でもない | 問題なし | 頁の「可能性がある」を、行政罰に替わったと読める、と改めた（王の正誤表 21） |
+| 同（イタリアの国民が国外の騎士団の称号を使うこと） | イタリア 1951 年法律第178号 第7条、イタリア 首相府 勲章の使用の案内（使う者） | イタリアの国民は、国外の騎士団や外国の称号を、許しなく国内で使えない | 点検は第8条だけを見ていた。首相府の案内は、この使用の罰を行政罰としている。2026-11-22 からはイタリアの国籍を持つ人を受けない。それより前は、規程の上では受けうる。2026-11-12 に開いている願い出はなく、名簿に騎士はいない | 漏れ | 記録に残した。頁は 128 KiB の上限にあるので、頁には書いていない。2026-11-22 を早めることは、利用規約が不利な変更を効力の前に示すと定めるので、していない |
+| 同（授けることの禁止） | イタリア 首相府 勲章の使用の案内（授ける者） | 団体や私人が授けることの禁止と、拘禁刑 | 案内は、頁の要旨（私人や団体が授けることを禁じる）と同じことを書く | 問題なし | なし |
+| 規程の全体（称号の言い方） | イタリア 1951 年法律第178号 第8条、軽犯罪法第1条第15号 | 名称を問わず授けること。称号の詐称 | 様式・README・紹介の頁・頁の断りは「ここで授ける称号」と書いていた。栄典や騎士の位を授けると読まれうる | 表現 | 「贈る騎士の呼び名は、勲章・栄典・騎士の位ではなく」と改め、利用規約・叙任の規程・名簿にも同じ断りを書いた（王の正誤表 24）。2026-11-12 に Claude が決めました。言い方でおそれは消えませんが、実在の栄典と読み違える道を一つ減らせるためです |
+| 適法性の説明「国際法での立場」 | モンテビデオ条約 当事国の一覧 | 日本が当事国でないこと | 米州機構の一覧に日本はない。一覧は、原本の寄託先をウルグアイの外務省、批准の寄託先を米州機構の事務局とする。頁は米州機構を寄託者と書いていた | 誤り | 改めた（王の正誤表 22） |
+| 適法性の説明「日本の外の法令」（CCPA） | CCPA 第1798.140条(d) | 事業者は、株主などの利益のために組織され運営される者で、閾値のどれかに当たるもの | ヌスクァマは営利でなく、閾値にも当たらない。州の頁は機械を止めるので、Internet Archive の 2026-10-02 の写しで読んだ | 問題なし | 頁の「読んでいない」を改めた（王の正誤表 23） |
+| 適法性の説明「電気通信事業」（事業の意味） | 電気通信事業法第2条、総務省 電気通信事業参入マニュアル（事業）、総務省 電気通信事業参入マニュアル（Webサイト）、総務省 電気通信事業参入マニュアル（問合せの受付） | 他人の需要に応ずるために役務を提供する事業 | マニュアルは、営利でないことは事業でない根拠にならないとする。自らの情報だけを発信するサイトと、問合せを受け付けるフォームは、自己の需要のためで事業に当たらないとする。サイトは王国の文だけを載せ、issue は願い出と求めを受ける窓口である | 問題なし | 頁の「確かめていない」を改めた（王の正誤表 23） |
+| 同（掲示板と見た場合） | 電気通信事業法第164条、電気通信事業法施行規則第59条の2、電気通信事業法施行規則第59条の3、総務省 電気通信事業参入マニュアル（電子掲示板） | 媒介相当電気通信役務は、利用者間の交流を主とし、前年度の一月の利用者の平均が一千万以上のもので、指定は告示による | issue の受付を掲示板と見ても、媒介せず、回線設備を置かず、利用者は一千万に遠く、指定もない | 問題なし | 記録に残した |
+| 外部送信の規律（点検で見ていなかった） | 電気通信事業法第27条の12、総務省 外部送信規律 FAQ 問1-8 | 電気通信事業者か第三号事業を営む者が、利用者の端末に、外へ情報を送らせる指令を送ること | FAQ は、電気通信事業を営まない者は対象外とする。営むとしても、頁はほかのサーバーへ何も要求しない（検査 4） | 問題なし | 記録に残した |
+| 個人情報（個人情報取扱事業者） | 個人情報保護法第16条、個人情報保護委員会 ガイドライン 通則編 2-5 | 事業は営利と非営利を問わず、個人も当たる | 運営者は自らを個人情報取扱事業者として扱っている | 問題なし | なし |
+| 個人情報（外国にある第三者に当たるか） | 個人情報保護法第28条、個人情報保護委員会 Q&A Q12-3 | 外国のサーバーの運営者が、保存された個人データを取り扱わないこととなっていれば、提供に当たらない | GitHub の利用規約は、公開の内容を AI の機能と学習に使うことを認めている（D.4）。取り扱わないこととはなっていないので、提供として同意を得る扱いは指針に合う | 問題なし | なし |
+| 個人情報（情報の示し方） | 個人情報保護法第28条、個人情報保護法施行規則第17条、個人情報保護委員会 Q&A Q12-10、個人情報保護委員会 ガイドライン 外国第三者提供編 5-1 | 本人が確実に認識できる方法。URL で示すときは、分かりやすい所に置き、同意の前に確かめるよう明示的に求めるなど | 様式は節の所在を示し、規程を読んだ印もあるが、同意の前に節を確かめるよう求める文はなかった | 根拠不足 | 様式に、誓いで同意する前にその節を確かめるよう求める一文を足した。2026-11-12 に Claude が決めました。Q&A の例に沿わせ、願い出る人の義務は増やさないためです |
+| 個人情報（外国の制度の情報） | 個人情報保護法施行規則第17条、個人情報保護委員会 ガイドライン 外国第三者提供編 5-2、個人情報保護委員会 外国制度 米国（指標）、個人情報保護委員会 外国制度 米国（政府の情報収集）、個人情報保護委員会 外国制度 米国（時点） | 制度の有無、指標となる情報（十分性認定・CBPR）、政府の情報収集など本人の権利に重大な影響を及ぼしうる制度 | 頁は、包括的な連邦法がないことと州法のことを書いていたが、指標となる情報と、政府の情報収集についての調べの結果を書いていなかった | 漏れ | 個人情報の取り扱いに、委員会の調べ（2021 年 10 月の時点）の結果と所在を書き足した。2026-11-12 に Claude が決めました。指針が示す項目をそろえるためです |
+| 個人情報（両社の措置） | 個人情報保護法施行規則第17条、個人情報保護委員会 ガイドライン 外国第三者提供編 5-3-2 | 措置の情報を示せないときは、その旨と理由を示す | 頁は両社の方針へのリンクだけを示していた。運営者は両社の中の扱いを確かめられない | 根拠不足 | 確かめられないことと理由、分かっている違いを書き足した。2026-11-12 に Claude が決めました。リンクだけで足りるかは指針から決まらないので、示せないときの定めにも合う形にするためです |
+| 個人情報（提供の記録） | 個人情報保護法第29条、個人情報保護法施行規則第20条、個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-1、個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-3、個人情報保護委員会 ガイドライン 確認記録義務編 4-2-1-2、個人情報保護委員会 Q&A Q13-2 | 公開に供する行為は提供者として記録する。外国への提供にも記録の義務がある。同意は仕組みの証跡で示せる | 願い出の issue は本人が書く。名簿の行は運営者が足し、その履歴が記録になる。行は誓いのすべてに印がある人の分だけ足す | 問題なし | なし |
+| 個人情報の取り扱い「未成年」 | 個人情報保護委員会 Q&A Q1-62 | 一般に 12 歳から 15 歳までの年齢以下の子どもは、法定代理人などの同意が要る | 頁の要旨は答えと同じ。16 歳未満を受けない | 問題なし | 取り寄せられなかった文から外した |
+| 適法性の説明「使っているサービスの規約」（Vercel 第8条） | Vercel 利用規約 第8条、Vercel 許容される利用の方針（なりすまし）、Vercel 許容される利用の方針（好ましくない目的） | 許容される利用の方針に従うこと。なりすましや権限の偽り。Enterprise でない者の好ましくない目的 | 実在の国や団体を名乗らず、どの頁でも創作だと断る。好ましくない目的の中身を方針は定めておらず、判断は Vercel による | 問題なし | 記録に残した |
+| 同（Vercel 第10.1条） | Vercel 利用規約 第10.1条 | 個人データを、法令が定める同意なしにさらさない設定 | 名簿は、様式の誓いの同意によって載せる | 問題なし | なし |
+| 適法性の説明「取引に関わる法令」（消費者契約法の事業者） | 消費者契約法第2条 | 事業として契約の当事者となる個人は事業者 | 消費者庁の逐条解説（第2条）は取り寄せたが、PDF の文を道具で読めなかった | 根拠不足 | 運営者を同法の事業者として扱い、頁がすでに条ごとに書く扱いを守る。2026-11-12 に Claude が決めました。厳しく読んでも成り立つほうを選ぶためです |
+
+確かめ直した表の判定の数は、誤り 1 件、根拠不足 4 件、漏れ 2 件、表現 1 件、問題なし 13 件で、合わせて 21 件です。
+
+### 引いた文
+
+取り寄せた文から、表が拠る一節を引きます。出所は `verification/sources.json` の名と所在にあります。
+
+<!-- 原文 イタリア 刑法典 第10条 -->
+> Lo straniero, che, fuori dei casi indicati negli articoli 7 e 8, commette in territorio estero, a danno dello Stato o di un cittadino, un delitto per il quale la legge italiana stabilisce la pena di morte o l'ergastolo, o la reclusione non inferiore nel minimo a un anno, è punito secondo la legge medesima, sempre che si trovi nel territorio dello Stato, e vi sia richiesta del Ministro della giustizia, ovvero istanza o querela della persona offesa.
+>
+> イタリア刑法典（1930 年勅令第 1398 号の附属）第 10 条第 1 項（https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10）
+
+<!-- 原文 イタリア 刑法典 第6条 -->
+> Il reato si considera commesso nel territorio dello Stato, quando l'azione o l'omissione, che lo costituisce, è ivi avvenuta in tutto o in parte, ovvero si è ivi verificato l'evento che è la conseguenza dell'azione od omissione.
+>
+> イタリア刑法典 第 6 条第 2 項（https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art6）
+
+<!-- 原文 イタリア 刑法典 第9条 -->
+> Il cittadino, che, fuori dei casi indicati nei due articoli precedenti, commette in territorio estero un delitto per il quale la legge italiana stabilisce la pena di morte o l'ergastolo, o la reclusione non inferiore nel minimo a tre anni, è punito secondo la legge medesima, sempre che si trovi nel territorio dello Stato.
+>
+> イタリア刑法典 第 9 条第 1 項（https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art9）
+
+<!-- 原文 イタリア 1951 年法律第178号 第7条 -->
+> I cittadini italiani non possono usare nel territorio della Repubblica onorificenze o distinzioni cavalleresche loro conferite in Ordini non nazionali o da Stati esteri, se non sono autorizzati con decreto del Presidente della Repubblica, su proposta del Ministro per gli affari esteri.
+>
+> イタリア 1951 年 3 月 3 日法律第 178 号 第 7 条（第 1 項）（https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art7）
+
+<!-- 原文 イタリア 2016 年委任立法第8号 第1条第3項 -->
+> 3. La disposizione del comma 1 non si applica ai reati previsti dal codice penale, fatto salvo quanto previsto dall'articolo 2, comma 6, e a quelli compresi nell'elenco allegato al presente decreto.
+>
+> イタリア 2016 年 1 月 15 日委任立法第 8 号 第 1 条第 3 項（https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2016-01-15;8~art1）
+
+<!-- 原文 イタリア 2016 年委任立法第8号 別表 -->
+> ELENCO DELLE LEGGI CONTENENTI REATI PUNITI CON LA SOLA PENA PECUNIARIA ESCLUSI DALLA DEPENALIZZAZIONE A NORMA DELL'ART. 2 DELLA LEGGE N. 67/2014
+>
+> イタリア 2016 年委任立法第 8 号の別表（非犯罪化から除く法律の一覧、官報に載った文）（https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=16G00011&art.idArticolo=1&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2016-01-22&art.progressivo=0）
+
+<!-- 原文 イタリア 首相府 勲章の使用の案内（使う者） -->
+> I cittadini italiani non possono usare nel territorio della Repubblica Italiana onorificenze o distinzioni cavalleresche loro conferite da Ordini non nazionali o da Stati esteri, se non autorizzati con decreto del Presidente del Consiglio dei Ministri. I contravventori sono puniti con la sanzione amministrativa sino a L. 2.500.000
+>
+> イタリア首相府 儀典・栄典局「Uso delle onorificenze」（Internet Archive の写し）（https://web.archive.org/web/20260608220314/https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html）
+
+<!-- 原文 イタリア 首相府 勲章の使用の案内（授ける者） -->
+> E' vietato il conferimento di onorificenze, decorazioni o distinzioni cavalleresche da parte di enti, associazioni o privati. I trasgressori sono puniti con la reclusione da sei mesi a due anni
+>
+> イタリア首相府 儀典・栄典局「Uso delle onorificenze」（Internet Archive の写し）（https://web.archive.org/web/20260608220314/https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html）
+
+<!-- 原文 モンテビデオ条約 当事国の一覧 -->
+> DEPOSITORY: MINISTRY OF FOREIGN AFFAIRS OF URUGUAY (ORIGINAL INSTRUMENT) GENERAL SECRETARIAT, OAS (RATIFICATIONS)
+>
+> 米州機構「A-40: Convention on Rights and Duties of States」の署名と批准の一覧（https://www.oas.org/juridico/english/sigs/a-40.html）
+
+<!-- 原文 CCPA 第1798.140条(d) -->
+> (d) “Business” means: (1) A sole proprietorship, partnership, limited liability company, corporation, association, or other legal entity that is organized or operated for the profit or financial benefit of its shareholders or other owners,
+>
+> カリフォルニア州民法典 第 1798.140 条 (d)（州の法令の頁の Internet Archive の写し）（https://web.archive.org/web/20261002012921/https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140）
+
+<!-- 原文 Vercel 利用規約 第8条 -->
+> Your use of the Services (which include, for the purposes of this Section 8, participation in the Vercel Community or similar discussion forums, if applicable) must comply with Vercel’s Acceptable Use Policy, which is incorporated by reference.
+>
+> Vercel「Terms of Service」第 8 条「Acceptable Use」（https://vercel.com/legal/terms）
+
+<!-- 原文 Vercel 利用規約 第10.1条 -->
+> You shall configure Your Content, including any of your projects or deployments, such that the transmission, storage, or use in any way will not expose personal data or personal information without proper consent from individuals as determined by applicable law.
+>
+> Vercel「Terms of Service」第 10.1 条「General」（https://vercel.com/legal/terms）
+
+<!-- 原文 Vercel 許容される利用の方針（なりすまし） -->
+> Impersonation, phishing, or misrepresenting authorization to act on behalf of others or Vercel;
+>
+> Vercel「Acceptable Use Policy」第 2 条（https://vercel.com/legal/acceptable-use-policy）
+
+<!-- 原文 Vercel 許容される利用の方針（好ましくない目的） -->
+> Further, customers on a non-Enterprise subscription may not: Use a service for an objectionable purpose.
+>
+> Vercel「Acceptable Use Policy」第 2 条（https://vercel.com/legal/acceptable-use-policy）
+
+<!-- 原文 個人情報保護委員会 Q&A Q1-62 -->
+> Ａ１－62 法定代理人等から同意を得る必要がある子どもの具体的な年齢は、対象となる個人情報の項目や事業の性質等によって、個別具体的に判断されるべきですが、一般的には12歳から15歳までの年齢以下の子どもについて、法定代理人等から同意を得る必要があると考えられます。
+>
+> 個人情報保護委員会「「個人情報の保護に関する法律についてのガイドライン」に関するＱ＆Ａ」Q1-62 の答え（https://www.ppc.go.jp/personalinfo/faq/APPI_QA/）
+
+<!-- 原文 個人情報保護委員会 Q&A Q12-3 -->
+> Ａ12－３ 個人情報取扱事業者自らが外国に設置し、自ら管理・運営するサーバに個人データを保存することは、外国にある第三者への提供（法第28条第１項）に該当しません。 また、個人情報取扱事業者が、外国にある事業者が外国に設置し、管理・運営するサーバに個人データを保存する場合であっても、当該サーバを運営する当該外国にある事業者が、当該サーバに保存された個人データを取り扱わないこととなっている場合には、外国にある第三者への提供（法第28条第１項）に該当しません。
+>
+> 同 Q&A、Q12-3 の答え（https://www.ppc.go.jp/personalinfo/faq/APPI_QA/）
+
+<!-- 原文 個人情報保護委員会 Q&A Q12-10 -->
+> Ａ12－10 個別の事案ごとに判断されますが、例えば、施行規則第17条第２項から第４項までの規定により求められる情報が掲載されたWebページが存在する場合に、当該WebページのURLを自社のホームページに掲載し、当該URLに掲載された情報を本人に閲覧させる方法も、施行規則第17条第１項における「適切な方法」に該当すると考えられます。 ただし、この場合であっても、例えば、当該URLを本人にとって分かりやすい場所に掲載した上で、同意の可否の判断の前提として、本人に対して当該情報の確認を明示的に求めるなど、本人が当該URLに掲載された情報を閲覧すると合理的に考えられる形で、情報提供を行う必要があると考えられます。
+>
+> 同 Q&A、Q12-10 の答え（https://www.ppc.go.jp/personalinfo/faq/APPI_QA/）
+
+<!-- 原文 個人情報保護委員会 Q&A Q13-2 -->
+> Ａ13－２ 外国にある第三者に個人データを提供する場合でも、原則として、法第29条に基づく記録義務は適用されます。
+>
+> 同 Q&A、Q13-2 の答え（https://www.ppc.go.jp/personalinfo/faq/APPI_QA/）
+
+<!-- 原文 個人情報保護委員会 ガイドライン 通則編 2-5 -->
+> ここでいう「事業の用に供している」の「事業」とは、一定の目的をもって反復継続して遂行される同種の行為であって、かつ社会通念上事業と認められるものをいい、営利・非営利の別は問わない。 また、個人情報データベース等を事業の用に供している者であれば、当該個人情報データベース等を構成する個人情報によって識別される特定の個人の数の多寡にかかわらず、個人情報取扱事業者に該当する。
+>
+> 個人情報保護委員会「個人情報の保護に関する法律についてのガイドライン（通則編）」2-5（https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/）
+
+<!-- 原文 個人情報保護委員会 ガイドライン 外国第三者提供編 5-1 -->
+> 本人に対する情報提供は、規則第17条第2項から第4項までの規定により求められる情報を本人が確実に認識できると考えられる適切な方法で行わなければならない。なお、提供する情報は本人にとって分かりやすいものであることが重要である。 【適切な方法に該当する事例】 事例1）必要な情報を電子メールにより本人に送付する方法 事例2）必要な情報を記載した書面を本人に直接交付する方法 事例3）必要な情報を本人に口頭で説明する方法 事例4）必要な情報をホームページに掲載し、本人に閲覧させる方法
+>
+> 同ガイドライン（外国にある第三者への提供編）5-1（https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/）
+
+<!-- 原文 個人情報保護委員会 ガイドライン 外国第三者提供編 5-2 -->
+> 提供先の第三者が所在する外国の個人情報の保護に関する制度について、個人情報の保護の水準等に関する客観的な指標となり得る情報が存在する場合、当該指標となる情報が提供されることにより、個人データの越境移転に伴うリスクについての本人の予測可能性は一定程度担保されると考えられる。したがって、この場合には、当該指標となり得る情報を提供すれば足り、次の（ウ）に係る情報の提供は求められない。
+>
+> 同ガイドライン（外国にある第三者への提供編）5-2 (2) ②（イ）（https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/）
+
+<!-- 原文 個人情報保護委員会 ガイドライン 外国第三者提供編 5-3-2 -->
+> 個人情報取扱事業者は、法第28条第1項の規定により外国にある第三者への個人データの提供を認める旨の本人の同意を取得しようとする時点において、提供先の外国にある第三者が講ずる個人情報の保護のための措置に関する情報の提供ができない場合には、当該情報に代えて、当該情報を提供できない旨及びその理由について情報提供しなければならない。
+>
+> 同ガイドライン（外国にある第三者への提供編）5-3-2（https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/）
+
+<!-- 原文 個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-1 -->
+> （1）本人による提供 事業者が運営するSNS等に本人が入力した内容が、自動的に個人データとして不特定多数の第三者が取得できる状態に置かれている場合は、実質的に「本人による提供」をしているものである。
+>
+> 同ガイドライン（第三者提供時の確認・記録義務編）2-2-1-1 (1)（https://www.ppc.go.jp/personalinfo/legal/guidelines_thirdparty/）
+
+<!-- 原文 個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-3 -->
+> なお、当初に、個人データを公開に供する行為については、提供者として記録を作成しなければならない（規則第20条第1項第1号ロ括弧書き）。
+>
+> 同ガイドライン（第三者提供時の確認・記録義務編）2-2-1-3（https://www.ppc.go.jp/personalinfo/legal/guidelines_thirdparty/）
+
+<!-- 原文 個人情報保護委員会 ガイドライン 確認記録義務編 4-2-1-2 -->
+> 例えば、個人情報取扱事業者のシステムの設定により、本人の同意を得た場合のみ第三者提供が実施されることとなっている場合には、それをもって同意の存在を示す証跡があるものとすることができる。
+>
+> 同ガイドライン（第三者提供時の確認・記録義務編）4-2-1-2 (1)（https://www.ppc.go.jp/personalinfo/legal/guidelines_thirdparty/）
+
+<!-- 原文 個人情報保護委員会 外国制度 米国（指標） -->
+> EU の十分性認定 ※2 ：なし APEC の CBPR システム ※3 ：2012 年 7 月 25 日参加
+>
+> 個人情報保護委員会「外国制度（アメリカ合衆国）」連邦（https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/）
+
+<!-- 原文 個人情報保護委員会 外国制度 米国（政府の情報収集） -->
+> 事業者に対し政府の情報収集活動への協力義務を課す制度であって、本人の権利利益に重大な影響を及ぼす可能性のあるもの －
+>
+> 個人情報保護委員会「外国制度（アメリカ合衆国）」連邦（https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/）
+
+<!-- 原文 個人情報保護委員会 外国制度 米国（時点） -->
+> 当委員会が提供する上記参考情報は、当委員会が行った「外国における個人情報の保護に関する制度等の調査」の結果に基づくものであり、あくまで当該調査を実施した 2021 年 10 月の時点における情報に基づくものである。
+>
+> 個人情報保護委員会「外国制度（アメリカ合衆国）」連邦、留意すべき事項（https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/）
+
+<!-- 原文 総務省 電気通信事業参入マニュアル（事業） -->
+> 「事業」性の判断要素として、提供者にサービスを提供するという積極的意思（これは、提供条件の公示等客観的に判断されるものである。）があることは必要であり、営利目的があることは、事業性があることの判断要素にはなり得るが、営利性がないからといってそれが「事業」性がないことの根拠にはならない。
+>
+> 総務省「電気通信事業参入マニュアル［追補版］」（令和 5 年 1 月 30 日改定）「事業」（https://www.soumu.go.jp/main_content/000477428.pdf）
+
+<!-- 原文 総務省 電気通信事業参入マニュアル（Webサイト） -->
+> 個人や企業等が、電気通信設備（サーバ等）を用いて Webサイトを開設し、インターネット経由で自らの情報のみを発信し、専ら自らの情報の提供を目的とするものをいう。「他人の通信」の概念には、自己と他人との間の通信を含むことから、自己の電気通信設備をWebサイト閲覧者（他人）との通信に使用することは、当該設備を通信相手たる他人の通信の用に供していることとなり、電気通信役務に該当するものの、専ら自らの情報を発信する手段として電気通信役務を提供することは、自己の需要に応ずるものであり、他人の需要に応ずるものではないことから、電気通信事業に該当しないと判断される。
+>
+> 同マニュアル、事例「個人や企業によるWebサイトの開設」（https://www.soumu.go.jp/main_content/000477428.pdf）
+
+<!-- 原文 総務省 電気通信事業参入マニュアル（問合せの受付） -->
+> 顧客や住民等からの問合せ等を受け付けるに当たって電気通信役務を提供することは、自己の需要に応ずるものであって、他人の需要に応ずるものではないことから、このサービスは、電気通信事業に該当しないと判断される。
+>
+> 同マニュアル、事例「メールフォーム・チャットボット」（https://www.soumu.go.jp/main_content/000477428.pdf）
+
+<!-- 原文 総務省 電気通信事業参入マニュアル（電子掲示板） -->
+> 電子掲示板 インターネット経由で不特定多数の利用者が文字情報等を交換することができる「場」を提供するものをいう。このサービスは、他人の通信を媒介していないことから、サービス提供者が電気通信回線設備を設置していない場合には、登録及び届出が不要な電気通信事業と判断される。
+>
+> 同マニュアル、事例「電子掲示板」（https://www.soumu.go.jp/main_content/000477428.pdf）
+
+<!-- 原文 総務省 外部送信規律 FAQ 問1-8 -->
+> 答 ：電気通信事業者又は第三号事業を営む者（いずれも電気通信事業を営む者）で、「利用者の利益に及ぼす影響が少なくない電気通信役務」を提供している電気通信事業者です。「利用者の利益に及ぼす影響が少なくない電気通信役務」については、「1-9」に記載しているとおりです。 なお、「電気通信事業（電気通信事業法（以下「法」という。）第2条第4号）」を営んでいない場合は、法の適用を受けないので、仮に情報の外部送信が行われていたとしても、外部送信規律の対象にはなりません。
+>
+> 総務省「外部送信規律FAQ」問1-8 の答え（https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu_00002.html）
+
 ## 調べた法令
 
 日本の法令は、刑法、軽犯罪法、旅券法、民法、特定商取引法、景品表示法、消費者契約法、資金決済法、商標法、不正競争防止法、著作権法、個人情報保護法とその施行令・施行規則、民事訴訟法、国籍法、電気通信事業法、情報流通プラットフォーム対処法です。
 外国の法令と条約は、モンテビデオ条約、イタリアの 1951 年法律第 178 号、イタリアの 2016 年委任立法第 8 号、GDPR、カリフォルニア州の CCPA（州の説明だけ）です。
 サービスの規約は、GitHub の利用規約、Vercel の利用規約と Fair Use Guidelines です。
+2026-11-12 の続きでは、イタリアの刑法典（第 6 条・第 9 条・第 10 条）、1951 年法律第 178 号第 7 条、2016 年委任立法第 8 号の別表、米州機構の当事国の一覧、カリフォルニア州民法典第 1798.140 条、Vercel の許容される利用の方針、電気通信事業法第27条の12 と同法施行規則第59条の2・第59条の3 を読みました。
+公の文書は、イタリア首相府の栄典の案内、個人情報保護委員会のガイドライン（通則編・外国にある第三者への提供編・第三者提供時の確認・記録義務編）と Q&A と外国制度の調べ、総務省の電気通信事業参入マニュアル（追補版）と外部送信規律の FAQ を読みました。
 英国の GDPR と EU のデジタルサービス法は、規程がどこにも挙げておらず、ヌスクァマの役務が向く先でもないので、調べていません。
 
 ## 取り寄せられなかった文
 
-- イタリアの刑法典の第 10 条（国外で外国人がした罪）。Normattiva の頁は取り寄せましたが、条の文が含まれていませんでした。
-- イタリアの 2016 年委任立法第 8 号に付いた除外の一覧。取り寄せていません。
-- 個人情報保護委員会の Q&A の Q1-62。頁は取り寄せましたが、その問いは取り寄せた文に見つかりませんでした。
-- 個人情報保護委員会のガイドライン（外国にある第三者への提供、第三者提供の記録）。取り寄せていません。
-- カリフォルニア州の CCPA の条文。州の法令の頁が、機械からの取得を止めました（HTTP 403）。
-- モンテビデオ条約の当事国の一覧（米州機構）。取り寄せていません。
-- Vercel の利用規約の第 8 条。取り寄せた窓に入っていませんでした。
-- 電気通信事業法第164条第1項第3号の指定を定める総務省令。取り寄せていません。
+点検のときに取り寄せられなかった八つの文は、2026-11-12 の続きで、どれも取り寄せました（「2026-11-12 の続き：取り寄せた周辺の文」）。
+いまも公式の所在から取り寄せられないものは、次の 5 件です。
 
-これらに拠る結論は、確かめていないものとして扱いました。
+- イタリア首相府の栄典の案内（presidenza.governo.it）。2026-11-12 に Actions から三度試し、どれも接続の時間切れでした。Internet Archive の 2026-06-08 の写しを読みました。
+- カリフォルニア州の法令の頁（leginfo.legislature.ca.gov）。2026-11-12 も、機械からの取得を止めました（HTTP 403）。Internet Archive の 2026-10-02 の写しを読みました。
+- イタリア首相府の栄典の FAQ と、イタリア国防省の称号の使用の許可の指令。2026-11-12 に試し、どちらもつながりませんでした。写しも探していません。
+- 消費者庁の消費者契約法の逐条解説（第 2 条、PDF）。2026-11-12 に取り寄せましたが、リポジトリの道具では PDF から文を読み出せませんでした（文字の数が 0）。
+- 文化庁の引用についての案内。2026-11-12 に試した所在は、頁がありませんでした（HTTP 404）。ほかの所在は見つけていません。
+
+写しで読んだ文に拠る結論は、写しの日付の時点の文に拠ります。取り寄せられなかった文に拠る結論は、確かめていないものとして扱いました。
 
 ## 弁護士の確認
 
