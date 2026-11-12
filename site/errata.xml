@@ -112,4 +112,32 @@
     <updated>2026-11-12T00:00:00+09:00</updated>
     <summary>個人情報の取り扱い「取り扱う者」。正：誤りではなく、分かりにくい文を言い直した。誰に答えるのか、非公開の連絡をどう始めるのかが書かれておらず、「答えます」は氏名と住所を目的に取って座りが悪かった。求めた人に非公開の連絡で知らせると改め、求め方は削除・訂正・辞退の求め「公開できない求め」の手順によると書き足した。求めることができる人は狭めていない。</summary>
   </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-16</id>
+    <title>第 16 件：適法性の説明「この頁の位置づけ」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-12T00:00:00+09:00</updated>
+    <summary>適法性の説明「この頁の位置づけ」。正：誤りではなく、範囲を改めた。2026-11-12 の法令の点検で、GDPR 第27条などの一次資料を足して取り寄せ直したので、取り寄せた日を 2026-11-12 に改めた。前から引いていた文も、取り寄せ直した文にそのまま現れることを、検査で確かめた。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-17</id>
+    <title>第 17 件：適法性の説明「取引に関わる法令」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-12T00:00:00+09:00</updated>
+    <summary>適法性の説明「取引に関わる法令」。正：消費者契約法第2条第2項の「事業者」は、事業として、または事業のために契約の当事者となる個人を含み、条文は事業に営利が要るとは書いていない。「事業を営まない」は、条文が支えない言い切りだった。「営利の事業を営まない」と改め、同法が適用される場合の扱いを条ごとに書き足した。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-18</id>
+    <title>第 18 件：適法性の説明「著作権」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-12T00:00:00+09:00</updated>
+    <summary>適法性の説明「著作権」。正：同じ頁の「条文」と「原文」の欄は、条約・法令・規約・説明の文を引いている。他人の著作物を写していないとは言えなかった。引用のほかは写していないと改め、引用を著作権法第32条と照らす文を書き足した。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-19</id>
+    <title>第 19 件：適法性の説明「結論」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-12T00:00:00+09:00</updated>
+    <summary>適法性の説明「結論」。正：分析が支える以上に強い言い方だった。2026-11-12 の点検で、並べていなかった法令（電気通信事業法、情報流通プラットフォーム対処法、定型約款、引用など）と、解釈の分かれる要件（消費者契約法の「事業」など）が見つかった。おそれの大きさを言い切らない文に改めた。</summary>
+  </entry>
 </feed>
