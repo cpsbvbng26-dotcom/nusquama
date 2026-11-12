@@ -5,8 +5,26 @@
   <id>https://nusquama.vercel.app/gazette.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/gazette.xml"/>
   <link href="https://nusquama.vercel.app/gazette.html"/>
-  <updated>2026-11-11T00:00:00+09:00</updated>
+  <updated>2026-11-12T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g32</id>
+    <title>第 32 号　王の正誤表：第 15 件を記す（個人情報の取り扱い「取り扱う者」）</title>
+    <link href="https://nusquama.vercel.app/gazette/32.html"/>
+    <updated>2026-11-12T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g31</id>
+    <title>第 31 号　王の正誤表：第 14 件を記す（交流の規程「交流のしかた」）</title>
+    <link href="https://nusquama.vercel.app/gazette/31.html"/>
+    <updated>2026-11-12T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g30</id>
+    <title>第 30 号　年表：交流の規程の、相手の国を尊重する文と、個人情報の取り扱いの、運営者の氏名と住所を知らせる文を、意味を変えずに言い直す</title>
+    <link href="https://nusquama.vercel.app/gazette/30.html"/>
+    <updated>2026-11-12T00:00:00+09:00</updated>
+  </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g29</id>
     <title>第 29 号　王の正誤表：第 13 件を記す（国の仕組み「解散」）</title>

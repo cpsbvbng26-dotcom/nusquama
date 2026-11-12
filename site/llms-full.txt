@@ -145,6 +145,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-11（日本時間） | 適法性の説明の各節に、拠る条文と外国の一次資料の文を引き、規程の外で法令の要件に近づく行いへの忠告と、その行いについての運営者の責任を、適法性の説明と免責事項に書き足す | The Legality Statement quotes, in each section, the articles and the foreign primary sources it relies on; it and the Disclaimer add a caution against acts outside the rules that come near a law's elements, and state the operator's responsibility for such acts |
 | 2026-11-11（日本時間） | 誤りの知らせの様式を置き、個人情報の取り扱いの利用の目的に知らされた誤りを記すことを足し、交流の規程に申し出を受けたときの手順を書き足す | A form for reporting mistakes is set up, checking reported mistakes is added to the purposes of use in the Privacy page, and the Rules on exchange gain a procedure for receiving offers |
 | 2026-11-11（日本時間） | 解散の手順を改め、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めを受ける窓口を開けておくと定める | The procedure for dissolution is changed: the site is kept and served, the repository is not archived, and a way to receive requests stays open |
+| 2026-11-12（日本時間） | 交流の規程の、相手の国を尊重する文と、個人情報の取り扱いの、運営者の氏名と住所を知らせる文を、意味を変えずに言い直す | The sentence on respecting the other party's country in the Rules on exchange, and the sentence on giving the operator's name and address in the Privacy page, are reworded without changing their meaning |
 
 ---
 
@@ -253,6 +254,8 @@ Source: https://nusquama.vercel.app/errata.html
 | 11 | 2026-11-11 | 叙任の規程「願い出ることができる人」「断ること」、適法性の説明「日本の外の法令」 | 日本の外に住む人は、国籍を問わず願い出ることができません。／日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。（叙任の規程「願い出ることができる人」）。願い出の条件（年齢・住んでいる国）（叙任の規程「断ること」）。訂正のリンク先に日本の外に住むことや 16 歳未満であることがはっきり書かれていれば（適法性の説明）。 | 日本に住み、日本にいる人に願い出を限るのは 2026-11-22 からだが、叙任の規程の二つの文は日付を欠き、いま効いているように読めた。二つの文の頭に「2026-11-22 から、」を足した。条件を挙げるほかの二か所は、願い出のときにいる国を落としていたので、足した。 | 叙任の規程「願い出ることができる人」の「2026-11-22 から、願い出ることができるのは」で始まる文と、利用規約「変更と終了」の予告 | 範囲 | Insula Finis V |
 | 12 | 2026-11-11 | 個人情報の取り扱い「利用の目的」 | 叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。 | 誤りではなく、範囲を改めた。王の文の誤りを知らせる様式を置いたので、知らされた誤りを確かめて王の正誤表に記すことを、利用の目的に足した。 | 誤りの知らせの様式（.github/ISSUE_TEMPLATE/error.yml） | 範囲 | Insula Finis VI |
 | 13 | 2026-11-11 | 国の仕組み「解散」 | 求めに応じる期間を少なくとも 30 日置いてから、サイトの配信を止める。／リポジトリは消さず、読むだけの状態にする。 | 誤りではなく、範囲を改めた。解散の通し稽古で、サイトの配信を止めると nusquama.vercel.app の名をほかの人が使えるようになるおそれがあること、リポジトリを読むだけにすると削除・訂正・辞退の求めを受ける窓口がなくなることが分かった。王が決めて、サイトは消さずに配信を続け、リポジトリは読むだけにせず、求めのために issue を開けておく、と改めた。 | 国の仕組み「解散の通し稽古」 | 範囲 | Insula Finis VII |
+| 14 | 2026-11-12 | 交流の規程「交流のしかた」 | 交流する相手も創作であることを尊重し、相手の国の主張を、ヌスクァマが認めたり否んだりすることはしません。 | 誤りではなく、分かりにくい文を言い直した。「相手も創作であること」は、相手を創作とみなすことにも、相手の国を相手が作ったものとして重んじることにも読めた。規程のほかの文（申し出を受けたときに、相手が自称の国や創作の国であると断っているかを確かめること、相互の承認の文書を結ばないこと）と英語の訳が支える後の読み方を採り、意味を変えずに二つの文に分けた。 | 交流の規程「申し出を受けたとき」の 1 と「交流のしかた」の二つめの箇条、英語の訳（Rules on exchange） | 語 | Insula Verbi II |
+| 15 | 2026-11-12 | 個人情報の取り扱い「取り扱う者」 | 運営者の氏名と住所は、求めがあれば、非公開の連絡で遅滞なく答えます。 | 誤りではなく、分かりにくい文を言い直した。誰に答えるのか、非公開の連絡をどう始めるのかが書かれておらず、「答えます」は氏名と住所を目的に取って座りが悪かった。求めた人に非公開の連絡で知らせると改め、求め方は削除・訂正・辞退の求め「公開できない求め」の手順によると書き足した。求めることができる人は狭めていない。 | 削除・訂正・辞退の求め「公開できない求め」と、求めの様式（.github/ISSUE_TEMPLATE/request.yml）の種類 | 語 | Insula Verbi III |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -1143,13 +1146,14 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-11。
+最終更新：2026-11-12。
 
 ## 取り扱う者
 
 ヌスクァマの運営者です。運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人です。
 運営者は、日本の個人情報保護法の定めに沿って取り扱います。
-運営者の氏名と住所は、求めがあれば、非公開の連絡で遅滞なく答えます。
+運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。
+求めるときは、[削除・訂正・辞退の求め](./requests.md)の様式の種類で「非公開の連絡を求める」を選びます。
 
 ## サイトが集めるもの
 
@@ -1666,7 +1670,7 @@ Source: https://nusquama.vercel.app/policies/exchange.html
 
 # 交流の規程
 
-最終更新：2026-11-11。
+最終更新：2026-11-12。
 
 ## この規程について
 
@@ -1680,7 +1684,7 @@ Source: https://nusquama.vercel.app/policies/exchange.html
 - 称号・勲章・位を、相手と授け合いません。ヌスクァマが授けるのは、叙任の規程による騎士だけです。
 - 金銭・物品・役務の受け渡しを伴う交流はしません。
 - 実在の国家・王室・騎士団を名乗るもの、称号を売るもの、人を欺くものとは交流しません。
-- 交流する相手も創作であることを尊重し、相手の国の主張を、ヌスクァマが認めたり否んだりすることはしません。
+- 相手の国は、相手が自ら作ったものとして尊重します。その国の主張を、ヌスクァマは認めも否みもしません。
 - 称号のほか、国籍・旅券・土地・位を売るものとも交流しません。
 - 大使・領事などの役を置かず、相手の大使や領事も受け入れません。
 
@@ -1922,7 +1926,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-11.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -1930,7 +1934,8 @@ This is an English translation. The [Japanese version](./privacy.md) governs; if
 
 The operator of Nusquama, an individual who owns the GitHub account cpsbvbng26-dotcom.
 The operator handles personal data in line with Japan's Act on the Protection of Personal Information.
-The operator's name and address are given without delay, on request, through a private channel.
+The operator's name and address are given without delay, through a private channel, to the person who asks for them.
+To ask, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the [Requests](./requests.en.md) form.
 
 ## What the site collects
 
@@ -2455,7 +2460,7 @@ Source: https://nusquama.vercel.app/policies/exchange.en.html
 
 # Rules on exchange
 
-Last updated: 2026-11-11.
+Last updated: 2026-11-12.
 
 This is an English translation. The [Japanese version](./exchange.md) governs; if the two differ, the Japanese version applies.
 
@@ -2471,7 +2476,7 @@ Nusquama is a work of fiction, not a state. Exchange, too, takes place within th
 - No title, decoration or rank is conferred on each other. The only thing Nusquama gives is knighthood under the Rules on Knighting.
 - No exchange involves money, goods or services.
 - There is no exchange with anything that claims to be a real state, royal house or order of knighthood, that sells titles, or that deceives people.
-- The other party, too, is respected as a work of its own, and Nusquama neither accepts nor denies the claims of its country.
+- The other party's country is respected as the other party's own creation. Nusquama neither accepts nor denies that country's claims.
 - Besides titles, there is no exchange with anything that sells citizenship, passports, land or ranks.
 - Nusquama appoints no ambassadors or consuls, and receives none from the other party.
 
@@ -2651,6 +2656,8 @@ These errata are the domain under Article 3 of the Basic Law.
 | 11 | 2026-11-11 | Rules on Knighting, "Who may apply" and "What is declined"; Legality Statement, "Laws outside Japan" | "People who live outside Japan may not apply, whatever their nationality" / "A person who lives in Japan may not apply while outside Japan" (Rules on Knighting, "Who may apply"); "the conditions (age or country of residence)" (Rules on Knighting, "What is declined"); "if the linked correction states clearly that the applicant lives outside Japan or is under 16" (Legality Statement) | Applications are limited to people who live in Japan and are in Japan only from 2026-11-22, but two sentences of the Rules on Knighting gave no date and read as if already in force. "From 2026-11-22" was put at the head of both. Two other places that list the conditions left out the country where the applicant is when applying, which was added. | The sentence beginning "From 2026-11-22, only people who live in Japan" in the Rules on Knighting, "Who may apply", and the notice in the Terms of Use, "Changes and ending" | Scope | Insula Finis V |
 | 12 | 2026-11-11 | Privacy, "Purposes of use" | "To decide on knighting, to keep the roll, and to answer requests. Nothing else." | Not a mistake; the scope was changed. A form for reporting mistakes in the King's texts was set up, so checking reported mistakes and recording them in the King's errata was added to the purposes of use. | The form for reporting mistakes (.github/ISSUE_TEMPLATE/error.yml) | Scope | Insula Finis VI |
 | 13 | 2026-11-11 | Institutions, "Dissolution" | "Allow at least 30 days for such requests before stopping the site." / "Keep the repository, in a read-only state." | Not a mistake; the scope was changed. The dry run of dissolution showed that stopping the site might let someone else use the name nusquama.vercel.app, and that a read-only repository leaves no way to receive requests for removal, correction or withdrawal. The King decided to keep serving the site, not to archive the repository, and to keep issues open for requests. | Institutions, "A dry run of dissolution" | Scope | Insula Finis VII |
+| 14 | 2026-11-12 | Rules on exchange, "How exchange takes place" | "The other party, too, is respected as a work of its own, and Nusquama neither accepts nor denies the claims of its country." | Not a mistake; an unclear sentence was reworded. In the Japanese, "that the other party, too, is a work of fiction" could be read as treating the other party as fiction, or as respecting the other party's country as something the other party made. The second reading, which the rest of the rules (checking, when an offer is received, that the other party says somewhere it is a self-declared or fictional country; concluding no document of mutual recognition) and the English translation support, was taken, and the sentence was split in two without changing its meaning. | Rules on exchange, step 1 under "When an offer is received" and the second item under "How exchange takes place"; the English translation (Rules on exchange) | Word | Insula Verbi II |
+| 15 | 2026-11-12 | Privacy, "Who handles the data" | "The operator's name and address are given without delay, on request, through a private channel." | Not a mistake; an unclear sentence was reworded. The Japanese did not say to whom the answer goes or how the private contact begins, and its verb ("answer") sat badly with the name and address as its object. It now says that they are given to the person who asks, through a private channel, and that the request follows the procedure under "Requests that cannot be made in public" in the Requests page. Who may ask was not narrowed. | Requests, "Requests that cannot be made in public", and the kinds in the request form (.github/ISSUE_TEMPLATE/request.yml) | Word | Insula Verbi III |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
