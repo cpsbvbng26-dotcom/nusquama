@@ -318,6 +318,29 @@
         "顧客や住民等からの問合せ等を受け付けるに当たって電気通信役務を提供することは、自己の需要に応ずるものであって、他人の需要に応ずるものではないことから、このサービスは、電気通信事業に該当しないと判断される。",
         "電子掲示板 インターネット経由で不特定多数の利用者が文字情報等を交換することができる「場」を提供するものをいう。このサービスは、他人の通信を媒介していないことから、サービス提供者が電気通信回線設備を設置していない場合には、登録及び届出が不要な電気通信事業と判断される。"
       ]
+    },
+    "github-terms": {
+      "url": "https://raw.githubusercontent.com/github/site-policy/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-of-service.md",
+      "whole": false,
+      "status": 200,
+      "length": 49188,
+      "sha256_full": "8931fad4aa5408fea26dd1b42e21b0c76c4b378a3f163570a8850740b5570336",
+      "spans": [
+        "Some Service features may be subject to additional terms specific to that feature or product as set forth in the GitHub Additional Product Terms."
+      ]
+    },
+    "github-additional-terms": {
+      "url": "https://raw.githubusercontent.com/github/site-policy/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md",
+      "whole": false,
+      "status": 200,
+      "length": 18256,
+      "sha256_full": "93b173250d5ab431ce90b677c39db86c72bc11dd788bc420619494a739628325",
+      "spans": [
+        "Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:",
+        "Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or",
+        "If using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.",
+        "Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account."
+      ]
     }
   }
 }
