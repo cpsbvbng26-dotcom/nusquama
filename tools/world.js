@@ -89,7 +89,7 @@ const HEAD = new RegExp('^(' + HEADS + ')\\s*' + NUM + '(?=[\\s.:º°ª\\-–)]|
 const HEAD_SV = /^(\d+\s?[a-z]?\s?§)(?=\s|$)/;
 /* Japanese: 第十四条, 第五百四十八条の二. */
 const HEAD_JA = /^(第[〇一二三四五六七八九十百千]+条(?:の[〇一二三四五六七八九十]+)*)/;
-const PART = /^(CHAPTER|Chapter|PART|Part|TITLE|Title|TÍTULO|Título|CAPÍTULO|Capítulo|TITRE|Titre|CHAPITRE|Chapitre|TITOLO|Titolo|CAPO|Capo|Kapitel|KAPITEL|Abschnitt|ABSCHNITT|Hoofdstuk|HOOFDSTUK|Afdeling|Kapittel|Глава|Раздел)\b|^第[〇一二三四五六七八九十百]+[編章節款]/;
+const PART = /^(CHAPTER|Chapter|PART|Part|Division|Subdivision|Schedule|SCHEDULE|TITLE|Title|TÍTULO|Título|CAPÍTULO|Capítulo|TITRE|Titre|CHAPITRE|Chapitre|TITOLO|Titolo|CAPO|Capo|Kapitel|KAPITEL|Abschnitt|ABSCHNITT|Hoofdstuk|HOOFDSTUK|Afdeling|Kapittel|Глава|Раздел)\b|^第[〇一二三四五六七八九十百]+[編章節款]/;
 
 /* Splits a run of lines into articles. A line that is only a chapter or part heading closes the article before it. */
 function splitLines(ls, lang) {
@@ -115,8 +115,9 @@ function splitLines(ls, lang) {
 function splitNumbered(ls) {
   const arts = [];
   let cur = null;
-  for (const l of ls) {
-    const m = /^(\d{1,4}[A-Z]{0,3})\s+([A-Z][^.;:]{2,140})$/.exec(l);
+  for (const l0 of ls) {
+    const l = l0.replace(/^(Collapse|Expand)\s+/, '');
+    const m = /^(\d{1,4}(?:\.\d{1,4})?[A-Z]{0,3})\s+([A-Z][^.;:]{2,140})$/.exec(l);
     if (m && !/^\d{4}\s+(No|c)\b/.test(l)) { if (cur && cur.paras.length) arts.push(cur); cur = { label: 'Section ' + m[1], caption: m[2], paras: [] }; continue; }
     if (PART.test(l) && l.length < 160) { if (cur && cur.paras.length) arts.push(cur); cur = null; continue; }
     if (cur) cur.paras.push(l);
@@ -177,29 +178,30 @@ function splitCanada(xml) {
   return arts;
 }
 
-/* Constitute: headings (h1–h6) and paragraphs (p, li). An article opens at a heading such as "Article 14"; any other
- * heading closes it. The preamble is kept as an article of its own. */
+/* Constitute: each unit has a title (an h2–h6, or a <p> without a class: "Article 1", "Section 2", "1. Short title")
+ * and a body (<p class="content">, list items). An article opens at a title that is an article heading, a numbered title
+ * or the preamble; any other title (a part or a chapter) closes it. A section under an article ("Article I", then
+ * "Section 9") is labelled with both. */
 function splitConstitute(html) {
   const arts = [];
-  let cur = null;
-  const parent = {}; // the latest article-like heading at each level, for sections inside articles ("Article I, Section 9")
-  for (const m of html.matchAll(/<(h[1-6])\b[^>]*>([\s\S]*?)<\/\1>|<p\b[^>]*>([\s\S]*?)<\/p>|<li\b[^>]*>([\s\S]*?)<\/li>/g)) {
-    const t = flat(m[2] || m[3] || m[4] || '');
+  let cur = null, lastArticle = null;
+  const re = /<(h[1-6])\b[^>]*>([\s\S]*?)<\/\1>|<p(\s[^>]*)?>([\s\S]*?)<\/p>|<li\b[^>]*>([\s\S]*?)<\/li>/g;
+  for (const m of html.matchAll(re)) {
+    const attrs = m[3] || '';
+    if (/class="(copyright|translator)"/.test(attrs)) continue;
+    const t = flat(m[2] || m[4] || m[5] || '');
     if (!t) continue;
-    if (m[1]) {
-      const lv = +m[1][1];
-      if (cur && cur.paras.length) arts.push(cur);
-      for (let k = lv; k <= 6; k++) delete parent[k];
-      const numbered = /^\d+[A-Z]?\.?\s+\S/.test(t) || /^\d+[A-Z]?\.?$/.test(t);
-      if (HEAD.test(t) || numbered || /^preamble$/i.test(t)) {
-        const up = Object.keys(parent).filter((k) => +k < lv).sort().map((k) => parent[k]).pop();
-        const short = t.length > 80 ? t.slice(0, 80) : t;
-        cur = { label: up && /^(Section|SECTION|Sec\.|§|\d)/.test(t) ? up + ', ' + short : short, paras: [] };
-      } else cur = null;
-      if (/^(Article|ARTICLE|Art\.)\s+[IVXLCDM\d]+\b/.test(t)) parent[lv] = t.length > 80 ? t.slice(0, 80) : t;
-      continue;
-    }
-    if (cur) cur.paras.push(t);
+    const title = !!m[1] || (m[4] !== undefined && !/class=/.test(attrs));
+    if (!title) { if (cur) cur.paras.push(t); continue; }
+    if (cur && cur.paras.length) arts.push(cur);
+    const short = t.length > 80 ? t.slice(0, 80) : t;
+    const isArticle = /^(Article|ARTICLE|Art\.)\s+[IVXLCDM\d]+[A-Za-z]?\b/.test(t);
+    const isSection = /^(Section|SECTION|Sec\.|§)\s*\d/.test(t) || /^\d+[A-Z]?\.?(\s|$)/.test(t);
+    if (isArticle) { lastArticle = short; cur = { label: short, paras: [] }; continue; }
+    if (isSection) { cur = { label: lastArticle ? lastArticle + ', ' + short : short, paras: [] }; continue; }
+    if (HEAD.test(t) || /^preamble$/i.test(t)) { cur = { label: short, paras: [] }; continue; }
+    lastArticle = null;
+    cur = null;
   }
   if (cur && cur.paras.length) arts.push(cur);
   return arts;
@@ -230,7 +232,9 @@ function rx(topic, lang, s = {}) {
 const searchable = (topic, lang, s) => !!rx(topic, lang, s);
 
 /* The kept text: the whole article if it is short, otherwise each paragraph a keyword matched. */
-const LONG = 2500, CAP = 6000;
+/* At most PCAP paragraphs of one article are kept; an article with more matches is a page that the splitter could not
+ * divide, and the rest of it is not kept. */
+const LONG = 2500, CAP = 6000, PCAP = 12;
 function search(arts, lang, topics, s = {}) {
   const out = [];
   const R = (t) => rx(t, lang, s);
@@ -239,10 +243,12 @@ function search(arts, lang, topics, s = {}) {
     const hit = topics.filter((t) => R(t).test(whole));
     if (!hit.length) continue;
     if (whole.length <= LONG) { out.push({ article: a.label, caption: a.caption, part: 'article', topics: hit, text: whole }); continue; }
+    let kept = 0;
     a.paras.forEach((p, i) => {
+      if (kept >= PCAP) return;
       /* A keyword in the caption alone keeps the first paragraph, so that the article is not lost. */
       const tp = topics.filter((t) => R(t).test(p) || (i === 0 && a.caption && R(t).test(a.caption)));
-      if (tp.length) out.push({ article: a.label, caption: a.caption, part: 'paragraph ' + (i + 1), topics: tp, text: p.length > CAP ? p.slice(0, CAP) : p, cut: p.length > CAP || undefined });
+      if (tp.length) { kept++; out.push({ article: a.label, caption: a.caption, part: 'paragraph ' + (i + 1), topics: tp, text: p.length > CAP ? p.slice(0, CAP) : p, cut: p.length > CAP || undefined }); }
     });
   }
   return out;
@@ -287,8 +293,14 @@ async function fetchSource(s) {
     const text = texts.join('\n');
     const plain = flat(text);
     if (plain.length < 300) { notes.push(via + '：本文がない（JavaScript で描く頁か、拒む応答）'); continue; }
-    if (s.title && !new RegExp(s.title, 'iu').test(plain)) { notes.push(via + '：題「' + s.title + '」が見つからない（別の頁か、拒む応答）'); continue; }
-    const arts = split(s, text, pdf);
+    if (s.title && !new RegExp(s.title, 'iu').test(plain)) { notes.push(via + '：題「' + s.title + '」が見つからない（別の頁か、拒む応答。冒頭は「' + plain.slice(0, 80) + '」）'); continue; }
+    let arts = split(s, text, pdf);
+    /* A page that repeats an article after the law (notes, concordances, a consolidated table) keeps the first. */
+    if (!['egov', 'clml', 'canada', 'constitute', 'section'].includes(s.format)) {
+      const seen = new Set();
+      const norm = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/(\d)\s*(o|º|°|ª|\.)$/, '$1').replace(/\s+/g, ' ');
+      arts = arts.filter((a) => { const k = norm(a.label); if (seen.has(k)) return false; seen.add(k); return true; });
+    }
     if (!arts.length) { notes.push(via + '：条に分けられない'); continue; }
     const topics = rec.topics.filter((t) => searchable(t, s.lang, s));
     Object.assign(rec, { via, final: finals.length === 1 ? finals[0] : finals, status: 200, length: plain.length, sha256_full: sha(plain), articles: arts.length, searched: topics });
