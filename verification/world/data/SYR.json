@@ -1,0 +1,9 @@
+{
+ "country": "SYR",
+ "sources": {
+  "constitute": {"kind":"constitution","instrument":"Constitution","error":"Constitute の一覧に、この国の効力のある憲法の英文が見当たらない","fetched":"2026-11-12"}
+ },
+ "provisions": [
+
+ ]
+}

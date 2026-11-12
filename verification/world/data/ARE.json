@@ -1,0 +1,10 @@
+{
+ "country": "ARE",
+ "sources": {
+  "ARE-pdpl": {"instrument":"Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data","kind":"code","lang":"en","url":"https://uaelegislation.gov.ae/en/legislations/1972","fetched":"2026-11-12","topics":["data"],"official":"UAE Legislation（政府、公式）","error":"direct：HTTP 403 / archive：条に分けられない"},
+  "constitute": {"kind":"constitution","instrument":"Constitution","error":"Constitute の一覧に、この国の効力のある憲法の英文が見当たらない","fetched":"2026-11-12"}
+ },
+ "provisions": [
+
+ ]
+}
