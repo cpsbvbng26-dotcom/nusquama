@@ -82,7 +82,7 @@ function lines(html) {
 const flat = (x) => entities(x.replace(/<[^>]+>/g, ' ')).normalize('NFC').replace(/[\s ​]+/g, ' ').trim();
 
 /* A heading that opens an article, in the languages the survey reads. Group 2 is the number. */
-const HEADS = 'Article|ARTICLE|Art\\.|ART\\.|Artículo|ARTÍCULO|Articulo|ARTICULO|Artigo|ARTIGO|Articolo|ARTICOLO|Artikel|ARTIKEL|Section|SECTION|Sec\\.|SEC\\.|§|Статья|Článek|Čl\\.';
+const HEADS = 'Article|ARTICLE|Art\\.|ART\\.|Art(?=\\s+\\d)|Artículo|ARTÍCULO|Articulo|ARTICULO|Artigo|ARTIGO|Articolo|ARTICOLO|Artikel|ARTIKEL|Section|SECTION|Sec\\.|SEC\\.|§|Статья|Článek|Čl\\.';
 const NUM = '(\\d+[A-Za-z]?(?:[.\\-–]\\d+[A-Za-z]?)*(?:\\s?(?:bis|ter|quater|quinquies|sexies|septies|octies|novies|decies)\\b)?)';
 const HEAD = new RegExp('^(' + HEADS + ')\\s*' + NUM + '(?=[\\s.:º°ª\\-–)]|$)');
 /* Swedish and Danish write the number first: "1 §". */
@@ -195,7 +195,7 @@ function splitConstitute(html) {
     if (!title) { if (cur) cur.paras.push(t); continue; }
     if (cur && cur.paras.length) arts.push(cur);
     const short = t.length > 80 ? t.slice(0, 80) : t;
-    const isArticle = /^(Article|ARTICLE|Art\.)\s+[IVXLCDM\d]+[A-Za-z]?\b/.test(t);
+    const isArticle = /^(Article|ARTICLE|Art\.?)\s+[IVXLCDM\d]+[A-Za-z]?\b/.test(t);
     const isSection = /^(Section|SECTION|Sec\.|§)\s*\d/.test(t) || /^\d+[A-Z]?\.?(\s|$)/.test(t);
     if (isArticle) { lastArticle = short; cur = { label: short, paras: [] }; continue; }
     if (isSection) { cur = { label: lastArticle ? lastArticle + ', ' + short : short, paras: [] }; continue; }
@@ -299,7 +299,12 @@ async function fetchSource(s) {
     if (!['egov', 'clml', 'canada', 'constitute', 'section'].includes(s.format)) {
       const seen = new Set();
       const norm = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/(\d)\s*(o|º|°|ª|\.)$/, '$1').replace(/\s+/g, ' ');
-      arts = arts.filter((a) => { const k = norm(a.label); if (seen.has(k)) return false; seen.add(k); return true; });
+      /* Acts numbered without a word list their sections twice (contents, then text): the longer one is the text. */
+      if (s.format === 'numbered') {
+        const best = new Map();
+        for (const a of arts) { const k = norm(a.label), n = a.paras.join(' ').length; if (!best.has(k) || n > best.get(k).n) best.set(k, { a, n }); }
+        arts = arts.filter((a) => best.get(norm(a.label)).a === a);
+      } else arts = arts.filter((a) => { const k = norm(a.label); if (seen.has(k)) return false; seen.add(k); return true; });
     }
     if (!arts.length) { notes.push(via + '：条に分けられない'); continue; }
     const topics = rec.topics.filter((t) => searchable(t, s.lang, s));
@@ -447,10 +452,47 @@ function coverage() {
   return JSON.parse(text).countries;
 }
 
+/* ---- classification ---- */
+
+/* Each kept provision is classified for the two projects: "applies", "could apply" or "does not apply", with a reason
+ * tied to the projects' facts. A provision read one by one has its decision in decisions.json (with the SHA-256 of the
+ * text it was made on); the rest fall to the first rule of decisions.json whose conditions all hold. A provision that
+ * neither reaches is left out of classes.json, and verification/world/check.js fails until it is read. */
+function classifyAll(data, D) {
+  const out = {}, left = [];
+  const EX = new Set(D.sophaxis_excluded || []);
+  for (const d of Object.values(data)) for (const p of d.provisions) {
+    const text = (p.caption ? p.caption + ' ' : '') + p.text;
+    const dec = (D.provisions || {})[p.id];
+    if (dec && dec.sha256 === p.sha256) { out[p.id] = { ...dec, by: 'read' }; continue; }
+    const r = (D.rules || []).find((x) => (!x.kind || x.kind === p.kind) && (!x.topic || p.topics.includes(x.topic))
+      && (!x.topics_only || p.topics.every((t) => x.topics_only.includes(t))) && (!x.sources || new RegExp(x.sources).test(p.source))
+      && (!x.lang || x.lang === p.lang) && (!x.test || new RegExp(x.test, 'iu').test(text)) && (!x.not || !new RegExp(x.not, 'iu').test(text)));
+    if (!r) { left.push(p.id); continue; }
+    const c = { class: r.class, reason: r.reason, sha256: p.sha256, by: r.id };
+    if (r.class !== 'does not apply') {
+      const excluded = p.country.startsWith('_') || EX.has(p.country);
+      Object.assign(c, { project: r.project, severity: excluded && r.severity_excluded ? r.severity_excluded : r.severity, action: excluded && r.action_excluded ? r.action_excluded : r.action });
+    }
+    out[p.id] = c;
+  }
+  return { out, left };
+}
+function classify() {
+  const data = {};
+  for (const f of fs.readdirSync(DATA).sort()) data[f] = readJSON(path.join(DATA, f));
+  const D = readJSON(path.join(DIR, 'decisions.json'));
+  const { out, left } = classifyAll(data, D);
+  const keys = Object.keys(out).sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+  fs.writeFileSync(path.join(DIR, 'classes.json'), '{\n "_": "tools/world.js classify が data/ と decisions.json から作る。手で直さない。",\n "provisions": {\n' + keys.map((k) => '  ' + JSON.stringify(k) + ': ' + JSON.stringify(out[k])).join(',\n') + '\n }\n}\n');
+  return left;
+}
+
 /* ---- main ---- */
 
 async function main() {
   if (process.argv[2] === 'coverage') { console.log(coverage().length + ' rows'); return; }
+  if (process.argv[2] === 'classify') { const left = classify(); console.log(left.length + ' provisions without a classification'); if (process.argv[3]) fs.writeFileSync(process.argv[3], left.join('\n') + '\n'); return; }
   const req = readJSON(path.join(DIR, 'request.json'));
   const spec = process.env.WORLD_BATCH || req.batch;
   const [batch, only] = spec.split(':');
@@ -470,5 +512,5 @@ async function main() {
   await codes(CONF.codes.filter((s) => single(s) && s.countries[0] !== 'JPN' && isos.includes(s.countries[0])));
 }
 
-module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, coverageText, TOPICS };
+module.exports = { lines, splitLines, splitInline, splitEgov, splitClml, splitCanada, splitConstitute, splitSection, search, sha, coverage, coverageText, classifyAll, TOPICS };
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });
