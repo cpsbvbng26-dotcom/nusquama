@@ -117,9 +117,10 @@ Source: https://nusquama.vercel.app/
 ## 騎士になるには
 
 1. 自分の誤りを一つ、公に訂正する。論文の正誤表でも、ブログの追記でも、コードの修正でもよい。
-2. その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
+2. 2026-11-22 0 時（日本時間）から、その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
 3. 王が訂正を確かめ、[正誤表騎士団の名簿](KNIGHTS.md)に名を加える。
 
+2026-11-12 から 2026-11-22 0 時（日本時間）より前は、願い出の受付を止めています（[叙任の規程](policies/knighting.md)「受付の停止」）。このあいだに開かれた願い出は、自動の確認が閉じます。
 2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
@@ -157,6 +158,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-12（日本時間） | 適法性の説明を条ごとに点検し直し、言い切りすぎた結論と、事業と著作物の写しについての文を改め、電気通信事業と定型約款の節と、各節の点検で足したことを書き足し、点検の記録を置く。個人情報の取り扱いに、名簿に載せることの記録と、第三者から個人データを受け取らないことを書き足す | The Legality Statement is reviewed again article by article: the overstated conclusion and the sentences on business and on copying others' works are corrected, sections on the telecommunications business and on standard terms and the additions of the review are written, and a record of the review is kept. The Privacy page adds how listing on the roll is recorded and that no personal data is received from third parties |
 | 2026-11-12（日本時間） | 叙任の規程・利用規約・適法性の説明・願い出の様式に、2026-11-22 からイタリアの国籍を持つ人の願い出を受けないことと、叙任は称号を遊びとして扱う良識ある人を前提とすることを書き、利用規約で予告する | The Rules on Knighting, the Terms of Use, the Legality Statement and the application form state that, from 2026-11-22, applications from people who hold Italian nationality are not accepted and knighting presumes a person of good sense who treats the title as play; the Terms of Use give notice of both |
 | 2026-11-12（日本時間） | 法令の点検で取り寄せられなかった文と、条文を解釈する公の文書を取り寄せ、適法性の説明のイタリアの刑法典・カリフォルニア州法・電気通信事業・米州機構の一覧についての文を改める。個人情報の取り扱いに、米国の制度についての個人情報保護委員会の調べと、両社の措置を確かめられないことを書き足す。叙任は勲章・栄典・騎士の位を授けるものではないと書き、「授ける称号」を「贈る騎士の呼び名」と改める | The texts the legal review could not fetch, and the official documents interpreting the articles, are fetched. The Legality Statement's sentences on the Italian Penal Code, the California statute, the telecommunications business and the OAS list are revised. The Privacy page adds the Personal Information Protection Commission's survey of the United States and that the measures of GitHub and Vercel cannot be confirmed. Knighting is stated not to confer a decoration, honour or rank of knighthood, and "the titles it gives" becomes "the name of knight it gives" |
+| 2026-11-12（日本時間） | 2026-11-22 0 時（日本時間）まで、叙任の願い出の受付を止める。叙任の規程に「受付の停止」の節を置き、そのあいだに開かれた願い出は自動の確認が停止を書いて閉じ、2026-11-22 0 時からひとりでに受付に戻る | Applications for knighting are paused until 00:00 on 2026-11-22 (Japan time). The Rules on Knighting gain a section "Pause in receiving applications"; an application opened during the pause gets a comment from the automatic check and is closed, and receiving resumes by itself at 00:00 on 2026-11-22 |
 
 ---
 
@@ -280,6 +282,7 @@ Source: https://nusquama.vercel.app/errata.html
 | 22 | 2026-11-12 | 適法性の説明「国際法での立場」 | 当事国は寄託者である米州機構（OAS）の一覧で、2026-11-08 に確かめた。 | 米州機構の一覧は、条約の原本の寄託先をウルグアイの外務省とし、米州機構の事務局を批准の寄託先としている。米州機構を寄託者と書いたのは誤りだった。「批准の寄託先」と改めた。2026-11-12 の点検の記録は、一覧を取り寄せていないとしていた。2026-11-12 に一覧を取り寄せて、日本が一覧にないことを確かめ、確かめた日を改めた。 | verification/sources-raw.json（米州機構の署名と批准の一覧） | 事実 | Insula Facti IV |
 | 23 | 2026-11-12 | 適法性の説明「電気通信事業」「日本の外の法令」 | 条文は「事業」の意味を定めておらず、この点は確かめていない。／州の法令の頁は、機械からの取得を止める仕組みがあるので、読んでいない。 | 誤りではなく、範囲を改めた。総務省の電気通信事業参入マニュアル（追補版）を取り寄せた。同マニュアルは、自らの情報だけを発信するサイトと、問合せを受け付けるフォームを、自己の需要のためのもので電気通信事業に当たらないとする。営利でないことは、事業でないことの根拠にならないともする。カリフォルニア州民法典第 1798.140 条 (d) は、州の頁が機械からの取得を止めるので、Internet Archive の写しで読んだ。事業者の定義は、営利などの目的を要件にしていた。 | verification/sources-raw.json（総務省の参入マニュアル、Internet Archive の写しのカリフォルニア州民法典） | 範囲 | Insula Finis X |
 | 24 | 2026-11-12 | 叙任の願い出の様式、README の冒頭、紹介の頁、どの頁の断り、交流の規程「交流のしかた」 | ここで授ける称号に法的な効力はありません。（様式と紹介の頁。README の冒頭と頁の断りは「称号に、法的な」）／ヌスクァマが授けるのは、叙任の規程による騎士だけです。 | 誤りではなく、言い方を改めた。「授ける称号」は、どこかの国の栄典や騎士の位を授けることと読まれうる。叙任の規程が「騎士の呼び名を贈る」と書く形にそろえ、勲章・栄典・騎士の位ではないことを書き足した。2026-11-12 に Claude が決めました。イタリアの 1951 年法律第 178 号第 8 条は名称を問わず授けることを禁じるので、言い方でおそれは消えませんが、実在の栄典と読み違える道を一つ減らすためです。 | 叙任の規程「叙任とは」、利用規約「称号の扱い」 | 語 | Insula Verbi IV |
+| 25 | 2026-11-12 | 叙任の規程「願い出の手順」、README「騎士になるには」 | 叙任の願い出の様式で issue を開く。（叙任の規程）／その訂正への公開のリンクを添えて、叙任の願い出の様式で issue を開く。（README） | 誤りではなく、範囲を改めた。2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出を受けない。2026-11-12 に利用者が決めました。2026-11-22 に効力を持つ改めた規程（日本に住み日本にいる人に限ること、イタリアの国籍を持つ人を除くこと、良識の前提）の前の期間に、日本の外の法令が及ぶおそれが残っていたためです。手順の文に願い出を開ける時を書き足し、叙任の規程に「受付の停止」の節を置いた。停止は、利用規約「悪意がないことと、法令を守ること」の、法令に触れるおそれが分かった部分を止めてから確かめる定めによる。そのあいだの願い出を issue を開いた時刻で決め、自動の確認が受付の停止を書いて閉じ、2026-11-22 0 時からひとりでに受付に戻すことは、2026-11-12 に Claude が決めました。日付だけで決まり、人の手を待たない形にするためです。決めた日に、開いている願い出は 0 件だった。 | 利用規約「悪意がないことと、法令を守ること」「変更と終了」、tools/knighting.js | 範囲 | Insula Finis XI |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -1084,6 +1087,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 予告：2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません（[叙任の規程](./knighting.md)「願い出ることができる人」）。
 予告：2026-11-22 から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし、様式でこの前提に印のない願い出は受けません（[叙任の規程](./knighting.md)「良識の前提」）。
 予告：2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります（「してはいけないこと」）。
+2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出を受け付けません（[叙任の規程](./knighting.md)「受付の停止」）。「悪意がないことと、法令を守ること」の、法令に触れるおそれが分かった部分を止める定めによります。
 どの変更によっても、料金は生じません。
 ヌスクァマは、予告なく終わることがあります。終わる場合も、騎士の名簿は、本人から辞退の求めがない限り、リポジトリに残します。
 
@@ -1347,6 +1351,15 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 この限りで、同条が及ぶおそれは減りますが、なくなりはしません（[適法性の説明](./legality.md)「日本の外の法令」）。
 旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
 
+## 受付の停止
+
+2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出を受けません。2026-11-12 に利用者が決めました。2026-11-22 から効力を持つ改めた規程（日本に住み日本にいる人に限ること、イタリアの国籍を持つ人を除くこと、良識の前提）の前の期間に、日本の外の法令が及ぶおそれが残っていたためです。
+この停止は、利用規約「悪意がないことと、法令を守ること」の定め（法令に触れるおそれが分かったときは、その部分を止めてから確かめ、直します）によります。
+このあいだに開かれた願い出の issue には、自動の確認が受付の停止を書き、受けないものとして閉じます。訂正へのリンクは開きません。
+2026-11-22 0 時（日本時間）からは、人の手を待たずに受付に戻り、改めた規程で確かめます。このあいだに開かれた issue は開き直さず、願い出る人は新しい issue を開きます。
+受けるかどうかを issue を開いた時刻で決めること、閉じる形、新しい issue で願い出ることは、2026-11-12 に Claude が決めました。日付だけで決まり、人の手を待たない形にするためです。
+停止を決めた 2026-11-12 に、開いている叙任の願い出は 0 件で、騎士の名簿に騎士はいませんでした。
+
 ## 良識の前提
 
 2026-11-22 から、叙任は、願い出る人が、称号を遊びとして扱う良識ある人であることを前提とします。
@@ -1368,7 +1381,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 
 サイトを配信する Vercel や、願い出を保管する GitHub が、置かれたものを AI のモデルの学習に使うことがあるため、個人情報が心配な方は、願い出ないでください。この利用は、[個人情報の取り扱い](./privacy.md)に書いてあります。
 
-1. [叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
+1. 2026-11-22 0 時（日本時間）から、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く（それより前は「受付の停止」により受けない）。
 2. 訂正への公開のリンクと、何を誤りどう正したかを書く。
 3. 誓いのすべてに印を付ける。
 
@@ -1407,6 +1420,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 - 確かめられないもの（非公開のもの、リンクが開けないもの）。
 - 利用規約の「してはいけないこと」に当たるもの。
 - 願い出の条件（年齢・住んでいる国・願い出のときにいる国・国籍）に当たらないことが、訂正のリンク先からはっきり読めるもの。
+- 2026-11-12 から 2026-11-22 0 時（日本時間）より前に開かれた願い出（「受付の停止」）。
 - 2026-11-22 から、「良識の前提」に当たらないことが、願い出た人が書いたことや訂正のリンク先からはっきり読めるもの。
 
 断るときは、決めた一文（「叙任の条件に当たりません。」）だけを issue に書き、人を評しません。本人の求めがあれば、その issue を削除します。
@@ -1943,6 +1957,7 @@ Notice: from 2026-11-22, only people who live in Japan and are in Japan when the
 Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality ([Rules on Knighting](./knighting.en.md), "Who may apply").
 Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play, and an application without the box for this premise ticked is not accepted ([Rules on Knighting](./knighting.en.md), "The premise of good sense").
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
+From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
 
@@ -2212,6 +2227,15 @@ Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses s
 This limit reduces the possibility that the article applies; it does not remove it ([Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 
+## Pause in receiving applications
+
+From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received. The owner decided this on 2026-11-12. The reason is that, in the period before the revised rules take effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained.
+The pause rests on the Terms of Use, "No ill intent, and obeying the law" (when a risk of breaking the law is found, that part is stopped first, then checked and corrected).
+An application issue opened during the pause gets a comment from the automatic check saying that applications are paused, and is closed as not accepted. The link to the correction is not opened.
+From 00:00 on 2026-11-22 (Japan time), receiving resumes without anyone acting, and the revised rules are checked. An issue opened during the pause is not reopened; the applicant opens a new issue.
+Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used, so that the pause depends on dates only and waits for no one.
+On 2026-11-12, when the pause was decided, there were no open applications for knighting, and there was no knight on the roll.
+
 ## The premise of good sense
 
 From 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play.
@@ -2233,7 +2257,7 @@ When revoking, the operator writes in the application issue only which rule was 
 
 Vercel, which serves the site, and GitHub, which keeps the applications, may use what is placed on them to train AI models. If you are worried about your personal data, do not apply. These uses are described in [Privacy](./privacy.en.md).
 
-1. Open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml).
+1. From 00:00 on 2026-11-22 (Japan time), open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml) (before then, applications are not received under "Pause in receiving applications").
 2. Give a public link to the correction, and say what was wrong and how you corrected it.
 3. Tick every one of the pledges.
 
@@ -2272,6 +2296,7 @@ No knighthood is given for:
 - Anything that cannot be checked (something not public, or a link that does not open).
 - Anything that falls under "What is not allowed" in the Terms of Use.
 - An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
+- An application opened from 2026-11-12 until 00:00 on 2026-11-22 (Japan time) ("Pause in receiving applications").
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
@@ -2895,6 +2920,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 22 | 2026-11-12 | Legality Statement, "Standing in international law" | "and the parties in the list of the Organization of American States, which is the depositary." (checked on 2026-11-08) | The list of the Organization of American States names the Ministry of Foreign Affairs of Uruguay as the depositary of the original instrument, and the General Secretariat of the OAS as the depositary of ratifications. Calling the OAS the depositary was a mistake. It was changed to "holds the ratifications". The review record of 2026-11-12 said the list had not been fetched. On 2026-11-12 the list was fetched, Japan was confirmed not to be in it, and the date of checking was changed. | verification/sources-raw.json (the OAS list of signatures and ratifications) | Fact | Insula Facti IV |
 | 23 | 2026-11-12 | Legality Statement, "Telecommunications business" and "Laws outside Japan" | "The text does not define 'business', and that point has not been checked." / "The page of the statute itself blocks automated access, and was not read." | Not a mistake; the scope was changed. The Telecommunications Business Entry Manual (Supplement) of the Ministry of Internal Affairs and Communications was fetched. It treats a website that sends only its own information, and a form receiving inquiries, as serving the provider's own needs and not as a telecommunications business. It also says that not being for profit is no ground for not being a business. Section 1798.140(d) of the California Civil Code was read in an Internet Archive copy, because the State's page blocks automated access. Its definition of a business requires a purpose such as profit. | verification/sources-raw.json (the Ministry's entry manual; the California Civil Code in an Internet Archive copy) | Scope | Insula Finis X |
 | 24 | 2026-11-12 | The knighting form, the opening of the README, the introduction page, the notice on every page, and Rules on exchange, "How exchange takes place" | "the titles it gives have no legal effect" (the Japanese of the form, the introduction page, the README and the notice) / "The only thing Nusquama gives is knighthood under the Rules on Knighting." | Not a mistake; the wording was changed. "The titles it gives" can be read as giving an honour or rank of knighthood of some country. The wording was aligned with the Rules on Knighting, which speak of giving the name of knight, and it now says that the name is not a decoration, honour or rank of knighthood. Claude decided this on 2026-11-12. Article 8 of Italy's Law No. 178 of 1951 forbids conferring under any name, so the wording does not remove the risk, but it removes one way of mistaking the name for a real honour. | Rules on Knighting, "What knighting is"; Terms of Use, "Titles" | Word | Insula Verbi IV |
+| 25 | 2026-11-12 | Rules on Knighting, "How to apply"; README, "How to become a knight" | "Open an issue with the form Application for knighthood." (Rules on Knighting) / the Japanese of README, step 2 (open an issue with the form, with the public link to the correction) | Not a mistake; the scope was changed. From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received. The owner decided this on 2026-11-12. In the period before the revised rules take effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained. The steps now say from when an issue may be opened, and the Rules on Knighting gain a section "Pause in receiving applications". The pause rests on the Terms of Use, "No ill intent, and obeying the law", which says that a part that may break a law is stopped first, then checked. Claude decided on 2026-11-12 that applications during the pause are judged by the time the issue was opened, that the automatic check comments on the pause and closes them, and that receiving resumes by itself at 00:00 on 2026-11-22, so that the pause depends on dates only and waits for no one. On the day of the decision, there were no open applications. | Terms of Use, "No ill intent, and obeying the law" and "Changes and ending"; tools/knighting.js | Scope | Insula Finis XI |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
