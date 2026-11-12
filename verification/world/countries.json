@@ -1,1370 +1,200 @@
 {
  "_": "国際連合の加盟国 193 と、オブザーバー国家 2（聖座・パレスチナ）。組（batch）は取り寄せを分ける地域で、キプロスは EU の法令とまとめるため欧州に入れた。",
  "countries": [
-  {
-   "iso3": "DZA",
-   "name": "Algeria",
-   "name_ja": "アルジェリア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "AGO",
-   "name": "Angola",
-   "name_ja": "アンゴラ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "BEN",
-   "name": "Benin",
-   "name_ja": "ベナン",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "BWA",
-   "name": "Botswana",
-   "name_ja": "ボツワナ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "BFA",
-   "name": "Burkina Faso",
-   "name_ja": "ブルキナファソ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "BDI",
-   "name": "Burundi",
-   "name_ja": "ブルンジ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "CPV",
-   "name": "Cabo Verde",
-   "name_ja": "カーボベルデ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "CMR",
-   "name": "Cameroon",
-   "name_ja": "カメルーン",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "CAF",
-   "name": "Central African Republic",
-   "name_ja": "中央アフリカ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "TCD",
-   "name": "Chad",
-   "name_ja": "チャド",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "COM",
-   "name": "Comoros",
-   "name_ja": "コモロ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "COG",
-   "name": "Congo",
-   "name_ja": "コンゴ共和国",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "CIV",
-   "name": "Côte d'Ivoire",
-   "name_ja": "コートジボワール",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "COD",
-   "name": "Democratic Republic of the Congo",
-   "name_ja": "コンゴ民主共和国",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "DJI",
-   "name": "Djibouti",
-   "name_ja": "ジブチ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "EGY",
-   "name": "Egypt",
-   "name_ja": "エジプト",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "GNQ",
-   "name": "Equatorial Guinea",
-   "name_ja": "赤道ギニア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "ERI",
-   "name": "Eritrea",
-   "name_ja": "エリトリア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "SWZ",
-   "name": "Eswatini",
-   "name_ja": "エスワティニ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "ETH",
-   "name": "Ethiopia",
-   "name_ja": "エチオピア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "GAB",
-   "name": "Gabon",
-   "name_ja": "ガボン",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "GMB",
-   "name": "Gambia",
-   "name_ja": "ガンビア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "GHA",
-   "name": "Ghana",
-   "name_ja": "ガーナ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "GIN",
-   "name": "Guinea",
-   "name_ja": "ギニア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "GNB",
-   "name": "Guinea-Bissau",
-   "name_ja": "ギニアビサウ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "KEN",
-   "name": "Kenya",
-   "name_ja": "ケニア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "LSO",
-   "name": "Lesotho",
-   "name_ja": "レソト",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "LBR",
-   "name": "Liberia",
-   "name_ja": "リベリア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "LBY",
-   "name": "Libya",
-   "name_ja": "リビア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "MDG",
-   "name": "Madagascar",
-   "name_ja": "マダガスカル",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "MWI",
-   "name": "Malawi",
-   "name_ja": "マラウイ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "MLI",
-   "name": "Mali",
-   "name_ja": "マリ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "MRT",
-   "name": "Mauritania",
-   "name_ja": "モーリタニア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "MUS",
-   "name": "Mauritius",
-   "name_ja": "モーリシャス",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "MAR",
-   "name": "Morocco",
-   "name_ja": "モロッコ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "MOZ",
-   "name": "Mozambique",
-   "name_ja": "モザンビーク",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "NAM",
-   "name": "Namibia",
-   "name_ja": "ナミビア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "NER",
-   "name": "Niger",
-   "name_ja": "ニジェール",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "NGA",
-   "name": "Nigeria",
-   "name_ja": "ナイジェリア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "RWA",
-   "name": "Rwanda",
-   "name_ja": "ルワンダ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "STP",
-   "name": "Sao Tome and Principe",
-   "name_ja": "サントメ・プリンシペ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "SEN",
-   "name": "Senegal",
-   "name_ja": "セネガル",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "SYC",
-   "name": "Seychelles",
-   "name_ja": "セーシェル",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "SLE",
-   "name": "Sierra Leone",
-   "name_ja": "シエラレオネ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "SOM",
-   "name": "Somalia",
-   "name_ja": "ソマリア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "ZAF",
-   "name": "South Africa",
-   "name_ja": "南アフリカ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "SSD",
-   "name": "South Sudan",
-   "name_ja": "南スーダン",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "SDN",
-   "name": "Sudan",
-   "name_ja": "スーダン",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "TZA",
-   "name": "Tanzania",
-   "name_ja": "タンザニア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "TGO",
-   "name": "Togo",
-   "name_ja": "トーゴ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "TUN",
-   "name": "Tunisia",
-   "name_ja": "チュニジア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "UGA",
-   "name": "Uganda",
-   "name_ja": "ウガンダ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "ZMB",
-   "name": "Zambia",
-   "name_ja": "ザンビア",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "ZWE",
-   "name": "Zimbabwe",
-   "name_ja": "ジンバブエ",
-   "batch": "africa",
-   "un": "member"
-  },
-  {
-   "iso3": "ATG",
-   "name": "Antigua and Barbuda",
-   "name_ja": "アンティグア・バーブーダ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "ARG",
-   "name": "Argentina",
-   "name_ja": "アルゼンチン",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "BHS",
-   "name": "Bahamas",
-   "name_ja": "バハマ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "BRB",
-   "name": "Barbados",
-   "name_ja": "バルバドス",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "BLZ",
-   "name": "Belize",
-   "name_ja": "ベリーズ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "BOL",
-   "name": "Bolivia",
-   "name_ja": "ボリビア",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "BRA",
-   "name": "Brazil",
-   "name_ja": "ブラジル",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "CAN",
-   "name": "Canada",
-   "name_ja": "カナダ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "CHL",
-   "name": "Chile",
-   "name_ja": "チリ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "COL",
-   "name": "Colombia",
-   "name_ja": "コロンビア",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "CRI",
-   "name": "Costa Rica",
-   "name_ja": "コスタリカ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "CUB",
-   "name": "Cuba",
-   "name_ja": "キューバ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "DMA",
-   "name": "Dominica",
-   "name_ja": "ドミニカ国",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "DOM",
-   "name": "Dominican Republic",
-   "name_ja": "ドミニカ共和国",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "ECU",
-   "name": "Ecuador",
-   "name_ja": "エクアドル",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "SLV",
-   "name": "El Salvador",
-   "name_ja": "エルサルバドル",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "GRD",
-   "name": "Grenada",
-   "name_ja": "グレナダ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "GTM",
-   "name": "Guatemala",
-   "name_ja": "グアテマラ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "GUY",
-   "name": "Guyana",
-   "name_ja": "ガイアナ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "HTI",
-   "name": "Haiti",
-   "name_ja": "ハイチ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "HND",
-   "name": "Honduras",
-   "name_ja": "ホンジュラス",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "JAM",
-   "name": "Jamaica",
-   "name_ja": "ジャマイカ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "MEX",
-   "name": "Mexico",
-   "name_ja": "メキシコ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "NIC",
-   "name": "Nicaragua",
-   "name_ja": "ニカラグア",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "PAN",
-   "name": "Panama",
-   "name_ja": "パナマ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "PRY",
-   "name": "Paraguay",
-   "name_ja": "パラグアイ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "PER",
-   "name": "Peru",
-   "name_ja": "ペルー",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "KNA",
-   "name": "Saint Kitts and Nevis",
-   "name_ja": "セントクリストファー・ネービス",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "LCA",
-   "name": "Saint Lucia",
-   "name_ja": "セントルシア",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "VCT",
-   "name": "Saint Vincent and the Grenadines",
-   "name_ja": "セントビンセント及びグレナディーン諸島",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "SUR",
-   "name": "Suriname",
-   "name_ja": "スリナム",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "TTO",
-   "name": "Trinidad and Tobago",
-   "name_ja": "トリニダード・トバゴ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "USA",
-   "name": "United States of America",
-   "name_ja": "アメリカ合衆国",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "URY",
-   "name": "Uruguay",
-   "name_ja": "ウルグアイ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "VEN",
-   "name": "Venezuela",
-   "name_ja": "ベネズエラ",
-   "batch": "americas",
-   "un": "member"
-  },
-  {
-   "iso3": "AFG",
-   "name": "Afghanistan",
-   "name_ja": "アフガニスタン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "ARM",
-   "name": "Armenia",
-   "name_ja": "アルメニア",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "AZE",
-   "name": "Azerbaijan",
-   "name_ja": "アゼルバイジャン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "BHR",
-   "name": "Bahrain",
-   "name_ja": "バーレーン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "BGD",
-   "name": "Bangladesh",
-   "name_ja": "バングラデシュ",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "BTN",
-   "name": "Bhutan",
-   "name_ja": "ブータン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "BRN",
-   "name": "Brunei Darussalam",
-   "name_ja": "ブルネイ",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "KHM",
-   "name": "Cambodia",
-   "name_ja": "カンボジア",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "CHN",
-   "name": "China",
-   "name_ja": "中国",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "GEO",
-   "name": "Georgia",
-   "name_ja": "ジョージア",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "IND",
-   "name": "India",
-   "name_ja": "インド",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "IDN",
-   "name": "Indonesia",
-   "name_ja": "インドネシア",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "IRN",
-   "name": "Iran",
-   "name_ja": "イラン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "IRQ",
-   "name": "Iraq",
-   "name_ja": "イラク",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "ISR",
-   "name": "Israel",
-   "name_ja": "イスラエル",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "JPN",
-   "name": "Japan",
-   "name_ja": "日本",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "JOR",
-   "name": "Jordan",
-   "name_ja": "ヨルダン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "KAZ",
-   "name": "Kazakhstan",
-   "name_ja": "カザフスタン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "KWT",
-   "name": "Kuwait",
-   "name_ja": "クウェート",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "KGZ",
-   "name": "Kyrgyzstan",
-   "name_ja": "キルギス",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "LAO",
-   "name": "Lao People's Democratic Republic",
-   "name_ja": "ラオス",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "LBN",
-   "name": "Lebanon",
-   "name_ja": "レバノン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "MYS",
-   "name": "Malaysia",
-   "name_ja": "マレーシア",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "MDV",
-   "name": "Maldives",
-   "name_ja": "モルディブ",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "MNG",
-   "name": "Mongolia",
-   "name_ja": "モンゴル",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "MMR",
-   "name": "Myanmar",
-   "name_ja": "ミャンマー",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "NPL",
-   "name": "Nepal",
-   "name_ja": "ネパール",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "PRK",
-   "name": "Democratic People's Republic of Korea",
-   "name_ja": "朝鮮民主主義人民共和国",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "OMN",
-   "name": "Oman",
-   "name_ja": "オマーン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "PAK",
-   "name": "Pakistan",
-   "name_ja": "パキスタン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "PHL",
-   "name": "Philippines",
-   "name_ja": "フィリピン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "QAT",
-   "name": "Qatar",
-   "name_ja": "カタール",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "KOR",
-   "name": "Republic of Korea",
-   "name_ja": "大韓民国",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "SAU",
-   "name": "Saudi Arabia",
-   "name_ja": "サウジアラビア",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "SGP",
-   "name": "Singapore",
-   "name_ja": "シンガポール",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "LKA",
-   "name": "Sri Lanka",
-   "name_ja": "スリランカ",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "SYR",
-   "name": "Syrian Arab Republic",
-   "name_ja": "シリア",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "TJK",
-   "name": "Tajikistan",
-   "name_ja": "タジキスタン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "THA",
-   "name": "Thailand",
-   "name_ja": "タイ",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "TLS",
-   "name": "Timor-Leste",
-   "name_ja": "東ティモール",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "TUR",
-   "name": "Türkiye",
-   "name_ja": "トルコ",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "TKM",
-   "name": "Turkmenistan",
-   "name_ja": "トルクメニスタン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "ARE",
-   "name": "United Arab Emirates",
-   "name_ja": "アラブ首長国連邦",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "UZB",
-   "name": "Uzbekistan",
-   "name_ja": "ウズベキスタン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "VNM",
-   "name": "Viet Nam",
-   "name_ja": "ベトナム",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "YEM",
-   "name": "Yemen",
-   "name_ja": "イエメン",
-   "batch": "asia",
-   "un": "member"
-  },
-  {
-   "iso3": "PSE",
-   "name": "State of Palestine",
-   "name_ja": "パレスチナ",
-   "batch": "asia",
-   "un": "observer"
-  },
-  {
-   "iso3": "ALB",
-   "name": "Albania",
-   "name_ja": "アルバニア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "AND",
-   "name": "Andorra",
-   "name_ja": "アンドラ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "AUT",
-   "name": "Austria",
-   "name_ja": "オーストリア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "BLR",
-   "name": "Belarus",
-   "name_ja": "ベラルーシ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "BEL",
-   "name": "Belgium",
-   "name_ja": "ベルギー",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "BIH",
-   "name": "Bosnia and Herzegovina",
-   "name_ja": "ボスニア・ヘルツェゴビナ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "BGR",
-   "name": "Bulgaria",
-   "name_ja": "ブルガリア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "HRV",
-   "name": "Croatia",
-   "name_ja": "クロアチア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "CYP",
-   "name": "Cyprus",
-   "name_ja": "キプロス",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "CZE",
-   "name": "Czechia",
-   "name_ja": "チェコ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "DNK",
-   "name": "Denmark",
-   "name_ja": "デンマーク",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "EST",
-   "name": "Estonia",
-   "name_ja": "エストニア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "FIN",
-   "name": "Finland",
-   "name_ja": "フィンランド",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "FRA",
-   "name": "France",
-   "name_ja": "フランス",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "DEU",
-   "name": "Germany",
-   "name_ja": "ドイツ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "GRC",
-   "name": "Greece",
-   "name_ja": "ギリシャ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "HUN",
-   "name": "Hungary",
-   "name_ja": "ハンガリー",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "ISL",
-   "name": "Iceland",
-   "name_ja": "アイスランド",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "IRL",
-   "name": "Ireland",
-   "name_ja": "アイルランド",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "ITA",
-   "name": "Italy",
-   "name_ja": "イタリア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "LVA",
-   "name": "Latvia",
-   "name_ja": "ラトビア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "LIE",
-   "name": "Liechtenstein",
-   "name_ja": "リヒテンシュタイン",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "LTU",
-   "name": "Lithuania",
-   "name_ja": "リトアニア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "LUX",
-   "name": "Luxembourg",
-   "name_ja": "ルクセンブルク",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "MLT",
-   "name": "Malta",
-   "name_ja": "マルタ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "MDA",
-   "name": "Republic of Moldova",
-   "name_ja": "モルドバ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "MCO",
-   "name": "Monaco",
-   "name_ja": "モナコ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "MNE",
-   "name": "Montenegro",
-   "name_ja": "モンテネグロ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "NLD",
-   "name": "Netherlands",
-   "name_ja": "オランダ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "MKD",
-   "name": "North Macedonia",
-   "name_ja": "北マケドニア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "NOR",
-   "name": "Norway",
-   "name_ja": "ノルウェー",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "POL",
-   "name": "Poland",
-   "name_ja": "ポーランド",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "PRT",
-   "name": "Portugal",
-   "name_ja": "ポルトガル",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "ROU",
-   "name": "Romania",
-   "name_ja": "ルーマニア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "RUS",
-   "name": "Russian Federation",
-   "name_ja": "ロシア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "SMR",
-   "name": "San Marino",
-   "name_ja": "サンマリノ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "SRB",
-   "name": "Serbia",
-   "name_ja": "セルビア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "SVK",
-   "name": "Slovakia",
-   "name_ja": "スロバキア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "SVN",
-   "name": "Slovenia",
-   "name_ja": "スロベニア",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "ESP",
-   "name": "Spain",
-   "name_ja": "スペイン",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "SWE",
-   "name": "Sweden",
-   "name_ja": "スウェーデン",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "CHE",
-   "name": "Switzerland",
-   "name_ja": "スイス",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "UKR",
-   "name": "Ukraine",
-   "name_ja": "ウクライナ",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "GBR",
-   "name": "United Kingdom",
-   "name_ja": "英国",
-   "batch": "europe",
-   "un": "member"
-  },
-  {
-   "iso3": "VAT",
-   "name": "Holy See",
-   "name_ja": "聖座（バチカン）",
-   "batch": "europe",
-   "un": "observer"
-  },
-  {
-   "iso3": "AUS",
-   "name": "Australia",
-   "name_ja": "オーストラリア",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "FJI",
-   "name": "Fiji",
-   "name_ja": "フィジー",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "KIR",
-   "name": "Kiribati",
-   "name_ja": "キリバス",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "MHL",
-   "name": "Marshall Islands",
-   "name_ja": "マーシャル諸島",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "FSM",
-   "name": "Micronesia (Federated States of)",
-   "name_ja": "ミクロネシア連邦",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "NRU",
-   "name": "Nauru",
-   "name_ja": "ナウル",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "NZL",
-   "name": "New Zealand",
-   "name_ja": "ニュージーランド",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "PLW",
-   "name": "Palau",
-   "name_ja": "パラオ",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "PNG",
-   "name": "Papua New Guinea",
-   "name_ja": "パプアニューギニア",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "WSM",
-   "name": "Samoa",
-   "name_ja": "サモア",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "SLB",
-   "name": "Solomon Islands",
-   "name_ja": "ソロモン諸島",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "TON",
-   "name": "Tonga",
-   "name_ja": "トンガ",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "TUV",
-   "name": "Tuvalu",
-   "name_ja": "ツバル",
-   "batch": "oceania",
-   "un": "member"
-  },
-  {
-   "iso3": "VUT",
-   "name": "Vanuatu",
-   "name_ja": "バヌアツ",
-   "batch": "oceania",
-   "un": "member"
-  }
+  {"iso3":"DZA","name":"Algeria","name_ja":"アルジェリア","batch":"africa","un":"member"},
+  {"iso3":"AGO","name":"Angola","name_ja":"アンゴラ","batch":"africa","un":"member"},
+  {"iso3":"BEN","name":"Benin","name_ja":"ベナン","batch":"africa","un":"member"},
+  {"iso3":"BWA","name":"Botswana","name_ja":"ボツワナ","batch":"africa","un":"member"},
+  {"iso3":"BFA","name":"Burkina Faso","name_ja":"ブルキナファソ","batch":"africa","un":"member"},
+  {"iso3":"BDI","name":"Burundi","name_ja":"ブルンジ","batch":"africa","un":"member"},
+  {"iso3":"CPV","name":"Cabo Verde","name_ja":"カーボベルデ","batch":"africa","un":"member"},
+  {"iso3":"CMR","name":"Cameroon","name_ja":"カメルーン","batch":"africa","un":"member"},
+  {"iso3":"CAF","name":"Central African Republic","name_ja":"中央アフリカ","batch":"africa","un":"member"},
+  {"iso3":"TCD","name":"Chad","name_ja":"チャド","batch":"africa","un":"member"},
+  {"iso3":"COM","name":"Comoros","name_ja":"コモロ","batch":"africa","un":"member"},
+  {"iso3":"COG","name":"Congo","name_ja":"コンゴ共和国","batch":"africa","un":"member"},
+  {"iso3":"CIV","name":"Côte d'Ivoire","name_ja":"コートジボワール","batch":"africa","un":"member"},
+  {"iso3":"COD","name":"Democratic Republic of the Congo","name_ja":"コンゴ民主共和国","batch":"africa","un":"member"},
+  {"iso3":"DJI","name":"Djibouti","name_ja":"ジブチ","batch":"africa","un":"member"},
+  {"iso3":"EGY","name":"Egypt","name_ja":"エジプト","batch":"africa","un":"member"},
+  {"iso3":"GNQ","name":"Equatorial Guinea","name_ja":"赤道ギニア","batch":"africa","un":"member"},
+  {"iso3":"ERI","name":"Eritrea","name_ja":"エリトリア","batch":"africa","un":"member"},
+  {"iso3":"SWZ","name":"Eswatini","name_ja":"エスワティニ","batch":"africa","un":"member"},
+  {"iso3":"ETH","name":"Ethiopia","name_ja":"エチオピア","batch":"africa","un":"member"},
+  {"iso3":"GAB","name":"Gabon","name_ja":"ガボン","batch":"africa","un":"member"},
+  {"iso3":"GMB","name":"Gambia","name_ja":"ガンビア","batch":"africa","un":"member"},
+  {"iso3":"GHA","name":"Ghana","name_ja":"ガーナ","batch":"africa","un":"member"},
+  {"iso3":"GIN","name":"Guinea","name_ja":"ギニア","batch":"africa","un":"member"},
+  {"iso3":"GNB","name":"Guinea-Bissau","name_ja":"ギニアビサウ","batch":"africa","un":"member"},
+  {"iso3":"KEN","name":"Kenya","name_ja":"ケニア","batch":"africa","un":"member"},
+  {"iso3":"LSO","name":"Lesotho","name_ja":"レソト","batch":"africa","un":"member"},
+  {"iso3":"LBR","name":"Liberia","name_ja":"リベリア","batch":"africa","un":"member"},
+  {"iso3":"LBY","name":"Libya","name_ja":"リビア","batch":"africa","un":"member"},
+  {"iso3":"MDG","name":"Madagascar","name_ja":"マダガスカル","batch":"africa","un":"member"},
+  {"iso3":"MWI","name":"Malawi","name_ja":"マラウイ","batch":"africa","un":"member"},
+  {"iso3":"MLI","name":"Mali","name_ja":"マリ","batch":"africa","un":"member"},
+  {"iso3":"MRT","name":"Mauritania","name_ja":"モーリタニア","batch":"africa","un":"member"},
+  {"iso3":"MUS","name":"Mauritius","name_ja":"モーリシャス","batch":"africa","un":"member"},
+  {"iso3":"MAR","name":"Morocco","name_ja":"モロッコ","batch":"africa","un":"member"},
+  {"iso3":"MOZ","name":"Mozambique","name_ja":"モザンビーク","batch":"africa","un":"member"},
+  {"iso3":"NAM","name":"Namibia","name_ja":"ナミビア","batch":"africa","un":"member"},
+  {"iso3":"NER","name":"Niger","name_ja":"ニジェール","batch":"africa","un":"member"},
+  {"iso3":"NGA","name":"Nigeria","name_ja":"ナイジェリア","batch":"africa","un":"member"},
+  {"iso3":"RWA","name":"Rwanda","name_ja":"ルワンダ","batch":"africa","un":"member"},
+  {"iso3":"STP","name":"Sao Tome and Principe","name_ja":"サントメ・プリンシペ","batch":"africa","un":"member"},
+  {"iso3":"SEN","name":"Senegal","name_ja":"セネガル","batch":"africa","un":"member"},
+  {"iso3":"SYC","name":"Seychelles","name_ja":"セーシェル","batch":"africa","un":"member"},
+  {"iso3":"SLE","name":"Sierra Leone","name_ja":"シエラレオネ","batch":"africa","un":"member"},
+  {"iso3":"SOM","name":"Somalia","name_ja":"ソマリア","batch":"africa","un":"member"},
+  {"iso3":"ZAF","name":"South Africa","name_ja":"南アフリカ","batch":"africa","un":"member"},
+  {"iso3":"SSD","name":"South Sudan","name_ja":"南スーダン","batch":"africa","un":"member"},
+  {"iso3":"SDN","name":"Sudan","name_ja":"スーダン","batch":"africa","un":"member"},
+  {"iso3":"TZA","name":"Tanzania","name_ja":"タンザニア","batch":"africa","un":"member"},
+  {"iso3":"TGO","name":"Togo","name_ja":"トーゴ","batch":"africa","un":"member"},
+  {"iso3":"TUN","name":"Tunisia","name_ja":"チュニジア","batch":"africa","un":"member"},
+  {"iso3":"UGA","name":"Uganda","name_ja":"ウガンダ","batch":"africa","un":"member"},
+  {"iso3":"ZMB","name":"Zambia","name_ja":"ザンビア","batch":"africa","un":"member"},
+  {"iso3":"ZWE","name":"Zimbabwe","name_ja":"ジンバブエ","batch":"africa","un":"member"},
+  {"iso3":"ATG","name":"Antigua and Barbuda","name_ja":"アンティグア・バーブーダ","batch":"americas","un":"member"},
+  {"iso3":"ARG","name":"Argentina","name_ja":"アルゼンチン","batch":"americas","un":"member"},
+  {"iso3":"BHS","name":"Bahamas","name_ja":"バハマ","batch":"americas","un":"member"},
+  {"iso3":"BRB","name":"Barbados","name_ja":"バルバドス","batch":"americas","un":"member"},
+  {"iso3":"BLZ","name":"Belize","name_ja":"ベリーズ","batch":"americas","un":"member"},
+  {"iso3":"BOL","name":"Bolivia","name_ja":"ボリビア","batch":"americas","un":"member"},
+  {"iso3":"BRA","name":"Brazil","name_ja":"ブラジル","batch":"americas","un":"member"},
+  {"iso3":"CAN","name":"Canada","name_ja":"カナダ","batch":"americas","un":"member"},
+  {"iso3":"CHL","name":"Chile","name_ja":"チリ","batch":"americas","un":"member"},
+  {"iso3":"COL","name":"Colombia","name_ja":"コロンビア","batch":"americas","un":"member"},
+  {"iso3":"CRI","name":"Costa Rica","name_ja":"コスタリカ","batch":"americas","un":"member"},
+  {"iso3":"CUB","name":"Cuba","name_ja":"キューバ","batch":"americas","un":"member"},
+  {"iso3":"DMA","name":"Dominica","name_ja":"ドミニカ国","batch":"americas","un":"member"},
+  {"iso3":"DOM","name":"Dominican Republic","name_ja":"ドミニカ共和国","batch":"americas","un":"member"},
+  {"iso3":"ECU","name":"Ecuador","name_ja":"エクアドル","batch":"americas","un":"member"},
+  {"iso3":"SLV","name":"El Salvador","name_ja":"エルサルバドル","batch":"americas","un":"member"},
+  {"iso3":"GRD","name":"Grenada","name_ja":"グレナダ","batch":"americas","un":"member"},
+  {"iso3":"GTM","name":"Guatemala","name_ja":"グアテマラ","batch":"americas","un":"member"},
+  {"iso3":"GUY","name":"Guyana","name_ja":"ガイアナ","batch":"americas","un":"member"},
+  {"iso3":"HTI","name":"Haiti","name_ja":"ハイチ","batch":"americas","un":"member"},
+  {"iso3":"HND","name":"Honduras","name_ja":"ホンジュラス","batch":"americas","un":"member"},
+  {"iso3":"JAM","name":"Jamaica","name_ja":"ジャマイカ","batch":"americas","un":"member"},
+  {"iso3":"MEX","name":"Mexico","name_ja":"メキシコ","batch":"americas","un":"member"},
+  {"iso3":"NIC","name":"Nicaragua","name_ja":"ニカラグア","batch":"americas","un":"member"},
+  {"iso3":"PAN","name":"Panama","name_ja":"パナマ","batch":"americas","un":"member"},
+  {"iso3":"PRY","name":"Paraguay","name_ja":"パラグアイ","batch":"americas","un":"member"},
+  {"iso3":"PER","name":"Peru","name_ja":"ペルー","batch":"americas","un":"member"},
+  {"iso3":"KNA","name":"Saint Kitts and Nevis","name_ja":"セントクリストファー・ネービス","batch":"americas","un":"member"},
+  {"iso3":"LCA","name":"Saint Lucia","name_ja":"セントルシア","batch":"americas","un":"member"},
+  {"iso3":"VCT","name":"Saint Vincent and the Grenadines","name_ja":"セントビンセント及びグレナディーン諸島","batch":"americas","un":"member"},
+  {"iso3":"SUR","name":"Suriname","name_ja":"スリナム","batch":"americas","un":"member"},
+  {"iso3":"TTO","name":"Trinidad and Tobago","name_ja":"トリニダード・トバゴ","batch":"americas","un":"member"},
+  {"iso3":"USA","name":"United States of America","name_ja":"アメリカ合衆国","batch":"americas","un":"member"},
+  {"iso3":"URY","name":"Uruguay","name_ja":"ウルグアイ","batch":"americas","un":"member"},
+  {"iso3":"VEN","name":"Venezuela","name_ja":"ベネズエラ","batch":"americas","un":"member"},
+  {"iso3":"AFG","name":"Afghanistan","name_ja":"アフガニスタン","batch":"asia","un":"member"},
+  {"iso3":"ARM","name":"Armenia","name_ja":"アルメニア","batch":"asia","un":"member"},
+  {"iso3":"AZE","name":"Azerbaijan","name_ja":"アゼルバイジャン","batch":"asia","un":"member"},
+  {"iso3":"BHR","name":"Bahrain","name_ja":"バーレーン","batch":"asia","un":"member"},
+  {"iso3":"BGD","name":"Bangladesh","name_ja":"バングラデシュ","batch":"asia","un":"member"},
+  {"iso3":"BTN","name":"Bhutan","name_ja":"ブータン","batch":"asia","un":"member"},
+  {"iso3":"BRN","name":"Brunei Darussalam","name_ja":"ブルネイ","batch":"asia","un":"member"},
+  {"iso3":"KHM","name":"Cambodia","name_ja":"カンボジア","batch":"asia","un":"member"},
+  {"iso3":"CHN","name":"China","name_ja":"中国","batch":"asia","un":"member"},
+  {"iso3":"GEO","name":"Georgia","name_ja":"ジョージア","batch":"asia","un":"member"},
+  {"iso3":"IND","name":"India","name_ja":"インド","batch":"asia","un":"member"},
+  {"iso3":"IDN","name":"Indonesia","name_ja":"インドネシア","batch":"asia","un":"member"},
+  {"iso3":"IRN","name":"Iran","name_ja":"イラン","batch":"asia","un":"member"},
+  {"iso3":"IRQ","name":"Iraq","name_ja":"イラク","batch":"asia","un":"member"},
+  {"iso3":"ISR","name":"Israel","name_ja":"イスラエル","batch":"asia","un":"member"},
+  {"iso3":"JPN","name":"Japan","name_ja":"日本","batch":"asia","un":"member"},
+  {"iso3":"JOR","name":"Jordan","name_ja":"ヨルダン","batch":"asia","un":"member"},
+  {"iso3":"KAZ","name":"Kazakhstan","name_ja":"カザフスタン","batch":"asia","un":"member"},
+  {"iso3":"KWT","name":"Kuwait","name_ja":"クウェート","batch":"asia","un":"member"},
+  {"iso3":"KGZ","name":"Kyrgyzstan","name_ja":"キルギス","batch":"asia","un":"member"},
+  {"iso3":"LAO","name":"Lao People's Democratic Republic","name_ja":"ラオス","batch":"asia","un":"member"},
+  {"iso3":"LBN","name":"Lebanon","name_ja":"レバノン","batch":"asia","un":"member"},
+  {"iso3":"MYS","name":"Malaysia","name_ja":"マレーシア","batch":"asia","un":"member"},
+  {"iso3":"MDV","name":"Maldives","name_ja":"モルディブ","batch":"asia","un":"member"},
+  {"iso3":"MNG","name":"Mongolia","name_ja":"モンゴル","batch":"asia","un":"member"},
+  {"iso3":"MMR","name":"Myanmar","name_ja":"ミャンマー","batch":"asia","un":"member"},
+  {"iso3":"NPL","name":"Nepal","name_ja":"ネパール","batch":"asia","un":"member"},
+  {"iso3":"PRK","name":"Democratic People's Republic of Korea","name_ja":"朝鮮民主主義人民共和国","batch":"asia","un":"member"},
+  {"iso3":"OMN","name":"Oman","name_ja":"オマーン","batch":"asia","un":"member"},
+  {"iso3":"PAK","name":"Pakistan","name_ja":"パキスタン","batch":"asia","un":"member"},
+  {"iso3":"PHL","name":"Philippines","name_ja":"フィリピン","batch":"asia","un":"member"},
+  {"iso3":"QAT","name":"Qatar","name_ja":"カタール","batch":"asia","un":"member"},
+  {"iso3":"KOR","name":"Republic of Korea","name_ja":"大韓民国","batch":"asia","un":"member"},
+  {"iso3":"SAU","name":"Saudi Arabia","name_ja":"サウジアラビア","batch":"asia","un":"member"},
+  {"iso3":"SGP","name":"Singapore","name_ja":"シンガポール","batch":"asia","un":"member"},
+  {"iso3":"LKA","name":"Sri Lanka","name_ja":"スリランカ","batch":"asia","un":"member"},
+  {"iso3":"SYR","name":"Syrian Arab Republic","name_ja":"シリア","batch":"asia","un":"member"},
+  {"iso3":"TJK","name":"Tajikistan","name_ja":"タジキスタン","batch":"asia","un":"member"},
+  {"iso3":"THA","name":"Thailand","name_ja":"タイ","batch":"asia","un":"member"},
+  {"iso3":"TLS","name":"Timor-Leste","name_ja":"東ティモール","batch":"asia","un":"member"},
+  {"iso3":"TUR","name":"Türkiye","name_ja":"トルコ","batch":"asia","un":"member"},
+  {"iso3":"TKM","name":"Turkmenistan","name_ja":"トルクメニスタン","batch":"asia","un":"member"},
+  {"iso3":"ARE","name":"United Arab Emirates","name_ja":"アラブ首長国連邦","batch":"asia","un":"member"},
+  {"iso3":"UZB","name":"Uzbekistan","name_ja":"ウズベキスタン","batch":"asia","un":"member"},
+  {"iso3":"VNM","name":"Viet Nam","name_ja":"ベトナム","batch":"asia","un":"member"},
+  {"iso3":"YEM","name":"Yemen","name_ja":"イエメン","batch":"asia","un":"member"},
+  {"iso3":"PSE","name":"State of Palestine","name_ja":"パレスチナ","batch":"asia","un":"observer"},
+  {"iso3":"ALB","name":"Albania","name_ja":"アルバニア","batch":"europe","un":"member"},
+  {"iso3":"AND","name":"Andorra","name_ja":"アンドラ","batch":"europe","un":"member"},
+  {"iso3":"AUT","name":"Austria","name_ja":"オーストリア","batch":"europe","un":"member"},
+  {"iso3":"BLR","name":"Belarus","name_ja":"ベラルーシ","batch":"europe","un":"member"},
+  {"iso3":"BEL","name":"Belgium","name_ja":"ベルギー","batch":"europe","un":"member"},
+  {"iso3":"BIH","name":"Bosnia and Herzegovina","name_ja":"ボスニア・ヘルツェゴビナ","batch":"europe","un":"member"},
+  {"iso3":"BGR","name":"Bulgaria","name_ja":"ブルガリア","batch":"europe","un":"member"},
+  {"iso3":"HRV","name":"Croatia","name_ja":"クロアチア","batch":"europe","un":"member"},
+  {"iso3":"CYP","name":"Cyprus","name_ja":"キプロス","batch":"europe","un":"member"},
+  {"iso3":"CZE","name":"Czechia","name_ja":"チェコ","batch":"europe","un":"member"},
+  {"iso3":"DNK","name":"Denmark","name_ja":"デンマーク","batch":"europe","un":"member"},
+  {"iso3":"EST","name":"Estonia","name_ja":"エストニア","batch":"europe","un":"member"},
+  {"iso3":"FIN","name":"Finland","name_ja":"フィンランド","batch":"europe","un":"member"},
+  {"iso3":"FRA","name":"France","name_ja":"フランス","batch":"europe","un":"member"},
+  {"iso3":"DEU","name":"Germany","name_ja":"ドイツ","batch":"europe","un":"member"},
+  {"iso3":"GRC","name":"Greece","name_ja":"ギリシャ","batch":"europe","un":"member"},
+  {"iso3":"HUN","name":"Hungary","name_ja":"ハンガリー","batch":"europe","un":"member"},
+  {"iso3":"ISL","name":"Iceland","name_ja":"アイスランド","batch":"europe","un":"member"},
+  {"iso3":"IRL","name":"Ireland","name_ja":"アイルランド","batch":"europe","un":"member"},
+  {"iso3":"ITA","name":"Italy","name_ja":"イタリア","batch":"europe","un":"member"},
+  {"iso3":"LVA","name":"Latvia","name_ja":"ラトビア","batch":"europe","un":"member"},
+  {"iso3":"LIE","name":"Liechtenstein","name_ja":"リヒテンシュタイン","batch":"europe","un":"member"},
+  {"iso3":"LTU","name":"Lithuania","name_ja":"リトアニア","batch":"europe","un":"member"},
+  {"iso3":"LUX","name":"Luxembourg","name_ja":"ルクセンブルク","batch":"europe","un":"member"},
+  {"iso3":"MLT","name":"Malta","name_ja":"マルタ","batch":"europe","un":"member"},
+  {"iso3":"MDA","name":"Republic of Moldova","name_ja":"モルドバ","batch":"europe","un":"member"},
+  {"iso3":"MCO","name":"Monaco","name_ja":"モナコ","batch":"europe","un":"member"},
+  {"iso3":"MNE","name":"Montenegro","name_ja":"モンテネグロ","batch":"europe","un":"member"},
+  {"iso3":"NLD","name":"Netherlands","name_ja":"オランダ","batch":"europe","un":"member"},
+  {"iso3":"MKD","name":"North Macedonia","name_ja":"北マケドニア","batch":"europe","un":"member"},
+  {"iso3":"NOR","name":"Norway","name_ja":"ノルウェー","batch":"europe","un":"member"},
+  {"iso3":"POL","name":"Poland","name_ja":"ポーランド","batch":"europe","un":"member"},
+  {"iso3":"PRT","name":"Portugal","name_ja":"ポルトガル","batch":"europe","un":"member"},
+  {"iso3":"ROU","name":"Romania","name_ja":"ルーマニア","batch":"europe","un":"member"},
+  {"iso3":"RUS","name":"Russian Federation","name_ja":"ロシア","batch":"europe","un":"member"},
+  {"iso3":"SMR","name":"San Marino","name_ja":"サンマリノ","batch":"europe","un":"member"},
+  {"iso3":"SRB","name":"Serbia","name_ja":"セルビア","batch":"europe","un":"member"},
+  {"iso3":"SVK","name":"Slovakia","name_ja":"スロバキア","batch":"europe","un":"member"},
+  {"iso3":"SVN","name":"Slovenia","name_ja":"スロベニア","batch":"europe","un":"member"},
+  {"iso3":"ESP","name":"Spain","name_ja":"スペイン","batch":"europe","un":"member"},
+  {"iso3":"SWE","name":"Sweden","name_ja":"スウェーデン","batch":"europe","un":"member"},
+  {"iso3":"CHE","name":"Switzerland","name_ja":"スイス","batch":"europe","un":"member"},
+  {"iso3":"UKR","name":"Ukraine","name_ja":"ウクライナ","batch":"europe","un":"member"},
+  {"iso3":"GBR","name":"United Kingdom","name_ja":"英国","batch":"europe","un":"member"},
+  {"iso3":"VAT","name":"Holy See","name_ja":"聖座（バチカン）","batch":"europe","un":"observer"},
+  {"iso3":"AUS","name":"Australia","name_ja":"オーストラリア","batch":"oceania","un":"member"},
+  {"iso3":"FJI","name":"Fiji","name_ja":"フィジー","batch":"oceania","un":"member"},
+  {"iso3":"KIR","name":"Kiribati","name_ja":"キリバス","batch":"oceania","un":"member"},
+  {"iso3":"MHL","name":"Marshall Islands","name_ja":"マーシャル諸島","batch":"oceania","un":"member"},
+  {"iso3":"FSM","name":"Micronesia (Federated States of)","name_ja":"ミクロネシア連邦","batch":"oceania","un":"member"},
+  {"iso3":"NRU","name":"Nauru","name_ja":"ナウル","batch":"oceania","un":"member"},
+  {"iso3":"NZL","name":"New Zealand","name_ja":"ニュージーランド","batch":"oceania","un":"member"},
+  {"iso3":"PLW","name":"Palau","name_ja":"パラオ","batch":"oceania","un":"member"},
+  {"iso3":"PNG","name":"Papua New Guinea","name_ja":"パプアニューギニア","batch":"oceania","un":"member"},
+  {"iso3":"WSM","name":"Samoa","name_ja":"サモア","batch":"oceania","un":"member"},
+  {"iso3":"SLB","name":"Solomon Islands","name_ja":"ソロモン諸島","batch":"oceania","un":"member"},
+  {"iso3":"TON","name":"Tonga","name_ja":"トンガ","batch":"oceania","un":"member"},
+  {"iso3":"TUV","name":"Tuvalu","name_ja":"ツバル","batch":"oceania","un":"member"},
+  {"iso3":"VUT","name":"Vanuatu","name_ja":"バヌアツ","batch":"oceania","un":"member"}
  ]
 }

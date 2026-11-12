@@ -1,0 +1,1870 @@
+{
+ "_": "各国の法令の調べ（tools/world.js）の設定。topics は調べる主題、keywords は主題ごと・言語ごとの検索語（正規表現。de のほかは大文字と小文字を区別しない）、codes は取り寄せる法令、unsourced は取り寄せ先を定めていない国と主題の理由。",
+ "decided": "2026-11-12 に Claude が決めました。",
+ "topics": {
+  "honours": "称号・爵位・栄典・勲章・騎士団：創設、授与、外国や承認されていない団体からの受領、不正な使用や着用、国の記章の模倣",
+  "sovereignty": "主権・分離・領土の一体性・承認されていない国家・国家や公の機関を装うこと",
+  "symbols": "国旗・紋章・国のしるし（模倣、不正な使用）",
+  "fraud": "詐欺・称号の売買・消費者を誤らせること（無料の役務を含む）",
+  "data": "個人データの保護（域外適用・代理人・国外移転・未成年）",
+  "defamation": "名誉毀損と第三者の情報の公開",
+  "quotation": "著作権の引用の例外（ベルヌ条約第10条の国内法化）。Sophaxis の実務が拠る範囲だけ"
+ },
+ "keywords": {
+  "honours": {
+   "en": "(?<![\\p{L}])(?:titles? of nobility|nobility|noble titles?|hereditary titles?|peerages?|knighthoods?|knights?|chivalry|decorations?|insignia|medals?|honou?rs|honorary titles?|titles? of honou?r|orders? of (?:merit|chivalry|knighthood)|state awards?|honorary distinctions?|distinctions? of honou?r|dignit(?:y|ies) or titles?|uniforms?)",
+   "es": "(?<![\\p{L}])(?:nobleza|nobiliari\\p{L}*|t[íi]tulos? (?:de nobleza|nobiliari\\p{L}*|honor[íi]fic\\p{L}*|de honor)|condecoraci\\p{L}*|honores|distinciones honor[íi]ficas|[óo]rdenes (?:honor[íi]fic\\p{L}*|de caballer\\p{L}*)|caballer\\p{L}*|insignias?|medallas?|uniformes?)",
+   "pt": "(?<![\\p{L}])(?:nobreza|nobili[áa]rqu\\p{L}*|t[íi]tulos? (?:de nobreza|nobili\\p{L}*|honor[íi]fic\\p{L}*)|condecora\\p{L}*|honrarias?|ordens honor[íi]ficas|ins[íi]gnias?|medalhas?|cavaleir\\p{L}*|uniformes?)",
+   "fr": "(?<![\\p{L}])(?:noblesse|nobiliaires?|titres? (?:de noblesse|nobiliaires?|honorifiques?)|d[ée]corations?|distinctions? honorifiques?|ordres? (?:nationaux|national|honorifiques?|de chevalerie)|chevaleries?|chevaliers?|insignes?|m[ée]dailles?|l[ée]gion d.honneur|uniformes?)",
+   "it": "(?<![\\p{L}])(?:nobiliar\\p{L}*|nobilt[àa]|titoli (?:nobiliari|onorifici|cavallereschi)|onorificenz\\p{L}*|decorazion\\p{L}*|distinzion\\p{L}* cavallere\\p{L}*|cavalier\\p{L}*|insegne|medagli\\p{L}*|ordini cavallereschi|uniform\\p{L}*)",
+   "de": "(?<![\\p{L}])(?:Adel\\p{L}*|adelig\\p{L}*|Titel\\p{L}*|Orden|Ordens\\p{L}*|Ehrenzeichen|Auszeichnung\\p{L}*|Abzeichen|Uniform\\p{L}*|Amtsbezeichnung\\p{L}*|Würden?|Ritter\\p{L}*)",
+   "nl": "(?<![\\p{L}])(?:adel\\p{L}*|titels?|titulatuur|ridderorde\\p{L}*|onderscheiding\\p{L}*|ordeteken\\p{L}*|ridders?|decorati\\p{L}*|uniform\\p{L}*|insigne\\p{L}*)",
+   "nb": "(?<![\\p{L}])(?:adel\\p{L}*|titt?el\\p{L}*|orden|ordener|ordenstegn|dekorasjon\\p{L}*|utmerkelse\\p{L}*|ridder\\p{L}*|medalje\\p{L}*|uniform\\p{L}*)",
+   "ru": "(?<![\\p{L}])(?:дворян\\p{L}*|титул\\p{L}*|орден\\p{L}*|наград\\p{L}*|знак\\p{L}* отличия|медал\\p{L}*|звани\\p{L}*)",
+   "ja": "栄典|勲章|褒章|爵位|華族|貴族|称号|位階|勲等|叙勲|騎士|記章|徽章|名誉の称号|表彰",
+   "sv": "(?<![\\p{L}])(?:adel\\p{L}*|titel\\p{L}*|orden|ordnar|ordenstecken|utmärkelse\\p{L}*|riddar\\p{L}*|medalj\\p{L}*|uniform\\p{L}*|tjänstetecken)",
+   "da": "(?<![\\p{L}])(?:adel\\p{L}*|titel\\p{L}*|orden|ordener|ordenstegn|dekoration\\p{L}*|udmærkelse\\p{L}*|ridder\\p{L}*|medalje\\p{L}*|uniform\\p{L}*)"
+  },
+  "sovereignty": {
+   "en": "(?<![\\p{L}])(?:secession|secede|seceding|territorial integrity|integrity of (?:the|its) (?:national )?territory|indivisib\\p{L}*|dismember\\p{L}*|separatis\\p{L}*|usurp\\p{L}*|imperson\\p{L}*|personat\\p{L}*|falsely (?:claims?|represents?|pretends?|holds? (?:himself|herself|oneself) out)|pretend\\p{L}* to be|unrecogni[sz]ed|micro-?nations?|alienat\\p{L}* (?:of )?(?:any part of )?(?:the )?(?:national )?territory|cession of (?:the )?territory|self-proclaimed)",
+   "es": "(?<![\\p{L}])(?:secesi\\p{L}*|integridad territorial|indivisib\\p{L}*|desmembra\\p{L}*|separatis\\p{L}*|usurpa\\p{L}*|se (?:atribuy\\p{L}*|arrog\\p{L}*)|fingi\\p{L}* (?:ser|autoridad)|falsamente (?:la )?(?:calidad|car[áa]cter))",
+   "pt": "(?<![\\p{L}])(?:secess\\p{L}*|integridade territorial|indissol[úu]vel|indivis[íi]v\\p{L}*|separatis\\p{L}*|usurpa\\p{L}*|desmembra\\p{L}*|fingir-se|arrog\\p{L}*)",
+   "fr": "(?<![\\p{L}])(?:s[ée]cession|int[ée]grit[ée] (?:du )?territori\\p{L}*|indivisibles?|d[ée]membrement|s[ée]paratis\\p{L}*|usurpation|usurpe\\p{L}*|se faire passer pour|se pr[ée]valoir (?:faussement|indûment))",
+   "it": "(?<![\\p{L}])(?:secession\\p{L}*|integrit[àa] (?:del )?territori\\p{L}*|indivisibil\\p{L}*|usurpazion\\p{L}*|usurpa\\p{L}*|separatis\\p{L}*|attent\\p{L}* (?:all'|contro l')(?:integrit[àa]|indipendenza|unit[àa]))",
+   "de": "(?<![\\p{L}])(?:Sezession|territoriale\\p{L}* Integrität|Gebietsstand|Hochverrat\\p{L}*|Amtsanmaßung|anmaßt|unteilbar|Bestand der Bundesrepublik|Staatsgebiet)",
+   "nl": "(?<![\\p{L}])(?:afscheiding|territoriale integriteit|ondeelbaar|aanmatig\\p{L}*|zich valselijk|zich uitgeeft)",
+   "nb": "(?<![\\p{L}])(?:løsrivelse|territoriell\\p{L}* integritet|udelelig|utgir seg for|uberettiget (?:utgir|bruker)|offentlig myndighet)",
+   "ru": "(?<![\\p{L}])(?:сепаратиз\\p{L}*|территориальн\\p{L}* целостност\\p{L}*|отчужден\\p{L}* части территории|самозван\\p{L}*|присвоени\\p{L}* (?:власт|звани|полномоч)\\p{L}*)",
+   "ja": "内乱|外患|主権|領土|統治機構|国権|独立|僭|詐称|官職|官公職|外国の?(?:政府|国家|元首)|国交|外国の国章",
+   "sv": "(?<![\\p{L}])(?:territoriell\\p{L}* integritet|odelbar|utger sig för|obehörig\\p{L}* utövning|myndighetsutövning|högförräderi)",
+   "da": "(?<![\\p{L}])(?:løsrivelse|territorial\\p{L}* integritet|udgiver sig for|uberettiget (?:udøver|bærer)|offentlig myndighed)"
+  },
+  "symbols": {
+   "en": "(?<![\\p{L}])(?:flags?|coats? of arms|armorial|emblems?|national symbols?|state symbols?|seals? of (?:the )?(?:state|republic)|(?:national|state) seal|anthems?|heraldr\\p{L}*|national colou?rs)",
+   "es": "(?<![\\p{L}])(?:banderas?|escudos? (?:de armas|nacional|de la naci[óo]n)|emblemas?|s[íi]mbolos? (?:patrios|nacionales|del estado)|himnos?|pabell[óo]n nacional|sellos? (?:del estado|nacional|oficial))",
+   "pt": "(?<![\\p{L}])(?:bandeiras?|bras(?:ão|ões)|armas nacionais|emblemas?|s[íi]mbolos (?:nacionais|da rep[úu]blica)|hinos?|selo nacional)",
+   "fr": "(?<![\\p{L}])(?:drapeaux?|armoiries|embl[èe]mes?|sceau|hymnes?|symboles? (?:nationa\\p{L}*|de l.[ÉE]tat|de la r[ée]publique)|couleurs nationales)",
+   "it": "(?<![\\p{L}])(?:bandier\\p{L}*|stemm\\p{L}*|emblem\\p{L}*|vessill\\p{L}*|inno|simboli|sigill\\p{L}*)",
+   "de": "(?<![\\p{L}])(?:Flaggen?|Fahnen?|Wappen|Hoheitszeichen|Staatssymbol\\p{L}*|Hymne|Dienstsiegel|Bundesfarben|Farben der Bundesrepublik)",
+   "nl": "(?<![\\p{L}])(?:vlag\\p{L}*|wapen(?:s|schild)?|emble\\p{L}*|volkslied|zegels?|nationale kleuren|vaandel\\p{L}*)",
+   "nb": "(?<![\\p{L}])(?:flagg\\p{L}*|riksvåpen\\p{L}*|våpen(?:merke)?|emblem\\p{L}*|nasjonalsang|segl\\p{L}*)",
+   "ru": "(?<![\\p{L}])(?:флаг\\p{L}*|герб\\p{L}*|гимн\\p{L}*|символ\\p{L}*)",
+   "ja": "国旗|国章|紋章|国歌|標章|公記号|公印|御璽|国璽|旗",
+   "sv": "(?<![\\p{L}])(?:flagg\\p{L}*|riksvapn\\p{L}*|riksvapen|vapen|emblem\\p{L}*|nationalsång|sigill\\p{L}*|statssymbol\\p{L}*)",
+   "da": "(?<![\\p{L}])(?:flag\\p{L}*|rigsvåben|våben|emblem\\p{L}*|nationalsang|segl\\p{L}*)"
+  },
+  "fraud": {
+   "en": "(?<![\\p{L}])(?:fraud\\p{L}*|deceit\\p{L}*|decepti\\p{L}*|deceiv\\p{L}*|false pretences?|misleading|misrepresent\\p{L}*|unfair (?:commercial|trade) practices?|consumers?)",
+   "es": "(?<![\\p{L}])(?:estafa\\p{L}*|fraude\\p{L}*|fraudulent\\p{L}*|enga[ñn]\\p{L}*|publicidad (?:enga[ñn]osa|falsa|il[íi]cita)|consumidor\\p{L}*)",
+   "pt": "(?<![\\p{L}])(?:estelionato|fraude\\p{L}*|fraudulent\\p{L}*|engan\\p{L}*|publicidade enganosa|consumidor\\p{L}*)",
+   "fr": "(?<![\\p{L}])(?:escroquerie\\p{L}*|fraude\\p{L}*|frauduleu\\p{L}*|tromperie\\p{L}*|trompeu\\p{L}*|consommateurs?)",
+   "it": "(?<![\\p{L}])(?:truff\\p{L}*|frod\\p{L}*|fraudolent\\p{L}*|ingann\\p{L}*|artifizi|raggiri|pratiche commerciali scorrette|consumator\\p{L}*)",
+   "de": "(?<![\\p{L}])(?:Betrug\\p{L}*|Täuschung\\p{L}*|täusch\\p{L}*|irreführend\\p{L}*|Verbraucher\\p{L}*)",
+   "nl": "(?<![\\p{L}])(?:oplichting|bedrog|bedrieg\\p{L}*|misleid\\p{L}*|listige kunstgrepen|consument\\p{L}*)",
+   "nb": "(?<![\\p{L}])(?:bedrageri\\p{L}*|svindel|villed\\p{L}*|forbruker\\p{L}*)",
+   "ru": "(?<![\\p{L}])(?:мошенничеств\\p{L}*|обман\\p{L}*|потребител\\p{L}*)",
+   "ja": "詐欺|欺|誤認|錯誤|不当(?:表示|景品)|消費者|偽り",
+   "sv": "(?<![\\p{L}])(?:bedrägeri\\p{L}*|vilsele\\p{L}*|konsument\\p{L}*)",
+   "da": "(?<![\\p{L}])(?:bedrageri\\p{L}*|vildled\\p{L}*|forbruger\\p{L}*)"
+  },
+  "data": {
+   "en": "(?<![\\p{L}])(?:personal data|personal information|data protection|protection of (?:personal )?data|habeas data|data subjects?|privacy|private life|informational self-determination|data controllers?)",
+   "es": "(?<![\\p{L}])(?:datos personales|datos de car[áa]cter personal|protecci[óo]n de (?:los )?datos|h[áa]beas data|intimidad|vida privada|autodeterminaci[óo]n informativa)",
+   "pt": "(?<![\\p{L}])(?:dados pessoais|prote[çc][ãa]o de dados|habeas data|intimidade|vida privada)",
+   "fr": "(?<![\\p{L}])(?:donn[ée]es (?:[àa] caract[èe]re )?personnelles|protection des donn[ée]es|vie priv[ée]e|intimit[ée])",
+   "it": "(?<![\\p{L}])(?:dati personali|protezione dei dati|riservatezza|vita privata)",
+   "de": "(?<![\\p{L}])(?:personenbezogene\\p{L}* Daten|Datenschutz\\p{L}*|Privatsphäre|Privatleben|informationelle\\p{L}* Selbstbestimmung)",
+   "nl": "(?<![\\p{L}])(?:persoonsgegevens|gegevensbescherming|persoonlijke levenssfeer|privacy)",
+   "nb": "(?<![\\p{L}])(?:personopplysning\\p{L}*|personvern\\p{L}*|privatliv\\p{L}*)",
+   "ru": "(?<![\\p{L}])(?:персональн\\p{L}* данн\\p{L}*|частн\\p{L}* жизн\\p{L}*|неприкосновенност\\p{L}* частной)",
+   "ja": "個人情報|個人データ|プライバシ|秘密を漏|私生活|通信の秘密",
+   "sv": "(?<![\\p{L}])(?:personuppgift\\p{L}*|privatliv\\p{L}*|integritetsskydd)",
+   "da": "(?<![\\p{L}])(?:personoplysning\\p{L}*|privatliv\\p{L}*)"
+  },
+  "defamation": {
+   "en": "(?<![\\p{L}])(?:defam\\p{L}*|libel\\p{L}*|slander\\p{L}*|insult\\p{L}*|calumn\\p{L}*|reputations?|good name|honou?r and (?:dignity|reputation)|(?:dignity|reputation) and honou?r)",
+   "es": "(?<![\\p{L}])(?:injuria\\p{L}*|calumnia\\p{L}*|difamaci\\p{L}*|difamator\\p{L}*|honra|honor|reputaci[óo]n|buen nombre)",
+   "pt": "(?<![\\p{L}])(?:inj[úu]ria\\p{L}*|cal[úu]nia\\p{L}*|difama\\p{L}*|honra|reputa[çc][ãa]o|bom nome)",
+   "fr": "(?<![\\p{L}])(?:diffamation\\p{L}*|diffamatoire\\p{L}*|injure\\p{L}*|calomni\\p{L}*|honneur|r[ée]putation)",
+   "it": "(?<![\\p{L}])(?:diffamazion\\p{L}*|ingiuri\\p{L}*|onore|reputazion\\p{L}*|calunni\\p{L}*)",
+   "de": "(?<![\\p{L}])(?:Beleidigung\\p{L}*|üble\\p{L}* Nachrede|Verleumdung\\p{L}*|Ehre|Ehrverletzung\\p{L}*|verunglimpf\\p{L}*|Verunglimpfung\\p{L}*)",
+   "nl": "(?<![\\p{L}])(?:smaad\\p{L}*|laster\\p{L}*|belediging\\p{L}*|eer|goede naam)",
+   "nb": "(?<![\\p{L}])(?:ærekrenk\\p{L}*|æreskrenk\\p{L}*|omdømme|ære)",
+   "ru": "(?<![\\p{L}])(?:клевет\\p{L}*|оскорблени\\p{L}*|чест\\p{L}* и достоинств\\p{L}*|деловой репутаци\\p{L}*)",
+   "ja": "名誉|侮辱|信用|毀損|事実を摘示|謝罪広告",
+   "sv": "(?<![\\p{L}])(?:förtal\\p{L}*|förolämpning\\p{L}*|ärekränk\\p{L}*|anseende)",
+   "da": "(?<![\\p{L}])(?:ærekrænk\\p{L}*|freds- og ærekrænk\\p{L}*|omdømme|ære)"
+  },
+  "quotation": {
+   "en": "(?<![\\p{L}])(?:quotations?|quot(?:e|es|ed|ing)|fair dealing|fair use)",
+   "es": "(?<![\\p{L}])(?:derecho de cita|citas?|citar)",
+   "pt": "(?<![\\p{L}])(?:cita[çc](?:ão|ões)|citar)",
+   "fr": "(?<![\\p{L}])(?:citations?|courtes citations)",
+   "it": "(?<![\\p{L}])(?:citazion\\p{L}*|riassunto)",
+   "de": "(?<![\\p{L}])(?:Zitat\\p{L}*|zitier\\p{L}*)",
+   "nl": "(?<![\\p{L}])(?:citaat|citaten|citeren|aanhaling\\p{L}*)",
+   "nb": "(?<![\\p{L}])(?:sitat\\p{L}*|siter\\p{L}*)",
+   "ru": "(?<![\\p{L}])(?:цитирован\\p{L}*|в цитатах)",
+   "ja": "引用|転載",
+   "sv": "(?<![\\p{L}])(?:citat\\p{L}*|citera\\p{L}*)",
+   "da": "(?<![\\p{L}])(?:citat\\p{L}*|citere\\p{L}*)"
+  }
+ },
+ "constitute": {
+  "names": {},
+  "overrides": {},
+  "missing": {}
+ },
+ "codes": [
+  {
+   "id": "JPN-kenpo",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "日本国憲法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/321CONSTITUTION",
+   "lang": "ja",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "data",
+    "defamation",
+    "quotation"
+   ],
+   "title": "日本国憲法",
+   "format": "egov",
+   "kind": "constitution",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-minpo",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "民法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089",
+   "lang": "ja",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "data",
+    "defamation",
+    "quotation"
+   ],
+   "title": "民法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-keiho",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "刑法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/140AC0000000045",
+   "lang": "ja",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "data",
+    "defamation",
+    "quotation"
+   ],
+   "title": "刑法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-shoho",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "商法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/132AC0000000048",
+   "lang": "ja",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "data",
+    "defamation",
+    "quotation"
+   ],
+   "title": "商法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-minso",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "民事訴訟法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/408AC0000000109",
+   "lang": "ja",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "data",
+    "defamation",
+    "quotation"
+   ],
+   "title": "民事訴訟法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-keiso",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "刑事訴訟法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/323AC0000000131",
+   "lang": "ja",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "data",
+    "defamation",
+    "quotation"
+   ],
+   "title": "刑事訴訟法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-appi",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "個人情報の保護に関する法律",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/415AC0000000057",
+   "lang": "ja",
+   "topics": [
+    "data"
+   ],
+   "title": "個人情報の保護に関する法律",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-keihanzai",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "軽犯罪法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/323AC0000000039",
+   "lang": "ja",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "軽犯罪法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-fukyo",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "不正競争防止法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/405AC0000000047",
+   "lang": "ja",
+   "topics": [
+    "symbols",
+    "fraud",
+    "honours"
+   ],
+   "title": "不正競争防止法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-shohyo",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "商標法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/334AC0000000127",
+   "lang": "ja",
+   "topics": [
+    "symbols",
+    "honours"
+   ],
+   "title": "商標法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-chosaku",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "著作権法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/345AC0000000048",
+   "lang": "ja",
+   "topics": [
+    "quotation"
+   ],
+   "title": "著作権法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-shohisha",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "消費者契約法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/412AC0000000061",
+   "lang": "ja",
+   "topics": [
+    "fraud"
+   ],
+   "title": "消費者契約法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-joho",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "特定電気通信による情報の流通によって発生する権利侵害等への対処に関する法律",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/413AC0000000137",
+   "lang": "ja",
+   "topics": [
+    "defamation",
+    "data"
+   ],
+   "title": "情報の流通",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "JPN-kokuseki",
+   "countries": [
+    "JPN"
+   ],
+   "instrument": "国籍法",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/325AC0000000147",
+   "lang": "ja",
+   "topics": [
+    "sovereignty",
+    "honours"
+   ],
+   "title": "国籍法",
+   "format": "egov",
+   "official": "e-Gov 法令検索（デジタル庁、公式）"
+  },
+  {
+   "id": "EU-gdpr",
+   "countries": [
+    "AUT",
+    "BEL",
+    "BGR",
+    "HRV",
+    "CYP",
+    "CZE",
+    "DNK",
+    "EST",
+    "FIN",
+    "FRA",
+    "DEU",
+    "GRC",
+    "HUN",
+    "IRL",
+    "ITA",
+    "LVA",
+    "LTU",
+    "LUX",
+    "MLT",
+    "NLD",
+    "POL",
+    "PRT",
+    "ROU",
+    "SVK",
+    "SVN",
+    "ESP",
+    "SWE",
+    "ISL",
+    "LIE",
+    "NOR"
+   ],
+   "instrument": "Regulation (EU) 2016/679 (General Data Protection Regulation)",
+   "url": "https://publications.europa.eu/resource/celex/32016R0679",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Regulation \\(EU\\) 2016/679",
+   "accept": "application/xhtml+xml, text/html;q=0.9",
+   "accept_lang": "eng",
+   "group": "EU",
+   "official": "EU 刊行局 Cellar（公式）",
+   "note": "EEA 協定により、アイスランド・リヒテンシュタイン・ノルウェーにも及ぶ"
+  },
+  {
+   "id": "WIPO-berne",
+   "countries": [
+    "JPN",
+    "GBR",
+    "USA",
+    "DEU",
+    "FRA"
+   ],
+   "instrument": "Berne Convention for the Protection of Literary and Artistic Works (Paris Act 1971)",
+   "url": "https://www.law.cornell.edu/treaties/berne/10.html",
+   "lang": "en",
+   "topics": [
+    "quotation"
+   ],
+   "title": "Berne",
+   "format": "section",
+   "start": "Article 10",
+   "end": "Article 10bis|Article 11",
+   "article": "Article 10",
+   "group": "BERNE",
+   "official": "Cornell LII による条約の写し（公式ではない）"
+  },
+  {
+   "id": "GBR-honours",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "Honours (Prevention of Abuses) Act 1925",
+   "url": "https://www.legislation.gov.uk/ukpga/Geo5/15-16/72/data.xml",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "fraud"
+   ],
+   "title": "Honours \\(Prevention of Abuses\\) Act 1925",
+   "format": "clml",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "GBR-fraud",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "Fraud Act 2006",
+   "url": "https://www.legislation.gov.uk/ukpga/2006/35/data.xml",
+   "lang": "en",
+   "topics": [
+    "fraud",
+    "sovereignty"
+   ],
+   "title": "Fraud Act 2006",
+   "format": "clml",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "GBR-defamation",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "Defamation Act 2013",
+   "url": "https://www.legislation.gov.uk/ukpga/2013/26/data.xml",
+   "lang": "en",
+   "topics": [
+    "defamation"
+   ],
+   "title": "Defamation Act 2013",
+   "format": "clml",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "GBR-dpa",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "Data Protection Act 2018",
+   "url": "https://www.legislation.gov.uk/ukpga/2018/12/data.xml",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection Act 2018",
+   "format": "clml",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "GBR-ukgdpr",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "UK GDPR (retained Regulation (EU) 2016/679)",
+   "url": "https://www.legislation.gov.uk/eur/2016/679/data.xml",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "2016/679",
+   "format": "clml",
+   "label": "Article",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "GBR-tma",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "Trade Marks Act 1994",
+   "url": "https://www.legislation.gov.uk/ukpga/1994/26/data.xml",
+   "lang": "en",
+   "topics": [
+    "symbols",
+    "honours"
+   ],
+   "title": "Trade Marks Act 1994",
+   "format": "clml",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "GBR-cpr",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "Consumer Protection from Unfair Trading Regulations 2008",
+   "url": "https://www.legislation.gov.uk/uksi/2008/1277/data.xml",
+   "lang": "en",
+   "topics": [
+    "fraud"
+   ],
+   "title": "Unfair Trading Regulations 2008",
+   "format": "clml",
+   "label": "Regulation",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "GBR-police",
+   "countries": [
+    "GBR"
+   ],
+   "instrument": "Police Act 1996",
+   "url": "https://www.legislation.gov.uk/ukpga/1996/16/data.xml",
+   "lang": "en",
+   "topics": [
+    "sovereignty",
+    "honours"
+   ],
+   "title": "Police Act 1996",
+   "format": "clml",
+   "official": "legislation.gov.uk（The National Archives、公式）"
+  },
+  {
+   "id": "USA-18-704",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "18 U.S.C. § 704 (Military medals or decorations)",
+   "url": "https://www.govinfo.gov/link/uscode/18/704?link-type=html",
+   "lang": "en",
+   "topics": [
+    "honours"
+   ],
+   "format": "section",
+   "start": "§\\s*704\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "18 U.S.C. § 704",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-18-712",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "18 U.S.C. § 712 (Misuse of names to indicate Federal agency)",
+   "url": "https://www.govinfo.gov/link/uscode/18/712?link-type=html",
+   "lang": "en",
+   "topics": [
+    "sovereignty",
+    "honours"
+   ],
+   "format": "section",
+   "start": "§\\s*712\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "18 U.S.C. § 712",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-18-912",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "18 U.S.C. § 912 (Officer or employee of the United States)",
+   "url": "https://www.govinfo.gov/link/uscode/18/912?link-type=html",
+   "lang": "en",
+   "topics": [
+    "sovereignty"
+   ],
+   "format": "section",
+   "start": "§\\s*912\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "18 U.S.C. § 912",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-18-713",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "18 U.S.C. § 713 (Use of likenesses of the great seal)",
+   "url": "https://www.govinfo.gov/link/uscode/18/713?link-type=html",
+   "lang": "en",
+   "topics": [
+    "symbols"
+   ],
+   "format": "section",
+   "start": "§\\s*713\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "18 U.S.C. § 713",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-18-1343",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "18 U.S.C. § 1343 (Fraud by wire)",
+   "url": "https://www.govinfo.gov/link/uscode/18/1343?link-type=html",
+   "lang": "en",
+   "topics": [
+    "fraud"
+   ],
+   "format": "section",
+   "start": "§\\s*1343\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "18 U.S.C. § 1343",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-15-45",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "15 U.S.C. § 45 (Unfair methods of competition)",
+   "url": "https://www.govinfo.gov/link/uscode/15/45?link-type=html",
+   "lang": "en",
+   "topics": [
+    "fraud"
+   ],
+   "format": "section",
+   "start": "§\\s*45\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "15 U.S.C. § 45",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-47-230",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "47 U.S.C. § 230 (Protection for private blocking and screening)",
+   "url": "https://www.govinfo.gov/link/uscode/47/230?link-type=html",
+   "lang": "en",
+   "topics": [
+    "defamation"
+   ],
+   "format": "section",
+   "start": "§\\s*230\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "47 U.S.C. § 230",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-28-4102",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "28 U.S.C. § 4102 (Recognition of foreign defamation judgments)",
+   "url": "https://www.govinfo.gov/link/uscode/28/4102?link-type=html",
+   "lang": "en",
+   "topics": [
+    "defamation"
+   ],
+   "format": "section",
+   "start": "§\\s*4102\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "28 U.S.C. § 4102",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "USA-15-6502",
+   "countries": [
+    "USA"
+   ],
+   "instrument": "15 U.S.C. § 6502 (Children's online privacy protection)",
+   "url": "https://www.govinfo.gov/link/uscode/15/6502?link-type=html",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "format": "section",
+   "start": "§\\s*6502\\.",
+   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
+   "article": "15 U.S.C. § 6502",
+   "official": "govinfo（米国政府出版局、公式）"
+  },
+  {
+   "id": "CAN-criminal",
+   "countries": [
+    "CAN"
+   ],
+   "instrument": "Criminal Code (R.S.C. 1985, c. C-46)",
+   "url": "https://laws-lois.justice.gc.ca/eng/XML/C-46.xml",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Criminal Code",
+   "format": "canada",
+   "official": "Justice Laws Website（カナダ司法省、公式）"
+  },
+  {
+   "id": "CAN-pipeda",
+   "countries": [
+    "CAN"
+   ],
+   "instrument": "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)",
+   "url": "https://laws-lois.justice.gc.ca/eng/XML/P-8.6.xml",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Information Protection",
+   "format": "canada",
+   "official": "Justice Laws Website（カナダ司法省、公式）"
+  },
+  {
+   "id": "CAN-tma",
+   "countries": [
+    "CAN"
+   ],
+   "instrument": "Trademarks Act (R.S.C. 1985, c. T-13)",
+   "url": "https://laws-lois.justice.gc.ca/eng/XML/T-13.xml",
+   "lang": "en",
+   "topics": [
+    "symbols",
+    "honours"
+   ],
+   "title": "Trademarks Act",
+   "format": "canada",
+   "official": "Justice Laws Website（カナダ司法省、公式）"
+  },
+  {
+   "id": "CAN-competition",
+   "countries": [
+    "CAN"
+   ],
+   "instrument": "Competition Act (R.S.C. 1985, c. C-34)",
+   "url": "https://laws-lois.justice.gc.ca/eng/XML/C-34.xml",
+   "lang": "en",
+   "topics": [
+    "fraud"
+   ],
+   "title": "Competition Act",
+   "format": "canada",
+   "official": "Justice Laws Website（カナダ司法省、公式）"
+  },
+  {
+   "id": "AUS-privacy",
+   "countries": [
+    "AUS"
+   ],
+   "instrument": "Privacy Act 1988",
+   "url": "https://www.legislation.gov.au/C2004A03712/latest/text",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Privacy Act 1988",
+   "official": "Federal Register of Legislation（豪州政府、公式）"
+  },
+  {
+   "id": "AUS-criminal",
+   "countries": [
+    "AUS"
+   ],
+   "instrument": "Criminal Code Act 1995",
+   "url": "https://www.legislation.gov.au/C2004A04868/latest/text",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Criminal Code",
+   "official": "Federal Register of Legislation（豪州政府、公式）"
+  },
+  {
+   "id": "AUS-defence",
+   "countries": [
+    "AUS"
+   ],
+   "instrument": "Defence Act 1903",
+   "url": "https://www.legislation.gov.au/C1903A00020/latest/text",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "symbols"
+   ],
+   "title": "Defence Act 1903",
+   "official": "Federal Register of Legislation（豪州政府、公式）"
+  },
+  {
+   "id": "NZL-flags",
+   "countries": [
+    "NZL"
+   ],
+   "instrument": "Flags, Emblems, and Names Protection Act 1981",
+   "url": "https://www.legislation.govt.nz/act/public/1981/0047/latest/whole.html",
+   "lang": "en",
+   "topics": [
+    "symbols",
+    "honours",
+    "sovereignty"
+   ],
+   "title": "Flags, Emblems, and Names Protection Act",
+   "official": "New Zealand Legislation（議会顧問局、公式）"
+  },
+  {
+   "id": "NZL-privacy",
+   "countries": [
+    "NZL"
+   ],
+   "instrument": "Privacy Act 2020",
+   "url": "https://www.legislation.govt.nz/act/public/2020/0031/latest/whole.html",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Privacy Act 2020",
+   "official": "New Zealand Legislation（議会顧問局、公式）"
+  },
+  {
+   "id": "NZL-crimes",
+   "countries": [
+    "NZL"
+   ],
+   "instrument": "Crimes Act 1961",
+   "url": "https://www.legislation.govt.nz/act/public/1961/0043/latest/whole.html",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Crimes Act 1961",
+   "official": "New Zealand Legislation（議会顧問局、公式）"
+  },
+  {
+   "id": "NZL-defamation",
+   "countries": [
+    "NZL"
+   ],
+   "instrument": "Defamation Act 1992",
+   "url": "https://www.legislation.govt.nz/act/public/1992/0105/latest/whole.html",
+   "lang": "en",
+   "topics": [
+    "defamation"
+   ],
+   "title": "Defamation Act 1992",
+   "official": "New Zealand Legislation（議会顧問局、公式）"
+  },
+  {
+   "id": "IRL-dpa",
+   "countries": [
+    "IRL"
+   ],
+   "instrument": "Data Protection Act 2018",
+   "url": "https://www.irishstatutebook.ie/eli/2018/act/7/enacted/en/html",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection Act 2018",
+   "official": "Irish Statute Book（司法長官府、公式。制定時の文）"
+  },
+  {
+   "id": "IRL-defamation",
+   "countries": [
+    "IRL"
+   ],
+   "instrument": "Defamation Act 2009",
+   "url": "https://www.irishstatutebook.ie/eli/2009/act/31/enacted/en/html",
+   "lang": "en",
+   "topics": [
+    "defamation"
+   ],
+   "title": "Defamation Act 2009",
+   "official": "Irish Statute Book（司法長官府、公式。制定時の文）"
+  },
+  {
+   "id": "IRL-fraud",
+   "countries": [
+    "IRL"
+   ],
+   "instrument": "Criminal Justice (Theft and Fraud Offences) Act 2001",
+   "url": "https://www.irishstatutebook.ie/eli/2001/act/50/enacted/en/html",
+   "lang": "en",
+   "topics": [
+    "fraud",
+    "sovereignty"
+   ],
+   "title": "Theft and Fraud Offences",
+   "official": "Irish Statute Book（司法長官府、公式。制定時の文）"
+  },
+  {
+   "id": "DEU-stgb",
+   "countries": [
+    "DEU"
+   ],
+   "instrument": "Strafgesetzbuch (StGB)",
+   "url": "https://www.gesetze-im-internet.de/stgb/BJNR001270871.html",
+   "lang": "de",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Strafgesetzbuch",
+   "official": "Gesetze im Internet（連邦司法省、公式）"
+  },
+  {
+   "id": "DEU-ordensg",
+   "countries": [
+    "DEU"
+   ],
+   "instrument": "Gesetz über Titel, Orden und Ehrenzeichen (OrdenG)",
+   "url": "https://www.gesetze-im-internet.de/ordensg/BJNR008440957.html",
+   "lang": "de",
+   "topics": [
+    "honours",
+    "symbols"
+   ],
+   "title": "Titel, Orden und Ehrenzeichen",
+   "official": "Gesetze im Internet（連邦司法省、公式）"
+  },
+  {
+   "id": "DEU-owig",
+   "countries": [
+    "DEU"
+   ],
+   "instrument": "Gesetz über Ordnungswidrigkeiten (OWiG)",
+   "url": "https://www.gesetze-im-internet.de/owig_1968/BJNR004810968.html",
+   "lang": "de",
+   "topics": [
+    "honours",
+    "symbols",
+    "sovereignty"
+   ],
+   "title": "Ordnungswidrigkeiten",
+   "official": "Gesetze im Internet（連邦司法省、公式）"
+  },
+  {
+   "id": "DEU-bdsg",
+   "countries": [
+    "DEU"
+   ],
+   "instrument": "Bundesdatenschutzgesetz (BDSG)",
+   "url": "https://www.gesetze-im-internet.de/bdsg_2018/BJNR209710017.html",
+   "lang": "de",
+   "topics": [
+    "data"
+   ],
+   "title": "Bundesdatenschutzgesetz",
+   "official": "Gesetze im Internet（連邦司法省、公式）"
+  },
+  {
+   "id": "DEU-uwg",
+   "countries": [
+    "DEU"
+   ],
+   "instrument": "Gesetz gegen den unlauteren Wettbewerb (UWG)",
+   "url": "https://www.gesetze-im-internet.de/uwg_2004/BJNR141400004.html",
+   "lang": "de",
+   "topics": [
+    "fraud"
+   ],
+   "title": "unlauteren Wettbewerb",
+   "official": "Gesetze im Internet（連邦司法省、公式）"
+  },
+  {
+   "id": "AUT-stgb",
+   "countries": [
+    "AUT"
+   ],
+   "instrument": "Strafgesetzbuch (StGB)",
+   "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002296",
+   "lang": "de",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Strafgesetzbuch",
+   "official": "RIS（連邦首相府、公式）"
+  },
+  {
+   "id": "AUT-dsg",
+   "countries": [
+    "AUT"
+   ],
+   "instrument": "Datenschutzgesetz (DSG)",
+   "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597",
+   "lang": "de",
+   "topics": [
+    "data"
+   ],
+   "title": "Datenschutzgesetz",
+   "official": "RIS（連邦首相府、公式）"
+  },
+  {
+   "id": "CHE-fadp",
+   "countries": [
+    "CHE"
+   ],
+   "instrument": "Federal Act on Data Protection (FADP) (English translation)",
+   "url": "https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20230901/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20230901-en-html-5.html",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection",
+   "official": "Fedlex（連邦官房、公式。英訳は法的効力のない訳）"
+  },
+  {
+   "id": "NLD-sr",
+   "countries": [
+    "NLD"
+   ],
+   "instrument": "Wetboek van Strafrecht",
+   "url": "https://wetten.overheid.nl/BWBR0001854/",
+   "lang": "nl",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Wetboek van Strafrecht",
+   "official": "wetten.overheid.nl（内務省、公式）"
+  },
+  {
+   "id": "NLD-uavg",
+   "countries": [
+    "NLD"
+   ],
+   "instrument": "Uitvoeringswet Algemene verordening gegevensbescherming",
+   "url": "https://wetten.overheid.nl/BWBR0040940/",
+   "lang": "nl",
+   "topics": [
+    "data"
+   ],
+   "title": "gegevensbescherming",
+   "official": "wetten.overheid.nl（内務省、公式）"
+  },
+  {
+   "id": "ESP-cp",
+   "countries": [
+    "ESP"
+   ],
+   "instrument": "Ley Orgánica 10/1995, del Código Penal",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444",
+   "lang": "es",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Código Penal",
+   "official": "BOE（官報、公式の統合版）"
+  },
+  {
+   "id": "ESP-lopdgdd",
+   "countries": [
+    "ESP"
+   ],
+   "instrument": "Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "Protección de Datos Personales",
+   "official": "BOE（官報、公式の統合版）"
+  },
+  {
+   "id": "ESP-lcd",
+   "countries": [
+    "ESP"
+   ],
+   "instrument": "Ley 3/1991, de Competencia Desleal",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1991-628",
+   "lang": "es",
+   "topics": [
+    "fraud"
+   ],
+   "title": "Competencia Desleal",
+   "official": "BOE（官報、公式の統合版）"
+  },
+  {
+   "id": "ITA-178",
+   "countries": [
+    "ITA"
+   ],
+   "instrument": "Legge 3 marzo 1951, n. 178 (Ordine al merito della Repubblica)",
+   "url": [
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art7",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8"
+   ],
+   "lang": "it",
+   "topics": [
+    "honours"
+   ],
+   "title": "178",
+   "official": "Normattiva（官報の電子版、公式）",
+   "archive": false
+  },
+  {
+   "id": "ITA-cp",
+   "countries": [
+    "ITA"
+   ],
+   "instrument": "Codice penale (R.D. 19 ottobre 1930, n. 1398)",
+   "url": [
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art241",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art292",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art347",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art494",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art498",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art595",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art640"
+   ],
+   "lang": "it",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "1398",
+   "official": "Normattiva（官報の電子版、公式）",
+   "archive": false
+  },
+  {
+   "id": "PRT-cp",
+   "countries": [
+    "PRT"
+   ],
+   "instrument": "Código Penal (Decreto-Lei n.º 48/95)",
+   "url": "https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?nid=109&tabela=leis",
+   "lang": "pt",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "C[ÓO]DIGO PENAL",
+   "official": "Procuradoria-Geral Distrital de Lisboa（検察庁の法令集。官報ではない）"
+  },
+  {
+   "id": "NOR-straffeloven",
+   "countries": [
+    "NOR"
+   ],
+   "instrument": "Lov om straff (straffeloven)",
+   "url": "https://lovdata.no/dokument/NL/lov/2005-05-20-28",
+   "lang": "nb",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "straffeloven",
+   "official": "Lovdata（公式の法令データベース）"
+  },
+  {
+   "id": "NOR-popplyl",
+   "countries": [
+    "NOR"
+   ],
+   "instrument": "Lov om behandling av personopplysninger (personopplysningsloven)",
+   "url": "https://lovdata.no/dokument/NL/lov/2018-06-15-38",
+   "lang": "nb",
+   "topics": [
+    "data"
+   ],
+   "title": "personopplysning",
+   "official": "Lovdata（公式の法令データベース）"
+  },
+  {
+   "id": "SWE-brb",
+   "countries": [
+    "SWE"
+   ],
+   "instrument": "Brottsbalk (1962:700)",
+   "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/brottsbalk-1962700_sfs-1962-700/",
+   "lang": "sv",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Brottsbalk",
+   "official": "Sveriges riksdag（議会、公式）"
+  },
+  {
+   "id": "RUS-uk",
+   "countries": [
+    "RUS"
+   ],
+   "instrument": "Уголовный кодекс Российской Федерации",
+   "url": "http://pravo.gov.ru/proxy/ips/?docbody=&nd=102041891",
+   "lang": "ru",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Уголовный кодекс",
+   "official": "pravo.gov.ru（官報の公式サイト）"
+  },
+  {
+   "id": "RUS-152",
+   "countries": [
+    "RUS"
+   ],
+   "instrument": "Федеральный закон № 152-ФЗ «О персональных данных»",
+   "url": [
+    "http://www.kremlin.ru/acts/bank/24154/page/1",
+    "http://www.kremlin.ru/acts/bank/24154/page/2",
+    "http://www.kremlin.ru/acts/bank/24154/page/3",
+    "http://www.kremlin.ru/acts/bank/24154/page/4"
+   ],
+   "lang": "ru",
+   "topics": [
+    "data"
+   ],
+   "title": "персональных данных",
+   "official": "大統領府（公式）"
+  },
+  {
+   "id": "KAZ-pd",
+   "countries": [
+    "KAZ"
+   ],
+   "instrument": "Закон Республики Казахстан «О персональных данных и их защите» № 94-V",
+   "url": "https://adilet.zan.kz/rus/docs/Z1300000094",
+   "lang": "ru",
+   "topics": [
+    "data"
+   ],
+   "title": "персональных данных",
+   "official": "Adilet（法務省、公式）"
+  },
+  {
+   "id": "TUR-kvkk",
+   "countries": [
+    "TUR"
+   ],
+   "instrument": "Law on the Protection of Personal Data No. 6698 (English translation)",
+   "url": "https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data",
+   "official": "個人データ保護庁（公式の英訳）"
+  },
+  {
+   "id": "MCO-1565",
+   "countries": [
+    "MCO"
+   ],
+   "instrument": "Loi n° 1.565 du 3 décembre 2024 relative à la protection des données personnelles",
+   "url": "https://legimonaco.mc/tnc/loi/2024/12-03-1.565/",
+   "lang": "fr",
+   "topics": [
+    "data"
+   ],
+   "title": "donn[ée]es",
+   "official": "Legimonaco（政府、公式）"
+  },
+  {
+   "id": "MLT-cc",
+   "countries": [
+    "MLT"
+   ],
+   "instrument": "Criminal Code (Cap. 9)",
+   "url": "https://legislation.mt/eli/cap/9/eng/pdf",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "CRIMINAL CODE",
+   "official": "legislation.mt（公式）"
+  },
+  {
+   "id": "MLT-dpa",
+   "countries": [
+    "MLT"
+   ],
+   "instrument": "Data Protection Act (Cap. 586)",
+   "url": "https://legislation.mt/eli/cap/586/eng/pdf",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "DATA PROTECTION",
+   "official": "legislation.mt（公式）"
+  },
+  {
+   "id": "LVA-crim",
+   "countries": [
+    "LVA"
+   ],
+   "instrument": "The Criminal Law (English translation)",
+   "url": "https://likumi.lv/ta/en/en/id/88966",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Criminal Law",
+   "official": "Likumi.lv（官報、公式の英訳）"
+  },
+  {
+   "id": "LVA-pd",
+   "countries": [
+    "LVA"
+   ],
+   "instrument": "Personal Data Processing Law (English translation)",
+   "url": "https://likumi.lv/ta/en/en/id/300099",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data",
+   "official": "Likumi.lv（官報、公式の英訳）"
+  },
+  {
+   "id": "FRA-cp",
+   "countries": [
+    "FRA"
+   ],
+   "instrument": "Code pénal",
+   "url": "https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006070719",
+   "lang": "fr",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Code p[ée]nal",
+   "official": "Légifrance（政府、公式）"
+  },
+  {
+   "id": "FRA-cil",
+   "countries": [
+    "FRA"
+   ],
+   "instrument": "Loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés",
+   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460",
+   "lang": "fr",
+   "topics": [
+    "data"
+   ],
+   "title": "informatique",
+   "official": "Légifrance（政府、公式）"
+  },
+  {
+   "id": "FRA-presse",
+   "countries": [
+    "FRA"
+   ],
+   "instrument": "Loi du 29 juillet 1881 sur la liberté de la presse",
+   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000877119",
+   "lang": "fr",
+   "topics": [
+    "defamation"
+   ],
+   "title": "libert[ée] de la presse",
+   "official": "Légifrance（政府、公式）"
+  },
+  {
+   "id": "MEX-cpf",
+   "countries": [
+    "MEX"
+   ],
+   "instrument": "Código Penal Federal",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CPF.pdf",
+   "lang": "es",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "C[ÓO]DIGO PENAL FEDERAL",
+   "official": "Cámara de Diputados（連邦議会下院、公式の PDF）"
+  },
+  {
+   "id": "MEX-lfpdppp",
+   "countries": [
+    "MEX"
+   ],
+   "instrument": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "DATOS PERSONALES",
+   "official": "Cámara de Diputados（連邦議会下院、公式の PDF）"
+  },
+  {
+   "id": "MEX-lebhn",
+   "countries": [
+    "MEX"
+   ],
+   "instrument": "Ley sobre el Escudo, la Bandera y el Himno Nacionales",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEBHN.pdf",
+   "lang": "es",
+   "topics": [
+    "symbols"
+   ],
+   "title": "ESCUDO",
+   "official": "Cámara de Diputados（連邦議会下院、公式の PDF）"
+  },
+  {
+   "id": "MEX-lperc",
+   "countries": [
+    "MEX"
+   ],
+   "instrument": "Ley de Premios, Estímulos y Recompensas Civiles",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPERC.pdf",
+   "lang": "es",
+   "topics": [
+    "honours"
+   ],
+   "title": "PREMIOS",
+   "official": "Cámara de Diputados（連邦議会下院、公式の PDF）"
+  },
+  {
+   "id": "ARG-cp",
+   "countries": [
+    "ARG"
+   ],
+   "instrument": "Código Penal de la Nación (Ley 11.179, t.o. 1984)",
+   "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/16546/texact.htm",
+   "lang": "es",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "CODIGO PENAL",
+   "official": "InfoLEG（経済省、公式）"
+  },
+  {
+   "id": "ARG-25326",
+   "countries": [
+    "ARG"
+   ],
+   "instrument": "Ley 25.326 de Protección de los Datos Personales",
+   "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "DATOS PERSONALES",
+   "official": "InfoLEG（経済省、公式）"
+  },
+  {
+   "id": "BRA-lgpd",
+   "countries": [
+    "BRA"
+   ],
+   "instrument": "Lei nº 13.709/2018 (LGPD), publicação original",
+   "url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-publicacaooriginal-156212-pl.html",
+   "lang": "pt",
+   "topics": [
+    "data"
+   ],
+   "title": "Lei Geral de Prote",
+   "official": "Câmara dos Deputados（下院、制定時の文）"
+  },
+  {
+   "id": "BRA-cp",
+   "countries": [
+    "BRA"
+   ],
+   "instrument": "Código Penal (Decreto-Lei nº 2.848/1940), texto compilado",
+   "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm",
+   "lang": "pt",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "C[óo]digo Penal",
+   "official": "Planalto（大統領府、公式）"
+  },
+  {
+   "id": "BRA-lcp",
+   "countries": [
+    "BRA"
+   ],
+   "instrument": "Lei das Contravenções Penais (Decreto-Lei nº 3.688/1941), texto compilado",
+   "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del3688.htm",
+   "lang": "pt",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols"
+   ],
+   "title": "Contraven",
+   "official": "Planalto（大統領府、公式）"
+  },
+  {
+   "id": "BRA-cdc",
+   "countries": [
+    "BRA"
+   ],
+   "instrument": "Código de Defesa do Consumidor (Lei nº 8.078/1990), texto compilado",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+   "lang": "pt",
+   "topics": [
+    "fraud"
+   ],
+   "title": "consumidor",
+   "official": "Planalto（大統領府、公式）"
+  },
+  {
+   "id": "CHL-cp",
+   "countries": [
+    "CHL"
+   ],
+   "instrument": "Código Penal",
+   "url": "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=1984",
+   "lang": "es",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "C[ÓO]DIGO PENAL",
+   "official": "Ley Chile（国会図書館、公式）"
+  },
+  {
+   "id": "CHL-19628",
+   "countries": [
+    "CHL"
+   ],
+   "instrument": "Ley 19.628 sobre protección de la vida privada",
+   "url": "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=141599",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "VIDA PRIVADA",
+   "official": "Ley Chile（国会図書館、公式）"
+  },
+  {
+   "id": "COL-1581",
+   "countries": [
+    "COL"
+   ],
+   "instrument": "Ley 1581 de 2012 (protección de datos personales)",
+   "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "1581",
+   "official": "Secretaría del Senado（上院、公式）"
+  },
+  {
+   "id": "URY-18331",
+   "countries": [
+    "URY"
+   ],
+   "instrument": "Ley 18.331 de protección de datos personales",
+   "url": "https://www.impo.com.uy/bases/leyes/18331-2008",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "18331|18.331",
+   "official": "IMPO（官報、公式）"
+  },
+  {
+   "id": "CRI-8968",
+   "countries": [
+    "CRI"
+   ],
+   "instrument": "Ley 8968 de Protección de la Persona frente al tratamiento de sus datos personales",
+   "url": "http://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?param1=NRTC&nValor1=1&nValor2=70975",
+   "lang": "es",
+   "topics": [
+    "data"
+   ],
+   "title": "datos personales",
+   "official": "SCIJ（検事総長府、公式）"
+  },
+  {
+   "id": "KOR-pipa",
+   "countries": [
+    "KOR"
+   ],
+   "instrument": "Personal Information Protection Act (English translation)",
+   "url": "https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=62389",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "PERSONAL INFORMATION PROTECTION ACT",
+   "official": "韓国法制研究院（政府の研究機関、法的効力のない英訳）"
+  },
+  {
+   "id": "CHN-pipl",
+   "countries": [
+    "CHN"
+   ],
+   "instrument": "Personal Information Protection Law (English translation)",
+   "url": [
+    "http://en.npc.gov.cn.cdurl.cn/2021-12/29/c_694559.htm",
+    "http://en.npc.gov.cn.cdurl.cn/2021-12/29/c_694559_2.htm",
+    "http://en.npc.gov.cn.cdurl.cn/2021-12/29/c_694559_3.htm"
+   ],
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Information Protection Law",
+   "official": "全国人民代表大会（英訳）"
+  },
+  {
+   "id": "IND-dpdp",
+   "countries": [
+    "IND"
+   ],
+   "instrument": "Digital Personal Data Protection Act, 2023",
+   "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "DIGITAL PERSONAL DATA PROTECTION",
+   "official": "PRS Legislative Research による官報の写し（公式ではない）"
+  },
+  {
+   "id": "THA-pdpa",
+   "countries": [
+    "THA"
+   ],
+   "instrument": "Personal Data Protection Act B.E. 2562 (2019) (English translation)",
+   "url": "https://www.etda.or.th/getattachment/e820df2c-848f-4e03-86cb-a9dad38cc713/ENG-Version.aspx",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data Protection",
+   "official": "電子取引開発庁（政府、法的効力のない英訳）"
+  },
+  {
+   "id": "SAU-pdpl",
+   "countries": [
+    "SAU"
+   ],
+   "instrument": "Personal Data Protection Law (English translation)",
+   "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/Personal%20Data%20English%20V2-23April2023-%20Reviewed-.pdf",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data",
+   "official": "SDAIA（政府、英訳）"
+  },
+  {
+   "id": "PHL-10173",
+   "countries": [
+    "PHL"
+   ],
+   "instrument": "Republic Act No. 10173 (Data Privacy Act of 2012)",
+   "url": "https://www.officialgazette.gov.ph/2012/08/15/republic-act-no-10173/",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "10173",
+   "official": "Official Gazette（政府、公式）"
+  },
+  {
+   "id": "PHL-rpc",
+   "countries": [
+    "PHL"
+   ],
+   "instrument": "Act No. 3815 (Revised Penal Code)",
+   "url": "https://lawphil.net/statutes/acts/act1930/act_3815_1930.html",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Revised Penal Code",
+   "official": "LawPhil（法情報の団体による写し、公式ではない）"
+  },
+  {
+   "id": "SGP-pdpa",
+   "countries": [
+    "SGP"
+   ],
+   "instrument": "Personal Data Protection Act 2012",
+   "url": "https://sso.agc.gov.sg/Act/PDPA2012",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Personal Data Protection Act",
+   "official": "Singapore Statutes Online（法務長官府、公式）"
+  },
+  {
+   "id": "ZAF-popia",
+   "countries": [
+    "ZAF"
+   ],
+   "instrument": "Protection of Personal Information Act 4 of 2013",
+   "url": "https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Protection of Personal Information",
+   "official": "南アフリカ政府（官報の写し）"
+  },
+  {
+   "id": "KEN-dpa",
+   "countries": [
+    "KEN"
+   ],
+   "instrument": "Data Protection Act, 2019 (No. 24 of 2019)",
+   "url": "https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2022-12-31",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection",
+   "official": "Kenya Law（国家法律報告評議会、公式）"
+  },
+  {
+   "id": "KEN-penal",
+   "countries": [
+    "KEN"
+   ],
+   "instrument": "Penal Code (Cap. 63)",
+   "url": "https://new.kenyalaw.org/akn/ke/act/1930/10/eng@2024-12-27",
+   "lang": "en",
+   "topics": [
+    "honours",
+    "sovereignty",
+    "symbols",
+    "fraud",
+    "defamation"
+   ],
+   "title": "Penal Code",
+   "official": "Kenya Law（国家法律報告評議会、公式）"
+  },
+  {
+   "id": "UGA-dppa",
+   "countries": [
+    "UGA"
+   ],
+   "instrument": "Data Protection and Privacy Act, 2019",
+   "url": "https://ulii.org/akn/ug/act/2019/9/eng@2019-05-03",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection and Privacy",
+   "official": "ULII（法情報機関による写し、公式ではない）"
+  },
+  {
+   "id": "ZMB-dpa",
+   "countries": [
+    "ZMB"
+   ],
+   "instrument": "Data Protection Act, 2021 (No. 3 of 2021)",
+   "url": "https://zambialii.org/akn/zm/act/2021/3/eng@2021-03-24",
+   "lang": "en",
+   "topics": [
+    "data"
+   ],
+   "title": "Data Protection",
+   "official": "ZambiaLII（法情報機関による写し、公式ではない）"
+  }
+ ],
+ "unsourced_default": "取り寄せ先を定めていない（公式の法令データベースで機械が読める所在を、この調べでは見つけていない）",
+ "unsourced": {}
+}
