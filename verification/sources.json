@@ -419,6 +419,56 @@
       "quote": "答 ：電気通信事業者又は第三号事業を営む者（いずれも電気通信事業を営む者）で、「利用者の利益に及ぼす影響が少なくない電気通信役務」を提供している電気通信事業者です。「利用者の利益に及ぼす影響が少なくない電気通信役務」については、「1-9」に記載しているとおりです。 なお、「電気通信事業（電気通信事業法（以下「法」という。）第2条第4号）」を営んでいない場合は、法の適用を受けないので、仮に情報の外部送信が行われていたとしても、外部送信規律の対象にはなりません。",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
       "sha256_full": "50af1d88f304cb70587ed4006895c8fdfd5a3e5c08674f767d6a6dffbb2c17ff"
+    },
+    "GitHub の利用規約 I 節": {
+      "from": "github-terms",
+      "name": "GitHub の利用規約 I 節",
+      "name_en": "GitHub Terms of Service, section I",
+      "url": "https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-of-service.md",
+      "lang": "en",
+      "quote": "Some Service features may be subject to additional terms specific to that feature or product as set forth in the GitHub Additional Product Terms.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "8931fad4aa5408fea26dd1b42e21b0c76c4b378a3f163570a8850740b5570336"
+    },
+    "GitHub の追加製品の規約 Actions（前置き）": {
+      "from": "github-additional-terms",
+      "name": "GitHub の追加製品の規約 Actions の節",
+      "name_en": "GitHub Terms for Additional Products and Features, Actions",
+      "url": "https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md",
+      "lang": "en",
+      "quote": "Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "93b173250d5ab431ce90b677c39db86c72bc11dd788bc420619494a739628325"
+    },
+    "GitHub の追加製品の規約 Actions（負荷）": {
+      "from": "github-additional-terms",
+      "name": "GitHub の追加製品の規約 Actions の節",
+      "name_en": "GitHub Terms for Additional Products and Features, Actions",
+      "url": "https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md",
+      "lang": "en",
+      "quote": "Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "93b173250d5ab431ce90b677c39db86c72bc11dd788bc420619494a739628325"
+    },
+    "GitHub の追加製品の規約 Actions（目的）": {
+      "from": "github-additional-terms",
+      "name": "GitHub の追加製品の規約 Actions の節",
+      "name_en": "GitHub Terms for Additional Products and Features, Actions",
+      "url": "https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md",
+      "lang": "en",
+      "quote": "If using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "93b173250d5ab431ce90b677c39db86c72bc11dd788bc420619494a739628325"
+    },
+    "GitHub の追加製品の規約 Actions（誤用）": {
+      "from": "github-additional-terms",
+      "name": "GitHub の追加製品の規約 Actions の節",
+      "name_en": "GitHub Terms for Additional Products and Features, Actions",
+      "url": "https://github.com/github/site-policy/blob/166eb97e485b7de3cd5dbaf8c8d16e4310fda46c/Policies/github-terms/github-terms-for-additional-products-and-features.md",
+      "lang": "en",
+      "quote": "Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "93b173250d5ab431ce90b677c39db86c72bc11dd788bc420619494a739628325"
     }
   }
 }
