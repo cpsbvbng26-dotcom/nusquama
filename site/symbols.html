@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-nvMLXsvkrOc6Z+zV25cW8OV5yrH0jlYWZG9Dsj2GNhg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-DUWJ1iZf+0kb3EnIzZ2uk5UEbfemzyr9vkFBYQi2b0k='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>国のしるし | 無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="国のしるしは、国章と国旗と版図の地図です。どれも国章と同じく、長方形と多角形だけで描いてあります。文字の書体を使わないので、どの端末でも同じ形に描かれます。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -39,6 +39,7 @@ header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
+h1, h2, h3 { word-break: auto-phrase; }
 h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 h3 { font-size: 1.05rem; }
 p, li { overflow-wrap: anywhere; }
@@ -49,6 +50,11 @@ details.source .cite { font-size: 0.9em; color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
+.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 8px 0 16px; }
+.first a { display: block; }
+.first img { display: block; height: 88px; width: auto; }
+.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; }
+@media (min-width: 640px) { .first img { height: 128px; } }
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
@@ -69,18 +75,18 @@ figcaption { font-size: 15px; color: var(--muted); }
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
-<header><img src="./emblem.svg" alt=""><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./symbols.en.html" hreflang="en" lang="en">English</a></header>
+<header><img src="./emblem.svg" alt="" width="40" height="48"><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./symbols.en.html" hreflang="en" lang="en">English</a></header>
 <main id="main">
 <p class="notice">これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで授ける称号に、法的な効力はありません。</p>
 <h1>国のしるし</h1>
 <blockquote><p>これは創作であり、遊びです。ここに挙げるしるしは、どれも実在の国家・王室・騎士団・叙勲の旗や記章ではなく、それらに代わるものでもありません。</p></blockquote>
 <p>国のしるしは、国章と国旗と版図の地図です。どれも国章と同じく、長方形と多角形だけで描いてあります。文字の書体を使わないので、どの端末でも同じ形に描かれます。国旗と国章の作図を手順ごとの図で追い、国の色と版図の区画の形を一枚にまとめた頁が、<a href="symbols-construction.html">しるしの作図</a>です。</p>
 <h2>国旗</h2>
-<img class="emblem" src="flag.svg" alt="ヌスクァマの国旗（創作）">
+<img class="emblem" src="flag.svg" alt="ヌスクァマの国旗（創作）" width="900" height="600" loading="lazy" decoding="async">
 <ul><li>紺の地に金の縁。国章の盾と同じ色です。</li><li>中央に黄金比の矩形を描きます。国章の上半分と同じ形です。</li><li>矩形の上に、三つの角石を並べます。</li></ul>
 <p>帯を横や縦に並べる形は取りません。実在の国の旗と紛れないようにするためです。</p>
 <h2>版図の地図</h2>
-<img class="emblem" src="territory.svg" alt="版図の地図（創作）">
+<img class="emblem" src="territory.svg" alt="版図の地図（創作）" width="397" height="397" loading="lazy" decoding="async">
 <p>基本法第三条により、版図は王の本棚と、王が公にした正誤表です。地図の中央の三本の柱が王の本棚です。そのまわりの金の区画が、<a href="errata.html">王の正誤表</a>に記した誤りです。誤りを一つ記すたびに、区画が一つ増えます。地図は正誤表から作り、手で描き足しません。年の終わりごとの地図は、<a href="territory-years.html">年ごとの版図</a>の頁で、同じ縮尺で並べて比べられます。</p>
 <h2>国旗の作図</h2>
 <p>国旗は、横 900、縦 600 の比（3:2）で描きます。数は、<a href="flag.svg">国旗の画像</a>の座標そのままです。</p>

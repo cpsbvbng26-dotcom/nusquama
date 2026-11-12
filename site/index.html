@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-nvMLXsvkrOc6Z+zV25cW8OV5yrH0jlYWZG9Dsj2GNhg='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-DUWJ1iZf+0kb3EnIzZ2uk5UEbfemzyr9vkFBYQi2b0k='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>無何有騎士王国ヌスクァマ</title>
 <meta name="description" content="どこにもない国の、誰でもない王。誤りは守り、己を治める。創作であり、遊びです。">
 <meta name="google-site-verification" content="UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8">
@@ -38,6 +38,7 @@ header a.lang { margin-left: auto; }
 .notice { background: var(--notice); border-left: 4px solid var(--gold); padding: 10px 14px; margin: 12px 0 24px; font-size: 15px; color: var(--fg); }
 main { padding-bottom: 32px; }
 h1 { font-size: 1.6rem; line-height: 1.4; text-wrap: balance; margin: 0.5em 0; }
+h1, h2, h3 { word-break: auto-phrase; }
 h2 { font-size: 1.25rem; line-height: 1.5; margin: 2em 0 0.6em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 h3 { font-size: 1.05rem; }
 p, li { overflow-wrap: anywhere; }
@@ -48,6 +49,11 @@ details.source .cite { font-size: 0.9em; color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; }
 .emblem { display: block; width: 180px; max-width: 60%; height: auto; margin: 16px auto; }
+.first { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 20px; margin: 8px 0 16px; }
+.first a { display: block; }
+.first img { display: block; height: 88px; width: auto; }
+.first figcaption { flex-basis: 100%; text-align: center; font-size: 14px; }
+@media (min-width: 640px) { .first img { height: 128px; } }
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
@@ -68,13 +74,14 @@ figcaption { font-size: 15px; color: var(--muted); }
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
-<header><img src="./emblem.svg" alt=""><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./founding.en.html" hreflang="en" lang="en">English</a></header>
+<header><img src="./emblem.svg" alt="" width="40" height="48"><a class="home" href="./index.html">無何有騎士王国ヌスクァマ</a><a class="lang" href="./founding.en.html" hreflang="en" lang="en">English</a></header>
 <main id="main">
 <h1>無何有騎士王国ヌスクァマ（Regnum Nusquamae）</h1>
 <p>種類：エンターテインメント　状態：運営中</p>
+<figure class="first"><a href="symbols.html"><img src="flag.svg" alt="ヌスクァマの国旗（創作）" width="900" height="600"></a><a href="errata.html"><img src="territory.svg" alt="ヌスクァマの版図の地図（創作）" width="397" height="397"></a><figcaption>国旗と、版図の地図。版図は、王が誤りを一つ認めるたびに広がります。</figcaption></figure>
 <blockquote><p>これは創作であり、遊びです。ヌスクァマは、娯楽のために作った架空の国です。学術の研究ではなく、研究の成果を示すものでもありません。ヌスクァマは国家ではなく、領土・国民・通貨・旅券を持ちません。いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がなく、それらを名乗るものでも、それらに代わるものでもありません。ここで授ける称号に、法的な効力はありません。悪意はなく、法令を守って運営しています。</p><p>詳しくは<a href="policies/terms.html">利用規約</a>と<a href="policies/disclaimer.html">免責事項</a>にあります。</p><p lang="en">English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.</p></blockquote>
 <p class="notice">版図のうち、王の正誤表に記した誤りは 15 件です。基本法第三条により、版図は、王が誤りを一つ認めるたびに広がります。 <a href="errata.html">王の正誤表</a></p>
-<img class="emblem" src="emblem.svg" alt="ヌスクァマの国章（創作）">
+<img class="emblem" src="emblem.svg" alt="ヌスクァマの国章（創作）" width="600" height="720" loading="lazy" decoding="async">
 <p><strong>国是</strong>：Errata servo, me ipsum rego. ―― 誤りは守り、己を治める。</p>
 <hr>
 <h2>建国の宣言</h2>
