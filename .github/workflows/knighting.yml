@@ -3,6 +3,9 @@ name: 叙任の願い出の確認
 # 叙任の願い出の issue が開かれたり直されたりすると、様式の印と、訂正へのリンクが https の URL で受けない先を指さないかを確かめてコメントする。
 # 訂正へのリンクは開かない。外へ出す要求は GitHub の API だけである。
 # 何も決めない。叙任を決めるのは運営者である。
+# どの issue でも動く（2026-11-13 から）。様式を通らずに開かれた issue には叙任のラベルが付かないので、ラベルで仕事を絞らない。
+# 扱うかどうかは tools/knighting.js が決める：叙任のラベルの付いた issue と、受付の停止のあいだに開かれ、叙任の願い出の様式の
+# 見出しや印を持つラベルのない issue だけを扱い、ほかの issue には何もしない（点検の記録「2026-11-13：十五度目の見落とし」）。
 on:
   issues:
     types: [opened, edited, reopened]
@@ -17,7 +20,6 @@ concurrency:
 
 jobs:
   check:
-    if: contains(github.event.issue.labels.*.name, '叙任')
     name: 様式と訂正へのリンクを確かめる
     runs-on: ubuntu-latest
     steps:
