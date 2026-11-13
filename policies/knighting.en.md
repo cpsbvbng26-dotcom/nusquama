@@ -33,7 +33,7 @@ From 2026-11-22, a person who lives in Japan may not apply while outside Japan, 
 From 2026-11-22, a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality. There are two reasons.
 First, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with.
 Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses such a title, and the penalty for use applies even when the title was conferred abroad. That penalty reaches an Italian national who uses a title conferred abroad.
-Within this limit, the operator treats the article as not reaching knighting ([Legality Statement](./legality.en.md), "Laws outside Japan").
+Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused ("Pause in receiving applications"; [Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 
 ## Pause in receiving applications
@@ -41,9 +41,10 @@ A person who only stays in Japan briefly, such as a traveller, does not count as
 Since 2026-11-12, applications for knighting are not received. The owner decided this on 2026-11-12. The reason is that, in the period before the revised rules take effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained.
 The pause continues from 00:00 on 2026-11-22 (Japan time), and no date for reopening has been set, because how Italy's Penal Code and Law No. 178 of 1951 reach conferral is not settled by the texts. The owner asked on 2026-11-13 for legal risk to be made as small as possible, and Claude decided this.
 Only the receiving of applications stops; these rules and the roll of knights remain.
+While applications are paused, the application form is not offered in the list of issue forms. The definition of the form is kept in the repository at `tools/knighting-form.yml`, for when applications reopen. Claude decided this on 2026-11-13, because a form left open would invite applications that are not received.
 If applications are to reopen, the reason will be recorded in the [legal review](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md), and the day will be shown in this section and in the Terms of Use before that day. Applications do not reopen merely because a date arrives.
 The pause rests on the Terms of Use, "No ill intent, and obeying the law" (when a risk of breaking the law is found, that part is stopped first, then checked and corrected).
-An application issue opened during the pause gets a comment from the automatic check saying that applications are paused, and is closed as not accepted. The link to the correction is not opened.
+An application issue opened during the pause gets a comment from the automatic check saying that applications are paused, and is closed as not accepted. The link to the correction is not opened. The automatic check then replaces the title and body of the issue with a short note and locks it ([Privacy](./privacy.en.md), "How long data is kept").
 Once applications reopen, the revised rules are checked. An issue opened during the pause is not reopened; the applicant opens a new issue.
 Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used.
 Claude decided on 2026-11-13 to tie reopening to a decision recorded in the legal review rather than to a date, so that applications do not reopen merely because a date arrives before the check is finished.
@@ -106,7 +107,7 @@ Some provisions bind only public officials or holders of State office. The opera
 Besides the countries in the table, a person whose country of nationality has a law of any of the three types may not apply either, because the laws of countries not fetched may have the same provisions.
 People who hold Italian nationality are excluded separately, under "Who may apply".
 The texts of the provisions and the reasons for reading them so are in the [survey of the world's laws](../docs/world-law-2026-11-12.md) (in Japanese), "2026-11-12 の続き：当てはめ".
-Under this table and the rules above, the operator treats these provisions as not reaching knighting.
+Whether these provisions reach knighting, under this table and the rules above, is not settled by the fetched texts. The operator keeps applications paused ("Pause in receiving applications").
 
 ## Use of the name of knight
 
@@ -129,13 +130,13 @@ The reason is that the following provisions, fetched and read, punish assuming t
 - Portugal: Código Penal (Decreto-Lei n.º 48/95) Artigo 307 (only the heading could be taken from the fetched page)
 
 The texts of the provisions are quoted in the [survey of the world's laws](../docs/world-law-2026-11-12.md) (in Japanese), "2026-11-12 の続き：当てはめ".
-The operator treats use that keeps these three rules as outside what these provisions punish.
+Whether use that keeps these three rules falls within what these provisions punish is not settled by the fetched texts. The operator keeps applications paused ("Pause in receiving applications").
 
 ## How to apply
 
 Vercel, which serves the site, and GitHub, which keeps the applications, may use what is placed on them to train AI models. If you are worried about your personal data, do not apply. These uses are described in [Privacy](./privacy.en.md).
 
-1. Once applications reopen, open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml) (while applications are paused, they are not received under "Pause in receiving applications").
+1. Once applications reopen, open an issue with the form Application for knighthood (while applications are paused, the form is not offered; "Pause in receiving applications").
 2. Give a public link to the correction, and say what was wrong and how you corrected it.
 3. Tick every one of the pledges.
 

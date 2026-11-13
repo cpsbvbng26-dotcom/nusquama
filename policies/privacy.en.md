@@ -20,8 +20,9 @@ The site is served by Vercel (United States). To serve it, Vercel may process an
 
 ## What an application for knighthood involves
 
-Applications for knighthood are received as public issues on GitHub (United States).
-An application involves:
+Applications for knighthood are meant to be received as public issues on GitHub (United States).
+Applications have been paused since 2026-11-12, and no information is now being received through applications for knighthood. While applications are paused, the application form is not offered either ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications").
+Once applications reopen, an application involves:
 
 - The GitHub account name
 - A public link to the correction
@@ -66,6 +67,9 @@ Except where the law requires, nothing is given to any other third party.
 
 An entry on the roll is kept until a request to withdraw.
 The issue of a declined application is kept, to show the one sentence of the decline; it is deleted if the applicant asks.
+An issue that arrives as an application for knighthood while applications are paused has its title and body replaced with a short note by the automatic check, and is closed and locked. The operator copies nothing of what arrived to the roll or anywhere else. After the replacement, the issue shows only the account name of the person who opened it, the date it was opened, and the note.
+The earlier title and body remain in the edit history that GitHub keeps for the issue. They are removed on a request to delete.
+The automatic check does not copy the body of an issue into the record of its run (the GitHub Actions log).
 On a request to delete, the operator deletes the issue, or empties its body and removes the earlier versions from its edit history too.
 The history of the repository, and copies already made by others, may still hold an entry.
 
