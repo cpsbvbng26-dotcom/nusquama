@@ -29,6 +29,12 @@
  * （2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十四度目の見落とし」）。受付に戻すときに、定義をそこへ写す。
  * 停止のあいだに叙任の願い出として届いた issue は、題と本文を短い断りに替え、閉じて、書き込みを止める（ロック）。
  * 届いた願い出のうち、アカウント名と開いた日のほかを、運営者の記録として残さないためである（同じ日に Claude が決めた）。
+ *
+ * 叙任のラベルのない issue（2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十五度目の見落とし」）：
+ * 様式の設定（.github/ISSUE_TEMPLATE/config.yml の blank_issues_enabled: false）が外すのは、GitHub の画面の選び場の白紙の issue だけで、
+ * API など、ほかの道で開かれた issue は様式を通らず、ラベルも付かない。そうした issue が受付の停止のあいだに開かれ、題か本文に
+ * 叙任の願い出の様式の見出しや印（formMarkers）を持つときは、ラベルの付いた願い出と同じに、題と本文を断りに替え、閉じて、書き込みを止める。
+ * ほかの issue には何もしない（運営者が読む）。ラベルのない issue の題と本文も、記録に写さない。
  */
 'use strict';
 const fs = require('fs');
@@ -45,6 +51,8 @@ const FOREIGN_FROM = '2026-11-22';
 const FOREIGN = '次の国の国籍を持っていません：';
 const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
+/* 様式が付けるラベル。ワークフローはどの issue でも動き、ラベルと様式の見出しや印で、ここが扱うかを決める。 */
+const LABEL = '叙任';
 /* 受付に戻す決め。null のあいだは受付を閉じており、どの日に開かれた願い出も受けない（日付では終わらない）。
  * 2026-11-13 に利用者が法的リスクを限りなく小さくするよう求め、Claude が決めた：受付に戻る日を置かない。
  * 戻すときは { at: '<受付に戻る時刻（日本時間、+09:00）>', record: '<点検の記録で停止を解く行の「箇所」の欄の文>' } を書く。
@@ -117,6 +125,35 @@ function requiredOaths(yml = fs.readFileSync(path.join(ROOT, FORM), 'utf8')) {
   let m;
   while ((m = re.exec(yml))) if (m[2] === 'true') out.push(m[1].trim());
   return out;
+}
+
+/* 純：様式の定義から、ラベルのない issue を叙任の願い出と見る目印を取り出す。
+ * titles は題の頭（様式の title の「<」より前と、全角のコロンを半角にした形）、headings は項の見出し（GitHub が「### 」を付けて本文に書く）、
+ * oaths は誓いの文（GitHub が「- [X] 」か「- [ ] 」を付けて本文に書く）。 */
+function formMarkers(yml = fs.readFileSync(path.join(ROOT, FORM), 'utf8')) {
+  const head = ((/^title: "([^"<]*)/m.exec(yml) || [])[1] || '').trim();
+  const titles = head ? [...new Set([head, head.replace(/：$/, ':')])] : [];
+  const headings = [...yml.matchAll(/^      label: (.+)$/gm)].map((m) => '### ' + m[1].trim());
+  const oaths = [...yml.matchAll(/^        - label: (.+)$/gm)].map((m) => m[1].trim());
+  return { titles, headings, oaths };
+}
+
+/* 純：ラベルのない issue の題か本文が、叙任の願い出の様式の目印を持つか。 */
+function formLike(issue, markers = formMarkers()) {
+  const title = String((issue && issue.title) || '').trim();
+  if (markers.titles.some((t) => title.startsWith(t))) return true;
+  const lines = String((issue && issue.body) || '').replace(/\r\n?/g, '\n').split('\n').map((l) => l.trim());
+  if (lines.some((l) => markers.headings.includes(l))) return true;
+  return lines.some((l) => { const m = /^- \[[ xX]\] (.+)$/.exec(l); return !!m && markers.oaths.includes(m[1].trim()); });
+}
+
+/* 純：この issue を、ここが扱うか。'label' は叙任のラベルの付いた願い出、'formlike' はラベルのない issue で、
+ * 受付の停止のあいだに開かれ、様式の目印を持つもの。null はどちらでもなく、何もしない。 */
+function target(issue, opened, reopen = REOPEN, markers) {
+  const labels = ((issue && issue.labels) || []).map((l) => (typeof l === 'string' ? l : (l && l.name) || ''));
+  if (labels.includes(LABEL)) return 'label';
+  if (labels.length === 0 && paused(opened, reopen) && formLike(issue, markers)) return 'formlike';
+  return null;
 }
 
 /* 純：GitHub が様式を issue に書いた形（### 見出し、空行、答え）を読む。 */
@@ -207,10 +244,14 @@ async function main() {
   const issue = event.issue || {};
   const n = issue.number;
   const opened = issue.created_at || new Date().toISOString();
-  const mine0 = ((await github('GET', '/issues/' + n + '/comments?per_page=100')) || []).find((c) => c.user.type === 'Bot' && c.body.startsWith(MARK));
   /* 受付に戻す決めが点検の記録の行に拠っていなければ、戻さない（止めたままにする）。 */
   const record = fs.readFileSync(path.join(ROOT, 'docs', 'legal-audit-2026-11-12.md'), 'utf8');
   const reopen = reopenProblem(REOPEN, record) === null ? REOPEN : null;
+  /* 叙任のラベルの付いた願い出と、受付の停止のあいだに開かれた様式の目印を持つラベルのない issue のほかには、何もしない。題も本文も記録に写さない。 */
+  const kind = target(issue, opened, reopen);
+  if (!kind) { console.log('扱わない issue'); return; }
+  const mine0 = ((await github('GET', '/issues/' + n + '/comments?per_page=100')) || []).find((c) => c.user.type === 'Bot' && c.body.startsWith(MARK));
+  /* ラベルのない issue（'formlike'）は、target が停止のあいだに開かれたものに限っている。 */
   if (paused(opened, reopen)) {
     /* 受付の停止のあいだに開かれた願い出：訂正へのリンクも開かず、停止を書いて閉じる（完了ではなく、受けないものとして）。 */
     const body = pauseComment();
@@ -232,6 +273,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+module.exports = { LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });

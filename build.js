@@ -468,6 +468,37 @@ const timelineKey = (date, text) => 'T:' + date + ':' + crypto.createHash('sha25
 const LATER = { 'T:2026-11-12:d137857349df': 'T:2026-11-13:c3e520751428' };
 const LATER_JA = /（のちに改めた：第 \d+ 号）$/, LATER_EN = / \(Later changed: No\. \d+\)$/;
 const laterNote = (key, ledger, en) => (Object.prototype.hasOwnProperty.call(LATER, key) && ledger[LATER[key]] ? (en ? ' (Later changed: No. ' + ledger[LATER[key]] + ')' : '（のちに改めた：第 ' + ledger[LATER[key]] + ' 号）') : '');
+/* のちに改めた王の正誤表の行（番 → 改めた正誤の番と、改めた年表の行の鍵）。行の文は書き換えず、「正」の欄の終わりに注を添える。
+ * 注は ERRATA.md と ERRATA.en.md の行がそのまま持ち、正誤表の頁・一件ごとの頁・配信・llms-full.txt へ写る。注の号は、改めた行の号を台帳から引く。
+ * build() は、行の注がここから作る注と違えば、頁を作らずに止まる。検査 79 が、2026-11-22 に受付に戻ると告げる行がどれも注を持つことを確かめる。
+ * 2026-11-13 に足した（点検の記録「2026-11-13：十五度目の見落とし」）。正誤 25・26・30・33・34 は、2026-11-22 0 時に受付に戻る予定を書いたまま、
+ * 正誤 37（年表の第 71 号）で改めたことを示していなかった。 */
+const ERRATA_LATER = {
+  25: { erratum: 37, key: 'T:2026-11-13:c3e520751428' },
+  26: { erratum: 37, key: 'T:2026-11-13:c3e520751428' },
+  30: { erratum: 37, key: 'T:2026-11-13:c3e520751428' },
+  33: { erratum: 37, key: 'T:2026-11-13:c3e520751428' },
+  34: { erratum: 37, key: 'T:2026-11-13:c3e520751428' },
+};
+const ERRATA_LATER_JA = /（のちに改めた：正誤 \d+・第 \d+ 号）$/, ERRATA_LATER_EN = / \(Later changed: erratum \d+, No\. \d+\)$/;
+const errataLaterNote = (n, ledger, en) => {
+  const x = ERRATA_LATER[n];
+  if (!x || !ledger[x.key]) return '';
+  return en ? ' (Later changed: erratum ' + x.erratum + ', No. ' + ledger[x.key] + ')' : '（のちに改めた：正誤 ' + x.erratum + '・第 ' + ledger[x.key] + ' 号）';
+};
+/* 王の正誤表の行の注が、ERRATA_LATER から作る注と同じか。違う行を返す。rows は { ja, en } で、検査が壊した行を渡せる。 */
+function errataLaterProblems(rows = { ja: tableRows('ERRATA.md'), en: tableRows('ERRATA.en.md') }, ledger = readLedger()) {
+  const bad = [];
+  for (const [list, en] of [[rows.ja, false], [rows.en, true]]) {
+    for (const r of list) {
+      const right = r[4] || '', want = errataLaterNote(Number(r[0]), ledger, en), re = en ? ERRATA_LATER_EN : ERRATA_LATER_JA;
+      const has = (re.exec(right) || [''])[0];
+      if (has !== want) bad.push((en ? 'ERRATA.en.md' : 'ERRATA.md') + ' の第 ' + r[0] + ' 件の注' + (want ? 'が「' + want.trim() + '」でない' : 'は要らない'));
+    }
+  }
+  for (const n of Object.keys(ERRATA_LATER)) if (!errataLaterNote(Number(n), ledger)) bad.push('正誤 ' + n + ' の注の号が台帳にない');
+  return bad;
+}
 
 /* 官報の号。src で年表・正誤表・名簿の行と台帳を差し替えられる（検査が、まだない行で号の振り方を確かめるため）。
  * 号は古い順に 1 から振る。台帳にある行は台帳の号のまま、ない行は台帳の最後の号の次から、日付の古い順に振る。
@@ -897,6 +928,8 @@ function llmsFull() {
 }
 
 function build(out = OUT) {
+  const later = errataLaterProblems();
+  if (later.length) throw new Error('王の正誤表の「のちに改めた」の注：' + later.join(' / '));
   const files = {};
   for (const [src, dst] of SOURCES) files[dst] = page(src, dst);
   files['404.html'] = notFound();
@@ -953,7 +986,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, LATER, LATER_JA, LATER_EN, laterNote, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, LATER, LATER_JA, LATER_EN, laterNote, ERRATA_LATER, ERRATA_LATER_JA, ERRATA_LATER_EN, errataLaterNote, errataLaterProblems, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
