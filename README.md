@@ -67,7 +67,7 @@
 
 **第十条（改正）**　この基本法は王が改める。ただし、第一条・第六条・第八条は削らない。
 
-第六条の叙任には、[叙任の規程](policies/knighting.md)の条件も加わります。叙任の規程が条件を足すところは、叙任の規程に従います（叙任の規程「基本法第六条との関係」）。この注は基本法の条ではなく、条の文は改めていません。
+第六条の叙任には、[叙任の規程](policies/knighting.md)の条件も加わります。叙任の規程が条件を足すところは、叙任の規程に従います（叙任の規程「基本法第六条との関係」）。この注は基本法の条ではなく、条の文は改めていません。叙任の願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません（叙任の規程「受付の停止」）。
 
 ---
 
@@ -109,10 +109,10 @@
 ## 騎士になるには
 
 1. 自分の誤りを一つ、公に訂正する。論文の正誤表でも、ブログの追記でも、コードの修正でもよい。
-2. 2026-11-22 0 時（日本時間）から、その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
+2. 受付に戻ってから、その訂正への公開のリンクを添えて、[叙任の願い出](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml)の様式で issue を開く。
 3. 王が訂正を確かめ、[正誤表騎士団の名簿](KNIGHTS.md)に名を加える。
 
-2026-11-12 から 2026-11-22 0 時（日本時間）より前は、願い出の受付を止めています（[叙任の規程](policies/knighting.md)「受付の停止」）。このあいだに開かれた願い出は、自動の確認が閉じます。
+2026-11-12 から、願い出の受付を止めています（[叙任の規程](policies/knighting.md)「受付の停止」）。2026-11-22 0 時（日本時間）からも止めたままで、受付に戻る日は決めていません。このあいだに開かれた願い出は、自動の確認が閉じます。
 2026-11-22 から、願い出ることができるのは、日本に住み、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。
 2026-11-22 から、外国の称号を受けることを縛る国の国籍を持つ人も、願い出ることができません（[叙任の規程](policies/knighting.md)「外国の称号を縛る国」）。
 2026-11-22 から、騎士の呼び名は、ヌスクァマに関わることにだけ使います（[叙任の規程](policies/knighting.md)「騎士の呼び名の使い方」）。
@@ -163,6 +163,8 @@
 | 2026-11-13（日本時間） | 叙任の規程「外国の称号を縛る国」の表に、オーストリア・ギリシャ・イエメンを足す（2026-11-22 から）。各国の法令の調べで、型で「当たらない」に分けていた称号・栄典の条 339 件を一つずつ読み直し、オーストリアの憲法が取り込む貴族の廃止の法律を取り寄せて読む。称号・栄典の条は、これから型の決めだけで分けない | Austria, Greece and Yemen are added to the table in the Rules on Knighting, "Countries that restrict foreign titles" (from 2026-11-22). In the survey of the world's laws, the 339 provisions on titles and honours that a type rule had classed as not applying are read again one by one, and the law abolishing nobility that the Constitution of Austria takes in is fetched and read. From now on, no provision on titles and honours is classed by a type rule alone |
 | 2026-11-13（日本時間） | Vercel の Fair Use Guidelines から、Hobby プランを非商用の個人的な利用に限る節が消えたので、適法性の説明の Vercel の段を、利用規約第 4 条だけに拠る形に改める（結論は変わらない）。各国の法令の調べは、外国の政府と機関が作った法令の英訳の条の文を外し、拠った箇所と全文の SHA-256 だけを記す | The section of Vercel's Fair Use Guidelines that limited the Hobby plan to non-commercial personal use is gone, so the Legality Statement's paragraph on Vercel now rests on section 4 of Vercel's Terms of Service alone (the conclusion does not change). The survey of the world's laws drops the text of the articles of English translations of laws made by foreign governments and agencies, and keeps only the passages relied on and the SHA-256 of each whole text |
 | 2026-11-13（日本時間） | 適法性の説明と叙任の規程で、運営者が続けている行いについて法令に触れうると読める文を、条文から決まらないことと運営者の扱いを書く形に改める（結論は変わらない）。個人情報の取り扱いで、連絡先を公開していない人も、連絡先をプロフィールに一時的に公開すれば運営者の氏名と住所を受け取れるようにする。理由は点検の記録に残す（王の正誤表 35・36） | In the Legality Statement and the Rules on Knighting, sentences that could be read as saying that something the operator keeps doing might break the law now say that the text does not settle the point and how the operator treats it (the conclusions do not change). In the Privacy page, a person with no public contact can receive the operator's name and address by making a contact public on their profile for a while. The reasons are kept in the record of the review (King's errata 35 and 36) |
+| 2026-11-13（日本時間） | 叙任の願い出の受付の停止を、2026-11-22 0 時（日本時間）からも続ける。イタリアの刑法典第 10 条が第 7 条と第 8 条の場合を除いて始まるのに、二つの条を取り寄せていなかったので、取り寄せて読む。受付に戻るのは、日付ではなく、点検の記録に記した決めによる。適法性の説明と叙任の規程で、刑法典第 10 条だけで授けた者の罰は届かないとした文と、国外の授与に及ぶ段落を書いていなかった文を改める（王の正誤表 37・38） | The pause in receiving applications for knighting continues from 00:00 on 2026-11-22 (Japan time). Article 10 of the Italian Penal Code begins by excepting the cases of Articles 7 and 8, which had not been fetched; they are fetched and read. Applications reopen by a decision recorded in the legal review, not by a date. In the Legality Statement and the Rules on Knighting, the sentence that relied on Article 10 alone to say the penalty for conferring is not reached, and the sentences that did not say which paragraph reaches conferral abroad, are corrected (King's errata 37 and 38) |
+| 2026-11-13（日本時間） | 削除・訂正・辞退の求め、その様式、安全の問題の知らせ方に、連絡先を自分のプロフィールに一時的に公開すれば、その連絡先で答えを受け取れる道を書く。個人情報の取り扱いが同じ日に置いた道に合わせる（王の正誤表 39） | The Requests page, its form and the security page now give the route of making a contact public on one's own profile for a while and receiving the answer there, matching the route the Privacy page gave on the same day (King's errata 39) |
 
 ---
 

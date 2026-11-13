@@ -87,7 +87,8 @@ Notice: from 2026-11-22, Yemen, Austria and Greece are added to the table in the
 Notice: from 2026-11-22, the name of knight is used only in connection with Nusquama, is never presented as a title of nobility, an honour, an order, a rank or a dignity of any state, and is not used in an official, commercial or legal context; if this is breached, the name is removed from the roll ("Titles").
 Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play, and an application without the box for this premise ticked is not accepted ([Rules on Knighting](./knighting.en.md), "The premise of good sense").
 Notice: from 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
-From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
+Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
+Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts. If applications are to reopen, the day will be shown in the Rules on Knighting and on this page before that day (shown on 2026-11-13).
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
 

@@ -31,7 +31,8 @@ Nusquama has no channel that receives requests privately.
 GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-13).
 If there is a reason a request cannot be written in public, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the form, and leave the rest empty. The issue then shows only the GitHub account name, the title and the kind.
 The operator answers privately only when the person who asks has made a contact public on their own GitHub profile, and then answers at that contact.
-When there is no such contact, there is no private route. The operator then answers in the issue, without personal details.
+A person with no such contact can receive the answer by making a contact public on their own GitHub profile for a while.
+When no contact is made public, the operator answers in the issue, without personal details.
 A security problem with the site or the repository is reported in the same way ([How to report a security problem](../SECURITY.md)).
 
 ## After a request
