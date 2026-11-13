@@ -72,10 +72,18 @@ The earlier title and body remain in the edit history that GitHub keeps for the 
 The automatic check does not copy the body of an issue into the record of its run (the GitHub Actions log).
 On a request to delete, the operator deletes the issue, or empties its body and removes the earlier versions from its edit history too.
 The history of the repository, and copies already made by others, may still hold an entry.
+When an issue is opened or written to, GitHub sends a notification to the accounts set to receive that activity.
+Depending on the settings of the person who receives it, a notification also arrives by email. An email notification holds a copy of the content of the issue.
+The accounts that receive it may include the operator's.
+That copy is handled under GitHub's Terms of Service and Privacy Statement.
+GitHub's documentation says that notifications in the inbox that are not marked as saved are kept for 3 months.
+The pages of GitHub's documentation that were fetched do not say that a notification already delivered goes away when the title and body of the issue are replaced, or when the issue is deleted.
 
 ## Security measures
 
-The only personal data handled is what is in the public issues and on the roll of knights. It is gathered nowhere else and no other copy is made.
+The only personal data handled is what is in the public issues and on the roll of knights.
+GitHub's notifications may carry a copy of the content of an issue to the holders of the accounts that receive them (see "How long data is kept" above). The operator may be one of them.
+Apart from this, the operator gathers the data nowhere else and makes no other copy.
 Only the operator's GitHub account, which owns the repository, can change the roll and the site.
 That account uses two-factor authentication.
 Every change to the roll and the site is kept in the public history of the repository and goes in only after passing the checks.

@@ -1752,8 +1752,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-15).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-16).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -3826,13 +3826,108 @@ console.log('\n79. 様式を通らずに開かれた issue、称号を使う場�
     ['記録の前の行を問題なしのままにする', mut(AUD, '| 「判定の表」の「同（GDPR の代理人）」の行 | GDPR 第27条 | 同じ | 対応の「書き足した」は、第 2 項 (a) に拠る文を書き足したものだった | 誤り |', '| 「判定の表」の「同（GDPR の代理人）」の行 | GDPR 第27条 | 同じ | 対応の「書き足した」は、第 2 項 (a) に拠る文を書き足したものだった | 問題なし |')],
     ['記録の引用を一字変える', mut(AUD, 'I trasgressori sono puniti con la reclusione da sei mesi a due anni e con la multa da lire duecentocinquantamila', 'I trasgressori sono puniti con la reclusione da sei mesi a tre anni e con la multa da lire duecentocinquantamila')],
     ['記録から未確認を外す', mut(AUD, 'この設定がそれを止めるかは、確かめていません（未確認）。', 'この設定はそれを止めます。')],
-    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-13：十六度目の見落とし', '\n## 2026-11-13：十六度目の見落とし')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([n]) => n);
   ok('壊して確かめる：ワークフローの絞りと出来事・求めの規程と義務の表・叙任の規程・引用・適法性の説明・王の正誤表の注と注の決め・告げる新しい行・年表の注・生成した面の注・王の正誤表 44・年表・記録の件数と前の行と引用と未確認と弁護士の文、のどれでも落ちる（'
     + caught.length + ' / ' + breaks.length + '）。自動の確認からラベルのない issue の扱い・題・見出し・誓いを外す・ほかのラベルや停止の前も扱う・扱わない issue に触れるか記録に写す、のどれでも落ちる（' + bcaught.length + ' / ' + behaviourBreaks.length + '）',
     caught.length === breaks.length && bcaught.length === behaviourBreaks.length, breaks.filter(([n]) => !caught.includes(n)).concat(behaviourBreaks.filter(([n]) => !bcaught.includes(n))).map(([n]) => n).join(' / '));
 }
+console.log('\n80. 個人情報の取り扱いは、GitHub の通知が issue の中身の写しを届けうることを書き、それを書かずにほかの写しを作らないとは書かない（2026-11-13）');
+{
+  /* 2026-11-13 に Claude が決めた（点検の記録「2026-11-13：十六度目の見落とし」）。
+   * 安全のための措置は「ほかの場所に集めず、別の写しも作りません。」と書いていた。GitHub は issue の動きを受け取る設定のアカウントに通知し、
+   * 電子メールの通知は中身の写しを含む。運営者のアカウントの設定は確かめられないので、通知を止めたとは書かず、写しが届きうることを書く。
+   * 一、個人情報の取り扱い（日本語と英語、生成した頁、llms-full.txt）が、通知の写しの文と、保存の期間の文を持ち、前の文を持たない。
+   * 二、規程の頁のどれかが、写しを作らないと書くなら、同じ頁が通知の写しを書く。
+   * 三、王の正誤表 45、年表、記録の節（取り寄せた文の所在と SHA-256、引用、表と件数、決めた者、弁護士の文）がそろう。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md', HEAD = '\n## 2026-11-13：十六度目の見落とし\n';
+  const KINDS80 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const SEC_JA = ['扱う個人データは、公開の issue と騎士の名簿にあるものだけです。', 'GitHub の通知は、issue の中身の写しを、通知を受け取るアカウントの持ち主に届けることがあります（上の「保存の期間」）。', '運営者もその一人であることがあります。', '運営者は、これとは別に、ほかの場所に集めず、写しも作りません。'];
+  const RET_JA = ['GitHub は、issue が開かれたときや書き込まれたときに、その動きを受け取る設定のアカウントへ通知を送ります。', '通知は、受け取る人の設定によって電子メールでも届きます。', '電子メールの通知は、issue の中身の写しを含みます。',
+    '受け取るアカウントには、運営者のアカウントも含まれることがあります。', 'その写しの扱いは、GitHub の利用規約とプライバシーステートメントに従います。', 'GitHub の説明書は、受信箱の通知のうち保存の印のないものを 3 か月保つと書いています。',
+    'issue の題と本文を替えたり、issue を削除したりしたときに、すでに届いた通知の写しが消えるとは、取り寄せた GitHub の説明書は書いていません。'];
+  const SEC_EN = ['The only personal data handled is what is in the public issues and on the roll of knights.', "GitHub's notifications may carry a copy of the content of an issue to the holders of the accounts that receive them", 'The operator may be one of them.', 'Apart from this, the operator gathers the data nowhere else and makes no other copy.'];
+  const RET_EN = ['When an issue is opened or written to, GitHub sends a notification to the accounts set to receive that activity.', 'Depending on the settings of the person who receives it, a notification also arrives by email.', 'An email notification holds a copy of the content of the issue.',
+    "The accounts that receive it may include the operator's.", "That copy is handled under GitHub's Terms of Service and Privacy Statement.", "GitHub's documentation says that notifications in the inbox that are not marked as saved are kept for 3 months.",
+    "The pages of GitHub's documentation that were fetched do not say that a notification already delivered goes away when the title and body of the issue are replaced, or when the issue is deleted."];
+  const OLD = ['ほかの場所に集めず、別の写しも作りません。', 'It is gathered nowhere else and no other copy is made.'];
+  const NOCOPY = /写しも作りません|写しを作りません|no other copy|makes no copy|no copy is made/;
+  const NOTICE = /GitHub の通知は、issue の中身の写しを|GitHub's notifications may carry a copy of the content of an issue/;
+  const SRC = ['`6d56af0c8b62bde11bb3d9df46244fab5f0a00f9`', '`content/subscriptions-and-notifications/concepts/about-notifications.md`（全文の SHA-256 は 88abdf864746c3540835e2bf774e4c809889431dec08ed2190967a971dd56300）',
+    '`content/subscriptions-and-notifications/get-started/configuring-notifications.md`（全文の SHA-256 は 4155eef5fdb60cea35ad1ef3f49a524cdf6c80a2df9ccc3b1f3fad9e815a611b）',
+    '> By default, you also automatically watch all repositories that you create and are owned by your personal account.',
+    '> After enabling email notifications, {% data variables.product.prodname_dotcom %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content.',
+    '> Notifications that are not marked as **Saved** are kept for 3 months. Notifications marked as **Saved** are kept indefinitely.'];
+  const sec = (txt, head) => { const i = txt.indexOf('\n## ' + head + '\n'); if (i < 0) return ''; const j = txt.indexOf('\n## ', i + 5); return txt.slice(i, j < 0 ? undefined : j); };
+  const pages = fs.readdirSync(path.join(ROOT, 'policies')).filter((f) => f.endsWith('.md')).map((f) => 'policies/' + f)
+    .concat(fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f));
+  const files = [...new Set(pages.concat(['site/llms-full.txt', 'ERRATA.md', 'ERRATA.en.md', 'README.md', AUD]))];
+  const x0 = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const unq = (s) => s.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+  function verdict(x) {
+    const bad = [];
+    const pj = x['policies/privacy.md'], pe = x['policies/privacy.en.md'];
+    for (const s of SEC_JA) if (!sec(pj, '安全のための措置').includes(s)) bad.push('安全のための措置：' + s.slice(0, 20));
+    for (const s of RET_JA) if (!sec(pj, '保存の期間').includes(s)) bad.push('保存の期間：' + s.slice(0, 20));
+    for (const s of SEC_EN) if (!sec(pe, 'Security measures').includes(s)) bad.push('Security measures: ' + s.slice(0, 30));
+    for (const s of RET_EN) if (!sec(pe, 'How long data is kept').includes(s)) bad.push('How long data is kept: ' + s.slice(0, 30));
+    const hj = unq(x['site/policies/privacy.html']), he = unq(x['site/policies/privacy.en.html']), lf = x['site/llms-full.txt'];
+    for (const s of SEC_JA.concat(RET_JA)) { if (!hj.includes(s)) bad.push('生成した頁：' + s.slice(0, 20)); if (!lf.includes(s)) bad.push('llms-full.txt：' + s.slice(0, 20)); }
+    for (const s of SEC_EN.concat(RET_EN)) { if (!he.includes(s)) bad.push('generated page: ' + s.slice(0, 30)); if (!lf.includes(s)) bad.push('llms-full.txt: ' + s.slice(0, 30)); }
+    /* llms-full.txt は王の正誤表も収め、45 の「誤」の欄が前の文を引くので、ここでは規程の頁だけを見る。 */
+    for (const f of pages) {
+      const t = unq(x[f] || '');
+      for (const o of OLD) if (t.includes(o)) bad.push(f + ' に前の文');
+      if (NOCOPY.test(t) && !NOTICE.test(t)) bad.push(f + ' が、通知の写しを書かずに写しを作らないと書く');
+    }
+    const e45 = (x['ERRATA.md'].split('\n').find((l) => l.startsWith('| 45 | 2026-11-13 |')) || '').split(' | ');
+    if (e45.length !== 8 || e45[3] !== OLD[0].replace(/^/, '扱う個人データは、公開の issue と騎士の名簿にあるものだけです。') || e45[6] !== '事実' || e45[7] !== 'Insula Facti X |' || !e45[4].includes('2026-11-13 に Claude が決めました。')) bad.push('王の正誤表 45');
+    const n45 = (x['ERRATA.en.md'].split('\n').find((l) => l.startsWith('| 45 | 2026-11-13 |')) || '').split(' | ');
+    if (n45.length !== 8 || n45[3] !== '"The only personal data handled is what is in the public issues and on the roll of knights. ' + OLD[1] + '"' || n45[6] !== 'Fact' || n45[7] !== 'Insula Facti X |') bad.push("King's errata 45");
+    if (!x['README.md'].includes('写しを作らない' + 'ことを書く形に改める。') || !x['README.md'].includes('（王の正誤表 45） |') || !x['README.md'].includes("(King's errata 45) |")) bad.push('年表');
+    const a = x[AUD], i = a.indexOf(HEAD), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const s = i < 0 ? '' : a.slice(i, j);
+    if (!s || a.indexOf('\n## 調べた法令\n') < i) bad.push('記録の節');
+    for (const q of SRC) if (!s.includes(q)) bad.push('記録の取り寄せた文：' + q.slice(0, 30));
+    const t0 = s.indexOf('\n### 確かめ直した表\n');
+    const rows = (t0 < 0 ? '' : s.slice(t0)).split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 5 || !rows.every((r) => r.length === 6 && KINDS80.includes(r[4]))) bad.push('記録の表の形');
+    const counted = KINDS80.filter((k) => rows.some((r) => r[4] === k)).map((k) => k + ' ' + rows.filter((r) => r[4] === k).length + ' 件');
+    const m = /判定は、([^。]+)で、合わせて (\d+) 件です。/.exec(s);
+    if (!m || m[1].split('、').slice().sort().join() !== counted.slice().sort().join() || Number(m[2]) !== rows.length) bad.push('記録の判定の数');
+    if ((s.match(/2026-11-13 に Claude が決めました。/g) || []).length < 3) bad.push('決めた者');
+    if (!s.includes('運営者のアカウントの通知の設定は、確かめていません。')) bad.push('確かめていない設定');
+    if (!s.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(s)) bad.push('弁護士の文');
+    return bad;
+  }
+  const now = verdict(x0);
+  ok('個人情報の取り扱い（日本語と英語、生成した頁、llms-full.txt）が、GitHub の通知が issue の中身の写しを届けうることと保存の期間の文を持ち、前の文を持たない。規程の頁（' + pages.length + '）は、通知の写しを書かずに写しを作らないとは書かない。王の正誤表 45・年表・記録の節がそろう',
+    now.length === 0, now.slice(0, 6).join(' / '));
+  const mut = (f, a, b) => Object.assign({}, x0, { [f]: x0[f].replace(a, b) });
+  const breaks = [
+    ['安全のための措置を前の文に戻す', mut('policies/privacy.md', SEC_JA.slice(1).join('\n').replace('。\n運営者もその一人', '。運営者もその一人'), 'ほかの場所に集めず、別の写しも作りません。')],
+    ['英語の安全のための措置を前の文に戻す', mut('policies/privacy.en.md', "GitHub's notifications may carry", "It is gathered nowhere else and no other copy is made.\nGitHub's notifications may carry")],
+    ['保存の期間から電子メールの写しを外す', mut('policies/privacy.md', '電子メールの通知は、issue の中身の写しを含みます。', '')],
+    ['保存の期間から、説明書が書いていないことを外す', mut('policies/privacy.en.md', RET_EN[6], '')],
+    ['生成した頁から通知の文を外す', mut('site/policies/privacy.html', '運営者もその一人であることがあります。', '')],
+    ['llms-full.txt から通知の文を外す', mut('site/llms-full.txt', 'An email notification holds a copy of the content of the issue.', '')],
+    ['ほかの規程に、通知を書かずに写しを作らないと書く', mut('policies/requests.md', '\n## ', '\n運営者は、issue の中身の写しを作りません。\n\n## ')],
+    ['王の正誤表 45 の地名を変える', mut('ERRATA.md', '| 事実 | Insula Facti X |', '| 事実 | Insula Facti XI |')],
+    ['英語の王の正誤表 45 を外す', mut('ERRATA.en.md', '| 45 | 2026-11-13 |', '| 46 | 2026-11-13 |')],
+    ['年表の行を外す', mut('README.md', '（王の正誤表 45） |', ' |')],
+    ['記録の SHA-256 を一字変える', mut(AUD, '88abdf864746c3540835e2bf774e4c809889431dec08ed2190967a971dd56300', '88abdf864746c3540835e2bf774e4c809889431dec08ed2190967a971dd56301')],
+    ['記録の引用を一字変える', mut(AUD, 'that you create and are owned by your personal account.', 'that you create and are owned by your organization.')],
+    ['記録の判定の数を変える', mut(AUD, '判定は、表現 1 件、漏れ 3 件、問題なし 2 件で、合わせて 6 件です。', '判定は、表現 1 件、漏れ 2 件、問題なし 2 件で、合わせて 5 件です。')],
+    ['記録から確かめていない設定を外す', mut(AUD, '運営者のアカウントの通知の設定は、確かめていません。', '運営者のアカウントは、通知を受け取りません。')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([n]) => n);
+  ok('壊して確かめる：安全のための措置（日本語と英語）・保存の期間（日本語と英語）・生成した頁・llms-full.txt・ほかの規程・王の正誤表 45（日本語と英語）・年表・記録の SHA-256 と引用と件数と確かめていない設定と弁護士の文、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
+}
+
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
 console.log(pass + ' 件すべて通りました。');
