@@ -49,12 +49,23 @@
     },
     "Vercel Fair Use Guidelines": {
       "from": "vercel",
-      "name": "Vercel「Fair Use Guidelines」の「Commercial usage」",
-      "name_en": "Vercel, “Fair Use Guidelines”, “Commercial usage”",
+      "name": "Vercel「Fair Use Guidelines」の冒頭の文",
+      "name_en": "Vercel, “Fair Use Guidelines”, opening sentence",
       "url": "https://vercel.com/docs/limits/fair-use-guidelines",
       "lang": "en",
-      "quote": "Hobby teams are restricted to non-commercial personal use only.",
-      "sha256_full": "3308347547fadb874e7c012d0017cacb61af2d22a3d684eaccd12a0af55ff452"
+      "quote": "Vercel usage is subject to these fair use guidelines across plans and usage-based resources.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "72c94595a48be0ba40257c55fcee8fc60ca983022327cdd00ced5dcfda034565"
+    },
+    "Vercel Fair Use Guidelines（節の一覧）": {
+      "from": "vercel",
+      "name": "Vercel「Fair Use Guidelines」の「On this page」の節の一覧",
+      "name_en": "Vercel, “Fair Use Guidelines”, the list of sections under “On this page”",
+      "url": "https://vercel.com/docs/limits/fair-use-guidelines",
+      "lang": "en",
+      "quote": "Examples of fair use Never fair use Usage guidelines Typical monthly usage guidelines Other guidelines Additional resources General Limits Learn More",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "72c94595a48be0ba40257c55fcee8fc60ca983022327cdd00ced5dcfda034565"
     },
     "GDPR 第27条": {
       "from": "gdpr-art27",

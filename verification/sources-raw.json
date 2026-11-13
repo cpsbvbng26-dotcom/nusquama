@@ -70,10 +70,11 @@
       "url": "https://vercel.com/docs/limits/fair-use-guidelines",
       "whole": false,
       "status": 200,
-      "length": 7654,
-      "sha256_full": "3308347547fadb874e7c012d0017cacb61af2d22a3d684eaccd12a0af55ff452",
+      "length": 6679,
+      "sha256_full": "72c94595a48be0ba40257c55fcee8fc60ca983022327cdd00ced5dcfda034565",
       "spans": [
-        "Hobby teams are restricted to non-commercial personal use only."
+        "Vercel usage is subject to these fair use guidelines across plans and usage-based resources.",
+        "Examples of fair use Never fair use Usage guidelines Typical monthly usage guidelines Other guidelines Additional resources General Limits Learn More"
       ]
     },
     "gdpr-art27": {

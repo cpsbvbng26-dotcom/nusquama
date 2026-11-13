@@ -171,6 +171,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-13（日本時間） | 年表の四行と王の正誤表の三件の日付、五つの規程の最終更新、国の仕組みの一文を、日本時間で公開した日に改める。利用規約に、頁の日付は日本時間で、文を取り寄せた日と建国の日は協定世界時であることを書く。安全の問題の知らせ方と削除・訂正・辞退の求めの、GitHub の API で確かめた日を、確かめ直して改める | The dates of four timeline rows and of three entries of the King's errata, the "Last updated" of five rules and one sentence of the Institutions are corrected to the day they were published in Japan time. The Terms of Use state that the dates on the pages are in Japan time, and that the day a text was fetched and the founding day are in UTC. The day of the check through the GitHub API in the security page and the Requests is checked again and corrected |
 | 2026-11-13（日本時間） | 紹介する人のために・建国の物語・遊びで、叙任の条件を基本法第六条の一つだけのように書いた文を、叙任の規程の条件によると改め、受付の停止を書く。紹介の文には主な除外も書く。叙任の規程に「基本法第六条との関係」の節を置き、規程の条件は第六条の条件に加わり、規程が条件を足すところは規程に従うと書く。国の仕組みと基本法の後ろの注にも同じことを書き、基本法の条は改めない | The sentences in the press page, the story of the founding and the play page that described the condition of knighting as if it were only the one in Article 6 of the Basic Law now say that knighting follows the conditions of the Rules on Knighting, and mention the pause. The press page also names the main exclusions. The Rules on Knighting gain a section "Relation to Article 6 of the Basic Law": the conditions of the rules apply in addition to the condition of Article 6, and where the rules add a condition, the rules prevail. The Institutions and a note after the Basic Law say the same; no article of the Basic Law is amended |
 | 2026-11-13（日本時間） | 叙任の規程「外国の称号を縛る国」の表に、オーストリア・ギリシャ・イエメンを足す（2026-11-22 から）。各国の法令の調べで、型で「当たらない」に分けていた称号・栄典の条 339 件を一つずつ読み直し、オーストリアの憲法が取り込む貴族の廃止の法律を取り寄せて読む。称号・栄典の条は、これから型の決めだけで分けない | Austria, Greece and Yemen are added to the table in the Rules on Knighting, "Countries that restrict foreign titles" (from 2026-11-22). In the survey of the world's laws, the 339 provisions on titles and honours that a type rule had classed as not applying are read again one by one, and the law abolishing nobility that the Constitution of Austria takes in is fetched and read. From now on, no provision on titles and honours is classed by a type rule alone |
+| 2026-11-13（日本時間） | Vercel の Fair Use Guidelines から、Hobby プランを非商用の個人的な利用に限る節が消えたので、適法性の説明の Vercel の段を、利用規約第 4 条だけに拠る形に改める（結論は変わらない）。各国の法令の調べは、外国の政府と機関が作った法令の英訳の条の文を外し、拠った箇所と全文の SHA-256 だけを記す | The section of Vercel's Fair Use Guidelines that limited the Hobby plan to non-commercial personal use is gone, so the Legality Statement's paragraph on Vercel now rests on section 4 of Vercel's Terms of Service alone (the conclusion does not change). The survey of the world's laws drops the text of the articles of English translations of laws made by foreign governments and agencies, and keeps only the passages relied on and the SHA-256 of each whole text |
 
 ---
 
@@ -1858,10 +1859,8 @@ Source: https://nusquama.vercel.app/policies/legality.html
 ### 使っているサービスの規約
 
 - **GitHub**：リポジトリと issue は、GitHub の利用規約に沿って使う。禁じられた内容を置かない。
-- **Vercel**：サイトは Vercel の Hobby プランで配信している。Hobby プランは、個人的で非営利の利用に限られる（Vercel の [Fair Use Guidelines](https://vercel.com/docs/limits/fair-use-guidelines)、2026-11-08 に確かめた）。ヌスクァマは非営利で、この条件に合う。
-- **点検で足したこと（2026-11-12）**：Vercel の利用規約第 4 条は、Hobby プランを個人的な利用か非商用の利用に使うとしている。Fair Use Guidelines は、個人的で非商用の利用に限るとしている。二つの文書の書き方は違うが、ヌスクァマは個人が運営し、誰からもお金を受け取らないので、どちらの条件にも合う。
-
-<!-- 条文 Vercel Fair Use Guidelines -->
+- **Vercel**：サイトは Vercel の Hobby プランで配信しています。Vercel の利用規約第 4 条は、Hobby プランを個人的な利用か非商用の利用に使うとしています。ヌスクァマは個人が運営し、誰からもお金を受け取らず、広告も載せないので、この条件に合います。
+- **2026-11-13 に改めたこと**：Vercel の Fair Use Guidelines は、2026-11-12 まで、Hobby プランを非商用の個人的な利用に限る節を持っていました。2026-11-13 に取り寄せた頁には、その節がありません。商用の定義は、Vercel の利用規約にも、取り寄せた Vercel のほかの頁にもありません。ヌスクァマは、料金・広告・寄付のどれも受けないので、結論は変わりません。
 
 <!-- 条文 Vercel 利用規約 第4条 -->
 
@@ -2838,10 +2837,8 @@ The analysis below rests on the following facts. Each can be checked in the publ
 ### The terms of the services used
 
 - **GitHub**: the repository and issues are used in line with GitHub's terms. Nothing they forbid is placed there.
-- **Vercel**: the site is served on Vercel's Hobby plan, which is limited to personal, non-commercial use (Vercel's [Fair Use Guidelines](https://vercel.com/docs/limits/fair-use-guidelines), checked on 2026-11-08). Nusquama is non-commercial and meets that condition.
-- **Added in the review (2026-11-12)**: section 4 of Vercel's Terms of Service says the Hobby plan is to be used for personal or non-commercial use. The Fair Use Guidelines limit it to non-commercial personal use. The two documents are worded differently, but Nusquama is run by an individual and receives money from no one, so it meets both.
-
-<!-- 条文 Vercel Fair Use Guidelines -->
+- **Vercel**: the site is served on Vercel's Hobby plan. Section 4 of Vercel's Terms of Service says the Hobby plan is to be used for personal or non-commercial use. Nusquama is run by an individual, receives money from no one and carries no advertisements, so it meets that condition.
+- **Revised on 2026-11-13**: until 2026-11-12, Vercel's Fair Use Guidelines had a section limiting the Hobby plan to non-commercial personal use. The page fetched on 2026-11-13 has no such section. Neither Vercel's Terms of Service nor the other Vercel pages fetched define commercial use. Nusquama takes no fees, advertisements or donations, so the conclusion does not change.
 
 <!-- 条文 Vercel 利用規約 第4条 -->
 

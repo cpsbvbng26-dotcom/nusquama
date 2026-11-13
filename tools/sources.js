@@ -34,7 +34,7 @@ const SOURCES = [
   { key: 'ccpa-oag', url: 'https://oag.ca.gov/privacy/ccpa', needles: ['for-profit', 'nonprofit', 'non-profit'] },
   { key: 'italy', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8', needles: ['Art. 8', 'cavaliere', 'onorificenz'] },
   { key: 'ccpa', whole: true, url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140', needles: ['Business'] },
-  { key: 'vercel', url: 'https://vercel.com/docs/limits/fair-use-guidelines', needles: ['commercial'] },
+  { key: 'vercel', url: 'https://vercel.com/docs/limits/fair-use-guidelines', needles: ['On this page', 'Vercel usage is subject'] },
   { key: 'gdpr-art27', whole: true, url: 'https://publications.europa.eu/resource/celex/32016R0679', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Representatives of controllers or processors not established in the Union'] },
   { key: 'vercel-terms', url: 'https://vercel.com/legal/terms', needles: ['Hobby', 'train', 'arbitration', 'AS IS'] },
   /* Short windows: section 10.1 goes on to a contact address, which the scan of the repository (tools/scan.js) does not let in.
