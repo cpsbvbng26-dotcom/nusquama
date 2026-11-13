@@ -205,10 +205,8 @@ The analysis below rests on the following facts. Each can be checked in the publ
 ### The terms of the services used
 
 - **GitHub**: the repository and issues are used in line with GitHub's terms. Nothing they forbid is placed there.
-- **Vercel**: the site is served on Vercel's Hobby plan, which is limited to personal, non-commercial use (Vercel's [Fair Use Guidelines](https://vercel.com/docs/limits/fair-use-guidelines), checked on 2026-11-08). Nusquama is non-commercial and meets that condition.
-- **Added in the review (2026-11-12)**: section 4 of Vercel's Terms of Service says the Hobby plan is to be used for personal or non-commercial use. The Fair Use Guidelines limit it to non-commercial personal use. The two documents are worded differently, but Nusquama is run by an individual and receives money from no one, so it meets both.
-
-<!-- 条文 Vercel Fair Use Guidelines -->
+- **Vercel**: the site is served on Vercel's Hobby plan. Section 4 of Vercel's Terms of Service says the Hobby plan is to be used for personal or non-commercial use. Nusquama is run by an individual, receives money from no one and carries no advertisements, so it meets that condition.
+- **Revised on 2026-11-13**: until 2026-11-12, Vercel's Fair Use Guidelines had a section limiting the Hobby plan to non-commercial personal use. The page fetched on 2026-11-13 has no such section. Neither Vercel's Terms of Service nor the other Vercel pages fetched define commercial use. Nusquama takes no fees, advertisements or donations, so the conclusion does not change.
 
 <!-- 条文 Vercel 利用規約 第4条 -->
 
