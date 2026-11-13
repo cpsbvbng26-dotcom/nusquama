@@ -2103,14 +2103,19 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
     if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS66.includes(y[4]))) bad.push('記録の表の形');
     const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [])[1]);
     if (!KINDS66.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
-    const priv = Object.values(W66.data).flatMap((d) => d.provisions).filter((p) => p.spans);
+    /* 文を外した条の数は、その日（2026-11-12）に外したもの。2026-11-13 に外した外国の政府と機関の英訳（検査 75）は数えない。 */
+    const LATER_SRC = ['CHE-fadp', 'CHN-pipl', 'LVA-crim', 'LVA-pd', 'QAT-pdpl', 'SAU-pdpl', 'THA-pdpa', 'TUR-kvkk'];
+    const priv = Object.values(W66.data).flatMap((d) => d.provisions).filter((p) => p.spans && !LATER_SRC.includes(p.source));
     const n = (src) => priv.filter((p) => p.source === src).length;
     const sum = (f) => priv.reduce((a, p) => a + f(p), 0);
     /* この節の数は、その日に記していた出典の数。のちの点検（八度目、2026-11-13）が足した GitHub の二つの規約と、
      * 十一度目（2026-11-13）が足した Internet Archive の利用規約は数えない。 */
     const LATER = ['github-terms', 'github-additional-terms', 'ia-terms-archived'];
     const nR = Object.keys(R).filter((k) => !LATER.includes(k)).length;
-    const laterChars = LATER.reduce((a, k) => a + ((R[k] || {}).spans || []).reduce((b, sp) => b + sp.length, 0), 0);
+    /* Vercel の Fair Use Guidelines は、2026-11-13 に商用の節を失い、引く文を替えた（検査 75）。その日の数は、前に引いていた一文の字数で数える。 */
+    const REPLACED = { vercel: 'Hobby teams are restricted to non-commercial personal use only.' };
+    const laterChars = LATER.reduce((a, k) => a + ((R[k] || {}).spans || []).reduce((b, sp) => b + sp.length, 0), 0)
+      + Object.entries(REPLACED).reduce((a, [k, q]) => a + ((R[k] || {}).spans || []).reduce((b, sp) => b + sp.length, 0) - q.length, 0);
     const nums = ['出典は ' + nR + ' です', '法令・条約の ' + whole.length + ' で', '検査が拠る箇所だけを記すのは ' + (nR - whole.length) + ' です', 'あわせて ' + (spanChars - laterChars) + ' 字です',
       '文を外した条は ' + priv.length + ' 件です', '英語の文が ' + n('constitute') + ' 件', '英訳が ' + n('KOR-pipa') + ' 件', '文は、あわせて ' + sum((p) => p.length) + ' 字でした', '記した箇所は、あわせて ' + sum((p) => p.spans.join('').length) + ' 字です'];
     for (const s of nums) if (!sec.includes(s)) bad.push('記録の数が数えた数と違う：' + s);
@@ -2975,7 +2980,7 @@ console.log('\n74. 官報の発行に関する法律は「官報」の名を縛�
     ['罰則の条に名の使用を足す', mut('verification/statutes-texts.json', '第二十一条 第十四条第三項の規定に違反した者は', '第二十一条 官報の文字を用いた者又は第十四条第三項の規定に違反した者は')],
     ['記録の条文を一字変える', mut(AUD, '> 第二条 官報の発行は、この法律の定めるところにより、内閣総理大臣が行う。\n', '> 第二条 官報の発行は、内閣総理大臣が行う。\n')],
     ['官報の行の判定を変える', mut(AUD, /\| 問題なし \| 名を変えていない（日本語と英語） \|/, '| 根拠不足 | 名を変えていない（日本語と英語） |')],
-    ['判定の数を変える', mut(AUD, '判定は、誤り 0 件、根拠不足 1 件、漏れ 1 件、表現 0 件、問題なし 6 件で、合わせて 8 件です。', '判定は、誤り 0 件、根拠不足 1 件、漏れ 1 件、表現 0 件、問題なし 5 件で、合わせて 8 件です。')],
+    ['判定の数を変える', mut(AUD, '判定は、誤り 1 件、根拠不足 2 件、漏れ 2 件、表現 1 件、問題なし 6 件で、合わせて 12 件です。', '判定は、誤り 1 件、根拠不足 2 件、漏れ 2 件、表現 1 件、問題なし 5 件で、合わせて 12 件です。')],
     ['見張りにない条を挙げる', mut(AUD, '| 官報の発行に関する法律第16条 |', '| 官報の発行に関する法律第17条 |')],
     ['決めた理由を外す', mut(AUD, '名の使用に掛かる罰則もないためです。', '名の使用に掛かる罰則もありません。')],
     ['取り寄せの実行を外す', mut(AUD, '取り寄せの実行は 43332854142 で、', '取り寄せの実行は、')],
@@ -2991,6 +2996,75 @@ console.log('\n74. 官報の発行に関する法律は「官報」の名を縛�
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：見張りの条・条文・罰則の条・記録の条文・官報の行の判定・判定の数・見張りにない条・決めた理由・取り寄せの実行・弁護士の文・規約の写しの時刻・全文の SHA-256・引いた箇所・窓・引用・記録の引用・取り寄せられなかった文・号の断りのどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+console.log('\n75. Vercel の Fair Use Guidelines は商用の節を失い、適法性の説明は利用規約第 4 条だけに拠る。外国の政府と機関の英訳は、拠った箇所だけを記す（2026-11-13）');
+{
+  /* Vercel は、最終更新の日を変えずに Fair Use Guidelines から「Commercial usage」の節を外した。引く文を頁の冒頭の文と節の一覧に替え、
+   * 全文の SHA-256 を取り寄せ直した値にする。適法性の説明（日本語と英語）は、消えた節を引かず、利用規約第 4 条だけに拠る。
+   * 著作権法第13条第4号の翻訳物は日本の機関が作るものに限られるので、外国の政府と機関の英訳は、各国の法令の調べで文を記さない。
+   * 英訳と書く出典（official に「英訳」、instrument に「English translation」）は、どれも spans_only にある。記録・年表もそろう。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md', SHA = '72c94595a48be0ba40257c55fcee8fc60ca983022327cdd00ced5dcfda034565';
+  const KEYS = ['Vercel Fair Use Guidelines', 'Vercel Fair Use Guidelines（節の一覧）'];
+  const LATER_SRC = ['CHE-fadp', 'CHN-pipl', 'LVA-crim', 'LVA-pd', 'QAT-pdpl', 'SAU-pdpl', 'THA-pdpa', 'TUR-kvkk'];
+  const JA = '- **2026-11-13 に改めたこと**：Vercel の Fair Use Guidelines は、2026-11-12 まで、Hobby プランを非商用の個人的な利用に限る節を持っていました。2026-11-13 に取り寄せた頁には、その節がありません。';
+  const EN = '- **Revised on 2026-11-13**: until 2026-11-12, Vercel\'s Fair Use Guidelines had a section limiting the Hobby plan to non-commercial personal use. The page fetched on 2026-11-13 has no such section.';
+  const W = require('./world/check.js').state();
+  const files = ['verification/sources.json', 'verification/sources-raw.json', 'verification/world/sources.json', 'policies/legality.md', 'policies/legality.en.md', 'README.md', AUD];
+  const real = Object.assign(Object.fromEntries(files.map((f) => [f, read(f)])), { world: W.data });
+  function verdict(x) {
+    const bad = [];
+    let P, R, WS;
+    try { P = JSON.parse(x['verification/sources.json']).sources; R = JSON.parse(x['verification/sources-raw.json']).sources; WS = JSON.parse(x['verification/world/sources.json']); } catch (e) { return ['JSON が読めない']; }
+    /* 引く文と取り寄せ直した頁。 */
+    const r = R.vercel || {};
+    if (r.sha256_full !== SHA || r.status !== 200) bad.push('頁が取り寄せ直した値で記されていない');
+    for (const k of KEYS) { const v = P[k]; if (!v || v.from !== 'vercel' || v.sha256_full !== SHA || v.quoted_in !== AUD || !(r.spans || []).includes(v.quote)) bad.push('引く文：' + k); }
+    if ((r.spans || []).some((y) => /Commercial usage|Hobby teams are restricted/.test(y)) || Object.values(P).some((v) => /Hobby teams are restricted|Commercial usage is defined/.test(v.quote))) bad.push('消えた節を、いまの文として引いている');
+    /* 適法性の説明。 */
+    for (const [f, t, old] of [['policies/legality.md', JA, 'Fair Use Guidelines は、個人的で非商用の利用に限るとしている'], ['policies/legality.en.md', EN, 'The Fair Use Guidelines limit it to non-commercial personal use']]) {
+      if (!x[f].includes(t) || x[f].includes(old) || x[f].includes('<!-- 条文 Vercel Fair Use Guidelines') || /Fair Use Guidelines\]\([^)]*\)、2026-11-08 に確かめた|Fair Use Guidelines\]\([^)]*\), checked on 2026-11-08/.test(x[f])) bad.push(f + '：Vercel の段');
+    }
+    if (!x['README.md'].includes('| 2026-11-13（日本時間） | Vercel の Fair Use Guidelines から、Hobby プランを非商用の個人的な利用に限る節が消えたので、')) bad.push('年表の行');
+    /* 英訳は spans_only にあり、文を記さない。 */
+    for (const k of LATER_SRC) if (!/2026-11-13 に Claude が決めました。$/.test((WS.spans_only || {})[k] || '')) bad.push('spans_only にない：' + k);
+    for (const d of Object.values(x.world)) for (const [k, s] of Object.entries(d.sources || {})) {
+      if ((/英訳/.test(s.official || '') || /English translation/i.test(s.instrument || '')) && !(k in (WS.spans_only || {}))) bad.push('英訳が spans_only にない：' + k);
+    }
+    for (const d of Object.values(x.world)) for (const p of d.provisions) {
+      if (!(p.source in (WS.spans_only || {}))) continue;
+      if (typeof p.text === 'string' || !Array.isArray(p.spans) || !/^[0-9a-f]{64}$/.test(p.sha256 || '') || !(p.length > 0)) bad.push('文を記している：' + p.id);
+    }
+    /* 記録。 */
+    const a = x[AUD], i = a.indexOf('\n## 2026-11-12 の続き：十一度目の見落とし\n'), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    const h = sec.indexOf('\n### Vercel の頁と英訳（2026-11-13 の続き）\n'), sub = h < 0 ? '' : sec.slice(h, sec.indexOf('\n### ', h + 5));
+    for (const t of ['取り寄せ直した実行は 43338897594 で、結果は枝 `sources/20261113-0041` にあります。', SHA, 'これまでのコミットには、英訳の文が残っています。公開した履歴は書き換えません。'].concat(KEYS.map((k) => '<!-- 原文 ' + k + ' -->\n> ' + (P[k] || {}).quote + '\n'))) if (!sub.includes(t)) bad.push('記録：' + t.slice(0, 30));
+    if ((sub.match(/2026-11-13 に Claude が決めました。[^\n]*ためです。/g) || []).length < 2) bad.push('記録に、決めた者と理由がない');
+    return bad;
+  }
+  const bad = verdict(real);
+  ok('Vercel の Fair Use Guidelines を取り寄せ直した値で記し、消えた節を引かず、適法性の説明が利用規約第 4 条だけに拠り（日本語と英語）、外国の政府と機関の英訳（' + LATER_SRC.length + ' の出典）は拠った箇所だけを記し、年表と記録がそろう',
+    bad.length === 0, bad.slice(0, 6).join(' / '));
+  const mut = (f, a2, b2) => Object.assign({}, real, { [f]: real[f].replace(a2, b2) });
+  const raw0 = JSON.parse(real['verification/sources-raw.json']);
+  const withRaw = (fn) => { const t = JSON.parse(JSON.stringify(raw0)); fn(t.sources); return Object.assign({}, real, { 'verification/sources-raw.json': JSON.stringify(t) }); };
+  const worldWith = (fn) => { const t = JSON.parse(JSON.stringify(real.world)); fn(t); return Object.assign({}, real, { world: t }); };
+  const breaks = [
+    ['頁の値を前に戻す', withRaw((S) => { S.vercel.sha256_full = '3308347547fadb874e7c012d0017cacb61af2d22a3d684eaccd12a0af55ff452'; })],
+    ['消えた節の文を引く', mut('verification/sources.json', '"quote": "Vercel usage is subject to these fair use guidelines across plans and usage-based resources."', '"quote": "Hobby teams are restricted to non-commercial personal use only."')],
+    ['適法性の説明を前に戻す', mut('policies/legality.md', JA, '- **点検で足したこと（2026-11-12）**：Fair Use Guidelines は、個人的で非商用の利用に限るとしている。')],
+    ['英語の適法性の説明に消えた節の引用を戻す', mut('policies/legality.en.md', '<!-- 条文 Vercel 利用規約 第4条 -->', '<!-- 条文 Vercel Fair Use Guidelines -->\n\n<!-- 条文 Vercel 利用規約 第4条 -->')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | Vercel の Fair Use Guidelines から、', '| 2026-11-13（日本時間） | Vercel の頁から、')],
+    ['英訳を spans_only から外す', mut('verification/world/sources.json', '"THA-pdpa":', '"THA-pdpa-x":')],
+    ['英訳の条に文を戻す', worldWith((t) => { const p = t['TUR.json'].provisions.find((y) => y.source === 'TUR-kvkk'); p.text = 'ARTICLE 8 The whole text.'; })],
+    ['新しい英訳を文のまま足す', worldWith((t) => { t['THA.json'].sources['THA-x'] = { instrument: 'Some Act (English translation)', official: '政府（英訳）' }; })],
+    ['記録の実行を外す', mut(AUD, '取り寄せ直した実行は 43338897594 で、', '取り寄せ直した実行は、')],
+    ['記録の引用を一字変える', mut(AUD, '> Vercel usage is subject to these fair use guidelines across plans', '> Vercel usage is subject to these fair use guidelines across all plans')],
+    ['記録の決めた理由を外す', mut(AUD, '訳を作る者を日本の機関に限っているためです。', '訳を作る者を日本の機関に限っています。')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：頁の値・消えた節の引用・適法性の説明（日本語と英語）・年表・spans_only・英訳の条の文・新しい英訳・記録の実行・引用・決めた理由のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 console.log('\n' + '-'.repeat(56));
