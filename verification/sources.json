@@ -478,7 +478,7 @@
       "lang": "en",
       "quote": "This terms of use agreement (the \"Agreement\") governs your use of the collection of Web pages and other digital content (the \"Collections\") available through the Internet Archive (the \"Archive\").",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": "0000000000000000000000000000000000000000000000000000000000000000"
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
     },
     "Internet Archive の利用規約（目的）": {
       "from": "ia-terms-archived",
@@ -488,7 +488,7 @@
       "lang": "en",
       "quote": "Access to the Archive’s Collections is provided at no cost to you and is granted for scholarship and research purposes only.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": "0000000000000000000000000000000000000000000000000000000000000000"
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
     },
     "Internet Archive の利用規約（負荷）": {
       "from": "ia-terms-archived",
@@ -498,7 +498,7 @@
       "lang": "en",
       "quote": "You agree not to interfere with the work of other users or Archive personnel, servers, or resources.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": "0000000000000000000000000000000000000000000000000000000000000000"
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
     },
     "Internet Archive の利用規約（個人データ）": {
       "from": "ia-terms-archived",
@@ -508,7 +508,7 @@
       "lang": "en",
       "quote": "not to collect or store personal data about anyone",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": "0000000000000000000000000000000000000000000000000000000000000000"
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
     }
   }
 }

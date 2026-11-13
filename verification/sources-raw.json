@@ -341,6 +341,19 @@
         "If using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.",
         "Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account."
       ]
+    },
+    "ia-terms-archived": {
+      "url": "https://web.archive.org/web/20240101002842id_/https://archive.org/about/terms.php",
+      "whole": false,
+      "status": 200,
+      "length": 19921,
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c",
+      "spans": [
+        "This terms of use agreement (the \"Agreement\") governs your use of the collection of Web pages and other digital content (the \"Collections\") available through the Internet Archive (the \"Archive\").",
+        "Access to the Archive’s Collections is provided at no cost to you and is granted for scholarship and research purposes only.",
+        "You agree not to interfere with the work of other users or Archive personnel, servers, or resources.",
+        "not to collect or store personal data about anyone"
+      ]
     }
   }
 }
