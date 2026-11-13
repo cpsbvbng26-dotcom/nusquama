@@ -20,7 +20,8 @@ Requests are received in the same way, and answered as quickly, from people in a
 ## How to ask
 
 Open an issue with the form [Requests for removal, correction or withdrawal](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml), and say which entry it concerns and what is asked.
-Issues cannot be opened without a form.
+When an issue is opened on GitHub's web pages, only the forms are offered (a blank issue appears only to those who can write to the repository).
+An issue opened another way, such as through GitHub's API, is read by the operator. However, an issue opened while applications for knighting are paused, whose title or body carries the headings or boxes of the application form for knighthood, is handled in the same way as an application ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications").
 The only channel is GitHub. Nusquama has no contact outside GitHub. A free GitHub account is enough.
 A request may be made by an agent. In that case, the person concerned writes a word in the issue, from their own GitHub account, that they asked the agent.
 Do not copy the personal data in question into the issue. Say only where it is.
