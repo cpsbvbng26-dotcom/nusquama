@@ -78,6 +78,15 @@ const SOURCES = [
    * The page itself, and its copies of 2025 and 2026, ask for a script; this copy, made on 2024-01-01, holds the Terms of Use of
    * 31 Dec 2014. Pinned to its timestamp, so that every run reads the same copy. */
   { key: 'ia-terms-archived', url: 'https://web.archive.org/web/20240101002842id_/https://archive.org/about/terms.php', needles: ['Terms of Use 31 Dec 2014'] },
+  /* 2026-11-13 (the thirteenth pass): Article 10 of the Penal Code begins "fuori dei casi indicati negli articoli 7 e 8", and the
+   * last paragraph of Article 8 of Law No. 178 of 1951 reaches conferral abroad. Articles 7 and 8 of the Penal Code, under the
+   * annex's URN as for Article 10; Article 9 of Law No. 178. "breaks" also keeps a second text in which the page's paragraph and
+   * line breaks are marked with ¶, so that the paragraphs of an article can be counted; Article 8 of Law No. 178 is read again so. */
+  { key: 'italy-cp-7', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art7', needles: ['Art. 7.'] },
+  { key: 'italy-cp-8', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art8', needles: ['Art. 8.'] },
+  { key: 'italy-178-art9', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art9', needles: ['Art. 9'] },
+  { key: 'italy-178-art8-commi', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8', needles: ['Art. 8'] },
+  { key: 'italy-cp-10-commi', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10', needles: ['Art. 10.'] },
 ];
 
 const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
@@ -113,7 +122,16 @@ async function main() {
       else {
         /* Some official pages are in Shift_JIS; the charset comes from the header or the page's own meta element. */
         const cs = ((/charset=["']?([\w-]+)/i.exec(res.headers.get('content-type') || '') || /<meta[^>]+charset=["']?([\w-]+)/i.exec(bytes.subarray(0, 4096).toString('latin1')) || [])[1] || 'utf-8').toLowerCase();
-        text = plain(new TextDecoder(['sjis', 'x-sjis'].includes(cs) ? 'shift_jis' : cs).decode(bytes));
+        const html = new TextDecoder(['sjis', 'x-sjis'].includes(cs) ? 'shift_jis' : cs).decode(bytes);
+        text = plain(html);
+        /* The same text with the paragraph and line breaks of the page marked, for counting paragraphs. */
+        if (s.breaks) {
+          const marked = plain(html.replace(/<(?:br|\/p|\/div|\/li|\/h[1-6])\b[^>]*>/gi, ' ¶ ')).replace(/(?:¶ )+¶/g, '¶');
+          const at = s.needles.map((n) => marked.indexOf(n)).filter((i) => i >= 0);
+          r.breaks_sha256 = sha(marked);
+          r.breaks_windows = at.map((i) => marked.slice(Math.max(0, i - 300), i + 4000));
+          fs.writeFileSync(path.join(FULL, s.key + '.breaks.txt'), marked);
+        }
       }
       r.length = text.length;
       r.sha256_full = sha(text);
