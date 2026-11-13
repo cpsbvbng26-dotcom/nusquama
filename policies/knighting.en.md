@@ -33,7 +33,7 @@ From 2026-11-22, a person who lives in Japan may not apply while outside Japan, 
 From 2026-11-22, a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality. There are two reasons.
 First, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with.
 Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses such a title, and applies even when it was conferred abroad. An Italian national who received and used the title is the most realistic path by which that article could reach Nusquama.
-This limit reduces the possibility that the article applies; it does not remove it ([Legality Statement](./legality.en.md), "Laws outside Japan").
+Within this limit, the operator treats the article as not reaching knighting ([Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 
 ## Pause in receiving applications
@@ -74,7 +74,7 @@ On the texts fetched and read, the constitution or a law of each country in the 
 3. Type 3: it punishes assuming a title of nobility that is not one's own, and the name of knight could be read as such a title.
 
 Nusquama is not a state, and the name of knight is not a title of any country.
-Even so, on the words of these provisions, a reading remains on which they apply.
+Even so, the words of these provisions allow a reading on which they apply, so that path is closed as follows.
 The strictest reading was taken, and such applications are not accepted. This costs nothing, and not accepting them closes that path.
 Some provisions bind only public officials or holders of State office. The operator does not check an applicant's office, so the whole nationality is excluded.
 
@@ -102,7 +102,7 @@ Some provisions bind only public officials or holders of State office. The opera
 Besides the countries in the table, a person whose country of nationality has a law of any of the three types may not apply either, because the laws of countries not fetched may have the same provisions.
 People who hold Italian nationality are excluded separately, under "Who may apply".
 The texts of the provisions and the reasons for reading them so are in the [survey of the world's laws](../docs/world-law-2026-11-12.md) (in Japanese), "2026-11-12 の続き：当てはめ".
-This limit reduces the possibility that these provisions apply; it does not remove it.
+Under this table and the rules above, the operator treats these provisions as not reaching knighting.
 
 ## Use of the name of knight
 
@@ -125,7 +125,7 @@ The reason is that the following provisions, fetched and read, punish assuming t
 - Portugal: Código Penal (Decreto-Lei n.º 48/95) Artigo 307 (only the heading could be taken from the fetched page)
 
 The texts of the provisions are quoted in the [survey of the world's laws](../docs/world-law-2026-11-12.md) (in Japanese), "2026-11-12 の続き：当てはめ".
-Keeping these rules reduces the possibility that these provisions apply; it does not remove it.
+The operator treats use that keeps these three rules as outside what these provisions punish.
 
 ## How to apply
 

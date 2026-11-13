@@ -91,10 +91,10 @@ console.log('\n3. 規程の約束（消せば落ちる）');
    * 限っても、及ぶおそれは減るだけで、なくならない。2026-11-12 に利用者が決めた。 */
   must['policies/knighting.md'].push('2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。理由は二つです。',
     '一つめに、イタリアの国民が日本のミクロネーションの騎士になることは、常識に照らして、そもそも場違いです。', '二つめに、イタリアの 1951 年法律第 178 号第 8 条は、称号を使う者も罰し、授けたのが国外であっても及ぶとしています。',
-    'この限りで、同条が及ぶおそれは減りますが、なくなりはしません');
+    '運営者は、この限りで、同条が叙任に及ばないものとして扱います（[適法性の説明](./legality.md)「日本の外の法令」）。');
   must['policies/terms.md'].push('予告：2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません');
   must['policies/legality.md'].push('- 2026-11-22 から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。理由は、イタリアの国民が日本のミクロネーションの騎士になるのは常識に照らして場違いであることと、上の条が届くいちばん現実の道が、称号を受けて使ったイタリアの国民であることである。',
-    '- これらの限定によって、日本の外の法令が及ぶおそれは減るが、なくなるわけではない。');
+    '- 運営者は、これらの限定と、国籍を持つ国の法令についての叙任の規程の定めのもとで、日本の外の法令が叙任に及ばないものとして扱う。');
   /* 良識の前提。2026-11-22 から、称号を遊びとして扱う人を前提とし、既にある禁止を守ることを指す。当たらなければ叙任せず、既にある取り消しの定めで取り消す。 */
   must['policies/knighting.md'].push('2026-11-22 から、叙任は、願い出る人が、称号を遊びとして扱う良識ある人であることを前提とします。',
     'この前提は、称号を創作の中でだけ使い、次の決まりを守ることを指します。', '- 称号を、人をだますために使わない。',
@@ -102,7 +102,7 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     '叙任した後に分かったときは、「辞退と取り消し」の定めにより、叙任を取り消します。', '取り消すときは、願い出の issue に、当たらなかった決まりだけを短く書き、人を評しません。',
     '- 2026-11-22 から、「良識の前提」に当たらないことが、願い出た人が書いたことや訂正のリンク先からはっきり読めるもの。');
   must['policies/terms.md'].push('予告：2026-11-22 から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし、様式でこの前提に印のない願い出は受けません');
-  must['policies/legality.md'].push('「良識の前提」（おそれは断たない）', '良識の前提（叙任の規程）も同じだが、おそれを断たない。');
+  must['policies/legality.md'].push('[叙任の規程](./knighting.md)「良識の前提」。', '良識の前提（叙任の規程）も同じである。');
   /* 気づくことができた事柄を見落とさない。リンク先にはっきり書かれた住む国や年齢は、尋ねてから決める。 */
   must['policies/knighting.md'].push('- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、イタリアや「外国の称号を縛る国」の国籍を持つこと、16 歳未満であることが、はっきり書かれていないこと。', 'ただし、訂正のリンク先にはっきり書かれていることは、見落としません。',
     '- 願い出の条件（年齢・住んでいる国・願い出のときにいる国・国籍）に当たらないことが、訂正のリンク先からはっきり読めるもの。');
@@ -413,7 +413,7 @@ console.log('\n16. 適法性の論理式・網羅・無矛盾・残る危険');
     const sec = t.split(head)[1].split('\n## ')[0];
     return [...sec.matchAll(/^\| (\d+) \| [^|]+ \| (\d) \| (\d) \| (\d) \|/gm)].map((m) => m.slice(1, 5).map(Number));
   };
-  const rj = rows(leg, '\n## 審査の方法と残る危険\n'), re = rows(read('policies/legality.en.md'), '\n## How this was reviewed, and the risks that remain\n');
+  const rj = rows(leg, '\n## 審査の方法と、前提が崩れる道\n'), re = rows(read('policies/legality.en.md'), '\n## How this was reviewed, and how the premises could fail\n');
   ok('残る危険の表がある（' + rj.length + ' 行）', rj.length >= 5);
   ok('残る危険の表：番が 1 から続き、起こりやすさと重さが 1〜3、積が掛け算どおり',
     rj.every(([n, l, s, x], i) => n === i + 1 && l >= 1 && l <= 3 && s >= 1 && s <= 3 && x === l * s),
@@ -1445,9 +1445,9 @@ console.log('\n55. 規程の分かりにくい文の言い直し（王の正誤�
   ok('交流の規程は相手の国を相手が作ったものとして尊重し、その主張を認めも否みもしない。運営者の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先がなければ非公開の道はないと書き、求め方は求めの頁の手順による（日本語と英語）',
     xj.includes('- 相手の国は、相手が自ら作ったものとして尊重します。その国の主張を、ヌスクァマは認めも否みもしません。')
     && xe.includes("- The other party's country is respected as the other party's own creation. Nusquama neither accepts nor denies that country's claims.")
-    && pj.includes('運営者の氏名と住所は、求めた人が自分の GitHub のプロフィールに公開している連絡先へ、遅滞なく知らせます。\n求めるときは、[削除・訂正・辞退の求め](./requests.md)の様式の種類で「非公開の連絡を求める」を選びます。\nそうした連絡先がない人には、氏名と住所を非公開で知らせる道がありません。')
+    && pj.includes('運営者の氏名と住所は、求めた人が自分の GitHub のプロフィールに公開している連絡先へ、遅滞なく知らせます。\n求めるときは、[削除・訂正・辞退の求め](./requests.md)の様式の種類で「非公開の連絡を求める」を選びます。\nそうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、そこで受け取れます。')
     && pe.includes("The operator's name and address are given without delay to the person who asks for them, at a contact that person has made public on their own GitHub profile.")
-    && pe.includes('For a person with no such contact, there is no private route to give the name and address.')
+    && pe.includes('A person with no such contact can receive them by making a contact public on their own GitHub profile for a while.')
     && read('policies/requests.md').includes('様式の種類で「非公開の連絡を求める」を選び') && read('.github/ISSUE_TEMPLATE/request.yml').includes('        - 非公開の連絡を求める\n'));
 }
 
@@ -1650,12 +1650,12 @@ console.log('\n60. 法令の点検の記録（2026-11-12）');
   const URL60 = 'https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md';
   ok('適法性の説明は、点検の記録へつなぎ、言い切りすぎた結論・事業・写しの文を正した形で持つ（日本語と英語）',
     lj.includes('(' + URL60 + ')') && le.includes('(' + URL60 + ')') && !lj.includes('きわめて小さい') && !le.includes('very small')
-    && lj.includes('並べていない法令と、解釈の分かれる要件が残るので、違法となるおそれがどれほど小さいかは言い切れません。')
-    && le.includes('so the operator does not claim to know how small the risk of illegality is.')
+    && lj.includes('条文からは決まらない点は、運営者の扱いを各節に書いています。\nただし、これは法的な保証ではありません。')
+    && le.includes('Where the text does not settle a point, each section says how the operator treats it.\nThis is not a legal guarantee.')
     && lj.includes('- **ヌスクァマの事実**：何も売らず、広告を出さず、営利の事業を営まない。') && !lj.includes('広告を出さず、事業を営まない。')
     && lj.includes('他人の著作物は、この頁の「条文」と「原文」の欄に条約・法令・規約・説明の文を引くほかは、写していない。') && !lj.includes('他人の著作物を写していない。'));
-  ok('日本に住む人に限っても日本の外の法令が及ぶおそれは断てないこと、イタリアの条は受ける人の住む国を要件にしないこと、GDPR の代理人を Claude が決めたことを書く（日本語と英語）',
-    lj.includes('- これらの限定によって、日本の外の法令が及ぶおそれは減るが、なくなるわけではない。') && le.includes('- These limits reduce, but do not remove, the possibility that laws outside Japan apply.')
+  ok('日本の外の法令は、限定のもとで叙任に及ばないものとして扱うこと、イタリアの条は受ける人の住む国を要件にしないこと、GDPR の代理人を Claude が決めたことを書く（日本語と英語）',
+    lj.includes('- 運営者は、これらの限定と、国籍を持つ国の法令についての叙任の規程の定めのもとで、日本の外の法令が叙任に及ばないものとして扱う。') && le.includes("- Under these limits, and the rule in the Rules on Knighting on the laws of the country of one's nationality, the operator treats laws outside Japan as not reaching knighting.")
     && lj.includes('同条が禁じるのは、私人や団体が授けることで、受ける人の住む国を要件にしていない。') && le.includes("the recipient's country of residence is not an element")
     && lj.includes('代理人は指名していない。2026-11-12 に Claude が決めました。') && le.includes('Claude decided this on 2026-11-12'));
   ok('電気通信事業と定型約款の節を持ち、どちらも日本語と英語にある',
@@ -1678,13 +1678,13 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
   function verdict(x, k) {
     const bad = [];
     const need = (f, list) => list.forEach((s) => { if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 40)); });
-    need('policies/knighting.md', [DAY + ' から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '\n## 良識の前提\n', 'この限りで、同条が及ぶおそれは減りますが、なくなりはしません']);
+    need('policies/knighting.md', [DAY + ' から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '\n## 良識の前提\n', '運営者は、この限りで、同条が叙任に及ばないものとして扱います']);
     need('policies/knighting.en.md', ['From ' + DAY + ', a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality.', '\n## The premise of good sense\n',
-      'From ' + DAY + ', knighting presumes that the applicant is a person of good sense who treats the title as play.', 'From ' + DAY + ', the applicant ticks a box in the form for this premise.', 'This limit reduces the possibility that the article applies; it does not remove it']);
+      'From ' + DAY + ', knighting presumes that the applicant is a person of good sense who treats the title as play.', 'From ' + DAY + ', the applicant ticks a box in the form for this premise.', 'Within this limit, the operator treats the article as not reaching knighting']);
     need('policies/terms.md', ['予告：' + DAY + ' から、イタリアの国籍を持つ人は、', '予告：' + DAY + ' から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし']);
     need('policies/terms.en.md', ['Notice: from ' + DAY + ', people who hold Italian nationality may not apply', 'Notice: from ' + DAY + ', knighting presumes that the applicant is a person of good sense']);
-    need('policies/legality.md', ['- ' + DAY + ' から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。', '「良識の前提」（おそれは断たない）']);
-    need('policies/legality.en.md', ['- From ' + DAY + ', applications from people who hold Italian nationality (including dual nationals) are not accepted either.', '"The premise of good sense" (which does not remove the risk)', '- These limits reduce, but do not remove,']);
+    need('policies/legality.md', ['- ' + DAY + ' から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。', '[叙任の規程](./knighting.md)「良識の前提」。']);
+    need('policies/legality.en.md', ['- From ' + DAY + ', applications from people who hold Italian nationality (including dual nationals) are not accepted either.', ', "The premise of good sense".', '- Under these limits, and the rule in the Rules on Knighting']);
     need('.github/ISSUE_TEMPLATE/knighting.yml', ['        - label: ' + BOX_N + '\n          required: false\n', '        - label: ' + BOX_P + '\n          required: false\n']);
     /* 前の文言（国籍を問わない）が、規程にも様式にも残っていない。 */
     if (/(?<!除き、)国籍は問いません|(?<!除き、)国籍は問わない/.test(x['policies/knighting.md'] + x['policies/legality.md'] + x['.github/ISSUE_TEMPLATE/knighting.yml'])) bad.push('前の文言「国籍は問いません」が残る');
@@ -1746,8 +1746,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-11).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-12).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -1950,7 +1950,7 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     if (!se.includes('From 2026-11-22, a person who holds the nationality of any of the ' + re.length + ' countries in the table below may not apply')) bad.push('英語の国の数');
     const types = (s, re1) => s.split('\n').filter((l) => re1.test(l)).length;
     if (!(sj.includes('次の三つの型のどれかに当たります。') && types(sj, /^[123]\. 型 [123]：/) === 3 && types(se, /^[123]\. Type [123]: /) === 3)) bad.push('三つの型');
-    need('policies/knighting.md', ['表の国のほかにも、国籍を持つ国の法令が三つの型のどれかに当たる人は、願い出ることができません。', 'いちばん厳しい読み方を取り、願い出を受けない形にしました。', 'この限りで、これらの条が及ぶおそれは減りますが、なくなりはしません。']);
+    need('policies/knighting.md', ['表の国のほかにも、国籍を持つ国の法令が三つの型のどれかに当たる人は、願い出ることができません。', 'いちばん厳しい読み方を取り、願い出を受けない形にしました。', '運営者は、この表と上の定めのもとで、これらの条が叙任に及ばないものとして扱います。']);
     need('policies/knighting.en.md', ['Besides the countries in the table, a person whose country of nationality has a law of any of the three types may not apply either', 'The strictest reading was taken']);
     /* 様式の印は表と同じ国を挙げ、2026-11-22 から求める。 */
     const yml = x['.github/ISSUE_TEMPLATE/knighting.yml'];
@@ -2154,7 +2154,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
    * GitHub の非公開の脆弱性の報告も有効でない（API で enabled: false）。規程・様式・SECURITY.md は、ある道だけを書く：
    * 求めた人が自分の GitHub のプロフィールに公開した連絡先にだけ非公開で答え、ないときは個人の事柄を書かずに issue で答える。
    * 氏名と住所は issue に書かない。前の約束の文は、王の正誤表と生成した正誤の頁のほかに残らない。
-   * 王の正誤表 29（事実、日本語と英語）、年表、適法性の説明の残る危険、義務の表、点検の記録の節（表・件数・条文・残る危険）がそろう。
+   * 王の正誤表 29（事実、日本語と英語）、年表、適法性の説明の第32条の受け取り方（2026-11-13 に、残る危険の文から改めた）、義務の表、点検の記録の節（表・件数・条文・残る危険）がそろう。
    * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
   const AUD = 'docs/legal-audit-2026-11-12.md';
   const files = ['SECURITY.md', 'policies/requests.md', 'policies/requests.en.md', 'policies/privacy.md', 'policies/privacy.en.md', 'policies/terms.md', 'policies/terms.en.md',
@@ -2179,12 +2179,12 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     need('SECURITY.md', [PVR_JA, 'ヌスクァマには、非公開で知らせを受ける窓口がありません。', '運営者は、知らせた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答え、詳細を受け取ります。', 'そうした連絡先がないときは、詳細を非公開で受け取る道はありません。運営者は、詳細に触れずに issue で答えます。']);
     need('policies/requests.md', ['ヌスクァマには、非公開で求めを受ける窓口がありません。\n' + PVR_JA, '運営者は、求めた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答えます。', 'そうした連絡先がないときは、非公開で答える道はありません。そのときは、個人の事柄を書かずに、issue で答えます。']);
     need('policies/requests.en.md', ['Nusquama has no channel that receives requests privately.\n' + PVR_EN, 'The operator answers privately only when the person who asks has made a contact public on their own GitHub profile', 'When there is no such contact, there is no private route. The operator then answers in the issue, without personal details.']);
-    need('policies/privacy.md', [NAME_JA, 'そうした連絡先がない人には、氏名と住所を非公開で知らせる道がありません。issue には書きません（']);
-    need('policies/privacy.en.md', ['at a contact that person has made public on their own GitHub profile.', 'For a person with no such contact, there is no private route to give the name and address. They are not written in the issue']);
+    need('policies/privacy.md', [NAME_JA, 'そうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、そこで受け取れます。氏名と住所は、issue には書きません（']);
+    need('policies/privacy.en.md', ['at a contact that person has made public on their own GitHub profile.', 'A person with no such contact can receive them by making a contact public on their own GitHub profile for a while. The name and address are not written in the issue']);
     need('policies/terms.md', ['話し合いは、issue で行います。相手方が自分の GitHub のプロフィールに連絡先を公開しているときは、その連絡先で行うこともできます', '非公開の窓口はありません。運営者が非公開で答えるのは、']);
     need('policies/terms.en.md', ['The talks take place in an issue. When the other party has made a contact public on their own GitHub profile', 'There is no private channel. The operator answers privately only in the case described']);
-    need('policies/legality.md', ['ただし第32条の氏名と住所は、連絡先を公開していない人に知らせる道がない。']);
-    need('policies/legality.en.md', ['except that the name and address under Article 32 cannot be given to a person who has made no contact public.']);
+    need('policies/legality.md', ['第32条の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先のない人は一時的に公開すれば受け取れる。']);
+    need('policies/legality.en.md', ['The name and address under Article 32 are given at a contact the person has made public on their profile; a person with none can receive them by making one public for a while.']);
     need('.github/ISSUE_TEMPLATE/request.yml', ['運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。', 'The operator answers privately only to a contact made public on the person\'s own GitHub profile.']);
     need('verification/duties.json', ['"text": "' + NAME_JA + '"']);
     /* 規程の最終更新は、日本語と英語で同じ日。 */
@@ -2225,7 +2225,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     ['SECURITY.md から非公開の報告が有効でないことを外す', mut('SECURITY.md', PVR_JA, '')],
     ['求めの規程から、連絡先がないときの答え方を外す', mut('policies/requests.md', 'そうした連絡先がないときは、非公開で答える道はありません。', '')],
     ['個人情報の取り扱いから、issue に書かないことを外す', mut('policies/privacy.md', 'issue には書きません（', '（')],
-    ['適法性の説明から残る危険を外す', mut('policies/legality.md', 'ただし第32条の氏名と住所は、連絡先を公開していない人に知らせる道がない。', '')],
+    ['適法性の説明から第32条の受け取り方を外す', mut('policies/legality.md', '第32条の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先のない人は一時的に公開すれば受け取れる。', '')],
     ['様式から答え方を外す', mut('.github/ISSUE_TEMPLATE/request.yml', '運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。', '')],
     ['義務の表を前の文に戻す', mut('verification/duties.json', NAME_JA, '運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。')],
     ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
@@ -2239,7 +2239,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     ['記録から決めた理由を外す', mut(AUD, 'issue に書けば、求めた人だけでなく誰にでも公開されるためです。', 'issue に書けば、誰にでも公開されます。')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
-  ok('壊して確かめる：前の約束を戻す・生成した頁に残す・非公開の報告・答え方・issue に書かないこと・残る危険・様式・義務の表・最終更新・正誤表・年表・判定の数・条文・条・理由のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+  ok('壊して確かめる：前の約束を戻す・生成した頁に残す・非公開の報告・答え方・issue に書かないこと・第32条の受け取り方・様式・義務の表・最終更新・正誤表・年表・判定の数・条文・条・理由のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリンクを開かない（2026-11-12）');
@@ -2984,7 +2984,7 @@ console.log('\n74. 官報の発行に関する法律は「官報」の名を縛�
     ['見張りにない条を挙げる', mut(AUD, '| 官報の発行に関する法律第16条 |', '| 官報の発行に関する法律第17条 |')],
     ['決めた理由を外す', mut(AUD, '名の使用に掛かる罰則もないためです。', '名の使用に掛かる罰則もありません。')],
     ['取り寄せの実行を外す', mut(AUD, '取り寄せの実行は 43332854142 で、', '取り寄せの実行は、')],
-    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-13：公開の頁の書き方', '\n\n## 2026-11-13：公開の頁の書き方')],
     ['規約を時刻なしの写しから取り寄せる', mut('tools/sources.js', "url: '" + IA_URL + "'", "url: 'https://web.archive.org/web/2024id_/https://archive.org/about/terms.php'")],
     ['規約の全文の SHA-256 を変える', withRaw((s) => { s['ia-terms-archived'].sha256_full = '0'.repeat(64); })],
     ['規約の引いた箇所を外す', withRaw((s) => { s['ia-terms-archived'].spans = s['ia-terms-archived'].spans.slice(1); })],
@@ -3066,6 +3066,94 @@ console.log('\n75. Vercel の Fair Use Guidelines は商用の節を失い、適
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：頁の値・消えた節の引用・適法性の説明（日本語と英語）・年表・spans_only・英訳の条の文・新しい英訳・記録の実行・引用・決めた理由のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+console.log('\n76. 公開の頁は運営者の立場を書き、続けている行いが法令に触れうると認める言い方を持たない（2026-11-13）');
+{
+  /* 2026-11-13 に Claude が決めた。公開の頁は立場を示し、疑いを並べない。条文から決まらない点は、決まらないことと運営者の扱いを書き、
+   * 中身は点検の記録「2026-11-13：公開の頁の書き方」に残す。規程の頁（日本語と英語の Markdown と、生成した HTML）に、
+   * 続けている行いが法令に触れうると認める言い方がないことを、日本語と英語の一覧で確かめる。引いた条文と原文の欄（details.source）は法令の文なので数えない。
+   * 王の正誤表と点検の記録は記録なので数えない。記録の節（表・判定の数・決めた者と理由・弁護士の文）、王の正誤表 35・36、年表、
+   * 第32条の受け取り方（日本語と英語）もそろう。確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md';
+  const ADMIT_JA = ['おそれは減', 'なくなりはしません', 'なくなるわけではない', 'おそれを断たない', 'おそれは断たない', '余地は残る', '余地もある', '当たりうる', '言い切れません',
+    'はっきりしない', '裁判所の判断による', '判断は裁判所による', '除ききれない', '残る危険', '知らせる道がない', '知らせる道がありません', '違法となるおそれ',
+    '読む道が残ります', 'みなされうる', '無効とされる余地', '制限しうる条項として残る', '守るものではない'];
+  const ADMIT_EN = ['does not remove', 'do not remove', 'reduces the possibility', 'a reading remains', 'risks that remain', 'risk of illegality', 'how small the risk', 'cannot be ruled out',
+    'is unclear, because', 'for a court to decide', 'that is for a court', 'may also be held void', 'may still count as', 'cannot be given to a person', 'no private route to give',
+    'has not been settled', 'has not been checked', 'does not protect where', 'could restrict a consumer'];
+  const pages = fs.readdirSync(path.join(ROOT, 'policies')).filter((f) => f.endsWith('.md')).map((f) => 'policies/' + f)
+    .concat(fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f));
+  const files = ['ERRATA.md', 'ERRATA.en.md', 'README.md', AUD];
+  const ROUTE_JA = 'そうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、そこで受け取れます。';
+  const ROUTE_EN = 'A person with no such contact can receive them by making a contact public on their own GitHub profile for a while.';
+  const ROUTE_LJ = '第32条の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先のない人は一時的に公開すれば受け取れる。';
+  const ROUTE_LE = 'The name and address under Article 32 are given at a contact the person has made public on their profile; a person with none can receive them by making one public for a while.';
+  const URL = 'https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/' + AUD;
+  const KINDS76 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const prose = (f, t) => f.endsWith('.html') ? t.replace(/<details class="source">[\s\S]*?<\/details>/g, '') : t;
+  function verdict(x) {
+    const bad = [];
+    for (const f of pages) {
+      const t = prose(f, x[f]), list = /\.en\.(md|html)$/.test(f) ? ADMIT_EN : ADMIT_JA;
+      for (const w of list) if (t.includes(w)) bad.push(f + ' に認める言い方：' + w);
+    }
+    /* 第32条の受け取り方と、記録へのつなぎ。 */
+    if (!x['policies/privacy.md'].includes(ROUTE_JA) || !x['policies/privacy.en.md'].includes(ROUTE_EN)) bad.push('個人情報の取り扱いの受け取り方');
+    if (!x['policies/legality.md'].includes(ROUTE_LJ) || !x['policies/legality.en.md'].includes(ROUTE_LE)) bad.push('適法性の説明の受け取り方');
+    if (!x['policies/legality.md'].includes('(' + URL + ')') || !x['policies/legality.en.md'].includes('(' + URL + ')')) bad.push('適法性の説明が記録へつながない');
+    /* 王の正誤表 35・36：前の文を残し、分類と地名、決めた者と理由（日本語と英語）。 */
+    const row = (t, n) => t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
+    const e35 = row(x['ERRATA.md'], 35), e36 = row(x['ERRATA.md'], 36), f35 = row(x['ERRATA.en.md'], 35), f36 = row(x['ERRATA.en.md'], 36);
+    if (!e35.includes('並べていない法令と、解釈の分かれる要件が残るので、違法となるおそれがどれほど小さいかは言い切れません。') || !e35.includes('誤りではなく、公開の頁の書き方を改めた。')
+      || !/2026-11-13 に Claude が決めました。[^|]*ためです。/.test(e35) || !/\| 語 \| Insula Verbi V \|$/.test(e35)) bad.push('王の正誤表 35');
+    if (!e36.includes('ただし第32条の氏名と住所は、連絡先を公開していない人に知らせる道がない。') || !e36.includes('誤りではなく、範囲を改めた。') || !e36.includes('求めることができる人は狭めていない。')
+      || !/2026-11-13 に Claude が決めました。[^|]*ためです。/.test(e36) || !/\| 範囲 \| Insula Finis XV \|$/.test(e36)) bad.push('王の正誤表 36');
+    if (!f35.includes('so the operator does not claim to know how small the risk of illegality is.') || !f35.includes('Not a mistake; the wording of the public pages was changed.') || !f35.includes('Claude decided this on 2026-11-13') || !/\| Word \| Insula Verbi V \|$/.test(f35)) bad.push('英語の王の正誤表 35');
+    if (!f36.includes('there is no private route to give the name and address.') || !f36.includes('Not a mistake; the scope was changed.') || !f36.includes('Claude decided this on 2026-11-13') || !/\| Scope \| Insula Finis XV \|$/.test(f36)) bad.push('英語の王の正誤表 36');
+    if (!x['README.md'].includes('| 2026-11-13（日本時間） | 適法性の説明と叙任の規程で、運営者が続けている行いについて法令に触れうると読める文を、') || !x['README.md'].includes('(King\'s errata 35 and 36) |')) bad.push('年表の行');
+    /* 点検の記録の節：表の形、判定の数、決めた者と理由、扱いの二つ、移した点、検査、弁護士の文。 */
+    const a = x[AUD], i = a.indexOf('\n## 2026-11-13：公開の頁の書き方\n'), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 20 || !rows.every((y) => y.length === 6 && KINDS76.includes(y[4]) && /（扱い [12]/.test(y[5]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [])[1]);
+    const used = KINDS76.filter((k) => rows.some((y) => y[4] === k));
+    if (!used.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    if ((sec.match(/2026-11-13 に Claude が決めました。/g) || []).length < 2 || !sec.includes('見つけたことと直したことを記録が示し、頁が立場を示せば、頁は確かさを言い過ぎず、理由は記録で確かめられるためです。')) bad.push('記録に、決めた者と理由がない');
+    if (!sec.includes('1. 扱い 1：') || !sec.includes('2. 扱い 2：') || !sec.includes('\n### 頁から移した、条文から決まらない点\n') || !sec.includes('判断には、イタリアの弁護士が要ります。')) bad.push('記録の扱いか移した点');
+    if (!sec.includes('検査 76 が') || !sec.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(sec.replace('弁護士が確かめたとも書きません。', ''))) bad.push('記録の検査か弁護士の文');
+    return bad;
+  }
+  const real = Object.fromEntries(pages.concat(files).map((f) => [f, read(f)]));
+  const bad = verdict(real);
+  ok('規程の頁（' + pages.length + '）に、続けている行いが法令に触れうると認める言い方（日本語 ' + ADMIT_JA.length + '、英語 ' + ADMIT_EN.length + '）がなく、第32条の受け取り方・王の正誤表 35 と 36・年表・点検の記録の節がそろう', bad.length === 0, bad.slice(0, 6).join(' / '));
+  const mut = (f, a2, b2) => Object.assign({}, real, { [f]: real[f].replace(a2, b2) });
+  const breaks = [
+    ['適法性の説明の結論を前の文に戻す', mut('policies/legality.md', '条文からは決まらない点は、運営者の扱いを各節に書いています。', '並べていない法令と、解釈の分かれる要件が残るので、違法となるおそれがどれほど小さいかは言い切れません。')],
+    ['英語の適法性の説明に前の文を戻す', mut('policies/legality.en.md', '- Under these limits, and the rule', '- These limits reduce, but do not remove, the possibility that laws outside Japan apply.\n- Under these limits, and the rule')],
+    ['叙任の規程に前の文を戻す', mut('policies/knighting.md', '運営者は、この三つを守る使い方を、これらの条が罰する名乗り方や使い方に当たらないものとして扱います。', 'この使い方を守っても、これらの条が及ぶおそれは減るだけで、なくなりはしません。')],
+    ['英語の叙任の規程に前の文を戻す', mut('policies/knighting.en.md', 'Even so, the words of these provisions allow a reading on which they apply, so that path is closed as follows.', 'Even so, on the words of these provisions, a reading remains on which they apply.')],
+    ['個人情報の取り扱いに前の文を戻す', mut('policies/privacy.md', ROUTE_JA, 'そうした連絡先がない人には、氏名と住所を非公開で知らせる道がありません。')],
+    ['英語の個人情報の取り扱いに前の文を戻す', mut('policies/privacy.en.md', ROUTE_EN, 'For a person with no such contact, there is no private route to give the name and address.')],
+    ['生成した頁に前の見出しを戻す', mut('site/policies/legality.html', '審査の方法と、前提が崩れる道', '審査の方法と残る危険')],
+    ['生成した英語の頁の地の文に認める言い方を足す', mut('site/policies/legality.en.html', '<h2', '<p>This method works within the elements set out, but does not remove the risk.</p><h2')],
+    ['ほかの規程に認める言い方を足す', mut('policies/terms.md', '適法かどうか迷う事柄は、行わないほうを選びます。', '適法かどうか迷う事柄は、行わないほうを選びます。それでも、違法となるおそれは残ります。')],
+    ['王の正誤表 35 の分類を変える', mut('ERRATA.md', '| 語 | Insula Verbi V |', '| 範囲 | Insula Finis XVI |')],
+    ['英語の王の正誤表 36 から前の文を外す', mut('ERRATA.en.md', '"For a person with no such contact, there is no private route to give the name and address." (Privacy) / ', '')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 適法性の説明と叙任の規程で、', '| 2026-11-13（日本時間） | 規程で、')],
+    ['記録の判定の数を変える', mut(AUD, '判定は、表現 19 件、漏れ 1 件で、合わせて 20 件です。', '判定は、表現 18 件、漏れ 1 件で、合わせて 19 件です。')],
+    ['記録の決めた理由を外す', mut(AUD, '見つけたことと直したことを記録が示し、頁が立場を示せば、頁は確かさを言い過ぎず、理由は記録で確かめられるためです。', '頁は立場を示します。')],
+    ['記録から移した点を外す', mut(AUD, '\n### 頁から移した、条文から決まらない点\n', '\n### 移した点\n')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録に弁護士が確かめたと書く', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', 'この節も、弁護士の確認は受けていません。弁護士が確かめました。\n\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  /* 引いた条文の欄の中の言い方は数えない（法令の文を、検査のために変えない）。 */
+  const quoted = mut('site/policies/legality.html', '</details>', '違法となるおそれ</details>');
+  const quotedOk = verdict(quoted).length === 0;
+  ok('壊して確かめる：結論・英語の限定・叙任の規程（日本語と英語）・個人情報の取り扱い（日本語と英語）・生成した頁・英語の地の文・ほかの規程・王の正誤表・年表・判定の数・理由・移した点・弁護士の文のどれでも落ち、引いた条文の欄の中は数えない（'
+    + (caught.length + (quotedOk ? 1 : 0)) + ' / ' + (breaks.length + 1) + '）', caught.length === breaks.length && quotedOk, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).concat(quotedOk ? [] : ['引いた条文の欄']).join(' / '));
 }
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }

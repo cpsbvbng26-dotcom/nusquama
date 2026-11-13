@@ -10,7 +10,7 @@ The operator of Nusquama, an individual who owns the GitHub account cpsbvbng26-d
 The operator handles personal data in line with Japan's Act on the Protection of Personal Information.
 The operator's name and address are given without delay to the person who asks for them, at a contact that person has made public on their own GitHub profile.
 To ask, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the [Requests](./requests.en.md) form.
-For a person with no such contact, there is no private route to give the name and address. They are not written in the issue ([Requests](./requests.en.md), "Requests that cannot be made in public").
+A person with no such contact can receive them by making a contact public on their own GitHub profile for a while. The name and address are not written in the issue ([Requests](./requests.en.md), "Requests that cannot be made in public").
 
 ## What the site collects
 
