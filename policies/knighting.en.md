@@ -32,18 +32,22 @@ From 2026-11-22, people who live outside Japan may not apply, whatever their nat
 From 2026-11-22, a person who lives in Japan may not apply while outside Japan, for travel, business or study, because some foreign laws reach not only those who live there but those who are there.
 From 2026-11-22, a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality. There are two reasons.
 First, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with.
-Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses such a title, and applies even when it was conferred abroad. An Italian national who received and used the title is the most realistic path by which that article could reach Nusquama.
+Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses such a title, and the penalty for use applies even when the title was conferred abroad. That penalty reaches an Italian national who uses a title conferred abroad.
 Within this limit, the operator treats the article as not reaching knighting ([Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 
 ## Pause in receiving applications
 
-From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received. The owner decided this on 2026-11-12. The reason is that, in the period before the revised rules take effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained.
+Since 2026-11-12, applications for knighting are not received. The owner decided this on 2026-11-12. The reason is that, in the period before the revised rules take effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained.
+The pause continues from 00:00 on 2026-11-22 (Japan time), and no date for reopening has been set, because how Italy's Penal Code and Law No. 178 of 1951 reach conferral is not settled by the texts. The owner asked on 2026-11-13 for legal risk to be made as small as possible, and Claude decided this.
+Only the receiving of applications stops; these rules and the roll of knights remain.
+If applications are to reopen, the reason will be recorded in the [legal review](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md), and the day will be shown in this section and in the Terms of Use before that day. Applications do not reopen merely because a date arrives.
 The pause rests on the Terms of Use, "No ill intent, and obeying the law" (when a risk of breaking the law is found, that part is stopped first, then checked and corrected).
 An application issue opened during the pause gets a comment from the automatic check saying that applications are paused, and is closed as not accepted. The link to the correction is not opened.
-From 00:00 on 2026-11-22 (Japan time), receiving resumes without anyone acting, and the revised rules are checked. An issue opened during the pause is not reopened; the applicant opens a new issue.
-Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used, so that the pause depends on dates only and waits for no one.
-On 2026-11-12, when the pause was decided, there were no open applications for knighting, and there was no knight on the roll.
+Once applications reopen, the revised rules are checked. An issue opened during the pause is not reopened; the applicant opens a new issue.
+Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used.
+Claude decided on 2026-11-13 to tie reopening to a decision recorded in the legal review rather than to a date, so that applications do not reopen merely because a date arrives before the check is finished.
+On 2026-11-12, when the pause was decided, there were no open applications for knighting, and there was no knight on the roll. On 2026-11-13, when the pause was continued, there were still no application issues.
 
 ## The premise of good sense
 
@@ -66,7 +70,7 @@ When revoking, the operator writes in the application issue only which rule was 
 ## Countries that restrict foreign titles
 
 From 2026-11-22, a person who holds the nationality of any of the 18 countries in the table below may not apply, even if they live in Japan, and even if they also hold another nationality. Claude decided this on 2026-11-12.
-Austria, Greece and Yemen were added to the table by Claude on 2026-11-13: the provisions on titles that a type rule had classed as not applying were read again one by one, and provisions of type 1 or type 3 were found. For Austria, the 1919 law abolishing nobility, which Article 149 of the Constitution treats as constitutional law, was fetched and read, and was read as type 3. People who hold the nationality of a country added are also unable to apply from 2026-11-22. Applications are paused until 2026-11-22, so no one is refused retroactively.
+Austria, Greece and Yemen were added to the table by Claude on 2026-11-13: the provisions on titles that a type rule had classed as not applying were read again one by one, and provisions of type 1 or type 3 were found. For Austria, the 1919 law abolishing nobility, which Article 149 of the Constitution treats as constitutional law, was fetched and read, and was read as type 3. People who hold the nationality of a country added are also unable to apply from 2026-11-22. Applications have been paused since 2026-11-12, so no one is refused retroactively.
 On the texts fetched and read, the constitution or a law of each country in the table is of one of three types.
 
 1. Type 1: it forbids accepting a foreign title, order, honour or rank, or requires the State's permission to accept one.
@@ -131,7 +135,7 @@ The operator treats use that keeps these three rules as outside what these provi
 
 Vercel, which serves the site, and GitHub, which keeps the applications, may use what is placed on them to train AI models. If you are worried about your personal data, do not apply. These uses are described in [Privacy](./privacy.en.md).
 
-1. From 00:00 on 2026-11-22 (Japan time), open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml) (before then, applications are not received under "Pause in receiving applications").
+1. Once applications reopen, open an issue with the form [Application for knighthood](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml) (while applications are paused, they are not received under "Pause in receiving applications").
 2. Give a public link to the correction, and say what was wrong and how you corrected it.
 3. Tick every one of the pledges.
 
@@ -172,7 +176,7 @@ No knighthood is given for:
 - Anything that cannot be checked (something not public, or a link that does not open).
 - Anything that falls under "What is not allowed" in the Terms of Use.
 - An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
-- An application opened from 2026-11-12 until 00:00 on 2026-11-22 (Japan time) ("Pause in receiving applications").
+- An application opened from 2026-11-12 until applications reopen ("Pause in receiving applications").
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.

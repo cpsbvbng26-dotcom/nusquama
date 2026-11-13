@@ -13,13 +13,15 @@
  *   - 訂正へのリンクが https の URL で、受けない先（CLOSED）を指さないこと（文字の上だけで見る。リンクは開かない）
  *   - 何を誤り、どう正したかが書かれていること
  *
- * 受付の停止（2026-11-12 に利用者が決めた）：2026-11-12 から 2026-11-22 0 時（日本時間）より前に開かれた願い出は、
- * 上の確認をせずに、受付を止めていることをコメントし、issue を閉じる。日付だけで決まり、人の手を待たない。
+ * 受付の停止（2026-11-12 に利用者が決めた）：2026-11-12 0 時（日本時間）から後に開かれた願い出は、
+ * 上の確認をせずに、受付を止めていることをコメントし、issue を閉じる。
+ * 停止は日付ではひとりでに終わらない（2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十三度目の見落とし」）。
+ * 終わるのは、点検の記録に記した決めを REOPEN が指したときだけである。
  *
  * 訂正へのリンクは開かない（2026-11-12 に Claude が決めた。王の正誤表 30）。先のサイトは願い出ごとに違い、
  * 機械による取得を禁じる規約かどうかを前もって読めないため。外へ出す要求は GitHub の API への読み書きだけで、
  * リンク先を開いて読むのは運営者である（叙任の規程「運営者が確かめること」）。
- * 2026-11-22 0 時からは、ひとりでに受付に戻り、その日から求める印（日本にいる・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提）で確かめる。
+ * 受付に戻ったあとは、2026-11-22 から求める印（日本にいる・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提）で確かめる。
  */
 'use strict';
 const fs = require('fs');
@@ -36,14 +38,33 @@ const FOREIGN_FROM = '2026-11-22';
 const FOREIGN = '次の国の国籍を持っていません：';
 const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
-const PAUSE_UNTIL = '2026-11-22T00:00:00+09:00';
-const PAUSE_TEXT = '2026-11-12 から 2026-11-22 0 時（日本時間）より前は、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。この願い出は受けず、この issue を閉じます。2026-11-22 から、改めた規程（日本に住み日本にいる人に限ること、イタリアの国籍を持つ人と外国の称号を縛る国の国籍を持つ人を除くこと、良識の前提）で、新しい issue を開いて願い出ることができます。';
-const PAUSE_TEXT_EN = 'From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"). This application is not accepted, and this issue is closed. From 2026-11-22, a new issue may be opened to apply under the revised rules (only people who live and are in Japan; people who hold Italian nationality, or the nationality of a country that restricts foreign titles, excluded; the premise of good sense).';
+/* 受付に戻す決め。null のあいだは受付を閉じており、どの日に開かれた願い出も受けない（日付では終わらない）。
+ * 2026-11-13 に利用者が法的リスクを限りなく小さくするよう求め、Claude が決めた：受付に戻る日を置かない。
+ * 戻すときは { at: '<受付に戻る時刻（日本時間、+09:00）>', record: '<点検の記録で停止を解く行の「箇所」の欄の文>' } を書く。
+ * 検査 63 が確かめる：at は改めた規程の効力の日（2026-11-22 0 時）より前でない。record の行が点検の記録の表にあり、
+ * その行が at の日付と「受付に戻す」を書いている。2026-11-13 に Claude が決めた。 */
+const REOPEN = null;
+const PAUSE_TEXT = '2026-11-12 から、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻る日は決めていません。この願い出は受けず、この issue を閉じます。';
+const PAUSE_TEXT_EN = 'Since 2026-11-12, applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"), because a point of Italian law concerning conferral is not settled by the texts. No date for reopening has been set. This application is not accepted, and this issue is closed.';
 
-/* 純：issue を開いた時が受付の停止のあいだか。opened は ISO の時刻。 */
-function paused(opened) {
+/* 純：受付に戻す決めが、点検の記録の行に拠っているか。拠っていれば null、いなければ理由。
+ * record は点検の記録の文（docs/legal-audit-2026-11-12.md）。 */
+function reopenProblem(reopen, record) {
+  if (reopen === null) return null;
+  if (!reopen || typeof reopen.at !== 'string' || typeof reopen.record !== 'string' || !reopen.record.trim()) return '決めの形が違う';
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+09:00$/.test(reopen.at) || !Number.isFinite(Date.parse(reopen.at))) return '時刻が日本時間の形でない';
+  if (Date.parse(reopen.at) < Date.parse(PRESENCE_FROM + 'T00:00:00+09:00')) return '改めた規程の効力の日より前に戻す';
+  const row = String(record || '').split('\n').find((l) => l.startsWith('| ' + reopen.record + ' |'));
+  if (!row) return '記録に行がない';
+  if (!row.includes(reopen.at.slice(0, 10)) || !row.includes('受付に戻す')) return '記録の行が、その日に受付に戻すと書いていない';
+  return null;
+}
+
+/* 純：issue を開いた時が受付の停止のあいだか。opened は ISO の時刻。reopen は受付に戻す決め（既定は REOPEN）。 */
+function paused(opened, reopen = REOPEN) {
   const t = Date.parse(opened);
-  return Number.isFinite(t) && t >= Date.parse(PAUSE_FROM) && t < Date.parse(PAUSE_UNTIL);
+  if (!Number.isFinite(t) || t < Date.parse(PAUSE_FROM)) return false;
+  return !(reopen && Number.isFinite(Date.parse(reopen.at)) && t >= Date.parse(reopen.at));
 }
 
 /* 純：受付の停止のあいだに開かれた願い出へのコメント。 */
@@ -163,7 +184,10 @@ async function main() {
   const n = process.env.ISSUE_NUMBER;
   const opened = process.env.ISSUE_CREATED_AT || new Date().toISOString();
   const mine0 = ((await github('GET', '/issues/' + n + '/comments?per_page=100')) || []).find((c) => c.user.type === 'Bot' && c.body.startsWith(MARK));
-  if (paused(opened)) {
+  /* 受付に戻す決めが点検の記録の行に拠っていなければ、戻さない（止めたままにする）。 */
+  const record = fs.readFileSync(path.join(ROOT, 'docs', 'legal-audit-2026-11-12.md'), 'utf8');
+  const reopen = reopenProblem(REOPEN, record) === null ? REOPEN : null;
+  if (paused(opened, reopen)) {
     /* 受付の停止のあいだに開かれた願い出：訂正へのリンクも開かず、停止を書いて閉じる（完了ではなく、受けないものとして）。 */
     const body = pauseComment();
     if (mine0) await github('PATCH', '/issues/comments/' + mine0.id, { body });
@@ -181,6 +205,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { PAUSE_FROM, PAUSE_UNTIL, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+module.exports = { PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });

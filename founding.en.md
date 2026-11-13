@@ -49,7 +49,7 @@ Nemo I, the Knight-King, 7 November 2026
 
 **Article 10 (Amendment)** The King amends this Basic Law. Articles 1, 6 and 8, however, are never removed.
 
-Knighting under Article 6 is also subject to the conditions of the [Rules on Knighting](policies/knighting.en.md). Where the Rules on Knighting add a condition, the Rules on Knighting prevail (Rules on Knighting, "Relation to Article 6 of the Basic Law"). This note is not an article of the Basic Law, and the text of the articles is unchanged.
+Knighting under Article 6 is also subject to the conditions of the [Rules on Knighting](policies/knighting.en.md). Where the Rules on Knighting add a condition, the Rules on Knighting prevail (Rules on Knighting, "Relation to Article 6 of the Basic Law"). This note is not an article of the Basic Law, and the text of the articles is unchanged. Applications for knighting have been paused since 2026-11-12, and no date for reopening has been set (Rules on Knighting, "Pause in receiving applications").
 
 ## The Ten Precepts of the Knight-King
 

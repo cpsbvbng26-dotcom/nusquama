@@ -520,6 +520,94 @@
       "quote": "not to collect or store personal data about anyone",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
       "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
+    },
+    "イタリア 刑法典 第7条（柱書き）": {
+      "from": "italy-cp-7",
+      "name": "イタリア刑法典 第 7 条（柱書き）",
+      "name_en": "Italy, Penal Code, Article 7, opening words",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art7",
+      "lang": "it",
+      "quote": "È punito secondo la legge italiana il cittadino o lo straniero che commette in territorio estero taluno dei seguenti reati:",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "1b86b2c221cb83716ced339aa9cc0c40527f641aaa4fec1fe8fa317a527495b2",
+      "sha256_full": "d76201d725ab4ff10480746383093be8e10582840082fd5cecbad1c57cec788f"
+    },
+    "イタリア 刑法典 第7条第1号": {
+      "from": "italy-cp-7",
+      "name": "イタリア刑法典 第 7 条第 1 号",
+      "name_en": "Italy, Penal Code, Article 7, item 1",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art7",
+      "lang": "it",
+      "quote": "delitti contro la personalità dello Stato",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "1b86b2c221cb83716ced339aa9cc0c40527f641aaa4fec1fe8fa317a527495b2",
+      "sha256_full": "d76201d725ab4ff10480746383093be8e10582840082fd5cecbad1c57cec788f"
+    },
+    "イタリア 刑法典 第7条第5号": {
+      "from": "italy-cp-7",
+      "name": "イタリア刑法典 第 7 条第 5 号",
+      "name_en": "Italy, Penal Code, Article 7, item 5",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art7",
+      "lang": "it",
+      "quote": "ogni altro reato per il quale speciali disposizioni di legge o convenzioni internazionali stabiliscono l'applicabilità della legge penale italiana.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "1b86b2c221cb83716ced339aa9cc0c40527f641aaa4fec1fe8fa317a527495b2",
+      "sha256_full": "d76201d725ab4ff10480746383093be8e10582840082fd5cecbad1c57cec788f"
+    },
+    "イタリア 刑法典 第8条第1項": {
+      "from": "italy-cp-8",
+      "name": "イタリア刑法典 第 8 条第 1 項",
+      "name_en": "Italy, Penal Code, Article 8, first paragraph",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art8",
+      "lang": "it",
+      "quote": "Il cittadino o lo straniero, che commette in territorio estero un delitto politico non compreso tra quelli indicati nel numero 1° dell'articolo precedente, è punito secondo la legge italiana, a richiesta del Ministro della giustizia.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "946b2f42cc2173ced085c7d54751a0bec1abb2f01328c65bb457bbc2c6ef6852",
+      "sha256_full": "32688354ff26b8b9a4a5929847e0822c051045d08442796c8f5b620f1adcaad3"
+    },
+    "イタリア 刑法典 第8条第3項": {
+      "from": "italy-cp-8",
+      "name": "イタリア刑法典 第 8 条第 3 項",
+      "name_en": "Italy, Penal Code, Article 8, third paragraph",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art8",
+      "lang": "it",
+      "quote": "Agli effetti della legge penale, è delitto politico ogni delitto, che offende un interesse politico dello Stato, ovvero un diritto politico del cittadino. È altresì considerato delitto politico il delitto comune determinato, in tutto o in parte, da motivi politici.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "946b2f42cc2173ced085c7d54751a0bec1abb2f01328c65bb457bbc2c6ef6852",
+      "sha256_full": "32688354ff26b8b9a4a5929847e0822c051045d08442796c8f5b620f1adcaad3"
+    },
+    "イタリア 刑法典 第10条第2項": {
+      "from": "italy-cp-10-commi",
+      "name": "イタリア刑法典 第 10 条第 2 項（柱書きと第 2 号）",
+      "name_en": "Italy, Penal Code, Article 10, second paragraph (opening words and item 2)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10",
+      "lang": "it",
+      "quote": "Se il delitto è commesso a danno delle Comunità europee, di uno Stato estero o di uno straniero, il colpevole è punito secondo la legge italiana, a richiesta del Ministro della giustizia, sempre che: 1° si trovi nel territorio dello Stato; 2° si tratti di delitto per il quale è stabilita la pena di morte o dell'ergastolo, ovvero della reclusione non inferiore nel minimo a tre anni;",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "4e2512179116db384fc5794b5009d0867a38c3b967c9ef4172f22ad406be3bcd",
+      "sha256_full": "9f2f813aa468839b7a536c838834139509c4e189dd1994b438f0698ca757b923"
+    },
+    "イタリア 1951 年法律第178号 第8条第4段落": {
+      "from": "italy-178-art8-commi",
+      "name": "イタリア 1951 年 3 月 3 日法律第 178 号 第 8 条（頁の第 4 段落）",
+      "name_en": "Italy, Law No. 178 of 3 March 1951, Article 8 (fourth paragraph on the page)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8",
+      "lang": "it",
+      "quote": "Le disposizioni del secondo e terzo comma si applicano anche quando il conferimento delle onorificenze, decorazioni o distinzioni sia avvenuto all'estero.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "772862dbd8a6bec202c707cf53759873f01e18115c4da341ac594c1e5c643e70",
+      "sha256_full": "7107251e2467436c17ddd503c1800284cf6a03b2e4a78af52b73face97624ff2"
+    },
+    "イタリア 1951 年法律第178号 第9条": {
+      "from": "italy-178-art9",
+      "name": "イタリア 1951 年 3 月 3 日法律第 178 号 第 9 条",
+      "name_en": "Italy, Law No. 178 of 3 March 1951, Article 9",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art9",
+      "lang": "it",
+      "quote": "L'Ordine della SS. Annunziata e le relative onorificenze sono soppressi. L'Ordine della Corona d'Italia è soppresso e cessa il conferimento delle onorificenze dell'Ordine dei Santi Maurizio e Lazzaro. È tuttavia consentito l'uso delle onorificenze già conferite, escluso ogni diritto di precedenza nelle pubbliche cerimonie. Per gli altri Ordini ed onorificenze, istituiti prima del 2 giugno 1946, si provvederà con separata legge.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "window_sha256": "d9afcb107ab9e066cab915524c4dddbe3b269b3b695e89d60d0e3e156e7704ff",
+      "sha256_full": "ef4642856d890adff4fc664a0c520f4ab749b5885683f010593354853af4e49d"
     }
   }
 }

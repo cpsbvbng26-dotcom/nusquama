@@ -36,4 +36,4 @@ It also grows because he has corrected that many.
 The king will make more mistakes.
 Each time, he adds a row to the [King's errata](ERRATA.en.md) and the domain grows by one parcel.
 A person who has publicly corrected one of their own mistakes can join the [Ordo Erratorum](KNIGHTS.en.md) if they meet the conditions of the [Rules on Knighting](policies/knighting.en.md).
-Applications are paused until 00:00 on 2026-11-22 (Japan time).
+Applications have been paused since 2026-11-12. No date for reopening has been set.
