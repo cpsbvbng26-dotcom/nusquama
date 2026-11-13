@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-11-12",
+  "fetched": "2026-11-13",
   "sources": {
     "montevideo": {
       "url": "https://avalon.law.yale.edu/20th_century/intam03.asp",
@@ -17,11 +17,12 @@
     "gdpr": {
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
       "whole": true,
-      "status": 202,
-      "length": 0,
-      "sha256_full": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "windows": [],
-      "head": ""
+      "status": 200,
+      "length": 350673,
+      "sha256_full": "1e167c810f6c552262b89360241c240eb25c9dc375488fada493f4acf18470fd",
+      "windows": [
+        "be adapted to the principles and rules of this Regulation in accordance with Article 98. 4. This Regulation shall be without prejudice to the application of Directive 2000/31/EC, in particular of the liability rules of intermediary service providers in Articles 12 to 15 of that Directive. Article 3 Territorial scope 1. This Regulation applies to the processing of personal data in the context of the activities of an establishment of a controller or a processor in the Union, regardless of whether the processing takes place in the Union or not. 2. This Regulation applies to the processing of personal data of data subjects who are in the Union by a controller or processor not established in the Union, where the processing activities are related to: (a) the offering of goods or services, irrespective of whether a payment of the data subject is required, to such data subjects in the Union; or (b) the monitoring of their behaviour as far as their behaviour takes place within the Union. 3. This Regulation applies to the processing of personal data by a controller not established in the Union, but in a place where Member State law applies by virtue of public international law. Article 4 Definitions For the purposes of this Regulation: (1) ‘personal data’ means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person; (2) ‘processing’ means any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction; (3) ‘restriction of processing’ means the marking of stored personal data with the aim of limiting their processing in the future; (4) ‘profiling’ means any form of automated processing of personal data consisting of the use of personal data to evaluate certain personal aspects relating to a natural person, in particular to analyse or predict aspects concerning that natural person's performance at work, economic situation, health, personal preferences, interests, reliability, behaviour, location or movements; (5) ‘pseudonymisation’ means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subj"
+      ]
     },
     "gdpr-cellar": {
       "url": "https://publications.europa.eu/resource/celex/32016R0679",
@@ -70,11 +71,13 @@
       "url": "https://vercel.com/docs/limits/fair-use-guidelines",
       "whole": false,
       "status": 200,
-      "length": 7654,
-      "sha256_full": "3308347547fadb874e7c012d0017cacb61af2d22a3d684eaccd12a0af55ff452",
-      "spans": [
-        "Hobby teams are restricted to non-commercial personal use only."
-      ]
+      "length": 6679,
+      "sha256_full": "72c94595a48be0ba40257c55fcee8fc60ca983022327cdd00ced5dcfda034565",
+      "spans": [],
+      "missing": [
+        "Vercel Fair Use Guidelines"
+      ],
+      "head": "Fair Use Guidelines Skip to content Copy Wordmark Copy Logo Download Brand Assets Brand Guidelines Docs Build Build with AI AI Gateway AI SDK Sandbox Container Registry Workflow Vercel Agent v0 ↗ Vercel MCP AI Integrations Deploy & scale Deployments CLI Functions Delivery Network Storage Integration"
     },
     "gdpr-art27": {
       "url": "https://publications.europa.eu/resource/celex/32016R0679",
@@ -194,7 +197,10 @@
     "italy-pcm-uso": {
       "url": "https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html",
       "whole": false,
-      "error": "fetch failed (UND_ERR_CONNECT_TIMEOUT)"
+      "status": 200,
+      "length": 3993,
+      "sha256_full": "b5a49afa3700f87b47e316451300e182ef3b90f935e333f53ab793bbcfad3b4d",
+      "spans": []
     },
     "italy-pcm-uso-archive": {
       "url": "https://web.archive.org/web/2026/https://presidenza.governo.it/onorificenze_araldica/onorificenze/uso.html",
