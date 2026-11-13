@@ -469,6 +469,46 @@
       "quote": "Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
       "sha256_full": "93b173250d5ab431ce90b677c39db86c72bc11dd788bc420619494a739628325"
+    },
+    "Internet Archive の利用規約（範囲）": {
+      "from": "ia-terms-archived",
+      "name": "Internet Archive の利用規約（2024-01-01 の写し）",
+      "name_en": "Internet Archive Terms of Use (the copy of 2024-01-01)",
+      "url": "https://web.archive.org/web/20240101002842/https://archive.org/about/terms.php",
+      "lang": "en",
+      "quote": "This terms of use agreement (the \"Agreement\") governs your use of the collection of Web pages and other digital content (the \"Collections\") available through the Internet Archive (the \"Archive\").",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
+    },
+    "Internet Archive の利用規約（目的）": {
+      "from": "ia-terms-archived",
+      "name": "Internet Archive の利用規約（2024-01-01 の写し）",
+      "name_en": "Internet Archive Terms of Use (the copy of 2024-01-01)",
+      "url": "https://web.archive.org/web/20240101002842/https://archive.org/about/terms.php",
+      "lang": "en",
+      "quote": "Access to the Archive’s Collections is provided at no cost to you and is granted for scholarship and research purposes only.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
+    },
+    "Internet Archive の利用規約（負荷）": {
+      "from": "ia-terms-archived",
+      "name": "Internet Archive の利用規約（2024-01-01 の写し）",
+      "name_en": "Internet Archive Terms of Use (the copy of 2024-01-01)",
+      "url": "https://web.archive.org/web/20240101002842/https://archive.org/about/terms.php",
+      "lang": "en",
+      "quote": "You agree not to interfere with the work of other users or Archive personnel, servers, or resources.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
+    },
+    "Internet Archive の利用規約（個人データ）": {
+      "from": "ia-terms-archived",
+      "name": "Internet Archive の利用規約（2024-01-01 の写し）",
+      "name_en": "Internet Archive Terms of Use (the copy of 2024-01-01)",
+      "url": "https://web.archive.org/web/20240101002842/https://archive.org/about/terms.php",
+      "lang": "en",
+      "quote": "not to collect or store personal data about anyone",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c"
     }
   }
 }

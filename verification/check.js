@@ -1746,8 +1746,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-10).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-11).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -1766,7 +1766,9 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     /* 引いた文：印の名は一次資料の表にあり、引用は表の文と一字一句同じ。表の文は、SHA-256 を記した取り寄せた窓に現れる。 */
     /* 八度目の見落とし（73）の節も、GitHub の規約の文をここと同じ形で引く。 */
     const i8 = a.indexOf('\n## 2026-11-12 の続き：八度目の見落とし\n'), sec8 = i8 < 0 ? '' : a.slice(i8, a.indexOf('\n## ', i8 + 5));
-    const quotes = [...(sec + sec8).matchAll(/<!-- 原文 (.+?) -->\n> (.+)\n/g)];
+    /* 十一度目の見落とし（74）の節も、Internet Archive の利用規約の文をここと同じ形で引く。 */
+    const i11 = a.indexOf('\n## 2026-11-12 の続き：十一度目の見落とし\n'), sec11 = i11 < 0 ? '' : a.slice(i11, a.indexOf('\n## ', i11 + 5));
+    const quotes = [...(sec + sec8 + sec11).matchAll(/<!-- 原文 (.+?) -->\n> (.+)\n/g)];
     const fresh = Object.keys(P.sources).filter((k) => P.sources[k].quoted_in === F62);
     if (fresh.length < 30 || !fresh.every((k) => quotes.some((q) => q[1] === k))) bad.push('引いていない文がある');
     for (const [, k, q] of quotes) {
@@ -1827,7 +1829,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     ['案内の抜き出した箇所から引用を外す', mut('verification/sources-raw.json', JSON.stringify(JSON.parse(real['verification/sources-raw.json']).sources['italy-pcm-uso-archive'].spans[0]).slice(1, 40), 'X')],
     ['判定の数を変える', mut(F62, '問題なし 13 件で、合わせて 21 件です。', '問題なし 14 件で、合わせて 21 件です。')],
     ['表に一次資料の表にない文書を挙げる', mut(F62, '| イタリア 刑法典 第10条 |', '| イタリア 刑法典 第11条 |')],
-    ['取り寄せられなかった文の数を変える', mut(F62, '次の 5 件です。', '次の 4 件です。')],
+    ['取り寄せられなかった文の数を変える', mut(F62, '次の 6 件です。', '次の 5 件です。')],
     ['README を前の文言に戻す', mut('README.md', '> ここで贈る' + NAME_JA, '> ここで授ける称号に、法的な効力はありません。')],
     ['頁の断りを前の文言に戻す', mut('build.js', "ここで贈る" + NAME_JA + "';", "ここで授ける称号に、法的な効力はありません。';")],
     ['名簿の断りを外す', mut('KNIGHTS.en.md', '> The name of knight is not a decoration, honour or rank of knighthood of any country.\n', '')],
@@ -2104,8 +2106,9 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
     const priv = Object.values(W66.data).flatMap((d) => d.provisions).filter((p) => p.spans);
     const n = (src) => priv.filter((p) => p.source === src).length;
     const sum = (f) => priv.reduce((a, p) => a + f(p), 0);
-    /* この節の数は、その日に記していた出典の数。のちの点検（八度目、2026-11-13）が足した GitHub の二つの規約は数えない。 */
-    const LATER = ['github-terms', 'github-additional-terms'];
+    /* この節の数は、その日に記していた出典の数。のちの点検（八度目、2026-11-13）が足した GitHub の二つの規約と、
+     * 十一度目（2026-11-13）が足した Internet Archive の利用規約は数えない。 */
+    const LATER = ['github-terms', 'github-additional-terms', 'ia-terms-archived'];
     const nR = Object.keys(R).filter((k) => !LATER.includes(k)).length;
     const laterChars = LATER.reduce((a, k) => a + ((R[k] || {}).spans || []).reduce((b, sp) => b + sp.length, 0), 0);
     const nums = ['出典は ' + nR + ' です', '法令・条約の ' + whole.length + ' で', '検査が拠る箇所だけを記すのは ' + (nR - whole.length) + ' です', 'あわせて ' + (spanChars - laterChars) + ' 字です',
@@ -2876,12 +2879,118 @@ console.log('\n73. GitHub Actions の規約：追加製品の規約を取り寄�
     ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 10 件で、合わせて 13 件です。', '漏れ 2 件、表現 0 件、問題なし 10 件で、合わせて 13 件です。')],
     ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
     ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
-    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：十一度目の見落とし', '\n\n## 2026-11-12 の続き：十一度目の見落とし')],
     ['免責事項から手の手順を外す', mut('policies/disclaimer.md', '運営者が手で行い、すぐには行われません。', '')],
     ['英語の免責事項から条件を外す', mut('policies/disclaimer.en.md', "GitHub's terms let GitHub restrict the use of GitHub Actions, and Actions can stop.", '')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：見張り・取り寄せのコミット・全文の SHA-256・引いた箇所・窓・引用・新しいワークフロー・消したワークフロー・表の行・判定の数・記録の引用・決めた理由・弁護士の文・免責事項（日本語と英語）のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+console.log('\n74. 官報の発行に関する法律は「官報」の名を縛らない。Internet Archive の写しは、規約を読んだうえで読む（2026-11-13）');
+{
+  /* 十一度目の見落とし。官報の発行に関する法律（505AC0000000085）の第1条・第2条・第16条・第18条から第21条を見張りの表に置き、
+   * 記録の十一度目の節がその条文を、見張りが記した文のまま引く。罰則の条（第18条から第21条）は、どれも第14条第3項から第5項か
+   * 第16条に反したときだけに掛かる。ヌスクァマの官報の号は、どれも創作と断る。Internet Archive の利用規約は、2024-01-01 の写しを
+   * 時刻で固めて取り寄せ、引いた文と全文の SHA-256 を記す。記録は表・判定の数・決めた者と理由・取り寄せの実行・残る危険・弁護士の文を持つ。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：十一度目の見落とし\n';
+  const LAW = '官報の発行に関する法律', ID = '505AC0000000085', ARTS = ['1', '2', '16', '18', '19', '20', '21'];
+  const IA_URL = 'https://web.archive.org/web/20240101002842id_/https://archive.org/about/terms.php';
+  const IA_SHA = '023b593349c64ce95ed23f3a3c932dd27abf0b5faece4c272797cec273bb244c';
+  const IA_KEYS = ['範囲', '目的', '負荷', '個人データ'].map((k) => 'Internet Archive の利用規約（' + k + '）');
+  const KINDS74 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const DISCLAIM = 'これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。';
+  const gz = fs.readdirSync(path.join(ROOT, 'site', 'gazette')).filter((f) => /^\d+\.html$/.test(f)).sort();
+  const files = ['verification/statutes.json', 'verification/statutes-texts.json', 'verification/sources.json', 'verification/sources-raw.json', 'tools/sources.js', AUD];
+  const real = Object.assign(Object.fromEntries(files.map((f) => [f, read(f)])), { gz: Object.fromEntries(gz.map((f) => [f, read('site/gazette/' + f)])) });
+  const cells = (l) => l.replace(/^\| | \|$/g, '').split(' | ');
+  function verdict(x) {
+    const bad = [];
+    let ST, TX, P, R;
+    try { ST = JSON.parse(x['verification/statutes.json']); TX = JSON.parse(x['verification/statutes-texts.json']); P = JSON.parse(x['verification/sources.json']).sources; R = JSON.parse(x['verification/sources-raw.json']).sources; } catch (e) { return ['JSON が読めない']; }
+    /* 見張りの表の七つの条。 */
+    for (const n of ARTS) {
+      const e = ST.statutes.find((y) => y.name === LAW && y.article === n);
+      if (!e || e.law_id !== ID || e.title !== LAW || e.label !== '第' + n + '条' || !/^[0-9a-f]{64}$/.test(e.sha256 || '') || !TX[LAW + ' 第' + n + '条']) bad.push('見張りの表にない：第' + n + '条');
+    }
+    /* 罰則の条は、第14条第3項から第5項か第16条に反したときだけ。 */
+    const pen = ['18', '19', '21'].map((n) => TX[LAW + ' 第' + n + '条'] || '').join(' ');
+    const refs = [...pen.matchAll(/第(十四|十六)条(?:第(三|四|五)項)?の規定に違反/g)].map((m) => m[0]);
+    if (refs.length !== 4 || /官報の文字|名称を用い|称してはならない/.test(Object.entries(TX).filter(([k]) => k.startsWith(LAW)).map(([, v]) => v).join(' '))) bad.push('罰則の条の読み');
+    /* 記録の節。 */
+    const a = x[AUD], i = a.indexOf(SEC), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    if (!sec) return bad.concat(['記録に十一度目の節がない']);
+    for (const n of ARTS) if (!sec.includes('<!-- 条文 ' + LAW + ' 第' + n + '条 -->\n> ' + TX[LAW + ' 第' + n + '条'] + '\n')) bad.push('記録の条文が取り寄せた文と違う：第' + n + '条');
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map(cells);
+    if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS74.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [0, -1])[1]);
+    if (!KINDS74.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    const names = [...new Set(ST.statutes.map((e) => e.name))].sort((p, q) => q.length - p.length);
+    const have = new Set(ST.statutes.map((e) => e.name + ' ' + e.article.replace('_', 'の')));
+    for (const r of rows) {
+      if (r[1].startsWith('なし')) continue;
+      for (const piece of r[1].split('、')) {
+        const law = names.find((nm) => piece.startsWith(nm));
+        if (law) { for (const m of piece.slice(law.length).matchAll(/第(\d+)条(?:の(\d+))?/g)) if (!have.has(law + ' ' + m[1] + (m[2] ? 'の' + m[2] : ''))) bad.push('見張りの表にない条：' + piece); }
+        else if (!P[piece]) bad.push('一次資料の表にない：' + piece);
+      }
+    }
+    const kanpo = rows.filter((r) => r[1].includes(LAW) || r[1].includes('官報の発行に関する内閣府令'));
+    if (kanpo.length < 4 || !kanpo.every((r) => r[4] === '問題なし')) bad.push('官報の名の判定');
+    const decided = sec.split('2026-11-13 に Claude が決めました。').slice(1);
+    if (decided.length < 3 || !decided.every((z) => /ためです。/.test(z.split('\n\n')[0]))) bad.push('記録に、決めた者と理由がない');
+    if (!sec.includes('ヌスクァマの官報の名は変えません（日本語と英語）。')) bad.push('名を変えないという決め');
+    if (!/取り寄せの実行は \d{8,} で、結果は枝 `sources\/\d{8}-\d{4}` にあります。/.test(sec)) bad.push('記録に取り寄せの実行がない');
+    if (!sec.includes('### 残る危険') || !sec.includes('いまの Internet Archive の利用規約は読めていません。')) bad.push('残る危険');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。')) bad.push('記録に弁護士の文がない');
+    /* Internet Archive の利用規約：時刻で固めた写し、引いた文と全文の SHA-256。 */
+    if (!x['tools/sources.js'].includes("{ key: 'ia-terms-archived', url: '" + IA_URL + "'")) bad.push('規約を、時刻で固めた写しから取り寄せない');
+    const r = R['ia-terms-archived'] || {};
+    if (r.url !== IA_URL || r.status !== 200 || r.whole !== false || r.sha256_full !== IA_SHA || r.windows) bad.push('規約が、引いた箇所と全文の SHA-256 だけで記されていない');
+    for (const k of IA_KEYS) {
+      const v = P[k];
+      if (!v || v.from !== 'ia-terms-archived' || v.sha256_full !== IA_SHA || v.quoted_in !== AUD || !(r.spans || []).includes(v.quote)) bad.push('引いた文がない：' + k);
+      else if (!sec.includes('<!-- 原文 ' + k + ' -->\n> ' + v.quote + '\n')) bad.push('記録に引いていない：' + k);
+    }
+    /* 取り寄せられなかった文：いまの規約を挙げる。 */
+    const nf = (a.split('\n## 取り寄せられなかった文\n')[1] || '').split('\n## ')[0];
+    if (!/^- Internet Archive のいまの利用規約。/m.test(nf)) bad.push('取り寄せられなかった文に、いまの規約がない');
+    /* 官報の号は、どれも創作と断る。 */
+    for (const [f, h] of Object.entries(x.gz)) if (!h.includes(DISCLAIM)) bad.push('創作と断っていない号：' + f);
+    if (Object.keys(x.gz).length < 50) bad.push('官報の号が少ない');
+    return bad;
+  }
+  const bad = verdict(real);
+  ok('官報の発行に関する法律の七つの条を見張り、記録がその条文を引き、どの条も「官報」の名を縛らないと読み、官報の ' + gz.length + ' の号がどれも創作と断り、Internet Archive の利用規約を時刻で固めた写しから引いた文と全文の SHA-256 で記す',
+    bad.length === 0, bad.join(' / '));
+  const mut = (f, a2, b2) => Object.assign({}, real, { [f]: real[f].replace(a2, b2) });
+  const raw0 = JSON.parse(real['verification/sources-raw.json']);
+  const withRaw = (fn) => { const t = JSON.parse(JSON.stringify(raw0)); fn(t.sources); return Object.assign({}, real, { 'verification/sources-raw.json': JSON.stringify(t) }); };
+  const first = Object.keys(real.gz)[0];
+  const breaks = [
+    ['見張りから条を外す', (() => { const t = JSON.parse(real['verification/statutes.json']); t.statutes = t.statutes.filter((e) => !(e.name === LAW && e.article === '16')); return Object.assign({}, real, { 'verification/statutes.json': JSON.stringify(t) }); })()],
+    ['条文を一字変える', mut('verification/statutes-texts.json', '官報の発行は、この法律の定めるところにより、内閣総理大臣が行う。', '官報の発行は、内閣総理大臣が行う。')],
+    ['罰則の条に名の使用を足す', mut('verification/statutes-texts.json', '第二十一条 第十四条第三項の規定に違反した者は', '第二十一条 官報の文字を用いた者又は第十四条第三項の規定に違反した者は')],
+    ['記録の条文を一字変える', mut(AUD, '> 第二条 官報の発行は、この法律の定めるところにより、内閣総理大臣が行う。\n', '> 第二条 官報の発行は、内閣総理大臣が行う。\n')],
+    ['官報の行の判定を変える', mut(AUD, /\| 問題なし \| 名を変えていない（日本語と英語） \|/, '| 根拠不足 | 名を変えていない（日本語と英語） |')],
+    ['判定の数を変える', mut(AUD, '判定は、誤り 0 件、根拠不足 1 件、漏れ 1 件、表現 0 件、問題なし 6 件で、合わせて 8 件です。', '判定は、誤り 0 件、根拠不足 1 件、漏れ 1 件、表現 0 件、問題なし 5 件で、合わせて 8 件です。')],
+    ['見張りにない条を挙げる', mut(AUD, '| 官報の発行に関する法律第16条 |', '| 官報の発行に関する法律第17条 |')],
+    ['決めた理由を外す', mut(AUD, '名の使用に掛かる罰則もないためです。', '名の使用に掛かる罰則もありません。')],
+    ['取り寄せの実行を外す', mut(AUD, '取り寄せの実行は 43332854142 で、', '取り寄せの実行は、')],
+    ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n\n## 調べた法令')],
+    ['規約を時刻なしの写しから取り寄せる', mut('tools/sources.js', "url: '" + IA_URL + "'", "url: 'https://web.archive.org/web/2024id_/https://archive.org/about/terms.php'")],
+    ['規約の全文の SHA-256 を変える', withRaw((s) => { s['ia-terms-archived'].sha256_full = '0'.repeat(64); })],
+    ['規約の引いた箇所を外す', withRaw((s) => { s['ia-terms-archived'].spans = s['ia-terms-archived'].spans.slice(1); })],
+    ['規約の全文の窓を記す', withRaw((s) => { s['ia-terms-archived'].windows = ['the whole text']; })],
+    ['規約の引用を一字変える', mut('verification/sources.json', 'for scholarship and research purposes only.', 'for scholarship and research purposes.')],
+    ['記録の規約の引用を外す', mut(AUD, '<!-- 原文 Internet Archive の利用規約（個人データ） -->', '<!-- 原文 なし -->')],
+    ['いまの規約を取り寄せられなかった文から外す', mut(AUD, /\n- Internet Archive のいまの利用規約。[^\n]*/, '')],
+    ['号から創作の断りを外す', Object.assign({}, real, { gz: Object.assign({}, real.gz, { [first]: real.gz[first].replace(DISCLAIM, '') }) })],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：見張りの条・条文・罰則の条・記録の条文・官報の行の判定・判定の数・見張りにない条・決めた理由・取り寄せの実行・弁護士の文・規約の写しの時刻・全文の SHA-256・引いた箇所・窓・引用・記録の引用・取り寄せられなかった文・号の断りのどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 console.log('\n' + '-'.repeat(56));
