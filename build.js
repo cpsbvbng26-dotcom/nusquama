@@ -843,7 +843,7 @@ function notFound() {
 }
 
 /* llms.txt と llms-full.txt（llms.txt の提案、https://llmstxt.org/）。言語モデルを通して調べる人に、規程を
- * そのままの言葉で渡す。llms.txt は断りと、願い出ることができる人・費用・称号の扱い・求め方の節（規程から一字一句そのまま）と、
+ * そのままの言葉で渡す。llms.txt は断りと、願い出ることができる人・受付の停止・費用・称号の扱い・求め方の節（規程から一字一句そのまま）と、
  * すべての頁へのリンク。llms-full.txt は、すべての頁の元の Markdown を一字一句そのまま収める。どちらも手で書かない。 */
 const h1 = (rel) => (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, rel), 'utf8')) || [])[1];
 function section(rel, heading) {
@@ -872,6 +872,7 @@ function llmsTxt() {
     + DOMAIN_LINE() + '\n\n'
     + '規程が決まりです。このファイルと規程が食い違うときは、規程に従います。日本語の版が正で、英語の頁は訳です。すべての頁の全文は [llms-full.txt](' + BASE + 'llms-full.txt) にあります。\n\n'
     + section('policies/knighting.md', '願い出ることができる人') + '\n\n'
+    + section('policies/knighting.md', '受付の停止') + '\n\n'
     + section('policies/terms.md', '費用') + '\n\n'
     + section('policies/terms.md', '称号の扱い') + '\n\n'
     + section('policies/requests.md', '求め方') + '\n\n'

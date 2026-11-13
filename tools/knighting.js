@@ -38,13 +38,14 @@ const FOREIGN_FROM = '2026-11-22';
 const FOREIGN = '次の国の国籍を持っていません：';
 const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
-/* 受付に戻す決め。null のあいだは、どの日に開かれた願い出も受けない（日付では終わらない）。
+/* 受付に戻す決め。null のあいだは受付を閉じており、どの日に開かれた願い出も受けない（日付では終わらない）。
+ * 2026-11-13 に利用者が法的リスクを限りなく小さくするよう求め、Claude が決めた：受付に戻る日を置かない。
  * 戻すときは { at: '<受付に戻る時刻（日本時間、+09:00）>', record: '<点検の記録で停止を解く行の「箇所」の欄の文>' } を書く。
  * 検査 63 が確かめる：at は改めた規程の効力の日（2026-11-22 0 時）より前でない。record の行が点検の記録の表にあり、
  * その行が at の日付と「受付に戻す」を書いている。2026-11-13 に Claude が決めた。 */
 const REOPEN = null;
-const PAUSE_TEXT = '2026-11-12 から、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。イタリアの法令の一点を確かめているためです。この願い出は受けず、この issue を閉じます。受付に戻る日は、確かめた結果を記録に記したうえで、叙任の規程で示します。受付に戻ってから、新しい issue を開いて願い出ることができます。';
-const PAUSE_TEXT_EN = 'Since 2026-11-12, applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"), while a point of Italian law is being checked. This application is not accepted, and this issue is closed. The day applications reopen will be shown in the Rules on Knighting after the result of the check is recorded. Once applications reopen, a new issue may be opened to apply.';
+const PAUSE_TEXT = '2026-11-12 から、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻る日は決めていません。この願い出は受けず、この issue を閉じます。';
+const PAUSE_TEXT_EN = 'Since 2026-11-12, applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"), because a point of Italian law concerning conferral is not settled by the texts. No date for reopening has been set. This application is not accepted, and this issue is closed.';
 
 /* 純：受付に戻す決めが、点検の記録の行に拠っているか。拠っていれば null、いなければ理由。
  * record は点検の記録の文（docs/legal-audit-2026-11-12.md）。 */
