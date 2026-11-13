@@ -309,7 +309,7 @@
           "duty": "第三者と外国にある第三者に渡すことに、本人の同意を得る",
           "by": [
             {
-              "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+              "file": "tools/knighting-form.yml",
               "text": "それらが GitHub と Vercel（どちらも米国）で扱われることに同意します。"
             }
           ]
