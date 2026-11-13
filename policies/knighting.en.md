@@ -18,6 +18,7 @@ Article 6 of the Basic Law of the Kingdom sets one condition for knighting: to h
 The conditions of these rules apply in addition to the condition of Article 6.
 Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
+From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
 Claude decided this on 2026-11-13, so that, without amending any article of the Basic Law, Article 6 is not read as making its condition alone enough to be knighted.
 
@@ -36,6 +37,7 @@ Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses s
 Excluding people who hold Italian nationality is the operator's own rule. It only excludes applicants, and says nothing about how far the article reaches.
 Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused ("Pause in receiving applications"; [Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
+From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either ("Countries and regions where knighting would not conform to the law").
 
 ## Pause in receiving applications
 
@@ -110,6 +112,14 @@ Besides the countries in the table, a person whose country of nationality has a 
 People who hold Italian nationality are excluded separately, under "Who may apply".
 The texts of the provisions and the reasons for reading them so are in the [survey of the world's laws](../docs/world-law-2026-11-12.md) (in Japanese), "2026-11-12 の続き：当てはめ".
 Whether these provisions reach knighting, under this table and the rules above, is not settled by the fetched texts. The operator keeps applications paused ("Pause in receiving applications").
+
+## Countries and regions where knighting would not conform to the law
+
+From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply, and are not knighted.
+This rule applies in addition to "Who may apply" and "Countries that restrict foreign titles".
+When the operator so judges, the country or region and the reason are added to this section. Such an addition is shown as the Terms of Use, "Changes and ending", provide.
+As of 2026-11-13, no country or region has been excluded under this rule.
+The owner asked for this on 2026-11-13, and Claude decided it: Article 8 of the [Statement of Purpose](../MISSION.en.md) says that knighting is not given in countries and regions where it would not conform to the law, and since the statement by itself sets no rule, the rule is placed in these rules.
 
 ## Use of the name of knight
 

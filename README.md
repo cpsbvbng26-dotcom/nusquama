@@ -117,9 +117,32 @@
 2026-11-22 から、外国の称号を受けることを縛る国の国籍を持つ人も、願い出ることができません（[叙任の規程](policies/knighting.md)「外国の称号を縛る国」）。
 2026-11-22 から、騎士の呼び名は、ヌスクァマに関わることにだけ使います（[叙任の規程](policies/knighting.md)「騎士の呼び名の使い方」）。
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
+2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（[叙任の規程](policies/knighting.md)「法令に適合しない国と地域」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
 ただし、訂正へのリンクの先から、身元が分かることがあります。
 叙任は創作の中のことで、法的な効力も、現実の栄誉もありません。
+
+---
+
+## 運営理念・声明
+
+運営の考え方は、[運営理念・声明](MISSION.md)にまとめています。下の第 1 条と第 2 条は、声明の文をそのまま写したものです。
+全文は、サイトの[運営理念・声明](https://nusquama.vercel.app/mission.html)と、このリポジトリの [MISSION.md](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/MISSION.md) にあります。英語の訳は [Statement of Purpose](MISSION.en.md) です。
+
+### 第 1 条（目的）
+
+1. ヌスクァマは、運営者が遊びとして書いている創作です。娯楽のために作った架空の国で、学術の研究ではありません。
+2. 国是は「誤りは守り、己を治める」です。王は自らの誤りを消さず、日付を付けて[王の正誤表](ERRATA.md)に記します。王の正誤表は、この国の版図です（王国基本法第三条・第五条）。
+3. 運営者は、この創作を、誰からも料金を取らずに運営します。
+4. それによって、誤りを消さずに残し、公に正すことを、創作の国の遊びとして示すことを目的としています。
+
+### 第 2 条（この声明の性格）
+
+1. この声明は、運営の考え方を述べたものです。
+2. この声明は、[利用規約](policies/terms.md)と各規程の条項ではありません。それ自体で、運営者にも、読む人・叙任を願い出る人・騎士その他の人にも、権利や義務を生じさせません。
+3. この声明と、利用規約・各規程とが食い違うときは、利用規約・各規程が適用されます。
+4. 第 1 条の目的は、運営者が目指すものです。目的がかなうことを、約束も保証もしません。
+5. この声明は、法的な助言ではありません。
 
 ---
 
@@ -169,6 +192,7 @@
 | 2026-11-13（日本時間） | 適法性の説明と叙任の規程で、条文から決まらない点について運営者の立場を書いていた文を、条文からは決まらないことと受付を止めていることに改める（王の正誤表 41）。官報の第 48 号に、のちに改めたことを示す注を添える | In the Legality Statement and the Rules on Knighting, the sentences that stated the operator's position on points the texts do not settle now say that the texts do not settle them and that applications are paused (King's errata 41). Gazette No. 48 gains a note that it was later changed |
 | 2026-11-13（日本時間） | 削除・訂正・辞退の求めの、様式を使わない issue は開けないとした文を、GitHub の画面では様式だけを選べるようにしてあり、ほかの道で開かれた issue は運営者が読むと改める。自動の確認は、受付の停止のあいだに開かれ、叙任の願い出の様式の見出しや印を持つラベルのない issue も、叙任の願い出と同じに扱う。叙任の規程と適法性の説明で、イタリアの外で称号を使う国民に使う者の罰が及ぶとした文と、GDPR の代理人について第27条第2項 (a) に拠った文を改める（王の正誤表 42・43・44）。王の正誤表 25・26・30・33・34 に、のちに改めたことを示す注を添える | The sentence in the Requests page saying that issues cannot be opened without a form now says that only the forms are offered on GitHub's web pages, and that an issue opened another way is read by the operator. The automatic check handles an issue without a label in the same way as an application if it was opened during the pause and carries the headings or boxes of the application form. In the Rules on Knighting and the Legality Statement, the sentences saying that the penalty for use reaches a national who uses the title outside Italy, and the sentences relying on Article 27(2)(a) of the GDPR for the representative, are corrected (King's errata 42, 43 and 44). King's errata 25, 26, 30, 33 and 34 gain a note that they were later changed |
 | 2026-11-13（日本時間） | 個人情報の取り扱いの、ほかに写しを作らないとした文を、GitHub の通知が issue の中身の写しを受け取るアカウント（運営者のものを含みうる）に届けうることと、その扱いは GitHub の規約と方針に従うこと、運営者はこれとは別に写しを作らないことを書く形に改める。保存の期間に、通知が電子メールでも届くことと、届いた写しが消えるとは説明書が書いていないことを書く（王の正誤表 45） | In the Privacy page, the sentence saying that no other copy is made now says that GitHub's notifications may carry a copy of the content of an issue to the accounts that receive them (which may include the operator's), that this copy is handled under GitHub's terms and policies, and that apart from this the operator makes no copy. "How long data is kept" now says that notifications also arrive by email, and that the documentation does not say that a copy already delivered goes away (King's errata 45) |
+| 2026-11-13（日本時間） | 運営理念・声明を置き、トップの頁と規程の一覧からつなぐ。叙任の規程に、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人・住む人・願い出のときにいる人は願い出ることができないことと、そう判断したときはその国や地域と理由を書き足すことを書き、利用規約で予告する | A Statement of Purpose is added and linked from the top page and the list of rules. The Rules on Knighting state that, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to its law may not apply, and that the country or region and the reason are then added; the Terms of Use give notice |
 
 ---
 
@@ -183,11 +207,13 @@
 - [適法性の説明](policies/legality.md)
 - [交流の規程](policies/exchange.md)
 
+運営の考え方は、[運営理念・声明](MISSION.md)にあります。声明は規程ではなく、決まりは規程です。
+
 国のしるし（国章・国旗・版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 国の成り立ちは[建国の物語](STORY.md)に、国の名や制度に使うラテン語は[国の言葉](LEXICON.md)に、機関と手続きは[国の仕組み](INSTITUTIONS.md)にあります。
 紹介に使う文と数は[紹介する人のために](PRESS.md)に、正誤表の雛形と問いは[遊び](PLAY.md)にあります。
 
-English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md) / [Story of the founding](STORY.en.md) / [Words of the kingdom](LEXICON.en.md) / [Institutions](INSTITUTIONS.en.md) / [For anyone introducing Nusquama](PRESS.en.md) / [Play](PLAY.en.md)
+English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Statement of Purpose](MISSION.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md) / [Story of the founding](STORY.en.md) / [Words of the kingdom](LEXICON.en.md) / [Institutions](INSTITUTIONS.en.md) / [For anyone introducing Nusquama](PRESS.en.md) / [Play](PLAY.en.md)
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
