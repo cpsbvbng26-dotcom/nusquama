@@ -1752,8 +1752,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-16).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-17).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -3921,11 +3921,154 @@ console.log('\n80. 個人情報の取り扱いは、GitHub の通知が issue �
     ['記録の引用を一字変える', mut(AUD, 'that you create and are owned by your personal account.', 'that you create and are owned by your organization.')],
     ['記録の判定の数を変える', mut(AUD, '判定は、表現 1 件、漏れ 3 件、問題なし 2 件で、合わせて 6 件です。', '判定は、表現 1 件、漏れ 2 件、問題なし 2 件で、合わせて 5 件です。')],
     ['記録から確かめていない設定を外す', mut(AUD, '運営者のアカウントの通知の設定は、確かめていません。', '運営者のアカウントは、通知を受け取りません。')],
-    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-13：運営理念・声明', '\n## 2026-11-13：運営理念・声明')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([n]) => n);
   ok('壊して確かめる：安全のための措置（日本語と英語）・保存の期間（日本語と英語）・生成した頁・llms-full.txt・ほかの規程・王の正誤表 45（日本語と英語）・年表・記録の SHA-256 と引用と件数と確かめていない設定と弁護士の文、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
+}
+
+console.log('\n81. 運営理念・声明：拘束しない声明、国の数、法令に適合しない国と地域（2026-11-29 から）、README の写し、紛争への対応（2026-11-13）');
+{
+  /* 2026-11-13 に利用者が求め、Claude が書いた（点検の記録「2026-11-13：運営理念・声明」）。
+   * 一、声明（日本語と英語）は、第 2 条の性格の文（規約と規程の条項でない・権利も義務も生じさせない・規約と規程が適用される・目的は約束でない・助言でない）、
+   *     第 8 条の定め、第 13 条の紛争への対応を持つ。
+   * 二、声明が書く国の数は、叙任の規程の「外国の称号を縛る国」の表の行の数とイタリアから数えた数と同じ（決めごと 5）。
+   * 三、叙任の規程と利用規約（日本語と英語）が、2026-11-29 からの定めと予告を持ち、生成した頁と llms-full.txt にも出る。効力の日は、2026-11-14 に公開されても、前に満 14 日を置く。
+   * 四、README の節は、声明の第 1 条と第 2 条を一字一句そのまま写し、サイトの頁とリポジトリのファイルと英語の訳へつなぐ。README の規程の一覧と英語の行も声明へつなぐ。
+   * 五、声明と README とその生成した頁は、弁護士に依頼している・弁護士が付く・弁護士が確かめたと読める文を、第 13 条の打ち消しの文のほかに持たない。
+   * 六、年表の行、記録の節（表の形・件数・決めた者・取り寄せた条文の引用・弁護士の文）がそろう。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const AUD = 'docs/legal-audit-2026-11-12.md', HEAD = '\n## 2026-11-13：運営理念・声明\n';
+  const KINDS81 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const EFFECTIVE = '2026-11-29', LATEST_PUBLISH = '2026-11-14';
+  const files = ['MISSION.md', 'MISSION.en.md', 'README.md', 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md',
+    'site/mission.html', 'site/mission.en.html', 'site/index.html', 'site/policies/knighting.html', 'site/policies/knighting.en.html', 'site/policies/terms.html', 'site/policies/terms.en.html',
+    'site/llms.txt', 'site/llms-full.txt', 'site/sitemap.xml', AUD];
+  const x0 = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const NATURE_JA = ['1. この声明は、運営の考え方を述べたものです。',
+    '2. この声明は、[利用規約](policies/terms.md)と各規程の条項ではありません。それ自体で、運営者にも、読む人・叙任を願い出る人・騎士その他の人にも、権利や義務を生じさせません。',
+    '3. この声明と、利用規約・各規程とが食い違うときは、利用規約・各規程が適用されます。', '4. 第 1 条の目的は、運営者が目指すものです。目的がかなうことを、約束も保証もしません。', '5. この声明は、法的な助言ではありません。'];
+  const NATURE_EN = ["1. This statement sets out the operator's thinking about how Nusquama is run.",
+    '2. This statement is not a provision of the [Terms of Use](policies/terms.en.md) or of any of the rules. By itself it creates no rights or obligations, for the operator or for readers, applicants for knighting, knights or anyone else.',
+    '3. Where this statement and the Terms of Use or a rule differ, the Terms of Use or the rule applies.', '4. The purpose in Article 1 is what the operator aims for. It is neither a promise nor a guarantee that the purpose will be achieved.', '5. This statement is not legal advice.'];
+  const DISPUTE_JA = ['1. 運営者は、現在、弁護士その他の専門家に依頼していません。この声明と利用規約・各規程は、弁護士の確認を受けていません。', '2. 紛争が生じたときは、運営者は、必要に応じて弁護士その他の専門家に相談したうえで対応します。',
+    '3. 対応は、日本の法令（国際的な事件の裁判管轄と準拠法についての定めを含みます）と、利用規約「準拠法と紛争」の定めに沿います。', '4. この条は、誰かに対する警告ではありません。'];
+  const DISPUTE_EN = ['1. At present, the operator has not retained a lawyer or any other professional. This statement, the Terms of Use and the rules have not been reviewed by a lawyer.', '2. If a dispute arises, the operator will respond after consulting a lawyer or other professional as needed.',
+    '3. The response follows the laws of Japan (including their provisions on international jurisdiction and on the governing law) and the Terms of Use, "Governing law and disputes".', '4. This article is not a warning to anyone.'];
+  /* 利用規約「準拠法と紛争」が、第 13 条第 3 項の拠る二つの定めを持つ（声明は準拠法を新しく定めない）。 */
+  const GOV_JA = ['この規約は日本法に準拠します。', '紛争は、示談による解決を優先します。'], GOV_EN = ['These terms are governed by Japanese law.', 'Disputes are to be settled by agreement first.'];
+  const RULE_JA = '2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人は、願い出ることができず、叙任しません。';
+  const RULE_EN = 'From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply, and are not knighted.';
+  const ADD_JA = '運営者がそう判断したときは、その国や地域と理由を、この節に書き足します。書き足すときは、利用規約「変更と終了」の定めに沿って示します。';
+  const ADD_EN = 'When the operator so judges, the country or region and the reason are added to this section. Such an addition is shown as the Terms of Use, "Changes and ending", provide.';
+  const NOTICE_JA = '予告：2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人は、';
+  const NOTICE_EN = 'Notice: from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform';
+  /* 弁護士に依頼している・付く・確かめたと読める言い方。第 13 条第 1 項の打ち消しの文だけは除く。 */
+  const LAWYER_JA = /弁護士が(?:つく|付く|ついて|付いて|確認|監修|顧問)/, LAWYER_EN = /our lawyers|legal counsel will|reviewed by (?:a )?lawyer|retained/i;
+  const ALLOWED = [DISPUTE_JA[0].slice(3), DISPUTE_EN[0].slice(3)];
+  const sec = (txt, head) => { const i = txt.indexOf('\n## ' + head + '\n'); if (i < 0) return ''; const j = txt.indexOf('\n## ', i + 5); return txt.slice(i, j < 0 ? undefined : j); };
+  const items = (s) => s.split('\n').filter((l) => /^\d+\. /.test(l));
+  const unq = (s) => s.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+  const plain = (s) => unq(s.replace(/<[^>]+>/g, ''));
+  const strip = (l) => l.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+  const sentences = (t) => t.split(/\n+/).flatMap((l) => l.split(/(?<=。)|(?<=\.)\s+(?=[A-Z0-9"(])/)).map((z) => z.replace(/^\d+\.\s*/, '').trim()).filter(Boolean);
+  const ALLOWED_S = ALLOWED.flatMap(sentences);
+  function verdict(x) {
+    const bad = [];
+    const mj = x['MISSION.md'], me = x['MISSION.en.md'];
+    if (!mj.startsWith('# 運営理念・声明\n\n最終更新：') || !mj.includes('\n> これは創作であり、遊びです。ヌスクァマは国家ではなく、')) bad.push('声明の題と創作の断り');
+    if (!me.startsWith('# Statement of Purpose\n\nLast updated: ') || !me.includes('This is an English translation. The [Japanese version](MISSION.md) governs; if the two differ, the Japanese version applies.')) bad.push('英語の声明の題と訳の断り');
+    const nj = items(sec(mj, '第 2 条（この声明の性格）')), ne = items(sec(me, 'Article 2 (Nature of this statement)'));
+    if (JSON.stringify(nj) !== JSON.stringify(NATURE_JA)) bad.push('第 2 条');
+    if (JSON.stringify(ne) !== JSON.stringify(NATURE_EN)) bad.push('Article 2');
+    if (!sec(mj, '第 1 条（目的）').includes('を目的としています。') || !sec(me, 'Article 1 (Purpose)').includes('the operator aims to')) bad.push('第 1 条の目的の言い方');
+    const dj = items(sec(mj, '第 13 条（紛争への対応）')), de = items(sec(me, 'Article 13 (Responding to disputes)'));
+    if (!DISPUTE_JA.every((s, k) => (dj[k] || '').startsWith(s)) || dj.length !== 4) bad.push('第 13 条');
+    if (!DISPUTE_EN.every((s, k) => (de[k] || '').startsWith(s)) || de.length !== 4) bad.push('Article 13');
+    if (!GOV_JA.every((s) => sec(x['policies/terms.md'], '準拠法と紛争').includes('\n' + s + '\n')) || !GOV_EN.every((s) => sec(x['policies/terms.en.md'], 'Governing law and disputes').includes('\n' + s + '\n'))) bad.push('利用規約の準拠法と紛争');
+    /* 国の数：イタリアと、外国の称号を縛る国の表の行。 */
+    const kj = x['policies/knighting.md'], ke = x['policies/knighting.en.md'];
+    const table = sec(kj, '外国の称号を縛る国').split('\n').filter((l) => /^\| (?!国 \||---)/.test(l)).length;
+    const n = table + 1;
+    if (table < 1 || !sec(kj, '外国の称号を縛る国').includes('次の表の ' + table + ' か国') || !sec(ke, 'Countries that restrict foreign titles').includes('any of the ' + table + ' countries in the table below')) bad.push('叙任の規程の表の数');
+    if (!sec(mj, '第 8 条（叙任と、叙任しない国と地域）').includes('国籍で除く国は、2026-11-13 の時点で ' + n + ' か国です。イタリアと、叙任の規程「外国の称号を縛る国」の表の ' + table + ' か国です。')) bad.push('声明の国の数');
+    if (!sec(me, 'Article 8 (Knighting, and the countries and regions where knighting is not given)').includes('As of 2026-11-13 the countries excluded by nationality number ' + n + ': Italy, and the ' + table + ' countries in the table')) bad.push('英語の声明の国の数');
+    if (!/叙任しない国と地域の数は、法令の変化や運営者の判断によって増えることがあります。/.test(mj) || !/叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人/.test(sec(mj, '第 8 条（叙任と、叙任しない国と地域）'))) bad.push('第 8 条の定め');
+    if (!sec(me, 'Article 8 (Knighting, and the countries and regions where knighting is not given)').includes('a country or region where the operator has judged that knighting would not conform to the law')) bad.push('Article 8');
+    /* 叙任の規程と利用規約の定めと予告。効力の日は、遅れて公開されても、前に満 14 日を置く。 */
+    const nk = sec(kj, '法令に適合しない国と地域'), nke = sec(ke, 'Countries and regions where knighting would not conform to the law');
+    if (!nk.includes('\n' + RULE_JA + '\n') || !nk.includes('\n' + ADD_JA + '\n') || !nk.includes('[運営理念・声明](../MISSION.md)')) bad.push('叙任の規程の節');
+    if (!nke.includes('\n' + RULE_EN + '\n') || !nke.includes('\n' + ADD_EN + '\n')) bad.push('英語の叙任の規程の節');
+    if (!sec(kj, '願い出ることができる人').includes('（「法令に適合しない国と地域」）') || !sec(ke, 'Who may apply').includes('("Countries and regions where knighting would not conform to the law")')) bad.push('願い出ることができる人');
+    if (!sec(x['policies/terms.md'], '変更と終了').includes('\n' + NOTICE_JA) || !sec(x['policies/terms.en.md'], 'Changes and ending').includes('\n' + NOTICE_EN)) bad.push('利用規約の予告');
+    const days = (Date.parse(EFFECTIVE) - Date.parse(LATEST_PUBLISH)) / 86400000 - 1;
+    if (days < 14 || ![RULE_JA, NOTICE_JA, RULE_EN, NOTICE_EN].every((s) => s.includes(EFFECTIVE))) bad.push('効力の日の前の日数（' + days + '）');
+    const hk = plain(x['site/policies/knighting.html']), hke = plain(x['site/policies/knighting.en.html']), lf = x['site/llms-full.txt'];
+    if (!hk.includes(RULE_JA) || !hke.includes(RULE_EN) || !plain(x['site/policies/terms.html']).includes(NOTICE_JA) || !plain(x['site/policies/terms.en.html']).includes(NOTICE_EN)) bad.push('生成した規程の頁');
+    if (!lf.includes(RULE_JA) || !lf.includes(RULE_EN) || !lf.includes('Source: ' + B.BASE + 'mission.html\n\n' + mj.trim() + '\n') || !lf.includes('Source: ' + B.BASE + 'mission.en.html\n\n' + me.trim() + '\n')) bad.push('llms-full.txt');
+    if (!x['site/llms.txt'].includes('(' + B.BASE + 'mission.html)') || !x['site/llms.txt'].includes('(' + B.BASE + 'mission.en.html)') || !x['site/sitemap.xml'].includes('<loc>' + B.BASE + 'mission.html</loc>')) bad.push('llms.txt とサイトマップ');
+    /* README の写し。 */
+    const r = x['README.md'], rs = sec(r, '運営理念・声明');
+    const sub = (s, h) => { const i = s.indexOf('\n### ' + h + '\n'); if (i < 0) return null; const j = s.indexOf('\n### ', i + 5); return items(s.slice(i, j < 0 ? undefined : j)); };
+    if (JSON.stringify(sub(rs, '第 1 条（目的）')) !== JSON.stringify(items(sec(mj, '第 1 条（目的）'))) || JSON.stringify(sub(rs, '第 2 条（この声明の性格）')) !== JSON.stringify(nj) || !nj.length) bad.push('README の第 1 条と第 2 条');
+    if (!rs.includes('(https://nusquama.vercel.app/mission.html)') || !rs.includes('(https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/MISSION.md)') || !rs.includes('(MISSION.en.md)')) bad.push('README の節のリンク');
+    if (!sec(r, '規程').includes('[運営理念・声明](MISSION.md)にあります。声明は規程ではなく、決まりは規程です。') || !sec(r, '規程').includes('[Statement of Purpose](MISSION.en.md)')) bad.push('README の規程の一覧');
+    if (!plain(x['site/index.html']).includes(strip(nj[1]).slice(3))) bad.push('トップの頁の写し');
+    /* 弁護士の言い方。 */
+    for (const f of ['MISSION.md', 'MISSION.en.md', 'README.md', 'site/mission.html', 'site/mission.en.html', 'site/index.html']) {
+      const txt = f.endsWith('.html') ? plain(x[f].replace(/<\/(?:p|li|h\d|td|th|blockquote)>/g, '\n')) : x[f];
+      for (const s of sentences(txt)) if ((LAWYER_JA.test(s) || LAWYER_EN.test(s)) && !ALLOWED_S.includes(s)) bad.push(f + '：' + s.slice(0, 30));
+    }
+    /* 年表と記録。 */
+    if (!r.includes('| 2026-11-13（日本時間） | 運営理念・声明を置き、トップの頁と規程の一覧からつなぐ。') || !r.includes('| A Statement of Purpose is added and linked from the top page and the list of rules.')) bad.push('年表');
+    const a = x[AUD], i = a.indexOf(HEAD), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const s = i < 0 ? '' : a.slice(i, j);
+    if (!s || a.indexOf('\n## 調べた法令\n') < i) bad.push('記録の節');
+    const rows = s.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 9 || !rows.every((y) => y.length === 6 && KINDS81.includes(y[4]))) bad.push('記録の表の形');
+    const counted = KINDS81.filter((k) => rows.some((y) => y[4] === k)).map((k) => k + ' ' + rows.filter((y) => y[4] === k).length + ' 件');
+    const m = /判定は、([^。]+)で、合わせて (\d+) 件です。/.exec(s);
+    if (!m || m[1].split('、').slice().sort().join() !== counted.slice().sort().join() || Number(m[2]) !== rows.length) bad.push('記録の判定の数');
+    if (!rows.every((y) => /2026-11-13 に利用者が求め、Claude が(?:書き|決め)ました。[^|]*ためです$/.test(y[5]))) bad.push('記録の決めた者と理由');
+    if (!rows.some((y) => y[0].startsWith('運営理念・声明 第 13 条') && y[5].includes('2026-11-13 に利用者が求め、Claude が決めました。'))) bad.push('記録の第 13 条の行');
+    const q = (/\n> (２ 定型約款準備者は[^\n]+)\n/.exec(s) || [])[1];
+    if (!q || !JSON.parse(read('verification/statutes-texts.json'))['民法 第548条の4'].includes(q)) bad.push('記録の条文の引用');
+    if (!s.includes('効力の日は ' + EFFECTIVE + ' としました。2026-11-13 に Claude が決めました。')) bad.push('記録の効力の日');
+    if (!s.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(s)) bad.push('記録の弁護士の文');
+    return bad;
+  }
+  const now = verdict(x0);
+  ok('運営理念・声明（日本語と英語）が拘束しない性格・目的・国の数・法令に適合しない国と地域・紛争への対応を持ち、叙任の規程と利用規約が 2026-11-29 からの定めと予告を持ち、README が第 1 条と第 2 条をそのまま写し、弁護士が付くとは書かない。年表と記録の節がそろう',
+    now.length === 0, now.slice(0, 6).join(' / '));
+  const mut = (f, a, b) => { if (!x0[f].includes(a)) throw new Error('検査 81 の壊し方が当たらない：' + f + '：' + a.slice(0, 30)); return Object.assign({}, x0, { [f]: x0[f].replace(a, b) }); };
+  const breaks = [
+    ['第 2 条から権利も義務も生じさせない文を外す', mut('MISSION.md', 'それ自体で、運営者にも、読む人・叙任を願い出る人・騎士その他の人にも、権利や義務を生じさせません。', '')],
+    ['英語の第 2 条の約束でない文を約束にする', mut('MISSION.en.md', 'It is neither a promise nor a guarantee that the purpose will be achieved.', 'The operator promises that the purpose will be achieved.')],
+    ['声明の国の数を変える', mut('MISSION.md', '2026-11-13 の時点で 19 か国です。', '2026-11-13 の時点で 43 か国です。')],
+    ['英語の声明の国の数を変える', mut('MISSION.en.md', 'number 19: Italy', 'number 20: Italy')],
+    ['表に国を足して声明を直さない', mut('policies/knighting.md', '| メキシコ | Mexico 1917 (rev. 2015) Article 37 | 型 2 |', '| メキシコ | Mexico 1917 (rev. 2015) Article 37 | 型 2 |\n| どこか | 何かの条 | 型 1 |')],
+    ['叙任の規程から新しい定めを外す', mut('policies/knighting.md', RULE_JA + '\n', '')],
+    ['英語の叙任の規程から書き足す文を外す', mut('policies/knighting.en.md', ADD_EN + '\n', '')],
+    ['利用規約から予告を外す', mut('policies/terms.md', NOTICE_JA, '')],
+    ['生成した叙任の規程の頁から定めを外す', mut('site/policies/knighting.html', '願い出ることができず、叙任しません。', '')],
+    ['README の第 1 条の写しを一字変える', mut('README.md', '3. 運営者は、この創作を、誰からも料金を取らずに運営します。', '3. 運営者は、この創作を、誰からも料金を取らずに運営しています。')],
+    ['README から声明のファイルへのリンクを外す', mut('README.md', '(https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/MISSION.md)', '(MISSION.md)')],
+    ['声明に弁護士が付くと書く', mut('MISSION.md', '4. この条は、誰かに対する警告ではありません。', '4. 訴えられたときは、国際法と日本法の弁護士が付きます。弁護士が付いて対応します。')],
+    ['英語の声明に弁護士を雇っていると書く', mut('MISSION.en.md', '4. This article is not a warning to anyone.', '4. Our lawyers will handle any claim.')],
+    ['README に弁護士が確認したと書く', mut('README.md', '5. この声明は、法的な助言ではありません。\n\n---', '5. この声明は、法的な助言ではありません。\n\n弁護士が確認しました。\n\n---')],
+    ['英語の第 13 条の打ち消しを外す', mut('MISSION.en.md', 'At present, the operator has not retained a lawyer', 'At present, the operator has retained a lawyer')],
+    ['第 13 条の依頼していない文を外す', mut('MISSION.md', '運営者は、現在、弁護士その他の専門家に依頼していません。', '')],
+    ['利用規約から準拠法の文を外す', mut('policies/terms.en.md', 'These terms are governed by Japanese law.\n', '')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 運営理念・声明を置き、', '| 2026-11-13（日本時間） | 運営の声明を置き、')],
+    ['記録の判定の数を変える', mut(AUD, '判定は、問題なし 9 件で、合わせて 9 件です。', '判定は、問題なし 8 件で、合わせて 8 件です。')],
+    ['記録の条文の引用を一字変える', mut(AUD, '> ２ 定型約款準備者は、前項の規定による定型約款の変更をするときは、', '> ２ 定型約款準備者は、前項の規定による定型約款の変更をするときに、')],
+    ['記録から決めた者を外す', mut(AUD, '2026-11-13 に利用者が求め、Claude が決めました。依頼していない弁護士が', '依頼していない弁護士が')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：第 2 条（日本語と英語）・国の数（日本語と英語と表）・叙任の規程と利用規約と生成した頁・README の写しとリンク・弁護士の言い方（日本語と英語と README）・第 13 条・準拠法・年表・記録の数と引用と決めた者と弁護士の文、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));
