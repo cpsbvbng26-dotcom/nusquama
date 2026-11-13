@@ -462,6 +462,12 @@ function readLedger() {
 }
 /* 行の鍵。年表の行は日付と文から、正誤と叙任と記念の号は番から作る。年表の文を書き換えると鍵が変わり、検査が台帳との食い違いを見つける。 */
 const timelineKey = (date, text) => 'T:' + date + ':' + crypto.createHash('sha256').update(text, 'utf8').digest('hex').slice(0, 12);
+/* のちに改めた年表の行（鍵 → 改めた行の鍵）。行の文は書き換えず、布告に「のちに改めた」の注を添える。辞退した騎士の号と同じく、鍵も号も動かさない。
+ * 注の号は、改めた行の号を台帳から引く。README の行も同じ注を行の終わりに持ち、鍵は注を除いた文から作る。検査 78 が確かめる。
+ * 2026-11-13 に足した（点検の記録「2026-11-13：十四度目の見落とし」）。第 48 号は 2026-11-22 0 時にひとりでに受付に戻ると布告したが、その日を待たずに、受付に戻る日を置かない形に改めた。 */
+const LATER = { 'T:2026-11-12:d137857349df': 'T:2026-11-13:c3e520751428' };
+const LATER_JA = /（のちに改めた：第 \d+ 号）$/, LATER_EN = / \(Later changed: No\. \d+\)$/;
+const laterNote = (key, ledger, en) => (Object.prototype.hasOwnProperty.call(LATER, key) && ledger[LATER[key]] ? (en ? ' (Later changed: No. ' + ledger[LATER[key]] + ')' : '（のちに改めた：第 ' + ledger[LATER[key]] + ' 号）') : '');
 
 /* 官報の号。src で年表・正誤表・名簿の行と台帳を差し替えられる（検査が、まだない行で号の振り方を確かめるため）。
  * 号は古い順に 1 から振る。台帳にある行は台帳の号のまま、ない行は台帳の最後の号の次から、日付の古い順に振る。
@@ -469,7 +475,10 @@ const timelineKey = (date, text) => 'T:' + date + ':' + crypto.createHash('sha25
 function gazetteItems(src = {}) {
   const ledger = src.ledger || readLedger();
   const timeline = src.timeline || timelineRows(), errata = src.errata || tableRows('ERRATA.md'), knights = src.knights || tableRows('KNIGHTS.md');
-  const items = timeline.map(([d, what, en]) => ({ date: d.slice(0, 10), kind: '年表', kindEn: 'Timeline', text: plainText(what), textEn: plainText(en || ''), from: 'README.md', fromEn: 'founding.en.md', key: timelineKey(d.slice(0, 10), plainText(what)) }))
+  const items = timeline.map(([d, what, en]) => {
+    const ja = plainText(what).replace(LATER_JA, ''), ena = plainText(en || '').replace(LATER_EN, ''), key = timelineKey(d.slice(0, 10), ja);
+    return { date: d.slice(0, 10), kind: '年表', kindEn: 'Timeline', text: ja + laterNote(key, ledger), textEn: ena + laterNote(key, ledger, true), from: 'README.md', fromEn: 'founding.en.md', key };
+  })
     .concat(errata.flatMap((r) => [{ date: r[1], kind: '王の正誤表', kindEn: "King's errata", text: '第 ' + r[0] + ' 件を記す（' + plainText(r[2]) + '）', textEn: 'Entry ' + r[0] + ' is recorded', from: 'errata/' + r[0] + '.html', fromEn: 'errata/' + r[0] + '.en.html', key: 'E:' + r[0] }]
       .concat(Number(r[0]) % MILESTONE === 0 ? [{ date: r[1], kind: '記念の号', kindEn: 'Commemorative issue', text: '王の正誤表が ' + r[0] + ' 件に達する', textEn: "The King's errata reach " + r[0] + ' entries', from: 'ERRATA.md', fromEn: 'ERRATA.en.md', key: 'M:' + r[0] }] : [])))
     .concat(knights.map((r) => ({ date: r[2], kind: '騎士の名簿', kindEn: 'Roll of knights', key: 'K:' + r[0], from: 'KNIGHTS.md', fromEn: 'KNIGHTS.en.md',
@@ -944,7 +953,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, LATER, LATER_JA, LATER_EN, laterNote, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
