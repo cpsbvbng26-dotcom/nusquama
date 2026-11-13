@@ -26,9 +26,9 @@ const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'na
 const EN = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality', 'exchange'];
 /* 英語の訳がある、トップ以外の頁。KNIGHTS.md には KNIGHTS.en.md が対になる。 */
 const ROOT_EN = [['KNIGHTS', 'knights'], ['ERRATA', 'errata'], ['SYMBOLS', 'symbols'], ['CALENDAR', 'calendar'], ['GAZETTE', 'gazette'],
-  ['STORY', 'story'], ['LEXICON', 'lexicon'], ['INSTITUTIONS', 'institutions'], ['PRESS', 'press'], ['PLAY', 'play']];
+  ['STORY', 'story'], ['LEXICON', 'lexicon'], ['INSTITUTIONS', 'institutions'], ['PRESS', 'press'], ['PLAY', 'play'], ['MISSION', 'mission']];
 /* 日本語の頁の下の欄に並べる短い名。 */
-const SHORT = { knights: '騎士の名簿', errata: '王の正誤表', symbols: '国のしるし', calendar: '暦と祝日', gazette: '官報', story: '建国の物語', lexicon: '国の言葉', institutions: '国の仕組み', press: '紹介する人へ', play: '遊び' };
+const SHORT = { knights: '騎士の名簿', errata: '王の正誤表', symbols: '国のしるし', calendar: '暦と祝日', gazette: '官報', story: '建国の物語', lexicon: '国の言葉', institutions: '国の仕組み', press: '紹介する人へ', play: '遊び', mission: '運営理念・声明' };
 const SOURCES = [['README.md', 'index.html']].concat(ROOT_EN.map(([f, h]) => [f + '.md', h + '.html']))
   .concat(POLICIES.map((p) => ['policies/' + p + '.md', 'policies/' + p + '.html']))
   .concat(EN.map((p) => ['policies/' + p + '.en.md', 'policies/' + p + '.en.html']), [['founding.en.md', 'founding.en.html']], ROOT_EN.map(([f, h]) => [f + '.en.md', h + '.en.html']));
