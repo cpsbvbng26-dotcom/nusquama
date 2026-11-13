@@ -11,6 +11,7 @@
   <url><loc>https://nusquama.vercel.app/institutions.html</loc></url>
   <url><loc>https://nusquama.vercel.app/press.html</loc></url>
   <url><loc>https://nusquama.vercel.app/play.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/mission.html</loc></url>
   <url><loc>https://nusquama.vercel.app/policies/terms.html</loc></url>
   <url><loc>https://nusquama.vercel.app/policies/disclaimer.html</loc></url>
   <url><loc>https://nusquama.vercel.app/policies/privacy.html</loc></url>
@@ -38,6 +39,7 @@
   <url><loc>https://nusquama.vercel.app/institutions.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/press.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/play.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/mission.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/errata/1.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/errata/1.html</loc></url>
   <url><loc>https://nusquama.vercel.app/errata/2.en.html</loc></url>
@@ -298,6 +300,8 @@
   <url><loc>https://nusquama.vercel.app/gazette/84.html</loc></url>
   <url><loc>https://nusquama.vercel.app/gazette/85.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/gazette/85.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/86.en.html</loc></url>
+  <url><loc>https://nusquama.vercel.app/gazette/86.html</loc></url>
   <url><loc>https://nusquama.vercel.app/monthly/2026-11.en.html</loc></url>
   <url><loc>https://nusquama.vercel.app/monthly/2026-11.html</loc></url>
   <url><loc>https://nusquama.vercel.app/story/1.en.html</loc></url>
