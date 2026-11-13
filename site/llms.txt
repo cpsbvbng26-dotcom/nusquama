@@ -23,6 +23,7 @@ English: This is a work of fiction, written for fun. Nusquama is not a state and
 イタリアの国籍を持つ人を除くのは、運営者の決めです。この決めは願い出る人を除くだけで、同条がどこまで及ぶかを述べるものではありません。
 同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています（「受付の停止」、[適法性の説明](https://nusquama.vercel.app/policies/legality.html)「日本の外の法令」）。
 旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
+2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（「法令に適合しない国と地域」）。
 
 ## 受付の停止
 
@@ -82,6 +83,7 @@ GitHub の API など、ほかの道で開かれた issue は、運営者が読�
 - [国の仕組み](https://nusquama.vercel.app/institutions.html)
 - [紹介する人のために](https://nusquama.vercel.app/press.html)
 - [遊び](https://nusquama.vercel.app/play.html)
+- [運営理念・声明](https://nusquama.vercel.app/mission.html)
 
 ## 規程
 
@@ -107,6 +109,7 @@ GitHub の API など、ほかの道で開かれた issue は、運営者が読�
 - [Institutions](https://nusquama.vercel.app/institutions.en.html)
 - [For anyone introducing Nusquama](https://nusquama.vercel.app/press.en.html)
 - [Play](https://nusquama.vercel.app/play.en.html)
+- [Statement of Purpose](https://nusquama.vercel.app/mission.en.html)
 - [Terms of Use](https://nusquama.vercel.app/policies/terms.en.html)
 - [Disclaimer](https://nusquama.vercel.app/policies/disclaimer.en.html)
 - [Privacy](https://nusquama.vercel.app/policies/privacy.en.html)
