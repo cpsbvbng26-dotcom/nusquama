@@ -25,10 +25,7 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
-      # issue の文は環境変数でだけ渡し、シェルには入れない。
+      # issue の文は、シェルにも環境変数にも入れない。環境変数は実行の記録に写るので、tools/knighting.js が出来事のファイル（GITHUB_EVENT_PATH）から読む。
       - run: node tools/knighting.js
         env:
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
-          ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

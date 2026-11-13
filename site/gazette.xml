@@ -8,6 +8,30 @@
   <updated>2026-11-13T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
   <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g79</id>
+    <title>第 79 号　王の正誤表：第 41 件を記す（適法性の説明「日本の外の法令」、叙任の規程「願い出ることができる人」「外国の称号を縛る国」「騎士の呼び名の使い方」）</title>
+    <link href="https://nusquama.vercel.app/gazette/79.html"/>
+    <updated>2026-11-13T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g78</id>
+    <title>第 78 号　王の正誤表：第 40 件を記す（個人情報の取り扱い「叙任の願い出で扱うもの」「保存の期間」、叙任の規程「受付の停止」「願い出の手順」、叙任の願い出の様式、README「騎士になるには」）</title>
+    <link href="https://nusquama.vercel.app/gazette/78.html"/>
+    <updated>2026-11-13T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g77</id>
+    <title>第 77 号　年表：適法性の説明と叙任の規程で、条文から決まらない点について運営者の立場を書いていた文を、条文からは決まらないことと受付を止めていることに改める（王の正誤表 41）。官報の第 48 号に、のちに改めたことを示す注を添える</title>
+    <link href="https://nusquama.vercel.app/gazette/77.html"/>
+    <updated>2026-11-13T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g76</id>
+    <title>第 76 号　年表：叙任の願い出の受付を止めているあいだ、願い出の様式を issue の様式の一覧から外し、定義はリポジトリに残す。そのあいだに届いた願い出は、自動の確認が題と本文を短い断りに替えて閉じ、書き込みを止める。自動の確認は、issue の本文を実行の記録に写さない。個人情報の取り扱いと叙任の規程に、受付を止めていて情報を受け取っていないことと、この扱いを書く（王の正誤表 40）</title>
+    <link href="https://nusquama.vercel.app/gazette/76.html"/>
+    <updated>2026-11-13T00:00:00+09:00</updated>
+  </entry>
+  <entry>
     <id>https://nusquama.vercel.app/gazette.html#g75</id>
     <title>第 75 号　王の正誤表：第 39 件を記す（削除・訂正・辞退の求め「公開できない求め」、削除・訂正・辞退の求めの様式、安全の問題の知らせ方「知らせ方」）</title>
     <link href="https://nusquama.vercel.app/gazette/75.html"/>
@@ -171,7 +195,7 @@
   </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g48</id>
-    <title>第 48 号　年表：2026-11-22 0 時（日本時間）まで、叙任の願い出の受付を止める。叙任の規程に「受付の停止」の節を置き、そのあいだに開かれた願い出は自動の確認が停止を書いて閉じ、2026-11-22 0 時からひとりでに受付に戻る</title>
+    <title>第 48 号　年表：2026-11-22 0 時（日本時間）まで、叙任の願い出の受付を止める。叙任の規程に「受付の停止」の節を置き、そのあいだに開かれた願い出は自動の確認が停止を書いて閉じ、2026-11-22 0 時からひとりでに受付に戻る（のちに改めた：第 71 号）</title>
     <link href="https://nusquama.vercel.app/gazette/48.html"/>
     <updated>2026-11-12T00:00:00+09:00</updated>
   </entry>

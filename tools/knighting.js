@@ -2,7 +2,9 @@
 /* 叙任の願い出の issue を確かめ、結果をコメントする。叙任を決めるのは運営者であり、この確認は何も決めない。
  *
  * GitHub Actions（.github/workflows/knighting.yml）で動く：
- *   ISSUE_NUMBER, ISSUE_BODY, ISSUE_CREATED_AT, GITHUB_TOKEN, GITHUB_REPOSITORY
+ *   GITHUB_EVENT_PATH, GITHUB_TOKEN, GITHUB_REPOSITORY
+ * issue の番号・開いた時刻・本文は、出来事のファイル（GITHUB_EVENT_PATH）から読む。本文を環境変数で渡すと、
+ * 実行の記録（Actions のログ）に本文が写るため（2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十四度目の見落とし」）。
  *
  * 確かめるのは七つだけ：
  *   - 様式の誓いのうち、必ず印を付けるものすべてに印があること
@@ -22,6 +24,11 @@
  * 機械による取得を禁じる規約かどうかを前もって読めないため。外へ出す要求は GitHub の API への読み書きだけで、
  * リンク先を開いて読むのは運営者である（叙任の規程「運営者が確かめること」）。
  * 受付に戻ったあとは、2026-11-22 から求める印（日本にいる・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提）で確かめる。
+ *
+ * 様式の定義は tools/knighting-form.yml に置く。受付を止めているあいだは、issue の様式の一覧（.github/ISSUE_TEMPLATE/）に置かない
+ * （2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十四度目の見落とし」）。受付に戻すときに、定義をそこへ写す。
+ * 停止のあいだに叙任の願い出として届いた issue は、題と本文を短い断りに替え、閉じて、書き込みを止める（ロック）。
+ * 届いた願い出のうち、アカウント名と開いた日のほかを、運営者の記録として残さないためである（同じ日に Claude が決めた）。
  */
 'use strict';
 const fs = require('fs');
@@ -46,6 +53,12 @@ const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
 const REOPEN = null;
 const PAUSE_TEXT = '2026-11-12 から、叙任の願い出の受付を止めています（叙任の規程「受付の停止」）。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻る日は決めていません。この願い出は受けず、この issue を閉じます。';
 const PAUSE_TEXT_EN = 'Since 2026-11-12, applications for knighting are not received (Rules on Knighting, "Pause in receiving applications"), because a point of Italian law concerning conferral is not settled by the texts. No date for reopening has been set. This application is not accepted, and this issue is closed.';
+/* 様式の定義の置き場。受付を止めているあいだは .github/ISSUE_TEMPLATE/ に置かない。 */
+const FORM = path.join('tools', 'knighting-form.yml');
+/* 停止のあいだに届いた願い出の題と本文を替える断り。替えたあとに残るのは、GitHub が記す開いた人のアカウント名と開いた日である。 */
+const PAUSE_TITLE = '叙任の願い出（受付の停止のあいだ） / Application received during the pause';
+const PAUSE_BODY = '受付を止めているあいだに届いた叙任の願い出です（叙任の規程「受付の停止」）。受けていないので、自動の確認が題と本文をこの断りに替え、閉じました。運営者が残すのは、開いた人のアカウント名と開いた日だけです（個人情報の取り扱い「保存の期間」）。';
+const PAUSE_BODY_EN = 'This application for knighting arrived while applications are paused (Rules on Knighting, "Pause in receiving applications"). It was not accepted, so the automatic check replaced its title and body with this note and closed it. The operator keeps only the account name of the person who opened it and the date it was opened (Privacy, "How long data is kept").';
 
 /* 純：受付に戻す決めが、点検の記録の行に拠っているか。拠っていれば null、いなければ理由。
  * record は点検の記録の文（docs/legal-audit-2026-11-12.md）。 */
@@ -65,6 +78,15 @@ function paused(opened, reopen = REOPEN) {
   const t = Date.parse(opened);
   if (!Number.isFinite(t) || t < Date.parse(PAUSE_FROM)) return false;
   return !(reopen && Number.isFinite(Date.parse(reopen.at)) && t >= Date.parse(reopen.at));
+}
+
+/* 純：停止のあいだに届いた願い出の、替えたあとの本文。 */
+function pauseBody() {
+  return `${MARK}
+${PAUSE_BODY}
+
+${PAUSE_BODY_EN}
+`;
 }
 
 /* 純：受付の停止のあいだに開かれた願い出へのコメント。 */
@@ -89,7 +111,7 @@ const DATED = [
 ];
 
 /* 純：様式の定義から、必ず印を付ける誓いの文を取り出す。 */
-function requiredOaths(yml = fs.readFileSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'knighting.yml'), 'utf8')) {
+function requiredOaths(yml = fs.readFileSync(path.join(ROOT, FORM), 'utf8')) {
   const out = [];
   const re = /- label: (.+)\n\s+required: (true|false)/g;
   let m;
@@ -181,8 +203,10 @@ async function github(method, p, body) {
 }
 
 async function main() {
-  const n = process.env.ISSUE_NUMBER;
-  const opened = process.env.ISSUE_CREATED_AT || new Date().toISOString();
+  const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+  const issue = event.issue || {};
+  const n = issue.number;
+  const opened = issue.created_at || new Date().toISOString();
   const mine0 = ((await github('GET', '/issues/' + n + '/comments?per_page=100')) || []).find((c) => c.user.type === 'Bot' && c.body.startsWith(MARK));
   /* 受付に戻す決めが点検の記録の行に拠っていなければ、戻さない（止めたままにする）。 */
   const record = fs.readFileSync(path.join(ROOT, 'docs', 'legal-audit-2026-11-12.md'), 'utf8');
@@ -192,11 +216,14 @@ async function main() {
     const body = pauseComment();
     if (mine0) await github('PATCH', '/issues/comments/' + mine0.id, { body });
     else await github('POST', '/issues/' + n + '/comments', { body });
+    /* 題と本文を断りに替え、閉じて、書き込みを止める。届いた中身を、issue の上に運営者の記録として残さない。 */
+    await github('PATCH', '/issues/' + n, { title: PAUSE_TITLE, body: pauseBody() });
     await github('PATCH', '/issues/' + n, { state: 'closed', state_reason: 'not_planned' });
+    await github('PUT', '/issues/' + n + '/lock', { lock_reason: 'resolved' });
     console.log('受付の停止のあいだ');
     return;
   }
-  const form = parse(process.env.ISSUE_BODY);
+  const form = parse(issue.body);
   const result = check(form, opened);
   const body = comment(result);
   const mine = mine0;
@@ -205,6 +232,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+module.exports = { PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });

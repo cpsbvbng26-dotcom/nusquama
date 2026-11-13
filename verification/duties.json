@@ -32,7 +32,7 @@
       "duty": "偽りなどの不正な手段で取得しない",
       "by": [
         {
-          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "file": "tools/knighting-form.yml",
           "text": "この issue は公開されます。"
         }
       ]
@@ -48,7 +48,7 @@
           "text": "病気・障害・信条・犯罪の経歴など、配慮の要る事柄も求めません。"
         },
         {
-          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "file": "tools/knighting-form.yml",
           "text": "病気・障害・信条・犯罪の経歴など配慮の要る事柄を書かないでください。"
         }
       ]
@@ -72,7 +72,7 @@
       "duty": "様式で直接取得するときは、あらかじめ利用目的を明示する",
       "by": [
         {
-          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "file": "tools/knighting-form.yml",
           "text": "書いたものは、叙任を判断すること、名簿を載せること、求めに応じることにだけ使います。"
         },
         {
@@ -106,8 +106,17 @@
         {
           "file": "policies/privacy.md",
           "text": "名簿の記載は、辞退の求めがあるまで残します。"
+        },
+        {
+          "file": "policies/privacy.md",
+          "text": "受付を止めているあいだに叙任の願い出として届いた issue は、自動の確認が、題と本文を短い断りに替えて閉じ、書き込みを止めます。運営者は、届いた中身を名簿にもほかの場所にも写しません。"
+        },
+        {
+          "file": "tools/knighting.js",
+          "text": "await github('PATCH', '/issues/' + n, { title: PAUSE_TITLE, body: pauseBody() });"
         }
-      ]
+      ],
+      "quote": "個人情報取扱事業者は、利用目的の達成に必要な範囲内において、個人データを正確かつ最新の内容に保つとともに、利用する必要がなくなったときは、当該個人データを遅滞なく消去するよう努めなければならない。"
     },
     {
       "law": "個人情報保護法",
@@ -168,7 +177,7 @@
       "duty": "第三者への提供にあらかじめ同意を得る",
       "by": [
         {
-          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "file": "tools/knighting-form.yml",
           "text": "GitHub のアカウント名・訂正へのリンク・書いた説明が公開され、騎士の名簿に載ること"
         }
       ]
@@ -180,7 +189,7 @@
       "duty": "外国にある第三者への提供にあらかじめ同意を得る",
       "by": [
         {
-          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "file": "tools/knighting-form.yml",
           "text": "それらが GitHub と Vercel（どちらも米国）で扱われることに同意します。"
         }
       ]
@@ -192,7 +201,7 @@
       "duty": "同意の前に、外国の制度と受け手の措置を示す",
       "by": [
         {
-          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "file": "tools/knighting-form.yml",
           "text": "米国の制度と、GitHub と Vercel の措置は、個人情報の取り扱いの節「第三者への提供と外国にある事業者」に書いてあります。"
         },
         {
@@ -504,7 +513,7 @@
       "duty": "外国にある第三者への提供の同意の前に示す情報",
       "by": [
         {
-          "file": ".github/ISSUE_TEMPLATE/knighting.yml",
+          "file": "tools/knighting-form.yml",
           "text": "米国の制度と、GitHub と Vercel の措置は、個人情報の取り扱いの節「第三者への提供と外国にある事業者」に書いてあります。"
         },
         {

@@ -91,10 +91,10 @@ console.log('\n3. 規程の約束（消せば落ちる）');
    * 限っても、及ぶおそれは減るだけで、なくならない。2026-11-12 に利用者が決めた。 */
   must['policies/knighting.md'].push('2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。理由は二つです。',
     '一つめに、イタリアの国民が日本のミクロネーションの騎士になることは、常識に照らして、そもそも場違いです。', '二つめに、イタリアの 1951 年法律第 178 号第 8 条は、称号を使う者も罰し、使う者の罰は授けたのが国外であっても及ぶとしています。',
-    '運営者は、この限りで、同条が叙任に及ばないものとして扱います（[適法性の説明](./legality.md)「日本の外の法令」）。');
+    '同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています（「受付の停止」、[適法性の説明](./legality.md)「日本の外の法令」）。');
   must['policies/terms.md'].push('予告：2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません');
   must['policies/legality.md'].push('- 2026-11-22 から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。理由は、イタリアの国民が日本のミクロネーションの騎士になるのは常識に照らして場違いであることと、上の条の使う者の罰が、国外で授けた称号を使ったイタリアの国民に及ぶことである。',
-    '- 運営者は、これらの限定と、国籍を持つ国の法令についての叙任の規程の定めのもとで、日本の外の法令が叙任に及ばないものとして扱う。');
+    '- これらの限定のもとでも、日本の外の法令が叙任にどう及ぶかは、取り寄せた条文からは決まらない。運営者は、受付を止めている（叙任の規程「受付の停止」）。');
   /* 良識の前提。2026-11-22 から、称号を遊びとして扱う人を前提とし、既にある禁止を守ることを指す。当たらなければ叙任せず、既にある取り消しの定めで取り消す。 */
   must['policies/knighting.md'].push('2026-11-22 から、叙任は、願い出る人が、称号を遊びとして扱う良識ある人であることを前提とします。',
     'この前提は、称号を創作の中でだけ使い、次の決まりを守ることを指します。', '- 称号を、人をだますために使わない。',
@@ -170,11 +170,11 @@ console.log('\n5. 安全のヘッダー');
 
 console.log('\n6. 叙任の様式の誓い');
 {
-  const y = read('.github/ISSUE_TEMPLATE/knighting.yml');
+  const y = read('tools/knighting-form.yml');
   const oaths = ['訂正したのは、自分自身の誤りです。', '称号に法的な効力も現実の栄誉もないことを分かっています。', '履歴書・論文・名刺・公的な書類には書きません（基本法第八条）。',
     '叙任のために、誰にも何も支払いません（基本法第六条）。', '16 歳以上です。', '住んでいる国の法令は、私人の授ける騎士の称号を受けることや使うことを禁じていません。', '利用規約・免責事項・個人情報の取り扱い・叙任の規程を読み、願い出の日の版に同意します'];
   const miss = oaths.filter((x) => !y.includes(x));
-  ok('様式が、日本に住んでいて、いま日本にいることの印を求め、その日と、イタリアの国籍を持つ人を除いて国籍を問わないことを書く', y.includes('- label: 日本に住んでいて、いま日本にいます（旅行・出張・留学などで日本の外にいるあいだは願い出られません。2026-11-22 から、この印のない願い出は受けません。イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）。'));
+  ok('様式が、日本に住んでいて、いま日本にいることの印を求め、印のない願い出を受けないことと、イタリアの国籍を持つ人を除いて国籍を問わないことを書く', y.includes('- label: 日本に住んでいて、いま日本にいます（旅行・出張・留学などで日本の外にいるあいだは願い出られません。この印のない願い出は受けません。イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）。'));
   ok('誓いがそろい、どれも必須である', miss.length === 0 && (y.match(/required: true/g) || []).length >= oaths.length + 2, miss.join(' / '));
   ok('本名・住所・所属・連絡先を書かないよう求め、リンクの先から身元が分かることを知らせる', y.includes('本名・住所・所属・連絡先は書かないでください。') && y.includes('訂正へのリンクの先に本名や所属が書かれていると、このアカウントとその人が結び付いて公開されます。'));
 }
@@ -221,7 +221,7 @@ console.log('\n9. 適法性の説明が指す先は実在し、前提の事実�
   ok('引いた基本法の条（' + new Set(lawArts).size + ' 条）が README にある', lawArts.length > 0 && lawArts.every((a) => readme.includes('**第' + a + '条（')), lawArts.join(','));
   ok('引いた十則の五が README にある', !t.includes('十則の五') || readme.includes('五　金を取るな。'));
   const pay = /paypal|stripe\.com|patreon|ko-fi|buymeacoffee|fanbox|gumroad|opencollective|github\.com\/sponsors|booth\.pm/i;
-  const files = ['README.md', 'KNIGHTS.md', ...B.POLICIES.map((p) => 'policies/' + p + '.md'), '.github/ISSUE_TEMPLATE/knighting.yml',
+  const files = ['README.md', 'KNIGHTS.md', ...B.POLICIES.map((p) => 'policies/' + p + '.md'), 'tools/knighting-form.yml',
     ...walk(path.join(ROOT, 'site')).filter((x) => x.endsWith('.html')).map((x) => 'site/' + x)];
   const hit = files.filter((f) => pay.test(read(f)));
   ok('お金を受け取る導線がどこにもない（' + files.length + ' ファイル）', hit.length === 0 && !fs.existsSync(path.join(ROOT, '.github', 'FUNDING.yml')), hit.join(', '));
@@ -270,7 +270,8 @@ console.log('\n12. 受付と安全の知らせ');
   const req = read('.github/ISSUE_TEMPLATE/request.yml');
   const labels = read('.github/workflows/labels.yml');
   ok('様式を使わない issue を開けない', /^blank_issues_enabled: false$/m.test(cfg));
-  const used = fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).filter((f) => f !== 'config.yml').flatMap((f) => JSON.parse((/^labels: (\[.*\])$/m.exec(read('.github/ISSUE_TEMPLATE/' + f)) || [, '[]'])[1]));
+  /* 受付を止めているあいだ、叙任の願い出の様式の定義は tools/knighting-form.yml にある（検査 78）。そのラベルも、ラベルの workflow がそろえる。 */
+  const used = fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).filter((f) => f !== 'config.yml').map((f) => '.github/ISSUE_TEMPLATE/' + f).concat(['tools/knighting-form.yml']).flatMap((f) => JSON.parse((/^labels: (\[.*\])$/m.exec(read(f)) || [, '[]'])[1]));
   ok('様式が使うラベル（' + used.length + ' 個）を、ラベルの workflow がそろえる', used.length > 0 && used.every((l) => labels.includes('gh label create "' + l + '"')), used.join(','));
   const rq = read('policies/requests.md');
   const kinds = ((/## 求めることができるもの\n\n([\s\S]*?)\n\n/.exec(rq) || [])[1] || '').split('\n').filter((l) => l.startsWith('- '));
@@ -287,7 +288,7 @@ console.log('\n12. 受付と安全の知らせ');
 console.log('\n13. リンク切れ（リポジトリの中を指すもの）');
 {
   const docs = [...fs.readdirSync(ROOT).filter((f) => f.endsWith('.md') && f !== 'CLAUDE.md'), ...fs.readdirSync(path.join(ROOT, 'policies')).filter((f) => f.endsWith('.md')).map((f) => 'policies/' + f)];
-  const ymls = fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f);
+  const ymls = fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f).concat(['tools/knighting-form.yml']);
   const heads = (f) => read(f).split('\n').filter((l) => /^#{2,3} /.test(l)).map((l) => l.replace(/^#+ /, ''));
   const exists = (rel) => fs.existsSync(path.join(ROOT, rel));
   const bad = [];
@@ -571,7 +572,7 @@ console.log('\n23. 叙任の願い出の自動の確認（何も決めない）'
 {
   const K = require('../tools/knighting.js');
   const oaths = K.requiredOaths();
-  const tpl = read('.github/ISSUE_TEMPLATE/knighting.yml');
+  const tpl = read('tools/knighting-form.yml');
   ok('必ず印を付ける誓いを、様式の定義から読む（' + oaths.length + ' 件）。日本にいる印は、そのうちに入らない',
     oaths.length === (tpl.match(/required: true\n/g) || []).length - 2 && oaths.every((o) => tpl.includes('- label: ' + o + '\n')) && !oaths.some((o) => o.includes(K.PRESENCE)));
   const body = (ticks, link, what) => '### 訂正への公開のリンク\n\n' + link + '\n\n### 何を誤り、どう正したか\n\n' + what + '\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
@@ -600,8 +601,10 @@ console.log('\n23. 叙任の願い出の自動の確認（何も決めない）'
   ok('コメントは、何も決めないこと、決めるのは運営者であること、リンクを開かないこと、創作であることを書く。リンクは開かず、何も残さない',
     c.startsWith(K.MARK) && c.includes('この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。') && c.includes('これは創作であり、遊びです。称号に法的な効力はありません。')
     && !/writeFileSync|appendFileSync/.test(src));
-  ok('仕事は叙任のラベルの issue でだけ動き、コードを読んで issue に書くことしかできず、issue の文を環境変数でだけ渡す',
-    wf.includes("if: contains(github.event.issue.labels.*.name, '叙任')") && /permissions:\n  contents: read\n  issues: write\n/.test(wf) && wf.includes('ISSUE_BODY: ${{ github.event.issue.body }}')
+  /* issue の文は、シェルにも環境変数にも入れない。環境変数は実行の記録に写るので、出来事のファイルから読む（2026-11-13 に改めた。検査 78）。 */
+  ok('仕事は叙任のラベルの issue でだけ動き、コードを読んで issue に書くことしかできず、issue の文を環境変数にもシェルにも入れず、出来事のファイルから読む',
+    wf.includes("if: contains(github.event.issue.labels.*.name, '叙任')") && /permissions:\n  contents: read\n  issues: write\n/.test(wf) && !/github\.event\.issue\.(body|title)/.test(wf)
+    && src.includes("const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));") && src.includes('const form = parse(issue.body);') && !/process\.env\.ISSUE_(BODY|TITLE)/.test(src)
     && [...wf.matchAll(/^\s*- run: (.*)$/gm)].map((m) => m[1]).join() === 'node tools/knighting.js');
   ok('叙任の規程と個人情報の取り扱いが、自動の確認と、リンクの扱いを書く',
     read('policies/knighting.md').includes('自動の確認は何も決めません。叙任を決めるのは運営者です。')
@@ -1406,7 +1409,7 @@ console.log('\n53. 解散の通し稽古（実行していない）');
     && [0, 1, 2].every((i) => rj[i] && rj[i][0] === '| ' + (i + 1) && rj[i][1] === sj[i].replace(/。$/, '') && re[i] && re[i][1] === se[i])
     && [3, 4].every((i) => rj[i] && rj[i][0] === '| ' + (i + 1) && read('ERRATA.md').includes(rj[i][1] + '。') && re[i] && read('ERRATA.en.md').includes('"' + re[i][1] + '"')) && rj.length === re.length && rj.length > sj.length);
   ok('通し稽古では何も止めず消しておらず、終わりの言葉はトップに掲げていない', ij.includes('2026-11-11 に、解散の手順を、実行せずに一度通して確かめました。何も止めず、何も消していません。')
-    && !read('README.md').includes('どこにもない国は、どこにもない所へ帰ります。') && fs.existsSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE', 'knighting.yml')) && fs.existsSync(path.join(ROOT, '.github', 'workflows', 'review.yml')));
+    && !read('README.md').includes('どこにもない国は、どこにもない所へ帰ります。') && fs.existsSync(path.join(ROOT, 'tools', 'knighting-form.yml')) && fs.existsSync(path.join(ROOT, '.github', 'workflows', 'review.yml')));
 }
 
 console.log('\n54. ミクロネーションの界隈の言い回しとの対応');
@@ -1474,7 +1477,7 @@ console.log('\n56. 休止の告知（下書き。いまは掲げていない）'
 console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試しの一件を様式から名簿まで通す）');
 {
   const K = require('../tools/knighting.js');
-  const tpl = read('.github/ISSUE_TEMPLATE/knighting.yml');
+  const tpl = read('tools/knighting-form.yml');
   /* 段 1：様式の定義から、GitHub が issue に書く形（### 題、空行、答え）で本文を組む。印はすべて付ける。 */
   const fields = tpl.split(/\n  - type: /).slice(1).map((b) => ({ type: b.split('\n')[0].trim(), label: (/\n      label: (.+)/.exec(b) || [])[1],
     options: [...b.matchAll(/\n        - label: (.+)\n          required: (?:true|false)/g)].map((m) => m[1]) })).filter((f) => f.type !== 'markdown');
@@ -1654,8 +1657,9 @@ console.log('\n60. 法令の点検の記録（2026-11-12）');
     && le.includes('Where the text does not settle a point, each section says how the operator treats it.\nThis is not a legal guarantee.')
     && lj.includes('- **ヌスクァマの事実**：何も売らず、広告を出さず、営利の事業を営まない。') && !lj.includes('広告を出さず、事業を営まない。')
     && lj.includes('他人の著作物は、この頁の「条文」と「原文」の欄に条約・法令・規約・説明の文を引くほかは、写していない。') && !lj.includes('他人の著作物を写していない。'));
-  ok('日本の外の法令は、限定のもとで叙任に及ばないものとして扱うこと、イタリアの条は受ける人の住む国を要件にしないこと、GDPR の代理人を Claude が決めたことを書く（日本語と英語）',
-    lj.includes('- 運営者は、これらの限定と、国籍を持つ国の法令についての叙任の規程の定めのもとで、日本の外の法令が叙任に及ばないものとして扱う。') && le.includes("- Under these limits, and the rule in the Rules on Knighting on the laws of the country of one's nationality, the operator treats laws outside Japan as not reaching knighting.")
+  /* 2026-11-13 に改めた（王の正誤表 41）：限定のもとでも、日本の外の法令がどう及ぶかは条文から決まらず、運営者は受付を止めている。 */
+  ok('日本の外の法令は、限定のもとでも叙任にどう及ぶかが条文から決まらず、受付を止めていること、イタリアの条は受ける人の住む国を要件にしないこと、GDPR の代理人を Claude が決めたことを書く（日本語と英語）',
+    lj.includes('- これらの限定のもとでも、日本の外の法令が叙任にどう及ぶかは、取り寄せた条文からは決まらない。運営者は、受付を止めている（叙任の規程「受付の停止」）。') && le.includes('- Even under these limits, how laws outside Japan reach knighting is not settled by the fetched texts. The operator keeps applications paused (Rules on Knighting, "Pause in receiving applications").')
     && lj.includes('同条が禁じるのは、私人や団体が授けることで、受ける人の住む国を要件にしていない。') && le.includes("the recipient's country of residence is not an element")
     && lj.includes('代理人は指名していない。2026-11-12 に Claude が決めました。') && le.includes('Claude decided this on 2026-11-12'));
   ok('電気通信事業と定型約款の節を持ち、どちらも日本語と英語にある',
@@ -1671,23 +1675,23 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
    * 確かめる関数に、印を外した様式と前の文言の規程を渡し、落ちることも確かめる（壊して確かめる）。 */
   const K = require('../tools/knighting.js');
   const DAY = '2026-11-22';
-  const files = ['policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'policies/legality.md', 'policies/legality.en.md', '.github/ISSUE_TEMPLATE/knighting.yml', 'tools/knighting.js'];
-  const BOX_N = 'イタリアの国籍を持っていません（ほかの国籍と重ねて持つ場合も含みます。' + DAY + ' から、この印のない願い出は受けません）。';
-  const BOX_P = '称号を遊びとして扱い、規程の禁じる使い方をしません（この国の外で使う、実在の称号や叙勲と誤認させる、履歴書・名刺などに書く、売る、人をだますために使う、のどれもしません。' + DAY + ' から、この印のない願い出は受けません）。';
+  const files = ['policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'policies/legality.md', 'policies/legality.en.md', 'tools/knighting-form.yml', 'tools/knighting.js'];
+  const BOX_N = 'イタリアの国籍を持っていません（ほかの国籍と重ねて持つ場合も含みます。この印のない願い出は受けません）。';
+  const BOX_P = '称号を遊びとして扱い、規程の禁じる使い方をしません（この国の外で使う、実在の称号や叙勲と誤認させる、履歴書・名刺などに書く、売る、人をだますために使う、のどれもしません。この印のない願い出は受けません）。';
   const before = (s, a, b) => s.indexOf(a) >= 0 && s.indexOf(b) > s.indexOf(a);
   function verdict(x, k) {
     const bad = [];
     const need = (f, list) => list.forEach((s) => { if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 40)); });
-    need('policies/knighting.md', [DAY + ' から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '\n## 良識の前提\n', '運営者は、この限りで、同条が叙任に及ばないものとして扱います']);
+    need('policies/knighting.md', [DAY + ' から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '\n## 良識の前提\n', '同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています']);
     need('policies/knighting.en.md', ['From ' + DAY + ', a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality.', '\n## The premise of good sense\n',
-      'From ' + DAY + ', knighting presumes that the applicant is a person of good sense who treats the title as play.', 'From ' + DAY + ', the applicant ticks a box in the form for this premise.', 'Within this limit, the operator treats the article as not reaching knighting']);
+      'From ' + DAY + ', knighting presumes that the applicant is a person of good sense who treats the title as play.', 'From ' + DAY + ', the applicant ticks a box in the form for this premise.', "Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused"]);
     need('policies/terms.md', ['予告：' + DAY + ' から、イタリアの国籍を持つ人は、', '予告：' + DAY + ' から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし']);
     need('policies/terms.en.md', ['Notice: from ' + DAY + ', people who hold Italian nationality may not apply', 'Notice: from ' + DAY + ', knighting presumes that the applicant is a person of good sense']);
     need('policies/legality.md', ['- ' + DAY + ' から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。', '[叙任の規程](./knighting.md)「良識の前提」。']);
-    need('policies/legality.en.md', ['- From ' + DAY + ', applications from people who hold Italian nationality (including dual nationals) are not accepted either.', ', "The premise of good sense".', '- Under these limits, and the rule in the Rules on Knighting']);
-    need('.github/ISSUE_TEMPLATE/knighting.yml', ['        - label: ' + BOX_N + '\n          required: false\n', '        - label: ' + BOX_P + '\n          required: false\n']);
+    need('policies/legality.en.md', ['- From ' + DAY + ', applications from people who hold Italian nationality (including dual nationals) are not accepted either.', ', "The premise of good sense".', '- Even under these limits, how laws outside Japan reach knighting is not settled by the fetched texts.']);
+    need('tools/knighting-form.yml', ['        - label: ' + BOX_N + '\n          required: false\n', '        - label: ' + BOX_P + '\n          required: false\n']);
     /* 前の文言（国籍を問わない）が、規程にも様式にも残っていない。 */
-    if (/(?<!除き、)国籍は問いません|(?<!除き、)国籍は問わない/.test(x['policies/knighting.md'] + x['policies/legality.md'] + x['.github/ISSUE_TEMPLATE/knighting.yml'])) bad.push('前の文言「国籍は問いません」が残る');
+    if (/(?<!除き、)国籍は問いません|(?<!除き、)国籍は問わない/.test(x['policies/knighting.md'] + x['policies/legality.md'] + x['tools/knighting-form.yml'])) bad.push('前の文言「国籍は問いません」が残る');
     if (/whatever their nationality\.\n|may apply for knighthood, whatever their nationality/.test(x['policies/knighting.en.md'] + x['policies/terms.en.md'] + x['policies/legality.en.md'])) bad.push('前の文言「whatever their nationality」が残る');
     /* 理由は常識が先で、法令が後。数を書いたとおりに並べる（決めごと 5）。 */
     if (!(x['policies/knighting.md'].includes('理由は二つです。\n一つめに、') && before(x['policies/knighting.md'], '\n一つめに、イタリアの国民が日本のミクロネーションの騎士になることは、常識に照らして', '\n二つめに、イタリアの 1951 年法律第 178 号第 8 条は') && !x['policies/knighting.md'].includes('\n三つめに、'))) bad.push('叙任の規程の理由の順と数');
@@ -1706,9 +1710,9 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
   ok('イタリアの国籍を持つ人の願い出を受けないことと良識の前提が、日本語と英語の規程・利用規約・適法性の説明・様式の印・受付のコードにそろい、効力の日は ' + DAY + '、理由は常識が先', bad.length === 0, bad.join(' / '));
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
   const breaks = [
-    ['様式から国籍の印を外す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '        - label: ' + BOX_N + '\n          required: false\n', '')],
-    ['様式から良識の前提の印を外す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '        - label: ' + BOX_P + '\n          required: false\n', '')],
-    ['様式を前の文言（国籍は問いません）に戻す', mut('.github/ISSUE_TEMPLATE/knighting.yml', 'イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）', '国籍は問いません）')],
+    ['様式から国籍の印を外す', mut('tools/knighting-form.yml', '        - label: ' + BOX_N + '\n          required: false\n', '')],
+    ['様式から良識の前提の印を外す', mut('tools/knighting-form.yml', '        - label: ' + BOX_P + '\n          required: false\n', '')],
+    ['様式を前の文言（国籍は問いません）に戻す', mut('tools/knighting-form.yml', 'イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）', '国籍は問いません）')],
     ['叙任の規程を前の文言に戻す', mut('policies/knighting.md', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '国籍は問いません。')],
     ['英語の利用規約を前の文言に戻す', mut('policies/terms.en.md', 'may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded', 'may apply for knighthood, whatever their nationality')],
     ['理由の順を入れ替える', mut('policies/knighting.md', '一つめに、イタリアの国民', '三つめに、イタリアの国民')],
@@ -1733,7 +1737,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
   const F62 = 'docs/legal-audit-2026-11-12.md';
   const S62 = JSON.parse(read('verification/statutes.json'));
   const files = [F62, 'verification/sources.json', 'verification/sources-raw.json', 'policies/terms.md', 'policies/terms.en.md', 'policies/knighting.md', 'policies/knighting.en.md',
-    'KNIGHTS.md', 'KNIGHTS.en.md', 'README.md', 'PRESS.md', 'PRESS.en.md', '.github/ISSUE_TEMPLATE/knighting.yml', 'build.js', 'policies/privacy.md', 'policies/privacy.en.md',
+    'KNIGHTS.md', 'KNIGHTS.en.md', 'README.md', 'PRESS.md', 'PRESS.en.md', 'tools/knighting-form.yml', 'build.js', 'policies/privacy.md', 'policies/privacy.en.md',
     'policies/legality.md', 'policies/legality.en.md', 'policies/exchange.md', 'policies/exchange.en.md'];
   const NAME_JA = '騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。';
   const NAME_EN = 'are not decorations, honours or ranks of knighthood, and have no legal effect.';
@@ -1746,8 +1750,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-13).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-14).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -1795,7 +1799,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     need('README.md', ['> ここで贈る' + NAME_JA]);
     need('PRESS.md', ['ヌスクァマは国家ではなく、ここで贈る' + NAME_JA]);
     need('PRESS.en.md', ['Nusquama is not a state, and the knightly names it gives ' + NAME_EN]);
-    need('.github/ISSUE_TEMPLATE/knighting.yml', ['ここで贈る' + NAME_JA, '下の誓いで同意する前に、その節を確かめてください。']);
+    need('tools/knighting-form.yml', ['ここで贈る' + NAME_JA, '下の誓いで同意する前に、その節を確かめてください。']);
     need('build.js', ["ここで贈る" + NAME_JA + "';", 'The knightly names it gives ' + NAME_EN + "';"]);
     need('policies/terms.md', ['叙任は、どの国の勲章・栄典・騎士の位（騎士団の位を含みます）を授けるものでもなく、']);
     need('policies/terms.en.md', ['Knighting does not confer a decoration, honour or rank of knighthood (including a rank in an order) of any country;']);
@@ -1805,7 +1809,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     need('KNIGHTS.en.md', ['> The name of knight is not a decoration, honour or rank of knighthood of any country.']);
     need('policies/exchange.md', ['ヌスクァマが贈るのは、叙任の規程による騎士の呼び名だけです。']);
     need('policies/exchange.en.md', ['The only thing Nusquama gives is the name of knight under the Rules on Knighting.']);
-    for (const f of ['README.md', 'PRESS.md', '.github/ISSUE_TEMPLATE/knighting.yml', 'build.js', 'policies/exchange.md']) if (/授ける称号に|ヌスクァマが授けるのは/.test(x[f])) bad.push(f + '：前の文言「授ける称号」が残る');
+    for (const f of ['README.md', 'PRESS.md', 'tools/knighting-form.yml', 'build.js', 'policies/exchange.md']) if (/授ける称号に|ヌスクァマが授けるのは/.test(x[f])) bad.push(f + '：前の文言「授ける称号」が残る');
     for (const f of ['PRESS.en.md', 'build.js', 'policies/exchange.en.md']) if (/the titles it gives have no legal effect|The titles it gives have no legal effect|gives is knighthood under/.test(x[f])) bad.push(f + '：前の英語の文言が残る');
     /* 個人情報の取り扱い：米国の制度の調べと、両社の措置を確かめられないこと（日本語と英語）。 */
     need('policies/privacy.md', ['米国は EU の十分性認定を受けておらず、APEC の CBPR システムに 2012 年 7 月 25 日から参加しています。', '運営者には確かめられません。', '（個人情報保護法施行規則第17条第4項）']);
@@ -1852,13 +1856,22 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
    * 様式・規程・利用規約・README・物語・紹介の頁の文が日本語と英語にそろい、2026-11-22 に受付に戻ると書く文が残らない。
    * 確かめる関数に壊したコードと文を渡し、落ちることも確かめる（壊して確かめる）。 */
   const AUD63 = 'docs/legal-audit-2026-11-12.md';
-  const files = ['tools/knighting.js', '.github/ISSUE_TEMPLATE/knighting.yml', 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'README.md',
+  const files = ['tools/knighting.js', 'tools/knighting-form.yml', 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'README.md',
     'STORY.md', 'STORY.en.md', 'PRESS.md', 'PRESS.en.md', 'PLAY.md', 'PLAY.en.md', 'founding.en.md', 'ERRATA.md', 'ERRATA.en.md', AUD63];
+  /* files には、下で GEN63 を足す（生成した官報・配信・合本・トップの頁）。 */
   const load = (src) => { const m = { exports: {} }; new Function('require', 'module', 'exports', '__dirname', src.replace(/^#!.*\n/, ''))(require, m, m.exports, path.join(ROOT, 'tools')); return m.exports; };
   const FORM = (boxes) => '### 訂正への公開のリンク\n\nhttps://example.org/fix\n\n### 何を誤り、どう正したか\n\n自分の記事の年を誤り、正誤表で正しました。\n\n### 誓い\n\n' + boxes.map((b) => '- [X] ' + b).join('\n') + '\n';
   /* 2026-11-22 に受付に戻ると書いていた前の文。公開の頁と様式に残らない（王の正誤表は記録なので数えない）。 */
   const OLD63 = ['2026-11-22 0 時（日本時間）より前は', '2026-11-22 0 時（日本時間）から、', 'ひとりでに受付に戻', '人の手を待たずに受付に戻り', 'until 00:00 on 2026-11-22', 'paused until', 'receiving resumes without anyone acting', 'From 00:00 on 2026-11-22 (Japan time), open an issue', 'applications reopen under the revised rules', 'Applications are paused until 2026-11-22', '受付は 2026-11-22 まで止めている'];
-  const PUBLIC63 = ['.github/ISSUE_TEMPLATE/knighting.yml', 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'STORY.md', 'STORY.en.md', 'PRESS.md', 'PRESS.en.md'];
+  const PUBLIC63 = ['tools/knighting-form.yml', 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'STORY.md', 'STORY.en.md', 'PRESS.md', 'PRESS.en.md'];
+  /* 2026-11-13 に広げた（点検の記録「2026-11-13：十四度目の見落とし」）：README の年表の行と、生成した官報の頁・一号ごとの頁・配信・月ごとの合本・トップの頁も数える。
+   * 前は README の年表の行を数えず、第 48 号の文が残っていた。のちに改めた号（build.js の LATER）の文だけは、注を添えた形のまま除く。注がなければ除かれず、落ちる。 */
+  const GEN63 = ['site/index.html', 'site/gazette.html', 'site/gazette.en.html', 'site/gazette.xml']
+    .concat(fs.readdirSync(path.join(ROOT, 'site', 'gazette')).map((f) => 'site/gazette/' + f), fs.readdirSync(path.join(ROOT, 'site', 'monthly')).map((f) => 'site/monthly/' + f));
+  const NOTED63 = B.gazetteItems().filter((g) => Object.prototype.hasOwnProperty.call(B.LATER, g.key)).flatMap((g) => [g.text, g.textEn]);
+  const dec63 = (t) => t.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  const strip63 = (t) => NOTED63.reduce((a, n) => a.split(n).join(''), dec63(t));
+  OLD63.push('2026-11-22 0 時（日本時間）まで、叙任の願い出の受付を止める', 'receiving resumes by itself');
   const TRIAL = { at: '2026-12-01T00:00:00+09:00', record: '試しの行' };
   const TRIAL_ROW = '| 試しの行 | なし | 2026-12-01 に受付に戻す | なし | 問題なし | なし |';
   const cells = (l) => l.replace(/^\| | \|$/g, '').split(' | ');
@@ -1886,7 +1899,7 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     if (K.reopenProblem({ at: '2026-12-01T00:00:00Z', record: '試しの行' }, rec) === null) bad.push('日本時間でない決めが通る');
     if (K.reopenProblem(null, '') !== null) bad.push('決めのないときに理由を返す');
     /* 受付に戻った後は、改めた規程の印で確かめる。 */
-    const oaths = K.requiredOaths(x['.github/ISSUE_TEMPLATE/knighting.yml']);
+    const oaths = K.requiredOaths(x['tools/knighting-form.yml']);
     const after = K.check(K.parse(FORM(oaths.concat(K.DATED.map((d) => d.text)))), '2026-12-01T00:00:00+09:00', oaths);
     if (!after.ok) bad.push('受付に戻った後の整った願い出が通らない');
     const noPremise = K.check(K.parse(FORM(oaths.concat(K.DATED.map((d) => d.text).filter((t) => t !== K.PREMISE)))), '2026-12-01T00:00:00+09:00', oaths);
@@ -1901,10 +1914,10 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     if (!(c.startsWith(K.MARK) && c.includes(K.PAUSE_TEXT) && c.includes(K.PAUSE_TEXT_EN) && K.PAUSE_TEXT.includes('授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。') && K.PAUSE_TEXT.includes('受付に戻る日は決めていません。')
       && K.PAUSE_TEXT_EN.includes('No date for reopening has been set.') && !/2026-11-22/.test(K.PAUSE_TEXT + K.PAUSE_TEXT_EN))) bad.push('停止のコメント');
     const need = (f, list) => list.forEach((s) => { if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 40)); });
-    need('.github/ISSUE_TEMPLATE/knighting.yml', ['**2026-11-12 から、願い出の受付を止めています。受付に戻る日は決めていません。**', '授けることに関わるイタリアの法令の一点が、条文からは決まらないためです（叙任の規程「受付の停止」）。',
+    need('tools/knighting-form.yml', ['**2026-11-12 から、願い出の受付を止めています。受付に戻る日は決めていません。**', '授けることに関わるイタリアの法令の一点が、条文からは決まらないためです（叙任の規程「受付の停止」）。',
       'Applications are paused from 2026-11-12, and no date for reopening has been set.', 'A point of Italian law concerning conferral is not settled by the texts']);
     need('policies/knighting.md', ['\n## 受付の停止\n', '2026-11-12 から、叙任の願い出を受けていません。2026-11-12 に利用者が決めました。', '2026-11-22 0 時（日本時間）からも、停止を続けます。受付に戻る日は決めていません。授けることに、イタリアの刑法典と 1951 年法律第 178 号がどう及ぶかが、条文からは決まらないためです。2026-11-13 に利用者が法的リスクを限りなく小さくするよう求め、Claude が決めました。', '止めるのは受付だけで、この規程と騎士の名簿は残します。',
-      '日付が来ただけでは、受付に戻りません。', '受付に戻すことを、日付ではなく、点検の記録に記した決めに結ぶことは、2026-11-13 に Claude が決めました。', '開いている叙任の願い出は 0 件', '- 2026-11-12 から、受付に戻るより前に開かれた願い出（「受付の停止」）。', '1. 受付に戻ってから、[叙任の願い出]']);
+      '日付が来ただけでは、受付に戻りません。', '受付に戻すことを、日付ではなく、点検の記録に記した決めに結ぶことは、2026-11-13 に Claude が決めました。', '開いている叙任の願い出は 0 件', '- 2026-11-12 から、受付に戻るより前に開かれた願い出（「受付の停止」）。', '1. 受付に戻ってから、叙任の願い出の様式で issue を開く（受付を止めているあいだは、様式を置いていない。「受付の停止」）。']);
     need('policies/knighting.en.md', ['\n## Pause in receiving applications\n', 'The owner decided this on 2026-11-12.', 'The pause continues from 00:00 on 2026-11-22 (Japan time), and no date for reopening has been set', 'The owner asked on 2026-11-13 for legal risk to be made as small as possible, and Claude decided this.', 'Applications do not reopen merely because a date arrives.', 'Claude decided on 2026-11-13 to tie reopening to a decision recorded in the legal review', '1. Once applications reopen, open an issue']);
     need('policies/terms.md', ['2026-11-12 から、叙任の願い出を受け付けていません（[叙任の規程](./knighting.md)「受付の停止」）。', '予告：2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにし、受付に戻る日は決めていません。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻すときは、戻る日を、叙任の規程とこの頁で、その日より前に示します（2026-11-13 に示しました）。']);
     need('policies/terms.en.md', ['Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications").', 'Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts.']);
@@ -1917,10 +1930,11 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     need('founding.en.md', ['Applications for knighting have been paused since 2026-11-12, and no date for reopening has been set']);
     need('README.md', ['この注は基本法の条ではなく、条の文は改めていません。叙任の願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません']);
     need('PRESS.en.md', ['Applications have been paused since 2026-11-12, and no date for reopening has been set. If they reopen, ', 'under the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set.']);
-    for (const f of PUBLIC63.concat(['README.md'])) {
-      const t = f === 'README.md' ? x[f].split('\n').filter((l) => !l.startsWith('| 20')).join('\n') : x[f];
+    for (const f of PUBLIC63.concat(['README.md'], GEN63)) {
+      const t = strip63(x[f]);
       for (const o of OLD63) if (t.includes(o)) bad.push(f + ' に、2026-11-22 に受付に戻る前の文が残る：' + o);
     }
+    if (NOTED63.length !== 2 || !NOTED63[0].endsWith('（のちに改めた：第 71 号）') || !NOTED63[1].endsWith(' (Later changed: No. 71)')) bad.push('のちに改めた号の注');
     need(AUD63, ['2026-11-22 までの窓は、この停止で閉じた', '\n### 追って：受付の停止\n', '「法令に触れるおそれが分かったときは、その部分を止めてから確かめ、直します。」', '「読む人や騎士に不利になる変更は、変える内容と効力の生じる日を、効力の生じる前にこの頁で示します。」',
       '\n## 2026-11-13：十三度目の見落とし\n', '\n### 受付の停止を、日付で終わらせない\n']);
     for (const q of ['法令に触れるおそれが分かったときは、その部分を止めてから確かめ、直します。', '読む人や騎士に不利になる変更は、変える内容と効力の生じる日を、効力の生じる前にこの頁で示します。']) if (!x['policies/terms.md'].includes(q)) bad.push('利用規約にない引用：' + q.slice(0, 20));
@@ -1931,7 +1945,7 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     if (!/^\| 2026-11-13（日本時間） \| 叙任の願い出の受付の停止を、2026-11-22 0 時（日本時間）からも続ける。[^|]+\| The pause in receiving applications for knighting continues from 00:00 on 2026-11-22/m.test(x['README.md'])) bad.push('年表の行がない');
     return bad;
   }
-  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const real = Object.fromEntries(files.concat(GEN63).map((f) => [f, read(f)]));
   const bad = verdict(real);
   ok('叙任の願い出の受付は 2026-11-12 0 時（日本時間）から止まり、2026-11-22 を過ぎても、点検の記録の行に拠る決めがない限り止まる（時刻と決めを渡して確かめる）。断りが様式・規程・利用規約・README・物語・紹介の頁に日本語と英語でそろう', bad.length === 0, bad.join(' / '));
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
@@ -1946,10 +1960,10 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     ['停止のあいだに閉じない', mut('tools/knighting.js', "    await github('PATCH', '/issues/' + n, { state: 'closed', state_reason: 'not_planned' });\n", '')],
     ['改めた規程の印を外す', mut('tools/knighting.js', "  { from: PREMISE_FROM, text: PREMISE, label: '称号を遊びとして扱う印（良識の前提）がある' },\n", '')],
     ['コメントに 2026-11-22 に戻ると書く', mut('tools/knighting.js', '受付に戻る日は決めていません。この願い出は受けず', '2026-11-22 から受付に戻ります。この願い出は受けず')],
-    ['様式を前の断りに戻す', mut('.github/ISSUE_TEMPLATE/knighting.yml', 'Applications are paused from 2026-11-12, and no date for reopening has been set.', 'Applications are paused from 2026-11-12 until 00:00 on 2026-11-22 (Japan time).')],
+    ['様式を前の断りに戻す', mut('tools/knighting-form.yml', 'Applications are paused from 2026-11-12, and no date for reopening has been set.', 'Applications are paused from 2026-11-12 until 00:00 on 2026-11-22 (Japan time).')],
     ['遊びの頁から受付の停止を外す', mut('PLAY.md', '叙任の願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。', '')],
     ['英訳の注から受付の停止を外す', mut('founding.en.md', ' Applications for knighting have been paused since 2026-11-12, and no date for reopening has been set', '')],
-    ['規程の手順を前の文に戻す', mut('policies/knighting.md', '1. 受付に戻ってから、[叙任の願い出]', '1. 2026-11-22 0 時（日本時間）から、[叙任の願い出]')],
+    ['規程の手順を前の文に戻す', mut('policies/knighting.md', '1. 受付に戻ってから、叙任の願い出の様式で issue を開く', '1. 2026-11-22 0 時（日本時間）から、叙任の願い出の様式で issue を開く')],
     ['英語の規程にひとりでに戻る文を足す', mut('policies/knighting.en.md', 'Applications do not reopen merely because a date arrives.', 'From 00:00 on 2026-11-22 (Japan time), receiving resumes without anyone acting.')],
     ['利用規約の予告を外す', mut('policies/terms.md', '予告：2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにし、受付に戻る日は決めていません。', '')],
     ['英語の物語を前の文に戻す', mut('STORY.en.md', 'Applications have been paused since 2026-11-12. No date for reopening has been set.', 'Applications are paused until 00:00 on 2026-11-22 (Japan time).')],
@@ -1957,9 +1971,20 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     ['記録の節を外す', mut(AUD63, '\n### 受付の停止を、日付で終わらせない\n', '\n### 停止\n')],
     ['王の正誤表 37 の分類を変える', mut('ERRATA.md', '| 範囲 | Insula Finis XVI |', '| 事実 | Insula Finis XVI |')],
     ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 叙任の願い出の受付の停止を、', '| 2026-11-13（日本時間） | 停止を、')],
+    ['README の年表の第 48 号の行から注を外す', mut('README.md', 'ひとりでに受付に戻る（のちに改めた：第 71 号）', 'ひとりでに受付に戻る')],
+    ['英語の年表の第 48 号の行から注を外す', mut('README.md', 'at 00:00 on 2026-11-22 (Later changed: No. 71)', 'at 00:00 on 2026-11-22')],
+    ['一号ごとの頁から注を外す', mut('site/gazette/48.html', '（のちに改めた：第 71 号）', '')],
+    ['英語の一号ごとの頁から注を外す', mut('site/gazette/48.en.html', ' (Later changed: No. 71)', '')],
+    ['官報の頁から注を外す', mut('site/gazette.html', '（のちに改めた：第 71 号）', '')],
+    ['英語の官報の頁から注を外す', mut('site/gazette.en.html', ' (Later changed: No. 71)', '')],
+    ['配信から注を外す', mut('site/gazette.xml', '（のちに改めた：第 71 号）', '')],
+    ['月ごとの合本から注を外す', mut('site/monthly/2026-11.html', '（のちに改めた：第 71 号）', '')],
+    ['英語の月ごとの合本から注を外す', mut('site/monthly/2026-11.en.html', ' (Later changed: No. 71)', '')],
+    ['トップの頁から注を外す', mut('site/index.html', '（のちに改めた：第 71 号）', '')],
+    ['README の地の文に前の文を足す', mut('README.md', '受付を止めているあいだは、願い出の様式を置いていません。', '受付は 2026-11-22 まで止めている。')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([n]) => n);
-  ok('壊して確かめる：決めを記録に拠らずに書く・日付で終わらせる・記録に照らさない・閉じない・改めた印を外す・前の文に戻す、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
+  ok('壊して確かめる：決めを記録に拠らずに書く・日付で終わらせる・記録に照らさない・閉じない・改めた印を外す・前の文に戻す・README の年表と生成した官報・配信・合本・トップの頁から第 48 号の注を外す、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
   const ej = B.errataEntries().find((e) => e.right.includes('叙任の願い出を受けない。2026-11-12 に利用者が決めました。'));
   ok('王の正誤表に、前の手順の文と、利用者が決めたことと Claude が決めた細目を、理由とともに記し、年表に行がある（日本語と英語）',
     !!ej && ej.kind.ja === '範囲' && ej.wrong.includes('叙任の願い出の様式で issue を開く。') && ej.right.includes('2026-11-12 に Claude が決めました。') && (ej.en[4] || '').includes('The owner decided this on 2026-11-12.')
@@ -1987,7 +2012,7 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
   const EXCL = '（叙任の規程「外国の称号を縛る国」）';
   const REC = 'docs/world-law-2026-11-12.md';
   const files = ['policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'policies/legality.md', 'policies/legality.en.md', 'policies/requests.md', 'policies/requests.en.md',
-    '.github/ISSUE_TEMPLATE/knighting.yml', '.github/ISSUE_TEMPLATE/request.yml', 'tools/knighting.js', REC];
+    'tools/knighting-form.yml', '.github/ISSUE_TEMPLATE/request.yml', 'tools/knighting.js', REC];
   const load = (src) => { const m = { exports: {} }; new Function('require', 'module', 'exports', '__dirname', src.replace(/^#!.*\n/, ''))(require, m, m.exports, path.join(ROOT, 'tools')); return m.exports; };
   const sec = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = t.indexOf('\n## ', i + 4); return t.slice(i, j < 0 ? undefined : j); };
   const rowsOf = (t, head) => t.split('\n').filter((l) => /^\| /.test(l) && !l.startsWith('| --- ') && !l.startsWith(head)).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2010,15 +2035,15 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     if (!se.includes('From 2026-11-22, a person who holds the nationality of any of the ' + re.length + ' countries in the table below may not apply')) bad.push('英語の国の数');
     const types = (s, re1) => s.split('\n').filter((l) => re1.test(l)).length;
     if (!(sj.includes('次の三つの型のどれかに当たります。') && types(sj, /^[123]\. 型 [123]：/) === 3 && types(se, /^[123]\. Type [123]: /) === 3)) bad.push('三つの型');
-    need('policies/knighting.md', ['表の国のほかにも、国籍を持つ国の法令が三つの型のどれかに当たる人は、願い出ることができません。', 'いちばん厳しい読み方を取り、願い出を受けない形にしました。', '運営者は、この表と上の定めのもとで、これらの条が叙任に及ばないものとして扱います。']);
+    need('policies/knighting.md', ['表の国のほかにも、国籍を持つ国の法令が三つの型のどれかに当たる人は、願い出ることができません。', 'いちばん厳しい読み方を取り、願い出を受けない形にしました。', 'この表と上の定めのもとで、これらの条が叙任に及ぶかは、取り寄せた条文からは決まりません。運営者は、受付を止めています（「受付の停止」）。']);
     need('policies/knighting.en.md', ['Besides the countries in the table, a person whose country of nationality has a law of any of the three types may not apply either', 'The strictest reading was taken']);
     /* 様式の印は表と同じ国を挙げ、2026-11-22 から求める。 */
-    const yml = x['.github/ISSUE_TEMPLATE/knighting.yml'];
+    const yml = x['tools/knighting-form.yml'];
     let K;
     try { K = load(x['tools/knighting.js']); } catch (e) { return bad.concat(['受付のコードが読めない']); }
     const box = (new RegExp('        - label: (' + K.FOREIGN + '[^\\n]+)\\n          required: false\\n').exec(yml) || [])[1] || '';
     const listed = box.slice(K.FOREIGN.length).split('。')[0].split('、');
-    if (!box || listed.slice().sort().join() !== rj.map((r) => r[0]).sort().join() || !box.includes('（ほかの国籍と重ねて持つ場合も含みます。' + DAY + ' から、この印のない願い出は受けません）。')) bad.push('様式の印の国が表と違う');
+    if (!box || listed.slice().sort().join() !== rj.map((r) => r[0]).sort().join() || !box.includes('（ほかの国籍と重ねて持つ場合も含みます。この印のない願い出は受けません）。')) bad.push('様式の印の国が表と違う');
     if (!(K.FOREIGN_FROM === DAY && (K.DATED || []).some((d) => d.text === K.FOREIGN && d.from === DAY))) bad.push('受付のコードがその日から印を求めない');
     const oaths = K.requiredOaths(yml);
     const FORM = (boxes) => '### 訂正への公開のリンク\n\nhttps://example.org/fix\n\n### 何を誤り、どう正したか\n\n自分の記事の年を誤り、正誤表で正しました。\n\n### 誓い\n\n' + boxes.map((b) => '- [X] ' + b).join('\n') + '\n';
@@ -2087,7 +2112,7 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     ['表から国を一つ外す', mut('policies/knighting.md', firstRow + '\n', ''), D],
     ['決めから除く国を一つ外す（表は残す）', real, D2],
     ['表の国の数を変える', mut('policies/knighting.md', '次の表の ', '次の表の 1'), D],
-    ['様式の印から国を一つ外す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '：アイルランド、', '：'), D],
+    ['様式の印から国を一つ外す', mut('tools/knighting-form.yml', '：アイルランド、', '：'), D],
     ['受付のコードから印を外す', mut('tools/knighting.js', "  { from: FOREIGN_FROM, text: FOREIGN, label: '外国の称号を縛る国の国籍を持っていない印がある' },\n", ''), D],
     ['印を求める日を一日遅らせる', mut('tools/knighting.js', "const FOREIGN_FROM = '2026-11-22';", "const FOREIGN_FROM = '2026-11-23';"), D],
     ['呼び名の使い方の決まりを一つ外す', mut('policies/knighting.md', '- 公的な場・商取引・法的な場（書類・届出・契約・裁判など）で使わない。\n', ''), D],
@@ -2222,7 +2247,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     'policies/legality.md', 'policies/legality.en.md', '.github/ISSUE_TEMPLATE/request.yml', 'ERRATA.md', 'ERRATA.en.md', 'README.md', 'verification/duties.json', AUD];
   const scanned = [...fs.readdirSync(ROOT).filter((f) => f.endsWith('.md') && !/^(ERRATA(\.en)?|CLAUDE)\.md$/.test(f)),
     ...fs.readdirSync(path.join(ROOT, 'policies')).map((f) => 'policies/' + f),
-    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f),
+    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f), 'tools/knighting-form.yml',
     ...fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f)];
   const OLD = ['非公開で連絡する方法を返します', 'a way to make contact privately', '非公開の連絡で遅滞なく', 'through a private channel', 'through the private channel', '「公開できない求め」に沿った連絡で', '「公開できない求め」に沿って行います'];
   const PVR_JA = 'GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません（2026-11-13 に GitHub の API で確かめました）。';
@@ -2314,7 +2339,7 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
   const files = [CODE, WF, 'policies/knighting.md', 'policies/knighting.en.md', 'policies/privacy.md', 'policies/privacy.en.md', 'INSTITUTIONS.md', 'INSTITUTIONS.en.md', 'ERRATA.md', 'ERRATA.en.md', 'README.md', AUD];
   const scanned = [...fs.readdirSync(ROOT).filter((f) => f.endsWith('.md') && !/^(ERRATA(\.en)?|CLAUDE)\.md$/.test(f)),
     ...fs.readdirSync(path.join(ROOT, 'policies')).map((f) => 'policies/' + f),
-    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f),
+    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f), 'tools/knighting-form.yml',
     ...fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f), WF, CODE];
   const OLD = ['訂正へのリンクを一度開きます', '開けるかどうかを示す応答の状態', '訂正へのリンクが開けるかどうかを確かめ', '訂正へのリンクが開けるかを確かめて', 'opens the link to the correction once', 'the status of the response, which shows whether the link opens', 'whether the link to the correction opens', 'await status(link)', "method: 'HEAD'"];
   const GOOD = ['https://example.org/erratum', 'https://github.com/someone/notes/commit/0123abc', 'https://zenn.dev/someone/articles/fix', 'https://例え.jp/訂正'];
@@ -2334,7 +2359,7 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     let K;
     try { K = load(src); } catch (e) { return bad.concat(['受付のコードが読めない：' + e.message]); }
     if ('status' in K) bad.push('リンクを開く関数が残る');
-    const oaths = K.requiredOaths(read('.github/ISSUE_TEMPLATE/knighting.yml'));
+    const oaths = K.requiredOaths(read('tools/knighting-form.yml'));
     const all = oaths.concat((K.DATED || []).map((d) => d.text));
     const FORM = (link) => '### 訂正への公開のリンク\n\n' + link + '\n\n### 何を誤り、どう正したか\n\n自分の記事の年を誤り、正誤表で正しました。\n\n### 誓い\n\n' + all.map((b) => '- [X] ' + b).join('\n') + '\n';
     /* 確かめるあいだに外へ要求を出さない：fetch を落とす形に替えて走らせ、同期で答えが返る。 */
@@ -2440,10 +2465,10 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
   const AUD = 'docs/legal-audit-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：五度目の見落とし\n';
   const T69 = JSON.parse(read('verification/statutes-texts.json'));
   const P2 = '２ 前項の合意は、一定の法律関係に基づく訴えに関し、かつ、書面でしなければ、その効力を生じない。';
-  const files = ['policies/terms.md', 'policies/terms.en.md', 'policies/legality.md', 'policies/legality.en.md', 'ERRATA.md', 'ERRATA.en.md', 'README.md', '.github/ISSUE_TEMPLATE/knighting.yml', AUD];
+  const files = ['policies/terms.md', 'policies/terms.en.md', 'policies/legality.md', 'policies/legality.en.md', 'ERRATA.md', 'ERRATA.en.md', 'README.md', 'tools/knighting-form.yml', AUD];
   const scanned = [...fs.readdirSync(ROOT).filter((f) => f.endsWith('.md') && !/^(ERRATA(\.en)?|CLAUDE)\.md$/.test(f)),
     ...fs.readdirSync(path.join(ROOT, 'policies')).map((f) => 'policies/' + f),
-    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f),
+    ...fs.readdirSync(path.join(ROOT, '.github', 'ISSUE_TEMPLATE')).map((f) => '.github/ISSUE_TEMPLATE/' + f), 'tools/knighting-form.yml',
     ...fs.readdirSync(path.join(ROOT, 'site', 'policies')).filter((f) => f.endsWith('.html')).map((f) => 'site/policies/' + f)];
   const OLD = ['専属的合意管轄', '第一審の専属的', '合意で定めた専属管轄', '管轄の合意は効力を生じないことがある', 'exclusive agreed court', 'An exclusive court chosen by agreement', 'so the agreement on courts may have no effect'];
   const KINDS69 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
@@ -2485,7 +2510,7 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
     const cj = section(x['policies/legality.md'], '管轄の合意の効き方'), ce = section(x['policies/legality.en.md'], 'How the agreement on courts works');
     if (/第20条/.test(cj) || /Article 20/.test(ce) || /専属/.test(cj.replace('専属的ではない', '')) || /\bexclusive\b/.test(ce.replace('is not exclusive', ''))) bad.push('適法性の説明に専属の前提が残る');
     /* 様式の同意の印は、規程の所在を指すだけで、合意管轄の文を写さない。 */
-    if (/専属|裁判所|court/.test(x['.github/ISSUE_TEMPLATE/knighting.yml'])) bad.push('様式が合意管轄の文を写す');
+    if (/専属|裁判所|court/.test(x['tools/knighting-form.yml'])) bad.push('様式が合意管轄の文を写す');
     for (const p of ['terms', 'legality']) {
       const dj = (/^最終更新：(\d{4}-\d{2}-\d{2})。$/m.exec(x['policies/' + p + '.md']) || [])[1], de = (/^Last updated: (\d{4}-\d{2}-\d{2})\.$/m.exec(x['policies/' + p + '.en.md']) || [])[1];
       if (!(dj && dj >= '2026-11-13' && dj === de)) bad.push(p + '：最終更新');
@@ -2535,7 +2560,7 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
     ['生成した頁に前の文が残る', mut('scan:site/policies/terms.en.html', '<h2', 'as the exclusive agreed court of first instance.<h2')],
     ['適法性の説明に第20条を戻す', mut('policies/legality.md', '（民事訴訟法第17条）。', '（民事訴訟法第17条）。合意で定めた裁判所は、移送の制限の外にある（民事訴訟法第20条第1項）。')],
     ['英語の適法性の説明から読む人の文を外す', mut('policies/legality.en.md', 'There is no written agreement with those who only read; for them, and for other disputes, the court', 'The court')],
-    ['様式に合意管轄を写す', mut('.github/ISSUE_TEMPLATE/knighting.yml', '願い出の日の版に同意します', '願い出の日の版と、宇都宮の裁判所の専属に同意します')],
+    ['様式に合意管轄を写す', mut('tools/knighting-form.yml', '願い出の日の版に同意します', '願い出の日の版と、宇都宮の裁判所の専属に同意します')],
     ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 31 から前の文を外す', mut('ERRATA.md', '合意で定めた専属管轄は、移送の制限の外にある（民事訴訟法第20条第1項）。／', '')],
     ['王の正誤表 31 を範囲の分類にする', mut('ERRATA.md', '| 法 | Insula Legis VIII |', '| 範囲 | Insula Finis XIV |')],
@@ -2600,7 +2625,9 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
   /* 履歴から読む日は、いまの文について一度だけ読む。壊して確かめるときも、同じ文には同じ日を使う。 */
   const last = lastTextDays(pages);
   const first = {};
-  for (const r of timeline(real['README.md'])) first['README.md\n' + r[1]] = firstDay('README.md', r[1]);
+  /* のちに改めた行の注（build.js の LATER）は、行の文が入ったあとに添えたもの。入った日は、注を除いた文で読む（検査 78 が注を確かめる）。 */
+  const orig = (t) => String(t).replace(B.LATER_JA, '');
+  for (const r of timeline(real['README.md'])) first['README.md\n' + orig(r[1])] = firstDay('README.md', orig(r[1]));
   for (const r of errata(real['ERRATA.md'])) first['ERRATA.md\n' + r[3]] = firstDay('ERRATA.md', r[3]);
   const ledgerRaw = JSON.parse(read('verification/gazette-numbers.json'));
   const JST_JA = ['頁の日付と、年表・官報・正誤表・名簿の日付は、日本時間の日付です。', '文を取り寄せた日は、取り寄せの記録に残った協定世界時の日付です。', '建国の日の 2026-11-07 も、協定世界時の日付です。'];
@@ -2613,7 +2640,7 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
     /* 頁の最終更新は、その頁を変えた最後のコミットの日（日本時間）より前にならない。 */
     for (const f of pages) { const m = UPD.exec(x[f] || ''); const d = m && (m[1] || m[2]); if (!d || d < h.last[f]) bad.push(f + '：最終更新 ' + d + ' が、変えた日 ' + h.last[f] + ' より前'); }
     /* 年表と王の正誤表の行の日付は、その文が最初に入ったコミットの日より前にならない。建国の日の行だけは、協定世界時の日付（利用規約）。 */
-    for (const r of timeline(x['README.md'])) { const d = r[0].slice(0, 10), w = h.first['README.md\n' + r[1]] || today; if (d < w && d !== B.FOUNDED) bad.push('年表の行 ' + d + ' が、入った日 ' + w + ' より前：' + r[1].slice(0, 20)); }
+    for (const r of timeline(x['README.md'])) { const d = r[0].slice(0, 10), w = h.first['README.md\n' + orig(r[1])] || today; if (d < w && d !== B.FOUNDED) bad.push('年表の行 ' + d + ' が、入った日 ' + w + ' より前：' + r[1].slice(0, 20)); }
     for (const r of errata(x['ERRATA.md'])) { const w = h.first['ERRATA.md\n' + r[3]] || today; if (r[1] < w) bad.push('王の正誤表 ' + r[0] + ' の記した日 ' + r[1] + ' が、入った日 ' + w + ' より前'); }
     /* 年表の行が告げる効力の日は、行の日付より前にならない（日本語と英語）。 */
     for (const r of timeline(x['README.md'])) {
@@ -2677,7 +2704,7 @@ console.log('\n71. 叙任を誘う文は、叙任の規程を挙げる（日本�
   const AUD = 'docs/legal-audit-2026-11-12.md', SEC = '\n## 2026-11-12 の続き：七度目の見落とし\n';
   /* 王の正誤表とその頁は、改める前の文をそのまま写すので除く（王の正誤表「記し方」）。docs/ と verification/ は配る頁ではない。 */
   const ERR = (f) => /^(?:ERRATA(?:\.en)?\.md|site\/errata(?:\.en)?\.html|site\/errata\/[^/]+|site\/errata\.xml)$/.test(f);
-  const srcs = walk(ROOT).filter((f) => (/\.md$/.test(f) || /^\.github\/ISSUE_TEMPLATE\/[^/]+\.yml$/.test(f)) && !/^(?:\.git|site|docs|verification|node_modules)\//.test(f)).sort();
+  const srcs = walk(ROOT).filter((f) => (/\.md$/.test(f) || /^\.github\/ISSUE_TEMPLATE\/[^/]+\.yml$/.test(f) || f === 'tools/knighting-form.yml') && !/^(?:\.git|site|docs|verification|node_modules)\//.test(f)).sort();
   const gen = walk(path.join(ROOT, 'site')).filter((f) => /\.(?:html|txt|xml|ics)$/.test(f)).map((f) => 'site/' + f).sort();
   const files = srcs.concat(gen).filter((f) => !ERR(f));
   const real = Object.fromEntries(files.concat(['policies/knighting.md', 'policies/knighting.en.md', 'INSTITUTIONS.md', 'INSTITUTIONS.en.md', 'README.md', 'founding.en.md', 'ERRATA.md', 'ERRATA.en.md', AUD]).map((f) => [f, read(f)]));
@@ -3152,8 +3179,36 @@ console.log('\n76. 公開の頁は運営者の立場を書き、続けている�
   const URL = 'https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/' + AUD;
   const KINDS76 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
   const prose = (f, t) => f.endsWith('.html') ? t.replace(/<details class="source">[\s\S]*?<\/details>/g, '') : t;
+  /* 2026-11-13 に広げた（点検の記録「2026-11-13：十四度目の見落とし」「条文から決まらず、受付を止めている点」）：
+   * 記録が条文から決まらないとして受付を止めている点について、公開の頁は運営者の立場（「当たらない／及ばないものとして扱う」）を書かない。
+   * 点の一覧は、記録の節の箇条と一字一句同じで、数もそろう。頁の行が、立場の言い方と、その点を指す語の両方を持てば落ちる。
+   * 規程の頁（Markdown と HTML）、README とトップの頁、llms.txt と llms-full.txt（王の正誤表の塊は記録なので除く）を見る。 */
+  const UNSETTLED = [
+    { point: 'イタリアの 1951 年法律第178号第8条の授けた者の罰が、国外で授けた外国人に及ぶか（刑法典第7条・第8条・第10条）。', ja: /同条|第 ?178 ?号|授けた者/, en: /the article|No\. 178|conferring/ },
+    { point: 'イタリアの刑法典第6条で、名簿に記すことが国内で起きた罪とされるか。', ja: /第 ?6 ?条/, en: /Article 6\b/ },
+    { point: '住む国・いる国・国籍で限っても、取り寄せていない国の法令が叙任に及ぶか。', ja: /日本の外の法令|外国の法令/, en: /laws outside Japan|foreign laws/ },
+    { point: '騎士の呼び名を、各国がその国の称号としてどう読むか。', ja: /これらの条|称号|騎士の呼び名/, en: /these provisions|title|name of knight/ },
+  ];
+  const POS_JA = /(?:及ばない|当たらない)ものとして扱/, POS_EN = /\btreats?\b[^.]*\bas (?:not (?:reaching|falling|applying)|outside)/;
+  const POS_FILES = pages.concat(['README.md', 'site/index.html', 'site/llms.txt', 'site/llms-full.txt']);
+  const plainLines = (f, t) => {
+    let y = t;
+    if (f === 'site/llms-full.txt') y = y.split(/\n(?=Source: )/).filter((b) => !/^Source: \S+\/errata(?:\.en)?\.html\s*$/m.test(b.split('\n')[0])).join('\n');
+    if (f.endsWith('.html')) y = prose(f, y).replace(/<\/(?:li|p|td|th|h[1-6]|div)>/g, '\n').replace(/<[^>]+>/g, '');
+    return y.split('\n');
+  };
+  const SEC14 = '\n## 2026-11-13：十四度目の見落とし\n', SUB14 = '\n### 条文から決まらず、受付を止めている点\n';
   function verdict(x) {
     const bad = [];
+    for (const f of POS_FILES) for (const l of plainLines(f, x[f])) {
+      for (const u of UNSETTLED) if ((POS_JA.test(l) && u.ja.test(l)) || (POS_EN.test(l) && u.en.test(l))) bad.push(f + ' に、条文から決まらない点の立場：' + l.slice(0, 40));
+    }
+    {
+      const a = x[AUD], i = a.indexOf(SEC14), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5), sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+      const k = sec.indexOf(SUB14), sub = k < 0 ? '' : sec.slice(k + SUB14.length, sec.indexOf('\n### ', k + 5));
+      const listed = sub.split('\n').filter((l) => l.startsWith('- ')).map((l) => l.slice(2));
+      if (JSON.stringify(listed) !== JSON.stringify(UNSETTLED.map((u) => u.point))) bad.push('記録の「条文から決まらず、受付を止めている点」と検査の点が違う');
+    }
     for (const f of pages) {
       const t = prose(f, x[f]), list = /\.en\.(md|html)$/.test(f) ? ADMIT_EN : ADMIT_JA;
       for (const w of list) if (t.includes(w)) bad.push(f + ' に認める言い方：' + w);
@@ -3186,14 +3241,14 @@ console.log('\n76. 公開の頁は運営者の立場を書き、続けている�
     if (!sec.includes('検査 76 が') || !sec.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(sec.replace('弁護士が確かめたとも書きません。', ''))) bad.push('記録の検査か弁護士の文');
     return bad;
   }
-  const real = Object.fromEntries(pages.concat(files).map((f) => [f, read(f)]));
+  const real = Object.fromEntries(pages.concat(files, POS_FILES).map((f) => [f, read(f)]));
   const bad = verdict(real);
-  ok('規程の頁（' + pages.length + '）に、続けている行いが法令に触れうると認める言い方（日本語 ' + ADMIT_JA.length + '、英語 ' + ADMIT_EN.length + '）がなく、第32条の受け取り方・王の正誤表 35 と 36・年表・点検の記録の節がそろう', bad.length === 0, bad.slice(0, 6).join(' / '));
+  ok('規程の頁（' + pages.length + '）に、続けている行いが法令に触れうると認める言い方（日本語 ' + ADMIT_JA.length + '、英語 ' + ADMIT_EN.length + '）がなく、第32条の受け取り方・王の正誤表 35 と 36・年表・点検の記録の節がそろう。記録が条文から決まらないとする点（' + UNSETTLED.length + '）について、どの頁と生成したファイル（' + POS_FILES.length + '）も運営者の立場を書かない', bad.length === 0, bad.slice(0, 6).join(' / '));
   const mut = (f, a2, b2) => Object.assign({}, real, { [f]: real[f].replace(a2, b2) });
   const breaks = [
     ['適法性の説明の結論を前の文に戻す', mut('policies/legality.md', '条文からは決まらない点は、運営者の扱いを各節に書いています。', '並べていない法令と、解釈の分かれる要件が残るので、違法となるおそれがどれほど小さいかは言い切れません。')],
-    ['英語の適法性の説明に前の文を戻す', mut('policies/legality.en.md', '- Under these limits, and the rule', '- These limits reduce, but do not remove, the possibility that laws outside Japan apply.\n- Under these limits, and the rule')],
-    ['叙任の規程に前の文を戻す', mut('policies/knighting.md', '運営者は、この三つを守る使い方を、これらの条が罰する名乗り方や使い方に当たらないものとして扱います。', 'この使い方を守っても、これらの条が及ぶおそれは減るだけで、なくなりはしません。')],
+    ['英語の適法性の説明に前の文を戻す', mut('policies/legality.en.md', '- Even under these limits, how laws', '- These limits reduce, but do not remove, the possibility that laws outside Japan apply.\n- Even under these limits, how laws')],
+    ['叙任の規程に前の文を戻す', mut('policies/knighting.md', 'この三つを守る使い方が、これらの条の罰する名乗り方や使い方に当たるかは、取り寄せた条文からは決まりません。運営者は、受付を止めています（「受付の停止」）。', 'この使い方を守っても、これらの条が及ぶおそれは減るだけで、なくなりはしません。')],
     ['英語の叙任の規程に前の文を戻す', mut('policies/knighting.en.md', 'Even so, the words of these provisions allow a reading on which they apply, so that path is closed as follows.', 'Even so, on the words of these provisions, a reading remains on which they apply.')],
     ['個人情報の取り扱いに前の文を戻す', mut('policies/privacy.md', ROUTE_JA, 'そうした連絡先がない人には、氏名と住所を非公開で知らせる道がありません。')],
     ['英語の個人情報の取り扱いに前の文を戻す', mut('policies/privacy.en.md', ROUTE_EN, 'For a person with no such contact, there is no private route to give the name and address.')],
@@ -3208,12 +3263,27 @@ console.log('\n76. 公開の頁は運営者の立場を書き、続けている�
     ['記録から移した点を外す', mut(AUD, '\n### 頁から移した、条文から決まらない点\n', '\n### 移した点\n')],
     ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-13：十三度目の見落とし', '\n## 2026-11-13：十三度目の見落とし')],
     ['記録に弁護士が確かめたと書く', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-13：十三度目の見落とし', 'この節も、弁護士の確認は受けていません。弁護士が確かめました。\n\n## 2026-11-13：十三度目の見落とし')],
+    /* 条文から決まらない点の立場（王の正誤表 41 の前の文）を、一つずつ戻す。 */
+    ['適法性の説明に第6条の立場を戻す', mut('policies/legality.md', '運営者は、これも確かめ終えるまで受付を止めている。', '運営者は、当たらないものとして扱う。')],
+    ['適法性の説明に日本の外の法令の立場を戻す', mut('policies/legality.md', '- これらの限定のもとでも、日本の外の法令が叙任にどう及ぶかは、取り寄せた条文からは決まらない。運営者は、受付を止めている（叙任の規程「受付の停止」）。', '- 運営者は、これらの限定と、国籍を持つ国の法令についての叙任の規程の定めのもとで、日本の外の法令が叙任に及ばないものとして扱う。')],
+    ['英語の適法性の説明に第6条の立場を戻す', mut('policies/legality.en.md', 'the operator keeps applications paused until this is checked too.', 'the operator treats it as not falling under it.')],
+    ['英語の適法性の説明に日本の外の法令の立場を戻す', mut('policies/legality.en.md', '- Even under these limits, how laws outside Japan reach knighting is not settled by the fetched texts.', "- Under these limits, and the rule in the Rules on Knighting on the laws of the country of one's nationality, the operator treats laws outside Japan as not reaching knighting.")],
+    ['叙任の規程に授けた者の罰の立場を戻す', mut('policies/knighting.md', '同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています', '運営者は、この限りで、同条が叙任に及ばないものとして扱います')],
+    ['叙任の規程に表の条の立場を戻す', mut('policies/knighting.md', 'この表と上の定めのもとで、これらの条が叙任に及ぶかは、取り寄せた条文からは決まりません。', '運営者は、この表と上の定めのもとで、これらの条が叙任に及ばないものとして扱います。')],
+    ['英語の叙任の規程に授けた者の罰の立場を戻す', mut('policies/knighting.en.md', "Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts.", 'Within this limit, the operator treats the article as not reaching knighting.')],
+    ['英語の叙任の規程に表の条の立場を戻す', mut('policies/knighting.en.md', 'Whether these provisions reach knighting, under this table and the rules above, is not settled by the fetched texts.', 'Under this table and the rules above, the operator treats these provisions as not reaching knighting.')],
+    ['英語の叙任の規程に呼び名の使い方の立場を戻す', mut('policies/knighting.en.md', 'Whether use that keeps these three rules falls within what these provisions punish is not settled by the fetched texts.', 'The operator treats use that keeps these three rules as outside what these provisions punish.')],
+    ['生成した頁に授けた者の罰の立場を戻す', mut('site/policies/knighting.html', '同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。', '運営者は、この限りで、同条が叙任に及ばないものとして扱います。')],
+    ['llms.txt に授けた者の罰の立場を戻す', mut('site/llms.txt', '同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。', '運営者は、この限りで、同条が叙任に及ばないものとして扱います。')],
+    ['llms-full.txt の英語に日本の外の法令の立場を戻す', mut('site/llms-full.txt', '- Even under these limits, how laws outside Japan reach knighting is not settled by the fetched texts.', '- Under these limits, the operator treats laws outside Japan as not reaching knighting.')],
+    ['記録の点を一つ外す', mut(AUD, '- イタリアの刑法典第6条で、名簿に記すことが国内で起きた罪とされるか。\n', '')],
+    ['記録の点を書き換える', mut(AUD, '- 騎士の呼び名を、各国がその国の称号としてどう読むか。\n\n2026-11-13 に Claude が決めました。適法性の説明と叙任の規程の、', '- 騎士の呼び名の読まれ方。\n\n2026-11-13 に Claude が決めました。適法性の説明と叙任の規程の、')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   /* 引いた条文の欄の中の言い方は数えない（法令の文を、検査のために変えない）。 */
   const quoted = mut('site/policies/legality.html', '</details>', '違法となるおそれ</details>');
   const quotedOk = verdict(quoted).length === 0;
-  ok('壊して確かめる：結論・英語の限定・叙任の規程（日本語と英語）・個人情報の取り扱い（日本語と英語）・生成した頁・英語の地の文・ほかの規程・王の正誤表・年表・判定の数・理由・移した点・弁護士の文のどれでも落ち、引いた条文の欄の中は数えない（'
+  ok('壊して確かめる：結論・英語の限定・叙任の規程（日本語と英語）・個人情報の取り扱い（日本語と英語）・生成した頁・英語の地の文・ほかの規程・王の正誤表・年表・判定の数・理由・移した点・弁護士の文・条文から決まらない点の立場（規程・生成した頁・llms の各所）・記録の点の一覧のどれでも落ち、引いた条文の欄の中は数えない（'
     + (caught.length + (quotedOk ? 1 : 0)) + ' / ' + (breaks.length + 1) + '）', caught.length === breaks.length && quotedOk, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).concat(quotedOk ? [] : ['引いた条文の欄']).join(' / '));
 }
 console.log('\n77. イタリアの刑法典第7条・第8条を読み、第10条だけに拠らない。公開できない求めの受け取り方は、個人情報の取り扱いと同じ（2026-11-13）');
@@ -3314,6 +3384,196 @@ console.log('\n77. イタリアの刑法典第7条・第8条を読み、第10条
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([n]) => n);
   ok('壊して確かめる：記録を外す・段落を変える・前の行の判定・引用・決めた者・頁と様式と安全の頁を前の文に戻す・王の正誤表・年表、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）', caught.length === breaks.length, breaks.filter(([n]) => !caught.includes(n)).map(([n]) => n).join(' / '));
+}
+console.log('\n78. 受付を止めているあいだ、叙任の願い出の様式を置かず、届いた願い出は中身を残さない。条文から決まらない点の立場を書かない。官報の第 48 号に注を添える（2026-11-13）');
+{
+  /* 2026-11-13 に Claude が決めた（点検の記録「2026-11-13：十四度目の見落とし」）。
+   * 一、受付を止めているあいだ（tools/knighting.js の REOPEN が null のあいだ）、様式を .github/ISSUE_TEMPLATE/ に置かず、定義を tools/knighting-form.yml に残す。
+   *     様式を使わない issue は開けず、残る様式は叙任のラベルを付けない。頁は様式へリンクしない。
+   * 二、停止のあいだに届いた願い出は、自動の確認が題と本文を断りに替え、閉じて書き込みを止める。本文は環境変数で受け取らず、実行の記録に写さない。
+   *     作りものの出来事と、GitHub の API の代わりを渡して、自動の確認をそのまま動かして確かめる（本物の issue には触れない）。
+   * 三、個人情報の取り扱い・叙任の規程（日本語と英語）・義務の表の第22条（取り寄せた条文の引用）・王の正誤表 40 と 41・年表・第 48 号の注と鍵・記録の節がそろう。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const { spawnSync } = require('child_process');
+  const AUD = 'docs/legal-audit-2026-11-12.md', FORM78 = 'tools/knighting-form.yml', CODE = 'tools/knighting.js', WF = '.github/workflows/knighting.yml', CFG = '.github/ISSUE_TEMPLATE/config.yml';
+  const KINDS78 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const TPL = '.github/ISSUE_TEMPLATE';
+  const NOTE_JA = '（のちに改めた：第 71 号）', NOTE_EN = ' (Later changed: No. 71)';
+  const SURF = ['site/index.html', 'site/gazette.html', 'site/gazette.en.html', 'site/gazette/48.html', 'site/gazette/48.en.html', 'site/gazette.xml', 'site/monthly/2026-11.html', 'site/monthly/2026-11.en.html', 'site/llms-full.txt'];
+  const LINKED = ['README.md', 'founding.en.md', 'site/llms.txt', 'site/llms-full.txt'].concat(fs.readdirSync(path.join(ROOT, 'policies')).map((f) => 'policies/' + f),
+    walk(path.join(ROOT, 'site')).filter((f) => f.endsWith('.html')).map((f) => 'site/' + f));
+  const files = [AUD, FORM78, CODE, WF, CFG, 'README.md', 'ERRATA.md', 'ERRATA.en.md', 'policies/privacy.md', 'policies/privacy.en.md', 'policies/knighting.md', 'policies/knighting.en.md',
+    'verification/duties.json', 'verification/statutes-texts.json', 'verification/gazette-numbers.json'].concat(SURF, LINKED);
+  const T22 = JSON.parse(read('verification/statutes-texts.json'))['個人情報保護法 第22条'];
+  const load = (src) => { const m = { exports: {} }; new Function('require', 'module', 'exports', '__dirname', src.replace(/^#!.*\n/, ''))(require, m, m.exports, path.join(ROOT, 'tools')); return m.exports; };
+  const cells = (l) => l.replace(/^\| | \|$/g, '').split(' | ');
+  const row = (t, n) => cells(t.split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '');
+  const PRIV_JA = ['2026-11-12 から受付を止めており、いまは叙任の願い出で情報を受け取っていません。受付を止めているあいだは、願い出の様式も置いていません',
+    '受付を止めているあいだに叙任の願い出として届いた issue は、自動の確認が、題と本文を短い断りに替えて閉じ、書き込みを止めます。運営者は、届いた中身を名簿にもほかの場所にも写しません。',
+    '替える前の題と本文は、GitHub が issue の編集の履歴に残します。その削除は、削除の求めに応じて行います。', '自動の確認は、issue の本文を実行の記録（GitHub Actions のログ）に写しません。'];
+  const PRIV_EN = ['Applications have been paused since 2026-11-12, and no information is now being received through applications for knighthood. While applications are paused, the application form is not offered either',
+    'An issue that arrives as an application for knighthood while applications are paused has its title and body replaced with a short note by the automatic check, and is closed and locked. The operator copies nothing of what arrived to the roll or anywhere else.',
+    'The earlier title and body remain in the edit history that GitHub keeps for the issue. They are removed on a request to delete.', 'The automatic check does not copy the body of an issue into the record of its run (the GitHub Actions log).'];
+  const KN_JA = ['受付を止めているあいだは、叙任の願い出の様式を、issue の様式の一覧に置きません。様式の定義は、受付に戻すときのために、リポジトリの `tools/knighting-form.yml` に残します。2026-11-13 に Claude が決めました。',
+    'そのとき自動の確認は、issue の題と本文を短い断りに替え、書き込みを止めます（[個人情報の取り扱い](./privacy.md)「保存の期間」）。'];
+  const KN_EN = ['While applications are paused, the application form is not offered in the list of issue forms. The definition of the form is kept in the repository at `tools/knighting-form.yml`, for when applications reopen. Claude decided this on 2026-11-13',
+    'The automatic check then replaces the title and body of the issue with a short note and locks it ([Privacy](./privacy.en.md), "How long data is kept").'];
+  function verdict(x) {
+    const bad = [];
+    let K;
+    try { K = load(x[CODE]); } catch (e) { return ['受付のコードが読めない：' + e.message]; }
+    /* 一、様式の置き場。 */
+    if (K.REOPEN === null && x.__templates.includes('knighting.yml')) bad.push('受付を止めているのに、様式が issue の様式の一覧にある');
+    if (K.FORM !== FORM78 || !x[CODE].includes('function requiredOaths(yml = fs.readFileSync(path.join(ROOT, FORM), \'utf8\')) {')) bad.push('自動の確認が、残した様式の定義を読まない');
+    const form = x[FORM78] || '';
+    if (!/^name: 叙任の願い出$/m.test(form) || !/^labels: \["叙任"\]$/m.test(form) || /2026-11-22/.test(form) || (form.match(/この印のない願い出は受けません/g) || []).length !== 4) bad.push('残した様式の定義');
+    if (!/^blank_issues_enabled: false$/m.test(x[CFG])) bad.push('様式を使わない issue を開ける');
+    if (x.__labels.includes('叙任')) bad.push('残る様式が叙任のラベルを付ける');
+    if (K.REOPEN === null) for (const f of LINKED) if ((x[f] || '').includes('template=knighting.yml')) bad.push(f + ' が様式へリンクする');
+    /* 二、本文の受け取り方と、届いた願い出の扱い（文の上で）。 */
+    const wf = x[WF];
+    if (/github\.event\.issue\.(body|title)/.test(wf) || !/        env:\n          GITHUB_TOKEN: \$\{\{ secrets\.GITHUB_TOKEN \}\}\n/.test(wf)) bad.push('ワークフローが issue の文を環境変数で渡す');
+    if (!(K.PAUSE_BODY || '').includes('運営者が残すのは、開いた人のアカウント名と開いた日だけです') || !(K.PAUSE_BODY_EN || '').includes('The operator keeps only the account name') || !(K.PAUSE_TITLE || '').startsWith('叙任の願い出（受付の停止のあいだ）')) bad.push('断りの文');
+    /* 三、規程・義務の表・王の正誤表・年表。 */
+    for (const s of PRIV_JA) if (!x['policies/privacy.md'].includes(s)) bad.push('個人情報の取り扱い：' + s.slice(0, 24));
+    for (const s of PRIV_EN) if (!x['policies/privacy.en.md'].includes(s)) bad.push('英語の個人情報の取り扱い：' + s.slice(0, 24));
+    if (x['policies/privacy.md'].includes('叙任の願い出は、GitHub（米国）の公開の issue で受けます。') || x['policies/privacy.en.md'].includes('Applications for knighthood are received as public issues')) bad.push('個人情報の取り扱いに、いまも受けている文が残る');
+    for (const s of KN_JA) if (!x['policies/knighting.md'].includes(s)) bad.push('叙任の規程：' + s.slice(0, 24));
+    for (const s of KN_EN) if (!x['policies/knighting.en.md'].includes(s)) bad.push('英語の叙任の規程：' + s.slice(0, 24));
+    let D = { duties: [] };
+    try { D = JSON.parse(x['verification/duties.json']); } catch (e) { bad.push('義務の表が読めない'); }
+    const t22 = JSON.parse(x['verification/statutes-texts.json'])['個人情報保護法 第22条'] || '';
+    const d22 = D.duties.find((u) => u.law === '個人情報保護法' && u.article === '22') || {};
+    if (!d22.quote || !t22.includes(d22.quote) || !d22.quote.includes('利用する必要がなくなったときは、当該個人データを遅滞なく消去するよう努めなければならない。')) bad.push('義務の表の第22条が、取り寄せた条文を引かない');
+    if (!(d22.by || []).some((b) => b.file === 'policies/privacy.md' && b.text.includes('題と本文を短い断りに替えて閉じ')) || !(d22.by || []).some((b) => b.file === CODE && b.text === "await github('PATCH', '/issues/' + n, { title: PAUSE_TITLE, body: pauseBody() });")) bad.push('義務の表の第22条が、届いた願い出の扱いに結ばれない');
+    for (const u of D.duties) if (u.quote !== undefined) { const t = JSON.parse(x['verification/statutes-texts.json'])[u.law + ' 第' + u.article + '条'] || ''; if (!t.includes(u.quote)) bad.push('義務の表の引用が条文にない：' + u.law + '第' + u.article + '条'); }
+    const e40 = row(x['ERRATA.md'], 40), e41 = row(x['ERRATA.md'], 41), f40 = row(x['ERRATA.en.md'], 40), f41 = row(x['ERRATA.en.md'], 41);
+    if (!(e40[1] === '2026-11-13' && (e40[3] || '').includes('叙任の願い出は、GitHub（米国）の公開の issue で受けます。') && (e40[4] || '').startsWith('誤りではなく、範囲を改めた。') && /2026-11-13 に Claude が決めました。[^|]*ためです。/.test(e40[4] || '') && e40[6] === '範囲' && e40[7] === 'Insula Finis XVIII')) bad.push('王の正誤表 40');
+    if (!(e41[1] === '2026-11-13' && (e41[3] || '').includes('運営者は、当たらないものとして扱う。') && (e41[3] || '').includes('同条が叙任に及ばないものとして扱います') && /2026-11-13 に Claude が決めました。[^|]*ためです。/.test(e41[4] || '') && e41[6] === '法' && e41[7] === 'Insula Legis X')) bad.push('王の正誤表 41');
+    if (!(f40[1] === '2026-11-13' && (f40[4] || '').startsWith('Not a mistake; the scope was changed.') && (f40[4] || '').includes('Claude decided this on 2026-11-13') && f40[6] === 'Scope' && f40[7] === 'Insula Finis XVIII')) bad.push('英語の王の正誤表 40');
+    if (!(f41[1] === '2026-11-13' && (f41[3] || '').includes('the operator treats it as not falling under it.') && (f41[4] || '').includes('Claude decided this on 2026-11-13') && f41[6] === 'Law' && f41[7] === 'Insula Legis X')) bad.push('英語の王の正誤表 41');
+    if (!/^\| 2026-11-13（日本時間） \| 叙任の願い出の受付を止めているあいだ、願い出の様式を issue の様式の一覧から外し[^|]*（王の正誤表 40） \| While applications for knighting are paused, the application form is taken out[^|]*\(King's errata 40\) \|$/m.test(x['README.md'])) bad.push('年表の行（様式）');
+    if (!/^\| 2026-11-13（日本時間） \| 適法性の説明と叙任の規程で、条文から決まらない点について[^|]*（王の正誤表 41）。官報の第 48 号に、のちに改めたことを示す注を添える \| [^|]*\(King's errata 41\)\. Gazette No\. 48 gains a note that it was later changed \|$/m.test(x['README.md'])) bad.push('年表の行（立場と注）');
+    /* 第 48 号の注：README の行は文を変えずに注を添え、鍵と号は動かず、注の号は改めた行の号。生成したどの面にも注がある。 */
+    const ledger = JSON.parse(x['verification/gazette-numbers.json']);
+    const keys = Object.keys(B.LATER);
+    if (!(keys.length === 1 && keys[0] === 'T:2026-11-12:d137857349df' && ledger[keys[0]] === 48 && ledger[B.LATER[keys[0]]] === 71)) bad.push('のちに改めた号の鍵と号');
+    const tl = x['README.md'].split('\n').filter((l) => /^\| \d{4}-\d{2}-\d{2}/.test(l)).map(cells);
+    const noted = tl.filter((r) => B.LATER_JA.test(r[1]) || B.LATER_EN.test(r[2]));
+    const r48 = noted[0] || [];
+    if (noted.length !== 1 || !(r48[1] || '').endsWith('ひとりでに受付に戻る' + NOTE_JA) || !(r48[2] || '').endsWith('at 00:00 on 2026-11-22' + NOTE_EN)
+      || B.timelineKey(r48[0].slice(0, 10), r48[1].replace(B.LATER_JA, '')) !== keys[0]) bad.push('README の年表の第 48 号の行と注');
+    const t71 = tl.find((r) => B.timelineKey(r[0].slice(0, 10), r[1]) === B.LATER[keys[0]]);
+    if (!t71 || !t71[1].startsWith('叙任の願い出の受付の停止を、2026-11-22 0 時（日本時間）からも続ける。')) bad.push('注の指す号が、停止を続ける号でない');
+    /* 日本語の面は日本語の注を、英語の面は英語の注を、README から作るトップの頁と llms-full.txt は両方を持つ（年表の行は日本語と英語の欄を持つ）。 */
+    for (const f of SURF) { const t = x[f] || '', both = f === 'site/index.html' || f === 'site/llms-full.txt'; if ((!f.endsWith('.en.html') && !t.includes(NOTE_JA)) || ((both || f.endsWith('.en.html')) && !t.includes(NOTE_EN))) bad.push(f + ' に第 48 号の注がない'); }
+    /* 記録の節。 */
+    const a = x[AUD], i = a.indexOf('\n## 2026-11-13：十四度目の見落とし\n'), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5), sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
+    for (const h of ['\n### 様式を閉じ、届いたものを残さない\n', '\n### 条文から決まらず、受付を止めている点\n', '\n### 官報の第 48 号\n', '\n### 確かめ直した表\n', '\n### 検査\n']) if (!sec.includes(h)) bad.push('記録の節がない：' + h.trim());
+    const t0 = sec.indexOf('\n| 箇所 | 法令と条 | 要件 | 事実 | 判定 | 対応 |\n| --- | --- | --- | --- | --- | --- |\n');
+    const rows = t0 < 0 ? [] : sec.slice(t0 + 1).split('\n\n')[0].split('\n').slice(2).map(cells);
+    if (rows.length < 10 || !rows.every((y) => y.length === 6 && KINDS78.includes(y[4]))) bad.push('記録の表の形');
+    const said = (k) => Number((new RegExp(k + ' (\\d+) 件').exec(sec) || [])[1]);
+    if (!KINDS78.filter((k) => rows.some((y) => y[4] === k)).every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
+    if ((sec.match(/2026-11-13 に Claude が決めました。/g) || []).length < 3 || !sec.includes('届いた願い出のうち、アカウント名と開いた日のほかを、運営者の記録として残さないためです。')) bad.push('記録に、決めた者と理由がない');
+    if (!sec.includes('「' + (/^（[^）]+） 第二十二条 (.+)$/.exec(t22) || [])[1] + '」')) bad.push('記録の第22条の引用が、取り寄せた条文と違う');
+    if (!sec.includes('検査 63 は README の年表の行を数えておらず、第 48 号の行が残っていました。その文は誤りでした。')) bad.push('記録が、検査 63 の前の文が誤りだったと書かない');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(sec)) bad.push('記録の弁護士の文');
+    return bad;
+  }
+  const real = Object.fromEntries([...new Set(files)].map((f) => [f, read(f)]));
+  real.__templates = fs.readdirSync(path.join(ROOT, TPL));
+  real.__labels = real.__templates.filter((f) => f !== 'config.yml').flatMap((f) => JSON.parse((/^labels: (\[.*\])$/m.exec(read(TPL + '/' + f)) || [, '[]'])[1]));
+  const bad = verdict(real);
+  ok('受付を止めているあいだ、叙任の願い出の様式は issue の様式の一覧になく（定義は ' + FORM78 + '）、様式を使わない issue は開けず、頁は様式へリンクしない。個人情報の取り扱い・叙任の規程・義務の表の第22条・王の正誤表 40 と 41・年表・第 48 号の注・記録の節がそろう（日本語と英語）', bad.length === 0, bad.slice(0, 6).join(' / '));
+  /* 自動の確認を、作りものの出来事と GitHub の API の代わりで動かす。本物の issue には触れず、外へは何も送らない。 */
+  const HARNESS = "const fs = require('fs');" +
+    "const src = fs.readFileSync(process.env.K78_SRC, 'utf8'); const m = { exports: {} };" +
+    "new Function('require', 'module', 'exports', '__dirname', src.replace(/^#!.*\\n/, ''))(require, m, m.exports, process.env.K78_DIR);" +
+    "const calls = []; globalThis.fetch = async (url, o) => { calls.push({ method: o.method, path: String(url).replace(/^https:\\/\\/api\\.github\\.com\\/repos\\/[^/]+\\/[^/]+/, ''), body: o.body ? JSON.parse(o.body) : null });" +
+    "  return { ok: true, status: o.method === 'PUT' ? 204 : 200, json: async () => (o.method === 'GET' ? [] : {}) }; };" +
+    "const log = []; const out = console.log; console.log = (...a) => log.push(a.join(' '));" +
+    "m.exports.main().then(() => out(JSON.stringify({ calls, log })), (e) => out(JSON.stringify({ calls, log, error: e.message })));";
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'nusquama-78-'));
+  const K0 = require('../tools/knighting.js');
+  const oaths = K0.requiredOaths();
+  const BODY = '### 訂正への公開のリンク\n\nhttps://example.org/fix-MARK-BODY\n\n### 何を誤り、どう正したか\n\n自分の記事の年を誤り、正誤表で正しました。MARK-BODY\n\n### 誓い\n\n' + oaths.map((o) => '- [X] ' + o).join('\n') + '\n';
+  let seq = 0;
+  function run(src, opened) {
+    const sp = path.join(tmp, 'k' + (++seq) + '.js'), ev = path.join(tmp, 'e' + seq + '.json');
+    fs.writeFileSync(sp, src);
+    fs.writeFileSync(ev, JSON.stringify({ action: 'opened', issue: { number: 7, created_at: opened, title: '叙任：MARK-TITLE', body: BODY, labels: [{ name: '叙任' }] } }));
+    const r = spawnSync(process.execPath, ['-e', HARNESS], { encoding: 'utf8', timeout: 20000,
+      env: Object.assign({}, process.env, { K78_SRC: sp, K78_DIR: path.join(ROOT, 'tools'), GITHUB_EVENT_PATH: ev, GITHUB_TOKEN: 'test', GITHUB_REPOSITORY: 'example/example', ISSUE_BODY: 'MARK-ENV', ISSUE_NUMBER: '9', ISSUE_CREATED_AT: '2026-11-01T00:00:00Z' }) });
+    try { return JSON.parse(r.stdout.trim().split('\n').pop()); } catch (e) { return { calls: [], log: [], error: 'no output: ' + (r.stderr || '').slice(0, 200) }; }
+  }
+  function behaviour(src) {
+    const bad = [];
+    let K;
+    try { K = load(src); } catch (e) { return ['受付のコードが読めない']; }
+    const leak = (r) => JSON.stringify(r.calls.map((c) => c.body)).match(/MARK-(BODY|TITLE|ENV)/) || r.log.join('\n').match(/MARK-(BODY|TITLE|ENV)/);
+    /* 停止のあいだ（2026-11-30）：停止を書き、題と本文を断りに替え、閉じて、書き込みを止める。中身をどこにも送らず、記録に写さない。 */
+    const p = run(src, '2026-11-30T00:00:00+09:00');
+    const has = (m, pth, test) => p.calls.some((c) => c.method === m && c.path === pth && test(c.body || {}));
+    if (p.error) bad.push('停止のあいだに動かない：' + p.error);
+    if (!has('POST', '/issues/7/comments', (b) => b.body === K.pauseComment())) bad.push('停止のコメントを書かない');
+    if (!has('PATCH', '/issues/7', (b) => b.title === K.PAUSE_TITLE && b.body === K.pauseBody())) bad.push('題と本文を断りに替えない');
+    if (!has('PATCH', '/issues/7', (b) => b.state === 'closed' && b.state_reason === 'not_planned')) bad.push('閉じない');
+    if (!has('PUT', '/issues/7/lock', (b) => b.lock_reason === 'resolved')) bad.push('書き込みを止めない');
+    if (p.calls.some((c) => !/^\/issues\/7(\/|$)/.test(c.path))) bad.push('出来事のファイルの番号でない issue に書く');
+    if (leak(p)) bad.push('停止のあいだに、届いた中身を送るか記録に写す');
+    /* 停止の前（2026-11-11）：様式を確かめてコメントするだけで、題と本文を替えず、閉じない。本文は出来事のファイルから読む。 */
+    const q = run(src, '2026-11-11T12:00:00+09:00');
+    const c = q.calls.find((x2) => x2.method === 'POST' && x2.path === '/issues/7/comments');
+    if (q.error || !c || !c.body.body.includes('様式は整っています。')) bad.push('停止の前に、出来事のファイルの本文で確かめない');
+    if (q.calls.some((x2) => x2.method !== 'GET' && x2.method !== 'POST')) bad.push('停止の前に、題と本文を替えるか閉じる');
+    if (leak(q)) bad.push('停止の前に、届いた中身を記録に写す');
+    return bad;
+  }
+  const src0 = read(CODE);
+  const bb = behaviour(src0);
+  ok('自動の確認に作りものの出来事を渡すと、停止のあいだ（2026-11-30）は停止を書き、題と本文を断りに替え、閉じて書き込みを止め、中身をどこにも送らず記録にも写さない。停止の前（2026-11-11）は出来事のファイルの本文で様式を確かめるだけ', bb.length === 0, bb.join(' / '));
+  const bm = (a1, b1) => src0.replace(a1, b1);
+  const behaviourBreaks = [
+    ['題と本文を替えない', bm("    await github('PATCH', '/issues/' + n, { title: PAUSE_TITLE, body: pauseBody() });\n", '')],
+    ['書き込みを止めない', bm("    await github('PUT', '/issues/' + n + '/lock', { lock_reason: 'resolved' });\n", '')],
+    ['本文を環境変数から読む', bm('const form = parse(issue.body);', 'const form = parse(process.env.ISSUE_BODY);')],
+    ['番号を環境変数から読む', bm('const n = issue.number;', 'const n = process.env.ISSUE_NUMBER;')],
+    ['本文を記録に写す', bm("  const form = parse(issue.body);", "  console.log(issue.body);\n  const form = parse(issue.body);")],
+    ['停止のあいだの断りに環境変数の本文を写す', bm('${PAUSE_BODY}\n', '${PAUSE_BODY}\n${process.env.ISSUE_BODY}\n')],
+  ];
+  const bcaught = behaviourBreaks.filter(([, y]) => { try { return behaviour(y).length > 0; } catch (e) { return true; } }).map(([n]) => n);
+  try { fs.rmSync(tmp, { recursive: true, force: true }); } catch (e) { /* 一時のファイルが消せなくても、検査の結果は変わらない */ }
+  const mut = (f, a1, b1) => Object.assign({}, real, { [f]: real[f].replace(a1, b1) });
+  const breaks = [
+    ['様式を issue の様式の一覧に戻す', Object.assign({}, real, { __templates: real.__templates.concat(['knighting.yml']) })],
+    ['残る様式に叙任のラベルを付ける', Object.assign({}, real, { __labels: real.__labels.concat(['叙任']) })],
+    ['様式を使わない issue を開けるようにする', mut(CFG, 'blank_issues_enabled: false', 'blank_issues_enabled: true')],
+    ['残した様式の印に日付を戻す', mut(FORM78, 'イタリアの国籍を持っていません（ほかの国籍と重ねて持つ場合も含みます。この印のない', 'イタリアの国籍を持っていません（ほかの国籍と重ねて持つ場合も含みます。2026-11-22 から、この印のない')],
+    ['生成した頁に様式へのリンクを戻す', mut('site/policies/knighting.html', '叙任の願い出の様式で issue を開く', '<a href="https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=knighting.yml">叙任の願い出</a>の様式で issue を開く')],
+    ['ワークフローに本文の環境変数を戻す', mut(WF, '          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}', '          ISSUE_BODY: ${{ github.event.issue.body }}\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}')],
+    ['自動の確認が様式の一覧から読む', mut(CODE, "const FORM = path.join('tools', 'knighting-form.yml');", "const FORM = path.join('.github', 'ISSUE_TEMPLATE', 'knighting.yml');")],
+    ['個人情報の取り扱いを、いまも受けている文に戻す', mut('policies/privacy.md', '叙任の願い出は、GitHub（米国）の公開の issue で受けるものです。', '叙任の願い出は、GitHub（米国）の公開の issue で受けます。')],
+    ['英語の個人情報の取り扱いから届いた願い出の扱いを外す', mut('policies/privacy.en.md', 'The operator copies nothing of what arrived to the roll or anywhere else.', '')],
+    ['個人情報の取り扱いから実行の記録の文を外す', mut('policies/privacy.md', '自動の確認は、issue の本文を実行の記録（GitHub Actions のログ）に写しません。', '')],
+    ['叙任の規程から様式を置かない文を外す', mut('policies/knighting.md', '受付を止めているあいだは、叙任の願い出の様式を、issue の様式の一覧に置きません。', '')],
+    ['義務の表の第22条の引用を変える', mut('verification/duties.json', '遅滞なく消去するよう努めなければならない。', '速やかに消去しなければならない。')],
+    ['王の正誤表 40 の分類を変える', mut('ERRATA.md', '| 範囲 | Insula Finis XVIII |', '| 事実 | Insula Finis XVIII |')],
+    ['英語の王の正誤表 41 から決めた者を外す', mut('ERRATA.en.md', 'Claude decided this on 2026-11-13, so that the pages state no position firmer than the review supports.', 'The pages were changed.')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 叙任の願い出の受付を止めているあいだ、', '| 2026-11-13（日本時間） | 受付を止めているあいだ、')],
+    ['README の第 48 号の注の号を変える', mut('README.md', 'ひとりでに受付に戻る（のちに改めた：第 71 号）', 'ひとりでに受付に戻る（のちに改めた：第 72 号）')],
+    ['ほかの年表の行に注を足す', mut('README.md', '交流の規程を定める |', '交流の規程を定める（のちに改めた：第 71 号） |')],
+    ['llms-full.txt から第 48 号の注を外す', mut('site/llms-full.txt', NOTE_JA, '')],
+    ['英語の一号ごとの頁から注を外す', mut('site/gazette/48.en.html', NOTE_EN, '')],
+    ['記録の判定の数を変える', mut(AUD, '判定は、誤り 1 件、根拠不足 5 件、漏れ 4 件、表現 3 件、問題なし 1 件で、合わせて 14 件です。', '判定は、誤り 1 件、根拠不足 5 件、漏れ 4 件、表現 3 件、問題なし 1 件で、合わせて 13 件です。')],
+    ['記録の第22条の引用を変える', mut(AUD, '「個人情報取扱事業者は、利用目的の達成に必要な範囲内において、', '「個人情報取扱事業者は、')],
+    ['記録から検査 63 の誤りの文を外す', mut(AUD, 'その文は誤りでした。記録なので改めず、ここに書きます。\n検査 63 は、README', '記録なので改めず、ここに書きます。\n検査 63 は、README')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([n]) => n);
+  ok('壊して確かめる：様式を一覧に戻す・ラベル・様式を使わない issue・様式の印の日付・様式へのリンク・本文の環境変数・様式の読み先・個人情報の取り扱い（日本語と英語）・叙任の規程・義務の表の引用・王の正誤表・年表・第 48 号の注・記録の件数と引用と文、のどれでも落ちる（'
+    + caught.length + ' / ' + breaks.length + '）。自動の確認から題と本文の差し替え・書き込みの停止を外す・本文や番号を環境変数から読む・本文を記録や断りに写す、のどれでも落ちる（' + bcaught.length + ' / ' + behaviourBreaks.length + '）',
+    caught.length === breaks.length && bcaught.length === behaviourBreaks.length, breaks.filter(([n]) => !caught.includes(n)).concat(behaviourBreaks.filter(([n]) => !bcaught.includes(n))).map(([n]) => n).join(' / '));
 }
 console.log('\n' + '-'.repeat(56));
 if (fails.length) { console.log(pass + ' 件が通り、' + fails.length + ' 件が通りませんでした。'); process.exit(1); }
