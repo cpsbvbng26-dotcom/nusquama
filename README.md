@@ -127,13 +127,14 @@
 ## 運営理念・声明
 
 運営の考え方は、[運営理念・声明](MISSION.md)にまとめています。下の第 1 条と第 2 条は、声明の文をそのまま写したものです。
+写した条で「現在」と書いたことは、声明の最終更新の日の時点のことです。
 全文は、サイトの[運営理念・声明](https://nusquama.vercel.app/mission.html)と、このリポジトリの [MISSION.md](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/MISSION.md) にあります。英語の訳は [Statement of Purpose](MISSION.en.md) です。
 
 ### 第 1 条（目的）
 
 1. ヌスクァマは、運営者が遊びとして書いている創作です。娯楽のために作った架空の国で、学術の研究ではありません。
 2. 国是は「誤りは守り、己を治める」です。王は自らの誤りを消さず、日付を付けて[王の正誤表](ERRATA.md)に記します。王の正誤表は、この国の版図です（王国基本法第三条・第五条）。
-3. 運営者は、この創作を、誰からも料金を取らずに運営します。
+3. 運営者は、現在、この創作を、誰からも料金を取らずに運営しています。
 4. それによって、誤りを消さずに残し、公に正すことを、創作の国の遊びとして示すことを目的としています。
 
 ### 第 2 条（この声明の性格）
@@ -193,6 +194,7 @@
 | 2026-11-13（日本時間） | 削除・訂正・辞退の求めの、様式を使わない issue は開けないとした文を、GitHub の画面では様式だけを選べるようにしてあり、ほかの道で開かれた issue は運営者が読むと改める。自動の確認は、受付の停止のあいだに開かれ、叙任の願い出の様式の見出しや印を持つラベルのない issue も、叙任の願い出と同じに扱う。叙任の規程と適法性の説明で、イタリアの外で称号を使う国民に使う者の罰が及ぶとした文と、GDPR の代理人について第27条第2項 (a) に拠った文を改める（王の正誤表 42・43・44）。王の正誤表 25・26・30・33・34 に、のちに改めたことを示す注を添える | The sentence in the Requests page saying that issues cannot be opened without a form now says that only the forms are offered on GitHub's web pages, and that an issue opened another way is read by the operator. The automatic check handles an issue without a label in the same way as an application if it was opened during the pause and carries the headings or boxes of the application form. In the Rules on Knighting and the Legality Statement, the sentences saying that the penalty for use reaches a national who uses the title outside Italy, and the sentences relying on Article 27(2)(a) of the GDPR for the representative, are corrected (King's errata 42, 43 and 44). King's errata 25, 26, 30, 33 and 34 gain a note that they were later changed |
 | 2026-11-13（日本時間） | 個人情報の取り扱いの、ほかに写しを作らないとした文を、GitHub の通知が issue の中身の写しを受け取るアカウント（運営者のものを含みうる）に届けうることと、その扱いは GitHub の規約と方針に従うこと、運営者はこれとは別に写しを作らないことを書く形に改める。保存の期間に、通知が電子メールでも届くことと、届いた写しが消えるとは説明書が書いていないことを書く（王の正誤表 45） | In the Privacy page, the sentence saying that no other copy is made now says that GitHub's notifications may carry a copy of the content of an issue to the accounts that receive them (which may include the operator's), that this copy is handled under GitHub's terms and policies, and that apart from this the operator makes no copy. "How long data is kept" now says that notifications also arrive by email, and that the documentation does not say that a copy already delivered goes away (King's errata 45) |
 | 2026-11-13（日本時間） | 運営理念・声明を置き、トップの頁と規程の一覧からつなぐ。叙任の規程に、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人・住む人・願い出のときにいる人は願い出ることができないことと、そう判断したときはその国や地域と理由を書き足すことを書き、利用規約で予告する | A Statement of Purpose is added and linked from the top page and the list of rules. The Rules on Knighting state that, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to its law may not apply, and that the country or region and the reason are then added; the Terms of Use give notice |
+| 2026-11-14（日本時間） | 運営理念・声明の、いまの事実を述べる文に「現在」を付け、頭に「現在」がいつかを定める一文を置く。README の写しも同じにする。約束と定めと語の意味の文には付けない | In the Statement of Purpose, the sentences that state how things are now say "at present", and a sentence near the top says what "at present" means. The copy in the README follows. Rules, commitments and definitions do not carry it |
 
 ---
 
