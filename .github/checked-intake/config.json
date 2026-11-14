@@ -1,0 +1,28 @@
+{
+  "from": "2026-12-01",
+  "forms": [
+    {
+      "label": "誤り",
+      "kind": "quote",
+      "where": [
+        "どこにあるか"
+      ],
+      "quote": [
+        "書いてあること"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://nusquama.vercel.app/",
+      "dir": "site"
+    }
+  ],
+  "blob": "https://github.com/cpsbvbng26-dotcom/nusquama",
+  "dois": {},
+  "ids": [],
+  "neverClose": [
+    "求め",
+    "叙任"
+  ]
+}
