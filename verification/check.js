@@ -516,7 +516,9 @@ console.log('\n20. 言語モデルを通して調べる人に、規程をその�
     && B.SOURCES.every(([, d]) => links.includes(d === 'index.html' ? '' : d)) && links.includes('llms-full.txt'), missing.join(', '));
   ok('llms-full.txt は、すべての頁の元の Markdown を、所在とともに一字一句そのまま収める（' + B.SOURCES.length + ' 件）',
     B.SOURCES.every(([s, d]) => lf.includes('Source: ' + B.BASE + (d === 'index.html' ? '' : d) + '\n\n' + read(s).trim() + '\n')) && (lf.match(/^Source: /gm) || []).length === B.SOURCES.length);
-  ok('研究の系列の名もリンクも、どちらにも書かない', !/sophaxis|researcher-profile|cpsbvbng26-dotcom\.vercel|trinity|orcid/i.test(lt + lf));
+  /* 2026-11-14：叙任の規程が、受付に戻すときの場所の確かめとして、願い出る人の ORCID iD を求める（突き合わせの受付）。
+   * 語の「ORCID」は書くので、ORCID の記録へのリンク（orcid.org）と運営者の iD の数字を止める。研究の系列へつながないことは変わらない。 */
+  ok('研究の系列の名もリンクも、どちらにも書かない', !/sophaxis|researcher-profile|cpsbvbng26-dotcom\.vercel|trinity|orcid\.org|0009-0000-1406-0547/i.test(lt + lf));
   const vj = JSON.parse(read('site/vercel.json'));
   ok('どちらも UTF-8 の文字の文書として配り、robots.txt はすべてのクローラーに読ませる',
     vj.headers.some((h) => h.source === '/(llms|llms-full)\\.txt' && h.headers.some((x) => x.key === 'Content-Type' && x.value === 'text/plain; charset=utf-8')) && read('site/robots.txt').startsWith('User-agent: *\nAllow: /\n'));
@@ -1185,6 +1187,8 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
    * ワークフローを足したら、ここに足す。権限を広げるときも、ここを直す。 */
   const PERM = {
     'check.yml': { contents: 'read' },
+    /* 突き合わせの受付（2026-11-14）：誤りの知らせにラベルを付け、通らなければ閉じる。 */
+    'checked-intake.yml': { contents: 'read', issues: 'write' },
     'knighting.yml': { contents: 'read', issues: 'write' },
     'labels.yml': { issues: 'write' },
     'live.yml': { contents: 'read', issues: 'write' },
@@ -1754,7 +1758,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
     /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-18).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    if (heads.slice(-19).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2976,7 +2980,7 @@ console.log('\n73. GitHub Actions の規約：追加製品の規約を取り寄�
     ['新しいワークフローに行がない', Object.assign({}, real, { wf: WF.concat(['newsletter.yml']) })],
     ['消したワークフローの行が残る', Object.assign({}, real, { wf: WF.filter((f) => f !== 'labels.yml') })],
     ['表から行を外す', mut(AUD, /\n\| `\.github\/workflows\/review\.yml`[^\n]*/, '')],
-    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 11 件で、合わせて 14 件です。', '漏れ 2 件、表現 0 件、問題なし 11 件で、合わせて 14 件です。')],
+    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 12 件で、合わせて 15 件です。', '漏れ 2 件、表現 0 件、問題なし 12 件で、合わせて 15 件です。')],
     ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
     ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
     ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：十一度目の見落とし', '\n\n## 2026-11-12 の続き：十一度目の見落とし')],
@@ -4389,7 +4393,8 @@ const F = ${JSON.stringify(F)};
     ['記録の SHA-256 を一字変える', mut(AUD, '| 民法第522条 | `35978547', '| 民法第522条 | `35978548')],
     ['記録から決めた者を外す', mut(AUD, '2026-11-14 に Claude が決めました。この節の直しには、', 'この節の直しには、')],
     ['記録から未確認を外す', mut(AUD, '届出に費用が要るかも確かめていません（未確認）。', '届出には費用が要ります。')],
-    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    /* 2026-11-14：この節の後に「突き合わせの受付」の節が加わったので、その見出しを狙う。 */
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-14：突き合わせの受付', '\n## 2026-11-14：突き合わせの受付')],
   ];
   const CODE = [
     ['道具が記録に本文を出す', "log(d.why + (d.counts ? '：' + tally(d.counts) : ''));", 'log(d.why + JSON.stringify(cur));'],
@@ -4408,6 +4413,75 @@ const F = ${JSON.stringify(F)};
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
   ok('壊して確かめる：連絡先を伏せる道具が、記録に本文を出す・運営者や bot や PR や受付の停止の願い出に手を出す・閉じる・本文をすべて消す・形を見逃す・コメントに文字を書く、のどれでも落ちる（' + caughtCode.length + ' / ' + CODE.length + '）',
     caughtCode.length === CODE.length, CODE.filter(([k]) => !caughtCode.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n83. 突き合わせの受付：誤りの知らせは引いた語を突き合わせ、求めは閉じず、叙任の受付に戻すときの場所の確かめを規程に書く（2026-11-14）');
+{
+  /* 2026-11-14 に利用者が求め、Claude が決めた。道具（.github/checked-intake/verify.js）は、これを使うリポジトリのどれでも同じファイルで、
+   * ここでは設定・様式・規程・記録を確かめ、道具の自己検査を走らせる。 */
+  const CI = require('../.github/checked-intake/verify.js');
+  const x0 = {
+    conf: JSON.parse(read('.github/checked-intake/config.json')), form: read('.github/ISSUE_TEMPLATE/error.yml'),
+    kj: read('policies/knighting.md'), ke: read('policies/knighting.en.md'), tj: read('policies/terms.md'), te: read('policies/terms.en.md'),
+    rj: read('policies/requests.md'), re: read('policies/requests.en.md'), aud: read('docs/legal-audit-2026-11-12.md'),
+  };
+  const HEAD = '\n## 2026-11-14：突き合わせの受付\n';
+  const KINDS = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const TEXTS = Object.values(JSON.parse(read('verification/statutes-texts.json'))).map((t) => t.replace(/\s+/g, ''));
+  function verdict(x) {
+    const bad = [];
+    const c = x.conf;
+    if (c.from !== '2026-12-01' || (c.forms || []).length !== 1 || c.forms[0].label !== '誤り' || c.forms[0].kind !== 'quote' || c.forms[0].quote[0] !== '書いてあること') bad.push('設定');
+    if (!['求め', '叙任'].every((l) => (c.neverClose || []).includes(l))) bad.push('閉じないラベル');
+    if (!x.form.includes('label: 書いてあること') || !x.form.includes('2026-12-01 から、この様式は「突き合わせの受付」で確かめます。') || !x.form.includes('削除・訂正・辞退・権利・個人の情報・同意を求める issue は、自動では閉じません')) bad.push('誤りの知らせの様式');
+    for (const t of ['受付は止めたままです。この節は、受付に戻すときの条件を定めるもので、受付に戻すことを決めるものではありません。', 'ORCID iD を持たない人からは、受付に戻ったあとも、願い出を受けません。',
+      '所在の欄は自由に書ける文なので、退けるときにだけ使い、受けるときには使いません。', 'ORCID の項目が日本を指し、issue を開く 30 日以上前に足されたものであるときに限り、日本に住んでいると確かめたとします。',
+      '偽りの記録を 30 日保つ人は、通ることがあります。', '読んだ国と組織は、残さず、書かず、実行の記録にも出しません。']) if (!x.kj.includes(t)) bad.push('叙任の規程：' + t.slice(0, 12));
+    for (const t of ['Applications stay paused. This section sets the condition for reopening; it does not decide to reopen.', 'From a person without an ORCID iD, applications are not received, even after reopening.',
+      'a person who keeps false records for 30 days can still pass']) if (!x.ke.includes(t)) bad.push('Rules on Knighting: ' + t.slice(0, 20));
+    if (!x.tj.includes('予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。') || !x.te.includes('Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake.')) bad.push('利用規約の予告');
+    if (!x.rj.includes('自動では閉じず、運営者が読みます。') || !x.re.includes('are never closed automatically; the operator reads them.')) bad.push('求めの規程');
+    const at = x.aud.indexOf(HEAD), end = x.aud.indexOf('\n## 調べた法令\n');
+    if (at < 0 || end < at) return bad.concat(['記録の節']);
+    const sec = x.aud.slice(at, x.aud.indexOf('\n## ', at + 5));
+    const rows = sec.split('\n').filter((l) => /^\| (?!---|箇所 \|)/.test(l)).map((l) => l.slice(2, -2).split(' | '));
+    if (rows.length < 6 || !rows.every((r) => r.length === 6 && KINDS.includes(r[4]))) bad.push('記録の表');
+    const n = (k) => rows.filter((r) => r[4] === k).length;
+    if (!sec.includes('判定は、誤り ' + n('誤り') + ' 件、根拠不足 ' + n('根拠不足') + ' 件、漏れ ' + n('漏れ') + ' 件、表現 ' + n('表現') + ' 件、問題なし ' + n('問題なし') + ' 件で、合わせて ' + rows.length + ' 件です。')) bad.push('記録の判定の数');
+    if (!sec.includes('2026-11-14 に利用者が求め、Claude が決めました。') || rows.some((r) => !/2026-11-14 に Claude が決めました。[^|]*ためです$/.test(r[5]))) bad.push('決めた者と理由');
+    for (const r of rows.filter((y) => /法 第/.test(y[1]))) for (const m of r[2].matchAll(/「([^「」]+)」/g)) if (!TEXTS.some((t) => t.includes(m[1].replace(/\s+/g, '')))) bad.push('取り寄せた文にない引用：' + m[1].slice(0, 12));
+    if (!sec.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(sec)) bad.push('弁護士の文');
+    return bad;
+  }
+  const v0 = verdict(x0);
+  let selfTest = '';
+  try { selfTest = require('child_process').execFileSync('node', [path.join(ROOT, '.github', 'checked-intake', 'verify.js'), '--test'], { encoding: 'utf8' }); } catch (e) { selfTest = String(e.stdout || ''); }
+  const requests = ['この記載の削除を求めます。', '私の氏名を訂正してください。', '名簿から辞退します。', '自分の個人情報が載っています。', '同意を撤回します。'];
+  const legalOk = requests.every((r) => CI.legalRequest(r)) && CI.actionFor('quote', { ok: false, reason: 'absent' }, { legal: true }).close === false
+    && CI.specFor({ labels: ['求め'], created_at: '2026-12-02T00:00:00Z' }, x0.conf) === null && CI.specFor({ labels: ['誤り', '叙任'], created_at: '2026-12-02T00:00:00Z' }, x0.conf) === null
+    && CI.specFor({ labels: ['誤り'], created_at: '2026-11-30T00:00:00Z' }, x0.conf) === null && CI.specFor({ labels: ['誤り'], created_at: '2026-12-02T00:00:00Z' }, x0.conf) !== null;
+  ok('設定・誤りの知らせの様式・叙任の規程の場所の確かめ（日本語と英語）・利用規約の予告・求めの規程・記録の節がそろい、道具の自己検査が通り、求めは閉じない',
+    v0.length === 0 && /\d+ passed, 0 failed/.test(selfTest) && legalOk, v0.join(' / ') + (legalOk ? '' : ' / 求め'));
+  const mut = (k, a, b) => Object.assign({}, x0, { [k]: x0[k].replace(a, b) });
+  const breaks = [
+    ['求めのラベルを閉じないものから外す', Object.assign({}, x0, { conf: Object.assign({}, x0.conf, { neverClose: ['叙任'] }) })],
+    ['効力の日を早める', Object.assign({}, x0, { conf: Object.assign({}, x0.conf, { from: '2026-11-15' }) })],
+    ['様式から閉じない断りを外す', mut('form', '削除・訂正・辞退・権利・個人の情報・同意を求める issue は、自動では閉じません', '')],
+    ['ORCID iD のない人を受ける', mut('kj', 'ORCID iD を持たない人からは、受付に戻ったあとも、願い出を受けません。', 'ORCID iD を持たない人は、本人の申告で受けます。')],
+    ['所在の欄で受ける', mut('kj', '所在の欄は自由に書ける文なので、退けるときにだけ使い、受けるときには使いません。', '所在の欄が日本を指せば受けます。')],
+    ['30 日を外す', mut('kj', 'issue を開く 30 日以上前に足されたものであるときに限り', 'issue を開くときにあるときに限り')],
+    ['限りの文を外す', mut('ke', 'a person who keeps false records for 30 days can still pass', 'no one can pass with false records')],
+    ['予告を外す', mut('tj', '予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。', '')],
+    ['求めの規程から閉じない文を外す', mut('re', 'are never closed automatically; the operator reads them.', 'are closed like any other.')],
+    ['記録の節を外す', mut('aud', HEAD, '\n## 突き合わせ\n')],
+    ['記録の判定の数を変える', mut('aud', '問題なし 7 件で、合わせて 7 件です。', '問題なし 6 件で、合わせて 7 件です。')],
+    ['記録の引用を一語変える', mut('aud', '「七日を経過しても当該発信者から', '「十日を経過しても当該発信者から')],
+    ['決めた者を外す', mut('aud', 'ORCID iD を持たない人からは受けません。2026-11-14 に Claude が決めました。', 'ORCID iD を持たない人からは受けません。')],
+    ['記録から弁護士の文を外す', mut('aud', 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：閉じないラベル・効力の日・様式の断り・ORCID iD のない人・所在の欄で受けること・30 日・限りの文（英語）・予告・求めの規程（英語）・記録の節と判定の数と引用と決めた者と弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));
