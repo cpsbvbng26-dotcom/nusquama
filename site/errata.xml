@@ -5,7 +5,7 @@
   <id>https://nusquama.vercel.app/errata.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/errata.xml"/>
   <link href="https://nusquama.vercel.app/errata.html"/>
-  <updated>2026-11-13T00:00:00+09:00</updated>
+  <updated>2026-11-14T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
   <entry>
     <id>https://nusquama.vercel.app/errata.html#errata-1</id>
@@ -321,5 +321,19 @@
     <link href="https://nusquama.vercel.app/errata.html"/>
     <updated>2026-11-13T00:00:00+09:00</updated>
     <summary>個人情報の取り扱い「安全のための措置」「保存の期間」。正：GitHub の説明書は、自分で作ったリポジトリを初めから見守る設定になると書き、電子メールの通知が中身の写しを含むと書く。issue の中身の写しは、GitHub の通知によって、受け取る設定のアカウントに届きうる。運営者のアカウントもその一つでありうる。前の文は、この写しを書かずに、別の写しは作らないと書いていた。GitHub の通知が issue の中身の写しを届けうること、その扱いは GitHub の利用規約とプライバシーステートメントに従うこと、運営者はこれとは別に写しを作らないことを書いた。保存の期間には、通知が電子メールでも届くこと、受信箱の通知を保つ期間、issue を替えたり削除したりしたときに届いた写しが消えるとは説明書が書いていないことを書いた。2026-11-13 に Claude が決めました。運営者のアカウントの設定という、確かめられないことに約束を預けずに、文を事実に合わせるためです。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-46</id>
+    <title>第 46 件：免責事項「責任」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-14T00:00:00+09:00</updated>
+    <summary>免責事項「責任」。正：民法第522条は、契約は申込みに対して相手方が承諾をしたときに成立すると定める。利用規約は、読むことを何かへの同意とはみなさない。前の文は、誰に対する免除かを書かず、契約のない読む人にも及ぶように読めた。免除を、叙任の願い出の様式で利用規約に同意した人に対するものとし、様式で同意していない人（読むだけの人を含む）との間では、運営者の責任は法令の定めるとおりと書いた。2026-11-14 に Claude が決めました。契約のない人に、一方の書いた文で責任を免じることはできないためです。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-47</id>
+    <title>第 47 件：適法性の説明「名誉と信用」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-14T00:00:00+09:00</updated>
+    <summary>適法性の説明「名誉と信用」。正：情報流通プラットフォーム対処法第3条第2項は、外す措置で書いた人に生じた損害の責めを負わない場合を、措置が必要な限度で、相当の理由があったとき（第1号）か、書いた人に照会して七日を経ても同意しない旨の申出がなかったとき（第2号）とする。前の文は、どの書き込みもただちに外すと読め、第2号の道を持たなかった。個人情報の露出と名誉や信用を傷つける記載はただちに外して後で確かめ、ほかは第1号か第2号の道で外すと改め、手順を削除・訂正・辞退の求めに書いた。2026-11-14 に Claude が決めました。同項が責めを負わない場合として挙げる道に、手順をそろえるためです。</summary>
   </entry>
 </feed>
