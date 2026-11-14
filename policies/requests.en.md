@@ -50,6 +50,7 @@ Withdrawal from the roll is granted whatever the reason.
 Requests for disclosure, correction, suspension of use and the like are met without delay. Disclosure is made in the way asked; when an electronic record is asked for, an electronic record is given.
 When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.
 When a request is not met, the reason is given.
+From 2026-12-01, error reports are checked by the checked intake and closed if the quoted words are not found. An issue of this request form, and an error report that reads as asking for removal, correction, withdrawal, rights, personal data or consent, are never closed automatically; the operator reads them. A request that the law requires to be received and handled is not turned away without being read.
 
 ## What cannot be removed
 
