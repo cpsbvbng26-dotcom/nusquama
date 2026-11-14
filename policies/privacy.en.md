@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-14.
+Last updated: 2026-11-15.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -43,10 +43,15 @@ Reports of mistakes in the King's texts are received as public issues on GitHub 
 A report involves the GitHub account name and what the report says.
 These are public in the issue. The King's errata do not name the person who reported the mistake.
 No real name, address, affiliation or contact details are asked for, and the form asks reporters not to write them.
+From 2026-12-01, error reports are received only from people in Japan. To check this, the form asks for the reporter's ORCID iD, and only these parts of that public ORCID record are read: the link to the GitHub account, the country of each public address, and the country of the organisation of each current (no end date) employment and education, each with the day it was added. Only the country codes (ISO) are read; nationality is never read.
+A reporter is taken as being in Japan only if an entry naming Japan was added at least 30 days before the issue was opened and no entry names another country. A report that cannot be checked is not accepted, and gets a label and a fixed comment; the issue is not closed.
+The countries and organisations read are not stored, and are written neither in a comment nor in the log of the run; only whether the check passed is written.
+This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent.
 
 ## Purposes of use
 
-To decide on knighting, to keep the roll, to answer requests, and to check reported mistakes and record them in the King's errata. Nothing else.
+To decide on knighting, to keep the roll, to answer requests, to check reported mistakes and record them in the King's errata, and, from 2026-12-01, to check that a person who reports a mistake is in Japan. Nothing else.
+Article 21(1) of Japan's Act on the Protection of Personal Information reads: 「個人情報取扱事業者は、個人情報を取得した場合は、あらかじめその利用目的を公表している場合を除き、速やかに、その利用目的を、本人に通知し、又は公表しなければならない。」 This page publishes that purpose in advance.
 
 ## Providing data to others, and businesses in other countries
 

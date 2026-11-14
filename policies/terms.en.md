@@ -95,8 +95,12 @@ Notice: from 2026-11-29, people who hold the nationality of, live in, or are in 
 Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
 Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts. If applications are to reopen, the day will be shown in the Rules on Knighting and on this page before that day (shown on 2026-11-13).
 Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake. If the words under "What it says" do not occur at the place under "Where", the label "not verified" and a fixed comment are added; editing the issue, or reporting again in a new issue, runs the check again. The checked intake never closes an issue ([Requests](./requests.en.md), "After a request"; shown on 2026-11-14, and changed on 2026-11-15 so that nothing is closed).
+Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan. This is checked in the reporter's public ORCID record; a report that cannot be checked is not accepted, and gets a label and a fixed comment. The issue is not closed. Requests about removal, correction, withdrawal, rights, personal data or consent are received from people in every country ([Privacy](./privacy.en.md), "What a report of a mistake involves").
+Notice: from 2026-12-01, before a line of the roll is erased from the history of the repository on request, only the items of the record of provision for that line are recorded separately, and stay public for three years ([Requests](./requests.en.md), "What cannot be removed").
 No change will ever create a fee.
-Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
+When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.
+When the country is dissolved, a period of at least 30 days for withdrawal and other requests follows the posting of the closing words (Institutions, "Dissolution").
+Whether the country is frozen or dissolved, the roll of knights stays in the repository unless a knight asks to withdraw.
 
 ## Governing law and disputes
 

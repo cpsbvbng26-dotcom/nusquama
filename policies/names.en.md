@@ -1,6 +1,6 @@
 # Names and rights
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-15.
 
 This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
 
@@ -25,6 +25,7 @@ The text and the emblem of Nusquama are published under CC BY 4.0 ([LICENSE](../
 Third-party texts quoted or stored for verification are not under CC BY 4.0 and remain their owners'.
 Anyone may copy, adapt and redistribute them, with attribution.
 But CC BY 4.0 neither gives effect to the titles of Nusquama nor allows the emblem to be used as a real insignia.
+An object that someone else makes with the emblem is unrelated to Nusquama. Nusquama did not make it, approve it or give it. The licence stays as it is.
 CC BY 4.0 allows only what copyright covers. It does not reach other rights such as trademarks, or limits set by other laws.
 The emblem and the titles must not be used as if they were the insignia of a real body or official titles ([Terms of Use](./terms.en.md)). Such use may, apart from copyright, break the law (such as Article 1, item 15 of Japan's Minor Offenses Act).
 The text and the emblem were written with Claude Code at the operator's request. How far copyright reaches in what is made with a language model is not settled. CC BY 4.0 allows only as far as rights reach.
