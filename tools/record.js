@@ -47,7 +47,9 @@ async function github(method, p, body) {
 }
 
 async function main() {
-  const n = process.env.PR, branch = process.env.BRANCH, title = process.env.TITLE;
+  /* PR の題は、出来事のファイル（GITHUB_EVENT_PATH）から読む。環境変数は実行の記録に写るため（2026-11-14、突き合わせの受付の点検）。 */
+  const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+  const n = process.env.PR, branch = process.env.BRANCH, title = String((event.pull_request && event.pull_request.title) || '');
   const say = (body) => github('POST', '/issues/' + n + '/comments', { body });
   git('config', 'user.name', 'github-actions[bot]');
   git('config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com');

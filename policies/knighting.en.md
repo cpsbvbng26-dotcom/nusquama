@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -53,6 +53,24 @@ Once applications reopen, the revised rules are checked. An issue opened during 
 Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used.
 Claude decided on 2026-11-13 to tie reopening to a decision recorded in the legal review rather than to a date, so that applications do not reopen merely because a date arrives before the check is finished.
 On 2026-11-12, when the pause was decided, there were no open applications for knighting, and there was no knight on the roll. On 2026-11-13, when the pause was continued, there were still no application issues.
+
+## Checking the place when applications reopen (the checked intake)
+
+No system can stop a person from lying in general.
+What a system can do is accept a claim only when it can be checked against a source that the claimant does not write at the moment of claiming, and turn away automatically every claim that fails the check or cannot be checked.
+This is called the checked intake.
+Applications stay paused. This section sets the condition for reopening; it does not decide to reopen.
+When applications reopen, living in Japan is accepted not on the applicant's statement but on the following check.
+The applicant gives an ORCID iD, and the public ORCID record of that iD must link the GitHub account that opened the application issue.
+From a person without an ORCID iD, applications are not received, even after reopening.
+Only these are read: the country of each public address in that ORCID record, the country of the organisation of each current employment and education (each with the day it was added), and the location field of the GitHub profile.
+The location field is free text, so it is used only to turn an application away, never to accept one.
+If any of these names a place outside Japan, or the ORCID entries name more than one country, the application is not accepted.
+Living in Japan is taken as checked only if an ORCID entry names Japan and was added at least 30 days before the issue was opened; otherwise it cannot be checked, and the application is not accepted.
+The countries and organisations read are not kept, not written, and not printed in the logs; the issue shows only whether the check passed.
+This proves that earlier public records agree, not where a person lives: a person who keeps false records for 30 days can still pass. The rule of the Terms of Use against ticking a box untruly, and the removal from the roll, therefore stay as they are.
+Reading ORCID records starts only when applications reopen, after the purposes and the items read are added to the privacy page and the change is shown ahead in the Terms of Use.
+The owner asked for this on 2026-11-14, and Claude decided it. Living in Japan is no longer to rest on the applicant's statement alone, and applications still stay paused, because the point of law outside Japan that the texts do not settle has not changed.
 
 ## The premise of good sense
 
