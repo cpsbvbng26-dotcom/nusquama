@@ -5,7 +5,7 @@
   <id>https://nusquama.vercel.app/errata.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/errata.xml"/>
   <link href="https://nusquama.vercel.app/errata.html"/>
-  <updated>2026-11-14T00:00:00+09:00</updated>
+  <updated>2026-11-15T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
   <entry>
     <id>https://nusquama.vercel.app/errata.html#errata-1</id>
@@ -335,5 +335,26 @@
     <link href="https://nusquama.vercel.app/errata.html"/>
     <updated>2026-11-14T00:00:00+09:00</updated>
     <summary>適法性の説明「名誉と信用」。正：情報流通プラットフォーム対処法第3条第2項は、外す措置で書いた人に生じた損害の責めを負わない場合を、措置が必要な限度で、相当の理由があったとき（第1号）か、書いた人に照会して七日を経ても同意しない旨の申出がなかったとき（第2号）とする。前の文は、どの書き込みもただちに外すと読め、第2号の道を持たなかった。個人情報の露出と名誉や信用を傷つける記載はただちに外して後で確かめ、ほかは第1号か第2号の道で外すと改め、手順を削除・訂正・辞退の求めに書いた。2026-11-14 に Claude が決めました。同項が責めを負わない場合として挙げる道に、手順をそろえるためです。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-48</id>
+    <title>第 48 件：削除・訂正・辞退の求め「求めを受けた後」、利用規約「変更と終了」、誤りの知らせの様式</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-15T00:00:00+09:00</updated>
+    <summary>削除・訂正・辞退の求め「求めを受けた後」、利用規約「変更と終了」、誤りの知らせの様式。正：自動では閉じないと約束したのは、語の並びで求めを見分け、それだけを閉じない仕組みだった。読むだけの点検が、語の並びの拾わない書き方と、日本語と英語のほかの言語の求めを見つけ、約束のとおりにならないことが分かった。突き合わせの受付は、どの issue も閉じず、鍵も掛けないと改めた。通らない知らせには、ラベル「not verified」と決まった文のコメントだけを付ける。2026-11-15 に Claude が決めました。語の並びでは、法令が受けて扱うことを求める求めを見分けきれないためです。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-49</id>
+    <title>第 49 件：削除・訂正・辞退の求め「求めを受けた後」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-15T00:00:00+09:00</updated>
+    <summary>削除・訂正・辞退の求め「求めを受けた後」。正：誤りの知らせは、どれも訂正を求める。前の文は、訂正を求めると読める知らせを閉じないとしており、閉じる知らせが一つも残らず、文そのものが食い違っていた。「自分についての記載の訂正」と改め、どの issue も閉じないと書いた。2026-11-15 に Claude が決めました。訂正を求める知らせのうち、人が自分についての記載に求めるものだけを指すためです。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-50</id>
+    <title>第 50 件：叙任の規程「受付に戻すときの場所の確かめ」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-15T00:00:00+09:00</updated>
+    <summary>叙任の規程「受付に戻すときの場所の確かめ」。正：誤りではなく、範囲を改めた。所在の欄は自由に書ける文で、その名が、決まりの言う場所でない所に当たることがある（New South Wales の Wales、日本の中国地方の「中国」）。受付に戻すときの確かめから所在の欄を外し、ORCID の公開の住所と、いまの勤め先と在学先の国の符号だけを読み、国籍は読まないと改めた。受けない場合として、日本の外を指す項目があるとき、二つ以上の国を指すとき、当てはまる項目が無いときを書いた。受付は止めたままである。2026-11-15 に Claude が決めました。決まりの言う場所を指さない名で、人を退けないためです。</summary>
   </entry>
 </feed>

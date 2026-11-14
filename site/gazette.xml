@@ -5,8 +5,32 @@
   <id>https://nusquama.vercel.app/gazette.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/gazette.xml"/>
   <link href="https://nusquama.vercel.app/gazette.html"/>
-  <updated>2026-11-14T00:00:00+09:00</updated>
+  <updated>2026-11-15T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g95</id>
+    <title>第 95 号　王の正誤表：第 50 件を記す（叙任の規程「受付に戻すときの場所の確かめ」）</title>
+    <link href="https://nusquama.vercel.app/gazette/95.html"/>
+    <updated>2026-11-15T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g94</id>
+    <title>第 94 号　王の正誤表：第 49 件を記す（削除・訂正・辞退の求め「求めを受けた後」）</title>
+    <link href="https://nusquama.vercel.app/gazette/94.html"/>
+    <updated>2026-11-15T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g93</id>
+    <title>第 93 号　王の正誤表：第 48 件を記す（削除・訂正・辞退の求め「求めを受けた後」、利用規約「変更と終了」、誤りの知らせの様式）</title>
+    <link href="https://nusquama.vercel.app/gazette/93.html"/>
+    <updated>2026-11-15T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g92</id>
+    <title>第 92 号　年表：突き合わせの受付は、どの issue も閉じず、鍵も掛けないと改める。通らない誤りの知らせには、ラベルと決まった文のコメントだけを付ける。求めの規程の、自分を指さない「訂正」の語を「自分についての記載の訂正」と改める。叙任の規程の、受付に戻すときの確かめから GitHub のプロフィールの所在の欄を外し、ORCID の国の符号だけを読むと改める。受付は止めたまま</title>
+    <link href="https://nusquama.vercel.app/gazette/92.html"/>
+    <updated>2026-11-15T00:00:00+09:00</updated>
+  </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g91</id>
     <title>第 91 号　年表：突き合わせの受付を置く。2026-12-01 から、誤りの知らせは、引いた語が示した所にそのとおりになければ閉じる。求めは自動では閉じない。叙任の規程に、受付に戻すときは日本に住んでいることを ORCID の記録の前からの項目で確かめ、ORCID iD のない人からは受けない決まりを書く。受付は止めたまま</title>
