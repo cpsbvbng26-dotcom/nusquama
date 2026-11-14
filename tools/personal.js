@@ -16,6 +16,10 @@
  * 見つけた文字は、コメントにも実行の記録（Actions のログ）にも書かない。記録に出すのは、決まった語と数だけである。
  * 替える前の文は、GitHub が編集の履歴に残す（個人情報の取り扱い「保存の期間」）。
  * PR の会話は扱わない（権限に pull-requests を足さないため）。運営者が読む。
+ * 2026-11-15 から、どの実行も、出来事の issue の題と本文と、bot と運営者のほかが書いたすべてのコメントを読み直し、残っている形を
+ * すべて伏せる。同じ issue の実行が取り消されても、次の実行がその分を伏せる（同時実行の組で待っている実行は、あとの実行に替わりうる）。
+ * 形は、NFKC で正規化し、幅のない文字と書字方向の印を除いた文で探し、見つけた所を元の文の位置に戻して伏せる。全角の数字や
+ * ＠・〒、間に挟んだ幅のない文字、空白で区切った電話番号も拾う。
  */
 'use strict';
 const fs = require('fs');
@@ -32,9 +36,24 @@ const KINDS = [
   { ja: 'メールアドレス', en: 'e-mail addresses', re: /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}/g, allow: ALLOWED_MAIL },
   { ja: 'カードの番号の形', en: 'card-number-like strings', re: /(?<![\w-])\d{4}(?:[ -]\d{4}){3}(?![\w-])/g },
   { ja: '個人番号の形', en: 'individual-number-like strings', re: /(?<![\w-])\d{4}[ -]\d{4}[ -]\d{4}(?![\w-])/g },
-  { ja: '電話番号', en: 'phone numbers', re: /(?<![\w+-])(?:\+\d{1,3}[ -]?\d{1,4}[ -]?\d{1,4}[ -]?\d{3,4}|0\d{1,4}-\d{1,4}-\d{4}|0\d{9,10})(?![\w-])/g },
+  { ja: '電話番号', en: 'phone numbers', re: /(?<![\w+-])(?:\+\d{1,3}[ -]?\d{1,4}[ -]?\d{1,4}[ -]?\d{3,4}|0\d{1,4}[ -]\d{1,4}[ -]\d{4}|0\d{9,10})(?![\w-])/g },
   { ja: '郵便番号の形', en: 'postal-code-like strings', re: /〒\s?\d{3}-?\d{4}(?![\w-])|(?<![\w-])\d{3}-\d{4}(?![\w-])/g },
 ];
+
+/* 幅のない文字（U+200B〜U+200D・U+2060・U+FEFF）と書字方向の印（U+200E・U+200F・U+202A〜U+202E・U+2066〜U+2069）。 */
+const HIDDEN = /[\u200B-\u200F\u202A-\u202E\u2060\u2066-\u2069\uFEFF]/;
+/* 純：探すための文（NFKC、隠れた文字を除く）と、その一文字ごとの元の文の位置。 */
+function normalised(text) {
+  const chars = Array.from(String(text));
+  let s = '';
+  const at = [];
+  let pos = 0;
+  for (const c of chars) {
+    if (!HIDDEN.test(c)) { const n = c.normalize('NFKC'); for (let i = 0; i < n.length; i++) at.push([pos, pos + c.length]); s += n; }
+    pos += c.length;
+  }
+  return { s, at };
+}
 
 /* 純：一つの文から形を探し、伏せた文と種類ごとの数を返す。見つけた文字そのものは返さない。 */
 function mask(text) {
@@ -42,7 +61,13 @@ function mask(text) {
   const counts = {};
   for (const k of KINDS) {
     counts[k.ja] = 0;
-    out = out.replace(k.re, (m) => { if (k.allow && k.allow.includes(m)) return m; counts[k.ja]++; return MASK; });
+    const { s, at } = normalised(out);
+    const hits = [];
+    for (const m of s.matchAll(k.re)) {
+      if (k.allow && k.allow.includes(m[0])) continue;
+      hits.push([at[m.index][0], at[m.index + m[0].length - 1][1]]);
+    }
+    for (const [a, b] of hits.reverse()) { out = out.slice(0, a) + MASK + out.slice(b); counts[k.ja]++; }
   }
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
   return { text: out, counts, total };
@@ -88,18 +113,54 @@ function decide(event, cur, reopen = K.REOPEN) {
   return { act: 'mask', why: '伏せる', kind: isComment ? 'comment' : 'issue', counts, title: isComment ? undefined : t.text, body: b.text };
 }
 
+/* すべてのコメント。頁を終わりまで読み、読めなければ落ちる（2026-11-15）。 */
+async function allComments(github, n) {
+  const out = [];
+  for (let page = 1; ; page++) {
+    const list = await github('GET', '/issues/' + n + '/comments?per_page=100&page=' + page);
+    if (!Array.isArray(list)) throw new Error('コメントを読めない');
+    out.push(...list);
+    if (list.length < 100) return out;
+  }
+}
+
 async function run(event, github, log = console.log, reopen) {
   const issue = event.issue || {};
   const n = issue.number;
   const cur = event.comment ? await github('GET', '/issues/comments/' + event.comment.id) : await github('GET', '/issues/' + n);
   const d = decide(event, cur || {}, reopen);
   log(d.why + (d.counts ? '：' + tally(d.counts) : ''));
-  if (d.act !== 'mask') return d;
-  if (d.kind === 'comment') await github('PATCH', '/issues/comments/' + event.comment.id, { body: d.body });
-  else await github('PATCH', '/issues/' + n, { title: d.title, body: d.body });
+  const sum = Object.fromEntries(KINDS.map((k) => [k.ja, 0]));
+  const add = (c) => { for (const k of KINDS) sum[k.ja] += (c && c[k.ja]) || 0; };
+  if (d.act === 'mask') {
+    if (d.kind === 'comment') await github('PATCH', '/issues/comments/' + event.comment.id, { body: d.body });
+    else await github('PATCH', '/issues/' + n, { title: d.title, body: d.body });
+    add(d.counts);
+  }
+  /* 読み直し：出来事のもののほかに、issue の題と本文と、すべてのコメント。取り消された実行の分も、ここで伏せる。 */
+  const comments = await allComments(github, n);
+  const repo = { repository: event.repository };
+  const others = [];
+  if (event.comment) {
+    const now = await github('GET', '/issues/' + n);
+    others.push([Object.assign({}, repo, { issue: Object.assign({}, issue, now ? { title: now.title, body: now.body } : {}) }), now || {}, 'issue']);
+  }
+  for (const c of comments) {
+    if (event.comment && c.id === event.comment.id) continue;
+    others.push([Object.assign({}, repo, { issue, comment: { id: c.id, user: c.user } }), c, 'comment']);
+  }
+  for (const [ev, item] of others) {
+    const e = decide(ev, item || {}, reopen);
+    if (e.act !== 'mask') continue;
+    log(e.why + '：' + tally(e.counts));
+    if (e.kind === 'comment') await github('PATCH', '/issues/comments/' + ev.comment.id, { body: e.body });
+    else await github('PATCH', '/issues/' + n, { title: e.title, body: e.body });
+    add(e.counts);
+  }
+  if (!Object.values(sum).some(Boolean)) return d;
   await github('POST', '/issues/' + n + '/labels', { labels: [LABEL] });
-  const mine = ((await github('GET', '/issues/' + n + '/comments?per_page=100')) || []).find((c) => c.user && c.user.type === 'Bot' && String(c.body).startsWith(MARK));
-  const body = note(d.counts, d.kind);
+  const mine = comments.find((c) => c.user && c.user.type === 'Bot' && String(c.body).startsWith(MARK));
+  const body = note(sum, d.kind || (event.comment ? 'comment' : 'issue'));
   if (mine) await github('PATCH', '/issues/comments/' + mine.id, { body });
   else await github('POST', '/issues/' + n + '/comments', { body });
   return d;
@@ -112,5 +173,5 @@ async function main() {
   await run(event, K.github, console.log, reopen);
 }
 
-module.exports = { MARK, LABEL, MASK, KINDS, mask, tally, note, decide, run };
+module.exports = { MARK, LABEL, MASK, KINDS, HIDDEN, normalised, mask, tally, note, decide, run, allComments };
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
