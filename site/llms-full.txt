@@ -206,6 +206,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-13（日本時間） | 運営理念・声明を置き、トップの頁と規程の一覧からつなぐ。叙任の規程に、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人・住む人・願い出のときにいる人は願い出ることができないことと、そう判断したときはその国や地域と理由を書き足すことを書き、利用規約で予告する | A Statement of Purpose is added and linked from the top page and the list of rules. The Rules on Knighting state that, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to its law may not apply, and that the country or region and the reason are then added; the Terms of Use give notice |
 | 2026-11-14（日本時間） | 運営理念・声明の、いまの事実を述べる文に「現在」を付け、頭に「現在」がいつかを定める一文を置く。README の写しも同じにする。約束と定めと語の意味の文には付けない | In the Statement of Purpose, the sentences that state how things are now say "at present", and a sentence near the top says what "at present" means. The copy in the README follows. Rules, commitments and definitions do not carry it |
 | 2026-11-14（日本時間） | 免責事項の責任の免除を、叙任の願い出の様式で利用規約に同意した人に対するものとし、ほかの人との間では法令の定めるとおりと改める。利用規約に、変更の効力の生じる日と、手立ては削除・訂正・辞退の求めであることを書く。削除・訂正・辞退の求めに、情報流通プラットフォーム対処法第3条第2項の二つの道を書く。issue とコメントの連絡先の形の文字を、運営者のもののほかは自動で伏せる | The Disclaimer's exclusion of liability now covers only those who agreed to the Terms of Use in the application form for knighthood; towards anyone else the operator is liable as the law provides. The Terms of Use say when a change takes effect, and that the remedy is a request for removal, correction or withdrawal. The page on requests sets out the two routes of Article 3(2) of the Information Distribution Platform Act. Strings shaped like contact details in issues and comments, other than the operator's, are masked automatically |
+| 2026-11-14（日本時間） | 突き合わせの受付を置く。2026-12-01 から、誤りの知らせは、引いた語が示した所にそのとおりになければ閉じる。求めは自動では閉じない。叙任の規程に、受付に戻すときは日本に住んでいることを ORCID の記録の前からの項目で確かめ、ORCID iD のない人からは受けない決まりを書く。受付は止めたまま | The checked intake is set up. From 2026-12-01, an error report is closed if the quoted words do not occur at the place given. Requests are never closed automatically. The Rules on Knighting state that, when applications reopen, living in Japan is checked by earlier entries of the ORCID record, and that no application is received from a person without an ORCID iD. Applications stay paused |
 
 ---
 
@@ -1299,6 +1300,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 予告：2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人は、日本に住んでいても、叙任を願い出ることができません。運営者がそう判断したときは、その国や地域と理由を叙任の規程に書き足します（[叙任の規程](./knighting.md)「法令に適合しない国と地域」。2026-11-13 に示しました）。
 2026-11-12 から、叙任の願い出を受け付けていません（[叙任の規程](./knighting.md)「受付の停止」）。「悪意がないことと、法令を守ること」の、法令に触れるおそれが分かった部分を止める定めによります。
 予告：2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにし、受付に戻る日は決めていません。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻すときは、戻る日を、叙任の規程とこの頁で、その日より前に示します（2026-11-13 に示しました）。
+予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。「書いてあること」の語が「どこにあるか」の所にそのとおりになければ、決まった文のコメントを付けて閉じます。新しい issue で知らせ直せます。削除・訂正・辞退・権利・個人の情報・同意を求める issue は、自動では閉じません（[削除・訂正・辞退の求め](./requests.md)「求めを受けた後」。2026-11-14 に示しました）。
 どの変更によっても、料金は生じません。
 ヌスクァマは、予告なく終わることがあります。終わる場合も、騎士の名簿は、本人から辞退の求めがない限り、リポジトリに残します。
 
@@ -1564,7 +1566,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 
 # 叙任の規程
 
-最終更新：2026-11-13。
+最終更新：2026-11-14。
 
 ## 叙任とは
 
@@ -1615,6 +1617,24 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 受けるかどうかを issue を開いた時刻で決めること、閉じる形、新しい issue で願い出ることは、2026-11-12 に Claude が決めました。
 受付に戻すことを、日付ではなく、点検の記録に記した決めに結ぶことは、2026-11-13 に Claude が決めました。確かめ終える前に、日付が来ただけで受付に戻らないようにするためです。
 停止を決めた 2026-11-12 に、開いている叙任の願い出は 0 件で、騎士の名簿に騎士はいませんでした。停止を続けると決めた 2026-11-13 にも、叙任の願い出の issue は 0 件でした。
+
+## 受付に戻すときの場所の確かめ（突き合わせの受付）
+
+人が嘘をつくこと一般を、仕組みは止められません。
+仕組みにできるのは、申し立てた人がその場で書けない出どころと突き合わせられる申し立てだけを受け、通らないものと確かめられないものを自動で退けることです。
+これを「突き合わせの受付」と呼びます。
+受付は止めたままです。この節は、受付に戻すときの条件を定めるもので、受付に戻すことを決めるものではありません。
+受付に戻すときは、日本に住んでいることを、願い出る人の申告ではなく、次の確かめで受けます。
+願い出る人は ORCID iD を示し、その ORCID の公開の記録が、願い出の issue を開いた GitHub のアカウントにリンクしていなければなりません。
+ORCID iD を持たない人からは、受付に戻ったあとも、願い出を受けません。
+読むのは、その ORCID の記録の公開の住所の国、いまの勤め先と在学先の組織の国（それぞれを足した日とともに）、GitHub のプロフィールの所在の欄だけです。
+所在の欄は自由に書ける文なので、退けるときにだけ使い、受けるときには使いません。
+これらのどれかが日本の外を指すとき、または ORCID の項目が二つ以上の国を指すときは、願い出を受けません。
+ORCID の項目が日本を指し、issue を開く 30 日以上前に足されたものであるときに限り、日本に住んでいると確かめたとします。そのほかは確かめられないものとして受けません。
+読んだ国と組織は、残さず、書かず、実行の記録にも出しません。issue には、確かめに通ったかどうかだけを書きます。
+これで証せるのは、前からある公開の記録が食い違わないことであって、どこに住んでいるかではありません。偽りの記録を 30 日保つ人は、通ることがあります。そのため、事実でない印を付けることを禁じる利用規約の定めと、名簿から名を外す定めは、そのまま保ちます。
+ORCID の記録を読むことは、受付に戻すときに、個人情報の取り扱いに目的と読む項目を書き足し、利用規約で前もって示してから始めます。
+2026-11-14 に利用者が求め、Claude が決めました。日本に住んでいることを本人の申告だけで受けないようにし、それでも受付を止めたままにするのは、日本の外の法令の一点が条文から決まらないことが変わっていないためです。
 
 ## 良識の前提
 
@@ -1823,6 +1843,7 @@ issue やコメントに書かれた連絡先の形の文字は、運営者の�
 開示・訂正・利用停止などの求めには、遅滞なく応じます。開示は、求められた方法で行います。電磁的記録で求められたときは、電磁的記録で渡します。
 求めに応じたときは、何をしたかを遅滞なく知らせます。求められたデータがないときや、求められた方法で渡せないときも、その旨を遅滞なく知らせます。
 求めに応じない場合は、その理由を答えます。
+2026-12-01 から、誤りの知らせは突き合わせの受付で確かめ、引いた語がなければ閉じます。この求めの様式の issue と、誤りの知らせでも削除・訂正・辞退・権利・個人の情報・同意を求めると読める issue は、自動では閉じず、運営者が読みます。法令が受けて扱うことを求める求めを、確かめずに退けないためです。
 
 ## 外せないもの
 
@@ -2313,6 +2334,7 @@ Notice: from 2026-11-22, further applications from a GitHub account that ticked 
 Notice: from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply for knighthood, even if they live in Japan. When the operator so judges, the country or region and the reason are added to the Rules on Knighting ([Rules on Knighting](./knighting.en.md), "Countries and regions where knighting would not conform to the law"; shown on 2026-11-13).
 Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
 Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts. If applications are to reopen, the day will be shown in the Rules on Knighting and on this page before that day (shown on 2026-11-13).
+Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake. If the words under "What it says" do not occur at the place under "Where", the issue is closed with a fixed comment, and the error can be reported again in a new issue. An issue that asks for removal, correction, withdrawal, rights, personal data or consent is never closed automatically ([Requests](./requests.en.md), "After a request"; shown on 2026-11-14).
 No change will ever create a fee.
 Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
 
@@ -2582,7 +2604,7 @@ Source: https://nusquama.vercel.app/policies/knighting.en.html
 
 # Rules on Knighting
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -2635,6 +2657,24 @@ Once applications reopen, the revised rules are checked. An issue opened during 
 Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used.
 Claude decided on 2026-11-13 to tie reopening to a decision recorded in the legal review rather than to a date, so that applications do not reopen merely because a date arrives before the check is finished.
 On 2026-11-12, when the pause was decided, there were no open applications for knighting, and there was no knight on the roll. On 2026-11-13, when the pause was continued, there were still no application issues.
+
+## Checking the place when applications reopen (the checked intake)
+
+No system can stop a person from lying in general.
+What a system can do is accept a claim only when it can be checked against a source that the claimant does not write at the moment of claiming, and turn away automatically every claim that fails the check or cannot be checked.
+This is called the checked intake.
+Applications stay paused. This section sets the condition for reopening; it does not decide to reopen.
+When applications reopen, living in Japan is accepted not on the applicant's statement but on the following check.
+The applicant gives an ORCID iD, and the public ORCID record of that iD must link the GitHub account that opened the application issue.
+From a person without an ORCID iD, applications are not received, even after reopening.
+Only these are read: the country of each public address in that ORCID record, the country of the organisation of each current employment and education (each with the day it was added), and the location field of the GitHub profile.
+The location field is free text, so it is used only to turn an application away, never to accept one.
+If any of these names a place outside Japan, or the ORCID entries name more than one country, the application is not accepted.
+Living in Japan is taken as checked only if an ORCID entry names Japan and was added at least 30 days before the issue was opened; otherwise it cannot be checked, and the application is not accepted.
+The countries and organisations read are not kept, not written, and not printed in the logs; the issue shows only whether the check passed.
+This proves that earlier public records agree, not where a person lives: a person who keeps false records for 30 days can still pass. The rule of the Terms of Use against ticking a box untruly, and the removal from the roll, therefore stay as they are.
+Reading ORCID records starts only when applications reopen, after the purposes and the items read are added to the privacy page and the change is shown ahead in the Terms of Use.
+The owner asked for this on 2026-11-14, and Claude decided it. Living in Japan is no longer to rest on the applicant's statement alone, and applications still stay paused, because the point of law outside Japan that the texts do not settle has not changed.
 
 ## The premise of good sense
 
@@ -2845,6 +2885,7 @@ Withdrawal from the roll is granted whatever the reason.
 Requests for disclosure, correction, suspension of use and the like are met without delay. Disclosure is made in the way asked; when an electronic record is asked for, an electronic record is given.
 When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.
 When a request is not met, the reason is given.
+From 2026-12-01, error reports are checked by the checked intake and closed if the quoted words are not found. An issue of this request form, and an error report that reads as asking for removal, correction, withdrawal, rights, personal data or consent, are never closed automatically; the operator reads them. A request that the law requires to be received and handled is not turned away without being read.
 
 ## What cannot be removed
 
