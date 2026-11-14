@@ -1,6 +1,6 @@
 # Disclaimer
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./disclaimer.md) governs; if the two differ, the Japanese version applies.
 
@@ -66,7 +66,7 @@ The site is served by Vercel, and the repository and issues are kept by GitHub. 
 GitHub and Vercel each provide their services "as is", without warranty, and limit their liability under their own terms; Nusquama cannot promise more about their services than they do.
 The site is served on Vercel's free Hobby plan, on which Vercel may disable or remove a deployment with or without notice. What their terms provide is set out in the [Terms of Use](./terms.en.md), under "GitHub's and Vercel's terms".
 GitHub's terms let GitHub restrict the use of GitHub Actions, and Actions can stop.
-While it does not run, none of these runs by itself: the automatic check of applications for knighthood, the closing of applications while the reception is paused, the weekly watch, and the issue of the yearly review. The operator does them by hand, and not at once.
+While it does not run, none of these runs by itself: the automatic check of applications for knighthood, the closing of applications while the reception is paused, the weekly watch, and the issue of the yearly review. Nor does the masking of strings shaped like contact details. The operator does them by hand, and not at once.
 Taking an entry down before a decision has always been done by the operator's hand, and does not depend on GitHub Actions.
 
 ## Not advice
@@ -78,8 +78,9 @@ The law-by-law analysis is in the [Legality Statement](./legality.en.md). It has
 ## Liability
 
 Nusquama is a free work of fiction.
-Except in cases of intent or gross negligence, the operator accepts no liability for damage arising from use of the site or the repository.
+Towards a person who agreed to the Terms of Use in the application form for knighthood, the operator accepts no liability for damage arising from use of the site or the repository, except in cases of intent or gross negligence.
 Where the Japanese Consumer Contract Act applies, the previous sentence does not apply. In that case the operator is liable as that Act and the Civil Code provide, including for damage caused by slight negligence.
+Towards anyone who has not agreed in the form, including those who only read, the operator is liable as the law provides.
 Nothing here excludes or limits any liability the law does not allow to be excluded or limited.
 The responsibility for anything a knight, a reader or a third party does against the rules, or outside them, lies with that person.
 Except where the law makes the operator responsible, the operator is not responsible for such acts.

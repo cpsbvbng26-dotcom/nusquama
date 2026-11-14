@@ -1,6 +1,6 @@
 # Legality Statement
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -152,7 +152,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: nothing damages anyone's reputation or credit.
 - **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
 - **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); [Requests for removal, correction or withdrawal](./requests.en.md), "After a request".
-- **Added in the review (2026-11-12)**: issues are written on GitHub, where anyone may read them. Such a transmission is a "specified telecommunication" under Article 2, item 1, of the Act on Responses to Rights Infringement on Information Distribution Platforms. Whether the operator is a provider of that service (item 4 of the same Article) cannot be settled from the text, because GitHub holds the equipment; the operator treats itself as one. As such, it is not liable for a post that infringes another person's rights unless it was technically possible to stop the transmission and it knew of the infringement, or there were reasonable grounds to find that it could have known (Article 3(1) of that Act). For harm to the writer caused by taking a post down, it is not liable when the takedown went no further than necessary and, among other cases, there were reasonable grounds to believe another person's rights were being unjustly infringed (Article 3(2)). The operator takes such text down at once, before deciding anything else, and afterwards checks whether taking it down was right. The duties of large-scale providers (Article 2, item 14) belong to those designated, and do not reach the operator.
+- **Added in the review (2026-11-12)**: issues are written on GitHub, where anyone may read them. Such a transmission is a "specified telecommunication" under Article 2, item 1, of the Act on Responses to Rights Infringement on Information Distribution Platforms. Whether the operator is a provider of that service (item 4 of the same Article) cannot be settled from the text, because GitHub holds the equipment; the operator treats itself as one. As such, it is not liable for a post that infringes another person's rights unless it was technically possible to stop the transmission and it knew of the infringement, or there were reasonable grounds to find that it could have known (Article 3(1) of that Act). For harm to the writer caused by taking a post down, it is not liable when the takedown went no further than necessary and, among other cases, there were reasonable grounds to believe another person's rights were being unjustly infringed (Article 3(2)). The operator takes down exposed personal data and harm to honour or reputation at once and checks afterwards; anything else is taken down by the route of item 1 or item 2 of that paragraph. The duties of large-scale providers (Article 2, item 14) belong to those designated, and do not reach the operator.
 
 <!-- 条文 刑法 第230条、刑法 第231条、刑法 第233条、民法 第709条 -->
 

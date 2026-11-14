@@ -1,6 +1,6 @@
 # Requests for removal, correction or withdrawal
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./requests.md) governs; if the two differ, the Japanese version applies.
 
@@ -41,6 +41,11 @@ A security problem with the site or the repository is reported in the same way (
 The operator aims to answer each request within 7 days.
 Where the harm is serious, such as exposed personal data, the entry is taken down at once, before any decision.
 An entry that harms another person's honour or reputation is also taken down at once, before any decision. After it is taken down, whether that was right is checked.
+Where taking it down turns out to have been wrong, it is put back, and the writer is told in the issue.
+Where someone asks for an issue or comment written by another person to be taken down as infringing their rights, and it is neither of the two above (exposed personal data, or harm to honour or reputation), the operator reads what the request says. Where the operator considers that there are reasonable grounds to believe another person's rights are being unjustly infringed, the entry is taken down.
+Otherwise, the operator shows the writer the information said to infringe, the right and the reason, and asks in that issue whether the writer agrees to its being taken down. If 7 days pass from the day of the question without the writer saying that they do not agree, it is taken down. If the writer says so, the operator decides and tells both the person who asked and the writer in the issue.
+In every case, only the entry said to infringe the right is taken down.
+Strings shaped like contact details in issues and comments, other than the operator's, are masked by the automatic check without waiting for a request; only those strings are masked ([Privacy](./privacy.en.md), "Security measures").
 Withdrawal from the roll is granted whatever the reason.
 Requests for disclosure, correction, suspension of use and the like are met without delay. Disclosure is made in the way asked; when an electronic record is asked for, an electronic record is given.
 When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.
