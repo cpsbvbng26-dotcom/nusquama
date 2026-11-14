@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-/* A survey of every country's constitution and of the provisions of its codes that Nusquama or Sophaxis could touch.
+/* A survey of every country's constitution and of the provisions of its codes that Nusquama could touch. Until 2026-11-15 it also
+ * served another project of the operator; those topics, with their texts, were moved out of this repository that day.
  *
  * It fetches each text named in verification/world/sources.json (and every constitution in force that the Constitute
  * Project publishes), splits it into articles, searches each article with the keyword sets of its language, and keeps
@@ -582,7 +583,6 @@ function coverage() {
  * neither reaches is left out of classes.json, and verification/world/check.js fails until it is read. */
 function classifyAll(data, D) {
   const out = {}, left = [];
-  const EX = new Set(D.sophaxis_excluded || []);
   for (const d of Object.values(data)) for (const p of d.provisions) {
     const text = (p.caption ? p.caption + ' ' : '') + body(p);
     const dec = (D.provisions || {})[p.id];
@@ -593,10 +593,7 @@ function classifyAll(data, D) {
     if (!r) { left.push(p.id); continue; }
     /* The reason stays in decisions.json (the rule's); classes.json names the rule. */
     const c = { by: r.id, class: r.class };
-    if (r.class !== 'does not apply') {
-      const excluded = p.country.startsWith('_') || EX.has(p.country);
-      Object.assign(c, { project: r.project, severity: excluded && r.severity_excluded ? r.severity_excluded : r.severity, action: excluded && r.action_excluded ? r.action_excluded : r.action });
-    }
+    if (r.class !== 'does not apply') Object.assign(c, { project: r.project, severity: r.severity, action: r.action });
     out[p.id] = c;
   }
   return { out, left };
@@ -630,9 +627,31 @@ function toSpansAll() {
   return n;
 }
 
+/* The topics that the survey keeps (sources.json "topics"): a provision, a source or a topic of a provision that no
+ * longer has one of them is dropped, as a fetch with the same settings would drop it. Since 2026-11-15 the survey keeps
+ * only the topics of Nusquama; the data protection and quotation topics, read for another project, were moved out of this
+ * repository with their texts and SHA-256 (docs/legal-audit-2026-11-12.md, 「2026-11-15：点検の答え」). Nothing is fetched. */
+function prune() {
+  const keep = new Set(Object.keys(CONF.topics));
+  let dropped = 0, files = 0;
+  for (const f of fs.readdirSync(DATA).sort()) {
+    const d = readJSON(path.join(DATA, f));
+    const before = JSON.stringify(d);
+    d.provisions = d.provisions.filter((p) => { const t = (p.topics || []).filter((x) => keep.has(x)); if (!t.length) { dropped++; return false; } p.topics = t; return true; });
+    for (const [k, s] of Object.entries(d.sources)) {
+      for (const key of ['topics', 'searched']) if (Array.isArray(s[key])) s[key] = s[key].filter((x) => keep.has(x));
+      if (Array.isArray(s.topics) && !s.topics.length) delete d.sources[k];
+    }
+    if (!Object.keys(d.sources).length && !d.provisions.length) { fs.rmSync(path.join(DATA, f)); files++; continue; }
+    if (JSON.stringify(d) !== before) save(d);
+  }
+  return { dropped, files };
+}
+
 /* ---- main ---- */
 
 async function main() {
+  if (process.argv[2] === 'prune') { const r = prune(); console.log(r.dropped + ' provisions and ' + r.files + ' files dropped'); return; }
   if (process.argv[2] === 'coverage') { console.log(coverage().length + ' rows'); return; }
   if (process.argv[2] === 'spans') { console.log(toSpansAll() + ' provisions now keep only their spans'); return; }
   if (process.argv[2] === 'classify') { const left = classify(); console.log(left.length + ' provisions without a classification'); if (process.argv[3]) fs.writeFileSync(process.argv[3], left.join('\n') + '\n'); return; }

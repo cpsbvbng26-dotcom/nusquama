@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Records a pull request that a watch proposed, when the repository owner adds the label (Sophaxis: `record`; Nusquama: `記す`).
+/* Records a pull request that a watch proposed, when the repository owner adds the label (Nusquama: `記す`; another repository uses `record`).
  *
  * The branch may change only the files the watch writes (CONF of the branch's own kind below). It is merged into main
  * with a merge commit, the changelog's (#PR) is filled in with the number, and the checks run on the merged result:
@@ -22,7 +22,7 @@ const BOT = 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.git
 const KINDS = {
   'statutes/record': { files: ['verification/statutes.json', 'verification/statutes-texts.json', 'CHANGELOG.md'], verify: [['node', 'tools/statutes.js']] },
 };
-/* How this repository titles a merge: Sophaxis "Title (#N)"; others "Merge pull request #N: Title". */
+/* How a repository titles a merge: one uses "Title (#N)"; others "Merge pull request #N: Title". */
 const mergeTitle = (n, title) => (fs.existsSync(path.join(ROOT, 'CHANGELOG.md')) ? title + ' (#' + n + ')' : 'Merge pull request #' + n + ': ' + title);
 
 const run = (cmd, args, opts = {}) => execFileSync(cmd, args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'], ...opts });

@@ -1,0 +1,30 @@
+name: reporter
+# 誤りの知らせを、日本にいる人からだけ受ける（2026-12-01 から。利用者が 2026-11-15 に決めた）。
+# 誤りの知らせ（ラベル「誤り」）の様式に書かれた ORCID iD の公開の記録から、知らせた人が日本にいるかを確かめる。
+# 決めとスクリプトは tools/reporter.js にある。確かめられないときはラベル「place not verified」と決まった文のコメントを付ける。
+# issue は閉じず、鍵も掛けない。求めの issue と、リポジトリの持ち主が起こした出来事には何もしない。
+on:
+  issues:
+    types: [opened, edited, reopened]
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: reporter-${{ github.event.issue.number }}
+  cancel-in-progress: true
+jobs:
+  place:
+    if: ${{ !github.event.issue.pull_request && github.event.sender.login != github.repository_owner && contains(github.event.issue.labels.*.name, '誤り') }}
+    name: 知らせた人が日本にいるかを確かめる
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      # issue の本文は出来事のファイル（GITHUB_EVENT_PATH）から読む。環境変数にもシェルにも入れない。
+      - run: node tools/reporter.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

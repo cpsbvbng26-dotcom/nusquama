@@ -1,0 +1,9659 @@
+{
+ "_": "2026-11-15 に、ほかの企画のための主題（個人データと引用）を調べから外したとき（docs/world-law-2026-11-12.md「2026-11-15：調べの範囲を改める」）に外したものの一覧。文は持たず、番号・出典・字数・外した主題だけを記す。2026-11-12 と 2026-11-13 の記録が書いた数を、外した後も数え直せるようにするためのもので、検査（verification/check.js の 65・66・72）がここを足して数える。利用者が 2026-11-15 に決め、Claude が書いた。手で直さない。",
+ "codes": [
+  {
+   "id": "JPN-appi",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "JPN-chosaku",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "EU-gdpr",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "JPN-berne",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "GBR-dpa",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "GBR-ukgdpr",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "USA-15-6502",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "CAN-pipeda",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "AUS-privacy",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "NZL-privacy",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "IRL-dpa",
+   "alt": true,
+   "error": false
+  },
+  {
+   "id": "DEU-bdsg",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "AUT-dsg",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "CHE-fadp",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "NLD-uavg",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "ESP-lopdgdd",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "NOR-popplyl",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "RUS-152",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "KAZ-pd",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "TUR-kvkk",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "MCO-1565",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "MLT-dpa",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "LVA-pd",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "FRA-cil",
+   "alt": true,
+   "error": false
+  },
+  {
+   "id": "MEX-lfpdppp",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "ARG-25326",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "BRA-lgpd",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "CHL-19628",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "COL-1581",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "URY-18331",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "CRI-8968",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "KOR-pipa",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "CHN-pipl",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "IND-dpdp",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "THA-pdpa",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "SAU-pdpl",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "PHL-10173",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "SGP-pdpa",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "ZAF-popia",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "KEN-dpa",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "UGA-dppa",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "ZMB-dpa",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "BEL-dp",
+   "alt": false,
+   "error": false
+  },
+  {
+   "id": "ARE-pdpl",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "QAT-pdpl",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "GHA-dpa",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "TZA-pdpa",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "ZWE-dpa",
+   "alt": true,
+   "error": true
+  },
+  {
+   "id": "PER-29733",
+   "alt": true,
+   "error": true
+  }
+ ],
+ "provisions": [
+  {
+   "id": "AGO constitution Article 69. (Habeas data)",
+   "source": "constitute",
+   "length": 995,
+   "spans_chars": 78,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "AGO constitution Article 200. (Rights and guarantees of individuals under public administration)",
+   "source": "constitute",
+   "length": 791,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ALB constitution Article 24",
+   "source": "constitute",
+   "length": 409,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ALB constitution Article C. General provisions for the Commission and Appeal Chamber ¶4",
+   "source": "constitute",
+   "length": 358,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "AND constitution Article 15",
+   "source": "constitute",
+   "length": 281,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ARG-25326 ARTICULO 1",
+   "source": "ARG-25326",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ARG-25326 ARTICULO 12",
+   "source": "ARG-25326",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ARG-25326 ARTICULO 40",
+   "source": "ARG-25326",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ARG-25326 ARTICULO 44",
+   "source": "ARG-25326",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ARM constitution Article 34. The Protection of Personal Data",
+   "source": "constitute",
+   "length": 927,
+   "spans_chars": 95,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ARM constitution Article 63. The Right to a Fair Trial",
+   "source": "constitute",
+   "length": 585,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ATG constitution 3. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 1131,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "AZE constitution Article 32. Personal Inviolability",
+   "source": "constitute",
+   "length": 1975,
+   "spans_chars": 81,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BEL-dp § 2",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp § 3",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp § 4",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 7",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 8 ¶3",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 11",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 20",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 26 ¶29",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 55",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 56",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 66",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 67",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 68",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 69",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 70",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 90",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 93",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 94",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 123",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 126",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 127",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 156",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 159",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 160",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 181",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 182",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 183",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 212",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 222 ¶5",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 238",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 265",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Art. 283",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BEL-dp Section 2",
+   "source": "BEL-dp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "BGD constitution 43. Protection of home and correspondence",
+   "source": "constitute",
+   "length": 320,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BHS constitution 15. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 1007,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BLZ constitution 3. Fundamental rights and freedoms",
+   "source": "constitute",
+   "length": 1046,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BOL constitution Article 21",
+   "source": "constitute",
+   "length": 753,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BOL constitution Article 131",
+   "source": "constitute",
+   "length": 872,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BOL constitution Article 202",
+   "source": "constitute",
+   "length": 2138,
+   "spans_chars": 43,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BOL constitution Article 222",
+   "source": "constitute",
+   "length": 1570,
+   "spans_chars": 60,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 5 ¶74",
+   "source": "constitute",
+   "length": 108,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 5 ¶83",
+   "source": "constitute",
+   "length": 290,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 5 ¶87",
+   "source": "constitute",
+   "length": 187,
+   "spans_chars": 57,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 5 ¶94",
+   "source": "constitute",
+   "length": 133,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 102 ¶5",
+   "source": "constitute",
+   "length": 369,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 102 ¶20",
+   "source": "constitute",
+   "length": 160,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 105 ¶3",
+   "source": "constitute",
+   "length": 174,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 108",
+   "source": "constitute",
+   "length": 852,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 109 ¶10",
+   "source": "constitute",
+   "length": 149,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 114",
+   "source": "constitute",
+   "length": 1664,
+   "spans_chars": 18,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRA constitution Art 121",
+   "source": "constitute",
+   "length": 1324,
+   "spans_chars": 17,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BRB constitution 11. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 991,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "BWA constitution 3. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 994,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CAN-pipeda Section 4",
+   "source": "CAN-pipeda",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "CAN-pipeda Section 7 ¶1",
+   "source": "CAN-pipeda",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "CAN-pipeda Section 7 ¶2",
+   "source": "CAN-pipeda",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "CAN-pipeda Section 7 ¶3",
+   "source": "CAN-pipeda",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "CAN-pipeda Section 9 ¶5",
+   "source": "CAN-pipeda",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "CAN-pipeda Section 35",
+   "source": "CAN-pipeda",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "CHE constitution Art 13. Right to privacy",
+   "source": "constitute",
+   "length": 229,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE constitution Art 118b. Research on human beings",
+   "source": "constitute",
+   "length": 1199,
+   "spans_chars": 22,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE constitution Art 119. Reproductive medicine and gene technology involving human beings",
+   "source": "constitute",
+   "length": 1462,
+   "spans_chars": 41,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE constitution Art 119a. Transplant medicine",
+   "source": "constitute",
+   "length": 355,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 3",
+   "source": "CHE-fadp",
+   "length": 380,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 12",
+   "source": "CHE-fadp",
+   "length": 1233,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 14",
+   "source": "CHE-fadp",
+   "length": 709,
+   "spans_chars": 68,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 16",
+   "source": "CHE-fadp",
+   "length": 1089,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 17",
+   "source": "CHE-fadp",
+   "length": 1261,
+   "spans_chars": 37,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 18",
+   "source": "CHE-fadp",
+   "length": 308,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 19",
+   "source": "CHE-fadp",
+   "length": 1493,
+   "spans_chars": 6,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 27",
+   "source": "CHE-fadp",
+   "length": 689,
+   "spans_chars": 17,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 49",
+   "source": "CHE-fadp",
+   "length": 825,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 51",
+   "source": "CHE-fadp",
+   "length": 1420,
+   "spans_chars": 52,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 61",
+   "source": "CHE-fadp",
+   "length": 505,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Art. 67",
+   "source": "CHE-fadp",
+   "length": 251,
+   "spans_chars": 6,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Section 2",
+   "source": "CHE-fadp",
+   "length": 90,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHE-fadp Section 3",
+   "source": "CHE-fadp",
+   "length": 50,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHL constitution ARTICLE 19 ¶5",
+   "source": "constitute",
+   "length": 247,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN constitution Article 40",
+   "source": "constitute",
+   "length": 456,
+   "spans_chars": 22,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 3",
+   "source": "CHN-pipl",
+   "length": 706,
+   "spans_chars": 52,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 13",
+   "source": "CHN-pipl",
+   "length": 1404,
+   "spans_chars": 28,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 25",
+   "source": "CHN-pipl",
+   "length": 1265,
+   "spans_chars": 221,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 28",
+   "source": "CHN-pipl",
+   "length": 667,
+   "spans_chars": 18,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 31",
+   "source": "CHN-pipl",
+   "length": 351,
+   "spans_chars": 52,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 36",
+   "source": "CHN-pipl",
+   "length": 406,
+   "spans_chars": 32,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 38",
+   "source": "CHN-pipl",
+   "length": 1359,
+   "spans_chars": 97,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 39",
+   "source": "CHN-pipl",
+   "length": 535,
+   "spans_chars": 37,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 40",
+   "source": "CHN-pipl",
+   "length": 737,
+   "spans_chars": 44,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 42",
+   "source": "CHN-pipl",
+   "length": 589,
+   "spans_chars": 8,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 51",
+   "source": "CHN-pipl",
+   "length": 2194,
+   "spans_chars": 235,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 53",
+   "source": "CHN-pipl",
+   "length": 529,
+   "spans_chars": 69,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 55",
+   "source": "CHN-pipl",
+   "length": 695,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CHN-pipl Article 74",
+   "source": "CHN-pipl",
+   "length": 673,
+   "spans_chars": 221,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CMR constitution Preamble ¶13",
+   "source": "constitute",
+   "length": 143,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "COD constitution Article 14",
+   "source": "constitute",
+   "length": 752,
+   "spans_chars": 37,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "COD constitution Article 31",
+   "source": "constitute",
+   "length": 237,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 2o",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 7o",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 12",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 21",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 26",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 30 ¶66",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 30 ¶74",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 30 ¶121",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 30 ¶122",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 ARTÍCULO 30 ¶123",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶18",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶81",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶94",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶95",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶155",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶158",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶159",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶193",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶194",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶231",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶259",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "COL-1581 Artículo 34 ¶265",
+   "source": "COL-1581",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "CPV constitution Article 33. Principles of Penal Process",
+   "source": "constitute",
+   "length": 1321,
+   "spans_chars": 57,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CPV constitution Article 41. Inviolability of Correspondence and Telecommunications",
+   "source": "constitute",
+   "length": 268,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CPV constitution Article 42. Utilization of Computer Records",
+   "source": "constitute",
+   "length": 745,
+   "spans_chars": 88,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CPV constitution Article 226. Publication of Sessions",
+   "source": "constitute",
+   "length": 183,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CPV constitution Article 267. Rights and Guarantees of Citizens before the Administration",
+   "source": "constitute",
+   "length": 1136,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CUB constitution Article 48",
+   "source": "constitute",
+   "length": 131,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CUB constitution Article 97",
+   "source": "constitute",
+   "length": 349,
+   "spans_chars": 49,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CYP constitution Article 30",
+   "source": "constitute",
+   "length": 1504,
+   "spans_chars": 30,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "CZE constitution Article 7 (2)",
+   "source": "constitute",
+   "length": 220,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DEU constitution Article 10. [Privacy of correspondence, posts and telecommunications]",
+   "source": "constitute",
+   "length": 487,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DEU constitution Article 18. [Forfeiture of basic rights]",
+   "source": "constitute",
+   "length": 560,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DEU constitution Article 44. [Committees of inquiry]",
+   "source": "constitute",
+   "length": 678,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DEU-bdsg § 1 ¶1",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 1 ¶20",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 14 ¶6",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 14 ¶25",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 16 ¶2",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 16 ¶3",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 17",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 39",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 40 ¶2",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DEU-bdsg § 45",
+   "source": "DEU-bdsg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "DMA constitution 1. Fundamental rights and freedoms",
+   "source": "constitute",
+   "length": 960,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DOM constitution Article 62. Right to work ¶4",
+   "source": "constitute",
+   "length": 227,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DZA constitution ART 47",
+   "source": "constitute",
+   "length": 487,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DZA constitution ART 55",
+   "source": "constitute",
+   "length": 346,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "DZA constitution ART 85",
+   "source": "constitute",
+   "length": 235,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ECU constitution Article 40",
+   "source": "constitute",
+   "length": 995,
+   "spans_chars": 52,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ECU constitution Article 66 ¶23",
+   "source": "constitute",
+   "length": 320,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ECU constitution Article 86",
+   "source": "constitute",
+   "length": 2440,
+   "spans_chars": 18,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ECU constitution Article 92",
+   "source": "constitute",
+   "length": 1206,
+   "spans_chars": 64,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ECU constitution Article 215",
+   "source": "constitute",
+   "length": 1037,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ECU constitution Article 329",
+   "source": "constitute",
+   "length": 1318,
+   "spans_chars": 22,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ECU constitution Article 436 ¶7",
+   "source": "constitute",
+   "length": 253,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "EGY constitution Article 6. Citizenship",
+   "source": "constitute",
+   "length": 268,
+   "spans_chars": 13,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "EGY constitution Article 57. Private life",
+   "source": "constitute",
+   "length": 567,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ERI constitution Article 18. Right to Privacy",
+   "source": "constitute",
+   "length": 45,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ESP constitution Section 18",
+   "source": "constitute",
+   "length": 558,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ESP constitution Section 20",
+   "source": "constitute",
+   "length": 1276,
+   "spans_chars": 31,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ESP constitution Section 105",
+   "source": "constitute",
+   "length": 545,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 2 ¶1",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 2 ¶4",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 2 ¶7",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 7",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 22 ¶9",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 28 ¶8",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 30",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 34 ¶19",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 38 ¶6",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 40",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 41",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 42",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 43",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 49 ¶7",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 57",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 69",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 70",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 72 ¶14",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 73 ¶3",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 73 ¶4",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 73 ¶10",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 73 ¶11",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 84",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 92",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 96 ¶6",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 96 ¶11",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 97 ¶59",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 97 ¶76",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 97 ¶85",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 97 ¶92",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 105 bis ¶14",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ESP-lopdgdd Artículo 105 bis ¶15",
+   "source": "ESP-lopdgdd",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ETH constitution Article 20. Rights of Persons Accused",
+   "source": "constitute",
+   "length": 1427,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ETH constitution Article 26. Right to Privacy",
+   "source": "constitute",
+   "length": 766,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "FIN constitution Section 10. The right to privacy",
+   "source": "constitute",
+   "length": 859,
+   "spans_chars": 63,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "FJI constitution 15. Access to courts or tribunals",
+   "source": "constitute",
+   "length": 2390,
+   "spans_chars": 56,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "FJI constitution 24. Right to privacy",
+   "source": "constitute",
+   "length": 338,
+   "spans_chars": 33,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "FRA-cil Article 5",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 8 ¶8",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 19 ¶8",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 20 ¶20",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 21 ¶3",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 21 ¶14",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 30 ¶3",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 33",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 36",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 39",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 42",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 45",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 48",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 51",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 70",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 91",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 100",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 101",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 102",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 111",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 112 ¶2",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 112 ¶3",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 112 ¶5",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 112 ¶7",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 112 ¶9",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 112 ¶10",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 112 ¶11",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 113",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 114",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 116",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 119 ¶6",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 124",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 124-5",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Article 125",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FRA-cil Section 3",
+   "source": "FRA-cil",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "FSM constitution ARTICLE IV. DECLARATION OF RIGHTS, Section 5",
+   "source": "constitute",
+   "length": 336,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GAB constitution Article 1 ¶6",
+   "source": "constitute",
+   "length": 270,
+   "spans_chars": 23,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 2 ¶1",
+   "source": "constitute",
+   "length": 1075,
+   "spans_chars": 35,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 2 ¶2",
+   "source": "constitute",
+   "length": 442,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 3",
+   "source": "constitute",
+   "length": 1862,
+   "spans_chars": 47,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 12 ¶52",
+   "source": "constitute",
+   "length": 52,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 12 ¶53",
+   "source": "constitute",
+   "length": 33,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 12 ¶54",
+   "source": "constitute",
+   "length": 133,
+   "spans_chars": 13,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 12. Freedom of expression",
+   "source": "constitute",
+   "length": 1324,
+   "spans_chars": 46,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 107. Disclosure of information to the Commission",
+   "source": "constitute",
+   "length": 2050,
+   "spans_chars": 29,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution 123. Disclosure of information to the Northern Ireland Judicial Appointments Com",
+   "source": "constitute",
+   "length": 2278,
+   "spans_chars": 29,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR constitution Article 6. Right to a fair trial",
+   "source": "constitute",
+   "length": 1538,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GBR-dpa Section 4",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 9",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 9 ¶4",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 9 ¶7",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 10",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 13",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 15",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 18",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 24 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 26",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 33",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 44 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 45 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 59 ¶7",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 61",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 71A",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 72",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 73 ¶1",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 73 ¶5",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 73 ¶6",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 74AA",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 74AB ¶1",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 74AB ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 74AB ¶3",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 74AB ¶4",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 74B",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 75 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 75 ¶3",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 75 ¶4",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 76",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 77",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 78 ¶1",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 78 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 78 ¶3",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 78 ¶5",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 78 ¶7",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 78 ¶9",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 78A",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 80",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 82A",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 109",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 119A ¶1",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 120 ¶1",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 120 ¶5",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 120 ¶7",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 120B",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 123",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 124",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 142 ¶9",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 149 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 170 ¶3",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 171 ¶4",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 171 ¶7",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 174",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 176",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 177",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 178",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 179",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 189 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 189 ¶4",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 189 ¶5",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 189 ¶6",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 190",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 204 ¶1",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 204 ¶2",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 206 ¶1",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 208",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 211",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-dpa Section 214",
+   "source": "GBR-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 3",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 4 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 6 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 6 ¶8",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 8",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 8ZA",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 9 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 12 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 13 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 14 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 15 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 15 ¶3",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 25 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 25 ¶3",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 27",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 28 ¶3",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 30 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 30 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 40 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 40 ¶3",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 42 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 44A",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 45A",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 45B ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 45B ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 45B ¶3",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 45B ¶4",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 45C",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 46 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 46 ¶3",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 46 ¶4",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 47 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 49 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 49 ¶5",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 49A",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 50",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 57 ¶1",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 58 ¶2",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 83 ¶5",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 85",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GBR-ukgdpr Article Article 96",
+   "source": "GBR-ukgdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "GHA constitution 18. PROTECTION OF PRIVACY OF HOME AND OTHER PROPERTY",
+   "source": "constitute",
+   "length": 490,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GIN constitution Article 12",
+   "source": "constitute",
+   "length": 442,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GMB constitution 23. Privacy",
+   "source": "constitute",
+   "length": 823,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GNB constitution Article 42",
+   "source": "constitute",
+   "length": 1009,
+   "spans_chars": 34,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GRC constitution Article 9A",
+   "source": "constitute",
+   "length": 287,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GRD constitution 1. Fundamental rights and freedoms",
+   "source": "constitute",
+   "length": 976,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GTM constitution Article 20. Headings [epígrafes]",
+   "source": "constitute",
+   "length": 184,
+   "spans_chars": 6,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "GTM constitution Article 35. Freedom of Expression of Thought",
+   "source": "constitute",
+   "length": 2213,
+   "spans_chars": 58,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HND constitution Article 76",
+   "source": "constitute",
+   "length": 87,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HND constitution Article 100",
+   "source": "constitute",
+   "length": 591,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HND constitution Article 182",
+   "source": "constitute",
+   "length": 2241,
+   "spans_chars": 90,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HND constitution Article 313",
+   "source": "constitute",
+   "length": 1402,
+   "spans_chars": 60,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HND constitution Article 316",
+   "source": "constitute",
+   "length": 1194,
+   "spans_chars": 41,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HRV constitution Article 36",
+   "source": "constitute",
+   "length": 245,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HRV constitution Article 37",
+   "source": "constitute",
+   "length": 403,
+   "spans_chars": 64,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HTI constitution Article 49",
+   "source": "constitute",
+   "length": 186,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HUN constitution 15",
+   "source": "constitute",
+   "length": 1972,
+   "spans_chars": 80,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HUN constitution Article 37",
+   "source": "constitute",
+   "length": 2207,
+   "spans_chars": 45,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "HUN constitution Article VII",
+   "source": "constitute",
+   "length": 1359,
+   "spans_chars": 76,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "IRL-dpa Article 10 ¶56",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Article 10 ¶72",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Article 10 ¶79",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Article 36",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 8",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 12 ¶11",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 14",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 29",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 30",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 31",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 32",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 33",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 37",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 38 ¶75",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 38 ¶94",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 38 ¶122",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 38 ¶138",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 38 ¶145",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 38 ¶159",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 43",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 53",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 60 ¶239",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 60 ¶255",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 60 ¶262",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 62",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 63",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 65",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 71 ¶93",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 81",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 94 ¶44",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 94 ¶45",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 94 ¶47",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶3",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶6",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶11",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶22",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶23",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶32",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶40",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶47",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶55",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 96 ¶56",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 97",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 98",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 99",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶3",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶4",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶8",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶23",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶29",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶38",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶41",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 100 ¶70",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 117A ¶74",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 127",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 134 ¶22",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 134 ¶50",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 147",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 149",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 163",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 188",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 197",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "IRL-dpa Section 219",
+   "source": "IRL-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "ISL constitution Article 71",
+   "source": "constitute",
+   "length": 679,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ISR constitution 7. Privacy",
+   "source": "constitute",
+   "length": 361,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "JAM constitution 13. Fundamental rights and freedoms ¶19",
+   "source": "constitute",
+   "length": 81,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "JAM constitution 13. Fundamental rights and freedoms ¶20",
+   "source": "constitute",
+   "length": 61,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "JOR constitution Article 7",
+   "source": "constitute",
+   "length": 171,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "JPN-appi 第七十一条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第七十七条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第七十八条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第七十六条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第七十四条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第三十一条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第三十七条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第九十一条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第九十九条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第九十八条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第九十条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第二十七条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第二十八条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第二十条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第二条 ¶1",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第五十一条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第五十七条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第五十九条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第五十四条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第六十九条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第六十条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第十八条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第十六条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百七十一条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百七十二条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百三十四条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百二十四条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百八十三条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百八十五条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百八十四条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百六十七条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百六十三条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百六条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百十三条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-appi 第百四条",
+   "source": "JPN-appi",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-berne Article 10",
+   "source": "JPN-berne",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-chosaku 第三十九条",
+   "source": "JPN-chosaku",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-chosaku 第三十二条",
+   "source": "JPN-chosaku",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-keiho 第百三十四条",
+   "source": "JPN-keiho",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-keiso 第二百五十六条",
+   "source": "JPN-keiso",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-kenpo 第二十一条",
+   "source": "JPN-kenpo",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-minso 第九十二条",
+   "source": "JPN-minso",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-minso 第二百二十条",
+   "source": "JPN-minso",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-minso 第百三十二条の二",
+   "source": "JPN-minso",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "JPN-minso 第百五十一条",
+   "source": "JPN-minso",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "quotation"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "KAZ constitution Article 21",
+   "source": "constitute",
+   "length": 844,
+   "spans_chars": 55,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KEN constitution 24. Limitation of rights and fundamental freedoms",
+   "source": "constitute",
+   "length": 2266,
+   "spans_chars": 49,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KEN constitution 31. Privacy",
+   "source": "constitute",
+   "length": 285,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KEN constitution 75. Conduct of State officers",
+   "source": "constitute",
+   "length": 800,
+   "spans_chars": 64,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KGZ constitution Article 63.",
+   "source": "constitute",
+   "length": 223,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KHM constitution Article 40",
+   "source": "constitute",
+   "length": 405,
+   "spans_chars": 13,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KIR constitution 3. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 981,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KNA constitution 3. Fundamental rights and freedoms",
+   "source": "constitute",
+   "length": 1026,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR constitution Article 17",
+   "source": "constitute",
+   "length": 45,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR constitution Article 18",
+   "source": "constitute",
+   "length": 63,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 2 ¶6",
+   "source": "KOR-pipa",
+   "length": 122,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 5",
+   "source": "KOR-pipa",
+   "length": 1411,
+   "spans_chars": 46,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 7-7",
+   "source": "KOR-pipa",
+   "length": 1373,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 7-8",
+   "source": "KOR-pipa",
+   "length": 1366,
+   "spans_chars": 46,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 7-9 ¶17",
+   "source": "KOR-pipa",
+   "length": 105,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 7-12",
+   "source": "KOR-pipa",
+   "length": 659,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 14",
+   "source": "KOR-pipa",
+   "length": 374,
+   "spans_chars": 38,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 22-2",
+   "source": "KOR-pipa",
+   "length": 1097,
+   "spans_chars": 127,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 24-2",
+   "source": "KOR-pipa",
+   "length": 2157,
+   "spans_chars": 164,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 27",
+   "source": "KOR-pipa",
+   "length": 1509,
+   "spans_chars": 182,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-8 ¶1",
+   "source": "KOR-pipa",
+   "length": 60,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-8 ¶3",
+   "source": "KOR-pipa",
+   "length": 325,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-8 ¶7",
+   "source": "KOR-pipa",
+   "length": 196,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-8 ¶37",
+   "source": "KOR-pipa",
+   "length": 422,
+   "spans_chars": 54,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-8 ¶39",
+   "source": "KOR-pipa",
+   "length": 183,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-8 ¶41",
+   "source": "KOR-pipa",
+   "length": 203,
+   "spans_chars": 34,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-9",
+   "source": "KOR-pipa",
+   "length": 1303,
+   "spans_chars": 142,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 28-10",
+   "source": "KOR-pipa",
+   "length": 445,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 32 ¶1",
+   "source": "KOR-pipa",
+   "length": 70,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 32 ¶35",
+   "source": "KOR-pipa",
+   "length": 196,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 32 ¶37",
+   "source": "KOR-pipa",
+   "length": 395,
+   "spans_chars": 48,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 35",
+   "source": "KOR-pipa",
+   "length": 2467,
+   "spans_chars": 142,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 38",
+   "source": "KOR-pipa",
+   "length": 1867,
+   "spans_chars": 74,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 51",
+   "source": "KOR-pipa",
+   "length": 1383,
+   "spans_chars": 42,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 64-2 ¶7",
+   "source": "KOR-pipa",
+   "length": 266,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 64-2 ¶11",
+   "source": "KOR-pipa",
+   "length": 243,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 64-2 ¶17",
+   "source": "KOR-pipa",
+   "length": 216,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 64-2 ¶19",
+   "source": "KOR-pipa",
+   "length": 188,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 64-2 ¶57",
+   "source": "KOR-pipa",
+   "length": 105,
+   "spans_chars": 5,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 64-2 ¶59",
+   "source": "KOR-pipa",
+   "length": 117,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 67",
+   "source": "KOR-pipa",
+   "length": 1398,
+   "spans_chars": 62,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 71 ¶8",
+   "source": "KOR-pipa",
+   "length": 236,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 75 ¶23",
+   "source": "KOR-pipa",
+   "length": 163,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa Article 75 ¶27",
+   "source": "KOR-pipa",
+   "length": 237,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "KOR-pipa SECTION 4",
+   "source": "KOR-pipa",
+   "length": 63,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LBR constitution Article 16",
+   "source": "constitute",
+   "length": 157,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LBY constitution Article 12",
+   "source": "constitute",
+   "length": 175,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LSO constitution 149P. General principles of the Media",
+   "source": "constitute",
+   "length": 985,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LUX constitution Article 11",
+   "source": "constitute",
+   "length": 1235,
+   "spans_chars": 56,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LVA constitution Article 96",
+   "source": "constitute",
+   "length": 92,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LVA-pd Section 21",
+   "source": "LVA-pd",
+   "length": 2355,
+   "spans_chars": 91,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LVA-pd Section 22",
+   "source": "LVA-pd",
+   "length": 1572,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LVA-pd Section 32",
+   "source": "LVA-pd",
+   "length": 1629,
+   "spans_chars": 75,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "LVA-pd Section 33",
+   "source": "LVA-pd",
+   "length": 580,
+   "spans_chars": 35,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MAR constitution Article 24",
+   "source": "constitute",
+   "length": 624,
+   "spans_chars": 29,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MAR constitution Article 27",
+   "source": "constitute",
+   "length": 631,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MCO-1565 Article 2 ¶19",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 2 ¶20",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 3",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 5 ¶8",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 6 ¶3",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 6 ¶4",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 10",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 11 ¶3",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 11 ¶17",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 12 ¶8",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 14 ¶9",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 21",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 25",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 27 ¶10",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 27 ¶12",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 27 ¶18",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 33 ¶9",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 33 ¶12",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 38 ¶3",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 38 ¶9",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 47",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 51 ¶13",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 54",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 58",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 60",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 70",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶2",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶4",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶5",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶6",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶11",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶12",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶13",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 76 ¶14",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 77",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 82",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 95",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 96",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 97",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 98",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 99 ¶2",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 99 ¶3",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 99 ¶10",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 99 ¶11",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 99 ¶13",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 100",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MCO-1565 Article 101",
+   "source": "MCO-1565",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MDA constitution Article 28. Intimate, family and private life",
+   "source": "constitute",
+   "length": 74,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MDA constitution Article 30. Privacy of correspondence",
+   "source": "constitute",
+   "length": 359,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 6 ¶1",
+   "source": "constitute",
+   "length": 367,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 6 ¶6",
+   "source": "constitute",
+   "length": 133,
+   "spans_chars": 34,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 6 ¶7",
+   "source": "constitute",
+   "length": 201,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 6 ¶12",
+   "source": "constitute",
+   "length": 6000,
+   "spans_chars": 152,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 16 ¶2",
+   "source": "constitute",
+   "length": 401,
+   "spans_chars": 22,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 16 ¶12",
+   "source": "constitute",
+   "length": 450,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 20 ¶25",
+   "source": "constitute",
+   "length": 466,
+   "spans_chars": 18,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 73 ¶72",
+   "source": "constitute",
+   "length": 71,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 73 ¶76",
+   "source": "constitute",
+   "length": 246,
+   "spans_chars": 43,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 105 ¶23",
+   "source": "constitute",
+   "length": 627,
+   "spans_chars": 41,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 109 ¶7",
+   "source": "constitute",
+   "length": 374,
+   "spans_chars": 27,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 116 ¶33",
+   "source": "constitute",
+   "length": 460,
+   "spans_chars": 50,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX constitution Article 122 ¶35",
+   "source": "constitute",
+   "length": 818,
+   "spans_chars": 87,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MEX-lfpdppp Artículo 2 ¶1",
+   "source": "MEX-lfpdppp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MEX-lfpdppp Artículo 34",
+   "source": "MEX-lfpdppp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MEX-lfpdppp Artículo 36 ¶1",
+   "source": "MEX-lfpdppp",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MHL constitution ARTICLE II. BILL OF RIGHTS, Section 13. Personal Autonomy and Privacy",
+   "source": "constitute",
+   "length": 155,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MKD constitution Article 18",
+   "source": "constitute",
+   "length": 234,
+   "spans_chars": 55,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MKD constitution Article 25",
+   "source": "constitute",
+   "length": 139,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MLI constitution Article 12:",
+   "source": "constitute",
+   "length": 187,
+   "spans_chars": 13,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MLT-dpa Article 10",
+   "source": "MLT-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MLT-dpa Article 27",
+   "source": "MLT-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MLT-dpa Article 43 ¶1",
+   "source": "MLT-dpa",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "MNE constitution Article 28. Dignity and inviolability of persona",
+   "source": "constitute",
+   "length": 303,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MNE constitution Article 43. Personal data",
+   "source": "constitute",
+   "length": 299,
+   "spans_chars": 53,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MNE constitution Article 51. Access to information",
+   "source": "constitute",
+   "length": 379,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MNE constitution Article 120. Publicity of trial",
+   "source": "constitute",
+   "length": 577,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MNG constitution Article 16 ¶14",
+   "source": "constitute",
+   "length": 598,
+   "spans_chars": 28,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MOZ constitution Article 65. Principles of Criminal Process",
+   "source": "constitute",
+   "length": 734,
+   "spans_chars": 33,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MOZ constitution Article 71. Use of Computerised Data",
+   "source": "constitute",
+   "length": 963,
+   "spans_chars": 101,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MRT constitution Article 13",
+   "source": "constitute",
+   "length": 684,
+   "spans_chars": 50,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MUS constitution 3. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 1095,
+   "spans_chars": 28,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MUS constitution 10. Provisions to secure protection of law ¶15",
+   "source": "constitute",
+   "length": 636,
+   "spans_chars": 35,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "MWI constitution 21. Privacy",
+   "source": "constitute",
+   "length": 288,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NAM constitution Article 13. Privacy",
+   "source": "constitute",
+   "length": 806,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NER constitution Article 22",
+   "source": "constitute",
+   "length": 532,
+   "spans_chars": 25,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NGA constitution 37",
+   "source": "constitute",
+   "length": 144,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NIC constitution Article 34 ¶15",
+   "source": "constitute",
+   "length": 244,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NIC constitution Article 45",
+   "source": "constitute",
+   "length": 278,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NIC constitution Article 64",
+   "source": "constitute",
+   "length": 155,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NIC constitution Article 190",
+   "source": "constitute",
+   "length": 1779,
+   "spans_chars": 143,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NLD constitution Article 10",
+   "source": "constitute",
+   "length": 469,
+   "spans_chars": 54,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NLD constitution Article 13",
+   "source": "constitute",
+   "length": 332,
+   "spans_chars": 32,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶1",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶11",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶15",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶19",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶21",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶28",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶31",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶33",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶36",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶38",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 5 ¶41",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 20",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 41",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NLD-uavg Artikel 43",
+   "source": "NLD-uavg",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NOR constitution Article 95",
+   "source": "constitute",
+   "length": 393,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NOR constitution Article 100",
+   "source": "constitute",
+   "length": 1329,
+   "spans_chars": 53,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NOR-popplyl § 2",
+   "source": "NOR-popplyl",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NOR-popplyl § 4",
+   "source": "NOR-popplyl",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NOR-popplyl § 13",
+   "source": "NOR-popplyl",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NOR-popplyl § 34 ¶5",
+   "source": "NOR-popplyl",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NOR-popplyl § 34 ¶6",
+   "source": "NOR-popplyl",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NOR-popplyl § 34 ¶39",
+   "source": "NOR-popplyl",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NOR-popplyl § 34 ¶60",
+   "source": "NOR-popplyl",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL constitution 27. Exceptions in relation to authenticity and privacy",
+   "source": "constitute",
+   "length": 1728,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NZL constitution 111A. Objectives of sections 111B to 111F",
+   "source": "constitute",
+   "length": 1473,
+   "spans_chars": 69,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NZL constitution 111E. Ministers of Justice and Maori Affairs may designate body to receive infor",
+   "source": "constitute",
+   "length": 1555,
+   "spans_chars": 50,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NZL constitution 148A. Certain former Commissioners to be transitional members of Commission",
+   "source": "constitute",
+   "length": 1569,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NZL constitution 204I. Electoral Commission to provide advice on application of definition of ele",
+   "source": "constitute",
+   "length": 1480,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NZL constitution 204X. When search constitutes interference with privacy of individual",
+   "source": "constitute",
+   "length": 241,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "NZL-privacy Section 3",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 4 ¶20",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶39",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶49",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶53",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶111",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶125",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶126",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶132",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶142",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶180",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 7 ¶186",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 11",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 18",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 22 ¶202",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 22 ¶331",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 22 ¶333",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 23",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 29 ¶26",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 43",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 49 ¶24",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 49 ¶26",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 49 ¶39",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 49 ¶42",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 62",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 73",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 76",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 103 ¶20",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 103 ¶32",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 112",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 116 ¶14",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 116 ¶38",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 133",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 138 ¶38",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 141",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 181 ¶28",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 193",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 207",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 212 ¶27",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 212 ¶52",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 212 ¶54",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "NZL-privacy Section 215",
+   "source": "NZL-privacy",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "PAK constitution 14. Inviolability of dignity of man, etc",
+   "source": "constitute",
+   "length": 161,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PAN constitution Article 42",
+   "source": "constitute",
+   "length": 426,
+   "spans_chars": 36,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PAN constitution Article 44",
+   "source": "constitute",
+   "length": 860,
+   "spans_chars": 84,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PER constitution Article 2 ¶6",
+   "source": "constitute",
+   "length": 437,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PER constitution Article 2 ¶12",
+   "source": "constitute",
+   "length": 167,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PER constitution Article 97",
+   "source": "constitute",
+   "length": 519,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PER constitution Article 200",
+   "source": "constitute",
+   "length": 2132,
+   "spans_chars": 50,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PER constitution Article 202",
+   "source": "constitute",
+   "length": 334,
+   "spans_chars": 11,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PHL constitution ARTICLE III. BILL OF RIGHTS, Sec 3",
+   "source": "constitute",
+   "length": 303,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PNG constitution 27. RESPONSIBILITIES OF OFFICE ¶1",
+   "source": "constitute",
+   "length": 352,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PNG constitution 49. RIGHT TO PRIVACY",
+   "source": "constitute",
+   "length": 604,
+   "spans_chars": 38,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PNG constitution 51. RIGHT TO FREEDOM OF INFORMATION",
+   "source": "constitute",
+   "length": 1923,
+   "spans_chars": 79,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PNG constitution 233. CONTENT, OPERATIONS, ETC., OF EMERGENCY ORDERS",
+   "source": "constitute",
+   "length": 1709,
+   "spans_chars": 28,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "POL constitution Article 45",
+   "source": "constitute",
+   "length": 377,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "POL constitution Article 49",
+   "source": "constitute",
+   "length": 149,
+   "spans_chars": 13,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PRK constitution Article 79",
+   "source": "constitute",
+   "length": 207,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PRT constitution Article 35. Use of computers",
+   "source": "constitute",
+   "length": 1509,
+   "spans_chars": 94,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PRT constitution Article 65. Housing and urban planning",
+   "source": "constitute",
+   "length": 1676,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PRT constitution Article 268. Citizens' rights and guarantees",
+   "source": "constitute",
+   "length": 1442,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PRY constitution Article 33. Of the Right to Intimacy",
+   "source": "constitute",
+   "length": 347,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "PSE constitution Article 32",
+   "source": "constitute",
+   "length": 408,
+   "spans_chars": 18,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "RUS constitution Article 24",
+   "source": "constitute",
+   "length": 379,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "RUS-152 Статья 1 ¶3",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 3 ¶14",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 4 ¶5",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 6 ¶8",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 6 ¶129",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 9 ¶2",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 9 ¶7",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 9 ¶16",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 10 ¶17",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 11",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶1",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶2",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶3",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶4",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶5",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶8",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶11",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶12",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶13",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶14",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶15",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 12 ¶16",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 14 ¶4",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 14 ¶16",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶117",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶118",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶119",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶121",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶122",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶123",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶124",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "RUS-152 Статья 131 ¶129",
+   "source": "RUS-152",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "SAU-pdpl Article 13",
+   "source": "SAU-pdpl",
+   "length": 1236,
+   "spans_chars": 165,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SAU-pdpl Article 28 ¶1",
+   "source": "SAU-pdpl",
+   "length": 4070,
+   "spans_chars": 153,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SAU-pdpl Article 31",
+   "source": "SAU-pdpl",
+   "length": 831,
+   "spans_chars": 123,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SAU-pdpl Article 32 ¶1",
+   "source": "SAU-pdpl",
+   "length": 6000,
+   "spans_chars": 202,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SDN constitution 55. Right to Privacy",
+   "source": "constitute",
+   "length": 178,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SLB constitution 3. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 987,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SLB constitution 94. Responsibilities of office",
+   "source": "constitute",
+   "length": 1908,
+   "spans_chars": 43,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SRB constitution Article 32. Right to a fair trial",
+   "source": "constitute",
+   "length": 829,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SRB constitution Article 42. Protection of personal data",
+   "source": "constitute",
+   "length": 584,
+   "spans_chars": 81,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SSD constitution 22. Privacy",
+   "source": "constitute",
+   "length": 187,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SSD constitution 32. Right of Access to Information",
+   "source": "constitute",
+   "length": 309,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "STP constitution Article 40. Guarantees of criminal procedure",
+   "source": "constitute",
+   "length": 1050,
+   "spans_chars": 35,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SVK constitution Article 16",
+   "source": "constitute",
+   "length": 208,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SVK constitution Article 22",
+   "source": "constitute",
+   "length": 466,
+   "spans_chars": 64,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SVN constitution Article 35. Protection of Right to Privacy and Personality Rights",
+   "source": "constitute",
+   "length": 127,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SVN constitution Article 37. Protection of the Privacy of Correspondence and Other Means of Commu",
+   "source": "constitute",
+   "length": 409,
+   "spans_chars": 37,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SVN constitution Article 38. Protection of Personal Data",
+   "source": "constitute",
+   "length": 441,
+   "spans_chars": 66,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWE constitution Art 3",
+   "source": "constitute",
+   "length": 1205,
+   "spans_chars": 40,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWE constitution Art 6",
+   "source": "constitute",
+   "length": 767,
+   "spans_chars": 39,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWE constitution Art 20",
+   "source": "constitute",
+   "length": 1143,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWE constitution Art 21",
+   "source": "constitute",
+   "length": 2146,
+   "spans_chars": 37,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWE constitution Art 22",
+   "source": "constitute",
+   "length": 1043,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWE constitution Art 23",
+   "source": "constitute",
+   "length": 991,
+   "spans_chars": 31,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWE constitution Art 25",
+   "source": "constitute",
+   "length": 1542,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SWZ constitution 14. Fundamental rights and freedoms of the individual",
+   "source": "constitute",
+   "length": 1317,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SYC constitution 19 ¶17",
+   "source": "constitute",
+   "length": 664,
+   "spans_chars": 35,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SYC constitution 28",
+   "source": "constitute",
+   "length": 1199,
+   "spans_chars": 36,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SYR constitution Article 36",
+   "source": "constitute",
+   "length": 192,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "SYR constitution Article 54",
+   "source": "constitute",
+   "length": 193,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TCD constitution Article 17",
+   "source": "constitute",
+   "length": 199,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TCD constitution Article 182",
+   "source": "constitute",
+   "length": 776,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TGO constitution Art. 5:",
+   "source": "constitute",
+   "length": 563,
+   "spans_chars": 24,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TGO constitution Art. 8:",
+   "source": "constitute",
+   "length": 374,
+   "spans_chars": 17,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 5",
+   "source": "THA-pdpa",
+   "length": 941,
+   "spans_chars": 45,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 16",
+   "source": "THA-pdpa",
+   "length": 2144,
+   "spans_chars": 151,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 20",
+   "source": "THA-pdpa",
+   "length": 1406,
+   "spans_chars": 51,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 28",
+   "source": "THA-pdpa",
+   "length": 1798,
+   "spans_chars": 114,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 29 ¶1",
+   "source": "THA-pdpa",
+   "length": 3013,
+   "spans_chars": 334,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 31",
+   "source": "THA-pdpa",
+   "length": 1746,
+   "spans_chars": 174,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 40 ¶1",
+   "source": "THA-pdpa",
+   "length": 6000,
+   "spans_chars": 351,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "THA-pdpa Section 63 ¶1",
+   "source": "THA-pdpa",
+   "length": 6000,
+   "spans_chars": 274,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TJK constitution Article 23",
+   "source": "constitute",
+   "length": 276,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TKM constitution Article 37",
+   "source": "constitute",
+   "length": 256,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TKM constitution Article 38",
+   "source": "constitute",
+   "length": 372,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TLS constitution Article 34. Guarantees in Criminal Proceedings",
+   "source": "constitute",
+   "length": 606,
+   "spans_chars": 21,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TLS constitution Article 37. Inviolability of the Domicile and Correspondence",
+   "source": "constitute",
+   "length": 518,
+   "spans_chars": 24,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TLS constitution Article 38. Protection of Personal Data",
+   "source": "constitute",
+   "length": 571,
+   "spans_chars": 51,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TLS constitution Article 58. Housing",
+   "source": "constitute",
+   "length": 188,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUN constitution Article Thirty:",
+   "source": "constitute",
+   "length": 257,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR constitution ARTICLE 20",
+   "source": "constitute",
+   "length": 1398,
+   "spans_chars": 82,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR constitution ARTICLE 22",
+   "source": "constitute",
+   "length": 896,
+   "spans_chars": 30,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 8",
+   "source": "TUR-kvkk",
+   "length": 485,
+   "spans_chars": 56,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk Article 9 ¶2",
+   "source": "TUR-kvkk",
+   "length": 314,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk Article 9 ¶11",
+   "source": "TUR-kvkk",
+   "length": 387,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk Article 9 ¶12",
+   "source": "TUR-kvkk",
+   "length": 331,
+   "spans_chars": 38,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk Article 9 ¶17",
+   "source": "TUR-kvkk",
+   "length": 297,
+   "spans_chars": 37,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk Article 9 ¶26",
+   "source": "TUR-kvkk",
+   "length": 272,
+   "spans_chars": 47,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk Article 9 ¶27",
+   "source": "TUR-kvkk",
+   "length": 307,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk Article 9 ¶28",
+   "source": "TUR-kvkk",
+   "length": 91,
+   "spans_chars": 32,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 11",
+   "source": "TUR-kvkk",
+   "length": 1108,
+   "spans_chars": 22,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 15",
+   "source": "TUR-kvkk",
+   "length": 1834,
+   "spans_chars": 56,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 16",
+   "source": "TUR-kvkk",
+   "length": 1539,
+   "spans_chars": 143,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 23",
+   "source": "TUR-kvkk",
+   "length": 1447,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 28",
+   "source": "TUR-kvkk",
+   "length": 2432,
+   "spans_chars": 48,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 31 ¶4",
+   "source": "TUR-kvkk",
+   "length": 134,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUR-kvkk ARTICLE 31 ¶14",
+   "source": "TUR-kvkk",
+   "length": 953,
+   "spans_chars": 26,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUV constitution 11. The fundamental human rights and freedoms",
+   "source": "constitute",
+   "length": 1205,
+   "spans_chars": 20,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUV constitution 22. Protection of law ¶39",
+   "source": "constitute",
+   "length": 73,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUV constitution 27. Freedom from discrimination ¶33",
+   "source": "constitute",
+   "length": 266,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TUV constitution 36. Restrictions on certain rights and freedoms during public emergencies",
+   "source": "constitute",
+   "length": 657,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "TZA constitution 16. Right to privacy and personal security",
+   "source": "constitute",
+   "length": 547,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "UGA constitution 27. Right to privacy of person, home and other property",
+   "source": "constitute",
+   "length": 296,
+   "spans_chars": 7,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "UGA constitution 41. Right of access to information",
+   "source": "constitute",
+   "length": 463,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "UKR constitution Article 31",
+   "source": "constitute",
+   "length": 353,
+   "spans_chars": 16,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "URY-18331 Artículo 13",
+   "source": "URY-18331",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "URY-18331 Artículo 23 ¶19",
+   "source": "URY-18331",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "USA-15-6502 15 U.S.C. § 6502 ¶1",
+   "source": "USA-15-6502",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "VCT constitution 1. Fundamental rights and freedoms",
+   "source": "constitute",
+   "length": 965,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "VCT constitution Preamble",
+   "source": "constitute",
+   "length": 1174,
+   "spans_chars": 15,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "VEN constitution Article 143",
+   "source": "constitute",
+   "length": 703,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "VNM constitution Article 21",
+   "source": "constitute",
+   "length": 572,
+   "spans_chars": 54,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "VUT constitution 5. FUNDAMENTAL RIGHTS AND FREEDOMS OF THE INDIVIDUAL",
+   "source": "constitute",
+   "length": 2383,
+   "spans_chars": 30,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "VUT constitution 66. CONDUCT OF LEADERS",
+   "source": "constitute",
+   "length": 788,
+   "spans_chars": 30,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "WSM constitution 9. Right to a fair trial",
+   "source": "constitute",
+   "length": 1984,
+   "spans_chars": 42,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ZAF constitution 14. Privacy",
+   "source": "constitute",
+   "length": 204,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ZMB constitution Article 11. Fundamental Rights and Freedoms",
+   "source": "constitute",
+   "length": 988,
+   "spans_chars": 19,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ZWE constitution 57. Right to privacy",
+   "source": "constitute",
+   "length": 305,
+   "spans_chars": 14,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "ZWE constitution 196. Responsibilities of public officers and principles of leadership",
+   "source": "constitute",
+   "length": 860,
+   "spans_chars": 12,
+   "topics": [
+    "data"
+   ],
+   "had_text": false
+  },
+  {
+   "id": "EU-gdpr Article 3",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 4 ¶41",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 4 ¶47",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 4 ¶59",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 4 ¶61",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 6 ¶15",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 8",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 9 ¶22",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 12 ¶3",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 13 ¶15",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 14 ¶15",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 15",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 27",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 28 ¶7",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 30 ¶11",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 30 ¶13",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 30 ¶24",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 40 ¶18",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 40 ¶24",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 40 ¶27",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 42 ¶4",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 44",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶3",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶6",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶8",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶10",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶11",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶12",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶13",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶15",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶16",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 45 ¶17",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 46 ¶3",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 46 ¶14",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 46 ¶16",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 46 ¶19",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 47 ¶14",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 47 ¶18",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 47 ¶22",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 47 ¶36",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 48",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 49 ¶3",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 49 ¶18",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 49 ¶22",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 50",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 51",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 56",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 57 ¶7",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 58 ¶36",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 60 ¶4",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 68",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 70 ¶33",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 70 ¶41",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 70 ¶47",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 71",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 83 ¶41",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 83 ¶47",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 85",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 96",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 97",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  },
+  {
+   "id": "EU-gdpr Article 99 ¶23",
+   "source": "EU-gdpr",
+   "length": null,
+   "spans_chars": null,
+   "topics": [
+    "data"
+   ],
+   "had_text": true
+  }
+ ],
+ "topics": {
+  "AGO constitution Article 32. (Right to identity and privacy)": [
+   "data",
+   "defamation"
+  ],
+  "AGO constitution Article 40. (Freedom of expression and information)": [
+   "data",
+   "defamation"
+  ],
+  "ALB constitution Article 73": [
+   "data",
+   "defamation"
+  ],
+  "AND constitution Article 14": [
+   "data",
+   "defamation"
+  ],
+  "BDI constitution Article 43": [
+   "data",
+   "defamation"
+  ],
+  "BGR constitution Article 32": [
+   "data",
+   "defamation"
+  ],
+  "BLR constitution Article 28": [
+   "data",
+   "defamation"
+  ],
+  "BLZ constitution 14. Protection of right to privacy": [
+   "data",
+   "defamation"
+  ],
+  "BOL constitution Article 130": [
+   "data",
+   "defamation"
+  ],
+  "BRA constitution Art 5 ¶11": [
+   "data",
+   "defamation"
+  ],
+  "BTN constitution Article 7. Fundamental Rights ¶19": [
+   "data",
+   "defamation"
+  ],
+  "COL constitution Article 15": [
+   "data",
+   "defamation"
+  ],
+  "CPV constitution Article 38. The Right to Identity, to a Name, and Reputation": [
+   "data",
+   "defamation"
+  ],
+  "CPV constitution Article 45. Freedom of Expression and Information": [
+   "data",
+   "defamation"
+  ],
+  "CZE constitution Article 10": [
+   "data",
+   "defamation"
+  ],
+  "DOM constitution Article 44. Right to privacy and to personal honor": [
+   "data",
+   "defamation"
+  ],
+  "EST constitution Article 45": [
+   "data",
+   "defamation"
+  ],
+  "FJI constitution 17. Freedom of speech, expression and publication": [
+   "data",
+   "defamation"
+  ],
+  "GNB constitution Article 44": [
+   "data",
+   "defamation"
+  ],
+  "GNQ constitution Article 13": [
+   "data",
+   "defamation"
+  ],
+  "GTM constitution Article 25. Registry of Persons and Vehicles": [
+   "honours",
+   "data"
+  ],
+  "HUN constitution Article VI": [
+   "data",
+   "defamation"
+  ],
+  "JPN-keiso 第二百八十一条の四": [
+   "data",
+   "defamation"
+  ],
+  "JPN-keiso 第五十三条の二": [
+   "sovereignty",
+   "data"
+  ],
+  "KGZ constitution Article 29.": [
+   "data",
+   "defamation"
+  ],
+  "LBR constitution Article 15": [
+   "fraud",
+   "data",
+   "defamation"
+  ],
+  "LKA constitution 14A. Right of access to information": [
+   "sovereignty",
+   "data",
+   "defamation"
+  ],
+  "LTU constitution Article 22": [
+   "data",
+   "defamation"
+  ],
+  "LTU constitution Article 25": [
+   "data",
+   "defamation"
+  ],
+  "MNE constitution Article 70. Consumer protection": [
+   "fraud",
+   "data"
+  ],
+  "MOZ constitution Article 41. Other Individual Rights": [
+   "data",
+   "defamation"
+  ],
+  "NIC constitution Article 26": [
+   "data",
+   "defamation"
+  ],
+  "NPL constitution 28. Right to privacy": [
+   "data",
+   "defamation"
+  ],
+  "PER constitution Article 2 ¶13": [
+   "data",
+   "defamation"
+  ],
+  "POL constitution Article 76": [
+   "fraud",
+   "data"
+  ],
+  "PRT constitution Article 26. Other personal rights": [
+   "data",
+   "defamation"
+  ],
+  "QAT constitution Article 37": [
+   "data",
+   "defamation"
+  ],
+  "ROU constitution Article 30. Freedom of Expression": [
+   "sovereignty",
+   "data",
+   "defamation"
+  ],
+  "RUS constitution Article 23": [
+   "data",
+   "defamation"
+  ],
+  "RWA constitution Article 23. Respect for privacy of a person and of family": [
+   "data",
+   "defamation"
+  ],
+  "RWA constitution Article 38. Freedom of press, of expression and of access to information": [
+   "data",
+   "defamation"
+  ],
+  "SRB constitution Article 90. Protection of consumers": [
+   "fraud",
+   "data"
+  ],
+  "SUR constitution Article 17": [
+   "data",
+   "defamation"
+  ],
+  "SVK constitution Article 19": [
+   "data",
+   "defamation"
+  ],
+  "SWE constitution Art 9": [
+   "fraud",
+   "data"
+  ],
+  "THA constitution Section 32": [
+   "data",
+   "defamation"
+  ],
+  "TLS constitution Article 36. Right to Honor and Privacy": [
+   "data",
+   "defamation"
+  ],
+  "TUV constitution 24. Freedom of expression": [
+   "data",
+   "defamation"
+  ],
+  "TZA constitution 30. Limitations upon, and enforcement and preservation of basic rights, freedoms ¶5": [
+   "data",
+   "defamation"
+  ],
+  "UZB constitution Article 31.": [
+   "data",
+   "defamation"
+  ],
+  "VEN constitution Article 60": [
+   "data",
+   "defamation"
+  ],
+  "VEN constitution Article 281": [
+   "fraud",
+   "data"
+  ],
+  "ZWE constitution 61. Freedom of expression and freedom of the media": [
+   "data",
+   "defamation"
+  ]
+ }
+}

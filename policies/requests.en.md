@@ -29,7 +29,8 @@ Do not copy the personal data in question into the issue. Say only where it is.
 ## Requests that cannot be made in public
 
 Nusquama has no channel that receives requests privately.
-GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-13).
+On 2026-11-15 the owner decided to open GitHub's private vulnerability reporting as the private route for requests that cannot be made in public. Its usual purpose is reporting weaknesses in security; receiving requests through it is a use other than that.
+The route can be used only once the feature is enabled for this repository. When checked through the GitHub API on 2026-11-15, it was not enabled. Until it is, the steps below apply.
 If there is a reason a request cannot be written in public, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the form, and leave the rest empty. The issue then shows only the GitHub account name, the title and the kind.
 The operator answers privately only when the person who asks has made a contact public on their own GitHub profile, and then answers at that contact.
 A person with no such contact can receive the answer by making a contact public on their own GitHub profile for a while.
@@ -51,10 +52,23 @@ Requests for disclosure, correction, suspension of use and the like are met with
 When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.
 When a request is not met, the reason is given.
 From 2026-12-01, error reports are checked by the checked intake. If the quoted words are not found, the label "not verified" and a fixed comment are added. The checked intake never closes or locks an issue; the operator reads every one.
+From 2026-12-01, error reports are received only from people in Japan (the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)). A request made with this request form is received from people in every country, and this limit does not apply to it.
 A request for a correction of what is written about oneself, or for removal, withdrawal, rights, personal data or consent, can be made with this request form. A request written in an error report is not closed either. A request that the law requires to be received and handled is not turned away without being read, in whatever language and words it is written.
+
+## Requests to disclose information on the sender
+
+Article 5(1) of Japan's Act on information distribution platforms lets a person who claims that their rights were infringed by the distribution of information through specified telecommunications ask a provider of specified telecommunications services to disclose the sender information it holds. Among its requirements, item 1 is 「当該開示の請求に係る侵害情報の流通によって当該開示の請求をする者の権利が侵害されたことが明らかであるとき。」
+Article 6(1) of that Act says that a provider that receives such a request 「当該開示の請求に応じるかどうかについて当該発信者の意見（当該開示の請求に応じるべきでない旨の意見である場合には、その理由を含む。）を聴かなければならない。」
+A request to Nusquama to disclose sender information is received with this request form and handled as follows.
+
+1. The operator confirms which entry the request is about, and which right is said to be infringed.
+2. The operator asks the person who wrote it, in the issue, for their opinion on whether to disclose. Where they cannot be reached, or there are special circumstances, that is recorded.
+3. Nothing is disclosed beyond what the law requires. The operator holds only the GitHub account name and what was written in the issue; more detailed sender information is held by GitHub, which records the issue.
+4. When the request is not met, the reasons are given. A court can also be asked for an order to disclose sender information under Article 8 of that Act.
 
 ## What cannot be removed
 
 Earlier versions in the repository remain unless its history is rewritten. Copies already made by others are beyond the operator's reach.
 Earlier deployments kept at Vercel that contain the entry are deleted from Vercel on request.
 Where it must be erased from the history of the repository, the operator asks GitHub to remove it.
+From 2026-12-01, before a line of the roll is erased from the history on request, only the items of the record of provision for that line (the day it was added, that the recipients are many unspecified people, the account name that identifies the person, the items entered, and that consent was obtained) are recorded separately in `docs/records-of-provision.md`. Nothing else of the roll is recorded. Article 29 of Japan's Act on the Protection of Personal Information asks for this record, and Article 21, item 3, of its Enforcement Rules sets its period at 「三年」, so these items stay public there for three years from the day they are recorded.

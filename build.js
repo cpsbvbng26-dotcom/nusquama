@@ -285,13 +285,14 @@ const withdrawnOn = (r) => (WITHDRAWN.exec(r[1]) || [])[1] || null;
 const population = (y, rows = tableRows('KNIGHTS.md')) => rows.filter((r) => (!y || r[2].slice(0, 4) <= y) && !(withdrawnOn(r) && (!y || withdrawnOn(r).slice(0, 4) <= y))).length;
 
 function atom(kind, rows = tableRows(kind === 'errata' ? 'ERRATA.md' : 'KNIGHTS.md')) {
-  const title = kind === 'errata' ? NAME + '：王の正誤表' : NAME + '：正誤表騎士団 名簿';
+  /* 配信の読み手は、項目の題だけを頁から離して並べる。題にも「（創作）」を付ける（2026-11-15 に利用者が決めた）。 */
+  const title = kind === 'errata' ? NAME + '：王の正誤表（創作）' : NAME + '：正誤表騎士団 名簿';
   const page = kind === 'errata' ? 'errata.html' : 'knights.html';
   const entries = rows.map((r) => {
     /* 名簿の行は、番・騎士・叙任の日の順。日付は三つめの欄にある。 */
     const n = r[0], date = kind === 'errata' ? r[1] : r[2];
     const text = kind === 'errata' ? r[2] + '。正：' + r[4] : withdrawnOn(r) ? '辞退した騎士。名を外した。' : '騎士 ' + r[1] + '、正した誤り：' + r[3];
-    return `  <entry>\n    <id>${BASE}${page}#${kind}-${esc(n)}</id>\n    <title>${esc(kind === 'errata' ? '第 ' + n + ' 件：' + r[2] : '第 ' + n + ' 番の騎士：' + r[1])}</title>\n    <link href="${BASE}${page}"/>\n    <updated>${esc(date)}T00:00:00+09:00</updated>\n    <summary>${esc(text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'))}</summary>\n  </entry>`;
+    return `  <entry>\n    <id>${BASE}${page}#${kind}-${esc(n)}</id>\n    <title>${esc(kind === 'errata' ? '王の正誤表（創作）第 ' + n + ' 件：' + r[2] : '第 ' + n + ' 番の騎士：' + r[1])}</title>\n    <link href="${BASE}${page}"/>\n    <updated>${esc(date)}T00:00:00+09:00</updated>\n    <summary>${esc(text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'))}</summary>\n  </entry>`;
   });
   const updated = rows.map((r) => (kind === 'errata' ? r[1] : r[2])).sort().pop() || '2026-11-07';
   return `<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">\n  <title>${esc(title)}</title>\n  <subtitle>${esc(NOTICE)}</subtitle>\n  <id>${BASE}${kind}.xml</id>\n  <link rel="self" href="${BASE}${kind}.xml"/>\n  <link href="${BASE}${page}"/>\n  <updated>${updated}T00:00:00+09:00</updated>\n  <author><name>騎士王ネモ一世（創作の中の王）</name></author>\n${entries.join('\n')}${entries.length ? '\n' : ''}</feed>\n`;
@@ -540,8 +541,8 @@ function gazetteTable(en = false) {
 }
 function gazetteAtom() {
   const items = gazetteItems();
-  return `<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">\n  <title>${esc(NAME)}：官報</title>\n  <subtitle>${esc(NOTICE)}</subtitle>\n  <id>${BASE}gazette.xml</id>\n  <link rel="self" href="${BASE}gazette.xml"/>\n  <link href="${BASE}gazette.html"/>\n  <updated>${(items[0] || { date: '2026-11-07' }).date}T00:00:00+09:00</updated>\n  <author><name>騎士王ネモ一世（創作の中の王）</name></author>\n`
-    + items.map((x) => `  <entry>\n    <id>${BASE}gazette.html#g${x.no}</id>\n    <title>${esc('第 ' + x.no + ' 号　' + x.kind + '：' + x.text)}</title>\n    <link href="${BASE}gazette/${x.no}.html"/>\n    <updated>${x.date}T00:00:00+09:00</updated>\n  </entry>\n`).join('') + '</feed>\n';
+  return `<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">\n  <title>${esc(NAME)}：官報（創作）</title>\n  <subtitle>${esc(NOTICE)}</subtitle>\n  <id>${BASE}gazette.xml</id>\n  <link rel="self" href="${BASE}gazette.xml"/>\n  <link href="${BASE}gazette.html"/>\n  <updated>${(items[0] || { date: '2026-11-07' }).date}T00:00:00+09:00</updated>\n  <author><name>騎士王ネモ一世（創作の中の王）</name></author>\n`
+    + items.map((x) => `  <entry>\n    <id>${BASE}gazette.html#g${x.no}</id>\n    <title>${esc('官報（創作）第 ' + x.no + ' 号　' + x.kind + '：' + x.text)}</title>\n    <link href="${BASE}gazette/${x.no}.html"/>\n    <updated>${x.date}T00:00:00+09:00</updated>\n  </entry>\n`).join('') + '</feed>\n';
 }
 /* 月ごとの合本。その月の号を古い順にまとめる。号の番号は gazetteItems のまま使い、合本のために振り直さない。 */
 const MONTHS_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

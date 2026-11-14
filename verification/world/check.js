@@ -137,7 +137,7 @@ function verdict(S, coverageOf, classesOf) {
     const src = c.by === 'read' ? (S.decisions.provisions || {})[p.id] : (S.decisions.rules || []).find((r) => r.id === c.by);
     if (c.by === 'read' && (!src || src.sha256 !== p.sha256)) bad.push(p.id + '：一つずつ読んだ決めが別の文に対するもの');
     if (!CLASSES.includes(c.class) || !src || !src.reason) bad.push(p.id + '：分類か理由の形が違う');
-    if (c.class !== 'does not apply' && (!c.action || !['Nusquama', 'Sophaxis', 'both'].includes(c.project) || !['高', '中', '低'].includes(c.severity))) bad.push(p.id + '：当たる・当たりうる条に、計画・対象・重さがない');
+    if (c.class !== 'does not apply' && (!c.action || c.project !== 'Nusquama' || !['高', '中', '低'].includes(c.severity))) bad.push(p.id + '：当たる・当たりうる条に、計画・対象・重さがない');
   }
   for (const id of Object.keys(cls)) if (!ids.has(id)) bad.push(id + '：記していない条の分類');
   /* Titles and honours, sovereignty and impersonation, national symbols, and fraud: a provision that applies or could
@@ -181,7 +181,9 @@ function run(ok) {
   ok('各国の法令の調べ：195 の国の一覧、当たった ' + n.provisions + ' 件の条の SHA-256、網羅の表（data/ から作ったまま）、分類と計画、記録の数がそろう', bad.length === 0, bad.slice(0, 12).join(' / ') + (bad.length > 12 ? ' ほか ' + (bad.length - 12) + ' 件' : ''));
   /* Break tests: each change must make the verdict fail. */
   const clone = () => JSON.parse(JSON.stringify(Object.assign({}, S, { coverage: S.coverage, record: S.record })));
-  const first = (T) => Object.values(T.data).find((d) => d.provisions.length && 'text' in d.provisions[0]);
+  /* The first provision that keeps its text, with the sources of its file (since 2026-11-15 no file opens with one: the
+   * data protection laws of the union, whose file did, were moved out with the topic). */
+  const first = (T) => { const d = Object.values(T.data).find((x) => x.provisions.some((p) => 'text' in p)); return d && { provisions: [d.provisions.find((p) => 'text' in p)], sources: d.sources }; };
   const priv = (T) => Object.values(T.data).flatMap((d) => d.provisions).find((p) => p.source === 'constitute');
   const breaks = [
     ['条の文を一字変える', (T) => { const p = first(T).provisions[0]; p.text = p.text.replace(/.$/, 'X'); }],

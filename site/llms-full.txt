@@ -208,6 +208,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-14（日本時間） | 免責事項の責任の免除を、叙任の願い出の様式で利用規約に同意した人に対するものとし、ほかの人との間では法令の定めるとおりと改める。利用規約に、変更の効力の生じる日と、手立ては削除・訂正・辞退の求めであることを書く。削除・訂正・辞退の求めに、情報流通プラットフォーム対処法第3条第2項の二つの道を書く。issue とコメントの連絡先の形の文字を、運営者のもののほかは自動で伏せる | The Disclaimer's exclusion of liability now covers only those who agreed to the Terms of Use in the application form for knighthood; towards anyone else the operator is liable as the law provides. The Terms of Use say when a change takes effect, and that the remedy is a request for removal, correction or withdrawal. The page on requests sets out the two routes of Article 3(2) of the Information Distribution Platform Act. Strings shaped like contact details in issues and comments, other than the operator's, are masked automatically |
 | 2026-11-14（日本時間） | 突き合わせの受付を置く。2026-12-01 から、誤りの知らせは、引いた語が示した所にそのとおりになければ閉じる。求めは自動では閉じない。叙任の規程に、受付に戻すときは日本に住んでいることを ORCID の記録の前からの項目で確かめ、ORCID iD のない人からは受けない決まりを書く。受付は止めたまま | The checked intake is set up. From 2026-12-01, an error report is closed if the quoted words do not occur at the place given. Requests are never closed automatically. The Rules on Knighting state that, when applications reopen, living in Japan is checked by earlier entries of the ORCID record, and that no application is received from a person without an ORCID iD. Applications stay paused |
 | 2026-11-15（日本時間） | 突き合わせの受付は、どの issue も閉じず、鍵も掛けないと改める。通らない誤りの知らせには、ラベルと決まった文のコメントだけを付ける。求めの規程の、自分を指さない「訂正」の語を「自分についての記載の訂正」と改める。叙任の規程の、受付に戻すときの確かめから GitHub のプロフィールの所在の欄を外し、ORCID の国の符号だけを読むと改める。受付は止めたまま | The checked intake now never closes or locks an issue. An error report that fails gets only a label and a fixed comment. On the page on requests, "correction" is narrowed to "a correction of what is written about oneself". In the Rules on Knighting, the check for reopening no longer reads the location field of the GitHub profile, and reads only the country codes in ORCID. Applications stay paused |
+| 2026-11-15（日本時間） | 点検の答えを入れる。2026-12-01 から、誤りの知らせは、ORCID の公開の記録で日本にいると確かめられる人からだけ受ける。求めはどの国の人からも受ける。履歴から名簿の行を消す前に、提供の記録の項目だけを別に記す。発信者情報の開示の求めの扱いを書き、利用規約の終わりを凍結と解散に分ける。適法性の説明に、商標法第25条の範囲、イタリアの罰の厳しい読み方、栄典との違いを書き、配信の題に「（創作）」を付ける | The answers to the review are put in. From 2026-12-01, error reports are received only from people who can be checked, in the public ORCID record, as being in Japan. Requests are received from people in every country. Before a line of the roll is erased from the history, only the items of its record of provision are recorded separately. The handling of requests to disclose sender information is written, and the ending in the Terms of Use is split into freezing and dissolution. The Legality Statement gives the scope of Article 25 of the Trademark Act, the stricter reading of the Italian penalty and how the names differ from honours, and the titles of the feeds carry "（創作）" |
 
 ---
 
@@ -360,6 +361,12 @@ Source: https://nusquama.vercel.app/errata.html
 | 48 | 2026-11-15 | 削除・訂正・辞退の求め「求めを受けた後」、利用規約「変更と終了」、誤りの知らせの様式 | この求めの様式の issue と、誤りの知らせでも削除・訂正・辞退・権利・個人の情報・同意を求めると読める issue は、自動では閉じず、運営者が読みます。（削除・訂正・辞退の求め）／削除・訂正・辞退・権利・個人の情報・同意を求める issue は、自動では閉じません（利用規約、誤りの知らせの様式） | 自動では閉じないと約束したのは、語の並びで求めを見分け、それだけを閉じない仕組みだった。読むだけの点検が、語の並びの拾わない書き方と、日本語と英語のほかの言語の求めを見つけ、約束のとおりにならないことが分かった。突き合わせの受付は、どの issue も閉じず、鍵も掛けないと改めた。通らない知らせには、ラベル「not verified」と決まった文のコメントだけを付ける。2026-11-15 に Claude が決めました。語の並びでは、法令が受けて扱うことを求める求めを見分けきれないためです。 | 点検の記録「2026-11-15：十八度目の点検」、`.github/checked-intake/verify.js` の自己検査 | 事実 | Insula Facti XI |
 | 49 | 2026-11-15 | 削除・訂正・辞退の求め「求めを受けた後」 | 誤りの知らせでも削除・訂正・辞退・権利・個人の情報・同意を求めると読める issue | 誤りの知らせは、どれも訂正を求める。前の文は、訂正を求めると読める知らせを閉じないとしており、閉じる知らせが一つも残らず、文そのものが食い違っていた。「自分についての記載の訂正」と改め、どの issue も閉じないと書いた。2026-11-15 に Claude が決めました。訂正を求める知らせのうち、人が自分についての記載に求めるものだけを指すためです。 | なし。文の意味を、文そのものから読んだ | 語 | Insula Verbi VI |
 | 50 | 2026-11-15 | 叙任の規程「受付に戻すときの場所の確かめ」 | 読むのは、その ORCID の記録の公開の住所の国、いまの勤め先と在学先の組織の国（それぞれを足した日とともに）、GitHub のプロフィールの所在の欄だけです。／所在の欄は自由に書ける文なので、退けるときにだけ使い、受けるときには使いません。 | 誤りではなく、範囲を改めた。所在の欄は自由に書ける文で、その名が、決まりの言う場所でない所に当たることがある（New South Wales の Wales、日本の中国地方の「中国」）。受付に戻すときの確かめから所在の欄を外し、ORCID の公開の住所と、いまの勤め先と在学先の国の符号だけを読み、国籍は読まないと改めた。受けない場合として、日本の外を指す項目があるとき、二つ以上の国を指すとき、当てはまる項目が無いときを書いた。受付は止めたままである。2026-11-15 に Claude が決めました。決まりの言う場所を指さない名で、人を退けないためです。 | 点検の記録「2026-11-15：十八度目の点検」 | 範囲 | Insula Finis XIX |
+| 51 | 2026-11-15 | 削除・訂正・辞退の求め「公開できない求め」 | GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません（2026-11-13 に GitHub の API で確かめました）。 | 誤りではなく、範囲を改めた。この機能を、公開できない求めの非公開の窓口として開くと決め、本来の用途の外の使い方であることを書いた。2026-11-15 に GitHub の API で確かめたときも有効ではなかったので、使えるのは有効になってからと書いた。2026-11-15 に利用者が決め、Claude が書きました。公開できない求めに、公開しない道を置くためです。 | GitHub の API（2026-11-15、有効ではなかった） | 範囲 | Insula Finis XX |
+| 52 | 2026-11-15 | 適法性の説明「商標と表示」 | 点検で足したこと（2026-11-12）：商標法の「商標」は、業として商品を生産し譲渡する者や、業として役務を提供する者が、その商品や役務について使う標章である（商標法第2条第1項）。業として商品も役務も扱わないヌスクァマの名の使い方は、この定義の外にあると考える。不正競争防止法第2条第1項第1号・第2号の「営業」に営利が要るかは、条文からは決まらない。ヌスクァマは他人の商品等表示を使わないので、運営者は、営業に当たるかどうかにかかわらず、同号の要件に当たらないものとして扱う。 | 誤りではなく、範囲を改めた。頁の重さの限りの中で第25条の注を足すため、この段落を点検の記録「2026-11-15：点検の答え」に移し、頁には移したことだけを残した。中身は変えていない。2026-11-15 に利用者が決め、Claude が書きました。段落の中身を消さずに、頁の限りを守るためです。 | 点検の記録「2026-11-15：点検の答え」 | 範囲 | Insula Finis XXI |
+| 53 | 2026-11-15 | 適法性の説明「日本の外の法令」 | 使う者の罰は罰金（ammenda）だけで、2016 年の委任立法第 8 号の除外の一覧に同法はなく、行政罰に替わったと読める。 | 除外の一覧に同法がないことから読めるのは、行政罰に替わった見込みまでで、刑罰が残る読み方を退けるものではない。運営者は厳しい読み方を採り、刑罰の罰金が残るものとして扱うと改めた。2026-11-15 に利用者が決め、Claude が書きました。軽いほうの読みに拠って、受付を開くことがないようにするためです。 | 適法性の説明に引いた刑法典と 2016 年の委任立法第 8 号の文 | 法 | Insula Legis XV |
+| 54 | 2026-11-15 | 適法性の説明「規程の外で、要件に近づく行い」 | 商標法第25条 | 第25条は、商標権者の専用権の条で、他人の登録商標と重ならなければ当たらない。表に「（他人の登録商標と重なるとき）」を添えた。2026-11-15 に利用者が決め、Claude が書きました。国章や名を付けることが、それだけで商標権の侵害になると読まれないためです。 | 商標法第25条 | 法 | Insula Legis XVI |
+| 55 | 2026-11-15 | 利用規約「変更と終了」 | ヌスクァマは、予告なく終わることがあります。終わる場合も、騎士の名簿は、本人から辞退の求めがない限り、リポジトリに残します。 | 国の仕組みは、凍結と解散を分けており、解散には終わりの言葉を掲げてから少なくとも 30 日の期間を置く。予告なく終わるのは凍結だけである。利用規約を、凍結は予告なくありうること、解散では 30 日以上の期間を置くことに改めた。2026-11-15 に利用者が決め、Claude が書きました。利用規約と国の仕組みが食い違わないためです。 | 国の仕組み「凍結」「解散」 | 事実 | Insula Facti XII |
+| 56 | 2026-11-15 | 個人情報の取り扱い「利用の目的」 | 叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと。これ以外には使いません。 | 誤りではなく、範囲を改めた。2026-12-01 から、誤りの知らせを日本にいる人からだけ受けるので、知らせる人が日本にいることを確かめる目的を足し、個人情報保護法第21条第1項を引いた。2026-11-15 に利用者が決め、Claude が書きました。新しく読むものの目的を、読む前に公表するためです。 | 個人情報保護法第21条第1項 | 範囲 | Insula Finis XXII |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -1305,8 +1312,12 @@ Source: https://nusquama.vercel.app/policies/terms.html
 2026-11-12 から、叙任の願い出を受け付けていません（[叙任の規程](./knighting.md)「受付の停止」）。「悪意がないことと、法令を守ること」の、法令に触れるおそれが分かった部分を止める定めによります。
 予告：2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにし、受付に戻る日は決めていません。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻すときは、戻る日を、叙任の規程とこの頁で、その日より前に示します（2026-11-13 に示しました）。
 予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。「書いてあること」の語が「どこにあるか」の所にそのとおりになければ、ラベル「not verified」と決まった文のコメントを付けます。本文を直すか、新しい issue で知らせ直せば、もう一度確かめます。突き合わせの受付は、どの issue も閉じません（[削除・訂正・辞退の求め](./requests.md)「求めを受けた後」。2026-11-14 に示し、2026-11-15 に閉じないと改めました）。
+予告：2026-12-01 から、その日以後に開かれた誤りの知らせは、日本にいる人からだけ受けます。知らせる人の ORCID の公開の記録で確かめ、確かめられない知らせは受け付けず、ラベルと決まった文のコメントを付けます。issue は閉じません。削除・訂正・辞退・権利・個人の情報・同意の求めは、どの国の人からも受けます（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
+予告：2026-12-01 から、求めに応じてリポジトリの履歴から名簿の行を消す前に、その行の提供の記録の項目だけを別に記し、三年、公開のまま残します（[削除・訂正・辞退の求め](./requests.md)「外せないもの」）。
 どの変更によっても、料金は生じません。
-ヌスクァマは、予告なく終わることがあります。終わる場合も、騎士の名簿は、本人から辞退の求めがない限り、リポジトリに残します。
+王が国を続けられなくなったときは、予告なく国を凍結することがあります（[国の仕組み](../INSTITUTIONS.md)「凍結」）。凍結しても、名簿・正誤表・規程は公開に残し、削除・訂正・辞退の求めにはできる限り応えます。
+国を解散するときは、終わりの言葉を掲げてから、辞退などの求めに応じる期間を少なくとも 30 日置きます（国の仕組み「解散」）。
+凍結しても解散しても、騎士の名簿は、本人から辞退の求めがない限り、リポジトリに残します。
 
 ## 準拠法と紛争
 
@@ -1446,7 +1457,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-14。
+最終更新：2026-11-15。
 
 ## 取り扱う者
 
@@ -1487,10 +1498,15 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 知らせでは、GitHub のアカウント名と、知らせに書かれたことを扱います。
 これらは issue で公開されます。王の正誤表には、知らせた人の名を書きません。
 本名・住所・所属・連絡先は求めません。様式でも、書かないよう求めています。
+2026-12-01 から、誤りの知らせは、日本にいる人からだけ受けます。そのために、知らせる人の ORCID iD を様式で尋ね、その ORCID の公開の記録のうち、GitHub のアカウントへのリンク、公開の住所の国、終わりの日のないいまの勤め先と在学先の組織の国（それぞれを足した日とともに）だけを読みます。国の符号（ISO）だけを読み、国籍は読みません。
+日本を指す項目が issue を開く 30 日以上前からあり、ほかの国を指す項目がないときに限り、日本にいると確かめたとします。確かめられない知らせは受け付けず、ラベルと決まった文のコメントを付けます。issue は閉じません。
+読んだ国も組織も、保存せず、コメントにも実行の記録にも書きません。書くのは、確かめられたかどうかだけです。
+削除・訂正・辞退・権利・個人の情報・同意の求めには、この限りは掛かりません。
 
 ## 利用の目的
 
-叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと。これ以外には使いません。
+叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと、2026-12-01 からは誤りを知らせる人が日本にいることを確かめること。これ以外には使いません。
+個人情報保護法第21条第1項は「個人情報取扱事業者は、個人情報を取得した場合は、あらかじめその利用目的を公表している場合を除き、速やかに、その利用目的を、本人に通知し、又は公表しなければならない。」と定めます。この頁は、その利用目的を前もって公表するものです。
 
 ## 第三者への提供と外国にある事業者
 
@@ -1825,7 +1841,8 @@ GitHub の API など、ほかの道で開かれた issue は、運営者が読�
 ## 公開できない求め
 
 ヌスクァマには、非公開で求めを受ける窓口がありません。
-GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません（2026-11-13 に GitHub の API で確かめました）。
+GitHub の非公開の脆弱性の報告（private vulnerability reporting）を、公開できない求めの非公開の窓口として開くと、2026-11-15 に利用者が決めました。この機能の本来の用途は安全の弱点の報告で、求めを受けるのは本来の用途の外の使い方です。
+この窓口が使えるのは、このリポジトリでこの機能が有効になってからです。2026-11-15 に GitHub の API で確かめたとき、有効になっていませんでした。有効になるまでは、次の手順によります。
 公開の場で書けない事情がある場合は、様式の種類で「非公開の連絡を求める」を選び、ほかは空のまま出します。issue に出るのは、GitHub のアカウント名と題と種類だけです。
 運営者は、求めた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答えます。
 そうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、その連絡先で答えを受け取れます。
@@ -1847,13 +1864,26 @@ issue やコメントに書かれた連絡先の形の文字は、運営者の�
 求めに応じたときは、何をしたかを遅滞なく知らせます。求められたデータがないときや、求められた方法で渡せないときも、その旨を遅滞なく知らせます。
 求めに応じない場合は、その理由を答えます。
 2026-12-01 から、誤りの知らせは突き合わせの受付で確かめます。引いた語がなければ、ラベル「not verified」と決まった文のコメントを付けます。突き合わせの受付は、どの issue も閉じず、鍵も掛けず、運営者が読みます。
+2026-12-01 から、誤りの知らせは、日本にいる人からだけ受けます（[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式）。この求めの様式で出す求めは、どの国の人からも受け、この限りに掛かりません。
 自分についての記載の訂正や削除、辞退、権利、個人の情報、同意を求めるときは、この求めの様式を使えます。誤りの知らせの様式に書いた求めも、閉じることはありません。法令が受けて扱うことを求める求めを、どの言語でどう書かれても、確かめずに退けないためです。
+
+## 発信者情報の開示の求め
+
+情報流通プラットフォーム対処法第5条第1項は、特定電気通信による情報の流通によって自己の権利を侵害されたとする者が、特定電気通信役務提供者に対し、その者が保有する発信者情報の開示を請求できると定めます。同項第1号は「当該開示の請求に係る侵害情報の流通によって当該開示の請求をする者の権利が侵害されたことが明らかであるとき。」を要件の一つに挙げます。
+同法第6条第1項は、開示の請求を受けた提供者が「当該開示の請求に応じるかどうかについて当該発信者の意見（当該開示の請求に応じるべきでない旨の意見である場合には、その理由を含む。）を聴かなければならない。」と定めます。
+ヌスクァマへの発信者情報の開示の求めは、この求めの様式で受け、次のとおりに扱います。
+
+1. どの記載についての求めかと、侵害されたとする権利を確かめます。
+2. 書いた人に、開示に応じるかどうかについての意見を issue で尋ねます。連絡できないときや特別の事情があるときは、そのことを記します。
+3. 法令が求めるもののほかは開示しません。運営者が持つのは、GitHub のアカウント名と、issue に書かれたことだけです。それより詳しい発信者の情報は、issue を記録している GitHub が持ちます。
+4. 求めに応じないときは、その理由を答えます。同法第8条により、裁判所に発信者情報開示命令を申し立てることもできます。
 
 ## 外せないもの
 
 リポジトリの過去の版は、履歴を書き換えない限り残ります。ほかの者がすでに写したものは、運営者の手の外にあります。
 Vercel に残る過去の配信は、求めがあれば、その記載を含むものを Vercel から消します。
 リポジトリの履歴から消す必要がある場合は、運営者が GitHub にその削除を求めます。
+2026-12-01 から、求めに応じて履歴から名簿の行を消す前に、その行の提供の記録の項目（足した日、受け手が不特定かつ多数の人であること、本人を指すアカウント名、載せた項目、同意を得たこと）だけを、`docs/records-of-provision.md` に別に記します。名簿のほかの中身は記しません。個人情報保護法第29条がこの記録を求め、同法施行規則第21条第3号が保存の期間を「三年」と定めるため、この項目は記した日から三年、そこに公開のまま残ります。
 
 ---
 
@@ -1861,7 +1891,7 @@ Source: https://nusquama.vercel.app/policies/names.html
 
 # 名称と権利
 
-最終更新：2026-11-12。
+最終更新：2026-11-15。
 
 ## 名前の由来
 
@@ -1884,6 +1914,7 @@ Source: https://nusquama.vercel.app/policies/names.html
 検証のために引いたり記したりした他人の文は、CC BY 4.0 の対象ではなく、それぞれの権利者のものです。
 表示を守れば、誰でも複製・改変・再配布できます。
 ただし、CC BY 4.0 は、ヌスクァマの称号に効力を与えるものでも、国章を実在の記章として使うことを認めるものでもありません。
+他人が国章をあしらって作った物は、ヌスクァマとは関係がありません。ヌスクァマが作ったものでも、認めたものでも、贈ったものでもありません。ライセンスはこのまま変えません。
 CC BY 4.0 が許すのは、著作権の及ぶ範囲のことだけです。商標などのほかの権利や、ほかの法令による制限には及びません。
 国章や称号を、実在の団体の記章や、公的な称号であるかのように使ってはいけません（[利用規約](./terms.md)）。そうした使い方は、著作権とは別に、法令（軽犯罪法第1条第15号など）に触れるおそれがあります。
 文と国章は、運営者の求めにより Claude Code で書いたものです。言語モデルを使って作ったものに、著作権がどこまで及ぶかは定まっていません。CC BY 4.0 は、権利が及ぶ範囲で許すものです。
@@ -1898,7 +1929,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
 
-最終更新：2026-11-14。
+最終更新：2026-11-15。
 
 ## この頁の位置づけ
 
@@ -1958,6 +1989,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **ヌスクァマの事実**：騎士王・騎士は、どの国の法令にも定められていない、創作の中の言葉である。ヌスクァマは国家ではないので、その称号は「外国におけるこれらに準ずるもの」にも当たらない。勲章・記章・制服などの物は作らず、国章は実在のどの記章にも似せていない。
 - **当てはまらない理由**：名乗っているのは法令上の称号ではなく、物の標章も用いていない。さらに、法令上の称号と誤認させる使い方そのものを禁じている。
 - **保つための決め**：[利用規約](./terms.md)「称号の扱い」（法令上の称号と誤認させる使い方の禁止、履歴書・名刺・公的な書類への記載の禁止）、王国基本法第八条、[名称と権利](./names.md)「国章」、[叙任の規程](./knighting.md)「良識の前提」。
+- **栄典との違い（2026-11-15）**：日本の栄典の授与は日本国憲法第7条第7号の国事行為で、同第14条第3項は、栄典の授与はいかなる特権も伴わないとする。騎士の呼び名は、どの法令によっても授与されず、栄典ではない。拠った条文は点検の記録にある。
 
 <!-- 条文 軽犯罪法 第1条第15号 -->
 
@@ -2016,7 +2048,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **ヌスクァマの事実**：営業をしない。名前は、ラテン語の一般語と古典の語に由来し、他人の商品や団体の表示を借りていない。国章は自作である。
 - **当てはまらない理由**：営業上の使用がなく、他人の表示を使っていない。
 - **保つための決め**：[名称と権利](./names.md)、[免責事項](./disclaimer.md)「実在のものとの関係」。
-- **点検で足したこと（2026-11-12）**：商標法の「商標」は、業として商品を生産し譲渡する者や、業として役務を提供する者が、その商品や役務について使う標章である（商標法第2条第1項）。業として商品も役務も扱わないヌスクァマの名の使い方は、この定義の外にあると考える。不正競争防止法第2条第1項第1号・第2号の「営業」に営利が要るかは、条文からは決まらない。ヌスクァマは他人の商品等表示を使わないので、運営者は、営業に当たるかどうかにかかわらず、同号の要件に当たらないものとして扱う。
+- **点検で足したこと（2026-11-12）**：商標の定義と「営業」の読み方は、点検の記録に移した（2026-11-15）。
 
 <!-- 条文 商標法 第25条、不正競争防止法 第2条第1項第1号・第2号 -->
 
@@ -2084,7 +2116,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - ヌスクァマは日本から運営する、非営利の創作である。どの国でも、事業も取引もせず、金銭や有料の会員の勧誘もしない。
 - 国によっては、自国の栄典や称号を偽って名乗ることを禁じている。ヌスクァマは、称号をこの国の外で使うことと、実在の称号や叙勲と誤認させる使い方を禁じている（王国基本法第八条、利用規約「称号の扱い」）。良識の前提（叙任の規程）も同じである。
 - 例として、イタリアの 1951 年法律第 178 号第 8 条は、私人や団体が、名称を問わず騎士の称号などを授けることを禁じている。同条は、そうした称号を使う者も罰し、使う者の罰は授けたのが国外であっても及ぶ、としている。条文は、イタリアの公式の法令データベース [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8) で、2026-11-08 に確かめた。こうした国に住む人の願い出は受けない（[叙任の規程](./knighting.md)「願い出ることができる人」）。
-- **点検で足したこと（2026-11-12）**：同条が禁じるのは、私人や団体が授けることで、受ける人の住む国を要件にしていない。授けた者の罰（六月から二年）が国外で授けた外国人に及ぶかは、刑法典第 7 条・第 8 条・第 10 条からは決まらない。運営者は、確かめ終えるまで受付を止めている（叙任の規程「受付の停止」）。同第 6 条は、行いの一部か結果が国内で起きた罪を国内の罪とする。日本で、日本にいる人の名を名簿に記すことがこれに当たるかは、条文からは決まらない。運営者は、これも確かめ終えるまで受付を止めている。使う者の罰は罰金（ammenda）だけで、2016 年の委任立法第 8 号の除外の一覧に同法はなく、行政罰に替わったと読める。
+- **点検で足したこと（2026-11-12）**：同条が禁じるのは、私人や団体が授けることで、受ける人の住む国を要件にしていない。授けた者の罰（六月から二年）が国外で授けた外国人に及ぶかは、刑法典第 7 条・第 8 条・第 10 条からは決まらない。運営者は、確かめ終えるまで受付を止めている（叙任の規程「受付の停止」）。同第 6 条は、行いの一部か結果が国内で起きた罪を国内の罪とする。日本で、日本にいる人の名を名簿に記すことがこれに当たるかは、条文からは決まらない。運営者は、これも確かめ終えるまで受付を止めている。使う者の罰は罰金（ammenda）である。2016 年の委任立法第 8 号の除外の一覧に同法はなく、行政罰に替わったとも読めるが、運営者は厳しい読み方を採り、刑罰の罰金が残るものとして扱う。
 - EU の一般データ保護規則（GDPR）は、EU の外の者にも、EU にいる人に役務を提供するときなどに及ぶことがある。及ぶ場合に備えて、扱う情報を本人が公開するものに限り、同意で受け、開示・訂正・削除の求めに無償で応じている（[個人情報の取り扱い](./privacy.md)）。GDPR 第 3 条第 2 項は、EU の外の管理者にも、EU にいる人に、支払いの有無を問わず物や役務を提供するときなどに及ぶ、としている。条文は [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679) で、2026-11-08 に確かめた。
 - **点検で足したこと（2026-11-12。2026-11-13 に改めた）**：GDPR 第27条は、第 1 項で「Where Article 3(2) applies, the controller or the processor shall designate in writing a representative in the Union.」と定める。ヌスクァマは EU にいる人に向けて役務を差し出しておらず、叙任の願い出の受付も止めている。2026-11-22 からは、日本の外にいる人の願い出を受けない。運営者は、GDPR が第 3 条第 2 項によってヌスクァマに及ぶとは考えない。代理人は指名していない。2026-11-12 に Claude が決めました。同条第 2 項 (a) の例外には拠らない。
 - 米国カリフォルニア州の消費者プライバシー法（CCPA）は、営利の事業者を対象とする。ヌスクァマは営利の事業をしないので、当たらないと考える。カリフォルニア州司法長官の [CCPA の頁](https://oag.ca.gov/privacy/ccpa)で、営利の事業者が対象で、非営利の団体には一般に及ばないことを、2026-11-08 に確かめた。州法の条は、Internet Archive の写しで確かめた（点検の記録）。
@@ -2119,7 +2151,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 | 称号を日本の外で使う。住む国・いる国・国籍を偽って願い出る | 日本の外の法令（イタリアの 1951 年法律第 178 号第 8 条など） | しない。王国基本法第八条と[叙任の規程](./knighting.md)が禁じている。分かった時点で、叙任を取り消す |
 | ヌスクァマの名で、称号・証書・記章・会員の資格を売る。寄付や会費を集める | 刑法第246条、特定商取引法第2条、景品表示法第5条 | しない。ヌスクァマは何も売らず、寄付も受けない（[利用規約](./terms.md)「費用」）。そうする者とヌスクァマは関係がない |
 | 「ヌスクァマの旅券」「国民証」などの書面を自分で作り、身分を示すために人に見せる | 刑法第155条、旅券法第23条 | 作らない。見せない。ヌスクァマは旅券も国籍も持たない。実在の役所や国の文書と誤認させる作り方をすれば、罪に近づく |
-| 国章や「ヌスクァマ」の名を、商品・役務・広告に付ける | 商標法第25条、不正競争防止法第2条第1項第1号・第2号、景品表示法第5条 | 営業に使わない。扱いは[名称と権利](./names.md)にある |
+| 国章や「ヌスクァマ」の名を、商品・役務・広告に付ける | 商標法第25条（他人の登録商標と重なるとき）、不正競争防止法第2条第1項第1号・第2号、景品表示法第5条 | 営業に使わない。扱いは[名称と権利](./names.md)にある |
 | ヌスクァマの名で、通貨・点数・引換券を作り、対価を取って配る | 資金決済法第3条 | しない。ヌスクァマは通貨を持たない |
 | issue やほかの場所で、他人を名指しして評する。他人の個人情報を書く | 刑法第230条・第231条・第233条、民法第709条 | しない。書かれたものは、判断の前にただちに外す |
 | 年齢を偽り、16 歳未満で願い出る | 民法第5条 | 偽らない。分かった時点で、求めがなくても名簿から外す |
@@ -2339,8 +2371,12 @@ Notice: from 2026-11-29, people who hold the nationality of, live in, or are in 
 Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
 Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts. If applications are to reopen, the day will be shown in the Rules on Knighting and on this page before that day (shown on 2026-11-13).
 Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake. If the words under "What it says" do not occur at the place under "Where", the label "not verified" and a fixed comment are added; editing the issue, or reporting again in a new issue, runs the check again. The checked intake never closes an issue ([Requests](./requests.en.md), "After a request"; shown on 2026-11-14, and changed on 2026-11-15 so that nothing is closed).
+Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan. This is checked in the reporter's public ORCID record; a report that cannot be checked is not accepted, and gets a label and a fixed comment. The issue is not closed. Requests about removal, correction, withdrawal, rights, personal data or consent are received from people in every country ([Privacy](./privacy.en.md), "What a report of a mistake involves").
+Notice: from 2026-12-01, before a line of the roll is erased from the history of the repository on request, only the items of the record of provision for that line are recorded separately, and stay public for three years ([Requests](./requests.en.md), "What cannot be removed").
 No change will ever create a fee.
-Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw.
+When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.
+When the country is dissolved, a period of at least 30 days for withdrawal and other requests follows the posting of the closing words (Institutions, "Dissolution").
+Whether the country is frozen or dissolved, the roll of knights stays in the repository unless a knight asks to withdraw.
 
 ## Governing law and disputes
 
@@ -2482,7 +2518,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-14.
+Last updated: 2026-11-15.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -2525,10 +2561,15 @@ Reports of mistakes in the King's texts are received as public issues on GitHub 
 A report involves the GitHub account name and what the report says.
 These are public in the issue. The King's errata do not name the person who reported the mistake.
 No real name, address, affiliation or contact details are asked for, and the form asks reporters not to write them.
+From 2026-12-01, error reports are received only from people in Japan. To check this, the form asks for the reporter's ORCID iD, and only these parts of that public ORCID record are read: the link to the GitHub account, the country of each public address, and the country of the organisation of each current (no end date) employment and education, each with the day it was added. Only the country codes (ISO) are read; nationality is never read.
+A reporter is taken as being in Japan only if an entry naming Japan was added at least 30 days before the issue was opened and no entry names another country. A report that cannot be checked is not accepted, and gets a label and a fixed comment; the issue is not closed.
+The countries and organisations read are not stored, and are written neither in a comment nor in the log of the run; only whether the check passed is written.
+This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent.
 
 ## Purposes of use
 
-To decide on knighting, to keep the roll, to answer requests, and to check reported mistakes and record them in the King's errata. Nothing else.
+To decide on knighting, to keep the roll, to answer requests, to check reported mistakes and record them in the King's errata, and, from 2026-12-01, to check that a person who reports a mistake is in Japan. Nothing else.
+Article 21(1) of Japan's Act on the Protection of Personal Information reads: 「個人情報取扱事業者は、個人情報を取得した場合は、あらかじめその利用目的を公表している場合を除き、速やかに、その利用目的を、本人に通知し、又は公表しなければならない。」 This page publishes that purpose in advance.
 
 ## Providing data to others, and businesses in other countries
 
@@ -2867,7 +2908,8 @@ Do not copy the personal data in question into the issue. Say only where it is.
 ## Requests that cannot be made in public
 
 Nusquama has no channel that receives requests privately.
-GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-13).
+On 2026-11-15 the owner decided to open GitHub's private vulnerability reporting as the private route for requests that cannot be made in public. Its usual purpose is reporting weaknesses in security; receiving requests through it is a use other than that.
+The route can be used only once the feature is enabled for this repository. When checked through the GitHub API on 2026-11-15, it was not enabled. Until it is, the steps below apply.
 If there is a reason a request cannot be written in public, choose 「非公開の連絡を求める」 ("Ask for a private contact") as the kind in the form, and leave the rest empty. The issue then shows only the GitHub account name, the title and the kind.
 The operator answers privately only when the person who asks has made a contact public on their own GitHub profile, and then answers at that contact.
 A person with no such contact can receive the answer by making a contact public on their own GitHub profile for a while.
@@ -2889,13 +2931,26 @@ Requests for disclosure, correction, suspension of use and the like are met with
 When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.
 When a request is not met, the reason is given.
 From 2026-12-01, error reports are checked by the checked intake. If the quoted words are not found, the label "not verified" and a fixed comment are added. The checked intake never closes or locks an issue; the operator reads every one.
+From 2026-12-01, error reports are received only from people in Japan (the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)). A request made with this request form is received from people in every country, and this limit does not apply to it.
 A request for a correction of what is written about oneself, or for removal, withdrawal, rights, personal data or consent, can be made with this request form. A request written in an error report is not closed either. A request that the law requires to be received and handled is not turned away without being read, in whatever language and words it is written.
+
+## Requests to disclose information on the sender
+
+Article 5(1) of Japan's Act on information distribution platforms lets a person who claims that their rights were infringed by the distribution of information through specified telecommunications ask a provider of specified telecommunications services to disclose the sender information it holds. Among its requirements, item 1 is 「当該開示の請求に係る侵害情報の流通によって当該開示の請求をする者の権利が侵害されたことが明らかであるとき。」
+Article 6(1) of that Act says that a provider that receives such a request 「当該開示の請求に応じるかどうかについて当該発信者の意見（当該開示の請求に応じるべきでない旨の意見である場合には、その理由を含む。）を聴かなければならない。」
+A request to Nusquama to disclose sender information is received with this request form and handled as follows.
+
+1. The operator confirms which entry the request is about, and which right is said to be infringed.
+2. The operator asks the person who wrote it, in the issue, for their opinion on whether to disclose. Where they cannot be reached, or there are special circumstances, that is recorded.
+3. Nothing is disclosed beyond what the law requires. The operator holds only the GitHub account name and what was written in the issue; more detailed sender information is held by GitHub, which records the issue.
+4. When the request is not met, the reasons are given. A court can also be asked for an order to disclose sender information under Article 8 of that Act.
 
 ## What cannot be removed
 
 Earlier versions in the repository remain unless its history is rewritten. Copies already made by others are beyond the operator's reach.
 Earlier deployments kept at Vercel that contain the entry are deleted from Vercel on request.
 Where it must be erased from the history of the repository, the operator asks GitHub to remove it.
+From 2026-12-01, before a line of the roll is erased from the history on request, only the items of the record of provision for that line (the day it was added, that the recipients are many unspecified people, the account name that identifies the person, the items entered, and that consent was obtained) are recorded separately in `docs/records-of-provision.md`. Nothing else of the roll is recorded. Article 29 of Japan's Act on the Protection of Personal Information asks for this record, and Article 21, item 3, of its Enforcement Rules sets its period at 「三年」, so these items stay public there for three years from the day they are recorded.
 
 ---
 
@@ -2903,7 +2958,7 @@ Source: https://nusquama.vercel.app/policies/names.en.html
 
 # Names and rights
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-15.
 
 This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
 
@@ -2928,6 +2983,7 @@ The text and the emblem of Nusquama are published under CC BY 4.0 ([LICENSE](../
 Third-party texts quoted or stored for verification are not under CC BY 4.0 and remain their owners'.
 Anyone may copy, adapt and redistribute them, with attribution.
 But CC BY 4.0 neither gives effect to the titles of Nusquama nor allows the emblem to be used as a real insignia.
+An object that someone else makes with the emblem is unrelated to Nusquama. Nusquama did not make it, approve it or give it. The licence stays as it is.
 CC BY 4.0 allows only what copyright covers. It does not reach other rights such as trademarks, or limits set by other laws.
 The emblem and the titles must not be used as if they were the insignia of a real body or official titles ([Terms of Use](./terms.en.md)). Such use may, apart from copyright, break the law (such as Article 1, item 15 of Japan's Minor Offenses Act).
 The text and the emblem were written with Claude Code at the operator's request. How far copyright reaches in what is made with a language model is not settled. CC BY 4.0 allows only as far as rights reach.
@@ -2942,7 +2998,7 @@ Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
 
-Last updated: 2026-11-14.
+Last updated: 2026-11-15.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -3004,6 +3060,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: Knight-King and knight are words inside a work of fiction, set by no country's law. Because Nusquama is not a state, its titles are not "foreign equivalents" either. It makes no physical decorations, badges or uniforms, and its emblem imitates no real insignia.
 - **Why the law does not apply**: the titles used are not titles set by law, and no physical insignia are used. Using the titles in a way that could be mistaken for a legal title is itself forbidden.
 - **Rules that keep this true**: Terms of Use, "Titles" (no use that could be mistaken for a legal title; nothing on CVs, business cards or official documents); Basic Law, Article 8; [Names and rights](./names.en.md), "The emblem"; [Rules on Knighting](./knighting.en.md), "The premise of good sense".
+- **How this differs from honours (2026-11-15)**: in Japan, conferring honours is an act in matters of state under Article 7, item 7, of the Constitution of Japan, and Article 14(3) of the Constitution of Japan says that no privilege accompanies an award of honour. The knightly names are conferred under no law, and are not honours. The articles relied on are in the audit record.
 
 <!-- 条文 軽犯罪法 第1条第15号 -->
 
@@ -3062,7 +3119,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Nusquama's facts**: it does no business. Its names come from ordinary Latin words and words from the classics, and borrow no one's indication of goods or organisation. The emblem is the operator's own work.
 - **Why the law does not apply**: there is no use in business, and no one else's indication is used.
 - **Rules that keep this true**: [Names and rights](./names.en.md); Disclaimer, "Relation to real things".
-- **Added in the review (2026-11-12)**: under the Trademark Act, a "trademark" is a mark used by a person who produces or transfers goods, or provides services, as a business, on those goods or services (Article 2(1) of that Act). The way Nusquama uses its names, with no goods or services in business, is considered to be outside that definition. Whether the "business" of Article 2(1), items 1 and 2, of the Unfair Competition Prevention Act must be run for profit cannot be settled from the text. Nusquama uses no one else's indication of goods or business, so the operator treats those items as not met, whether or not it counts as a business.
+- **Added in the review (2026-11-12)**: the definition of a trademark and the reading of "business" were moved to the audit record (2026-11-15).
 
 <!-- 条文 商標法 第25条、不正競争防止法 第2条第1項第1号・第2号 -->
 
@@ -3130,7 +3187,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - Nusquama is a non-profit work of fiction run from Japan. It does no business and no trade in any country, and solicits no money and no paid membership.
 - Some countries forbid falsely claiming their honours or titles. Nusquama forbids using its titles outside the kingdom and any use that could be mistaken for a real title or honour (Basic Law, Article 8; Terms of Use, "Titles"). The premise of good sense (Rules on Knighting) does the same.
 - For example, Article 8 of Italian Law No. 178 of 1951 forbids private persons and bodies from conferring knightly distinctions under any name. The same article also punishes anyone who uses such a distinction, and the penalty for use applies even when it was conferred abroad. The text was checked on 2026-11-08 in [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8), Italy's official database of legislation. Applications from people living in such countries are not accepted ([Rules on Knighting](./knighting.en.md), "Who may apply").
-- **Added in the review (2026-11-12)**: what the article forbids is conferring by private persons and bodies; the recipient's country of residence is not an element. Whether the penalty for conferring (six months to two years) reaches a foreigner who confers abroad is not settled by Articles 7, 8 and 10 of the Italian Penal Code; the operator keeps applications paused until this is checked (Rules on Knighting, "Pause in receiving applications"). Article 6 treats a crime as committed in Italy when part of the act or its result occurs there. Whether entering, in Japan, the name of a person in Japan on the roll falls under it cannot be settled from the text; the operator keeps applications paused until this is checked too. The penalty for use is a fine (ammenda) only, and the law is not in the list of exclusions to Article 1 of Legislative Decree No. 8 of 2016, so it reads as having become an administrative penalty.
+- **Added in the review (2026-11-12)**: what the article forbids is conferring by private persons and bodies; the recipient's country of residence is not an element. Whether the penalty for conferring (six months to two years) reaches a foreigner who confers abroad is not settled by Articles 7, 8 and 10 of the Italian Penal Code; the operator keeps applications paused until this is checked (Rules on Knighting, "Pause in receiving applications"). Article 6 treats a crime as committed in Italy when part of the act or its result occurs there. Whether entering, in Japan, the name of a person in Japan on the roll falls under it cannot be settled from the text; the operator keeps applications paused until this is checked too. The penalty for use is a fine (ammenda). The law is not in the list of exclusions to Article 1 of Legislative Decree No. 8 of 2016, so it may read as having become an administrative penalty; the operator takes the stricter reading, and treats the criminal fine as remaining.
 - The EU General Data Protection Regulation (GDPR) can reach those outside the EU, for example when they offer services to people in the EU. In case it does, Nusquama handles only what the person makes public themselves, takes it with consent, and answers requests for access, correction and erasure free of charge ([Privacy](./privacy.en.md)). Article 3(2) of the GDPR applies to a controller outside the EU where it offers goods or services, irrespective of payment, to people in the EU, among other cases. The text was checked on 2026-11-08 in [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679).
 - **Added in the review (2026-11-12; revised on 2026-11-13)**: Article 27(1) of the GDPR says: "Where Article 3(2) applies, the controller or the processor shall designate in writing a representative in the Union." Nusquama does not offer its service to people in the EU, and applications for knighting are paused as well. From 2026-11-22, it accepts no application from anyone outside Japan. The operator does not consider that the GDPR reaches Nusquama under Article 3(2), and has designated no representative in the EU. Claude decided this on 2026-11-12. The exception in paragraph 2(a) of that Article is not relied on.
 - The California Consumer Privacy Act (CCPA) covers businesses run for profit. Nusquama runs no business for profit, so the operator considers that it does not apply. This was checked on 2026-11-08 on the [CCPA page of the California Attorney General](https://oag.ca.gov/privacy/ccpa), which says the Act covers for-profit businesses and generally does not apply to nonprofit organisations. The statute itself (Civil Code section 1798.140(d)) was read on 2026-11-12 in an Internet Archive copy, since the State's page blocks automated access; it makes the purpose of profit an element.
@@ -3165,7 +3222,7 @@ It lists possible paths. It does not say that a listed act is always an offence 
 | Using a title outside Japan, or applying with a false country of residence, location or nationality | Laws outside Japan (such as Article 8 of Italy's Law No. 178 of 1951) | Do not. Article 8 of the Basic Law and the [Rules on Knighting](./knighting.en.md) forbid it. Once known, the knighting is withdrawn |
 | Selling titles, certificates, insignia or membership in Nusquama's name, or collecting donations or fees | Penal Code, Article 246; Act on Specified Commercial Transactions, Article 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not. Nusquama sells nothing and takes no donations ([Terms of Use](./terms.en.md), "Fees"). Anyone who does so has no connection with Nusquama |
 | Making a "Nusquama passport", "citizen card" or similar paper, and showing it to prove who one is | Penal Code, Article 155; Passport Act, Article 23 | Do not make or show one. Nusquama has no passports and no nationality. Making it so that it may be taken for a document of a real office or state comes near an offence |
-| Putting the emblem or the name "Nusquama" on goods, services or advertising | Trademark Act, Article 25; Unfair Competition Prevention Act, Article 2, paragraph 1, items 1 and 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not use them in trade. How they may be used is on the [Names and Rights](./names.en.md) page |
+| Putting the emblem or the name "Nusquama" on goods, services or advertising | Trademark Act, Article 25 (when it overlaps another's registered mark); Unfair Competition Prevention Act, Article 2, paragraph 1, items 1 and 2; Act against Unjustifiable Premiums and Misleading Representations, Article 5 | Do not use them in trade. How they may be used is on the [Names and Rights](./names.en.md) page |
 | Making currency, points or vouchers in Nusquama's name and handing them out for a price | Payment Services Act, Article 3 | Do not. Nusquama has no currency |
 | Naming and judging another person, or writing another person's personal information, in an issue or elsewhere | Penal Code, Articles 230, 231 and 233; Civil Code, Article 709 | Do not. Such text is removed at once, before any decision |
 | Applying under the age of 16 by giving a false age | Civil Code, Article 5 | Do not. Once known, the name is removed from the roll, even without a request |
@@ -3440,7 +3497,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 12 | 2026-11-11 | Privacy, "Purposes of use" | "To decide on knighting, to keep the roll, and to answer requests. Nothing else." | Not a mistake; the scope was changed. A form for reporting mistakes in the King's texts was set up, so checking reported mistakes and recording them in the King's errata was added to the purposes of use. | The form for reporting mistakes (.github/ISSUE_TEMPLATE/error.yml) | Scope | Insula Finis VI |
 | 13 | 2026-11-11 | Institutions, "Dissolution" | "Allow at least 30 days for such requests before stopping the site." / "Keep the repository, in a read-only state." | Not a mistake; the scope was changed. The dry run of dissolution showed that stopping the site might let someone else use the name nusquama.vercel.app, and that a read-only repository leaves no way to receive requests for removal, correction or withdrawal. The King decided to keep serving the site, not to archive the repository, and to keep issues open for requests. | Institutions, "A dry run of dissolution" | Scope | Insula Finis VII |
 | 14 | 2026-11-12 | Rules on exchange, "How exchange takes place" | "The other party, too, is respected as a work of its own, and Nusquama neither accepts nor denies the claims of its country." | Not a mistake; an unclear sentence was reworded. In the Japanese, "that the other party, too, is a work of fiction" could be read as treating the other party as fiction, or as respecting the other party's country as something the other party made. The second reading, which the rest of the rules (checking, when an offer is received, that the other party says somewhere it is a self-declared or fictional country; concluding no document of mutual recognition) and the English translation support, was taken, and the sentence was split in two without changing its meaning. | Rules on exchange, step 1 under "When an offer is received" and the second item under "How exchange takes place"; the English translation (Rules on exchange) | Word | Insula Verbi II |
-| 15 | 2026-11-12 | Privacy, "Who handles the data" | "The operator's name and address are given without delay, on request, through a private channel." | Not a mistake; an unclear sentence was reworded. The Japanese did not say to whom the answer goes or how the private contact begins, and its verb ("answer") sat badly with the name and address as its object. It now says that they are given to the person who asks, through a private channel, and that the request follows the procedure under "Requests that cannot be made in public" in the Requests page. Who may ask was not narrowed. | Requests, "Requests that cannot be made in public", and the kinds in the request form (.github/ISSUE_TEMPLATE/request.yml) | Word | Insula Verbi III |
+| 15 | 2026-11-12 | Privacy, "Who handles the data" | "The operator's name and address are given without delay, on request, through a private channel." | Not a mistake; an unclear sentence was reworded. The Japanese did not say to whom the answer goes or how the private contact begins, and its verb ("answer") sat badly with the name and address as its object. It now says that they are given to the person who asks, through a private channel, and that the request follows the procedure under "Requests that cannot be made in public" in the Requests page. Who may ask was not narrowed. | Requests for removal, correction or withdrawal, "Requests that cannot be made in public", and the kinds in the request form (.github/ISSUE_TEMPLATE/request.yml) | Word | Insula Verbi III |
 | 16 | 2026-11-12 | Legality Statement, "What this page is" | "Foreign treaties, laws and explanations are quoted from the texts fetched on 2026-11-11 from the pages that publish them, without translation." | Not a mistake; the scope was changed. In the legal review of 2026-11-12, primary sources such as Article 27 of the GDPR were added and all were fetched again, so the date of fetching was changed to 2026-11-12. The check confirmed that the quotations used before also appear unchanged in the texts fetched again. | verification/sources-raw.json (texts fetched on 2026-11-12 by the Actions workflow "一次資料の取り寄せ") | Scope | Insula Finis VIII |
 | 17 | 2026-11-12 | Legality Statement, "Trade" | "it sells nothing, shows no advertising and runs no business." | A "business" under Article 2(2) of the Consumer Contract Act includes an individual who becomes a party to a contract as a business or for a business, and the text does not say a business must be run for profit. "Runs no business" was a flat statement the text does not support. It was changed to "runs no business for profit", and how each article of that Act would be met, if it applies, was added. | Article 2 of the Consumer Contract Act (text obtained through the e-Gov Laws API) | Law | Insula Legis IV |
 | 18 | 2026-11-12 | Legality Statement, "Copyright" | "No one else's work is copied." / "Why the law does not apply: no one else's work is reproduced." | The "Text of" blocks on the same page quote treaties, laws, terms and explanations, so it could not be said that no one else's work is copied. It was changed to say that nothing is copied apart from quotation, and a check of the quotations against Article 32 of the Copyright Act was added. | Articles 32 and 48 of the Copyright Act (texts obtained through the e-Gov Laws API) and verification/sources.json | Fact | Insula Facti III |
@@ -3464,7 +3521,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 36 | 2026-11-13 | Privacy, "Who handles the data"; Legality Statement, "Personal information" | "For a person with no such contact, there is no private route to give the name and address." (Privacy) / "except that the name and address under Article 32 cannot be given to a person who has made no contact public." (Legality Statement) | Not a mistake; the scope was changed. The operator's name and address were given at a contact the person asking had made public on their profile. There was no route for a person who had made no contact public. From 2026-11-13, such a person can receive them by making a contact public on their own GitHub profile for a while. The name and address are not written in the issue. Claude decided this on 2026-11-13, because Article 32(1) of the Act on the Protection of Personal Information requires the name and address to be kept where the person can know them, including by answering without delay on request, so there should be a route to answer anyone who asks. Who may ask was not narrowed. | Act on the Protection of Personal Information, Article 32 (text obtained through the e-Gov Laws API); the record of the review, "2026-11-13：公開の頁の書き方" | Scope | Insula Finis XV |
 | 37 | 2026-11-13 | Rules on Knighting, "Pause in receiving applications", "Countries that restrict foreign titles", "How to apply" and "What is declined"; Terms of Use, "Changes and ending"; the form Application for knighthood; README, "How to become a knight"; Story of the founding, "What comes next"; For anyone introducing Nusquama, "Short introductions" | "From 00:00 on 2026-11-22 (Japan time), receiving resumes without anyone acting, and the revised rules are checked." (Rules on Knighting) / "From 2026-11-12 until 00:00 on 2026-11-22 (Japan time), applications for knighting are not received." (Terms of Use) / "From 2026-11-22, applications reopen under the revised rules." (form) / the Japanese of README, step 2 (open an issue from 00:00 on 2026-11-22) / "Applications are paused until 00:00 on 2026-11-22 (Japan time)." (Story of the founding; For anyone introducing Nusquama) | Not a mistake; the scope was changed. The pause in receiving applications was set to end by itself at 00:00 on 2026-11-22 (Japan time). Reading again on 2026-11-13 showed that Article 10 of the Italian Penal Code begins "except in the cases set out in Articles 7 and 8", and Articles 7 and 8 had not been fetched. The pause continues from 00:00 on 2026-11-22. The day applications reopen will be shown in the Rules on Knighting and the Terms of Use, before that day, after the result of the check is recorded in the legal review. The automatic check receives no application, whatever the day, unless a decision pointing to a row of the legal review is set. Claude decided this on 2026-11-13, so that applications do not reopen merely because a date arrives before the check is finished. This is less favourable than the earlier plan to reopen on 2026-11-22, so, following the Terms of Use, "Changes and ending", it is shown in the Terms of Use before it takes effect at 00:00 on 2026-11-22. The revised rules from 2026-11-22 stay as planned. There are no application issues and no knight on the roll. | Articles 7, 8 and 10 of the Italian Penal Code from Normattiva (verification/sources-raw.json); the record of the review, "2026-11-13：十三度目の見落とし" | Scope | Insula Finis XVI |
 | 38 | 2026-11-13 | Legality Statement, "Laws outside Japan"; Rules on Knighting, "Who may apply" | "The same article also punishes anyone who uses such a distinction, and applies even when it was conferred abroad." / "Article 10 of the Italian Penal Code punishes crimes of foreigners abroad only where, among other things, the minimum penalty is at least one year of imprisonment, so the penalty for conferring (six months to two years) is not reached through it." / "the most realistic path by which the article above could reach Nusquama is an Italian national who received and used the title." (Legality Statement) / "Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses such a title, and applies even when it was conferred abroad. An Italian national who received and used the title is the most realistic path by which that article could reach Nusquama." (Rules on Knighting) | Article 10 of the Penal Code begins "except in the cases set out in Articles 7 and 8". The earlier sentence said, from Article 10 alone and without reading Articles 7 and 8, that the penalty for conferring is not reached. Articles 7 and 8 were fetched on 2026-11-13. Item 5 of Article 7 punishes crimes committed abroad for which special provisions of law establish that Italian criminal law applies; Article 8 punishes political crimes committed abroad, including any crime that harms a political interest of the State. On Normattiva's page, Article 8 of Law No. 178 of 1951 has four paragraphs, and the penalty for conferring is in the first. The fourth paragraph, which reaches conferral abroad, names the second (the penalty for use) and the third (publication of the judgment). Whether the conferrer's crime is a political crime under Article 8 is not settled by the text. The earlier "applies even when conferred abroad" did not say which paragraph it attached to, so it now attaches to the penalty for use. The judgement "the most realistic path" was also made without reading Articles 7 and 8, and was removed. | Articles 7, 8 and 10 of the Italian Penal Code and Article 8 of Law No. 178 of 1951 (the text with its paragraph breaks marked) from Normattiva (verification/sources-raw.json) | Law | Insula Legis IX |
-| 39 | 2026-11-13 | Requests, "Requests that cannot be made in public"; the form for requests; How to report a security problem, "How to report" | "When there is no such contact, there is no private route. The operator then answers in the issue, without personal details." (Requests) / "Without one, the answer is given in this issue, without personal details." (form) / the Japanese of the security page (with no such contact, there is no route to receive the details privately) | Not a mistake; the scope was changed. On 2026-11-13, the Privacy page said that a person with no public contact can receive the operator's name and address by making a contact public on their own GitHub profile for a while, and pointed to "Requests that cannot be made in public" for this (King's errata 36). The Requests page, the form and the security page still said that without a public contact there is no private route. All three now give the same route: a contact made public on one's own profile for a while, at which the answer is received (for a security problem, at which the details can be given). Claude decided this on 2026-11-13, so that the page the Privacy page points to gives the same route. Who may ask was not narrowed. | Privacy, "Who handles the data"; King's errata 36 | Scope | Insula Finis XVII |
+| 39 | 2026-11-13 | Requests for removal, correction or withdrawal, "Requests that cannot be made in public"; the form for requests; How to report a security problem, "How to report" | "When there is no such contact, there is no private route. The operator then answers in the issue, without personal details." (Requests) / "Without one, the answer is given in this issue, without personal details." (form) / the Japanese of the security page (with no such contact, there is no route to receive the details privately) | Not a mistake; the scope was changed. On 2026-11-13, the Privacy page said that a person with no public contact can receive the operator's name and address by making a contact public on their own GitHub profile for a while, and pointed to "Requests that cannot be made in public" for this (King's errata 36). The Requests page, the form and the security page still said that without a public contact there is no private route. All three now give the same route: a contact made public on one's own profile for a while, at which the answer is received (for a security problem, at which the details can be given). Claude decided this on 2026-11-13, so that the page the Privacy page points to gives the same route. Who may ask was not narrowed. | Privacy, "Who handles the data"; King's errata 36 | Scope | Insula Finis XVII |
 | 40 | 2026-11-13 | Privacy, "What an application for knighthood involves" and "How long data is kept"; Rules on Knighting, "Pause in receiving applications" and "How to apply"; the form Application for knighthood; README, "How to become a knight" | "Applications for knighthood are received as public issues on GitHub (United States)." (Privacy) / "1. Once applications reopen, open an issue with the form Application for knighthood (while applications are paused, they are not received under "Pause in receiving applications")." (Rules on Knighting, which linked to the form) / the Japanese of README, step 2, which also linked to the form / the Japanese of four boxes of the form (from 2026-11-22, an application without this box is not accepted) | Not a mistake; the scope was changed. Applications were paused, yet the form stayed in the list of issue forms, and the rules and the README led to it by a link. The Privacy page read as if applications were still being received. The boxes of the form carried a date that read as a reopening on 2026-11-22. From 2026-11-13, while applications are paused, the form is not offered in the list, and its definition is kept at tools/knighting-form.yml. The Privacy page says that applications are paused and no information is being received, and how an issue that still arrives is handled (its title and body are replaced with a note, and it is closed and locked). The automatic check no longer takes the body of an issue through an environment variable, and does not copy it into the record of its run. The date was taken out of the boxes. Claude decided this on 2026-11-13, to close the route that invited applications that are not received, and so that what arrives is not kept in the operator's records. | Article 22 of the Act on the Protection of Personal Information (the text fetched through the e-Gov law API); the legal review, "2026-11-13：十四度目の見落とし" | Scope | Insula Finis XVIII |
 | 41 | 2026-11-13 | Legality Statement, "Laws outside Japan"; Rules on Knighting, "Who may apply", "Countries that restrict foreign titles" and "Use of the name of knight" | "the operator treats it as not falling under it." / "Under these limits, and the rule in the Rules on Knighting on the laws of the country of one's nationality, the operator treats laws outside Japan as not reaching knighting." (Legality Statement) / "Within this limit, the operator treats the article as not reaching knighting (Legality Statement, "Laws outside Japan")." / "Under this table and the rules above, the operator treats these provisions as not reaching knighting." / "The operator treats use that keeps these three rules as outside what these provisions punish." (Rules on Knighting) | The fetched texts do not settle these points. The legal review, "2026-11-13：十三度目の見落とし", kept applications paused because they are not settled. The earlier sentences stated the operator's position on the same points more firmly than the texts support. From 2026-11-13, each says that the fetched texts do not settle the point, and that the operator keeps applications paused (Rules on Knighting, "Pause in receiving applications"). Claude decided this on 2026-11-13, so that the pages state no position firmer than the review supports. | The legal review, "2026-11-13：十三度目の見落とし" and "2026-11-13：十四度目の見落とし"; Articles 6, 7, 8 and 10 of the Italian Penal Code (texts fetched from Normattiva) | Law | Insula Legis X |
 | 42 | 2026-11-13 | Requests for removal, correction or withdrawal, "How to ask" | "Issues cannot be opened without a form." | The source of GitHub's documentation describes the form setting (`blank_issues_enabled: false`) as a way to encourage contributors to use issue templates, which decides what the template chooser on GitHub's web pages shows. It says nothing of issues opened another way, such as through GitHub's API, and whether the setting stops them has not been confirmed. The earlier sentence stated something unconfirmed as if no route could open an issue without a form. The page now says that only the forms are offered on GitHub's web pages, that an issue opened another way is read by the operator, and that an issue opened during the pause in applications whose title or body carries the headings or boxes of the application form for knighthood is handled in the same way as an application. The automatic check now does the same for an issue without the knighting label: if its title or body carries the headings or boxes of the form, it replaces the title and body with a note, closes it and locks it. Claude decided this on 2026-11-13, so that what arrives as an application without going through the form is not left on a public issue either. | The legal review, "2026-11-13：十五度目の見落とし"; .github/ISSUE_TEMPLATE/config.yml; tools/knighting.js | Fact | Insula Facti IX |
@@ -3476,6 +3533,12 @@ These errata are the domain under Article 3 of the Basic Law.
 | 48 | 2026-11-15 | Requests for removal, correction or withdrawal, "After a request"; Terms of Use, "Changes and ending"; the error report form | "An issue of this request form, and an error report that reads as asking for removal, correction, withdrawal, rights, personal data or consent, are never closed automatically; the operator reads them." (Requests) / "An issue that asks for removal, correction, withdrawal, rights, personal data or consent is never closed automatically" (Terms of Use, the error report form) | The promise not to close rested on telling a request apart by a list of words and leaving only those open. A read-only pass found phrasings that the list missed, and requests in languages other than Japanese and English, so the promise could not be kept as written. The checked intake now never closes or locks an issue. A report that fails gets only the label "not verified" and a fixed comment. Claude decided this on 2026-11-15, because a list of words cannot tell every request that the law requires to be received and handled. | The legal review, "2026-11-15：十八度目の点検"; the self-test of `.github/checked-intake/verify.js` | Fact | Insula Facti XI |
 | 49 | 2026-11-15 | Requests for removal, correction or withdrawal, "After a request" | "an error report that reads as asking for removal, correction, withdrawal, rights, personal data or consent" | Every error report asks for a correction. The earlier sentence left open any report that reads as asking for a correction, so no report would be closed at all, and the sentence contradicted itself. It now says "a correction of what is written about oneself", and that no issue is closed. Claude decided this on 2026-11-15, so that the words name, among reports asking for a correction, only those that concern what is written about the person who asks. | None; the meaning was read from the sentence itself | Word | Insula Verbi VI |
 | 50 | 2026-11-15 | Rules on Knighting, "Checking the place when applications reopen" | "Only these are read: the country of each public address in that ORCID record, the country of the organisation of each current employment and education (each with the day it was added), and the location field of the GitHub profile." / "The location field is free text, so it is used only to turn an application away, never to accept one." | Not a mistake; the scope was changed. The location field is free text, and a name in it can match a place it does not mean (Wales in New South Wales; 中国 in 中国地方, a region of Japan). The check for reopening no longer reads the location field; it reads only the country codes of the public addresses and of the current employments and educations in ORCID, and no nationality. It now names the cases in which an application is not accepted: an entry outside Japan, entries naming more than one country, and no qualifying entry. Applications stay paused. Claude decided this on 2026-11-15, so that no one is turned away by a name that does not mean the place the rule speaks of. | The legal review, "2026-11-15：十八度目の点検" | Scope | Insula Finis XIX |
+| 51 | 2026-11-15 | Requests for removal, correction or withdrawal, "Requests that cannot be made in public" | "GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-13)." | Not a mistake; the scope was changed. The feature is to be opened as the private route for requests that cannot be made in public, and the page now says that this is a use other than its usual purpose. When checked through the GitHub API on 2026-11-15 it was still not enabled, so the page says the route can be used only once it is. The owner decided this on 2026-11-15, and Claude wrote it, so that a request that cannot be made in public has a route that is not public. | The GitHub API (2026-11-15, not enabled) | Scope | Insula Finis XX |
+| 52 | 2026-11-15 | Legality Statement, "Trademarks and indications" | Added in the review (2026-11-12): under the Trademark Act, a "trademark" is a mark used by a person who produces or transfers goods, or provides services, as a business, on those goods or services (Article 2(1) of that Act). The way Nusquama uses its names, with no goods or services in business, is considered to be outside that definition. Whether the "business" of Article 2(1), items 1 and 2, of the Unfair Competition Prevention Act must be run for profit cannot be settled from the text. Nusquama uses no one else's indication of goods or business, so the operator treats those items as not met, whether or not it counts as a business. | Not a mistake; the scope was changed. To add the note on Article 25 within the size limit of the page, the paragraph was moved to the audit record, "2026-11-15：点検の答え", and the page keeps only a line saying so. The content is unchanged. The owner decided this on 2026-11-15, and Claude wrote it, so that the limit of the page is kept without deleting what the paragraph says. | The audit record, "2026-11-15：点検の答え" | Scope | Insula Finis XXI |
+| 53 | 2026-11-15 | Legality Statement, "Laws outside Japan" | "The penalty for use is a fine (ammenda) only, and the law is not in the list of exclusions to Article 1 of Legislative Decree No. 8 of 2016, so it reads as having become an administrative penalty." | That the law is missing from the list of exclusions supports only the likelihood that the penalty became administrative; it does not rule out the reading that the criminal fine remains. The operator now takes the stricter reading and treats the criminal fine as remaining. The owner decided this on 2026-11-15, and Claude wrote it, so that applications are never reopened on the lighter reading. | The texts of the Italian Penal Code and of Legislative Decree No. 8 of 2016 quoted on the Legality page | Law | Insula Legis XV |
+| 54 | 2026-11-15 | Legality Statement, "Acts outside the rules that come near a law's elements" | "Trademark Act, Article 25" | Article 25 gives the owner of a trademark right the exclusive right, and does not apply unless the use overlaps another's registered mark. The table now adds "(when it overlaps another's registered mark)". The owner decided this on 2026-11-15, and Claude wrote it, so that putting the emblem or the name on something is not read as an infringement by itself. | Trademark Act, Article 25 | Law | Insula Legis XVI |
+| 55 | 2026-11-15 | Terms of Use, "Changes and ending" | "Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw." | Institutions separates freezing from dissolution, and a dissolution keeps a period of at least 30 days after the closing words are posted. Only a freeze can come without notice. The Terms of Use now say that the country may be frozen without notice, and that a dissolution keeps a period of at least 30 days. The owner decided this on 2026-11-15, and Claude wrote it, so that the Terms of Use and Institutions do not contradict each other. | Institutions, "Freezing" and "Dissolution" | Fact | Insula Facti XII |
+| 56 | 2026-11-15 | Privacy, "Purposes of use" | "To decide on knighting, to keep the roll, to answer requests, and to check reported mistakes and record them in the King's errata. Nothing else." | Not a mistake; the scope was changed. From 2026-12-01 error reports are received only from people in Japan, so the purpose of checking that a reporter is in Japan was added, with Article 21(1) of the Act on the Protection of Personal Information quoted. The owner decided this on 2026-11-15, and Claude wrote it, so that the purpose of what is newly read is published before it is read. | Act on the Protection of Personal Information, Article 21(1) | Scope | Insula Finis XXII |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
