@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -71,11 +71,15 @@ Nothing here asks an applicant for a penalty, or for damages beyond what the law
 The site and the repository are provided as they are.
 The operator does not promise that they can always be read or that their content is free of errors.
 The [Disclaimer](./disclaimer.en.md) has the details.
+Appearing on the roll, in the King's errata or in the gazette does not guarantee that a correction is right, or anyone's qualifications or character.
+Where someone thinks an entry is wrong or infringes a right, the remedy is a [request for removal, correction or withdrawal](./requests.en.md). This does not stand in the way of any other remedy the law allows.
 
 ## Changes and ending
 
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
+A change takes effect on the page's last-updated date. A provision that states another date for taking effect takes effect on that date.
+The content after a change is shown on its page; that it changed, and when the change takes effect, are shown by the page's last-updated date and by the date written in the provision.
 The dates on the pages, and in the timeline, the gazette, the errata and the roll, are dates in Japan time.
 The day a text was fetched is the day in UTC that the record of the fetch keeps.
 The founding day, 2026-11-07, is also a date in UTC.

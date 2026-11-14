@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -88,6 +88,11 @@ Only the operator's GitHub account, which owns the repository, can change the ro
 That account uses two-factor authentication.
 Every change to the roll and the site is kept in the public history of the repository and goes in only after passing the checks.
 The site has no cookies and no database, and collects nothing from its readers.
+When an issue is opened or edited, and when a comment on an issue is written or edited, an automatic check (`tools/personal.js`) counts the strings in the title and body that are shaped like contact details.
+It looks for five shapes: e-mail addresses, phone numbers, postal codes, numbers in four groups of four digits, and numbers in three groups of four digits. It only looks at fixed shapes in the characters, and uses no language model and no outside service.
+Where the writer is not the operator, only the strings found are replaced with the word "［伏せた］" (masked), the label "伏せた" is added, and a comment is left that gives only the number of each kind. The issue is not closed or locked. An issue that arrives as an application for knighthood while applications are paused has its title and body replaced with a note, as under "How long data is kept".
+The strings found are written neither in the comment nor in the run log. The log shows only fixed words and numbers. GitHub keeps the earlier text in the edit history, and it is removed from there on a request to delete.
+Conversations on pull requests are outside this check, and the operator reads them.
 How handling in other countries is prepared for is set out above, under "Providing data to others, and businesses in other countries".
 
 ## If a leak or the like occurs

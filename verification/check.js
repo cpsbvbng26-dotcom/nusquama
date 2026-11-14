@@ -1188,6 +1188,7 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     'knighting.yml': { contents: 'read', issues: 'write' },
     'labels.yml': { issues: 'write' },
     'live.yml': { contents: 'read', issues: 'write' },
+    'personal.yml': { contents: 'read', issues: 'write' },
     'record.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
     'review.yml': { contents: 'read', issues: 'write' },
     'sources.yml': { contents: 'write' },
@@ -1752,8 +1753,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-17).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-18).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2316,7 +2317,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     ['適法性の説明から第32条の受け取り方を外す', mut('policies/legality.md', '第32条の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先のない人は一時的に公開すれば受け取れる。', '')],
     ['様式から答え方を外す', mut('.github/ISSUE_TEMPLATE/request.yml', '運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。', '')],
     ['義務の表を前の文に戻す', mut('verification/duties.json', NAME_JA, '運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。')],
-    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 29 を範囲の分類にする', mut('ERRATA.md', '| 事実 | Insula Facti VI |', '| 範囲 | Insula Finis XIII |')],
     ['英語の王の正誤表 29 から前の文を外す', mut('ERRATA.en.md', '"The operator answers with a way to make contact privately." (Requests; the security page) / ', '')],
     ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| 2026-11-13（日本時間） | 改める。')],
@@ -2441,7 +2442,7 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     ['英語の叙任の規程から開かないことを外す', mut('policies/knighting.en.md', 'The automatic check does not open the link to the correction. ', '')],
     ['英語の個人情報の取り扱いから要求しないことを外す', mut('policies/privacy.en.md', 'It sends no request to the linked site, ', '')],
     ['国の仕組みの追記を外す', mut('INSTITUTIONS.md', '。2026-11-13 から、自動の確認はリンクを開かず、https の URL で受けない先を指さないことだけを見る（王の正誤表 30）', '')],
-    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 30 を事実の分類にする', mut('ERRATA.md', '| 範囲 | Insula Finis XIII |', '| 事実 | Insula Facti VII |')],
     ['王の正誤表 30 から理由を一つ外す', mut('ERRATA.md', '規約を読めない先へ、機械で要求を出さないためです。', '規約を読めない先へ、機械で要求を出さない。')],
     ['英語の王の正誤表 30 から前の文を外す', mut('ERRATA.en.md', 'opens the link to the correction once.', 'checks the link.')],
@@ -2563,7 +2564,7 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
     ['適法性の説明に第20条を戻す', mut('policies/legality.md', '（民事訴訟法第17条）。', '（民事訴訟法第17条）。合意で定めた裁判所は、移送の制限の外にある（民事訴訟法第20条第1項）。')],
     ['英語の適法性の説明から読む人の文を外す', mut('policies/legality.en.md', 'There is no written agreement with those who only read; for them, and for other disputes, the court', 'The court')],
     ['様式に合意管轄を写す', mut('tools/knighting-form.yml', '願い出の日の版に同意します', '願い出の日の版と、宇都宮の裁判所の専属に同意します')],
-    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 31 から前の文を外す', mut('ERRATA.md', '合意で定めた専属管轄は、移送の制限の外にある（民事訴訟法第20条第1項）。／', '')],
     ['王の正誤表 31 を範囲の分類にする', mut('ERRATA.md', '| 法 | Insula Legis VIII |', '| 範囲 | Insula Finis XIV |')],
     ['王の正誤表 31 から理由を一つ外す', mut('ERRATA.md', '誰の道も前より狭めないためです。', '誰の道も前より狭めない。')],
@@ -2681,8 +2682,8 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
     bad.length === 0, bad.join(' / '));
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
   const breaks = [
-    ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-13。', '最終更新：2026-11-12。'), facts],
-    ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', 'Last updated: 2026-11-13.', 'Last updated: 2026-11-12.'), facts],
+    ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-14。', '最終更新：2026-11-12。'), facts],
+    ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-12.'), facts],
     ['文を変えていない頁の最終更新を、文を変えた日より前にする', mut('policies/names.md', '最終更新：2026-11-12。', '最終更新：2026-11-11。'), facts],
     ['年表の行を作業の時計の日付に戻す', mut('README.md', '| 2026-11-13（日本時間） | 利用規約の合意管轄を、', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、'), facts],
     ['年表の 2026-11-11 の行を前の日に戻す', mut('README.md', '| 2026-11-11（日本時間） | 建国の物語・', '| 2026-11-10（日本時間） | 建国の物語・'), facts],
@@ -2975,7 +2976,7 @@ console.log('\n73. GitHub Actions の規約：追加製品の規約を取り寄�
     ['新しいワークフローに行がない', Object.assign({}, real, { wf: WF.concat(['newsletter.yml']) })],
     ['消したワークフローの行が残る', Object.assign({}, real, { wf: WF.filter((f) => f !== 'labels.yml') })],
     ['表から行を外す', mut(AUD, /\n\| `\.github\/workflows\/review\.yml`[^\n]*/, '')],
-    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 10 件で、合わせて 13 件です。', '漏れ 2 件、表現 0 件、問題なし 10 件で、合わせて 13 件です。')],
+    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 11 件で、合わせて 14 件です。', '漏れ 2 件、表現 0 件、問題なし 11 件で、合わせて 14 件です。')],
     ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
     ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
     ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：十一度目の見落とし', '\n\n## 2026-11-12 の続き：十一度目の見落とし')],
@@ -4103,11 +4104,310 @@ console.log('\n81. 運営理念・声明：拘束しない声明、国の数、�
     ['記録の判定の数を変える', mut(AUD, '判定は、表現 2 件、問題なし 10 件で、合わせて 12 件です。', '判定は、表現 2 件、問題なし 9 件で、合わせて 11 件です。')],
     ['記録の条文の引用を一字変える', mut(AUD, '> ２ 定型約款準備者は、前項の規定による定型約款の変更をするときは、', '> ２ 定型約款準備者は、前項の規定による定型約款の変更をするときに、')],
     ['記録から決めた者を外す', mut(AUD, '2026-11-13 に利用者が求め、Claude が決めました。依頼していない弁護士が', '依頼していない弁護士が')],
-    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-14：形を保って詰める', '\n## 2026-11-14：形を保って詰める')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：第 2 条（日本語と英語）・国の数（日本語と英語と表）・叙任の規程と利用規約と生成した頁・README の写しとリンク・弁護士の言い方（日本語と英語と README）・第 13 条・準拠法・「現在」の定め（頭と README と生成した頁）・いまの事実の文の「現在」（日本語と英語）・約束と断りに足した「現在」・年表・記録の数と引用と決めた者と弁護士の文、のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n82. 形を保って詰める：免責と責任の文、求めの二つの道、連絡先の形の文字を伏せる確認、名簿・配る頁・創作の断り・実在の栄誉の語（2026-11-14）');
+{
+  /* 点検の記録「2026-11-14：形を保って詰める」。免責と責任の文は、条文が許すところまでを書き、それより先へは書かない。
+   * 確認はどれも決まった形を文字の上で見るだけで、言語モデルも外のサービスも使わない。見本は、ここで組み立てる（他人の文を置かない）。
+   * 連絡先の形は、そのまま書くと tools/scan.js がこのファイルに掛かるので、ここで継いで作る。 */
+  const { execFileSync } = require('child_process');
+  const P = require('../tools/personal.js');
+  const AUD = 'docs/legal-audit-2026-11-12.md', HEAD82 = '\n## 2026-11-14：形を保って詰める\n';
+  const POL = ['disclaimer', 'terms', 'requests', 'privacy', 'legality'].flatMap((p) => ['policies/' + p + '.md', 'policies/' + p + '.en.md']);
+  const files = POL.concat([AUD, 'KNIGHTS.md', 'KNIGHTS.en.md', '.github/workflows/personal.yml', '.github/workflows/labels.yml', 'tools/personal.js', 'verification/statutes-texts.json']);
+  const siteFiles = walk(path.join(ROOT, 'site')).sort();
+  const TEXT = /\.(html|svg|xml|txt|ics|json|css|js)$/i;
+  const x0 = Object.assign(Object.fromEntries(files.map((f) => [f, read(f)])),
+    Object.fromEntries(siteFiles.map((f) => ['site/' + f, TEXT.test(f) ? read('site/' + f) : null])));
+  const MAIL = 'someone' + '@' + 'example.org', PHONE = '03' + '-1234-5678', POST = '〒' + '100-0001', CARD = '4111 ' + '1111 ' + '1111 ' + '1111', OK_MAIL = 'noreply' + '@anthropic.com';
+  const SECRETS = [MAIL, PHONE, POST, CARD, '100-0001', '1234-5678'];
+  const SAY = {
+    'policies/disclaimer.md': ['叙任の願い出の様式で利用規約に同意した人に対し、運営者は、故意または重大な過失による場合を除き、サイトやリポジトリの利用から生じた損害について責任を負いません。\n日本の消費者契約法が適用される場合は、前の文を適用しません。そのときは、軽過失による損害を含め、同法と民法の定めるとおり責任を負います。\n様式で同意していない人（読むだけの人を含みます）との間では、運営者の責任は法令の定めるとおりです。\n法令が免除や制限を認めない責任を、免除したり制限したりするものではありません。\n',
+      '運営者は、法令が責任を負わせる場合を除き、そうした行いについて責任を負いません。', '連絡先の形の文字を伏せることも、同じです。'],
+    'policies/disclaimer.en.md': ['Towards a person who agreed to the Terms of Use in the application form for knighthood, the operator accepts no liability for damage arising from use of the site or the repository, except in cases of intent or gross negligence.\nWhere the Japanese Consumer Contract Act applies, the previous sentence does not apply. In that case the operator is liable as that Act and the Civil Code provide, including for damage caused by slight negligence.\nTowards anyone who has not agreed in the form, including those who only read, the operator is liable as the law provides.\nNothing here excludes or limits any liability the law does not allow to be excluded or limited.\n',
+      'Except where the law makes the operator responsible, the operator is not responsible for such acts.', 'Nor does the masking of strings shaped like contact details.'],
+    'policies/terms.md': ['変更は、頁の最終更新の日に効力を生じます。効力の生じる日をほかに示した定めは、その日に効力を生じます。', '変えた後の内容はその頁で示し、変えたことと効力の生じる日は、頁の最終更新の日と、その定めに書いた日で示します。',
+      '名簿・王の正誤表・官報に載ったことは、訂正の正しさや、人の資格や人柄を保証するものではありません。', '記載に誤りや権利の侵害があると考えるときの手立ては、[削除・訂正・辞退の求め](./requests.md)です。法令が認めるほかの手立てを妨げるものではありません。',
+      '願い出た人に、違約金や、法令が定める以上の損害の賠償を求めることはありません。', '読む人にとって、この規約はヌスクァマの仕組みを示すもので、双方が負うものは法令が定めます。'],
+    'policies/terms.en.md': ["A change takes effect on the page's last-updated date. A provision that states another date for taking effect takes effect on that date.", 'This does not stand in the way of any other remedy the law allows.',
+      "Appearing on the roll, in the King's errata or in the gazette does not guarantee that a correction is right, or anyone's qualifications or character.", 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.'],
+    'policies/requests.md': ['外したことが正しくなかったと分かったときは、元に戻し、書いた人に issue で知らせます。', '他人の権利が不当に侵害されていると信じるに足りる相当の理由があると運営者が考えたときは、外します。',
+      'そう考えないときは、書いた人に、侵害されたとする情報と権利と理由を示し、外すことに同意するかを、その issue で尋ねます。尋ねた日から 7 日を経ても、同意しないという申出がなければ外します。', 'どの場合も、外すのは、権利を侵すとされた記載だけです。'],
+    'policies/requests.en.md': ['Where taking it down turns out to have been wrong, it is put back, and the writer is told in the issue.', "Where the operator considers that there are reasonable grounds to believe another person's rights are being unjustly infringed, the entry is taken down.",
+      'If 7 days pass from the day of the question without the writer saying that they do not agree, it is taken down.', 'In every case, only the entry said to infringe the right is taken down.'],
+    'policies/privacy.md': ['見る形は、メールアドレス、電話番号、郵便番号、4 桁の組を四つ並べた番号、4 桁の組を三つ並べた番号の五つです。決まった形を文字の上で見るだけで、言語モデルも外のサービスも使いません。',
+      '書いたのが運営者でないときは、見つけた文字だけを「' + P.MASK + '」の語に替え、ラベル「' + P.LABEL + '」を付け、種類ごとの数だけを書いたコメントを置きます。issue は閉じず、書き込みも止めません。', '見つけた文字は、コメントにも実行の記録にも書きません。記録に出すのは、決まった語と数だけです。'],
+    'policies/privacy.en.md': ['It looks for five shapes: e-mail addresses, phone numbers, postal codes, numbers in four groups of four digits, and numbers in three groups of four digits.', 'The issue is not closed or locked.', 'The strings found are written neither in the comment nor in the run log.'],
+    'policies/legality.md': ['運営者は、個人情報の露出と名誉や信用を傷つける記載はただちに外して後で確かめ、ほかは同項第1号か第2号の道で外す。'],
+    'policies/legality.en.md': ['anything else is taken down by the route of item 1 or item 2 of that paragraph.'],
+  };
+  /* 無効になりうる形。消費者契約法第8条第1項の全部の免除と、同条第3項の、軽過失に限ると明らかにしない一部の免除（王の正誤表 5 の前の形）。
+   * 第三者からの請求の負担を願い出た人へ移す形も置かない（決めごと 7 が固める、違約金も法令以上の賠償も求めない約束）。 */
+  const VOID_JA = /一切の責任|いかなる(場合|損害)|法令が許す範囲で|法令の許す(限り|範囲)|責任を負わないものとします|補償しなければ|補償する(もの|義務)|肩代わり/;
+  const VOID_EN = /\bany liability whatsoever|under any circumstances|in no event|to the (fullest|maximum) extent permitted|indemnif|hold harmless/i;
+  const LIAB_JA = /責任を負いません|賠償の責めを負わない|賠償しません/, LIAB_EN = /\b(no liability|not liable|not responsible)\b/i;
+  const sents = (t) => t.split(/\n+/).flatMap((l) => l.split(/(?<=。)|(?<=\.)\s+(?=[A-Z"(])/)).map((z) => z.trim()).filter(Boolean);
+  /* 名簿の表。 */
+  const ROLL = { 'KNIGHTS.md': '| 番 | 騎士 | 叙任の日 | 正した誤り | 願い出 |', 'KNIGHTS.en.md': '| No. | Knight | Knighted | Mistake corrected | Application |' };
+  const ACCOUNT = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/, OUT = /^辞退（\d{4}-\d{2}-\d{2}）$/;
+  const ISSUE = /^\[[^\]|]*\]\(https:\/\/github\.com\/cpsbvbng26-dotcom\/nusquama\/issues\/\d+\)$/;
+  function roll(t, f) {
+    const bad = [];
+    const i = t.indexOf('\n' + ROLL[f] + '\n| --- | --- | --- | --- | --- |\n');
+    if (i < 0) return [f + '：名簿の表の頭'];
+    const rows = t.slice(i + 1).split('\n\n')[0].split('\n').slice(2);
+    rows.forEach((l, k) => {
+      const c = l.replace(/^\| | \|$/g, '').split(' | ');
+      if (c.length !== 5) { bad.push(f + '：' + (k + 1) + ' 行の欄の数'); return; }
+      const out = OUT.test(c[1]);
+      if (c[0] !== String(k + 1) || !(ACCOUNT.test(c[1]) || out) || !/^\d{4}-\d{2}-\d{2}$/.test(c[2])) bad.push(f + '：' + (k + 1) + ' 行の番・騎士・日');
+      if (P.mask(l).total > 0) bad.push(f + '：' + (k + 1) + ' 行に連絡先の形');
+      if (out ? c[3] !== '' || c[4] !== '' : !c[3] || !ISSUE.test(c[4])) bad.push(f + '：' + (k + 1) + ' 行の要約と願い出');
+    });
+    return bad;
+  }
+  /* 配る頁。手で置いた画像と build.js が描く画像のほかは読まない。外へ要求せず、書体のファイルを持たない。 */
+  const OWN = new Set(B.ASSETS.concat(B.DRAWN));
+  const own = (p) => OWN.has(p) || /^territory-\d{4}\.svg$/.test(p);
+  const plainHtml = (h) => h.replace(/<(script|style)[\s\S]*?<\/\1>/g, '').replace(/<\/(p|li|h\d|td|th|blockquote|summary|dt|dd|tr|caption|figcaption)>|<br>/g, '\n').replace(/<[^>]+>/g, '')
+    .replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+  function served(x) {
+    const bad = [];
+    for (const k of Object.keys(x).filter((k) => k.startsWith('site/'))) {
+      const f = k.slice(5), t = x[k];
+      if (/\.(woff2?|ttf|otf|eot)$/i.test(f)) bad.push(f + '：書体のファイル');
+      if (/\.(png|jpe?g|gif|webp|avif|svg|ico)$/i.test(f) && !own(f.split('/').pop())) bad.push(f + '：手で置いたものでも描いたものでもない画像');
+      if (t === null) continue;
+      if (/@font-face|@import|font-family\s*:[^;"]*url\(/i.test(t)) bad.push(f + '：書体か読み込み');
+      if (/url\(\s*['"]?(?:https?:)?\/\//i.test(t)) bad.push(f + '：外を指す url()');
+      if (/\.svg$/.test(f) && /<image\b|(?:xlink:)?href="(?:https?:)?\/\//.test(t)) bad.push(f + '：外を指す画像の中の参照');
+      if (!/\.html$/.test(f)) continue;
+      for (const m of t.matchAll(/<(img|script|link|iframe|source|video|audio|embed|object|track|input|frame)\b[^>]*>/gi)) {
+        const tag = m[0];
+        if (/^<link\b/i.test(tag) && /rel="(?:canonical|alternate)"/.test(tag)) continue;
+        if (/\s(?:src|href|srcset|data|poster)="(?:https?:)?\/\//i.test(tag)) bad.push(f + '：外へ要求する ' + m[1]);
+        if (/^<img\b/i.test(tag)) {
+          const src = (/\ssrc="([^"]+)"/.exec(tag) || [])[1] || '';
+          if (!own(src.split('/').pop()) || /srcset=/.test(tag)) bad.push(f + '：' + src);
+        }
+      }
+      if (/<meta http-equiv="refresh"/i.test(t)) bad.push(f + '：refresh');
+    }
+    return bad;
+  }
+  /* 創作の断り。robots.txt と sitemap.xml と vercel.json は、機械が読む一覧と設定なので外す。 */
+  const MACHINE = ['robots.txt', 'sitemap.xml', 'vercel.json'];
+  function notice(x) {
+    const bad = [];
+    for (const k of Object.keys(x).filter((k) => k.startsWith('site/') && x[k] !== null && /\.(html|xml|txt|ics)$/.test(k))) {
+      const f = k.slice(5), t = x[k];
+      if (MACHINE.includes(f)) continue;
+      if (f.endsWith('.html')) {
+        const en = /<html lang="en">/.test(t);
+        if (!(f === 'index.html' ? t.includes('これは創作であり、遊びです。') : t.includes('<p class="notice">' + (en ? B.NOTICE_EN : B.NOTICE) + '</p>'))) bad.push(f);
+      } else if (!t.replace(/\r?\n[ \t]/g, '').replace(/\\([,;])/g, '$1').includes(B.NOTICE)) bad.push(f);
+    }
+    return bad;
+  }
+  /* 実在の栄誉の語。ヌスクァマや王国を指す文が、打ち消しや禁止の形のほかで、公式・主権・承認・国家・勲章などの語を持たない。 */
+  const SUBJ = /ヌスクァマ|Nusquama|この国|王国|騎士王|ネモ一世|Kingdom|realm|Nemo I\b/;
+  const RES = /公式|正式|公認|主権|承認|国家|独立国|勲章|栄典|叙勲|位階|爵位|政府|\b(?:official(?:ly)?|sovereign(?:ty)?|recogni[sz](?:ed|es|e|ing|tion)|state|statehood|nation|government|decorations?|honou?rs?|peerage|nobility)\b/i;
+  const NEG = /ない|ません|ず[、。，]|ずに|なく|無い|禁じ|誤認|かのよう|以外|自称|訂正を頼|\b(?:not|no|neither|nor|never|without|none|nothing|as if|mistaken|other than|forbids?|self-declared|so-called)\b|n't|non-/i;
+  function words(x) {
+    const bad = [];
+    for (const k of Object.keys(x).filter((k) => k.startsWith('site/') && x[k] !== null && /\.(html|xml|txt|ics)$/.test(k) && !MACHINE.includes(k.slice(5)))) {
+      const t = k.endsWith('.html') ? plainHtml(x[k]) : x[k];
+      for (const s of t.split(/\n+/).flatMap((l) => l.split(/(?<=。)|(?<=[.!?])\s+/)).map((z) => z.trim()).filter(Boolean)) if (SUBJ.test(s) && RES.test(s) && !NEG.test(s)) bad.push(k.slice(5) + '：' + s.slice(0, 30));
+    }
+    return bad;
+  }
+  /* 連絡先を伏せる確認を、自分で作った出来事の見本で動かす。道具の写しを別のところに置いて、そこで走らせる。 */
+  function fixtures(src) {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nusquama-82-'));
+    fs.mkdirSync(path.join(dir, 'tools')); fs.mkdirSync(path.join(dir, 'docs'));
+    for (const f of ['tools/knighting.js', 'tools/scan.js', 'tools/knighting-form.yml', AUD]) fs.copyFileSync(path.join(ROOT, f), path.join(dir, f));
+    fs.writeFileSync(path.join(dir, 'tools', 'personal.js'), src);
+    const ev = (o) => Object.assign({ repository: { owner: { login: 'cpsbvbng26-dotcom' } } }, o);
+    const reader = { login: 'reader-one', type: 'User' }, owner = { login: 'cpsbvbng26-dotcom', type: 'User' };
+    const issue = (o) => Object.assign({ number: 1, user: reader, labels: [], created_at: '2026-11-14T03:00:00Z' }, o);
+    const F = {
+      other: [ev({ issue: issue({}) }), { title: 'Q ' + PHONE, body: 'mail ' + MAIL + ' post ' + POST + ' card ' + CARD }],
+      owner: [ev({ issue: issue({ user: owner }) }), { title: 'Q', body: 'mail ' + MAIL }],
+      bot: [ev({ issue: issue({}), comment: { id: 77, user: { login: 'github-actions[bot]', type: 'Bot' } } }), { body: 'mail ' + MAIL }],
+      comment: [ev({ issue: issue({ user: owner }), comment: { id: 78, user: reader } }), { body: 'tel ' + PHONE }],
+      paused: [ev({ issue: issue({ labels: [{ name: '叙任' }] }) }), { title: '叙任の願い出：x', body: 'mail ' + MAIL }],
+      pr: [ev({ issue: issue({ pull_request: {} }), comment: { id: 79, user: reader } }), { body: 'mail ' + MAIL }],
+      clean: [ev({ issue: issue({}) }), { title: 'Q', body: 'no contact here, 2026-11-14' }],
+      allowed: [ev({ issue: issue({}) }), { title: 'Q', body: 'trailer ' + OK_MAIL }],
+    };
+    const runner = `const P = require(${JSON.stringify(path.join(dir, 'tools', 'personal.js'))});
+const F = ${JSON.stringify(F)};
+(async () => { const out = {};
+  for (const [k, [event, cur]] of Object.entries(F)) {
+    const calls = [], logs = [];
+    const gh = async (m, p, b) => { calls.push([m, p, b || null]); if (m === 'GET') return p.endsWith('per_page=100') ? [] : cur; return {}; };
+    try { await P.run(event, gh, (s) => logs.push(String(s))); } catch (e) { logs.push('ERR'); }
+    out[k] = { calls, logs };
+  }
+  process.stdout.write(JSON.stringify(out)); })();`;
+    fs.writeFileSync(path.join(dir, 'run.js'), runner);
+    try { return JSON.parse(execFileSync(process.execPath, [path.join(dir, 'run.js')], { cwd: dir, encoding: 'utf8' })); } catch (e) { return null; }
+    finally { fs.rmSync(dir, { recursive: true, force: true }); }
+  }
+  const SAFE = /^(見つからない|伏せる|運営者の書いたもの|bot の書いたもの|PR の会話は扱わない|叙任の願い出の確認が断りに替える)(：[^ 、：]+ \d+(、[^ 、：]+ \d+)*)?$/;
+  function code(r) {
+    if (!r) return ['見本が動かない'];
+    const bad = [];
+    const leaks = (v) => SECRETS.some((s) => JSON.stringify(v).includes(s));
+    const writes = (k) => r[k].calls.filter(([m]) => m !== 'GET');
+    for (const [k, v] of Object.entries(r)) {
+      if (!v.logs.length || !v.logs.every((l) => SAFE.test(l)) || leaks(v.logs)) bad.push(k + '：記録に決まった語と数のほかが出る');
+      if (writes(k).some(([m, p, b]) => (b && (b.state || b.lock_reason)) || /\/lock$/.test(p))) bad.push(k + '：閉じるか書き込みを止める');
+      if (leaks(writes(k))) bad.push(k + '：見つけた文字を書く');
+    }
+    for (const k of ['owner', 'bot', 'paused', 'pr', 'clean', 'allowed']) if (writes(k).length) bad.push(k + '：手を出す');
+    const o = writes('other');
+    const edit = o.find(([m, p]) => m === 'PATCH' && p === '/issues/1');
+    if (!edit || !edit[2].body.includes('mail ' + P.MASK + ' post ' + P.MASK) || !edit[2].title.includes(P.MASK)) bad.push('other：文字だけを伏せない');
+    if (!o.some(([m, p, b]) => m === 'POST' && p === '/issues/1/labels' && JSON.stringify(b) === JSON.stringify({ labels: [P.LABEL] }))) bad.push('other：ラベル');
+    const note = o.find(([m, p]) => m === 'POST' && p === '/issues/1/comments');
+    if (!note || !note[2].body.startsWith(P.MARK) || !note[2].body.includes('メールアドレス 1、カードの番号の形 1、個人番号の形 0、電話番号 1、郵便番号の形 1')) bad.push('other：数のコメント');
+    const c = writes('comment');
+    if (!c.some(([m, p, b]) => m === 'PATCH' && p === '/issues/comments/78' && b.body === 'tel ' + P.MASK)) bad.push('comment：コメントの文字を伏せない');
+    if (r.paused.logs[0] !== '叙任の願い出の確認が断りに替える') bad.push('paused：叙任の願い出の確認に任せない');
+    return bad;
+  }
+  function verdict(x, r) {
+    const bad = [];
+    for (const [f, xs] of Object.entries(SAY)) for (const s of xs) if (!x[f].includes(s)) bad.push(f + '：' + s.slice(0, 24));
+    for (const f of ['policies/disclaimer.md', 'policies/terms.md']) for (const s of sents(x[f])) {
+      if (VOID_JA.test(s)) bad.push(f + '：無効になりうる形：' + s.slice(0, 24));
+      if (LIAB_JA.test(s) && !/故意または重大な過失による場合を除き|法令が責任を負わせる場合を除き/.test(s)) bad.push(f + '：除外のない免責：' + s.slice(0, 24));
+    }
+    for (const f of ['policies/disclaimer.en.md', 'policies/terms.en.md']) for (const s of sents(x[f])) {
+      if (VOID_EN.test(s)) bad.push(f + '：void form：' + s.slice(0, 24));
+      if (LIAB_EN.test(s) && !/except in cases of intent or gross negligence|Except where the law makes the operator responsible/i.test(s)) bad.push(f + '：除外のない免責：' + s.slice(0, 24));
+    }
+    if (/運営者は、故意または重大な過失による場合を除き、サイトやリポジトリの利用から生じた損害について責任を負いません。/.test(x['policies/disclaimer.md'].replace('叙任の願い出の様式で利用規約に同意した人に対し、運営者は、', ''))) bad.push('免除の範囲を戻した');
+    /* 数：照会の日数は、取り寄せた第3条第2項第2号の「七日」と同じ。確認の見る形の数は、道具の形の数と同じ。 */
+    const st = JSON.parse(x['verification/statutes-texts.json']);
+    if (!(st['情報流通プラットフォーム対処法 第3条'] || '').includes('照会を受けた日から七日を経過しても') || !x['policies/requests.md'].includes('尋ねた日から 7 日を経ても')) bad.push('照会の日数');
+    if (P.KINDS.length !== 5 || !x['policies/privacy.md'].includes('の五つです。') || !x['policies/privacy.en.md'].includes('It looks for five shapes')) bad.push('形の数');
+    /* ワークフロー。issue の文をシェルにも環境変数にも入れない。 */
+    const wf = x['.github/workflows/personal.yml'];
+    if (!/issues:\n {4}types: \[opened, edited, reopened\]\n {2}issue_comment:\n {4}types: \[created, edited\]\n/.test(wf) || !wf.includes('      - run: node tools/personal.js\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n')
+      || /github\.event\.(issue|comment)\.(title|body)/.test(wf) || (wf.match(/\$\{\{/g) || []).length !== 2) bad.push('ワークフロー');
+    if (!x['.github/workflows/labels.yml'].includes('gh label create "' + P.LABEL + '"')) bad.push('ラベルの workflow');
+    for (const f of Object.keys(ROLL)) bad.push(...roll(x[f], f));
+    bad.push(...served(x), ...notice(x).map((f) => '断りのない頁：' + f), ...words(x));
+    bad.push(...code(r));
+    /* 記録の節。 */
+    const a = x[AUD], i = a.indexOf(HEAD82), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const s = i < 0 ? '' : a.slice(i, j);
+    const t0 = s.indexOf('\n### 確かめ直した表\n');
+    const rows = t0 < 0 ? [] : s.slice(t0).split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    const KINDS82 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+    if (rows.length < 12 || !rows.every((y) => y.length === 6 && KINDS82.includes(y[4]))) bad.push('記録の表の形');
+    const counted = KINDS82.filter((k) => rows.some((y) => y[4] === k)).map((k) => k + ' ' + rows.filter((y) => y[4] === k).length + ' 件');
+    const m = /判定は、([^。]+)で、合わせて (\d+) 件です。/.exec(s);
+    if (!m || m[1].split('、').sort().join() !== counted.sort().join() || Number(m[2]) !== rows.length) bad.push('記録の判定の数');
+    const decided = s.split('2026-11-14 に Claude が決めました。').slice(1);
+    const nd = (s.match(/\n2026-11-14 に Claude が決めました。/g) || []).length;
+    if (nd < 9 || !decided.every((z) => /ためです。/.test(z.split('\n\n')[0]))) bad.push('記録の決めた者と理由');
+    const quotes = [...s.matchAll(/<!-- 条文 (.+?) -->\n> ([^\n]+)\n/g)];
+    if (quotes.length < 10 || !quotes.every((q) => (st[q[1]] || '').includes(q[2]))) bad.push('記録の条文の引用');
+    const shaRows = [...s.matchAll(/^\| ([^|]+?第\d+条(?:の\d+)?) \| `([0-9a-f]{64})` \|$/gm)];
+    const S = JSON.parse(read('verification/statutes.json'));
+    if (shaRows.length !== 22 || !shaRows.every((q) => S.statutes.some((e) => (e.name + e.label) === q[1] && e.sha256 === q[2])) || !s.includes('の 22 の条です。') || !s.includes('そのうち 16 の条は') || !s.includes('の 6 の条は')) bad.push('記録の取り寄せた条と SHA-256');
+    if (!/取り寄せの実行は 43589314023 で、結果は同じ枝の `harden-probe\.json` にあります。/.test(s)) bad.push('記録の取り寄せの実行');
+    if (!s.includes('この節には効力の日を置きません') && !s.includes('この節の直しには、効力の日を置きません。')) bad.push('記録の効力の日');
+    if (!s.includes('（未確認）') || !s.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(s)) bad.push('記録の未確認と弁護士の文');
+    return bad;
+  }
+  const r0 = fixtures(x0['tools/personal.js']);
+  const now = verdict(x0, r0);
+  ok('免責と責任の文（日本語と英語）が、同意した人への免除・消費者契約法の文・法令の定めるとおりの文・法令が責任を負わせる場合の除外を持ち、無効になりうる形を持たない。利用規約が変更の効力の日と手立てを、求めが情報流通プラットフォーム対処法第3条第2項の二つの道（7 日は条文の七日）を書く。連絡先を伏せる確認が見本で、運営者・bot・PR・受付の停止の願い出には手を出さず、文字だけを伏せ、閉じず、見つけた文字をコメントにも記録にも書かない。名簿・配る頁（' + siteFiles.length + '）・創作の断り・実在の栄誉の語・記録の節がそろう',
+    now.length === 0, now.slice(0, 8).join(' / '));
+  const mut = (f, a, b) => { if (!x0[f] || !x0[f].includes(a)) throw new Error('検査 82 の壊し方が当たらない：' + f + '：' + a.slice(0, 30)); return Object.assign({}, x0, { [f]: x0[f].replace(a, b) }); };
+  const add = (k, v) => Object.assign({}, x0, { [k]: v });
+  const rollRow = (f, row) => mut(f, ROLL[f] + '\n| --- | --- | --- | --- | --- |\n', ROLL[f] + '\n| --- | --- | --- | --- | --- |\n' + row + '\n');
+  const GOOD = '| 1 | reader-one | 2026-12-01 | 綴りを正した（[訂正](https://example.org/fix)） | [#9](https://github.com/cpsbvbng26-dotcom/nusquama/issues/9) |';
+  const pageJa = 'site/policies/terms.html', pageEn = 'site/policies/terms.en.html';
+  const breaks = [
+    ['免除を、同意した人に限らない形に戻す', mut('policies/disclaimer.md', '叙任の願い出の様式で利用規約に同意した人に対し、運営者は、', '運営者は、')],
+    ['読む人との間は法令の定めるとおりの文を外す', mut('policies/disclaimer.md', '様式で同意していない人（読むだけの人を含みます）との間では、運営者の責任は法令の定めるとおりです。\n', '')],
+    ['英語の免除の範囲を外す', mut('policies/disclaimer.en.md', 'Towards a person who agreed to the Terms of Use in the application form for knighthood, the operator', 'The operator')],
+    ['消費者契約法の文を外す', mut('policies/disclaimer.md', '日本の消費者契約法が適用される場合は、前の文を適用しません。そのときは、軽過失による損害を含め、同法と民法の定めるとおり責任を負います。\n', '')],
+    ['全部の免除を書き足す', mut('policies/disclaimer.md', 'ヌスクァマは無償の創作です。\n', 'ヌスクァマは無償の創作です。\n運営者は、一切の責任を負いません。\n')],
+    ['軽過失と明らかにしない一部の免除を書き足す', mut('policies/terms.md', '詳しくは[免責事項](./disclaimer.md)にあります。\n', '詳しくは[免責事項](./disclaimer.md)にあります。\n運営者は、法令が許す範囲で責任を負いません。\n')],
+    ['除外のない免責を書き足す', mut('policies/terms.md', '詳しくは[免責事項](./disclaimer.md)にあります。\n', '詳しくは[免責事項](./disclaimer.md)にあります。\n運営者は、名簿の誤りについて責任を負いません。\n')],
+    ['英語に無効になりうる形を書き足す', mut('policies/terms.en.md', 'The [Disclaimer](./disclaimer.en.md) has the details.\n', 'The [Disclaimer](./disclaimer.en.md) has the details.\nTo the fullest extent permitted by law, the operator disclaims all warranties.\n')],
+    ['願い出た人に補償させる', mut('policies/terms.md', '願い出た人に、違約金や、法令が定める以上の損害の賠償を求めることはありません。', '願い出た人は、第三者からの請求について運営者に補償しなければなりません。')],
+    ['英語に indemnity を書き足す', mut('policies/terms.en.md', 'This does not stand in the way of any other remedy the law allows.', 'This does not stand in the way of any other remedy the law allows. Applicants shall indemnify the operator.')],
+    ['変更の効力の日の文を外す', mut('policies/terms.md', '変更は、頁の最終更新の日に効力を生じます。効力の生じる日をほかに示した定めは、その日に効力を生じます。\n', '')],
+    ['手立ての文を外す', mut('policies/terms.md', '法令が認めるほかの手立てを妨げるものではありません。', '')],
+    ['照会の日数を変える', mut('policies/requests.md', '尋ねた日から 7 日を経ても', '尋ねた日から 3 日を経ても')],
+    ['英語の照会の道を外す', mut('policies/requests.en.md', 'If 7 days pass from the day of the question without the writer saying that they do not agree, it is taken down.', '')],
+    ['外すのは記載だけの文を外す', mut('policies/requests.md', 'どの場合も、外すのは、権利を侵すとされた記載だけです。\n', '')],
+    ['戻す文を外す', mut('policies/requests.md', '外したことが正しくなかったと分かったときは、元に戻し、書いた人に issue で知らせます。\n', '')],
+    ['個人情報の取り扱いの形の数を変える', mut('policies/privacy.md', '4 桁の組を三つ並べた番号の五つです。', '4 桁の組を三つ並べた番号の六つです。')],
+    ['閉じないと書いた文を外す', mut('policies/privacy.md', 'issue は閉じず、書き込みも止めません。受付の停止', '受付の停止')],
+    ['英語の記録に書かない文を外す', mut('policies/privacy.en.md', 'The strings found are written neither in the comment nor in the run log.', '')],
+    ['適法性の説明を前の文に戻す', mut('policies/legality.md', '運営者は、個人情報の露出と名誉や信用を傷つける記載はただちに外して後で確かめ、ほかは同項第1号か第2号の道で外す。', '運営者は、判断の前にただちに外し、外したあとで、外したことが正しかったかを確かめる。')],
+    ['免責事項から伏せる確認の止まりを外す', mut('policies/disclaimer.md', '連絡先の形の文字を伏せることも、同じです。', '')],
+    ['ワークフローが本文を環境変数に入れる', mut('.github/workflows/personal.yml', '          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n', '          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          BODY: ${{ github.event.issue.body }}\n')],
+    ['ワークフローがコメントで動かない', mut('.github/workflows/personal.yml', '  issue_comment:\n    types: [created, edited]\n', '')],
+    ['ラベルを作らない', mut('.github/workflows/labels.yml', 'gh label create "' + P.LABEL + '"', 'gh label create "x"')],
+    ['名簿に整った行を足しても通る（壊していない見本）', rollRow('KNIGHTS.md', GOOD), true],
+    ['名簿の要約にメールアドレスを書く', rollRow('KNIGHTS.md', GOOD.replace('綴りを正した', '綴りを正した ' + MAIL))],
+    ['名簿に本名の欄を足す', rollRow('KNIGHTS.md', GOOD.replace('| reader-one |', '| reader-one | 山田 太郎 |'))],
+    ['名簿の騎士の欄に本名を書く', rollRow('KNIGHTS.md', GOOD.replace('reader-one', 'Taro Yamada'))],
+    ['名簿の叙任の日を日付でなくする', rollRow('KNIGHTS.md', GOOD.replace('2026-12-01', '12 月 1 日'))],
+    ['英語の名簿の願い出がほかのサイトを指す', rollRow('KNIGHTS.en.md', GOOD.replace('https://github.com/cpsbvbng26-dotcom/nusquama/issues/9', 'https://example.org/9'))],
+    ['名簿の辞退の行に要約を残す', rollRow('KNIGHTS.md', GOOD.replace('| reader-one |', '| 辞退（2026-12-02） |'))],
+    ['頁が外の画像を読む', mut(pageJa, '</main>', '<img src="https://cdn.example.org/x.png" alt="">\n</main>')],
+    ['頁が外の書体を読む', mut(pageEn, '</head>', '<link rel="stylesheet" href="//fonts.example.org/a.css">\n</head>')],
+    ['頁が書体を組み込む', mut(pageJa, '</head>', '<style>@font-face{font-family:x;src:url(a.woff2)}</style>\n</head>')],
+    ['書体のファイルを配る', add('site/a.woff2', null)],
+    ['手で置いていない画像を配る', add('site/photo.jpg', null)],
+    ['頁が手で置いていない画像を読む', mut(pageJa, '</main>', '<img src="../photo.jpg" alt="写真（創作）">\n</main>')],
+    ['国旗の中に外の画像を置く', mut('site/flag.svg', '</svg>', '<image href="https://example.org/a.png"/></svg>')],
+    ['正誤の頁から断りを外す', mut('site/errata/1.html', '<p class="notice">' + B.NOTICE + '</p>', '')],
+    ['英語の頁から断りを外す', mut('site/errata/1.en.html', '<p class="notice">' + B.NOTICE_EN + '</p>', '')],
+    ['官報の配信から断りを外す', mut('site/gazette.xml', '<subtitle>' + B.NOTICE + '</subtitle>', '<subtitle>官報</subtitle>')],
+    ['頁にヌスクァマを主権国家と書く', mut(pageJa, '</main>', '<p>ヌスクァマは、主権を持つ独立国です。</p>\n</main>')],
+    ['英語の頁に公式に承認されたと書く', mut(pageEn, '</main>', '<p>Nusquama is an officially recognised state.</p>\n</main>')],
+    ['打ち消した文は通る（壊していない見本）', mut(pageJa, '</main>', '<p>ヌスクァマは国家ではなく、主権も主張しません。</p>\n<p>The Kingdom of Nusquama is not a state.</p>\n</main>'), true],
+    ['記録の判定の数を変える', mut(AUD, '判定は、漏れ 4 件、表現 1 件、根拠不足 6 件、問題なし 7 件で、合わせて 18 件です。', '判定は、漏れ 4 件、表現 1 件、根拠不足 6 件、問題なし 8 件で、合わせて 19 件です。')],
+    ['記録の条文の引用を一字変える', mut(AUD, '当該発信者が当該照会を受けた日から七日を経過しても', '当該発信者が当該照会を受けた日から十日を経過しても')],
+    ['記録の SHA-256 を一字変える', mut(AUD, '| 民法第522条 | `35978547', '| 民法第522条 | `35978548')],
+    ['記録から決めた者を外す', mut(AUD, '2026-11-14 に Claude が決めました。この節の直しには、', 'この節の直しには、')],
+    ['記録から未確認を外す', mut(AUD, '届出に費用が要るかも確かめていません（未確認）。', '届出には費用が要ります。')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const CODE = [
+    ['道具が記録に本文を出す', "log(d.why + (d.counts ? '：' + tally(d.counts) : ''));", 'log(d.why + JSON.stringify(cur));'],
+    ['道具が運営者の issue も伏せる', 'if (author.login && author.login === owner) return', 'if (false) return'],
+    ['道具が bot のコメントも伏せる', "if (author.type === 'Bot') return", 'if (false) return'],
+    ['道具が PR の会話も伏せる', 'if (issue.pull_request) return', 'if (false) return'],
+    ['道具が受付の停止の願い出にも手を出す', 'if (!isComment && K.target(', 'if (false && K.target('],
+    ['道具が issue を閉じる', "  await github('POST', '/issues/' + n + '/labels'", "  await github('PATCH', '/issues/' + n, { state: 'closed', state_reason: 'not_planned' });\n  await github('POST', '/issues/' + n + '/labels'"],
+    ['道具が本文をすべて消す', '{ title: d.title, body: d.body }', "{ title: d.title, body: '' }"],
+    ['道具がメールアドレスを見逃す', 're: /[A-Za-z0-9._%+-]+@', 're: /[A-Za-z0-9._%+-]+@@'],
+    ['道具がコメントに見つけた文字を書く', 'const body = note(d.counts, d.kind);', 'const body = note(d.counts, d.kind) + String(cur.body);'],
+  ];
+  const caught = breaks.filter(([, y, pass]) => (verdict(y, r0).length === 0) === !!pass).map(([k]) => k);
+  const caughtCode = CODE.filter(([, a, b]) => { if (!x0['tools/personal.js'].includes(a)) return false; return verdict(x0, fixtures(x0['tools/personal.js'].replace(a, b))).length > 0; }).map(([k]) => k);
+  ok('壊して確かめる：免除の範囲・消費者契約法の文・無効になりうる形（日本語と英語）・補償・変更の効力・手立て・照会の日数と道・記載だけ・戻すこと・形の数・閉じないこと・記録に書かないこと・適法性の説明・ワークフロー・ラベル・名簿・外の画像と書体・手で置いていない画像・断り・実在の栄誉の語・記録の数と引用と SHA-256 と決めた者と未確認と弁護士の文のどれでも落ち、整った見本は通る（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+  ok('壊して確かめる：連絡先を伏せる道具が、記録に本文を出す・運営者や bot や PR や受付の停止の願い出に手を出す・閉じる・本文をすべて消す・形を見逃す・コメントに文字を書く、のどれでも落ちる（' + caughtCode.length + ' / ' + CODE.length + '）',
+    caughtCode.length === CODE.length, CODE.filter(([k]) => !caughtCode.includes(k)).map(([k]) => k).join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));

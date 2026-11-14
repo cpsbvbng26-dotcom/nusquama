@@ -205,6 +205,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-13（日本時間） | 個人情報の取り扱いの、ほかに写しを作らないとした文を、GitHub の通知が issue の中身の写しを受け取るアカウント（運営者のものを含みうる）に届けうることと、その扱いは GitHub の規約と方針に従うこと、運営者はこれとは別に写しを作らないことを書く形に改める。保存の期間に、通知が電子メールでも届くことと、届いた写しが消えるとは説明書が書いていないことを書く（王の正誤表 45） | In the Privacy page, the sentence saying that no other copy is made now says that GitHub's notifications may carry a copy of the content of an issue to the accounts that receive them (which may include the operator's), that this copy is handled under GitHub's terms and policies, and that apart from this the operator makes no copy. "How long data is kept" now says that notifications also arrive by email, and that the documentation does not say that a copy already delivered goes away (King's errata 45) |
 | 2026-11-13（日本時間） | 運営理念・声明を置き、トップの頁と規程の一覧からつなぐ。叙任の規程に、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人・住む人・願い出のときにいる人は願い出ることができないことと、そう判断したときはその国や地域と理由を書き足すことを書き、利用規約で予告する | A Statement of Purpose is added and linked from the top page and the list of rules. The Rules on Knighting state that, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to its law may not apply, and that the country or region and the reason are then added; the Terms of Use give notice |
 | 2026-11-14（日本時間） | 運営理念・声明の、いまの事実を述べる文に「現在」を付け、頭に「現在」がいつかを定める一文を置く。README の写しも同じにする。約束と定めと語の意味の文には付けない | In the Statement of Purpose, the sentences that state how things are now say "at present", and a sentence near the top says what "at present" means. The copy in the README follows. Rules, commitments and definitions do not carry it |
+| 2026-11-14（日本時間） | 免責事項の責任の免除を、叙任の願い出の様式で利用規約に同意した人に対するものとし、ほかの人との間では法令の定めるとおりと改める。利用規約に、変更の効力の生じる日と、手立ては削除・訂正・辞退の求めであることを書く。削除・訂正・辞退の求めに、情報流通プラットフォーム対処法第3条第2項の二つの道を書く。issue とコメントの連絡先の形の文字を、運営者のもののほかは自動で伏せる | The Disclaimer's exclusion of liability now covers only those who agreed to the Terms of Use in the application form for knighthood; towards anyone else the operator is liable as the law provides. The Terms of Use say when a change takes effect, and that the remedy is a request for removal, correction or withdrawal. The page on requests sets out the two routes of Article 3(2) of the Information Distribution Platform Act. Strings shaped like contact details in issues and comments, other than the operator's, are masked automatically |
 
 ---
 
@@ -352,6 +353,8 @@ Source: https://nusquama.vercel.app/errata.html
 | 43 | 2026-11-13 | 叙任の規程「願い出ることができる人」、適法性の説明「日本の外の法令」 | 国外で授けた称号を使ったイタリアの国民には、この罰が及びます。（叙任の規程）／上の条の使う者の罰が、国外で授けた称号を使ったイタリアの国民に及ぶことである。（適法性の説明） | イタリアの 1951 年法律第 178 号第 8 条の終わりの段落が国外として挙げるのは、授けた場所（「quando il conferimento delle onorificenze, decorazioni o distinzioni sia avvenuto all'estero」）だけで、称号を使う場所は書いていない。前の文は、使う場所を書かずに、使う者の罰がイタリアの国民に及ぶと書いていた。イタリアの外で称号を使うイタリアの国民にこの罰が及ぶかは、取り寄せた条文からは決まらないと改めた。イタリアの国籍を持つ人を除くことは運営者の決めとして残し、同条がどこまで及ぶかを述べるものではないと書いた。2026-11-13 に Claude が決めました。頁が、取り寄せた条文の文言を越えて、罰の及ぶ先を書かないためです。 | Normattiva のイタリア 1951 年法律第 178 号第 8 条（verification/sources.json）、点検の記録「2026-11-13：十五度目の見落とし」 | 法 | Insula Legis XI |
 | 44 | 2026-11-13 | 適法性の説明「日本の外の法令」 | ただし、取り扱いが時々のもので、特別な種類のデータを大規模に扱わず、人の権利と自由に危険を生じさせそうにないときは、指名の義務がない（同条の第 2 項 (a)）。／及ぶとしても、名簿の取り扱いは第 2 項 (a) に当たると考え、代理人は指名していない。 | GDPR 第27条の第 2 項 (a) の例外は、取り扱いが「occasional」であることを要件の一つにする。名簿は、叙任のたびに記して公開を続けるもので、時々の取り扱いに当たる根拠を、点検は示していなかった。第 2 項 (a) に拠る文を外し、第 3 条第 2 項についての運営者の考えと、代理人を指名していないことだけを書いた。第 27 条は、第 1 項の文を引いた。代理人を指名しないことは、2026-11-12 に Claude が決めたままである。2026-11-13 に Claude が決めました。取り寄せた条文の要件を満たすと示せない例外に、頁が拠らないためです。 | EUR-Lex の GDPR 第3条第2項・第27条（verification/sources.json）、点検の記録「2026-11-13：十五度目の見落とし」 | 法 | Insula Legis XII |
 | 45 | 2026-11-13 | 個人情報の取り扱い「安全のための措置」「保存の期間」 | 扱う個人データは、公開の issue と騎士の名簿にあるものだけです。ほかの場所に集めず、別の写しも作りません。 | GitHub の説明書は、自分で作ったリポジトリを初めから見守る設定になると書き、電子メールの通知が中身の写しを含むと書く。issue の中身の写しは、GitHub の通知によって、受け取る設定のアカウントに届きうる。運営者のアカウントもその一つでありうる。前の文は、この写しを書かずに、別の写しは作らないと書いていた。GitHub の通知が issue の中身の写しを届けうること、その扱いは GitHub の利用規約とプライバシーステートメントに従うこと、運営者はこれとは別に写しを作らないことを書いた。保存の期間には、通知が電子メールでも届くこと、受信箱の通知を保つ期間、issue を替えたり削除したりしたときに届いた写しが消えるとは説明書が書いていないことを書いた。2026-11-13 に Claude が決めました。運営者のアカウントの設定という、確かめられないことに約束を預けずに、文を事実に合わせるためです。 | GitHub の説明書（`github/docs` のコミット 6d56af0c8b62bde11bb3d9df46244fab5f0a00f9 の content/subscriptions-and-notifications/concepts/about-notifications.md と content/subscriptions-and-notifications/get-started/configuring-notifications.md）、点検の記録「2026-11-13：十六度目の見落とし」 | 事実 | Insula Facti X |
+| 46 | 2026-11-14 | 免責事項「責任」 | 運営者は、故意または重大な過失による場合を除き、サイトやリポジトリの利用から生じた損害について責任を負いません。 | 民法第522条は、契約は申込みに対して相手方が承諾をしたときに成立すると定める。利用規約は、読むことを何かへの同意とはみなさない。前の文は、誰に対する免除かを書かず、契約のない読む人にも及ぶように読めた。免除を、叙任の願い出の様式で利用規約に同意した人に対するものとし、様式で同意していない人（読むだけの人を含む）との間では、運営者の責任は法令の定めるとおりと書いた。2026-11-14 に Claude が決めました。契約のない人に、一方の書いた文で責任を免じることはできないためです。 | 民法第522条・第709条（e-Gov 法令 API で取り寄せた条文）、点検の記録「2026-11-14：形を保って詰める」 | 法 | Insula Legis XIII |
+| 47 | 2026-11-14 | 適法性の説明「名誉と信用」 | 運営者は、判断の前にただちに外し、外したあとで、外したことが正しかったかを確かめる。 | 情報流通プラットフォーム対処法第3条第2項は、外す措置で書いた人に生じた損害の責めを負わない場合を、措置が必要な限度で、相当の理由があったとき（第1号）か、書いた人に照会して七日を経ても同意しない旨の申出がなかったとき（第2号）とする。前の文は、どの書き込みもただちに外すと読め、第2号の道を持たなかった。個人情報の露出と名誉や信用を傷つける記載はただちに外して後で確かめ、ほかは第1号か第2号の道で外すと改め、手順を削除・訂正・辞退の求めに書いた。2026-11-14 に Claude が決めました。同項が責めを負わない場合として挙げる道に、手順をそろえるためです。 | 情報流通プラットフォーム対処法第3条（e-Gov 法令 API で取り寄せた条文）、点検の記録「2026-11-14：形を保って詰める」 | 法 | Insula Legis XIV |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -1204,7 +1207,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 
 # 利用規約
 
-最終更新：2026-11-13。
+最終更新：2026-11-14。
 
 ## この規約が及ぶ人
 
@@ -1273,11 +1276,15 @@ Source: https://nusquama.vercel.app/policies/terms.html
 サイトとリポジトリは、現状のまま提供します。
 いつでも読めることも、内容に誤りがないことも保証しません。
 詳しくは[免責事項](./disclaimer.md)にあります。
+名簿・王の正誤表・官報に載ったことは、訂正の正しさや、人の資格や人柄を保証するものではありません。
+記載に誤りや権利の侵害があると考えるときの手立ては、[削除・訂正・辞退の求め](./requests.md)です。法令が認めるほかの手立てを妨げるものではありません。
 
 ## 変更と終了
 
 この規約とほかの規程は、変わることがあります。
 各頁の日付が最後の変更を示し、過去の版は公開のリポジトリに残ります。
+変更は、頁の最終更新の日に効力を生じます。効力の生じる日をほかに示した定めは、その日に効力を生じます。
+変えた後の内容はその頁で示し、変えたことと効力の生じる日は、頁の最終更新の日と、その定めに書いた日で示します。
 頁の日付と、年表・官報・正誤表・名簿の日付は、日本時間の日付です。
 文を取り寄せた日は、取り寄せの記録に残った協定世界時の日付です。
 建国の日の 2026-11-07 も、協定世界時の日付です。
@@ -1337,7 +1344,7 @@ Source: https://nusquama.vercel.app/policies/disclaimer.html
 
 # 免責事項
 
-最終更新：2026-11-13。
+最終更新：2026-11-14。
 
 この頁は、ヌスクァマが約束しないことと、ヌスクァマが何でないかを、一か所にまとめたものです。
 この頁は、[利用規約](./terms.md)の一部です。この頁と利用規約の本文が食い違う場合は、利用規約の本文が適用されます。
@@ -1401,7 +1408,7 @@ Source: https://nusquama.vercel.app/policies/disclaimer.html
 GitHub と Vercel は、それぞれ自らの規約で、サービスを「現状のまま」保証なしに提供し、責任を限っています。ヌスクァマは、二つのサービスについて、それぞれが約束する以上のことを約束できません。
 サイトは Vercel の無料の Hobby プランで配信しており、Vercel はこのプランの配信を、予告の有無を問わず止めたり削除したりできます。二つの規約の定めは、[利用規約](./terms.md)の「GitHub と Vercel の規約」にあります。
 GitHub の規約は、GitHub が GitHub Actions の利用を制限することを認めています。Actions が止まることもあります。
-そのあいだは、叙任の願い出の自動の確認も、受付を止めているあいだに願い出を閉じることも、週ごとの見張りも、年一回の総点検の issue も、ひとりでには動きません。運営者が手で行い、すぐには行われません。
+そのあいだは、叙任の願い出の自動の確認も、受付を止めているあいだに願い出を閉じることも、週ごとの見張りも、年一回の総点検の issue も、ひとりでには動きません。連絡先の形の文字を伏せることも、同じです。運営者が手で行い、すぐには行われません。
 記載を判断の前に外すことは、初めから運営者が手で行っており、GitHub Actions には頼りません。
 
 ## 助言ではないこと
@@ -1413,8 +1420,9 @@ GitHub の規約は、GitHub が GitHub Actions の利用を制限すること�
 ## 責任
 
 ヌスクァマは無償の創作です。
-運営者は、故意または重大な過失による場合を除き、サイトやリポジトリの利用から生じた損害について責任を負いません。
+叙任の願い出の様式で利用規約に同意した人に対し、運営者は、故意または重大な過失による場合を除き、サイトやリポジトリの利用から生じた損害について責任を負いません。
 日本の消費者契約法が適用される場合は、前の文を適用しません。そのときは、軽過失による損害を含め、同法と民法の定めるとおり責任を負います。
+様式で同意していない人（読むだけの人を含みます）との間では、運営者の責任は法令の定めるとおりです。
 法令が免除や制限を認めない責任を、免除したり制限したりするものではありません。
 騎士・読む人・第三者が、規程に反して、または規程の外で行ったことの責任は、行った本人にあります。
 運営者は、法令が責任を負わせる場合を除き、そうした行いについて責任を負いません。
@@ -1432,7 +1440,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-13。
+最終更新：2026-11-14。
 
 ## 取り扱う者
 
@@ -1518,6 +1526,11 @@ GitHub の通知は、issue の中身の写しを、通知を受け取るアカ�
 そのアカウントは、二段階認証を使っています。
 名簿やサイトの変更は、リポジトリの公開の履歴にすべて残り、検査を通してから入ります。
 サイトは cookie もデータベースも持たず、閲覧者から何も集めません。
+issue が開かれたり直されたりしたときと、issue にコメントが書かれたり直されたりしたときは、自動の確認（`tools/personal.js`）が、題と本文の中の連絡先の形をした文字を数えます。
+見る形は、メールアドレス、電話番号、郵便番号、4 桁の組を四つ並べた番号、4 桁の組を三つ並べた番号の五つです。決まった形を文字の上で見るだけで、言語モデルも外のサービスも使いません。
+書いたのが運営者でないときは、見つけた文字だけを「［伏せた］」の語に替え、ラベル「伏せた」を付け、種類ごとの数だけを書いたコメントを置きます。issue は閉じず、書き込みも止めません。受付の停止のあいだに叙任の願い出として届いた issue は、「保存の期間」のとおり、題と本文を断りに替えます。
+見つけた文字は、コメントにも実行の記録にも書きません。記録に出すのは、決まった語と数だけです。替える前の文は、GitHub が編集の履歴に残し、その削除は、削除の求めに応じて行います。
+PR の会話は、この確認の外にあり、運営者が読みます。
 外国で扱われることへの備えは、上の「第三者への提供と外国にある事業者」に書いてあります。
 
 ## 漏えいなどが起きたとき
@@ -1762,7 +1775,7 @@ Source: https://nusquama.vercel.app/policies/requests.html
 
 # 削除・訂正・辞退の求め
 
-最終更新：2026-11-13。
+最終更新：2026-11-14。
 
 ## 求めることができるもの
 
@@ -1801,6 +1814,11 @@ GitHub の非公開の脆弱性の報告（private vulnerability reporting）は
 運営者は、それぞれの求めに 7 日以内に答えることを目指します。
 個人情報の露出のように害が大きいものは、判断の前に、その記載をただちに外します。
 他人の名誉や信用を傷つける記載も、判断の前に、ただちに外します。外したあとで、外したことが正しかったかを確かめます。
+外したことが正しくなかったと分かったときは、元に戻し、書いた人に issue で知らせます。
+ほかの人が書いた issue やコメントを、自分の権利を侵すとして外すよう求められたときで、上の二つ（個人情報の露出と、名誉や信用を傷つける記載）でないものは、運営者が求めの中身を読みます。他人の権利が不当に侵害されていると信じるに足りる相当の理由があると運営者が考えたときは、外します。
+そう考えないときは、書いた人に、侵害されたとする情報と権利と理由を示し、外すことに同意するかを、その issue で尋ねます。尋ねた日から 7 日を経ても、同意しないという申出がなければ外します。申出があったときは、運営者が判断し、求めた人と書いた人に issue で知らせます。
+どの場合も、外すのは、権利を侵すとされた記載だけです。
+issue やコメントに書かれた連絡先の形の文字は、運営者のもののほかは、求めを待たずに、自動の確認がその文字だけを伏せます（[個人情報の取り扱い](./privacy.md)「安全のための措置」）。
 名簿からの辞退は、理由を問わず応じます。
 開示・訂正・利用停止などの求めには、遅滞なく応じます。開示は、求められた方法で行います。電磁的記録で求められたときは、電磁的記録で渡します。
 求めに応じたときは、何をしたかを遅滞なく知らせます。求められたデータがないときや、求められた方法で渡せないときも、その旨を遅滞なく知らせます。
@@ -1855,7 +1873,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
 
-最終更新：2026-11-13。
+最終更新：2026-11-14。
 
 ## この頁の位置づけ
 
@@ -2005,7 +2023,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **当てはまらない理由**：人の名誉や信用を傷つける表示がない。
 - **他人が書いたもの**：issue には、願い出た人や求めた人が文を書く。他人の名誉や個人情報を害する記載が書かれたときは、判断の前にただちに外す。
 - **保つための決め**：[利用規約](./terms.md)「してはいけないこと」（中傷・嫌がらせの禁止）、[削除・訂正・辞退の求め](./requests.md)「求めを受けた後」。
-- **点検で足したこと（2026-11-12）**：issue は、不特定の人が読む GitHub の上に書かれる。この送信は、情報流通プラットフォーム対処法第2条第1号の特定電気通信に当たる。運営者が、その役務を提供する者（同条第4号）に当たるかは、設備を GitHub が持つので、条文からは決まらない。運営者は、当たるものとして扱う。その場合、他人の権利を侵す書き込みについて、送信を防ぐことが技術的にできて、侵害を知っていたか、知ることができたと認めるに足りる相当の理由があるときでなければ、賠償の責めを負わない（情報流通プラットフォーム対処法第3条第1項）。書き込みを外したことで書いた人に生じた損害は、必要な限度で外し、他人の権利が不当に侵害されていると信じるに足りる相当の理由があったときなどに限って、責めを負わない（同条第2項）。運営者は、判断の前にただちに外し、外したあとで、外したことが正しかったかを確かめる。大規模特定電気通信役務提供者（同法第2条第14号）の義務は、指定を受けた者のものなので、運営者には及ばない。
+- **点検で足したこと（2026-11-12）**：issue は、不特定の人が読む GitHub の上に書かれる。この送信は、情報流通プラットフォーム対処法第2条第1号の特定電気通信に当たる。運営者が、その役務を提供する者（同条第4号）に当たるかは、設備を GitHub が持つので、条文からは決まらない。運営者は、当たるものとして扱う。その場合、他人の権利を侵す書き込みについて、送信を防ぐことが技術的にできて、侵害を知っていたか、知ることができたと認めるに足りる相当の理由があるときでなければ、賠償の責めを負わない（情報流通プラットフォーム対処法第3条第1項）。書き込みを外したことで書いた人に生じた損害は、必要な限度で外し、他人の権利が不当に侵害されていると信じるに足りる相当の理由があったときなどに限って、責めを負わない（同条第2項）。運営者は、個人情報の露出と名誉や信用を傷つける記載はただちに外して後で確かめ、ほかは同項第1号か第2号の道で外す。大規模特定電気通信役務提供者（同法第2条第14号）の義務は、指定を受けた者のものなので、運営者には及ばない。
 
 <!-- 条文 刑法 第230条、刑法 第231条、刑法 第233条、民法 第709条 -->
 
@@ -2201,7 +2219,7 @@ Source: https://nusquama.vercel.app/policies/terms.en.html
 
 # Terms of Use
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -2272,11 +2290,15 @@ Nothing here asks an applicant for a penalty, or for damages beyond what the law
 The site and the repository are provided as they are.
 The operator does not promise that they can always be read or that their content is free of errors.
 The [Disclaimer](./disclaimer.en.md) has the details.
+Appearing on the roll, in the King's errata or in the gazette does not guarantee that a correction is right, or anyone's qualifications or character.
+Where someone thinks an entry is wrong or infringes a right, the remedy is a [request for removal, correction or withdrawal](./requests.en.md). This does not stand in the way of any other remedy the law allows.
 
 ## Changes and ending
 
 These terms and the other pages may change.
 The date on each page shows its last change, and earlier versions remain in the public repository.
+A change takes effect on the page's last-updated date. A provision that states another date for taking effect takes effect on that date.
+The content after a change is shown on its page; that it changed, and when the change takes effect, are shown by the page's last-updated date and by the date written in the provision.
 The dates on the pages, and in the timeline, the gazette, the errata and the roll, are dates in Japan time.
 The day a text was fetched is the day in UTC that the record of the fetch keeps.
 The founding day, 2026-11-07, is also a date in UTC.
@@ -2336,7 +2358,7 @@ Source: https://nusquama.vercel.app/policies/disclaimer.en.html
 
 # Disclaimer
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./disclaimer.md) governs; if the two differ, the Japanese version applies.
 
@@ -2402,7 +2424,7 @@ The site is served by Vercel, and the repository and issues are kept by GitHub. 
 GitHub and Vercel each provide their services "as is", without warranty, and limit their liability under their own terms; Nusquama cannot promise more about their services than they do.
 The site is served on Vercel's free Hobby plan, on which Vercel may disable or remove a deployment with or without notice. What their terms provide is set out in the [Terms of Use](./terms.en.md), under "GitHub's and Vercel's terms".
 GitHub's terms let GitHub restrict the use of GitHub Actions, and Actions can stop.
-While it does not run, none of these runs by itself: the automatic check of applications for knighthood, the closing of applications while the reception is paused, the weekly watch, and the issue of the yearly review. The operator does them by hand, and not at once.
+While it does not run, none of these runs by itself: the automatic check of applications for knighthood, the closing of applications while the reception is paused, the weekly watch, and the issue of the yearly review. Nor does the masking of strings shaped like contact details. The operator does them by hand, and not at once.
 Taking an entry down before a decision has always been done by the operator's hand, and does not depend on GitHub Actions.
 
 ## Not advice
@@ -2414,8 +2436,9 @@ The law-by-law analysis is in the [Legality Statement](./legality.en.md). It has
 ## Liability
 
 Nusquama is a free work of fiction.
-Except in cases of intent or gross negligence, the operator accepts no liability for damage arising from use of the site or the repository.
+Towards a person who agreed to the Terms of Use in the application form for knighthood, the operator accepts no liability for damage arising from use of the site or the repository, except in cases of intent or gross negligence.
 Where the Japanese Consumer Contract Act applies, the previous sentence does not apply. In that case the operator is liable as that Act and the Civil Code provide, including for damage caused by slight negligence.
+Towards anyone who has not agreed in the form, including those who only read, the operator is liable as the law provides.
 Nothing here excludes or limits any liability the law does not allow to be excluded or limited.
 The responsibility for anything a knight, a reader or a third party does against the rules, or outside them, lies with that person.
 Except where the law makes the operator responsible, the operator is not responsible for such acts.
@@ -2433,7 +2456,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -2521,6 +2544,11 @@ Only the operator's GitHub account, which owns the repository, can change the ro
 That account uses two-factor authentication.
 Every change to the roll and the site is kept in the public history of the repository and goes in only after passing the checks.
 The site has no cookies and no database, and collects nothing from its readers.
+When an issue is opened or edited, and when a comment on an issue is written or edited, an automatic check (`tools/personal.js`) counts the strings in the title and body that are shaped like contact details.
+It looks for five shapes: e-mail addresses, phone numbers, postal codes, numbers in four groups of four digits, and numbers in three groups of four digits. It only looks at fixed shapes in the characters, and uses no language model and no outside service.
+Where the writer is not the operator, only the strings found are replaced with the word "［伏せた］" (masked), the label "伏せた" is added, and a comment is left that gives only the number of each kind. The issue is not closed or locked. An issue that arrives as an application for knighthood while applications are paused has its title and body replaced with a note, as under "How long data is kept".
+The strings found are written neither in the comment nor in the run log. The log shows only fixed words and numbers. GitHub keeps the earlier text in the edit history, and it is removed from there on a request to delete.
+Conversations on pull requests are outside this check, and the operator reads them.
 How handling in other countries is prepared for is set out above, under "Providing data to others, and businesses in other countries".
 
 ## If a leak or the like occurs
@@ -2767,7 +2795,7 @@ Source: https://nusquama.vercel.app/policies/requests.en.html
 
 # Requests for removal, correction or withdrawal
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./requests.md) governs; if the two differ, the Japanese version applies.
 
@@ -2808,6 +2836,11 @@ A security problem with the site or the repository is reported in the same way (
 The operator aims to answer each request within 7 days.
 Where the harm is serious, such as exposed personal data, the entry is taken down at once, before any decision.
 An entry that harms another person's honour or reputation is also taken down at once, before any decision. After it is taken down, whether that was right is checked.
+Where taking it down turns out to have been wrong, it is put back, and the writer is told in the issue.
+Where someone asks for an issue or comment written by another person to be taken down as infringing their rights, and it is neither of the two above (exposed personal data, or harm to honour or reputation), the operator reads what the request says. Where the operator considers that there are reasonable grounds to believe another person's rights are being unjustly infringed, the entry is taken down.
+Otherwise, the operator shows the writer the information said to infringe, the right and the reason, and asks in that issue whether the writer agrees to its being taken down. If 7 days pass from the day of the question without the writer saying that they do not agree, it is taken down. If the writer says so, the operator decides and tells both the person who asked and the writer in the issue.
+In every case, only the entry said to infringe the right is taken down.
+Strings shaped like contact details in issues and comments, other than the operator's, are masked by the automatic check without waiting for a request; only those strings are masked ([Privacy](./privacy.en.md), "Security measures").
 Withdrawal from the roll is granted whatever the reason.
 Requests for disclosure, correction, suspension of use and the like are met without delay. Disclosure is made in the way asked; when an electronic record is asked for, an electronic record is given.
 When a request is met, what was done is made known without delay. When the data asked for does not exist, or cannot be given in the way asked, that too is made known without delay.
@@ -2864,7 +2897,7 @@ Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -3016,7 +3049,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: nothing damages anyone's reputation or credit.
 - **What others write**: applicants and people making requests write text in issues. If something that harms another person's reputation or exposes their personal information is written there, the operator takes it down at once, before deciding anything else.
 - **Rules that keep this true**: Terms of Use, "What is not allowed" (no defamation or harassment); [Requests for removal, correction or withdrawal](./requests.en.md), "After a request".
-- **Added in the review (2026-11-12)**: issues are written on GitHub, where anyone may read them. Such a transmission is a "specified telecommunication" under Article 2, item 1, of the Act on Responses to Rights Infringement on Information Distribution Platforms. Whether the operator is a provider of that service (item 4 of the same Article) cannot be settled from the text, because GitHub holds the equipment; the operator treats itself as one. As such, it is not liable for a post that infringes another person's rights unless it was technically possible to stop the transmission and it knew of the infringement, or there were reasonable grounds to find that it could have known (Article 3(1) of that Act). For harm to the writer caused by taking a post down, it is not liable when the takedown went no further than necessary and, among other cases, there were reasonable grounds to believe another person's rights were being unjustly infringed (Article 3(2)). The operator takes such text down at once, before deciding anything else, and afterwards checks whether taking it down was right. The duties of large-scale providers (Article 2, item 14) belong to those designated, and do not reach the operator.
+- **Added in the review (2026-11-12)**: issues are written on GitHub, where anyone may read them. Such a transmission is a "specified telecommunication" under Article 2, item 1, of the Act on Responses to Rights Infringement on Information Distribution Platforms. Whether the operator is a provider of that service (item 4 of the same Article) cannot be settled from the text, because GitHub holds the equipment; the operator treats itself as one. As such, it is not liable for a post that infringes another person's rights unless it was technically possible to stop the transmission and it knew of the infringement, or there were reasonable grounds to find that it could have known (Article 3(1) of that Act). For harm to the writer caused by taking a post down, it is not liable when the takedown went no further than necessary and, among other cases, there were reasonable grounds to believe another person's rights were being unjustly infringed (Article 3(2)). The operator takes down exposed personal data and harm to honour or reputation at once and checks afterwards; anything else is taken down by the route of item 1 or item 2 of that paragraph. The duties of large-scale providers (Article 2, item 14) belong to those designated, and do not reach the operator.
 
 <!-- 条文 刑法 第230条、刑法 第231条、刑法 第233条、民法 第709条 -->
 
@@ -3393,6 +3426,8 @@ These errata are the domain under Article 3 of the Basic Law.
 | 43 | 2026-11-13 | Rules on Knighting, "Who may apply"; Legality Statement, "Laws outside Japan" | "That penalty reaches an Italian national who uses a title conferred abroad." (Rules on Knighting) / "and that the article's penalty for use reaches an Italian national who uses a title conferred abroad." (Legality Statement) | The last paragraph of Article 8 of Italy's Law No. 178 of 1951 names as abroad only the place of conferral ("quando il conferimento delle onorificenze, decorazioni o distinzioni sia avvenuto all'estero"); it says nothing of the place where the title is used. The earlier sentences said, without naming the place of use, that the penalty for use reaches an Italian national. They now say that whether that penalty reaches an Italian national who uses the title outside Italy is not settled by the fetched texts. Excluding people who hold Italian nationality stays as the operator's own rule, and the pages say that it says nothing about how far the article reaches. Claude decided this on 2026-11-13, so that the pages do not state where a penalty reaches beyond the words of the fetched text. | Article 8 of Italy's Law No. 178 of 1951 from Normattiva (verification/sources.json); the legal review, "2026-11-13：十五度目の見落とし" | Law | Insula Legis XI |
 | 44 | 2026-11-13 | Legality Statement, "Laws outside Japan" | "That duty does not apply to processing that is occasional, does not include large-scale processing of special categories of data, and is unlikely to result in a risk to the rights and freedoms of natural persons (paragraph 2(a) of that Article)." / "Even if the GDPR applies, the operator considers the handling of the roll to fall under paragraph 2(a), and has designated no representative." | The exception in Article 27(2)(a) of the GDPR has, as one of its elements, processing that is "occasional". The roll is written at each knighting and stays published, and the review gave no ground for calling it occasional. The sentences relying on paragraph 2(a) are removed; the page now states only the operator's view on Article 3(2) and that no representative has been designated, quoting paragraph 1 of Article 27. Not designating a representative remains as Claude decided on 2026-11-12. Claude decided this on 2026-11-13, so that the page does not rely on an exception whose elements it cannot show to be met. | Articles 3(2) and 27 of the GDPR from EUR-Lex (verification/sources.json); the legal review, "2026-11-13：十五度目の見落とし" | Law | Insula Legis XII |
 | 45 | 2026-11-13 | Privacy, "Security measures" and "How long data is kept" | "The only personal data handled is what is in the public issues and on the roll of knights. It is gathered nowhere else and no other copy is made." | GitHub's documentation says that by default one watches the repositories one creates, and that email notifications hold copies of the content. A copy of the content of an issue can reach, through GitHub's notifications, the accounts set to receive them, and the operator's account can be one of them. The earlier sentence said that no other copy is made, without naming this copy. The page now says that GitHub's notifications may carry a copy of the content of an issue, that this copy is handled under GitHub's Terms of Service and Privacy Statement, and that apart from this the operator makes no copy. "How long data is kept" now says that notifications also arrive by email, how long notifications in the inbox are kept, and that the documentation does not say that a copy already delivered goes away when the issue is changed or deleted. Claude decided this on 2026-11-13, so that the sentence matches the facts without resting a promise on the settings of the operator's account, which cannot be checked. | GitHub's documentation (`github/docs` at commit 6d56af0c8b62bde11bb3d9df46244fab5f0a00f9, content/subscriptions-and-notifications/concepts/about-notifications.md and content/subscriptions-and-notifications/get-started/configuring-notifications.md); the legal review, "2026-11-13：十六度目の見落とし" | Fact | Insula Facti X |
+| 46 | 2026-11-14 | Disclaimer, "Liability" | "Except in cases of intent or gross negligence, the operator accepts no liability for damage arising from use of the site or the repository." | Article 522 of the Civil Code says that a contract is formed when the other party accepts an offer. The Terms of Use do not treat reading as agreeing to anything. The earlier sentence did not say towards whom liability was excluded, and could be read as reaching readers, with whom there is no contract. The exclusion now covers only those who agreed to the Terms of Use in the application form for knighthood, and towards anyone who has not agreed in the form, including those who only read, the operator is liable as the law provides. Claude decided this on 2026-11-14, because a sentence written by one side cannot exclude liability towards someone with whom there is no contract. | Civil Code, Articles 522 and 709 (texts fetched from the e-Gov law API); the legal review, "2026-11-14：形を保って詰める" | Law | Insula Legis XIII |
+| 47 | 2026-11-14 | Legality Statement, "Reputation and credit" | "The operator takes such text down at once, before deciding anything else, and afterwards checks whether taking it down was right." | Article 3(2) of the Information Distribution Platform Act says when a provider is not liable to the writer for taking a post down: the takedown goes no further than necessary, and either there were reasonable grounds to believe another person's rights were being unjustly infringed (item 1), or the writer was asked whether they agree and did not say no within seven days (item 2). The earlier sentence read as taking every post down at once, without the route of item 2. It now says that exposed personal data and harm to honour or reputation are taken down at once and checked afterwards, and that anything else goes by item 1 or item 2; the steps are set out on the page on requests. Claude decided this on 2026-11-14, so that the steps match the cases the paragraph names. | Act on Responses to Rights Infringement on Information Distribution Platforms, Article 3 (text fetched from the e-Gov law API); the legal review, "2026-11-14：形を保って詰める" | Law | Insula Legis XIV |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 

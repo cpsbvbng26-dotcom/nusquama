@@ -781,6 +781,54 @@
       "article": "21",
       "sha256": "fe9a0e0cf04779c5cc51608e112b427a9b75eb959f87aea250795285aff52f23",
       "title": "官報の発行に関する法律"
+    },
+    {
+      "name": "民法",
+      "label": "第1条",
+      "law_id": "129AC0000000089",
+      "article": "1",
+      "sha256": "552911333b430fa1f8fef7635e19dd1de334fa44afa9ad16d354df0fe48cfa64",
+      "title": "民法"
+    },
+    {
+      "name": "民法",
+      "label": "第90条",
+      "law_id": "129AC0000000089",
+      "article": "90",
+      "sha256": "a222f204d974e527c863be4b1f3502310ca028c30861e3635d1872a33ee5f6b1",
+      "title": "民法"
+    },
+    {
+      "name": "民法",
+      "label": "第415条",
+      "law_id": "129AC0000000089",
+      "article": "415",
+      "sha256": "0a6b198bf29d78e5f37b242a58dab11b6cdccaa183ebe2fa551a906208abac9a",
+      "title": "民法"
+    },
+    {
+      "name": "民法",
+      "label": "第416条",
+      "law_id": "129AC0000000089",
+      "article": "416",
+      "sha256": "9453e8314878913b7a4e3812f1702fcd02c14724687a8da580efbc237609a43e",
+      "title": "民法"
+    },
+    {
+      "name": "民法",
+      "label": "第522条",
+      "law_id": "129AC0000000089",
+      "article": "522",
+      "sha256": "35978547faff4d70c502a0f9a004b5cd164f1a0d71afbc64bfc917d614066548",
+      "title": "民法"
+    },
+    {
+      "name": "民法",
+      "label": "第549条",
+      "law_id": "129AC0000000089",
+      "article": "549",
+      "sha256": "f4794f5a5e95d7e3d77d677d2527d30598a602ba1ecf8d36b32885d9d9e2da88",
+      "title": "民法"
     }
   ],
   "policies": [

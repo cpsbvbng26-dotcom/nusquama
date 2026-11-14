@@ -1,0 +1,32 @@
+name: 連絡先の形の文字を伏せる
+
+# issue とコメントが書かれたり直されたりすると、連絡先の形をした文字（メールアドレス・電話番号・郵便番号などの形）を数え、
+# 運営者と bot のもののほかは、その文字だけを決まった語に替えて、ラベルと数だけのコメントを置く（tools/personal.js）。
+# 決まった正規表現で見るだけで、言語モデルも外のサービスも使わない。外へ出す要求は GitHub の API だけである。
+# issue の文は、シェルにも環境変数にも入れない。tools/personal.js が出来事のファイルと API から読み、記録には決まった語と数だけを出す。
+on:
+  issues:
+    types: [opened, edited, reopened]
+  issue_comment:
+    types: [created, edited]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: personal-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  mask:
+    name: 連絡先の形の文字を数え、伏せる
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: node tools/personal.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
