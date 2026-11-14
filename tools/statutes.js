@@ -10,7 +10,7 @@
  *
  * On a schedule or by hand, a change is proposed as a pull request from the branch statutes/record: the new values,
  * the new texts, and the difference of each text in the description. The operator reads it and records it by the
- * label of tools/record.js (Sophaxis: `record`; Nusquama: `記す`), which runs the checks on the merged result first. Nothing reaches main otherwise.
+ * label of tools/record.js (Nusquama: `記す`), which runs the checks on the merged result first. Nothing reaches main otherwise.
  * A fetch that fails or an article that is gone opens (or updates) one issue; when everything matches again, it closes.
  * On a pull request it only prints, and fails on a difference.
  *
@@ -94,7 +94,7 @@ async function main() {
     } catch (err) { Object.assign(r, { state: 'failed', note: String(err.message || err) }); }
     results.push(r);
   }
-  /* The privacy statements of the services that handle data (Sophaxis: Vercel's request logs, Apple's mailbox):
+  /* The privacy statements of the services that handle data (where a repository lists any):
    * the date each gives for its last update. A new date means the operator reads the statement again (APPI Article 25). */
   for (const [i, e] of (CONF.pages || []).entries()) {
     const r = { kind: 'page', i, label: e.name };
