@@ -5,8 +5,14 @@
   <id>https://nusquama.vercel.app/gazette.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/gazette.xml"/>
   <link href="https://nusquama.vercel.app/gazette.html"/>
-  <updated>2026-11-13T00:00:00+09:00</updated>
+  <updated>2026-11-14T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g87</id>
+    <title>第 87 号　年表：運営理念・声明の、いまの事実を述べる文に「現在」を付け、頭に「現在」がいつかを定める一文を置く。README の写しも同じにする。約束と定めと語の意味の文には付けない</title>
+    <link href="https://nusquama.vercel.app/gazette/87.html"/>
+    <updated>2026-11-14T00:00:00+09:00</updated>
+  </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g86</id>
     <title>第 86 号　年表：運営理念・声明を置き、トップの頁と規程の一覧からつなぐ。叙任の規程に、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人・住む人・願い出のときにいる人は願い出ることができないことと、そう判断したときはその国や地域と理由を書き足すことを書き、利用規約で予告する</title>
