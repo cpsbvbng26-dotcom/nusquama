@@ -1,0 +1,71 @@
+{
+ "ua": "nusquama (https://github.com/cpsbvbng26-dotcom/nusquama)",
+ "pages": [
+  {
+   "key": "microwiki-jp-article",
+   "url": "https://jp.micronations.wiki/wiki/Nusquama",
+   "kw": "利用規約|terms|ライセンス|licen|CC BY|プライバシー",
+   "links": "規約|terms|licen|privacy|プライバシー|免責|about|概要",
+   "max": 10
+  },
+  {
+   "key": "microwiki-jp-terms",
+   "url": "https://jp.micronations.wiki/wiki/MicroWiki:利用規約",
+   "all": 12000
+  },
+  {
+   "key": "microwiki-terms",
+   "url": "https://micronations.wiki/wiki/MicroWiki:Terms_of_Use",
+   "alt": "https://web.archive.org/web/2026id_/https://micronations.wiki/wiki/MicroWiki:Terms_of_Use",
+   "all": 12000,
+   "links": "terms|licen|privacy|polic"
+  },
+  {
+   "key": "microwiki-general-disclaimer",
+   "url": "https://jp.micronations.wiki/wiki/MicroWiki:免責事項",
+   "all": 6000
+  },
+  {
+   "key": "x-tos",
+   "url": "https://x.com/en/tos",
+   "alt": "https://web.archive.org/web/2026id_/https://x.com/en/tos",
+   "kw": "automat|scrap|crawl|age|13|license|Japan|governing|court",
+   "max": 20
+  }
+ ],
+ "egovFind": "勲章|褒章|栄典|位階|叙勲|電子消費者契約|日本国憲法|特定電気通信による情報の流通",
+ "egov": [
+  {
+   "id": "321CONSTITUTION",
+   "arts": [
+    "7",
+    "14"
+   ],
+   "cap": 1500
+  },
+  {
+   "id": "413AC0000000095",
+   "cap": 3000
+  },
+  {
+   "id": "413AC0000000137",
+   "arts": [
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17"
+   ],
+   "cap": 2500
+  }
+ ],
+ "egovPrint": "勲章|褒章|栄典|位階|叙勲"
+}
