@@ -3,24 +3,14 @@
  "decided": "2026-11-12 に Claude が決めました。",
  "spans_only": {
   "constitute": "Constitute Project の英語の文。多くは私的な団体が作った訳で、著作権法第13条第4号の、国の機関が作成する翻訳物に当たらない。英語が原文の国の文も、同じ所在から同じ形で取るので、同じに扱う。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-12 に Claude が決めました。",
-  "KOR-pipa": "韓国法制研究院の英訳。記録の上では政府の研究機関で、著作権法第13条第4号の国の機関に当たるかを確かめられないので、狭い読み方を採る。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-12 に Claude が決めました。",
-  "CHE-fadp": "スイス連邦官房の英訳。スイスの公用語の文ではなく、法的な効力のない訳である。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。",
-  "CHN-pipl": "全国人民代表大会の英訳。中国の法令の原文の言語の文ではない。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。",
-  "LVA-crim": "Likumi.lv の英訳。ラトビアの法令の原文の言語の文ではない。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。",
-  "LVA-pd": "Likumi.lv の英訳。ラトビアの法令の原文の言語の文ではない。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。",
-  "SAU-pdpl": "サウジアラビアのデータ・人工知能庁の英訳。サウジアラビアの法令の原文の言語の文ではない。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。",
-  "THA-pdpa": "タイの電子取引開発庁の英訳で、訳に「(Unofficial Translation)」とある。タイの法令の原文の言語の文ではない。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。",
-  "TUR-kvkk": "トルコの個人データ保護庁の英訳。トルコの法令の原文の言語の文ではない。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。",
-  "QAT-pdpl": "カタールの法務省の Al Meezan の英訳。カタールの法令の原文の言語の文ではない。取り寄せられておらず、条は記していないが、取り寄せたときのために同じに扱う。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。"
+  "LVA-crim": "Likumi.lv の英訳。ラトビアの法令の原文の言語の文ではない。著作権法第13条第4号が権利の目的としない翻訳物は、日本の国若しくは地方公共団体の機関、独立行政法人又は地方独立行政法人が作成するものに限られ、外国の政府や機関の訳は入らない。文は記さず、拠った箇所と全文の SHA-256 だけを記す。2026-11-13 に Claude が決めました。"
  },
  "topics": {
   "honours": "称号・爵位・栄典・勲章・騎士団：創設、授与、外国や承認されていない団体からの受領、不正な使用や着用、国の記章の模倣",
   "sovereignty": "主権・分離・領土の一体性・承認されていない国家・国家や公の機関を装うこと",
   "symbols": "国旗・紋章・国のしるし（模倣、不正な使用）",
   "fraud": "詐欺・称号の売買・消費者を誤らせること（無料の役務を含む）",
-  "data": "個人データの保護（域外適用・代理人・国外移転・未成年）",
-  "defamation": "名誉毀損と第三者の情報の公開",
-  "quotation": "著作権の引用の例外（ベルヌ条約第10条の国内法化）。Sophaxis の実務が拠る範囲だけ"
+  "defamation": "名誉毀損と第三者の情報の公開"
  },
  "keywords": {
   "honours": {
@@ -79,20 +69,6 @@
    "sv": "(?<![\\p{L}])(?:bedrägeri\\p{L}*|vilsele\\p{L}*|konsument\\p{L}*)(?![\\p{L}])",
    "da": "(?<![\\p{L}])(?:bedrageri\\p{L}*|vildled\\p{L}*|forbruger\\p{L}*)(?![\\p{L}])"
   },
-  "data": {
-   "en": "(?<![\\p{L}])(?:personal data|personal information|data protection|protection of (?:personal )?data|habeas data|data subjects?|privacy|private life|informational self-determination|data controllers?)(?![\\p{L}])",
-   "es": "(?<![\\p{L}])(?:datos personales|datos de car[áa]cter personal|protecci[óo]n de (?:los )?datos|h[áa]beas data|intimidad|vida privada|autodeterminaci[óo]n informativa)(?![\\p{L}])",
-   "pt": "(?<![\\p{L}])(?:dados pessoais|prote[çc][ãa]o de dados|habeas data|intimidade|vida privada)(?![\\p{L}])",
-   "fr": "(?<![\\p{L}])(?:donn[ée]es (?:[àa] caract[èe]re )?personnelles|protection des donn[ée]es|vie priv[ée]e|intimit[ée])(?![\\p{L}])",
-   "it": "(?<![\\p{L}])(?:dati personali|protezione dei dati|riservatezza|vita privata)(?![\\p{L}])",
-   "de": "(?<![\\p{L}])(?:personenbezogene\\p{L}* Daten|Datenschutz\\p{L}*|Privatsphäre|Privatleben|informationelle\\p{L}* Selbstbestimmung)(?![\\p{L}])",
-   "nl": "(?<![\\p{L}])(?:persoonsgegevens|gegevensbescherming|persoonlijke levenssfeer|privacy)(?![\\p{L}])",
-   "nb": "(?<![\\p{L}])(?:personopplysning\\p{L}*|personvern\\p{L}*|privatliv\\p{L}*)(?![\\p{L}])",
-   "ru": "(?<![\\p{L}])(?:персональн\\p{L}* данн\\p{L}*|частн\\p{L}* жизн\\p{L}*|неприкосновенност\\p{L}* частной)(?![\\p{L}])",
-   "ja": "個人情報|個人データ|プライバシ|秘密を漏|私生活|通信の秘密",
-   "sv": "(?<![\\p{L}])(?:personuppgift\\p{L}*|privatliv\\p{L}*|integritetsskydd)(?![\\p{L}])",
-   "da": "(?<![\\p{L}])(?:personoplysning\\p{L}*|privatliv\\p{L}*)(?![\\p{L}])"
-  },
   "defamation": {
    "en": "(?<![\\p{L}])(?:defam\\p{L}*|libel\\p{L}*|slander\\p{L}*|insult\\p{L}*|calumn\\p{L}*|reputations?|good name|honou?r and (?:dignity|reputation)|(?:dignity|reputation) and honou?r)(?![\\p{L}])",
    "es": "(?<![\\p{L}])(?:injuria\\p{L}*|calumnia\\p{L}*|difamaci\\p{L}*|difamator\\p{L}*|honra|honor|reputaci[óo]n|buen nombre)(?![\\p{L}])",
@@ -106,32 +82,7 @@
    "ja": "名誉|侮辱|信用|毀損|事実を摘示|謝罪広告",
    "sv": "(?<![\\p{L}])(?:förtal\\p{L}*|förolämpning\\p{L}*|ärekränk\\p{L}*|anseende)(?![\\p{L}])",
    "da": "(?<![\\p{L}])(?:ærekrænk\\p{L}*|freds- og ærekrænk\\p{L}*|omdømme|ære)(?![\\p{L}])"
-  },
-  "quotation": {
-   "en": "(?<![\\p{L}])(?:quotations?|quot(?:e|es|ed|ing)|fair dealing|fair use)(?![\\p{L}])",
-   "es": "(?<![\\p{L}])(?:derecho de cita|citas?|citar)(?![\\p{L}])",
-   "pt": "(?<![\\p{L}])(?:cita[çc](?:ão|ões)|citar)(?![\\p{L}])",
-   "fr": "(?<![\\p{L}])(?:citations?|courtes citations)(?![\\p{L}])",
-   "it": "(?<![\\p{L}])(?:citazion\\p{L}*|riassunto)(?![\\p{L}])",
-   "de": "(?<![\\p{L}])(?:Zitat\\p{L}*|zitier\\p{L}*)(?![\\p{L}])",
-   "nl": "(?<![\\p{L}])(?:citaat|citaten|citeren|aanhaling\\p{L}*)(?![\\p{L}])",
-   "nb": "(?<![\\p{L}])(?:sitat\\p{L}*|siter\\p{L}*)(?![\\p{L}])",
-   "ru": "(?<![\\p{L}])(?:цитирован\\p{L}*|в цитатах)(?![\\p{L}])",
-   "ja": "引用|転載",
-   "sv": "(?<![\\p{L}])(?:citat\\p{L}*|citera\\p{L}*)(?![\\p{L}])",
-   "da": "(?<![\\p{L}])(?:citat\\p{L}*|citere\\p{L}*)(?![\\p{L}])"
   }
- },
- "keywords_dp": {
-  "en": "(?<![\\p{L}])(?:territorial scope|extra-?territorial\\p{L}*|outside (?:of )?(?:the )?(?:Union|Republic|Kingdom|country|territory|State|Philippines|India|Kenya|Singapore|Canada|Australia|New Zealand)|not established|established (?:in|outside)|designate[sd]? (?:a |an )?representatives?|representatives? (?:in|within) (?:the )?(?:Union|United Kingdom|Republic|country|territory|Kingdom)|transfer\\p{L}* (?:of )?(?:personal (?:data|information) )?(?:to|outside|abroad|across)|cross-border|third countr\\p{L}*|overseas|abroad|foreign (?:country|countries|jurisdiction|entit\\p{L}*|organi[sz]ation\\p{L}*|person\\p{L}*)|child\\p{L}*|minors?|under the age|parental|register(?:ed)? with|registration|locali[sz]\\p{L}*|journalis\\p{L}*|academic)(?![\\p{L}])",
-  "ja": "外国|国外|域外|適用の範囲|適用除外|代理人|未成年|十六歳|十八歳|子ども|児童|学術研究|報道|著述|届出|定義",
-  "es": "(?<![\\p{L}])(?:transferencias? internacional\\p{L}*|fuera del territorio|[áa]mbito (?:territorial|de aplicaci[óo]n)|no establecid\\p{L}*|establecid\\p{L}* fuera|representante\\p{L}* (?:en|del responsable)|menor\\p{L}* de (?:edad|\\d+)|niñ\\p{L}*|adolescent\\p{L}*|registr\\p{L}* (?:de|ante) (?:la|el)|period[íi]stic\\p{L}*|extranjer\\p{L}*)(?![\\p{L}])",
-  "pt": "(?<![\\p{L}])(?:transfer[êe]ncia internacional|territ[óo]rio nacional|[âa]mbito|estrangeir\\p{L}*|representante\\p{L}*|encarregado|crian[çc]a\\p{L}*|adolescente\\p{L}*|jornal[íi]stic\\p{L}*|acad[êe]mic\\p{L}*)(?![\\p{L}])",
-  "fr": "(?<![\\p{L}])(?:transferts?|pays tiers|hors (?:du territoire|de la principaut[ée]|de l.Union)|(?:non )?[ée]tabli\\p{L}* (?:sur le territoire|hors|dans un)|champ d.application|repr[ée]sentant\\p{L}* (?:sur|dans|[ée]tabli)|mineur\\p{L}*|enfants?|journalisti\\p{L}*)(?![\\p{L}])",
-  "de": "(?<![\\p{L}])(?:Anwendungsbereich|Drittl[aä]nd\\p{L}*|Vertreter\\p{L}* (?:in|im|innerhalb)|[Mm]inderjährig\\p{L}*|Kind\\p{L}*|außerhalb|niedergelassen\\p{L}*|journalistisch\\p{L}*)(?![\\p{L}])",
-  "nl": "(?<![\\p{L}])(?:toepassingsgebied|derde land\\p{L}*|doorgifte|vertegenwoordiger\\p{L}*|minderjarig\\p{L}*|jonger dan|kinderen|journalisti\\p{L}*)(?![\\p{L}])",
-  "nb": "(?<![\\p{L}])(?:virkeområde|stedlig\\p{L}*|tredjeland\\p{L}*|overføring\\p{L}* (?:til|av)|representant\\p{L}*|barn|mindreårig\\p{L}*|journalisti\\p{L}*)(?![\\p{L}])",
-  "ru": "(?<![\\p{L}])(?:территори\\p{L}* Российской|за пределами|трансграничн\\p{L}*|иностран\\p{L}* (?:государств\\p{L}*|лиц\\p{L}*|физическ\\p{L}*|юридическ\\p{L}*)|представител\\p{L}*|несовершеннолет\\p{L}*|граждан\\p{L}* Российской Федерации|баз\\p{L}* данных, находящ\\p{L}*)(?![\\p{L}])"
  },
  "constitute": {
   "names": {
@@ -267,9 +218,7 @@
     "sovereignty",
     "symbols",
     "fraud",
-    "data",
-    "defamation",
-    "quotation"
+    "defamation"
    ],
    "title": "日本国憲法",
    "format": "egov",
@@ -289,9 +238,7 @@
     "sovereignty",
     "symbols",
     "fraud",
-    "data",
-    "defamation",
-    "quotation"
+    "defamation"
    ],
    "title": "民法",
    "format": "egov",
@@ -310,9 +257,7 @@
     "sovereignty",
     "symbols",
     "fraud",
-    "data",
-    "defamation",
-    "quotation"
+    "defamation"
    ],
    "title": "刑法",
    "format": "egov",
@@ -331,9 +276,7 @@
     "sovereignty",
     "symbols",
     "fraud",
-    "data",
-    "defamation",
-    "quotation"
+    "defamation"
    ],
    "title": "商法",
    "format": "egov",
@@ -352,9 +295,7 @@
     "sovereignty",
     "symbols",
     "fraud",
-    "data",
-    "defamation",
-    "quotation"
+    "defamation"
    ],
    "title": "民事訴訟法",
    "format": "egov",
@@ -373,29 +314,11 @@
     "sovereignty",
     "symbols",
     "fraud",
-    "data",
-    "defamation",
-    "quotation"
+    "defamation"
    ],
    "title": "刑事訴訟法",
    "format": "egov",
    "official": "e-Gov 法令検索（デジタル庁、公式）"
-  },
-  {
-   "id": "JPN-appi",
-   "countries": [
-    "JPN"
-   ],
-   "instrument": "個人情報の保護に関する法律",
-   "url": "https://laws.e-gov.go.jp/api/1/lawdata/415AC0000000057",
-   "lang": "ja",
-   "topics": [
-    "data"
-   ],
-   "title": "個人情報の保護に関する法律",
-   "format": "egov",
-   "official": "e-Gov 法令検索（デジタル庁、公式）",
-   "dp": true
   },
   {
    "id": "JPN-keihanzai",
@@ -454,21 +377,6 @@
    }
   },
   {
-   "id": "JPN-chosaku",
-   "countries": [
-    "JPN"
-   ],
-   "instrument": "著作権法",
-   "url": "https://laws.e-gov.go.jp/api/1/lawdata/345AC0000000048",
-   "lang": "ja",
-   "topics": [
-    "quotation"
-   ],
-   "title": "著作権法",
-   "format": "egov",
-   "official": "e-Gov 法令検索（デジタル庁、公式）"
-  },
-  {
    "id": "JPN-shohisha",
    "countries": [
     "JPN"
@@ -495,8 +403,7 @@
    "url": "https://laws.e-gov.go.jp/api/1/lawdata/413AC0000000137",
    "lang": "ja",
    "topics": [
-    "defamation",
-    "data"
+    "defamation"
    ],
    "title": "情報の流通",
    "format": "egov",
@@ -517,72 +424,6 @@
    "title": "国籍法",
    "format": "egov",
    "official": "e-Gov 法令検索（デジタル庁、公式）"
-  },
-  {
-   "id": "EU-gdpr",
-   "countries": [
-    "AUT",
-    "BEL",
-    "BGR",
-    "HRV",
-    "CYP",
-    "CZE",
-    "DNK",
-    "EST",
-    "FIN",
-    "FRA",
-    "DEU",
-    "GRC",
-    "HUN",
-    "IRL",
-    "ITA",
-    "LVA",
-    "LTU",
-    "LUX",
-    "MLT",
-    "NLD",
-    "POL",
-    "PRT",
-    "ROU",
-    "SVK",
-    "SVN",
-    "ESP",
-    "SWE",
-    "ISL",
-    "LIE",
-    "NOR"
-   ],
-   "instrument": "Regulation (EU) 2016/679 (General Data Protection Regulation)",
-   "url": "https://publications.europa.eu/resource/celex/32016R0679",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Regulation \\(EU\\) 2016/679",
-   "accept": "application/xhtml+xml, text/html;q=0.9",
-   "accept_lang": "eng",
-   "group": "EU",
-   "official": "EU 刊行局 Cellar（公式）",
-   "note": "EEA 協定により、アイスランド・リヒテンシュタイン・ノルウェーにも及ぶ",
-   "dp": true
-  },
-  {
-   "id": "JPN-berne",
-   "countries": [
-    "JPN"
-   ],
-   "instrument": "Berne Convention for the Protection of Literary and Artistic Works (Paris Act 1971)",
-   "url": "https://www.law.cornell.edu/treaties/berne/10.html",
-   "lang": "en",
-   "topics": [
-    "quotation"
-   ],
-   "title": "Berne",
-   "format": "section",
-   "start": "Article 10 \\(1\\)",
-   "end": "Article 10bis",
-   "article": "Article 10",
-   "official": "Cornell LII による条約の写し（公式ではない）"
   },
   {
    "id": "GBR-honours",
@@ -630,39 +471,6 @@
    "title": "Defamation Act 2013",
    "format": "clml",
    "official": "legislation.gov.uk（The National Archives、公式）"
-  },
-  {
-   "id": "GBR-dpa",
-   "countries": [
-    "GBR"
-   ],
-   "instrument": "Data Protection Act 2018",
-   "url": "https://www.legislation.gov.uk/ukpga/2018/12/data.xml",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection Act 2018",
-   "format": "clml",
-   "official": "legislation.gov.uk（The National Archives、公式）",
-   "dp": true
-  },
-  {
-   "id": "GBR-ukgdpr",
-   "countries": [
-    "GBR"
-   ],
-   "instrument": "UK GDPR (retained Regulation (EU) 2016/679)",
-   "url": "https://www.legislation.gov.uk/eur/2016/679/data.xml",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "2016/679",
-   "format": "clml",
-   "label": "Article",
-   "official": "legislation.gov.uk（The National Archives、公式）",
-   "dp": true
   },
   {
    "id": "GBR-tma",
@@ -850,24 +658,6 @@
    "official": "govinfo（米国政府出版局、公式）"
   },
   {
-   "id": "USA-15-6502",
-   "countries": [
-    "USA"
-   ],
-   "instrument": "15 U.S.C. § 6502 (Children's online privacy protection)",
-   "url": "https://www.govinfo.gov/link/uscode/15/6502?link-type=html",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "format": "section",
-   "start": "§\\s*6502\\.",
-   "end": "\\(\\w+\\.? \\d{1,2}, \\d{4}|Editorial Notes|HISTORICAL AND REVISION NOTES|Historical and Revision Notes|Amendments",
-   "article": "15 U.S.C. § 6502",
-   "official": "govinfo（米国政府出版局、公式）",
-   "dp": true
-  },
-  {
    "id": "CAN-criminal",
    "countries": [
     "CAN"
@@ -885,22 +675,6 @@
    "title": "Criminal Code",
    "format": "canada",
    "official": "Justice Laws Website（カナダ司法省、公式）"
-  },
-  {
-   "id": "CAN-pipeda",
-   "countries": [
-    "CAN"
-   ],
-   "instrument": "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)",
-   "url": "https://laws-lois.justice.gc.ca/eng/XML/P-8.6.xml",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Information Protection",
-   "format": "canada",
-   "official": "Justice Laws Website（カナダ司法省、公式）",
-   "dp": true
   },
   {
    "id": "CAN-tma",
@@ -932,22 +706,6 @@
    "title": "Competition Act",
    "format": "canada",
    "official": "Justice Laws Website（カナダ司法省、公式）"
-  },
-  {
-   "id": "AUS-privacy",
-   "countries": [
-    "AUS"
-   ],
-   "instrument": "Privacy Act 1988",
-   "url": "https://www.legislation.gov.au/C2004A03712/latest/text",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Privacy Act 1988",
-   "format": "numbered",
-   "official": "Federal Register of Legislation（豪州政府、公式）",
-   "dp": true
   },
   {
    "id": "AUS-criminal",
@@ -1005,22 +763,6 @@
    ]
   },
   {
-   "id": "NZL-privacy",
-   "countries": [
-    "NZL"
-   ],
-   "instrument": "Privacy Act 2020",
-   "url": "https://www.legislation.govt.nz/act/public/2020/0031/latest/whole.html",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Privacy Act 2020",
-   "format": "numbered",
-   "official": "New Zealand Legislation（議会顧問局、公式）",
-   "dp": true
-  },
-  {
    "id": "NZL-crimes",
    "countries": [
     "NZL"
@@ -1058,25 +800,6 @@
    "official": "New Zealand Legislation（議会顧問局、公式）",
    "alt": [
     "https://legislation.govt.nz/act/public/1992/0105/latest/whole.html"
-   ]
-  },
-  {
-   "id": "IRL-dpa",
-   "countries": [
-    "IRL"
-   ],
-   "instrument": "Data Protection Act 2018",
-   "url": "https://www.irishstatutebook.ie/eli/2018/act/7/enacted/en/html",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection Act 2018",
-   "official": "Irish Statute Book（司法長官府、公式。制定時の文）",
-   "dp": true,
-   "alt": [
-    "https://revisedacts.lawreform.ie/eli/2018/act/7/revised/en/html",
-    "https://www.irishstatutebook.ie/eli/2018/act/7/enacted/en/pdf"
    ]
   },
   {
@@ -1170,21 +893,6 @@
    "official": "Gesetze im Internet（連邦司法省、公式）"
   },
   {
-   "id": "DEU-bdsg",
-   "countries": [
-    "DEU"
-   ],
-   "instrument": "Bundesdatenschutzgesetz (BDSG)",
-   "url": "https://www.gesetze-im-internet.de/bdsg_2018/BJNR209710017.html",
-   "lang": "de",
-   "topics": [
-    "data"
-   ],
-   "title": "Bundesdatenschutzgesetz",
-   "official": "Gesetze im Internet（連邦司法省、公式）",
-   "dp": true
-  },
-  {
    "id": "DEU-uwg",
    "countries": [
     "DEU"
@@ -1224,24 +932,6 @@
    ]
   },
   {
-   "id": "AUT-dsg",
-   "countries": [
-    "AUT"
-   ],
-   "instrument": "Datenschutzgesetz (DSG)",
-   "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597",
-   "lang": "de",
-   "topics": [
-    "data"
-   ],
-   "title": "Datenschutzgesetz",
-   "official": "RIS（連邦首相府、公式）",
-   "dp": true,
-   "alt": [
-    "https://www.ris.bka.gv.at/GeltendeFassung/Bundesnormen/10001597/DSG%2c%20Fassung%20vom%2012.11.2026.pdf"
-   ]
-  },
-  {
    "id": "AUT-adelaufhg",
    "countries": [
     "AUT"
@@ -1266,21 +956,6 @@
    "note": "憲法の第149条が憲法の法律とみなす法律。2026-11-13 に、第149条を一つずつ読み直すために足した。所在は、RIS の公開データの API（data.bka.gv.at）が答えた、この法律（Gesetzesnummer 10000036）の効力のある条（§ 1 から § 5 と § 7）の文書で、公開データの所在（ogd.ris.bka.gv.at）にある。§ 6 と前の版の § 5 は、API が効力を失ったと答えたので入れない。www.ris.bka.gv.at と、ogd.ris.bka.gv.at の法令全体の頁は、Actions からの求めに 503 を返した"
   },
   {
-   "id": "CHE-fadp",
-   "countries": [
-    "CHE"
-   ],
-   "instrument": "Federal Act on Data Protection (FADP) (English translation)",
-   "url": "https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20230901/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20230901-en-html-5.html",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection",
-   "official": "Fedlex（連邦官房、公式。英訳は法的効力のない訳）",
-   "dp": true
-  },
-  {
    "id": "NLD-sr",
    "countries": [
     "NLD"
@@ -1300,22 +975,6 @@
    "strip": "Toon relaties in LiDO Maak een permanente link Toon wetstechnische informatie \\.\\.\\. Druk het regelingonderdeel af Sla het regelingonderdeel op"
   },
   {
-   "id": "NLD-uavg",
-   "countries": [
-    "NLD"
-   ],
-   "instrument": "Uitvoeringswet Algemene verordening gegevensbescherming",
-   "url": "https://wetten.overheid.nl/BWBR0040940/",
-   "lang": "nl",
-   "topics": [
-    "data"
-   ],
-   "title": "gegevensbescherming",
-   "official": "wetten.overheid.nl（内務省、公式）",
-   "strip": "Toon relaties in LiDO Maak een permanente link Toon wetstechnische informatie \\.\\.\\. Druk het regelingonderdeel af Sla het regelingonderdeel op",
-   "dp": true
-  },
-  {
    "id": "ESP-cp",
    "countries": [
     "ESP"
@@ -1332,21 +991,6 @@
    ],
    "title": "Código Penal",
    "official": "BOE（官報、公式の統合版）"
-  },
-  {
-   "id": "ESP-lopdgdd",
-   "countries": [
-    "ESP"
-   ],
-   "instrument": "Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales",
-   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "Protección de Datos Personales",
-   "official": "BOE（官報、公式の統合版）",
-   "dp": true
   },
   {
    "id": "ESP-lcd",
@@ -1444,21 +1088,6 @@
    "official": "Lovdata（公式の法令データベース）"
   },
   {
-   "id": "NOR-popplyl",
-   "countries": [
-    "NOR"
-   ],
-   "instrument": "Lov om behandling av personopplysninger (personopplysningsloven)",
-   "url": "https://lovdata.no/dokument/NL/lov/2018-06-15-38",
-   "lang": "nb",
-   "topics": [
-    "data"
-   ],
-   "title": "personopplysning",
-   "official": "Lovdata（公式の法令データベース）",
-   "dp": true
-  },
-  {
    "id": "SWE-brb",
    "countries": [
     "SWE"
@@ -1499,74 +1128,6 @@
    ]
   },
   {
-   "id": "RUS-152",
-   "countries": [
-    "RUS"
-   ],
-   "instrument": "Федеральный закон № 152-ФЗ «О персональных данных»",
-   "url": [
-    "http://www.kremlin.ru/acts/bank/24154/page/1",
-    "http://www.kremlin.ru/acts/bank/24154/page/2",
-    "http://www.kremlin.ru/acts/bank/24154/page/3",
-    "http://www.kremlin.ru/acts/bank/24154/page/4"
-   ],
-   "lang": "ru",
-   "topics": [
-    "data"
-   ],
-   "title": "персональных данных",
-   "official": "大統領府（公式）",
-   "dp": true
-  },
-  {
-   "id": "KAZ-pd",
-   "countries": [
-    "KAZ"
-   ],
-   "instrument": "Закон Республики Казахстан «О персональных данных и их защите» № 94-V",
-   "url": "https://adilet.zan.kz/rus/docs/Z1300000094",
-   "lang": "ru",
-   "topics": [
-    "data"
-   ],
-   "title": "персональных данных",
-   "official": "Adilet（法務省、公式）",
-   "dp": true,
-   "alt": [
-    "https://adilet.zan.kz/rus/docs/Z1300000094/z130094.htm"
-   ]
-  },
-  {
-   "id": "TUR-kvkk",
-   "countries": [
-    "TUR"
-   ],
-   "instrument": "Law on the Protection of Personal Data No. 6698 (English translation)",
-   "url": "https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data",
-   "official": "個人データ保護庁（公式の英訳）",
-   "dp": true
-  },
-  {
-   "id": "MCO-1565",
-   "countries": [
-    "MCO"
-   ],
-   "instrument": "Loi n° 1.565 du 3 décembre 2024 relative à la protection des données personnelles",
-   "url": "https://legimonaco.mc/tnc/loi/2024/12-03-1.565/",
-   "lang": "fr",
-   "topics": [
-    "data"
-   ],
-   "title": "donn[ée]es",
-   "official": "Legimonaco（政府、公式）",
-   "dp": true
-  },
-  {
    "id": "MLT-cc",
    "countries": [
     "MLT"
@@ -1588,21 +1149,6 @@
    ]
   },
   {
-   "id": "MLT-dpa",
-   "countries": [
-    "MLT"
-   ],
-   "instrument": "Data Protection Act (Cap. 586)",
-   "url": "https://legislation.mt/eli/cap/586/eng/pdf",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "DATA PROTECTION",
-   "official": "legislation.mt（公式）",
-   "dp": true
-  },
-  {
    "id": "LVA-crim",
    "countries": [
     "LVA"
@@ -1619,21 +1165,6 @@
    ],
    "title": "Criminal Law",
    "official": "Likumi.lv（官報、公式の英訳）"
-  },
-  {
-   "id": "LVA-pd",
-   "countries": [
-    "LVA"
-   ],
-   "instrument": "Personal Data Processing Law (English translation)",
-   "url": "https://likumi.lv/ta/en/en/id/300099",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data",
-   "official": "Likumi.lv（官報、公式の英訳）",
-   "dp": true
   },
   {
    "id": "FRA-cp",
@@ -1654,24 +1185,6 @@
    "official": "Légifrance（政府、公式）",
    "alt": [
     "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006070719/"
-   ]
-  },
-  {
-   "id": "FRA-cil",
-   "countries": [
-    "FRA"
-   ],
-   "instrument": "Loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés",
-   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460",
-   "lang": "fr",
-   "topics": [
-    "data"
-   ],
-   "title": "informatique",
-   "official": "Légifrance（政府、公式）",
-   "dp": true,
-   "alt": [
-    "https://www.cnil.fr/fr/la-loi-informatique-et-libertes"
    ]
   },
   {
@@ -1705,21 +1218,6 @@
    ],
    "title": "C[ÓO]DIGO PENAL FEDERAL",
    "official": "Cámara de Diputados（連邦議会下院、公式の PDF）"
-  },
-  {
-   "id": "MEX-lfpdppp",
-   "countries": [
-    "MEX"
-   ],
-   "instrument": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares",
-   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "DATOS PERSONALES",
-   "official": "Cámara de Diputados（連邦議会下院、公式の PDF）",
-   "dp": true
   },
   {
    "id": "MEX-lebhn",
@@ -1766,40 +1264,6 @@
    ],
    "title": "CODIGO PENAL",
    "official": "InfoLEG（経済省、公式）"
-  },
-  {
-   "id": "ARG-25326",
-   "countries": [
-    "ARG"
-   ],
-   "instrument": "Ley 25.326 de Protección de los Datos Personales",
-   "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "DATOS PERSONALES",
-   "official": "InfoLEG（経済省、公式）",
-   "dp": true
-  },
-  {
-   "id": "BRA-lgpd",
-   "countries": [
-    "BRA"
-   ],
-   "instrument": "Lei nº 13.709/2018 (LGPD), publicação original",
-   "url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-publicacaooriginal-156212-pl.html",
-   "lang": "pt",
-   "topics": [
-    "data"
-   ],
-   "title": "Lei Geral de Prote",
-   "official": "Câmara dos Deputados（下院、制定時の文）",
-   "dp": true,
-   "alt": [
-    "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm",
-    "https://normas.leg.br/?urn=urn:lex:br:federal:lei:2018-08-14;13709"
-   ]
   },
   {
    "id": "BRA-cp",
@@ -1880,170 +1344,6 @@
    "official": "Ley Chile（国会図書館、公式）"
   },
   {
-   "id": "CHL-19628",
-   "countries": [
-    "CHL"
-   ],
-   "instrument": "Ley 19.628 sobre protección de la vida privada",
-   "url": "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=141599",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "VIDA PRIVADA",
-   "official": "Ley Chile（国会図書館、公式）",
-   "dp": true
-  },
-  {
-   "id": "COL-1581",
-   "countries": [
-    "COL"
-   ],
-   "instrument": "Ley 1581 de 2012 (protección de datos personales)",
-   "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "1581",
-   "official": "Secretaría del Senado（上院、公式）",
-   "dp": true
-  },
-  {
-   "id": "URY-18331",
-   "countries": [
-    "URY"
-   ],
-   "instrument": "Ley 18.331 de protección de datos personales",
-   "url": "https://www.impo.com.uy/bases/leyes/18331-2008",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "18331|18.331",
-   "official": "IMPO（官報、公式）",
-   "dp": true
-  },
-  {
-   "id": "CRI-8968",
-   "countries": [
-    "CRI"
-   ],
-   "instrument": "Ley 8968 de Protección de la Persona frente al tratamiento de sus datos personales",
-   "url": "http://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?param1=NRTC&nValor1=1&nValor2=70975",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "datos personales",
-   "official": "SCIJ（検事総長府、公式）",
-   "dp": true,
-   "alt": [
-    "http://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?param1=NRTC&nValor1=1&nValor2=70975&nValor3=85989&strTipM=TC"
-   ]
-  },
-  {
-   "id": "KOR-pipa",
-   "countries": [
-    "KOR"
-   ],
-   "instrument": "Personal Information Protection Act (English translation)",
-   "url": "https://elaw.klri.re.kr/eng_service/lawViewContent.do?hseq=62389",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "PERSONAL INFORMATION PROTECTION ACT",
-   "official": "韓国法制研究院（政府の研究機関、法的効力のない英訳）",
-   "dp": true
-  },
-  {
-   "id": "CHN-pipl",
-   "countries": [
-    "CHN"
-   ],
-   "instrument": "Personal Information Protection Law (English translation)",
-   "url": [
-    "http://en.npc.gov.cn.cdurl.cn/2021-12/29/c_694559.htm",
-    "http://en.npc.gov.cn.cdurl.cn/2021-12/29/c_694559_2.htm",
-    "http://en.npc.gov.cn.cdurl.cn/2021-12/29/c_694559_3.htm"
-   ],
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Information Protection Law",
-   "official": "全国人民代表大会（英訳）",
-   "dp": true
-  },
-  {
-   "id": "IND-dpdp",
-   "countries": [
-    "IND"
-   ],
-   "instrument": "Digital Personal Data Protection Act, 2023",
-   "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "DIGITAL PERSONAL DATA PROTECTION",
-   "official": "PRS Legislative Research による官報の写し（公式ではない）",
-   "dp": true,
-   "alt": [
-    "https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf",
-    "https://egazette.gov.in/WriteReadData/2023/248045.pdf"
-   ]
-  },
-  {
-   "id": "THA-pdpa",
-   "countries": [
-    "THA"
-   ],
-   "instrument": "Personal Data Protection Act B.E. 2562 (2019) (English translation)",
-   "url": "https://www.etda.or.th/getattachment/e820df2c-848f-4e03-86cb-a9dad38cc713/ENG-Version.aspx",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data Protection",
-   "official": "電子取引開発庁（政府、法的効力のない英訳）",
-   "dp": true
-  },
-  {
-   "id": "SAU-pdpl",
-   "countries": [
-    "SAU"
-   ],
-   "instrument": "Personal Data Protection Law (English translation)",
-   "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/Personal%20Data%20English%20V2-23April2023-%20Reviewed-.pdf",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data",
-   "official": "SDAIA（政府、英訳）",
-   "dp": true
-  },
-  {
-   "id": "PHL-10173",
-   "countries": [
-    "PHL"
-   ],
-   "instrument": "Republic Act No. 10173 (Data Privacy Act of 2012)",
-   "url": "https://www.officialgazette.gov.ph/2012/08/15/republic-act-no-10173/",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "10173",
-   "official": "Official Gazette（政府、公式）",
-   "dp": true,
-   "alt": [
-    "https://privacy.gov.ph/data-privacy-act/"
-   ]
-  },
-  {
    "id": "PHL-rpc",
    "countries": [
     "PHL"
@@ -2060,62 +1360,6 @@
    ],
    "title": "Revised Penal Code",
    "official": "LawPhil（法情報の団体による写し、公式ではない）"
-  },
-  {
-   "id": "SGP-pdpa",
-   "countries": [
-    "SGP"
-   ],
-   "instrument": "Personal Data Protection Act 2012",
-   "url": "https://sso.agc.gov.sg/Act/PDPA2012",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data Protection Act",
-   "official": "Singapore Statutes Online（法務長官府、公式）",
-   "dp": true,
-   "alt": [
-    "https://sso.agc.gov.sg/Act/PDPA2012?WholeDoc=1"
-   ]
-  },
-  {
-   "id": "ZAF-popia",
-   "countries": [
-    "ZAF"
-   ],
-   "instrument": "Protection of Personal Information Act 4 of 2013",
-   "url": "https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Protection of Personal Information",
-   "official": "南アフリカ政府（官報の写し）",
-   "dp": true,
-   "alt": [
-    "https://inforegulator.org.za/wp-content/uploads/2020/07/InfoRegSA-POPIA-act2013-004.pdf",
-    "https://www.justice.gov.za/inforeg/docs/InfoRegSA-POPIA-act2013-004.pdf"
-   ]
-  },
-  {
-   "id": "KEN-dpa",
-   "countries": [
-    "KEN"
-   ],
-   "instrument": "Data Protection Act, 2019 (No. 24 of 2019)",
-   "url": "https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2022-12-31",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection",
-   "official": "Kenya Law（国家法律報告評議会、公式）",
-   "dp": true,
-   "alt": [
-    "http://kenyalaw.org/kl/fileadmin/pdfdownloads/Acts/2019/TheDataProtectionAct__No24of2019.pdf",
-    "https://www.odpc.go.ke/download/kenya-gazette-data-protection-act-2019/"
-   ]
   },
   {
    "id": "KEN-penal",
@@ -2139,58 +1383,6 @@
    ]
   },
   {
-   "id": "UGA-dppa",
-   "countries": [
-    "UGA"
-   ],
-   "instrument": "Data Protection and Privacy Act, 2019",
-   "url": "https://ulii.org/akn/ug/act/2019/9/eng@2019-05-03",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection and Privacy",
-   "official": "ULII（法情報機関による写し、公式ではない）",
-   "dp": true,
-   "alt": [
-    "https://ict.go.ug/wp-content/uploads/2019/03/Data-Protection-and-Privacy-Act-2019.pdf"
-   ]
-  },
-  {
-   "id": "ZMB-dpa",
-   "countries": [
-    "ZMB"
-   ],
-   "instrument": "Data Protection Act, 2021 (No. 3 of 2021)",
-   "url": "https://zambialii.org/akn/zm/act/2021/3/eng@2021-03-24",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection",
-   "official": "ZambiaLII（法情報機関による写し、公式ではない）",
-   "dp": true,
-   "alt": [
-    "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%203%20The%20Data%20Protection%20Act%202021_0.pdf"
-   ]
-  },
-  {
-   "id": "BEL-dp",
-   "countries": [
-    "BEL"
-   ],
-   "instrument": "Loi du 30 juillet 2018 relative à la protection des personnes physiques à l'égard des traitements de données à caractère personnel",
-   "url": "https://www.ejustice.just.fgov.be/eli/loi/2018/07/30/2018040581/justel",
-   "lang": "fr",
-   "topics": [
-    "data"
-   ],
-   "title": "protection des personnes physiques",
-   "official": "Justel（法務省、公式）",
-   "strip": "<(?:L|W|inséré|Inséré|Insérée|insérée|ingevoegd|Ingevoegd)\\b[^<>]{0,200}>|\\(inséré par <[^<>]{0,200}>\\)",
-   "dp": true
-  },
-  {
    "id": "BEL-cp",
    "countries": [
     "BEL"
@@ -2208,120 +1400,10 @@
    "title": "Code p[ée]nal",
    "official": "Justel（法務省、公式）",
    "strip": "<(?:L|W|inséré|Inséré|Insérée|insérée|ingevoegd|Ingevoegd)\\b[^<>]{0,200}>|\\(inséré par <[^<>]{0,200}>\\)"
-  },
-  {
-   "id": "ARE-pdpl",
-   "countries": [
-    "ARE"
-   ],
-   "instrument": "Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data",
-   "url": "https://uaelegislation.gov.ae/en/legislations/1972",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data",
-   "official": "UAE Legislation（政府、公式）",
-   "dp": true,
-   "alt": [
-    "https://uaelegislation.gov.ae/en/legislations/1972/download"
-   ]
-  },
-  {
-   "id": "QAT-pdpl",
-   "countries": [
-    "QAT"
-   ],
-   "instrument": "Law No. 13 of 2016 on Protecting Personal Data Privacy",
-   "url": "https://www.almeezan.qa/LawPage.aspx?id=7121&language=en",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data",
-   "official": "Al Meezan（法務省、公式の英訳）",
-   "dp": true,
-   "alt": [
-    "https://www.almeezan.qa/LawView.aspx?opt&LawID=7121&language=en"
-   ]
-  },
-  {
-   "id": "GHA-dpa",
-   "countries": [
-    "GHA"
-   ],
-   "instrument": "Data Protection Act, 2012 (Act 843)",
-   "url": "https://ghalii.org/akn/gh/act/2012/843",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection",
-   "official": "GhaLII（法情報機関による写し、公式ではない）",
-   "dp": true,
-   "alt": [
-    "https://www.dataprotection.org.gh/media/attachments/2021/11/05/data-protection-act-2012-act-843.pdf"
-   ]
-  },
-  {
-   "id": "TZA-pdpa",
-   "countries": [
-    "TZA"
-   ],
-   "instrument": "Personal Data Protection Act, 2022",
-   "url": "https://tanzlii.org/akn/tz/act/2022/11",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Personal Data Protection",
-   "official": "TanzLII（法情報機関による写し、公式ではない）",
-   "dp": true,
-   "alt": [
-    "https://www.pdpc.go.tz/media/documents/PERSONAL_DATA_PROTECTION_ACT_2022.pdf"
-   ]
-  },
-  {
-   "id": "ZWE-dpa",
-   "countries": [
-    "ZWE"
-   ],
-   "instrument": "Data Protection Act [Chapter 12:07]",
-   "url": "https://zimlii.org/akn/zw/act/2021/5",
-   "lang": "en",
-   "topics": [
-    "data"
-   ],
-   "title": "Data Protection",
-   "official": "ZimLII（法情報機関による写し、公式ではない）",
-   "dp": true,
-   "alt": [
-    "https://www.potraz.gov.zw/wp-content/uploads/2022/03/Data-Protection-Act-Chapter-1207.pdf"
-   ]
-  },
-  {
-   "id": "PER-29733",
-   "countries": [
-    "PER"
-   ],
-   "instrument": "Ley N° 29733, Ley de Protección de Datos Personales",
-   "url": "https://www.leyes.congreso.gob.pe/Documentos/Leyes/29733.pdf",
-   "lang": "es",
-   "topics": [
-    "data"
-   ],
-   "title": "DATOS PERSONALES",
-   "official": "Congreso de la República（議会、制定時の文）",
-   "dp": true,
-   "alt": [
-    "https://www.minjus.gob.pe/wp-content/uploads/2013/04/LEY-29733.pdf"
-   ]
   }
  ],
  "unsourced_default": "取り寄せ先を定めていない（公式の法令データベースで機械が読める所在を、この調べでは見つけていない）",
  "unsourced": {},
- "unsourced_topic": {
-  "quotation": "対象外：Sophaxis の引用は、日本の著作権法第32条（運営の地の法）と、載せる作品の CC BY 4.0 の許諾に拠り、各国の引用の例外には拠らない。2026-11-12 に Claude が決めました。"
- },
+ "unsourced_topic": {},
  "alt_note": "alt は、取り寄せられなかった法令を、もう一度だけ別の公式の所在（公式の写し・公式の PDF）から取り寄せるための所在です。2026-11-12 に Claude が決めました。所在は、公式の場の形から立てたもので、届くかどうかは取り寄せの記録に残ります。"
 }
