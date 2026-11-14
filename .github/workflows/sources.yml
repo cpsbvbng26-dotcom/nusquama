@@ -1,9 +1,8 @@
 name: 一次資料の取り寄せ
 
-# 適法性の説明が引く外国の一次資料を取り寄せ、verification/sources-raw.json に記して、新しい枝 sources/<日付> に置く。
-# 手で動かす。main には直に入れない。取り寄せた文は、運営者が読んでから verification/sources.json の引用に使う。
-# 法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。取り寄せた全文と窓は、この実行の
-# artifact（sources-full）に残し、git には入れない（tools/sources.js の冒頭の注釈）。
+# 探り（2026-11-14、形を保って詰める）：消費者契約法・民法・情報流通プラットフォーム対処法・特定商取引法・景品表示法・
+# 電気通信事業法の条を、見張り（tools/statutes.js）と同じ手順で e-Gov 法令 API から取り寄せ、条文と SHA-256 を
+# 探りの枝にだけ記す。main には入れない。見張りの表に記した値があれば、同じかどうかも記す。
 on:
   workflow_dispatch:
 
@@ -12,22 +11,54 @@ permissions:
 
 jobs:
   fetch:
-    name: 一次資料を取り寄せる
+    name: 条文を取り寄せる
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
-      - run: node tools/sources.js
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
-        with:
-          name: sources-full
-          path: sources-full/
-          retention-days: 90
+      - run: |
+          node -e '
+          const fs = require("fs"), crypto = require("crypto");
+          const UA = { "User-Agent": "nusquama (https://github.com/cpsbvbng26-dotcom/nusquama)" };
+          const plain = (x) => x.replace(/<Rt>[^<]*<\/Rt>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+          const sha = (x) => crypto.createHash("sha256").update(x, "utf8").digest("hex");
+          const conf = JSON.parse(fs.readFileSync("verification/statutes.json", "utf8"));
+          const want = [
+            ["消費者契約法", "412AC0000000061", ["2", "3", "8", "8_2", "8_3", "9", "10"]],
+            ["民法", "129AC0000000089", ["1", "90", "415", "416", "522", "548_2", "548_3", "548_4", "549", "709"]],
+            ["情報流通プラットフォーム対処法", "413AC0000000137", ["2", "3"]],
+            ["特定商取引法", "351AC0000000057", ["2"]],
+            ["景品表示法", "337AC0000000134", ["2"]],
+            ["電気通信事業法", "359AC0000000086", ["2"]],
+          ];
+          (async () => {
+            const out = { fetched: new Date().toISOString(), statutes: [], texts: {} };
+            for (const [name, id, arts] of want) {
+              const r = await fetch("https://laws.e-gov.go.jp/api/1/lawdata/" + id, { headers: UA });
+              if (!r.ok) throw new Error(id + " HTTP " + r.status);
+              const xml = await r.text();
+              const title = (/<LawTitle[^>]*>([^<]*)<\/LawTitle>/.exec(xml) || [])[1] || "";
+              const main = (/<MainProvision[\s\S]*?<\/MainProvision>/.exec(xml) || [""])[0];
+              for (const n of arts) {
+                const m = new RegExp("<Article[^>]*\\sNum=\"" + n + "\"[^>]*>[\\s\\S]*?</Article>").exec(main);
+                if (!m) { out.statutes.push({ name, article: n, missing: true }); continue; }
+                const t = plain(m[0]);
+                const label = "第" + n.replace(/_/, "条の").replace(/^(第\d+)$/, "$1条") + (n.includes("_") ? "" : "");
+                const lab = n.includes("_") ? "第" + n.split("_")[0] + "条の" + n.split("_")[1] : "第" + n + "条";
+                const rec = conf.statutes.find((e) => e.law_id === id && e.article === n && !e.items);
+                out.statutes.push({ name, label: lab, law_id: id, article: n, title, sha256: sha(t), recorded: rec ? (rec.sha256 === sha(t) && rec.title === title ? "same" : "changed") : "unrecorded" });
+                out.texts[name + " " + lab] = t;
+              }
+              await new Promise((s) => setTimeout(s, 1500));
+            }
+            fs.writeFileSync("harden-probe.json", JSON.stringify(out, null, 2) + "\n");
+            for (const s of out.statutes) console.log(s.recorded + "  " + s.name + " " + s.label + "  " + (s.sha256 || "missing"));
+          })().catch((e) => { console.error(e); process.exit(1); });'
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add verification/sources-raw.json
-          git commit -m "一次資料：取り寄せた文を記す" || exit 0
-          git push origin "HEAD:refs/heads/sources/$(date -u +%Y%m%d-%H%M)"
+          git add harden-probe.json
+          git commit -m "探り：取り寄せた条文を記す（main に入れない）"
+          git push origin HEAD:refs/heads/claude/harden-1114-probe
