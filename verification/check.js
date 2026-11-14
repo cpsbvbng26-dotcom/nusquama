@@ -440,7 +440,7 @@ console.log('\n17. 条文と規約の見張り');
   const have = new Set(S.statutes.map((e) => e.name + ' ' + e.article));
   const miss = [...cited].filter((c) => !have.has(c));
   ok('適法性の説明が挙げた条（' + cited.size + '）は、すべて見張りの表にある', cited.size >= 20 && miss.length === 0, miss.join(' / '));
-  const unrec = S.statutes.filter((e) => !/^[0-9a-f]{64}$/.test(e.sha256 || '') || !e.title || !/^\d{3}(?:AC\d{10}|CO\d{10}|M\d{11})$/.test(e.law_id)).map((e) => e.name + ' ' + e.label);
+  const unrec = S.statutes.filter((e) => !/^[0-9a-f]{64}$/.test(e.sha256 || '') || !e.title || !/^\d{3}(?:AC\d{10}|CO\d{10}|M\d{11}|DF\d{10}|CONSTITUTION)$/.test(e.law_id)).map((e) => e.name + ' ' + e.label);
   ok('見張りの表のすべての条（' + S.statutes.length + '）に、法令番号・法令名・条文の SHA-256 が記してある', unrec.length === 0, unrec.join(' / '));
   ok('GitHub の規約（' + S.policies.length + '）に、最新のコミットが記してある', S.policies.length >= 2 && S.policies.every((p) => /^[0-9a-f]{40}$/.test(p.commit || '')));
   const wf = read('.github/workflows/statutes.yml');
@@ -518,7 +518,9 @@ console.log('\n20. 言語モデルを通して調べる人に、規程をその�
     B.SOURCES.every(([s, d]) => lf.includes('Source: ' + B.BASE + (d === 'index.html' ? '' : d) + '\n\n' + read(s).trim() + '\n')) && (lf.match(/^Source: /gm) || []).length === B.SOURCES.length);
   /* 2026-11-14：叙任の規程が、受付に戻すときの場所の確かめとして、願い出る人の ORCID iD を求める（突き合わせの受付）。
    * 語の「ORCID」は書くので、ORCID の記録へのリンク（orcid.org）と運営者の iD の数字を止める。研究の系列へつながないことは変わらない。 */
-  ok('研究の系列の名もリンクも、どちらにも書かない', !/sophaxis|researcher-profile|cpsbvbng26-dotcom\.vercel|trinity|orcid\.org|0009-0000-1406-0547/i.test(lt + lf));
+  /* 2026-11-15 から、プレプリントの場の名はこのリポジトリのどこにも書かない（検査 85）。ここでも、名を部分から組み立てて探す。 */
+  const SX = new RegExp(['soph', 'axis'].join('') + '|researcher-profile|cpsbvbng26-dotcom\\.vercel|trinity|orcid\\.org|0009-0000-1406-0547', 'i');
+  ok('研究の系列の名もリンクも、どちらにも書かない', !SX.test(lt + lf));
   const vj = JSON.parse(read('site/vercel.json'));
   ok('どちらも UTF-8 の文字の文書として配り、robots.txt はすべてのクローラーに読ませる',
     vj.headers.some((h) => h.source === '/(llms|llms-full)\\.txt' && h.headers.some((x) => x.key === 'Content-Type' && x.value === 'text/plain; charset=utf-8')) && read('site/robots.txt').startsWith('User-agent: *\nAllow: /\n'));
@@ -1195,6 +1197,8 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     'personal.yml': { contents: 'read', issues: 'write' },
     'record.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
     'review.yml': { contents: 'read', issues: 'write' },
+    /* 誤りの知らせを日本にいる人からだけ受ける（2026-11-15）：ラベルとコメントを付ける。閉じない。 */
+    'reporter.yml': { contents: 'read', issues: 'write' },
     'sources.yml': { contents: 'write' },
     'statutes.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
     'world.yml': { contents: 'write' },
@@ -1298,8 +1302,8 @@ console.log('\n48. 誤りの知らせの様式（ラテン語の誤りも）');
   const pj = read('policies/privacy.md'), pe = read('policies/privacy.en.md');
   const old = '叙任を判断すること、名簿を載せること、求めに応じること。これ以外には使いません。';
   ok('個人情報の取り扱いが、利用の目的に誤りの知らせを足し、扱うものの節を持ち（日本語と英語）、改める前の文を王の正誤表に残す',
-    pj.includes('叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと。これ以外には使いません。') && !pj.includes(old) && pj.includes('\n## 誤りの知らせで扱うもの\n')
-    && pe.includes('and to check reported mistakes and record them in the King\'s errata. Nothing else.') && pe.includes('\n## What a report of a mistake involves\n')
+    pj.includes('叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと、2026-12-01 からは誤りを知らせる人が日本にいることを確かめること。これ以外には使いません。') && !pj.includes(old) && pj.includes('\n## 誤りの知らせで扱うもの\n')
+    && pe.includes('to check reported mistakes and record them in the King\'s errata, and, from 2026-12-01, to check that a person who reports a mistake is in Japan. Nothing else.') && pe.includes('\n## What a report of a mistake involves\n')
     && B.tableRows('ERRATA.md').some((r) => r[2] === '個人情報の取り扱い「利用の目的」' && r[3] === old));
   const form = 'https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml';
   ok('王の正誤表と国の言葉（日本語と英語）が、様式へつなぎ、ラテン語の誤りを分類「語」で記すと書く', ['ERRATA.md', 'ERRATA.en.md', 'LEXICON.md', 'LEXICON.en.md', 'policies/privacy.md'].every((f) => read(f).includes('(' + form + ')'))
@@ -1758,7 +1762,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
     /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-20).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    if (heads.slice(-21).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2102,8 +2106,10 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     if (!(rs.includes('外国の称号の型（C-honours-foreign）が拾う ' + hf + ' 件と、国のしるしの型（K-symbols-similar）が拾う ' + sy + ' 件です。') && rs.includes('外国の称号の型の ' + hf + ' 件のうち、' + hfc + ' 件は')
       && rs.includes('残る ' + hfn + ' 件は') && hfc + hfn === hf && rs.includes('国のしるしの型の ' + sy + ' 件は') && syn === sy)) bad.push('読み直した数が数えた数と違う');
     /* 取り寄せ直した出典の数は、取り寄せの記録から数えたとおり。 */
-    const alts = WS.sources.codes.filter((c) => c.alt), recOf = (id) => Object.values(WS.data).map((d) => d.sources[id]).find(Boolean) || {};
-    const okN = alts.filter((c) => !recOf(c.id).error).length;
+    /* 2026-11-15 に調べから外した法令（verification/world/removed-2026-11-15.json）も、その日に取り寄せ直した出典として数える。 */
+    const GONE65 = JSON.parse(read('verification/world/removed-2026-11-15.json')).codes.filter((c) => c.alt);
+    const alts = WS.sources.codes.filter((c) => c.alt).concat(GONE65), recOf = (id) => Object.values(WS.data).map((d) => d.sources[id]).find(Boolean) || {};
+    const okN = alts.filter((c) => !(GONE65.includes(c) ? c : recOf(c.id)).error).length;
     if (!rs.includes('取り寄せられなかった ' + alts.length + ' の出典を') || !rs.includes('取れたのは ' + okN + ' 件、取れなかったのは ' + (alts.length - okN) + ' 件です。')) bad.push('取り寄せ直した数が記録と違う');
     return bad;
   }
@@ -2171,11 +2177,12 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
       const quotes = Object.values(P).filter((v) => v.from === k).map((v) => v.quote);
       for (const sp of r.spans || []) { spanChars += sp.length; if (!quotes.includes(sp) && !(k === 'montevideo-parties' && sp.startsWith('COUNTRY SIGNATURE') && !sp.includes('*DECLARATIONS'))) bad.push(k + '：引用でも検査が拠る表でもない箇所を記している'); }
     }
-    if (!WS.spans_only || !WS.spans_only.constitute || !WS.spans_only['KOR-pipa']) bad.push('各国の法令の調べで、私的な団体の文の出典を挙げていない');
+    /* KOR-pipa は、2026-11-15 に個人データの主題とともに調べから外した（verification/world/removed-2026-11-15.json）。 */
+    if (!WS.spans_only || !WS.spans_only.constitute || !WS.spans_only['LVA-crim'] || 'KOR-pipa' in WS.spans_only) bad.push('各国の法令の調べで、私的な団体の文の出典を挙げていない');
     /* ライセンスの断りと、調べの README。 */
     need('README.md', ['文と国章は CC BY 4.0 です。\n' + LIC_JA]);
-    need('policies/names.md', ['最終更新：2026-11-12。', LIC_JA]);
-    need('policies/names.en.md', ['Last updated: 2026-11-12.', LIC_EN]);
+    need('policies/names.md', ['最終更新：2026-11-15。', LIC_JA]);
+    need('policies/names.en.md', ['Last updated: 2026-11-15.', LIC_EN]);
     need('verification/world/README.md', ['ここに記した他人の文は、CC BY 4.0 の対象ではなく、それぞれの権利者のものです。', '全文は、取り寄せの実行の artifact（`world-full`）に残し、git には入れていません。']);
     /* 適法性の説明の改めた文。前の文は残らない。 */
     need('policies/legality.md', ['頁は引用のほかに他人の著作物を載せず、リポジトリも、法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。']);
@@ -2197,7 +2204,10 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
     if (!KINDS66.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
     /* 文を外した条の数は、その日（2026-11-12）に外したもの。2026-11-13 に外した外国の政府と機関の英訳（検査 75）は数えない。 */
     const LATER_SRC = ['CHE-fadp', 'CHN-pipl', 'LVA-crim', 'LVA-pd', 'QAT-pdpl', 'SAU-pdpl', 'THA-pdpa', 'TUR-kvkk'];
-    const priv = Object.values(W66.data).flatMap((d) => d.provisions).filter((p) => p.spans && !LATER_SRC.includes(p.source));
+    /* 2026-11-15 に調べから外した条（verification/world/removed-2026-11-15.json）も、その日にあった条として数える。 */
+    const GONE66 = JSON.parse(read('verification/world/removed-2026-11-15.json'));
+    const priv = Object.values(W66.data).flatMap((d) => d.provisions).filter((p) => p.spans && !LATER_SRC.includes(p.source)).map((p) => ({ source: p.source, length: p.length, chars: p.spans.join('').length }))
+      .concat(GONE66.provisions.filter((p) => p.spans_chars !== null && !LATER_SRC.includes(p.source)).map((p) => ({ source: p.source, length: p.length, chars: p.spans_chars })));
     const n = (src) => priv.filter((p) => p.source === src).length;
     const sum = (f) => priv.reduce((a, p) => a + f(p), 0);
     /* この節の数は、その日に記していた出典の数。のちの点検（八度目、2026-11-13）が足した GitHub の二つの規約と、
@@ -2210,7 +2220,7 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
     const laterChars = LATER.reduce((a, k) => a + ((R[k] || {}).spans || []).reduce((b, sp) => b + sp.length, 0), 0)
       + Object.entries(REPLACED).reduce((a, [k, q]) => a + ((R[k] || {}).spans || []).reduce((b, sp) => b + sp.length, 0) - q.length, 0);
     const nums = ['出典は ' + nR + ' です', '法令・条約の ' + wholeThen + ' で', '検査が拠る箇所だけを記すのは ' + (nR - wholeThen) + ' です', 'あわせて ' + (spanChars - laterChars) + ' 字です',
-      '文を外した条は ' + priv.length + ' 件です', '英語の文が ' + n('constitute') + ' 件', '英訳が ' + n('KOR-pipa') + ' 件', '文は、あわせて ' + sum((p) => p.length) + ' 字でした', '記した箇所は、あわせて ' + sum((p) => p.spans.join('').length) + ' 字です'];
+      '文を外した条は ' + priv.length + ' 件です', '英語の文が ' + n('constitute') + ' 件', '英訳が ' + n('KOR-pipa') + ' 件', '文は、あわせて ' + sum((p) => p.length) + ' 字でした', '記した箇所は、あわせて ' + sum((p) => p.chars) + ' 字です'];
     for (const s of nums) if (!sec.includes(s)) bad.push('記録の数が数えた数と違う：' + s);
     if (!sec.includes('<!-- 条文 著作権法 第13条 -->\n> ' + art13 + '\n')) bad.push('記録の第13条の文が取り寄せた文と違う');
     if (!sec.includes('弁護士の確認は受けていません。') || (sec.match(/2026-11-12 に Claude が決めました。/g) || []).length < 3) bad.push('記録に、弁護士の文か決めた者と理由がない');
@@ -2259,6 +2269,10 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
   const OLD = ['非公開で連絡する方法を返します', 'a way to make contact privately', '非公開の連絡で遅滞なく', 'through a private channel', 'through the private channel', '「公開できない求め」に沿った連絡で', '「公開できない求め」に沿って行います'];
   const PVR_JA = 'GitHub の非公開の脆弱性の報告（private vulnerability reporting）は、このリポジトリで有効になっていません（2026-11-13 に GitHub の API で確かめました）。';
   const PVR_EN = "GitHub's private vulnerability reporting is not enabled for this repository (checked through the GitHub API on 2026-11-13).";
+  /* 2026-11-15 に利用者が、この機能を公開できない求めの窓口として開くと決めた。有効になっていないので、規程は有効になってからと書く。
+   * 固定した文の語が変わったので、規程の側の期待値だけを動かす。SECURITY.md の文は変わらない。 */
+  const PVR_REQ_JA = 'この窓口が使えるのは、このリポジトリでこの機能が有効になってからです。2026-11-15 に GitHub の API で確かめたとき、有効になっていませんでした。';
+  const PVR_REQ_EN = 'The route can be used only once the feature is enabled for this repository. When checked through the GitHub API on 2026-11-15, it was not enabled.';
   const NAME_JA = '運営者の氏名と住所は、求めた人が自分の GitHub のプロフィールに公開している連絡先へ、遅滞なく知らせます。';
   const KINDS67 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
   const T67 = JSON.parse(read('verification/statutes-texts.json'));
@@ -2270,8 +2284,8 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     /* 前の約束は、どこにも残らない（王の正誤表と、それから作る頁は除く）。 */
     for (const f of Object.keys(x).filter((k) => k.startsWith('scan:'))) for (const o of OLD) if (x[f].includes(o)) bad.push(f.slice(5) + ' に前の約束が残る：' + o);
     need('SECURITY.md', [PVR_JA, 'ヌスクァマには、非公開で知らせを受ける窓口がありません。', '運営者は、知らせた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答え、詳細を受け取ります。', 'そうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、その連絡先で詳細を伝えられます。\n連絡先を公開しないときは、運営者は、詳細に触れずに issue で答えます。']);
-    need('policies/requests.md', ['ヌスクァマには、非公開で求めを受ける窓口がありません。\n' + PVR_JA, '運営者は、求めた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答えます。', 'そうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、その連絡先で答えを受け取れます。\n連絡先を公開しないときは、個人の事柄を書かずに、issue で答えます。']);
-    need('policies/requests.en.md', ['Nusquama has no channel that receives requests privately.\n' + PVR_EN, 'The operator answers privately only when the person who asks has made a contact public on their own GitHub profile', 'A person with no such contact can receive the answer by making a contact public on their own GitHub profile for a while.\nWhen no contact is made public, the operator answers in the issue, without personal details.']);
+    need('policies/requests.md', ['ヌスクァマには、非公開で求めを受ける窓口がありません。\n', PVR_REQ_JA, '運営者は、求めた人が自分の GitHub のプロフィールに連絡先を公開しているときだけ、その連絡先へ非公開で答えます。', 'そうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、その連絡先で答えを受け取れます。\n連絡先を公開しないときは、個人の事柄を書かずに、issue で答えます。']);
+    need('policies/requests.en.md', ['Nusquama has no channel that receives requests privately.\n', PVR_REQ_EN, 'The operator answers privately only when the person who asks has made a contact public on their own GitHub profile', 'A person with no such contact can receive the answer by making a contact public on their own GitHub profile for a while.\nWhen no contact is made public, the operator answers in the issue, without personal details.']);
     need('policies/privacy.md', [NAME_JA, 'そうした連絡先がない人も、連絡先を自分のプロフィールに一時的に公開すれば、そこで受け取れます。氏名と住所は、issue には書きません（']);
     need('policies/privacy.en.md', ['at a contact that person has made public on their own GitHub profile.', 'A person with no such contact can receive them by making a contact public on their own GitHub profile for a while. The name and address are not written in the issue']);
     need('policies/terms.md', ['話し合いは、issue で行います。相手方が自分の GitHub のプロフィールに連絡先を公開しているときは、その連絡先で行うこともできます', '非公開の窓口はありません。運営者が非公開で答えるのは、']);
@@ -2446,7 +2460,7 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     ['英語の叙任の規程から開かないことを外す', mut('policies/knighting.en.md', 'The automatic check does not open the link to the correction. ', '')],
     ['英語の個人情報の取り扱いから要求しないことを外す', mut('policies/privacy.en.md', 'It sends no request to the linked site, ', '')],
     ['国の仕組みの追記を外す', mut('INSTITUTIONS.md', '。2026-11-13 から、自動の確認はリンクを開かず、https の URL で受けない先を指さないことだけを見る（王の正誤表 30）', '')],
-    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', 'Last updated: 2026-11-15.', 'Last updated: 2026-11-11.')],
     ['王の正誤表 30 を事実の分類にする', mut('ERRATA.md', '| 範囲 | Insula Finis XIII |', '| 事実 | Insula Facti VII |')],
     ['王の正誤表 30 から理由を一つ外す', mut('ERRATA.md', '規約を読めない先へ、機械で要求を出さないためです。', '規約を読めない先へ、機械で要求を出さない。')],
     ['英語の王の正誤表 30 から前の文を外す', mut('ERRATA.en.md', 'opens the link to the correction once.', 'checks the link.')],
@@ -2686,9 +2700,9 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
     bad.length === 0, bad.join(' / '));
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
   const breaks = [
-    ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-14。', '最終更新：2026-11-12。'), facts],
+    ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-15。', '最終更新：2026-11-12。'), facts],
     ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', /Last updated: \d{4}-\d{2}-\d{2}\./, 'Last updated: 2026-11-12.'), facts],
-    ['文を変えていない頁の最終更新を、文を変えた日より前にする', mut('policies/names.md', '最終更新：2026-11-12。', '最終更新：2026-11-11。'), facts],
+    ['文を変えていない頁の最終更新を、文を変えた日より前にする', mut('policies/exchange.md', '最終更新：2026-11-12。', '最終更新：2026-11-11。'), facts],
     ['年表の行を作業の時計の日付に戻す', mut('README.md', '| 2026-11-13（日本時間） | 利用規約の合意管轄を、', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、'), facts],
     ['年表の 2026-11-11 の行を前の日に戻す', mut('README.md', '| 2026-11-11（日本時間） | 建国の物語・', '| 2026-11-10（日本時間） | 建国の物語・'), facts],
     ['王の正誤表 30 の記した日を前の日に戻す', mut('ERRATA.md', '| 30 | 2026-11-13 |', '| 30 | 2026-11-12 |'), facts],
@@ -2858,7 +2872,11 @@ console.log('\n72. 型で「当たらない」に分けた称号の条の読み�
     if (!KINDS72.every((k) => said(k) === rows.filter((y) => y[4] === k).length) || Number((/合わせて (\d+) 件です。/.exec(sec) || [])[1]) !== rows.length) bad.push('記録の表の件数');
     if (!sec.includes('この節も、弁護士の確認は受けていません。')) bad.push('記録に弁護士の文がない');
     /* 記録の数：型ごとの件数は、決めを外して型を当て直して数えたとおり（決めごと 5）。 */
-    const byRule = Wt.classifyAll(S.data, Object.assign({}, S.decisions, { provisions: {} })).out;
+    /* 2026-11-15 に個人データの主題を外した条は、その日（2026-11-13）の主題に戻して型を当てる（verification/world/removed-2026-11-15.json）。 */
+    const THEN72 = JSON.parse(read('verification/world/removed-2026-11-15.json')).topics;
+    const data72 = JSON.parse(JSON.stringify(S.data));
+    for (const d of Object.values(data72)) for (const p of d.provisions) if (THEN72[p.id]) p.topics = THEN72[p.id];
+    const byRule = Wt.classifyAll(data72, Object.assign({}, S.decisions, { provisions: {} })).out;
     const re = Object.values(S.data).flatMap((d) => d.provisions).filter((p) => p.topics.includes('honours') && dec(p.id).sha256 === p.sha256 && (dec(p.id).reason || '').includes(REREAD));
     const of = (rule) => re.filter((p) => (byRule[p.id] || {}).by === rule).length;
     const main = ['C-honours-state', 'C-honours-uniform', 'C-honours-nobility', 'K-heading-nl', 'K-lperc'];
@@ -2980,7 +2998,7 @@ console.log('\n73. GitHub Actions の規約：追加製品の規約を取り寄�
     ['新しいワークフローに行がない', Object.assign({}, real, { wf: WF.concat(['newsletter.yml']) })],
     ['消したワークフローの行が残る', Object.assign({}, real, { wf: WF.filter((f) => f !== 'labels.yml') })],
     ['表から行を外す', mut(AUD, /\n\| `\.github\/workflows\/review\.yml`[^\n]*/, '')],
-    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 12 件で、合わせて 15 件です。', '漏れ 2 件、表現 0 件、問題なし 12 件で、合わせて 15 件です。')],
+    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 13 件で、合わせて 16 件です。', '漏れ 2 件、表現 0 件、問題なし 13 件で、合わせて 16 件です。')],
     ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
     ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
     ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：十一度目の見落とし', '\n\n## 2026-11-12 の続き：十一度目の見落とし')],
@@ -3105,7 +3123,10 @@ console.log('\n75. Vercel の Fair Use Guidelines は商用の節を失い、適
    * 英訳と書く出典（official に「英訳」、instrument に「English translation」）は、どれも spans_only にある。記録・年表もそろう。 */
   const AUD = 'docs/legal-audit-2026-11-12.md', SHA = '72c94595a48be0ba40257c55fcee8fc60ca983022327cdd00ced5dcfda034565';
   const KEYS = ['Vercel Fair Use Guidelines', 'Vercel Fair Use Guidelines（節の一覧）'];
-  const LATER_SRC = ['CHE-fadp', 'CHN-pipl', 'LVA-crim', 'LVA-pd', 'QAT-pdpl', 'SAU-pdpl', 'THA-pdpa', 'TUR-kvkk'];
+  /* 2026-11-15 に、データ保護の主題の七つの出典は、調べから外した（ほかの企画のための取り寄せで、ヌスクァマは拠らない）。
+   * 残る英訳は LVA-crim だけである。外した七つは、調べのどこにも残らないことを確かめる。利用者が 2026-11-15 に決めた。 */
+  const LATER_SRC = ['LVA-crim'];
+  const MOVED_SRC = ['CHE-fadp', 'CHN-pipl', 'LVA-pd', 'QAT-pdpl', 'SAU-pdpl', 'THA-pdpa', 'TUR-kvkk'];
   const JA = '- **2026-11-13 に改めたこと**：Vercel の Fair Use Guidelines は、2026-11-12 まで、Hobby プランを非商用の個人的な利用に限る節を持っていました。2026-11-13 に取り寄せた頁には、その節がありません。';
   const EN = '- **Revised on 2026-11-13**: until 2026-11-12, Vercel\'s Fair Use Guidelines had a section limiting the Hobby plan to non-commercial personal use. The page fetched on 2026-11-13 has no such section.';
   const W = require('./world/check.js').state();
@@ -3127,6 +3148,7 @@ console.log('\n75. Vercel の Fair Use Guidelines は商用の節を失い、適
     if (!x['README.md'].includes('| 2026-11-13（日本時間） | Vercel の Fair Use Guidelines から、Hobby プランを非商用の個人的な利用に限る節が消えたので、')) bad.push('年表の行');
     /* 英訳は spans_only にあり、文を記さない。 */
     for (const k of LATER_SRC) if (!/2026-11-13 に Claude が決めました。$/.test((WS.spans_only || {})[k] || '')) bad.push('spans_only にない：' + k);
+    for (const k of MOVED_SRC) if (k in (WS.spans_only || {}) || Object.values(x.world).some((d) => k in (d.sources || {}) || d.provisions.some((p) => p.source === k))) bad.push('外した出典が残る：' + k);
     for (const d of Object.values(x.world)) for (const [k, s] of Object.entries(d.sources || {})) {
       if ((/英訳/.test(s.official || '') || /English translation/i.test(s.instrument || '')) && !(k in (WS.spans_only || {}))) bad.push('英訳が spans_only にない：' + k);
     }
@@ -3155,8 +3177,9 @@ console.log('\n75. Vercel の Fair Use Guidelines は商用の節を失い、適
     ['適法性の説明を前に戻す', mut('policies/legality.md', JA, '- **点検で足したこと（2026-11-12）**：Fair Use Guidelines は、個人的で非商用の利用に限るとしている。')],
     ['英語の適法性の説明に消えた節の引用を戻す', mut('policies/legality.en.md', '<!-- 条文 Vercel 利用規約 第4条 -->', '<!-- 条文 Vercel Fair Use Guidelines -->\n\n<!-- 条文 Vercel 利用規約 第4条 -->')],
     ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | Vercel の Fair Use Guidelines から、', '| 2026-11-13（日本時間） | Vercel の頁から、')],
-    ['英訳を spans_only から外す', mut('verification/world/sources.json', '"THA-pdpa":', '"THA-pdpa-x":')],
-    ['英訳の条に文を戻す', worldWith((t) => { const p = t['TUR.json'].provisions.find((y) => y.source === 'TUR-kvkk'); p.text = 'ARTICLE 8 The whole text.'; })],
+    ['英訳を spans_only から外す', mut('verification/world/sources.json', '"LVA-crim":', '"LVA-crim-x":')],
+    ['英訳の条に文を戻す', worldWith((t) => { const p = t['LVA.json'].provisions.find((y) => y.source === 'LVA-crim'); p.text = 'Section 1 The whole text.'; })],
+    ['外した出典を調べに戻す', worldWith((t) => { t['TUR.json'].sources['TUR-kvkk'] = { instrument: 'Law on the Protection of Personal Data', official: '政府' }; })],
     ['新しい英訳を文のまま足す', worldWith((t) => { t['THA.json'].sources['THA-x'] = { instrument: 'Some Act (English translation)', official: '政府（英訳）' }; })],
     ['記録の実行を外す', mut(AUD, '取り寄せ直した実行は 43338897594 で、', '取り寄せ直した実行は、')],
     ['記録の引用を一字変える', mut(AUD, '> Vercel usage is subject to these fair use guidelines across plans', '> Vercel usage is subject to these fair use guidelines across all plans')],
@@ -4556,10 +4579,169 @@ console.log('\n84. 十八度目の点検：突き合わせの受付はどの iss
     ['記録の判定の数を変える', mut('aud', '判定は、誤り 1 件、根拠不足 0 件、漏れ 1 件、表現 2 件、問題なし 1 件で、合わせて 5 件です。', '判定は、誤り 0 件、根拠不足 0 件、漏れ 1 件、表現 2 件、問題なし 1 件で、合わせて 5 件です。')],
     ['記録の引用を一語変える', mut('aud', '「定型約款の変更が、相手方の一般の利益に適合するとき。」', '「定型約款の変更が、相手方の利益に適合するとき。」')],
     ['前の行の誤りを書かない', mut('aud', '2026-11-14 の節のその行は「問題なし」としていましたが、誤りでした', '2026-11-14 の節のその行はそのままです')],
-    ['記録から弁護士の文を外す', mut('aud', 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut('aud', 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-15：点検の答え', '\n## 2026-11-15：点検の答え')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：設定・道具が閉じる・鍵を掛ける・食い違う文・英語の求めの規程・様式・英語の利用規約・所在の欄（日本語と英語）・王の正誤表の地名・年表の行・記録の節と判定の数と引用と前の行と弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n85. 点検の答え（2026-11-15）：誤りの知らせは日本にいる人からだけ受け、求めはどの国からも受け、ほかの企画の名と取り寄せを置かず、配信の題に「（創作）」を付け、履歴から消す前に提供の記録の項目を残し、記録の節がそろう');
+{
+  /* 2026-11-14 の点検の 12 の問いに、利用者が 2026-11-15 に答えた。答えは Claude が書いた。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const CI = require('../.github/checked-intake/verify.js');
+  const RP = require('../tools/reporter.js');
+  const code = (t) => String(t || '').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+  const AUD = 'docs/legal-audit-2026-11-12.md';
+  const HEAD = '\n## 2026-11-15：点検の答え\n';
+  const KINDS = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const TEXTS = Object.values(JSON.parse(read('verification/statutes-texts.json'))).map((t) => t.replace(/\s+/g, ''));
+  const NAME = new RegExp(['soph', 'axis'].join(''), 'i');
+  /* リポジトリのすべての文字のファイル（.git と生成の手前のものを除く）。 */
+  const walk = (dir) => fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true }).flatMap((e) => {
+    const r = dir ? dir + '/' + e.name : e.name;
+    if (e.isDirectory()) return ['.git', 'node_modules', 'sources-full'].includes(e.name) ? [] : walk(r);
+    return /\.(png|ico|jpg|jpeg|gif|webp|pdf|woff2?|zip)$/i.test(e.name) ? [] : [r];
+  });
+  /* CLAUDE.md は作業の指示書で、2026-11-15 の作業では書き換えていない。その一行のほかは、どのファイルにも残さない。 */
+  const all = walk('').filter((f) => f !== 'CLAUDE.md');
+  const named = (list, get) => list.filter((f) => NAME.test(get(f)));
+  const named0 = named(all, read);
+  ok('ほかの企画の名は、CLAUDE.md のほかのどのファイル（' + all.length + '）にも書かない（大文字と小文字を問わない）', named0.length === 0 && all.length > 300, named0.join(', '));
+  const planted = named(all, (f) => (f === 'policies/names.md' ? read(f) + '\n' + ['Soph', 'axis'].join('') : read(f)));
+  ok('壊して確かめる：名を一つの頁に書けば落ちる', planted.length === 1 && planted[0] === 'policies/names.md');
+  const files = ['tools/reporter.js', '.github/workflows/reporter.yml', '.github/workflows/labels.yml', '.github/ISSUE_TEMPLATE/error.yml', 'policies/privacy.md', 'policies/privacy.en.md',
+    'policies/terms.md', 'policies/terms.en.md', 'policies/requests.md', 'policies/requests.en.md', 'policies/names.md', 'policies/names.en.md', 'policies/legality.md', 'policies/legality.en.md',
+    'docs/records-of-provision.md', 'site/errata.xml', 'site/gazette.xml', 'ERRATA.md', 'ERRATA.en.md', 'README.md', 'verification/world/removed-2026-11-15.json', 'verification/world/sources.json', AUD];
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const W85 = require('./world/check.js').state();
+  function verdict(x, R = RP) {
+    const bad = [];
+    const need = (f, list) => list.forEach((t) => { if (!x[f].includes(t)) bad.push(f + '：' + t.slice(0, 30)); });
+    /* N2：決めの関数。 */
+    const t0 = Date.parse('2026-10-01T00:00:00Z'), late = Date.parse('2026-11-20T00:00:00Z');
+    const ev = (o) => ({ sender: { login: 'reader-one' }, repository: { owner: { login: 'cpsbvbng26-dotcom' } }, issue: Object.assign({ number: 1, title: '誤り：頁', body: '', labels: [{ name: '誤り' }], created_at: '2026-12-02T00:00:00Z', user: { login: 'reader-one' } }, o) });
+    const cases = [
+      [R.inJapan({ linked: true, signals: [{ country: 'JP', created: t0 }], opened: '2026-12-02' }).ok, true],
+      [R.inJapan({ linked: true, signals: [{ country: 'JP', created: t0 }, { country: 'US', created: t0 }], opened: '2026-12-02' }).ok, false],
+      [R.inJapan({ linked: false, signals: [{ country: 'JP', created: t0 }], opened: '2026-12-02' }).ok, false],
+      [R.inJapan({ linked: true, signals: [{ country: 'JP', created: late }], opened: '2026-12-02' }).ok, false],
+      [R.inJapan({ linked: true, signals: [], opened: '2026-12-02' }).ok, false],
+      [R.signals({ employments: { 'affiliation-group': [{ summaries: [{ 'employment-summary': { 'end-date': { year: { value: '2020' } }, organization: { address: { country: 'US' } }, 'created-date': { value: t0 } } }] }] } }).length, 0],
+      [R.signals({ address: { address: [{ country: { value: 'jp' }, 'created-date': { value: t0 } }] } })[0].country, 'JP'],
+      [R.applies(ev({})), true], [R.applies(ev({ created_at: '2026-11-30T14:00:00Z' })), false], [R.applies(ev({ labels: [{ name: '求め' }] })), false],
+      [R.applies(ev({ labels: [{ name: '誤り' }, { name: 'needs a person' }] })), false], [R.applies(Object.assign(ev({}), { sender: { login: 'cpsbvbng26-dotcom' } })), false],
+      [R.applies(ev({ title: '誤り：私の記載の削除を求めます' })), false], [R.applies(ev({ labels: [{ name: '叙任' }] })), false],
+    ];
+    cases.forEach(([got, want], k) => { if (got !== want) bad.push('決めの関数の例 ' + (k + 1)); });
+    if (R.FROM !== '2026-12-01' || R.DAYS !== 30) bad.push('始める日か日数');
+    if (CI.closeOrLock(code(x['tools/reporter.js'])).length || /\/nationalit|state_reason|\/lock/.test(code(x['tools/reporter.js']))) bad.push('道具が閉じるか、鍵を掛けるか、国籍を読む');
+    if (/orcid\.org\/[0-9]/.test(x['tools/reporter.js']) || !x['tools/reporter.js'].includes("'https://pub.orcid.org/v3.0/' + id")) bad.push('道具が公開の API のほかを読む');
+    need('.github/workflows/reporter.yml', ["contains(github.event.issue.labels.*.name, '誤り')", 'github.event.sender.login != github.repository_owner', 'run: node tools/reporter.js']);
+    need('.github/workflows/labels.yml', ['gh label create "place not verified"', 'gh label create "place verified"']);
+    need('.github/ISSUE_TEMPLATE/error.yml', ['      label: ORCID iD\n', '2026-12-01 から、誤りの知らせは日本にいる人からだけ受けます。', '国籍は読みません。', 'issue は閉じません。削除・訂正・辞退の求めは、どの国の人からも受けます。']);
+    need('policies/privacy.md', ['2026-12-01 から、誤りの知らせは、日本にいる人からだけ受けます。', '読んだ国も組織も、保存せず、コメントにも実行の記録にも書きません。', '削除・訂正・辞退・権利・個人の情報・同意の求めには、この限りは掛かりません。']);
+    need('policies/privacy.en.md', ['From 2026-12-01, error reports are received only from people in Japan.', 'The countries and organisations read are not stored', 'This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent.']);
+    need('policies/terms.md', ['予告：2026-12-01 から、その日以後に開かれた誤りの知らせは、日本にいる人からだけ受けます。', '予告：2026-12-01 から、求めに応じてリポジトリの履歴から名簿の行を消す前に、その行の提供の記録の項目だけを別に記し、三年、公開のまま残します']);
+    need('policies/terms.en.md', ['Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan.', 'Notice: from 2026-12-01, before a line of the roll is erased from the history of the repository on request']);
+    need('policies/requests.md', ['この求めの様式で出す求めは、どの国の人からも受け、この限りに掛かりません。']);
+    need('policies/requests.en.md', ['A request made with this request form is received from people in every country, and this limit does not apply to it.']);
+    /* N10：履歴から消す前に、提供の記録の項目だけを残す。 */
+    need('policies/requests.md', ['2026-12-01 から、求めに応じて履歴から名簿の行を消す前に、その行の提供の記録の項目', '`docs/records-of-provision.md` に別に記します。名簿のほかの中身は記しません。']);
+    need('docs/records-of-provision.md', ['\n## 履歴から消す前に記す行\n', '同法施行規則第21条第3号はその期間を「三年」と定めます。', '| 名簿に足した日 | 受け手 | 本人を指すアカウント名 | 載せた項目 | 同意 | 記した日 | 残す日 |\n| --- | --- | --- | --- | --- | --- | --- |\n']);
+    for (const m of x['docs/records-of-provision.md'].matchAll(/「([^「」]+)」/g)) if (m[1].length >= 2 && !TEXTS.some((t) => t.includes(m[1].replace(/\s+/g, '')))) bad.push('提供の記録の頁の引用が取り寄せた文にない：' + m[1].slice(0, 12));
+    /* N1・N4・N8・N9・N11・N12。 */
+    need('policies/requests.md', ['この機能の本来の用途は安全の弱点の報告で、求めを受けるのは本来の用途の外の使い方です。', 'この窓口が使えるのは、このリポジトリでこの機能が有効になってからです。', '\n## 発信者情報の開示の求め\n']);
+    need('policies/requests.en.md', ['receiving requests through it is a use other than that.', 'The route can be used only once the feature is enabled for this repository.', '\n## Requests to disclose information on the sender\n']);
+    const sender = (x['policies/requests.md'].split('\n## 発信者情報の開示の求め\n')[1] || '').split('\n## ')[0];
+    const quotes = [...sender.matchAll(/「([^「」]+)」/g)].map((m) => m[1]);
+    if (quotes.length < 2 || quotes.some((q) => !TEXTS.some((t) => t.includes(q.replace(/\s+/g, ''))))) bad.push('発信者情報の節の引用が取り寄せた文にない');
+    need('policies/names.md', ['他人が国章をあしらって作った物は、ヌスクァマとは関係がありません。']);
+    need('policies/names.en.md', ['An object that someone else makes with the emblem is unrelated to Nusquama.']);
+    need('policies/legality.md', ['商標法第25条（他人の登録商標と重なるとき）', '運営者は厳しい読み方を採り、刑罰の罰金が残るものとして扱う。', '日本国憲法第7条第7号の国事行為で、同第14条第3項は、栄典の授与はいかなる特権も伴わないとする。']);
+    need('policies/legality.en.md', ['Trademark Act, Article 25 (when it overlaps another\'s registered mark)', 'the operator takes the stricter reading, and treats the criminal fine as remaining.']);
+    if (/行政罰に替わったと読める。/.test(x['policies/legality.md']) || /so it reads as having become an administrative penalty\./.test(x['policies/legality.en.md'])) bad.push('前の読み方が残る');
+    if (x['policies/terms.md'].includes('ヌスクァマは、予告なく終わることがあります。') || x['policies/terms.en.md'].includes('Nusquama may end without notice.')) bad.push('利用規約に前の終わりの文が残る');
+    need('policies/terms.md', ['予告なく国を凍結することがあります', '辞退などの求めに応じる期間を少なくとも 30 日置きます']);
+    /* N7：配信の題。 */
+    for (const [f, head, mark] of [['site/errata.xml', '：王の正誤表（創作）</title>', '<title>王の正誤表（創作）第 '], ['site/gazette.xml', '：官報（創作）</title>', '<title>官報（創作）第 ']]) {
+      const n = (x[f].match(/<entry>/g) || []).length, m = (x[f].split(mark).length - 1);
+      if (!x[f].includes(head) || n < 50 || m !== n) bad.push(f + '：題に「（創作）」がない');
+    }
+    /* N3：外した条と法令は、調べのどこにも残らない。 */
+    let G = {};
+    try { G = JSON.parse(x['verification/world/removed-2026-11-15.json']); } catch (e) { bad.push('外したものの一覧が読めない'); }
+    const ids = new Set(Object.values(W85.data).flatMap((d) => d.provisions.map((p) => p.id)));
+    const codes = new Set(JSON.parse(x['verification/world/sources.json']).codes.map((c) => c.id));
+    if (!(G.provisions || []).length || (G.provisions || []).some((p) => ids.has(p.id) || ['text', 'spans', 'quote', 'body'].some((k) => k in p))) bad.push('外した条が調べに残るか、文を持つ');
+    if (!(G.codes || []).length || (G.codes || []).some((c) => codes.has(c.id))) bad.push('外した法令が調べに残る');
+    if (Object.keys(G.topics || {}).some((k) => !ids.has(k))) bad.push('主題を外した条が調べにない');
+    if (/"(data|quotation)":/.test(JSON.stringify(JSON.parse(x['verification/world/sources.json']).topics || {}))) bad.push('調べがほかの企画の主題を持つ');
+    /* 王の正誤表の六件と年表。 */
+    for (const [n, kind, place] of [[51, '範囲', 'Insula Finis XX'], [52, '範囲', 'Insula Finis XXI'], [53, '法', 'Insula Legis XV'], [54, '法', 'Insula Legis XVI'], [55, '事実', 'Insula Facti XII'], [56, '範囲', 'Insula Finis XXII']]) {
+      const row = x['ERRATA.md'].split('\n').find((l) => l.startsWith('| ' + n + ' | 2026-11-15 |')) || '', rowEn = x['ERRATA.en.md'].split('\n').find((l) => l.startsWith('| ' + n + ' | 2026-11-15 |')) || '';
+      if (!row.endsWith(' | ' + kind + ' | ' + place + ' |') || !rowEn.endsWith(' | ' + place + ' |') || !row.includes('2026-11-15 に利用者が決め、Claude が書きました。') || !rowEn.includes('The owner decided this on 2026-11-15, and Claude wrote it')) bad.push('王の正誤表の第 ' + n + ' 件');
+    }
+    need('README.md', ['| 2026-11-15（日本時間） | 点検の答えを入れる。2026-12-01 から、誤りの知らせは、ORCID の公開の記録で日本にいると確かめられる人からだけ受ける。']);
+    /* 記録の節。 */
+    const a = x[AUD], at = a.indexOf(HEAD);
+    if (at < 0 || a.indexOf('\n## 調べた法令\n') < at) return bad.concat(['記録の節']);
+    const sec = a.slice(at, a.indexOf('\n## ', at + 5));
+    const rows = sec.split('\n### ')[0].split('\n').filter((l) => /^\| N\d+：/.test(l)).map((l) => l.slice(2, -2).split(' | '));
+    if (rows.length !== 12 || rows.some((r, k) => r.length !== 6 || !r[0].startsWith('N' + (k + 1) + '：') || !KINDS.includes(r[4]) || !/^2026-11-15 に利用者が決め、Claude が書きました。.*ためです$/.test(r[5]))) bad.push('記録の表');
+    const cnt = (k) => rows.filter((r) => r[4] === k).length;
+    if (!sec.includes('判定は、' + KINDS.map((k) => k + ' ' + cnt(k) + ' 件').join('、') + 'で、合わせて ' + rows.length + ' 件です。')) bad.push('記録の判定の数');
+    for (const r of rows.filter((y) => /法 第/.test(y[1]))) for (const m of r[2].matchAll(/「([^「」]+)」/g)) if (m[1].length >= 8 && !TEXTS.some((t) => t.includes(m[1].replace(/\s+/g, '')))) bad.push('取り寄せた文にない引用：' + m[1].slice(0, 12));
+    for (const m of sec.matchAll(/<!-- 条文 (.+?) -->\n> (.+)\n/g)) for (const part of m[2].split('……')) if (!TEXTS.some((t) => t.includes(part.replace(/\s+/g, '')))) bad.push('記録の条文が取り寄せた文にない：' + m[1]);
+    need(AUD, ['| MicroWiki の利用規約 | jp.micronations.wiki の「MicroWiki:利用規約」', '利用規約は確かめていません | 未確認 |', '> 点検で足したこと（2026-11-12）：商標法の「商標」は、']);
+    if (!sec.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(sec)) bad.push('弁護士の文');
+    return bad;
+  }
+  const v0 = verdict(real);
+  ok('誤りの知らせは 2026-12-01 から ORCID の国の符号で日本にいると確かめた人からだけ受け、閉じず、国籍を読まず、求めはどの国からも受け（様式・個人情報・利用規約・求めの規程、日本語と英語）、履歴から消す前に提供の記録の項目を残し、配信の題に「（創作）」を付け、外した条と法令が調べに残らず、王の正誤表の六件・年表・記録の節がそろう',
+    v0.length === 0, v0.join(' / '));
+  const mut = (k, a2, b2) => Object.assign({}, real, { [k]: real[k].replace(a2, b2) });
+  const fake = (o) => Object.assign({}, RP, o);
+  const G0 = JSON.parse(real['verification/world/removed-2026-11-15.json']);
+  const gone = (fn) => { const t = JSON.parse(JSON.stringify(G0)); fn(t); return Object.assign({}, real, { 'verification/world/removed-2026-11-15.json': JSON.stringify(t) }); };
+  const someId = Object.values(W85.data)[0].provisions[0].id;
+  const breaks = [
+    ['決めがほかの国の項目を見ない', real, fake({ inJapan: ({ linked, signals: s = [] }) => ({ ok: !!linked && s.some((y) => y.country === 'JP') }) })],
+    ['決めが日数を見ない', real, fake({ inJapan: ({ linked, signals: s = [] }) => ({ ok: !!linked && s.length > 0 && s.every((y) => y.country === 'JP') }) })],
+    ['決めがリンクを見ない', real, fake({ inJapan: ({ signals: s = [], opened }) => RP.inJapan({ linked: true, signals: s, opened }) })],
+    ['求めの issue にも手を出す', real, fake({ applies: (e) => !!(e && e.issue && (e.issue.labels || []).some((l) => l.name === '誤り')) })],
+    ['道具が閉じる', mut('tools/reporter.js', "  if (ok) await gh('POST', '/issues/' + n + '/labels', { labels: [PLACE_OK] });", "  await gh('PATCH', '/issues/' + n, { state: 'closed' });\n  if (ok) await gh('POST', '/issues/' + n + '/labels', { labels: [PLACE_OK] });")],
+    ['道具が国籍を読む', mut('tools/reporter.js', "const s = signals({", "const nat = await get(base + '/nationality'); const s = signals({")],
+    ['ワークフローが持ち主の出来事にも動く', mut('.github/workflows/reporter.yml', ' && github.event.sender.login != github.repository_owner', '')],
+    ['様式から ORCID の欄を外す', mut('.github/ISSUE_TEMPLATE/error.yml', '      label: ORCID iD\n', '      label: 識別子\n')],
+    ['個人情報の取り扱いから、求めに掛からない文を外す', mut('policies/privacy.md', '削除・訂正・辞退・権利・個人の情報・同意の求めには、この限りは掛かりません。', '')],
+    ['英語の利用規約から予告を外す', mut('policies/terms.en.md', 'Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan.', 'From 2026-12-01, error reports are received only from people in Japan.')],
+    ['求めの規程が、求めも日本の人に限る', mut('policies/requests.md', 'この求めの様式で出す求めは、どの国の人からも受け、この限りに掛かりません。', 'この求めの様式で出す求めも、日本にいる人からだけ受けます。')],
+    ['提供の記録の頁の期間の引用を変える', mut('docs/records-of-provision.md', '「三年」', '「五年」')],
+    ['提供の記録の頁から表を外す', mut('docs/records-of-provision.md', '| 名簿に足した日 |', '| 日 |')],
+    ['窓口を開いたと書く', mut('policies/requests.md', 'この窓口が使えるのは、このリポジトリでこの機能が有効になってからです。', 'この窓口は開いています。')],
+    ['発信者情報の節の引用を一語変える', mut('policies/requests.md', 'その理由を含む。）を聴かなければならない。', 'その理由を含む。）を聞かなければならない。')],
+    ['名称と権利から国章の文を外す', mut('policies/names.md', '他人が国章をあしらって作った物は、ヌスクァマとは関係がありません。', '')],
+    ['第25条の注を外す', mut('policies/legality.md', '商標法第25条（他人の登録商標と重なるとき）', '商標法第25条')],
+    ['イタリアの読みを前に戻す', mut('policies/legality.md', '行政罰に替わったとも読めるが、運営者は厳しい読み方を採り、刑罰の罰金が残るものとして扱う。', '行政罰に替わったと読める。')],
+    ['利用規約に前の終わりの文を戻す', mut('policies/terms.md', '王が国を続けられなくなったときは、', 'ヌスクァマは、予告なく終わることがあります。王が国を続けられなくなったときは、')],
+    ['配信の題から「（創作）」を外す', mut('site/errata.xml', '<title>王の正誤表（創作）第 1 件', '<title>第 1 件')],
+    ['官報の配信の題から「（創作）」を外す', mut('site/gazette.xml', '：官報（創作）</title>', '：官報</title>')],
+    ['外した条を調べに残す', gone((t) => { t.provisions[0].id = someId; })],
+    ['外した条に文を持たせる', gone((t) => { t.provisions[0].spans = ['The whole text.']; })],
+    ['外した法令を調べに残す', gone((t) => { t.codes[0].id = JSON.parse(real['verification/world/sources.json']).codes[0].id; })],
+    ['調べに個人データの主題を戻す', mut('verification/world/sources.json', '"topics": {', '"topics": {\n    "data": {},')],
+    ['王の正誤表の地名を変える', mut('ERRATA.md', '| 法 | Insula Legis XVI |', '| 法 | Insula Legis XVII |')],
+    ['年表の行を外す', mut('README.md', '| 2026-11-15（日本時間） | 点検の答えを入れる。', '| 2026-11-15（日本時間） | 改める。')],
+    ['記録の判定の数を変える', mut(AUD, '判定は、誤り 2 件、根拠不足 2 件、漏れ 5 件、表現 2 件、問題なし 1 件で、合わせて 12 件です。', '判定は、誤り 1 件、根拠不足 2 件、漏れ 5 件、表現 2 件、問題なし 1 件で、合わせて 12 件です。')],
+    ['記録の決めた者を変える', mut(AUD, '| 問題なし | 2026-11-15 に利用者が決め、Claude が書きました。何も変えていません。', '| 問題なし | 2026-11-15 に Claude が決めました。何も変えていません。')],
+    ['記録の条文を一字変える', mut(AUD, '> 栄誉、勲章その他の栄典の授与は、いかなる特権も伴はない。', '> 栄誉、勲章その他の栄典の授与は、いかなる特権も伴わない。')],
+    ['記録から未確認の文を外す', mut(AUD, '利用規約は確かめていません | 未確認 |', '読みました | 未確認 |')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y, r]) => verdict(y, r).length > 0).map(([k]) => k);
+  ok('壊して確かめる：決めの関数（ほかの国・日数・リンク・求め）・閉じる道具・国籍・持ち主の出来事・様式・個人情報・英語の予告・求めの範囲・提供の記録の引用と表・窓口・発信者情報の引用・国章・第25条・イタリアの読み・終わりの文・二つの配信の題・外した条と文と法令と主題・王の正誤表・年表・記録の数と決めた者と条文と未確認と弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
