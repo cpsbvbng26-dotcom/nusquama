@@ -16,11 +16,13 @@ jobs:
   check:
     name: 生成物・断り・規程の約束・外への要求・ヘッダー・誓い・アイコン
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         # 検査 70 が、頁の日付を、その頁の文を変えた最後のコミットの日（日本時間）と比べる。履歴をすべて取る。
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
@@ -30,8 +32,11 @@ jobs:
   layout:
     name: 狭い画面と拡大で横にはみ出さず、トップの最初の画面に国旗と地図が収まる
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22

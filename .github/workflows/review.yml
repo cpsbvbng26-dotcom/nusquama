@@ -14,8 +14,11 @@ jobs:
   review:
     name: 総点検の issue を開く
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
@@ -25,7 +28,9 @@ jobs:
         run: |
           year=$(TZ=Asia/Tokyo date +%Y)
           title="年一回の総点検（${year} 年）"
-          if gh issue list --state all --search "in:title ${title}" --json title --jq '.[].title' | grep -qxF "${title}"; then
+          # 検索ではなく、bot の開いた issue をすべての頁から読む。読めなければ、ここで落ちる（2026-11-15）。
+          titles=$(gh api --paginate "repos/${GH_REPO}/issues?state=all&creator=github-actions%5Bbot%5D&per_page=100" --jq '.[] | select(.pull_request == null) | .title')
+          if printf '%s\n' "${titles}" | grep -qxF "${title}"; then
             echo "すでに開いている: ${title}"; exit 0
           fi
           node tools/review.js "${year}" > review.md

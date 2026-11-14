@@ -9,14 +9,17 @@ on:
 permissions:
   contents: read
   issues: write
-concurrency:
-  group: reporter-${{ github.event.issue.number }}
-  cancel-in-progress: true
+# 同時実行の組は、確かめる仕事にだけ置く。動かない実行（持ち主の出来事、ほかのラベルの issue）は自分だけの組に入り、
+# 確かめる実行の場所を取らない。同じ issue の新しい出来事は古い確かめを取り消し、そのときの issue を確かめ直す（2026-11-15）。
 jobs:
   place:
     if: ${{ !github.event.issue.pull_request && github.event.sender.login != github.repository_owner && contains(github.event.issue.labels.*.name, '誤り') }}
     name: 知らせた人が日本にいるかを確かめる
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: ${{ (!github.event.issue.pull_request && github.event.sender.login != github.repository_owner && contains(github.event.issue.labels.*.name, '誤り')) && format('reporter-issue-{0}', github.event.issue.number) || format('reporter-run-{0}', github.run_id) }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
