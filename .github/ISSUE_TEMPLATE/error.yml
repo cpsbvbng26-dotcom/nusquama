@@ -13,6 +13,7 @@ body:
         王の誤りを知らせることは、叙任の条件（自分の誤りを一つ、公に訂正したこと）には当たりません。
         ラテン語の誤り（語形・格・綴り・文法）は、分類で「語」を選びます。国の言葉のラテン語には、辞書で確かめていないものがあります。
         書いたものは GitHub（米国）で扱われます。扱いは個人情報の取り扱いにあります。https://nusquama.vercel.app/policies/privacy.html
+        2026-12-01 から、この様式は「突き合わせの受付」で確かめます。「どこにあるか」の所に「書いてあること」の語がそのとおりにあれば、ラベル「quote verified」が付きます。見つからなければ、決まった文のコメントを付けて閉じます。新しい issue で出し直せます。誤りかどうかは、王が読んで決めます。削除・訂正・辞退・権利・個人の情報・同意を求める issue は、自動では閉じません（求めは「削除・訂正・辞退の求め」の様式で受けます）。
   - type: dropdown
     id: kind
     attributes:
@@ -31,9 +32,16 @@ body:
     id: where
     attributes:
       label: どこにあるか
-      description: 頁の URL か、リポジトリのファイル名と節。
+      description: 欄の初めに、https://nusquama.vercel.app/ で始まる頁の URL か、リポジトリのファイルの名（例 KNIGHTS.md）を一つだけ書きます。節はその後に書けます（確かめるのは頁かファイルの全体です）。
     validations:
       required: true
+  - type: textarea
+    id: quote
+    attributes:
+      label: 書いてあること
+      description: 2026-12-01 から必須です。誤りの語を、書いてあるとおりに一字ずつ写します。空白の違いは見ません。空白を除いて 6 文字以上。
+    validations:
+      required: false
   - type: textarea
     id: what
     attributes:
