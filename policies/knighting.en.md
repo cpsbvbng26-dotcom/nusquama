@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-14.
+Last updated: 2026-11-15.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -63,10 +63,9 @@ Applications stay paused. This section sets the condition for reopening; it does
 When applications reopen, living in Japan is accepted not on the applicant's statement but on the following check.
 The applicant gives an ORCID iD, and the public ORCID record of that iD must link the GitHub account that opened the application issue.
 From a person without an ORCID iD, applications are not received, even after reopening.
-Only these are read: the country of each public address in that ORCID record, the country of the organisation of each current employment and education (each with the day it was added), and the location field of the GitHub profile.
-The location field is free text, so it is used only to turn an application away, never to accept one.
-If any of these names a place outside Japan, or the ORCID entries name more than one country, the application is not accepted.
-Living in Japan is taken as checked only if an ORCID entry names Japan and was added at least 30 days before the issue was opened; otherwise it cannot be checked, and the application is not accepted.
+Only these are read, in the public ORCID record: the country of each public address, and the country of the organisation of each current employment and education (one with no end date), as a country code (ISO 3166), each with the day it was added. No nationality is read. The GitHub profile is not read.
+If any of these entries names a place outside Japan, if the entries name more than one country, or if no entry names Japan and was added at least 30 days before the issue was opened, the application is not accepted.
+Living in Japan is taken as checked only if an ORCID entry names Japan and was added at least 30 days before the issue was opened.
 The countries and organisations read are not kept, not written, and not printed in the logs; the issue shows only whether the check passed.
 This proves that earlier public records agree, not where a person lives: a person who keeps false records for 30 days can still pass. The rule of the Terms of Use against ticking a box untruly, and the removal from the roll, therefore stay as they are.
 Reading ORCID records starts only when applications reopen, after the purposes and the items read are added to the privacy page and the change is shown ahead in the Terms of Use.

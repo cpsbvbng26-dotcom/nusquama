@@ -1758,7 +1758,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
     /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-19).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    if (heads.slice(-20).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2321,7 +2321,7 @@ console.log('\n67. 非公開の連絡の約束を、ある道に合わせる（2
     ['適法性の説明から第32条の受け取り方を外す', mut('policies/legality.md', '第32条の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先のない人は一時的に公開すれば受け取れる。', '')],
     ['様式から答え方を外す', mut('.github/ISSUE_TEMPLATE/request.yml', '運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。', '')],
     ['義務の表を前の文に戻す', mut('verification/duties.json', NAME_JA, '運営者の氏名と住所は、求めた人に、非公開の連絡で遅滞なく知らせます。')],
-    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', /Last updated: \d{4}-\d{2}-\d{2}\./, 'Last updated: 2026-11-11.')],
     ['王の正誤表 29 を範囲の分類にする', mut('ERRATA.md', '| 事実 | Insula Facti VI |', '| 範囲 | Insula Finis XIII |')],
     ['英語の王の正誤表 29 から前の文を外す', mut('ERRATA.en.md', '"The operator answers with a way to make contact privately." (Requests; the security page) / ', '')],
     ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 非公開の連絡の約束を、ある道に合わせて改める。', '| 2026-11-13（日本時間） | 改める。')],
@@ -2568,7 +2568,7 @@ console.log('\n69. 利用規約の合意管轄は、様式で同意した人と�
     ['適法性の説明に第20条を戻す', mut('policies/legality.md', '（民事訴訟法第17条）。', '（民事訴訟法第17条）。合意で定めた裁判所は、移送の制限の外にある（民事訴訟法第20条第1項）。')],
     ['英語の適法性の説明から読む人の文を外す', mut('policies/legality.en.md', 'There is no written agreement with those who only read; for them, and for other disputes, the court', 'The court')],
     ['様式に合意管轄を写す', mut('tools/knighting-form.yml', '願い出の日の版に同意します', '願い出の日の版と、宇都宮の裁判所の専属に同意します')],
-    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/terms.en.md', /Last updated: \d{4}-\d{2}-\d{2}\./, 'Last updated: 2026-11-11.')],
     ['王の正誤表 31 から前の文を外す', mut('ERRATA.md', '合意で定めた専属管轄は、移送の制限の外にある（民事訴訟法第20条第1項）。／', '')],
     ['王の正誤表 31 を範囲の分類にする', mut('ERRATA.md', '| 法 | Insula Legis VIII |', '| 範囲 | Insula Finis XIV |')],
     ['王の正誤表 31 から理由を一つ外す', mut('ERRATA.md', '誰の道も前より狭めないためです。', '誰の道も前より狭めない。')],
@@ -2687,7 +2687,7 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
   const breaks = [
     ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-14。', '最終更新：2026-11-12。'), facts],
-    ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', 'Last updated: 2026-11-14.', 'Last updated: 2026-11-12.'), facts],
+    ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', /Last updated: \d{4}-\d{2}-\d{2}\./, 'Last updated: 2026-11-12.'), facts],
     ['文を変えていない頁の最終更新を、文を変えた日より前にする', mut('policies/names.md', '最終更新：2026-11-12。', '最終更新：2026-11-11。'), facts],
     ['年表の行を作業の時計の日付に戻す', mut('README.md', '| 2026-11-13（日本時間） | 利用規約の合意管轄を、', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、'), facts],
     ['年表の 2026-11-11 の行を前の日に戻す', mut('README.md', '| 2026-11-11（日本時間） | 建国の物語・', '| 2026-11-10（日本時間） | 建国の物語・'), facts],
@@ -4433,14 +4433,14 @@ console.log('\n83. 突き合わせの受付：誤りの知らせは引いた語�
     const c = x.conf;
     if (c.from !== '2026-12-01' || (c.forms || []).length !== 1 || c.forms[0].label !== '誤り' || c.forms[0].kind !== 'quote' || c.forms[0].quote[0] !== '書いてあること') bad.push('設定');
     if (!['求め', '叙任'].every((l) => (c.neverClose || []).includes(l))) bad.push('閉じないラベル');
-    if (!x.form.includes('label: 書いてあること') || !x.form.includes('2026-12-01 から、この様式は「突き合わせの受付」で確かめます。') || !x.form.includes('削除・訂正・辞退・権利・個人の情報・同意を求める issue は、自動では閉じません')) bad.push('誤りの知らせの様式');
+    if (!x.form.includes('label: 書いてあること') || !x.form.includes('2026-12-01 から、この様式は「突き合わせの受付」で確かめます。') || !x.form.includes('突き合わせの受付は、どの issue も閉じません。') || !x.form.includes('自分についての記載の訂正や削除')) bad.push('誤りの知らせの様式');
     for (const t of ['受付は止めたままです。この節は、受付に戻すときの条件を定めるもので、受付に戻すことを決めるものではありません。', 'ORCID iD を持たない人からは、受付に戻ったあとも、願い出を受けません。',
-      '所在の欄は自由に書ける文なので、退けるときにだけ使い、受けるときには使いません。', 'ORCID の項目が日本を指し、issue を開く 30 日以上前に足されたものであるときに限り、日本に住んでいると確かめたとします。',
+      '国籍は読みません。GitHub のプロフィールは読みません。', 'ORCID の項目が日本を指し、issue を開く 30 日以上前に足されたものであるときに限り、日本に住んでいると確かめたとします。',
       '偽りの記録を 30 日保つ人は、通ることがあります。', '読んだ国と組織は、残さず、書かず、実行の記録にも出しません。']) if (!x.kj.includes(t)) bad.push('叙任の規程：' + t.slice(0, 12));
     for (const t of ['Applications stay paused. This section sets the condition for reopening; it does not decide to reopen.', 'From a person without an ORCID iD, applications are not received, even after reopening.',
       'a person who keeps false records for 30 days can still pass']) if (!x.ke.includes(t)) bad.push('Rules on Knighting: ' + t.slice(0, 20));
     if (!x.tj.includes('予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。') || !x.te.includes('Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake.')) bad.push('利用規約の予告');
-    if (!x.rj.includes('自動では閉じず、運営者が読みます。') || !x.re.includes('are never closed automatically; the operator reads them.')) bad.push('求めの規程');
+    if (!x.rj.includes('突き合わせの受付は、どの issue も閉じず、鍵も掛けず、運営者が読みます。') || !x.re.includes('The checked intake never closes or locks an issue; the operator reads every one.')) bad.push('求めの規程');
     const at = x.aud.indexOf(HEAD), end = x.aud.indexOf('\n## 調べた法令\n');
     if (at < 0 || end < at) return bad.concat(['記録の節']);
     const sec = x.aud.slice(at, x.aud.indexOf('\n## ', at + 5));
@@ -4457,7 +4457,7 @@ console.log('\n83. 突き合わせの受付：誤りの知らせは引いた語�
   let selfTest = '';
   try { selfTest = require('child_process').execFileSync('node', [path.join(ROOT, '.github', 'checked-intake', 'verify.js'), '--test'], { encoding: 'utf8' }); } catch (e) { selfTest = String(e.stdout || ''); }
   const requests = ['この記載の削除を求めます。', '私の氏名を訂正してください。', '名簿から辞退します。', '自分の個人情報が載っています。', '同意を撤回します。'];
-  const legalOk = requests.every((r) => CI.legalRequest(r)) && CI.actionFor('quote', { ok: false, reason: 'absent' }, { legal: true }).close === false
+  const legalOk = requests.every((r) => CI.legalRequest(r)) && Object.keys(CI.actionFor('quote', { ok: false, reason: 'absent' }, { legal: true })).join() === 'add,remove'
     && CI.specFor({ labels: ['求め'], created_at: '2026-12-02T00:00:00Z' }, x0.conf) === null && CI.specFor({ labels: ['誤り', '叙任'], created_at: '2026-12-02T00:00:00Z' }, x0.conf) === null
     && CI.specFor({ labels: ['誤り'], created_at: '2026-11-30T00:00:00Z' }, x0.conf) === null && CI.specFor({ labels: ['誤り'], created_at: '2026-12-02T00:00:00Z' }, x0.conf) !== null;
   ok('設定・誤りの知らせの様式・叙任の規程の場所の確かめ（日本語と英語）・利用規約の予告・求めの規程・記録の節がそろい、道具の自己検査が通り、求めは閉じない',
@@ -4466,21 +4466,100 @@ console.log('\n83. 突き合わせの受付：誤りの知らせは引いた語�
   const breaks = [
     ['求めのラベルを閉じないものから外す', Object.assign({}, x0, { conf: Object.assign({}, x0.conf, { neverClose: ['叙任'] }) })],
     ['効力の日を早める', Object.assign({}, x0, { conf: Object.assign({}, x0.conf, { from: '2026-11-15' }) })],
-    ['様式から閉じない断りを外す', mut('form', '削除・訂正・辞退・権利・個人の情報・同意を求める issue は、自動では閉じません', '')],
+    ['様式から閉じない断りを外す', mut('form', '突き合わせの受付は、どの issue も閉じません。', '')],
     ['ORCID iD のない人を受ける', mut('kj', 'ORCID iD を持たない人からは、受付に戻ったあとも、願い出を受けません。', 'ORCID iD を持たない人は、本人の申告で受けます。')],
-    ['所在の欄で受ける', mut('kj', '所在の欄は自由に書ける文なので、退けるときにだけ使い、受けるときには使いません。', '所在の欄が日本を指せば受けます。')],
+    ['所在の欄を読む', mut('kj', '国籍は読みません。GitHub のプロフィールは読みません。', '国籍は読みません。GitHub のプロフィールの所在の欄も読みます。')],
     ['30 日を外す', mut('kj', 'issue を開く 30 日以上前に足されたものであるときに限り', 'issue を開くときにあるときに限り')],
     ['限りの文を外す', mut('ke', 'a person who keeps false records for 30 days can still pass', 'no one can pass with false records')],
     ['予告を外す', mut('tj', '予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。', '')],
-    ['求めの規程から閉じない文を外す', mut('re', 'are never closed automatically; the operator reads them.', 'are closed like any other.')],
+    ['求めの規程から閉じない文を外す', mut('re', 'The checked intake never closes or locks an issue; the operator reads every one.', 'Error reports that fail are closed.')],
     ['記録の節を外す', mut('aud', HEAD, '\n## 突き合わせ\n')],
     ['記録の判定の数を変える', mut('aud', '漏れ 1 件、表現 0 件、問題なし 7 件で、合わせて 8 件です。', '漏れ 0 件、表現 0 件、問題なし 7 件で、合わせて 8 件です。')],
     ['記録の引用を一語変える', mut('aud', '「七日を経過しても当該発信者から', '「十日を経過しても当該発信者から')],
     ['決めた者を外す', mut('aud', 'ORCID iD を持たない人からは受けません。2026-11-14 に Claude が決めました。', 'ORCID iD を持たない人からは受けません。')],
-    ['記録から弁護士の文を外す', mut('aud', 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut('aud', 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-15：十八度目の点検', '\n## 2026-11-15：十八度目の点検')],
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   ok('壊して確かめる：閉じないラベル・効力の日・様式の断り・ORCID iD のない人・所在の欄で受けること・30 日・限りの文（英語）・予告・求めの規程（英語）・記録の節と判定の数と引用と決めた者と弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
+    caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n84. 十八度目の点検：突き合わせの受付はどの issue も閉じず、鍵も掛けず、持ち主の出来事に手を出さず、求めの規程は「自分についての記載の訂正」と書き、叙任の規程は GitHub の所在の欄を読まない（2026-11-15）');
+{
+  /* 2026-11-15 に、読むだけの十八度目の点検が見つけた。語の並びは求めの書き方を拾いきれず、閉じる道が残る限り求めを閉じえた。
+   * 求めの規程の「誤りの知らせでも…訂正…を求めると読める issue」は、文そのものが食い違っていた。叙任の規程は、自由な文の所在の欄を
+   * 読むとしていた。直し方は 2026-11-15 に Claude が決めた。 */
+  const CI = require('../.github/checked-intake/verify.js');
+  const code = (t) => String(t || '').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+  const x0 = {
+    js: read('.github/checked-intake/verify.js'), conf: read('.github/checked-intake/config.json'), form: read('.github/ISSUE_TEMPLATE/error.yml'),
+    rj: read('policies/requests.md'), re: read('policies/requests.en.md'), tj: read('policies/terms.md'), te: read('policies/terms.en.md'),
+    kj: read('policies/knighting.md'), ke: read('policies/knighting.en.md'), ej: read('ERRATA.md'), ee: read('ERRATA.en.md'), readme: read('README.md'),
+    aud: read('docs/legal-audit-2026-11-12.md'),
+  };
+  const HEAD = '\n## 2026-11-15：十八度目の点検\n';
+  const KINDS = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const TEXTS = Object.values(JSON.parse(read('verification/statutes-texts.json'))).map((t) => t.replace(/\s+/g, ''));
+  const OLD = ['誤りの知らせでも削除・訂正・辞退・権利・個人の情報・同意を求めると読める issue', '引いた語がなければ閉じます', '決まった文のコメントを付けて閉じます', 'closed if the quoted words are not found',
+    'the issue is closed with a fixed comment', 'are never closed automatically; the operator reads them', '所在の欄は自由に書ける文なので', 'and the location field of the GitHub profile'];
+  function verdict(x) {
+    const bad = [];
+    let c = {};
+    try { c = JSON.parse(x.conf); } catch (e) { bad.push('設定が読めない'); }
+    if (!(c.neverClose || []).includes('needs a person')) bad.push('設定の neverClose に needs a person がない');
+    if (CI.closeOrLock(code(x.js).split('function closeOrLock')[0]).length) bad.push('道具が閉じるか鍵を掛ける');
+    for (const t of OLD) if ([x.form, x.rj, x.re, x.tj, x.te, x.kj, x.ke].some((y) => y.includes(t))) bad.push('前の文が残る：' + t.slice(0, 16));
+    const need = [[x.rj, '突き合わせの受付は、どの issue も閉じず、鍵も掛けず、運営者が読みます。'], [x.rj, '自分についての記載の訂正や削除、辞退、権利、個人の情報、同意を求めるときは、この求めの様式を使えます。'],
+      [x.re, 'The checked intake never closes or locks an issue; the operator reads every one.'], [x.re, 'A request for a correction of what is written about oneself'],
+      [x.form, '突き合わせの受付は、どの issue も閉じません。'], [x.form, '自分についての記載の訂正や削除'], [x.tj, '突き合わせの受付は、どの issue も閉じません（'], [x.te, 'The checked intake never closes an issue ('],
+      [x.kj, '国籍は読みません。GitHub のプロフィールは読みません。'], [x.kj, '日本を指し issue を開く 30 日以上前に足された項目が無いときは、願い出を受けません。'],
+      [x.ke, 'No nationality is read. The GitHub profile is not read.'], [x.ke, 'or if no entry names Japan and was added at least 30 days before the issue was opened, the application is not accepted.']];
+    for (const [t, w] of need) if (!t.includes(w)) bad.push('ない：' + w.slice(0, 20));
+    /* 王の正誤表の三件（日本語と英語）と年表の行。 */
+    for (const [n, kind, place] of [[48, '事実', 'Insula Facti XI'], [49, '語', 'Insula Verbi VI'], [50, '範囲', 'Insula Finis XIX']]) {
+      const row = x.ej.split('\n').find((l) => l.startsWith('| ' + n + ' | 2026-11-15 |'));
+      const rowEn = x.ee.split('\n').find((l) => l.startsWith('| ' + n + ' | 2026-11-15 |'));
+      if (!row || !row.endsWith(' | ' + kind + ' | ' + place + ' |') || !rowEn || !rowEn.endsWith(' | ' + place + ' |') || !/2026-11-15 に Claude が決めました。/.test(row)) bad.push('王の正誤表の第 ' + n + ' 件');
+    }
+    if (!x.readme.includes('| 2026-11-15（日本時間） | 突き合わせの受付は、どの issue も閉じず、鍵も掛けないと改める。')) bad.push('年表の行');
+    /* 記録の節。 */
+    const at = x.aud.indexOf(HEAD), end = x.aud.indexOf('\n## 調べた法令\n');
+    if (at < 0 || end < at) return bad.concat(['記録の節']);
+    const sec = x.aud.slice(at, x.aud.indexOf('\n## ', at + 5));
+    const rows = sec.split('\n').filter((l) => /^\| (?!---|箇所 \|)/.test(l)).map((l) => l.slice(2, -2).split(' | '));
+    if (rows.length < 5 || !rows.every((r) => r.length === 6 && KINDS.includes(r[4]))) bad.push('記録の表');
+    const n = (k) => rows.filter((r) => r[4] === k).length;
+    if (!sec.includes('判定は、誤り ' + n('誤り') + ' 件、根拠不足 ' + n('根拠不足') + ' 件、漏れ ' + n('漏れ') + ' 件、表現 ' + n('表現') + ' 件、問題なし ' + n('問題なし') + ' 件で、合わせて ' + rows.length + ' 件です。')) bad.push('記録の判定の数');
+    if (!sec.includes('直し方は 2026-11-15 に Claude が決めました。') || rows.some((r) => !/2026-11-15 に Claude が決めました。[^|]*ためです$/.test(r[5]))) bad.push('決めた者と理由');
+    for (const r of rows.filter((y) => /法 第/.test(y[1]))) for (const m of r[2].matchAll(/「([^「」]+)」/g)) if (/[一-鿿]{2}/.test(m[1]) && m[1].length >= 8 && !TEXTS.some((t) => t.includes(m[1].replace(/\s+/g, '')))) bad.push('取り寄せた文にない引用：' + m[1].slice(0, 12));
+    if (!sec.includes('2026-11-14 の節のその行は「問題なし」としていましたが、誤りでした')) bad.push('前の行の誤り');
+    if (!sec.includes('この節も、弁護士の確認は受けていません。') || /弁護士(が|の)(確かめ|確認し)(た|まし)/.test(sec)) bad.push('弁護士の文');
+    return bad;
+  }
+  const v0 = verdict(x0);
+  ok('突き合わせの受付が閉じず鍵も掛けず、設定が needs a person に手を出さず、求めの規程と様式と利用規約（日本語と英語）が閉じないと書き、求めの規程が「自分についての記載の訂正」と書き、叙任の規程が国の符号だけを読み国籍も GitHub も読まないと書き、王の正誤表の三件と年表の行と記録の節がそろう',
+    v0.length === 0, v0.join(' / '));
+  const mut = (k, a, b) => Object.assign({}, x0, { [k]: x0[k].replace(a, b) });
+  const breaks = [
+    ['設定から needs a person を外す', mut('conf', ',\n    "needs a person"', '')],
+    ['道具が閉じる', mut('js', "  await gh('POST', '/issues/' + n + '/labels', { labels: act.add });", "  await gh('POST', '/issues/' + n + '/labels', { labels: act.add });\n  await gh('PATCH', '/issues/' + n, { state: 'closed' });")],
+    ['道具が鍵を掛ける', mut('js', "  await gh('POST', '/issues/' + n + '/labels', { labels: act.add });", "  await gh('POST', '/issues/' + n + '/labels', { labels: act.add });\n  await gh('PUT', '/issues/' + n + '/lock', {});")],
+    ['求めの規程に食い違う文を戻す', mut('rj', '自分についての記載の訂正や削除、辞退、権利、個人の情報、同意を求めるときは', '誤りの知らせでも削除・訂正・辞退・権利・個人の情報・同意を求めると読める issue は')],
+    ['英語の求めの規程を閉じる文に戻す', mut('re', 'The checked intake never closes or locks an issue; the operator reads every one.', 'Error reports are closed if the quoted words are not found.')],
+    ['様式を閉じる文に戻す', mut('form', '突き合わせの受付は、どの issue も閉じません。', '見つからなければ、決まった文のコメントを付けて閉じます。')],
+    ['利用規約の予告を閉じる文に戻す', mut('te', 'The checked intake never closes an issue (', 'Otherwise the issue is closed with a fixed comment (')],
+    ['叙任の規程で所在の欄を読む', mut('kj', '国籍は読みません。GitHub のプロフィールは読みません。', '国籍は読みません。所在の欄は自由に書ける文なので、退けるときにだけ使います。')],
+    ['英語の叙任の規程で所在の欄を読む', mut('ke', 'No nationality is read. The GitHub profile is not read.', 'No nationality is read, and the location field of the GitHub profile is read.')],
+    ['王の正誤表の地名を変える', mut('ej', '| 語 | Insula Verbi VI |', '| 語 | Insula Verbi VII |')],
+    ['年表の行を外す', mut('readme', '| 2026-11-15（日本時間） | 突き合わせの受付は、どの issue も閉じず、鍵も掛けないと改める。', '| 2026-11-15（日本時間） | 改める。')],
+    ['記録の節を外す', mut('aud', HEAD, '\n## 2026-11-15：点検\n')],
+    ['記録の判定の数を変える', mut('aud', '判定は、誤り 1 件、根拠不足 0 件、漏れ 1 件、表現 2 件、問題なし 1 件で、合わせて 5 件です。', '判定は、誤り 0 件、根拠不足 0 件、漏れ 1 件、表現 2 件、問題なし 1 件で、合わせて 5 件です。')],
+    ['記録の引用を一語変える', mut('aud', '「定型約款の変更が、相手方の一般の利益に適合するとき。」', '「定型約款の変更が、相手方の利益に適合するとき。」')],
+    ['前の行の誤りを書かない', mut('aud', '2026-11-14 の節のその行は「問題なし」としていましたが、誤りでした', '2026-11-14 の節のその行はそのままです')],
+    ['記録から弁護士の文を外す', mut('aud', 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
+  ok('壊して確かめる：設定・道具が閉じる・鍵を掛ける・食い違う文・英語の求めの規程・様式・英語の利用規約・所在の欄（日本語と英語）・王の正誤表の地名・年表の行・記録の節と判定の数と引用と前の行と弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
 }
 
