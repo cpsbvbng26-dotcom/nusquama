@@ -1,16 +1,18 @@
 # Statement of Purpose
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 > This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. This statement sets out how the individual who runs this fictional country as play thinks about running it.
 
 This is an English translation. The [Japanese version](MISSION.md) governs; if the two differ, the Japanese version applies.
 
+Where this statement says "at present", it means as of the date this page was last updated.
+
 ## Article 1 (Purpose)
 
 1. Nusquama is a work of fiction that the operator writes as play. It is an imaginary country made for entertainment, and it is not academic research.
 2. Its motto is "Errata servo, me ipsum rego" ("Mistakes I keep, and myself I rule"). The King does not erase the King's own mistakes, but records them with dates in the [King's errata](ERRATA.en.md). The King's errata are the domain of this country (Articles 3 and 5 of the Basic Law).
-3. The operator runs this fiction without charging anyone anything.
+3. At present, the operator runs this fiction without charging anyone anything.
 4. In doing so, the operator aims to show, as the play of a fictional country, keeping mistakes instead of erasing them and correcting them in public.
 
 ## Article 2 (Nature of this statement)
@@ -27,7 +29,7 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 2. It is not a state under international law, seeks no recognition as a state, and enters into no diplomatic relations with any state.
 3. It is not related to any real state, royal house, order of knighthood, honours system, decoration or title, and it neither claims to be one nor replaces one.
 4. "Knight-King Nemo I" is the name of a role the operator plays in the fiction.
-5. Every page says that it is a work of fiction.
+5. At present, every page says that it is a work of fiction.
 
 ## Article 4 (Titles)
 
@@ -38,8 +40,8 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 ## Article 5 (Free of charge)
 
-1. Nusquama charges no one anything. It sells no titles, takes no donations, shows no advertising and sells nothing (Terms of Use, "Fees").
-2. Applying for knighting and being listed on the roll are free. Knighting is never given in exchange for money, goods or services (Article 6 of the Basic Law).
+1. At present, Nusquama charges no one anything. It sells no titles. At present, it takes no donations, shows no advertising and sells nothing (Terms of Use, "Fees").
+2. At present, applying for knighting and being listed on the roll are free. Knighting is never given in exchange for money, goods or services (Article 6 of the Basic Law).
 3. Anyone who claims to grant Nusquama's titles for a fee has nothing to do with Nusquama.
 4. Being free does not mean any promise that the content is free of errors or that it can always be read. The site and the repository are provided as they are (Terms of Use, "No warranty").
 
@@ -60,9 +62,9 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 ## Article 8 (Knighting, and the countries and regions where knighting is not given)
 
-1. Applications for knighting have not been received since 2026-11-12. No date for reopening has been set ([Rules on Knighting](policies/knighting.en.md), "Pause in receiving applications").
+1. At present, applications for knighting are not received; they have not been received since 2026-11-12. At present, no date for reopening has been set ([Rules on Knighting](policies/knighting.en.md), "Pause in receiving applications").
 2. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply (Rules on Knighting, "Who may apply").
-3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. As of 2026-11-13 the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
+3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. At present the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
 4. In addition, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either, and are not knighted. When the operator so judges, the country or region and the reason are added to the Rules on Knighting (Rules on Knighting, "Countries and regions where knighting would not conform to the law").
 5. The number of countries and regions where knighting is not given may grow as laws change or as the operator judges.
 6. The purpose of this statement does not change any of these rules.
@@ -84,11 +86,11 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 1. Nusquama's text, emblem and site were written with Claude Code (Anthropic) at the operator's request. The operator checked them and is responsible for them ([Disclaimer](policies/disclaimer.en.md), "How this was made").
 2. Claude is neither a knight nor a king, and is not an author of Nusquama.
-3. Nusquama is not affiliated with Anthropic and is not endorsed by it.
+3. At present, Nusquama is not affiliated with Anthropic and is not endorsed by it.
 
 ## Article 12 (The operator, and relations with others)
 
-1. The operator is the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King.
+1. At present, the operator is the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King.
 2. Nusquama is not a state, government, local authority, royal house, noble family, order of knighthood, religious body, or system of decorations or honours (Disclaimer, "A work of fiction").
 3. Nusquama is separate from the operator's research and is not part of it. It has no relation to the operator's other activities either (Disclaimer, "The operator's research" and "Statements outside the kingdom").
 4. A name on the roll does not mean the operator recommends that person's correction, research or character.
@@ -96,7 +98,7 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 ## Article 13 (Responding to disputes)
 
-1. At present, the operator has not retained a lawyer or any other professional. This statement, the Terms of Use and the rules have not been reviewed by a lawyer.
+1. At present, the operator has not retained a lawyer or any other professional. At present, this statement, the Terms of Use and the rules have not been reviewed by a lawyer.
 2. If a dispute arises, the operator will respond after consulting a lawyer or other professional as needed.
 3. The response follows the laws of Japan (including their provisions on international jurisdiction and on the governing law) and the Terms of Use, "Governing law and disputes". The Terms of Use are governed by Japanese law, and disputes are to be settled by agreement first.
 4. This article is not a warning to anyone.

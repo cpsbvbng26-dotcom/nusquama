@@ -137,13 +137,14 @@ Source: https://nusquama.vercel.app/
 ## 運営理念・声明
 
 運営の考え方は、[運営理念・声明](MISSION.md)にまとめています。下の第 1 条と第 2 条は、声明の文をそのまま写したものです。
+写した条で「現在」と書いたことは、声明の最終更新の日の時点のことです。
 全文は、サイトの[運営理念・声明](https://nusquama.vercel.app/mission.html)と、このリポジトリの [MISSION.md](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/MISSION.md) にあります。英語の訳は [Statement of Purpose](MISSION.en.md) です。
 
 ### 第 1 条（目的）
 
 1. ヌスクァマは、運営者が遊びとして書いている創作です。娯楽のために作った架空の国で、学術の研究ではありません。
 2. 国是は「誤りは守り、己を治める」です。王は自らの誤りを消さず、日付を付けて[王の正誤表](ERRATA.md)に記します。王の正誤表は、この国の版図です（王国基本法第三条・第五条）。
-3. 運営者は、この創作を、誰からも料金を取らずに運営します。
+3. 運営者は、現在、この創作を、誰からも料金を取らずに運営しています。
 4. それによって、誤りを消さずに残し、公に正すことを、創作の国の遊びとして示すことを目的としています。
 
 ### 第 2 条（この声明の性格）
@@ -203,6 +204,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-13（日本時間） | 削除・訂正・辞退の求めの、様式を使わない issue は開けないとした文を、GitHub の画面では様式だけを選べるようにしてあり、ほかの道で開かれた issue は運営者が読むと改める。自動の確認は、受付の停止のあいだに開かれ、叙任の願い出の様式の見出しや印を持つラベルのない issue も、叙任の願い出と同じに扱う。叙任の規程と適法性の説明で、イタリアの外で称号を使う国民に使う者の罰が及ぶとした文と、GDPR の代理人について第27条第2項 (a) に拠った文を改める（王の正誤表 42・43・44）。王の正誤表 25・26・30・33・34 に、のちに改めたことを示す注を添える | The sentence in the Requests page saying that issues cannot be opened without a form now says that only the forms are offered on GitHub's web pages, and that an issue opened another way is read by the operator. The automatic check handles an issue without a label in the same way as an application if it was opened during the pause and carries the headings or boxes of the application form. In the Rules on Knighting and the Legality Statement, the sentences saying that the penalty for use reaches a national who uses the title outside Italy, and the sentences relying on Article 27(2)(a) of the GDPR for the representative, are corrected (King's errata 42, 43 and 44). King's errata 25, 26, 30, 33 and 34 gain a note that they were later changed |
 | 2026-11-13（日本時間） | 個人情報の取り扱いの、ほかに写しを作らないとした文を、GitHub の通知が issue の中身の写しを受け取るアカウント（運営者のものを含みうる）に届けうることと、その扱いは GitHub の規約と方針に従うこと、運営者はこれとは別に写しを作らないことを書く形に改める。保存の期間に、通知が電子メールでも届くことと、届いた写しが消えるとは説明書が書いていないことを書く（王の正誤表 45） | In the Privacy page, the sentence saying that no other copy is made now says that GitHub's notifications may carry a copy of the content of an issue to the accounts that receive them (which may include the operator's), that this copy is handled under GitHub's terms and policies, and that apart from this the operator makes no copy. "How long data is kept" now says that notifications also arrive by email, and that the documentation does not say that a copy already delivered goes away (King's errata 45) |
 | 2026-11-13（日本時間） | 運営理念・声明を置き、トップの頁と規程の一覧からつなぐ。叙任の規程に、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人・住む人・願い出のときにいる人は願い出ることができないことと、そう判断したときはその国や地域と理由を書き足すことを書き、利用規約で予告する | A Statement of Purpose is added and linked from the top page and the list of rules. The Rules on Knighting state that, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to its law may not apply, and that the country or region and the reason are then added; the Terms of Use give notice |
+| 2026-11-14（日本時間） | 運営理念・声明の、いまの事実を述べる文に「現在」を付け、頭に「現在」がいつかを定める一文を置く。README の写しも同じにする。約束と定めと語の意味の文には付けない | In the Statement of Purpose, the sentences that state how things are now say "at present", and a sentence near the top says what "at present" means. The copy in the README follows. Rules, commitments and definitions do not carry it |
 
 ---
 
@@ -1082,15 +1084,17 @@ Source: https://nusquama.vercel.app/mission.html
 
 # 運営理念・声明
 
-最終更新：2026-11-13。
+最終更新：2026-11-14。
 
 > これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。この声明は、創作の国を遊びとして運営する個人が、運営の考え方を述べたものです。
+
+この声明で「現在」と書いたことは、この頁の最終更新の日の時点のことです。
 
 ## 第 1 条（目的）
 
 1. ヌスクァマは、運営者が遊びとして書いている創作です。娯楽のために作った架空の国で、学術の研究ではありません。
 2. 国是は「誤りは守り、己を治める」です。王は自らの誤りを消さず、日付を付けて[王の正誤表](ERRATA.md)に記します。王の正誤表は、この国の版図です（王国基本法第三条・第五条）。
-3. 運営者は、この創作を、誰からも料金を取らずに運営します。
+3. 運営者は、現在、この創作を、誰からも料金を取らずに運営しています。
 4. それによって、誤りを消さずに残し、公に正すことを、創作の国の遊びとして示すことを目的としています。
 
 ## 第 2 条（この声明の性格）
@@ -1107,7 +1111,7 @@ Source: https://nusquama.vercel.app/mission.html
 2. 国際法上の国家ではなく、国家としての承認を求めず、どの国とも外交の関係を結びません。
 3. 実在の国家・王室・騎士団・叙勲・栄典・称号のいずれとも関係がなく、それらを名乗るものでも、それらに代わるものでもありません。
 4. 「騎士王ネモ一世」は、運営者が創作の中で演じる役の名です。
-5. どの頁も、創作であることを断っています。
+5. どの頁も、現在、創作であることを断っています。
 
 ## 第 4 条（称号）
 
@@ -1118,8 +1122,8 @@ Source: https://nusquama.vercel.app/mission.html
 
 ## 第 5 条（無償）
 
-1. ヌスクァマは、誰からも料金を取りません。称号を売らず、寄付を受けず、広告を出さず、何も販売しません（利用規約「費用」）。
-2. 叙任の願い出にも、名簿への記載にも、費用はかかりません。叙任は、金銭・物品・役務と引き換えにしません（王国基本法第六条）。
+1. ヌスクァマは、現在、誰からも料金を取っていません。称号を売りません。現在、寄付を受けず、広告を出さず、何も販売していません（利用規約「費用」）。
+2. 叙任の願い出にも、名簿への記載にも、現在、費用はかかりません。叙任は、金銭・物品・役務と引き換えにしません（王国基本法第六条）。
 3. ヌスクァマの称号を有料で授けると称する者がいても、ヌスクァマとは関係がありません。
 4. 無償であることは、内容に誤りがないことや、いつでも読めることを保証する意味を持ちません。サイトとリポジトリは、現状のまま提供します（利用規約「保証しないこと」）。
 
@@ -1140,9 +1144,9 @@ Source: https://nusquama.vercel.app/mission.html
 
 ## 第 8 条（叙任と、叙任しない国と地域）
 
-1. 叙任の願い出の受付は、2026-11-12 から止めています。受付に戻る日は決めていません（[叙任の規程](policies/knighting.md)「受付の停止」）。
+1. 叙任の願い出の受付は、2026-11-12 から現在まで止めています。受付に戻る日は、現在、決めていません（[叙任の規程](policies/knighting.md)「受付の停止」）。
 2. 2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります（叙任の規程「願い出ることができる人」）。
-3. 2026-11-22 から、叙任の規程が国籍で除く国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。国籍で除く国は、2026-11-13 の時点で 19 か国です。イタリアと、叙任の規程「外国の称号を縛る国」の表の 18 か国です。表の国のほかにも、国籍を持つ国の法令が同じ節の三つの型のどれかに当たる人は、願い出ることができません。
+3. 2026-11-22 から、叙任の規程が国籍で除く国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。国籍で除く国は、現在、19 か国です。イタリアと、叙任の規程「外国の称号を縛る国」の表の 18 か国です。表の国のほかにも、国籍を持つ国の法令が同じ節の三つの型のどれかに当たる人は、願い出ることができません。
 4. そのほか、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができず、叙任しません。運営者がそう判断したときは、その国や地域と理由を、叙任の規程に書き足します（叙任の規程「法令に適合しない国と地域」）。
 5. 叙任しない国と地域の数は、法令の変化や運営者の判断によって増えることがあります。
 6. この声明の目的は、これらの定めを変えません。
@@ -1164,11 +1168,11 @@ Source: https://nusquama.vercel.app/mission.html
 
 1. ヌスクァマの文・国章・サイトは、運営者の求めにより Claude Code（Anthropic）で書きました。運営者が確かめ、責任を負います（[免責事項](policies/disclaimer.md)「作り方の開示」）。
 2. Claude は騎士でも王でもなく、ヌスクァマの著者でもありません。
-3. ヌスクァマは Anthropic と提携しておらず、推薦も受けていません。
+3. ヌスクァマは、現在、Anthropic と提携しておらず、推薦も受けていません。
 
 ## 第 12 条（運営者と、ほかとの関係）
 
-1. 運営者は、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めます。
+1. 運営者は、現在、GitHub のアカウント cpsbvbng26-dotcom の持ち主である個人で、王の役を務めています。
 2. ヌスクァマは、国家・政府・自治体・王室・貴族の家・騎士団・宗教団体・叙勲や栄典の制度のいずれでもありません（免責事項「創作であること」）。
 3. ヌスクァマは、運営者の研究とは別のもので、その一部ではありません。運営者がほかに行っている活動とも関係がありません（免責事項「運営者の研究との関係」「この国の外での発言」）。
 4. 騎士の名簿に名があることは、その人の訂正や研究や人柄を、運営者が推薦することを意味しません。
@@ -1176,7 +1180,7 @@ Source: https://nusquama.vercel.app/mission.html
 
 ## 第 13 条（紛争への対応）
 
-1. 運営者は、現在、弁護士その他の専門家に依頼していません。この声明と利用規約・各規程は、弁護士の確認を受けていません。
+1. 運営者は、現在、弁護士その他の専門家に依頼していません。この声明と利用規約・各規程は、現在、弁護士の確認を受けていません。
 2. 紛争が生じたときは、運営者は、必要に応じて弁護士その他の専門家に相談したうえで対応します。
 3. 対応は、日本の法令（国際的な事件の裁判管轄と準拠法についての定めを含みます）と、利用規約「準拠法と紛争」の定めに沿います。利用規約は日本法に準拠し、紛争は示談による解決を優先します。
 4. この条は、誰かに対する警告ではありません。
@@ -4137,17 +4141,19 @@ Source: https://nusquama.vercel.app/mission.en.html
 
 # Statement of Purpose
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-14.
 
 > This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. This statement sets out how the individual who runs this fictional country as play thinks about running it.
 
 This is an English translation. The [Japanese version](MISSION.md) governs; if the two differ, the Japanese version applies.
 
+Where this statement says "at present", it means as of the date this page was last updated.
+
 ## Article 1 (Purpose)
 
 1. Nusquama is a work of fiction that the operator writes as play. It is an imaginary country made for entertainment, and it is not academic research.
 2. Its motto is "Errata servo, me ipsum rego" ("Mistakes I keep, and myself I rule"). The King does not erase the King's own mistakes, but records them with dates in the [King's errata](ERRATA.en.md). The King's errata are the domain of this country (Articles 3 and 5 of the Basic Law).
-3. The operator runs this fiction without charging anyone anything.
+3. At present, the operator runs this fiction without charging anyone anything.
 4. In doing so, the operator aims to show, as the play of a fictional country, keeping mistakes instead of erasing them and correcting them in public.
 
 ## Article 2 (Nature of this statement)
@@ -4164,7 +4170,7 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 2. It is not a state under international law, seeks no recognition as a state, and enters into no diplomatic relations with any state.
 3. It is not related to any real state, royal house, order of knighthood, honours system, decoration or title, and it neither claims to be one nor replaces one.
 4. "Knight-King Nemo I" is the name of a role the operator plays in the fiction.
-5. Every page says that it is a work of fiction.
+5. At present, every page says that it is a work of fiction.
 
 ## Article 4 (Titles)
 
@@ -4175,8 +4181,8 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 ## Article 5 (Free of charge)
 
-1. Nusquama charges no one anything. It sells no titles, takes no donations, shows no advertising and sells nothing (Terms of Use, "Fees").
-2. Applying for knighting and being listed on the roll are free. Knighting is never given in exchange for money, goods or services (Article 6 of the Basic Law).
+1. At present, Nusquama charges no one anything. It sells no titles. At present, it takes no donations, shows no advertising and sells nothing (Terms of Use, "Fees").
+2. At present, applying for knighting and being listed on the roll are free. Knighting is never given in exchange for money, goods or services (Article 6 of the Basic Law).
 3. Anyone who claims to grant Nusquama's titles for a fee has nothing to do with Nusquama.
 4. Being free does not mean any promise that the content is free of errors or that it can always be read. The site and the repository are provided as they are (Terms of Use, "No warranty").
 
@@ -4197,9 +4203,9 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 ## Article 8 (Knighting, and the countries and regions where knighting is not given)
 
-1. Applications for knighting have not been received since 2026-11-12. No date for reopening has been set ([Rules on Knighting](policies/knighting.en.md), "Pause in receiving applications").
+1. At present, applications for knighting are not received; they have not been received since 2026-11-12. At present, no date for reopening has been set ([Rules on Knighting](policies/knighting.en.md), "Pause in receiving applications").
 2. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply (Rules on Knighting, "Who may apply").
-3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. As of 2026-11-13 the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
+3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. At present the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
 4. In addition, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either, and are not knighted. When the operator so judges, the country or region and the reason are added to the Rules on Knighting (Rules on Knighting, "Countries and regions where knighting would not conform to the law").
 5. The number of countries and regions where knighting is not given may grow as laws change or as the operator judges.
 6. The purpose of this statement does not change any of these rules.
@@ -4221,11 +4227,11 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 1. Nusquama's text, emblem and site were written with Claude Code (Anthropic) at the operator's request. The operator checked them and is responsible for them ([Disclaimer](policies/disclaimer.en.md), "How this was made").
 2. Claude is neither a knight nor a king, and is not an author of Nusquama.
-3. Nusquama is not affiliated with Anthropic and is not endorsed by it.
+3. At present, Nusquama is not affiliated with Anthropic and is not endorsed by it.
 
 ## Article 12 (The operator, and relations with others)
 
-1. The operator is the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King.
+1. At present, the operator is the individual who owns the GitHub account cpsbvbng26-dotcom, and who plays the King.
 2. Nusquama is not a state, government, local authority, royal house, noble family, order of knighthood, religious body, or system of decorations or honours (Disclaimer, "A work of fiction").
 3. Nusquama is separate from the operator's research and is not part of it. It has no relation to the operator's other activities either (Disclaimer, "The operator's research" and "Statements outside the kingdom").
 4. A name on the roll does not mean the operator recommends that person's correction, research or character.
@@ -4233,7 +4239,7 @@ This is an English translation. The [Japanese version](MISSION.md) governs; if t
 
 ## Article 13 (Responding to disputes)
 
-1. At present, the operator has not retained a lawyer or any other professional. This statement, the Terms of Use and the rules have not been reviewed by a lawyer.
+1. At present, the operator has not retained a lawyer or any other professional. At present, this statement, the Terms of Use and the rules have not been reviewed by a lawyer.
 2. If a dispute arises, the operator will respond after consulting a lawyer or other professional as needed.
 3. The response follows the laws of Japan (including their provisions on international jurisdiction and on the governing law) and the Terms of Use, "Governing law and disputes". The Terms of Use are governed by Japanese law, and disputes are to be settled by agreement first.
 4. This article is not a warning to anyone.
