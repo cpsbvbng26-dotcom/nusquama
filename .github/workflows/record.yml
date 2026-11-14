@@ -29,10 +29,10 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
-      # 入力は環境変数だけを通して渡す。
+      # PR の番号と枝の名は環境変数で渡す。PR の題は、tools/record.js が出来事のファイル（GITHUB_EVENT_PATH）から読む。
+      # 題を環境変数に入れると、実行の記録に写るため（2026-11-14、突き合わせの受付の点検）。
       - run: node tools/record.js
         env:
           PR: ${{ github.event.pull_request.number }}
           BRANCH: ${{ github.event.pull_request.head.ref }}
-          TITLE: ${{ github.event.pull_request.title }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
