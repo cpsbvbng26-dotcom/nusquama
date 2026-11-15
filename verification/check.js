@@ -1195,14 +1195,22 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     'labels.yml': { issues: 'write' },
     'live.yml': { contents: 'read', issues: 'write' },
     'personal.yml': { contents: 'read', issues: 'write' },
-    'record.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
+    /* 2026-11-15：record.yml と statutes.yml の先頭は読むだけにし、書く権限は仕事ごとに渡す（下の JOBS）。statutes.yml の PR の仕事は読むだけである。 */
+    'record.yml': { contents: 'read' },
     'review.yml': { contents: 'read', issues: 'write' },
     /* 誤りの知らせを日本にいる人からだけ受ける（2026-11-15）：ラベルとコメントを付ける。閉じない。 */
     'reporter.yml': { contents: 'read', issues: 'write' },
     'sources.yml': { contents: 'write' },
-    'statutes.yml': { contents: 'write', issues: 'write', 'pull-requests': 'write' },
+    'statutes.yml': { contents: 'read' },
     'world.yml': { contents: 'write' },
   };
+  /* 仕事ごとの権限は、この表の仕事だけに置く。表にない仕事の権限も、表の仕事の権限の欠けも落とす。 */
+  const JOBS = {
+    'record.yml': { record: { contents: 'write', issues: 'write', 'pull-requests': 'write' } },
+    'statutes.yml': { compare: { contents: 'read' }, watch: { contents: 'write', issues: 'write', 'pull-requests': 'write' } },
+  };
+  const jobPerms = (t) => Object.fromEntries((t.split(/^jobs:\n/m)[1] || '').split(/\n(?=  [a-z][a-z0-9_-]*:\n)/).map((b) => [(/^  ([a-z][a-z0-9_-]*):/.exec(b) || [])[1],
+    (/\n    permissions:\n((?:      [\w-]+: \w+\n)+)/.exec(b + '\n') || [])[1]]).filter(([k, v]) => k && v).map(([k, v]) => [k, Object.fromEntries(v.trim().split('\n').map((l) => l.trim().split(': ')))]));
   const wfs = fs.readdirSync(path.join(ROOT, '.github', 'workflows')).sort();
   const bad = [];
   for (const f of wfs) {
@@ -1211,7 +1219,7 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     const got = m ? Object.fromEntries(m[1].trim().split('\n').map((l) => l.trim().split(': '))) : null;
     if (!PERM[f]) bad.push(f + '：表にない');
     else if (!got || JSON.stringify(got) !== JSON.stringify(PERM[f])) bad.push(f + '：' + JSON.stringify(got));
-    if (/^ +permissions:/m.test(t) || /write-all|read-all/.test(t)) bad.push(f + '：job ごとの権限か、まとめた権限');
+    if (JSON.stringify(jobPerms(t)) !== JSON.stringify(JOBS[f] || {}) || /write-all|read-all/.test(t)) bad.push(f + '：job ごとの権限が表と違うか、まとめた権限');
   }
   ok('どのワークフロー（' + wfs.length + '）も、先頭で権限を挙げ、表のとおり要るものだけを持つ', wfs.length === Object.keys(PERM).length && bad.length === 0, bad.join(' / '));
 }
@@ -1762,7 +1770,7 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
     /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-21).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    if (heads.slice(-22).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|2026-11-15：自動化を固める|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2680,7 +2688,7 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
     /* 日付を改めた行は、号の台帳で改めた日付の鍵を持ち、古い鍵を持たない。 */
     for (const k of Object.keys(B.REDATED)) if (Object.prototype.hasOwnProperty.call(h.ledger, k) || !Object.prototype.hasOwnProperty.call(h.ledger, B.redatedKey(k)) || !B.gazetteItems().some((it) => it.key === B.redatedKey(k))) bad.push('号の台帳の鍵：' + k);
     /* 検査の workflow は、履歴をすべて取る。 */
-    if (!/actions\/checkout@[0-9a-f]{40} # v[\d.]+\n {8}# [^\n]+\n {8}with:\n {10}fetch-depth: 0\n {6}- uses: actions\/setup-node@[0-9a-f]{40} # v[\d.]+\n {8}with:\n {10}node-version: 22\n {6}- run: node verification\/check\.js\n/.test(x[WF])) bad.push('検査の workflow が履歴をすべて取らない');
+    if (!/actions\/checkout@[0-9a-f]{40} # v[\d.]+\n {8}# [^\n]+\n {8}with:\n {10}fetch-depth: 0\n {10}persist-credentials: false\n {6}- uses: actions\/setup-node@[0-9a-f]{40} # v[\d.]+\n {8}with:\n {10}node-version: 22\n {6}- run: node verification\/check\.js\n/.test(x[WF])) bad.push('検査の workflow が履歴をすべて取らない');
     /* 点検の記録の節：表の形、件数、決めた者と理由、弁護士の文。 */
     const a = x[AUD], i = a.indexOf(SEC), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j < 0 ? undefined : j);
@@ -4278,7 +4286,8 @@ const F = ${JSON.stringify(F)};
 (async () => { const out = {};
   for (const [k, [event, cur]] of Object.entries(F)) {
     const calls = [], logs = [];
-    const gh = async (m, p, b) => { calls.push([m, p, b || null]); if (m === 'GET') return p.endsWith('per_page=100') ? [] : cur; return {}; };
+    /* 2026-11-15 から、道具はコメントを頁ごとに読み直し、コメントの出来事では issue も読み直す。見本の issue は、伏せる形のない文にする。 */
+    const gh = async (m, p, b) => { calls.push([m, p, b || null]); if (m === 'GET') return /per_page=100(&page=\\d+)?$/.test(p) ? [] : (event.comment && p === '/issues/' + event.issue.number ? { title: 'Q', body: 'no contact here' } : cur); return {}; };
     try { await P.run(event, gh, (s) => logs.push(String(s))); } catch (e) { logs.push('ERR'); }
     out[k] = { calls, logs };
   }
@@ -4428,7 +4437,7 @@ const F = ${JSON.stringify(F)};
     ['道具が issue を閉じる', "  await github('POST', '/issues/' + n + '/labels'", "  await github('PATCH', '/issues/' + n, { state: 'closed', state_reason: 'not_planned' });\n  await github('POST', '/issues/' + n + '/labels'"],
     ['道具が本文をすべて消す', '{ title: d.title, body: d.body }', "{ title: d.title, body: '' }"],
     ['道具がメールアドレスを見逃す', 're: /[A-Za-z0-9._%+-]+@', 're: /[A-Za-z0-9._%+-]+@@'],
-    ['道具がコメントに見つけた文字を書く', 'const body = note(d.counts, d.kind);', 'const body = note(d.counts, d.kind) + String(cur.body);'],
+    ['道具がコメントに見つけた文字を書く', "const body = note(sum, d.kind || (event.comment ? 'comment' : 'issue'));", "const body = note(sum, d.kind || (event.comment ? 'comment' : 'issue')) + String(cur.body);"],
   ];
   const caught = breaks.filter(([, y, pass]) => (verdict(y, r0).length === 0) === !!pass).map(([k]) => k);
   const caughtCode = CODE.filter(([, a, b]) => { if (!x0['tools/personal.js'].includes(a)) return false; return verdict(x0, fixtures(x0['tools/personal.js'].replace(a, b))).length > 0; }).map(([k]) => k);
@@ -4713,7 +4722,8 @@ console.log('\n85. 点検の答え（2026-11-15）：誤りの知らせは日本
     ['求めの issue にも手を出す', real, fake({ applies: (e) => !!(e && e.issue && (e.issue.labels || []).some((l) => l.name === '誤り')) })],
     ['道具が閉じる', mut('tools/reporter.js', "  if (ok) await gh('POST', '/issues/' + n + '/labels', { labels: [PLACE_OK] });", "  await gh('PATCH', '/issues/' + n, { state: 'closed' });\n  if (ok) await gh('POST', '/issues/' + n + '/labels', { labels: [PLACE_OK] });")],
     ['道具が国籍を読む', mut('tools/reporter.js', "const s = signals({", "const nat = await get(base + '/nationality'); const s = signals({")],
-    ['ワークフローが持ち主の出来事にも動く', mut('.github/workflows/reporter.yml', ' && github.event.sender.login != github.repository_owner', '')],
+    /* 2026-11-15 から、同じ条件が同時実行の組の式にもある。どちらからも外す。 */
+    ['ワークフローが持ち主の出来事にも動く', mut('.github/workflows/reporter.yml', / && github\.event\.sender\.login != github\.repository_owner/g, '')],
     ['様式から ORCID の欄を外す', mut('.github/ISSUE_TEMPLATE/error.yml', '      label: ORCID iD\n', '      label: 識別子\n')],
     ['個人情報の取り扱いから、求めに掛からない文を外す', mut('policies/privacy.md', '削除・訂正・辞退・権利・個人の情報・同意の求めには、この限りは掛かりません。', '')],
     ['英語の利用規約から予告を外す', mut('policies/terms.en.md', 'Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan.', 'From 2026-12-01, error reports are received only from people in Japan.')],
@@ -4738,11 +4748,101 @@ console.log('\n85. 点検の答え（2026-11-15）：誤りの知らせは日本
     ['記録の決めた者を変える', mut(AUD, '| 問題なし | 2026-11-15 に利用者が決め、Claude が書きました。何も変えていません。', '| 問題なし | 2026-11-15 に Claude が決めました。何も変えていません。')],
     ['記録の条文を一字変える', mut(AUD, '> 栄誉、勲章その他の栄典の授与は、いかなる特権も伴はない。', '> 栄誉、勲章その他の栄典の授与は、いかなる特権も伴わない。')],
     ['記録から未確認の文を外す', mut(AUD, '利用規約は確かめていません | 未確認 |', '読みました | 未確認 |')],
-    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    /* 2026-11-15：この節の後に「自動化を固める」の節が加わったので、その見出しを狙う。 */
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-15：自動化を固める', '\n## 2026-11-15：自動化を固める')],
   ];
   const caught = breaks.filter(([, y, r]) => verdict(y, r).length > 0).map(([k]) => k);
   ok('壊して確かめる：決めの関数（ほかの国・日数・リンク・求め）・閉じる道具・国籍・持ち主の出来事・様式・個人情報・英語の予告・求めの範囲・提供の記録の引用と表・窓口・発信者情報の引用・国章・第25条・イタリアの読み・終わりの文・二つの配信の題・外した条と文と法令と主題・王の正誤表・年表・記録の数と決めた者と条文と未確認と弁護士の文のどれでも落ちる（' + caught.length + ' / ' + breaks.length + '）',
     caught.length === breaks.length, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).join(' / '));
+}
+
+console.log('\n86. 自動化を固める（2026-11-15）：PR の仕事は読むだけ、push で書く道を外し、記すのはラベルを付けたコミットだけ、伏せる道具はどの実行も読み直し形を正規化して探し、どの仕事にも時間の上限、push しない checkout は鍵を残さず、公開中のサイトの道具はほかの名を書かず、一覧は終わりまで読む');
+{
+  const { execFileSync } = require('child_process');
+  const WF = '.github/workflows/';
+  const wfs = fs.readdirSync(path.join(ROOT, WF)).filter((f) => /\.ya?ml$/.test(f)).sort();
+  const AUD = 'docs/legal-audit-2026-11-12.md', HEAD = '\n## 2026-11-15：自動化を固める\n';
+  const real = Object.assign(Object.fromEntries(wfs.map((f) => [WF + f, read(WF + f)])), Object.fromEntries(['tools/record.js', 'tools/personal.js', 'tools/live.js', 'tools/live.json', 'tools/statutes.js', 'build.js', AUD].map((f) => [f, read(f)])));
+  const jobs = (text) => Object.fromEntries((String(text).split(/^jobs:\n/m)[1] || '').split(/\n(?=  [a-z][a-z0-9_-]*:\n)/).map((b) => [(/^  ([a-z][a-z0-9_-]*):/.exec(b) || [])[1], b]).filter(([k]) => k));
+  const LONG = { 'world.yml/fetch': 340 }, MAX = 60, KINDS = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  /* ほかの企画の名は、このファイルにも書かない。切って継ぐ。 */
+  const OTHER = new RegExp(['soph' + 'axis', 'researcher' + '-profile', 'cpsbvbng' + '26', 'trin' + 'ity'].join('|'), 'i');
+  function problems(x) {
+    const bad = [];
+    const st = jobs(x[WF + 'statutes.yml']);
+    if (!st.compare || !st.compare.includes("    if: github.event_name == 'pull_request'\n") || /GITHUB_TOKEN|secrets\./.test(st.compare) || !st.compare.includes('    permissions:\n      contents: read\n')) bad.push('statutes.yml：PR の仕事');
+    if (!st.watch || !st.watch.includes("    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'\n")) bad.push('statutes.yml：書く仕事が PR でも動く');
+    const w = x[WF + 'world.yml'];
+    if (/\n  push:/.test(w.split(/^jobs:/m)[0]) || !w.includes("    if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'\n")) bad.push('world.yml：push で書く道');
+    const rc = x['tools/record.js'];
+    if (!rc.includes("if (!sameTip(git('rev-parse', 'origin/' + branch), event)) { await say(MOVED); process.exit(1); }") || !rc.includes("git('merge', '-q', '--no-ff', '--no-commit', event.pull_request.head.sha)")) bad.push('record.js：ラベルを付けたコミット');
+    const pj = x['tools/personal.js'];
+    if (!pj.includes('const comments = await allComments(github, n);') || !pj.includes("c.normalize('NFKC')") || !/0\\d\{1,4\}\[ -\]\\d\{1,4\}\[ -\]\\d\{4\}/.test(pj)) bad.push('personal.js：読み直しと正規化');
+    for (const f of ['tools/live.js', 'tools/statutes.js', 'tools/record.js']) if (/per_page=50/.test(x[f])) bad.push(f + '：一覧の最初の頁だけ');
+    if (OTHER.test(x['tools/live.js'] + x['tools/live.json'])) bad.push('live.js：ほかの名');
+    let lv = {};
+    try { lv = JSON.parse(x['tools/live.json']); } catch (e) { bad.push('live.json'); }
+    if (lv.base !== (/const BASE = '([^']+)'/.exec(x['build.js']) || [])[1] || lv.dir !== 'site' || lv.lang !== 'ja') bad.push('live.json：所在');
+    for (const f of wfs) for (const [j, b] of Object.entries(jobs(x[WF + f]))) {
+      const own = (/\n    permissions:\n((?:      .*\n)+)/.exec(b + '\n') || [])[1];
+      const writes = own ? /contents: write/.test(own) : /^permissions:\n(?:  .*\n)*?  contents: write/m.test(x[WF + f] + '\n');
+      const outs = b.split('- uses: actions/checkout@').slice(1);
+      if (!writes && outs.some((s) => !/^[^\n]*\n(?: {8}.*\n| {10}.*\n)*? {10}persist-credentials: false\n/.test(s))) bad.push(f + '（' + j + '）：checkout が鍵を残す');
+      const m = /\n    timeout-minutes: (\d+)\n/.exec('\n' + b + '\n');
+      if (!m || Number(m[1]) > (LONG[f + '/' + j] || MAX)) bad.push(f + '（' + j + '）：時間の上限');
+    }
+    const a = x[AUD], i = a.indexOf(HEAD), e = i < 0 ? -1 : a.indexOf('\n## ', i + HEAD.length);
+    const sec = i < 0 || e < 0 ? '' : a.slice(i, e);
+    if (!sec) return bad.concat(['記録の節が無い']);
+    const rows = sec.split('\n').filter((l) => /^\| (?!---|箇所 \|)/.test(l)).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS.includes(y[4]))) bad.push('記録の表');
+    const said = ((/この表の判定は、([^。]+)です。/.exec(sec) || [])[1] || '').trim();
+    if (said !== KINDS.filter((k) => rows.some((y) => y[4] === k)).map((k) => k + ' ' + rows.filter((y) => y[4] === k).length).join('、')) bad.push('記録の判定の数');
+    if (!sec.includes('\n2026-11-15 に利用者が決め、Claude が書きました。\n') || rows.some((y) => !/2026-11-15 に利用者が決め、Claude が書きました。[^|]*ためです$/.test(y[5]))) bad.push('記録の決めた者と理由');
+    if (OTHER.test(sec)) bad.push('記録がほかの名を書く');
+    if (!sec.includes('この節も、弁護士は見ていません。') || !sec.includes('GitHub の説明書を取り寄せて確かめていません。')) bad.push('記録の弁護士の文と確かめていないこと');
+    return bad;
+  }
+  const now = problems(real);
+  ok('PR の仕事は読むだけ、push で書く道は無く、記すのはラベルを付けたコミットだけ、伏せる道具は読み直して正規化し、どの仕事（' + wfs.length + ' 本）にも時間の上限があり、push しない checkout は鍵を残さず、公開中のサイトの道具はほかの名を書かず、一覧は終わりまで読み、記録の節がある', now.length === 0, now.slice(0, 6).join(' / '));
+  const P = require('../tools/personal.js'), Rc = require('../tools/record.js');
+  const at = '＠', MAILW = 'someone' + at + 'example.org', ZW = 'some​one' + '@' + 'exa​mple.org';
+  const shapes = ['０９０－１２３４－５６７８', MAILW, '〒１００－０００１', '03 ' + '1234 5678', ZW];
+  ok('全角の数字・＠・〒、間に挟んだ幅のない文字、空白で区切った電話番号を拾い、日付は拾わず、伏せた文に見つけた文字を残さない', shapes.every((s) => P.mask('a ' + s + ' b').total === 1 && P.mask('a ' + s + ' b').text === 'a ' + P.MASK + ' b') && P.mask('2026-11-15 と 03-12').total === 0);
+  const sha = 'a'.repeat(40);
+  ok('記すのは、ラベルを付けたときの枝の先のコミットだけ（動いた枝・欠けた sha は断る）', Rc.sameTip(sha, { pull_request: { head: { sha } } }) && !Rc.sameTip('b'.repeat(40), { pull_request: { head: { sha } } }) && !Rc.sameTip(sha, {}));
+  /* 三つのコメントが続けて書かれ、真ん中の実行が取り消された見本。三つ目の実行が、二つ目の分も伏せる。 */
+  const MAIL = 'someone' + '@' + 'example.org';
+  const out = JSON.parse(execFileSync(process.execPath, ['-e', `
+    const P = require(${JSON.stringify(path.join(ROOT, 'tools', 'personal.js'))});
+    const reader = { login: 'reader-one', type: 'User' };
+    const issue = { number: 5, user: reader, labels: [], created_at: '2026-11-14T03:00:00Z', title: 'Q', body: 'no contact' };
+    const comments = [{ id: 1, user: reader, body: 'first ' + ${JSON.stringify(P.MASK)} }, { id: 2, user: reader, body: 'second ' + ${JSON.stringify(MAIL)} }, { id: 3, user: reader, body: 'third 0' + '3-1234-5678' }];
+    const calls = [], logs = [];
+    const gh = async (m, p, b) => { calls.push([m, p, b || null]); if (m === 'GET' && /comments\\?per_page=100&page=1$/.test(p)) return comments; if (m === 'GET' && /comments\\?per_page=100&page=/.test(p)) return []; if (m === 'GET' && p === '/issues/comments/3') return comments[2]; if (m === 'GET' && p === '/issues/5') return issue; return {}; };
+    (async () => { await P.run({ repository: { owner: { login: 'owner' } }, issue, comment: { id: 3, user: reader } }, gh, (s) => logs.push(String(s))); process.stdout.write(JSON.stringify({ calls, logs })); })();`], { encoding: 'utf8' }));
+  const patched = out.calls.filter(([m, p]) => m === 'PATCH' && /^\/issues\/comments\/\d$/.test(p)).map(([, p, b]) => [p, b.body]);
+  ok('三つのコメントのうち真ん中の実行が取り消されても、三つ目の実行が二つ目と三つ目を伏せ、一つ目には触れず、記録には決まった語と数だけを書く（作った見本）',
+    patched.length === 2 && patched.some(([p, b]) => p === '/issues/comments/2' && b === 'second ' + P.MASK) && patched.some(([p, b]) => p === '/issues/comments/3' && b === 'third ' + P.MASK)
+    && !out.calls.some(([m, p]) => m === 'PATCH' && p === '/issues/comments/1') && out.logs.every((l) => !l.includes(MAIL) && !/1234/.test(l)));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const breaks = [
+    ['PR の仕事に鍵を渡す', mut(WF + 'statutes.yml', "      - run: node tools/statutes.js\n  watch:", "      - run: node tools/statutes.js\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n  watch:")],
+    ['書く仕事を PR でも動かす', mut(WF + 'statutes.yml', "    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'\n", "    if: github.event_name != 'issues'\n")],
+    ['world.yml を枝への push で動かす', mut(WF + 'world.yml', 'on:\n  workflow_dispatch:', "on:\n  push:\n    branches: ['claude/world-law-*']\n  workflow_dispatch:")],
+    ['記すときに枝の先を見ない', mut('tools/record.js', "  if (!sameTip(git('rev-parse', 'origin/' + branch), event)) { await say(MOVED); process.exit(1); }\n", '')],
+    ['伏せる道具が読み直さない', mut('tools/personal.js', 'const comments = await allComments(github, n);', 'const comments = [];')],
+    ['伏せる道具が正規化しない', mut('tools/personal.js', "c.normalize('NFKC')", 'c')],
+    ['一覧の最初の頁だけを読む', mut('tools/live.js', "(await allPages(gh, '/issues?state=open'))", "((await gh('GET', '/issues?state=open&per_page=50')) || [])")],
+    ['公開中のサイトの道具にほかの名を書く', mut('tools/live.js', '/* Checks that the live site serves', '/* Like ' + 'Soph' + 'axis, checks that the live site serves')],
+    ['時間の上限を外す', mut(WF + 'personal.yml', /\n    timeout-minutes: \d+\n/, '\n')],
+    ['読む仕事の checkout が鍵を残す', mut(WF + 'review.yml', '        with:\n          persist-credentials: false\n', '')],
+    ['記録の節を外す', mut(AUD, HEAD, '\n## 2026-11-15：自動化\n')],
+    ['記録の判定の数を変える', mut(AUD, 'この表の判定は、漏れ 7、問題なし 2 です。', 'この表の判定は、漏れ 8、問題なし 2 です。')],
+    ['記録にほかの名を書く', mut(AUD, '`main` の枝の規則（ruleset）について勧める設定とその効きめは、この国の外の記録に', '`main` の枝の規則（ruleset）について勧める設定とその効きめは、' + 'cpsbvbng' + '26-dotcom の記録に')],
+  ];
+  const missed = breaks.filter(([, y]) => problems(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：PR の鍵・PR で書く・push で書く・枝の先・読み直し・正規化・最初の頁・ほかの名・時間の上限・鍵を残す checkout・記録の節と数と名のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));

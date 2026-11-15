@@ -1,0 +1,7 @@
+{
+  "base": "https://nusquama.vercel.app/",
+  "dir": "site",
+  "include": ["**"],
+  "exclude": ["vercel.json"],
+  "lang": "ja"
+}

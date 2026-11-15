@@ -4,6 +4,8 @@ name: 条文と規約の見張り
 # verification/statutes.json に記した値と比べる。違えば、差分を付けた PR を statutes/record から作る。
 # 運営者がラベル「記す」を付けると record.yml が記す。取り寄せに失敗すれば issue を開き、元に戻れば閉じる。
 # PR では比べて表示するだけ。鍵は要らない。
+# 仕事は二つに分ける（2026-11-15）。PR の仕事は読む権限だけを持ち、鍵を受け取らず、何も書かない。
+# 書くのは、定期と手で起こした実行の仕事だけで、PR はそれを起こさない。
 on:
   schedule:
     - cron: '23 3 * * 2'
@@ -12,14 +14,38 @@ on:
     paths: ['tools/statutes.js', 'verification/statutes.json', '.github/workflows/statutes.yml']
 
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+  contents: read
 
 jobs:
+  compare:
+    if: github.event_name == 'pull_request'
+    name: 条文と規約が記した値と同じか（比べるだけ）
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: node tools/statutes.js
   watch:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     name: 条文と規約が記した値と同じか
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # 見張りは一度に一つ。枝 statutes/record を置き換える（push -f）ので、二つの実行がぶつからない（2026-11-15）。
+    concurrency:
+      group: statutes
+      cancel-in-progress: false
+    # 提案を statutes/record に push し、PR か issue を書く。
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0

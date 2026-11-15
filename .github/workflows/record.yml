@@ -2,25 +2,28 @@ name: 記す
 
 # 見張りが作った PR（statutes/record）に、リポジトリの持ち主がラベル「記す」を付けたとき、
 # tools/record.js が main に取り込み、取り込んだ結果で検査を回し、通ったときだけ push する。
+# 取り込むのは、ラベルを付けた時の枝の先のコミットだけである。そのあと枝が動いていれば、何も取り込まない（2026-11-15）。
 on:
   pull_request:
     types: [labeled]
 
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
-
-# main への変更は一度に一つ。
-concurrency:
-  group: main-push
-  cancel-in-progress: false
+  contents: read
 
 jobs:
   record:
     if: github.event.label.name == '記す' && github.event.sender.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'statutes/record'
     name: 見張りの提案を記す
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    # main への変更は一度に一つ。この仕事にだけ置き、動かない仕事は自分だけの組に入る（2026-11-15）。
+    concurrency:
+      group: ${{ (github.event.label.name == '記す' && github.event.sender.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'statutes/record') && 'main-push' || format('record-skipped-{0}', github.run_id) }}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
