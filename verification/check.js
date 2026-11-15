@@ -4613,11 +4613,11 @@ console.log('\n85. 点検の答え（2026-11-15）：誤りの知らせは日本
     if (e.isDirectory()) return ['.git', 'node_modules', 'sources-full'].includes(e.name) ? [] : walk(r);
     return /\.(png|ico|jpg|jpeg|gif|webp|pdf|woff2?|zip)$/i.test(e.name) ? [] : [r];
   });
-  /* CLAUDE.md は作業の指示書で、2026-11-15 の作業では書き換えていない。その一行のほかは、どのファイルにも残さない。 */
-  const all = walk('').filter((f) => f !== 'CLAUDE.md');
+  /* 2026-11-15 に利用者が求め、CLAUDE.md の一行からも名を外した。CLAUDE.md を含め、どのファイルにも残さない。 */
+  const all = walk('');
   const named = (list, get) => list.filter((f) => NAME.test(get(f)));
   const named0 = named(all, read);
-  ok('ほかの企画の名は、CLAUDE.md のほかのどのファイル（' + all.length + '）にも書かない（大文字と小文字を問わない）', named0.length === 0 && all.length > 300, named0.join(', '));
+  ok('ほかの企画の名は、CLAUDE.md を含むどのファイル（' + all.length + '）にも書かない（大文字と小文字を問わない）', named0.length === 0 && all.length > 300 && all.includes('CLAUDE.md'), named0.join(', '));
   const planted = named(all, (f) => (f === 'policies/names.md' ? read(f) + '\n' + ['Soph', 'axis'].join('') : read(f)));
   ok('壊して確かめる：名を一つの頁に書けば落ちる', planted.length === 1 && planted[0] === 'policies/names.md');
   const files = ['tools/reporter.js', '.github/workflows/reporter.yml', '.github/workflows/labels.yml', '.github/ISSUE_TEMPLATE/error.yml', 'policies/privacy.md', 'policies/privacy.en.md',
