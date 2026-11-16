@@ -889,8 +889,8 @@ console.log('\n34. 条文の引用と、規程の外の行い');
     for (const c of cited) if (!quoted.includes(c)) missing.push(c);
   }
   ok('見出しに挙げた条は、その節の終わりにすべて引き、英語の頁も同じ印を持つ', missing.length === 0 && marks(leg).join('|') === marks(legEn).join('|') && marks(leg).length >= 16, missing.join(' / '));
-  // 生成された頁の引用は、記した文と同じ（行を改めただけ）。
-  const page = read('site/policies/legality.html');
+  // 生成された頁の引用は、記した文と同じ（行を改めただけ）。2026-11-16 から、適法性の説明は頁を分けて作るので、分けた頁をすべて合わせて見る（検査 87）。
+  const page = B.legalityParts().map((x) => read('site/' + B.legalityFile(x.n))).join('\n');
   const blocks = [...page.matchAll(/<summary>条文　(.+?)<\/summary><blockquote lang="ja"><p>([\s\S]*?)<\/p><\/blockquote>/g)];
   const badPage = blocks.filter(([, k, b]) => unhtml(b) !== texts[unhtml(k)]).map(([, k]) => k);
   const foreign = [...page.matchAll(/<summary>原文　[\s\S]*?<blockquote lang="(?:en|it)"><p>([\s\S]*?)<\/p><\/blockquote>/g)].map((m) => unhtml(m[1]));
@@ -2189,8 +2189,9 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
     if (!WS.spans_only || !WS.spans_only.constitute || !WS.spans_only['LVA-crim'] || 'KOR-pipa' in WS.spans_only) bad.push('各国の法令の調べで、私的な団体の文の出典を挙げていない');
     /* ライセンスの断りと、調べの README。 */
     need('README.md', ['文と国章は CC BY 4.0 です。\n' + LIC_JA]);
-    need('policies/names.md', ['最終更新：2026-11-15。', LIC_JA]);
-    need('policies/names.en.md', ['Last updated: 2026-11-15.', LIC_EN]);
+    /* 名称と権利の最終更新は、2026-11-16 に似た名の国の一文を足して改めた（検査 87）。ライセンスの断りは 2026-11-15 のまま。 */
+    need('policies/names.md', ['最終更新：2026-11-16。', LIC_JA]);
+    need('policies/names.en.md', ['Last updated: 2026-11-16.', LIC_EN]);
     need('verification/world/README.md', ['ここに記した他人の文は、CC BY 4.0 の対象ではなく、それぞれの権利者のものです。', '全文は、取り寄せの実行の artifact（`world-full`）に残し、git には入れていません。']);
     /* 適法性の説明の改めた文。前の文は残らない。 */
     need('policies/legality.md', ['頁は引用のほかに他人の著作物を載せず、リポジトリも、法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。']);
@@ -3308,7 +3309,8 @@ console.log('\n76. 公開の頁は運営者の立場を書き、続けている�
     ['英語の叙任の規程に前の文を戻す', mut('policies/knighting.en.md', 'Even so, the words of these provisions allow a reading on which they apply, so that path is closed as follows.', 'Even so, on the words of these provisions, a reading remains on which they apply.')],
     ['個人情報の取り扱いに前の文を戻す', mut('policies/privacy.md', ROUTE_JA, 'そうした連絡先がない人には、氏名と住所を非公開で知らせる道がありません。')],
     ['英語の個人情報の取り扱いに前の文を戻す', mut('policies/privacy.en.md', ROUTE_EN, 'For a person with no such contact, there is no private route to give the name and address.')],
-    ['生成した頁に前の見出しを戻す', mut('site/policies/legality.html', '審査の方法と、前提が崩れる道', '審査の方法と残る危険')],
+    /* 2026-11-16 から、この見出しは適法性の説明の五つめの頁にある（検査 87）。目次の項ではなく、見出しそのものを戻す。 */
+    ['生成した頁に前の見出しを戻す', mut('site/policies/legality-5.html', '<h2>審査の方法と、前提が崩れる道</h2>', '<h2>審査の方法と残る危険</h2>')],
     ['生成した英語の頁の地の文に認める言い方を足す', mut('site/policies/legality.en.html', '<h2', '<p>This method works within the elements set out, but does not remove the risk.</p><h2')],
     ['ほかの規程に認める言い方を足す', mut('policies/terms.md', '適法かどうか迷う事柄は、行わないほうを選びます。', '適法かどうか迷う事柄は、行わないほうを選びます。それでも、違法となるおそれは残ります。')],
     ['王の正誤表 35 の分類を変える', mut('ERRATA.md', '| 語 | Insula Verbi V |', '| 範囲 | Insula Finis XVI |')],
@@ -3343,8 +3345,9 @@ console.log('\n76. 公開の頁は運営者の立場を書き、続けている�
   ];
   const caught = breaks.filter(([, y]) => verdict(y).length > 0).map(([k]) => k);
   /* 引いた条文の欄の中の言い方は数えない（法令の文を、検査のために変えない）。 */
-  const quoted = mut('site/policies/legality.html', '</details>', '違法となるおそれ</details>');
-  const quotedOk = verdict(quoted).length === 0;
+  /* 2026-11-16 から、最初の頁には引いた条文の欄がない。欄のある二つめの頁で確かめ、壊し方が当たったことも確かめる（当たらなければ、確かめたことにならない）。 */
+  const quoted = mut('site/policies/legality-2.html', '</details>', '違法となるおそれ</details>');
+  const quotedOk = quoted['site/policies/legality-2.html'] !== real['site/policies/legality-2.html'] && verdict(quoted).length === 0;
   ok('壊して確かめる：結論・英語の限定・叙任の規程（日本語と英語）・個人情報の取り扱い（日本語と英語）・生成した頁・英語の地の文・ほかの規程・王の正誤表・年表・判定の数・理由・移した点・弁護士の文・条文から決まらない点の立場（規程・生成した頁・llms の各所）・記録の点の一覧のどれでも落ち、引いた条文の欄の中は数えない（'
     + (caught.length + (quotedOk ? 1 : 0)) + ' / ' + (breaks.length + 1) + '）', caught.length === breaks.length && quotedOk, breaks.filter(([k]) => !caught.includes(k)).map(([k]) => k).concat(quotedOk ? [] : ['引いた条文の欄']).join(' / '));
 }
@@ -4843,6 +4846,145 @@ console.log('\n86. 自動化を固める（2026-11-15）：PR の仕事は読む
   ];
   const missed = breaks.filter(([, y]) => problems(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：PR の鍵・PR で書く・push で書く・枝の先・読み直し・正規化・最初の頁・ほかの名・時間の上限・鍵を残す checkout・記録の節と数と名のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n87. 適法性の説明を頁に分ける（文に手を入れず、頁ごとに重さの上限を守る）、王の正誤表 7 を 57 で正す、似た名のほかの国とは関係がない（2026-11-16）');
+{
+  /* 2026-11-16 に Claude が決めた。適法性の説明の頁が 128 KiB の上限の手前まで来て、次の正誤が入らなかった。上限は上げず、
+   * 一つの Markdown から、節の境で分けた頁に作る（build.js の LEGALITY_SPLITS）。分けた頁を合わせると、分ける前の一つの頁の文と一字一句同じ。
+   * 王の正誤表 7 は、X の投稿を README「ほかの場所」に挙げると書いたままだった。行は書き換えず、57 で正す（王の正誤表「記すもの」）。
+   * 名称と権利に、似た名のほかのミクロネーションとは関係がないと書く。例に挙げる名は一つで、リンクを付けず、その国について名のほかは何も書かない。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const PAGE87 = 128 * 1024;
+  const N = B.LEGALITY_SPLITS.length + 1;
+  const files87 = [false, true].flatMap((en) => Array.from({ length: N }, (_, i) => 'site/' + B.legalityFile(i + 1, en)));
+  const NAMES_JA = 'ヌスクァマは、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がありません。';
+  const NAMES_EN = 'Nusquama is not related to any other micronation with a similar name, such as "Nusquamia".';
+  const TL_SPLIT = '| 2026-11-16（日本時間） | 適法性の説明を、文に手を入れずに、節の境で分けたいくつかの頁に作る。最初の頁は元の所在のままで、どの頁にも全部の頁の目次を置く。一つの頁が重さの上限に近づき、次の正誤が入らなくなったためで、上限は上げない | The Legality Statement is now built as several pages, divided at its headings, with no change to the text. The first page keeps the old address, and every page carries a list of all the pages. One page had come close to the weight limit, so that the next correction would not fit; the limit is not raised |';
+  const TL_NAMES = '| 2026-11-16（日本時間） | 名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く | Names and rights now states that Nusquama is not related to any other micronation with a similar name, such as "Nusquamia" |';
+  const E7_JA = '誤りではなく、範囲を改めた。王が X でも建国を知らせ、騎士王ネモ一世と名乗ったので、紹介のために自ら書いた「記事や投稿」とし、どれも README「ほかの場所」に挙げる形にした。 | 王の投稿（README「ほかの場所」） | 範囲 | Insula Finis III |';
+  const E7_EN = 'it became "articles or posts" written by himself to introduce it, each listed under "ほかの場所" (Elsewhere) in the README. | The King\'s post (README, "ほかの場所" (Elsewhere)) | Scope | Insula Finis III |';
+  /* 分ける前の一つの頁：同じ Markdown を、分けずに一つの頁に作ったもの（書き出さず、ここで作るだけ）。 */
+  const whole = (en) => B.page(en ? 'policies/legality.en.md' : 'policies/legality.md', en ? 'policies/legality.en.html' : 'policies/legality.html');
+  const mainOf = (h) => (/<main id="main">\n([\s\S]*?)\n<\/main>/.exec(h || '') || [])[1] || '';
+  const WHOLE = [false, true].map((en) => { const m = mainOf(whole(en)); return { head: m.slice(0, m.indexOf('<h2>')).replace(/<h1>[^<]*<\/h1>\n/, ''), body: m.slice(m.indexOf('<h2>')) }; });
+  const fileOf = (k, en) => 'site/' + B.legalityFile(k, en);
+  const base = (k, en) => path.posix.basename(B.legalityFile(k, en));
+  const row = (t, n) => (t || '').split('\n').find((l) => l.startsWith('| ' + n + ' | ')) || '';
+  const sectionOf = (t, h) => { const i = (t || '').indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = t.indexOf('\n## ', i + 5); return t.slice(i, j < 0 ? undefined : j); };
+  function verdict(x) {
+    const bad = [];
+    /* 一、頁の並び：日本語と英語で同じ数の頁があり、ほかに適法性の説明の頁はない。 */
+    const listed = Object.keys(x).filter((f) => /^site\/policies\/legality(-\d+)?(\.en)?\.html$/.test(f) && x[f] !== null && x[f] !== undefined).sort();
+    if (JSON.stringify(listed) !== JSON.stringify(files87.slice().sort())) bad.push('適法性の説明の頁の並びが違う：' + listed.join(','));
+    for (const en of [false, true]) {
+      const parts = B.legalityParts(en);
+      if (parts.length !== N) bad.push((en ? '英語の' : '') + '適法性の説明の分け目の数が違う');
+      let joined = '';
+      for (let k = 1; k <= N; k++) {
+        const f = fileOf(k, en), h = x[f];
+        if (typeof h !== 'string') { bad.push(f + ' がない'); continue; }
+        /* 頁ごとの重さの上限（検査 47 と同じ 128 KiB）。上限は上げない。 */
+        if (Buffer.byteLength(h) > PAGE87) bad.push(f + ' が 128 KiB を超える');
+        const m = mainOf(h);
+        const h1 = en ? '<h1>Legality Statement (' + k + ' of ' + N + ')</h1>\n' : '<h1>適法性の説明（' + k + ' / ' + N + '）</h1>\n';
+        if (!m.includes(h1)) bad.push(f + ' の題');
+        /* 目次：全部の頁を順に指し、いまの頁にだけ aria-current を付ける。 */
+        const nav = (/<nav aria-label="([^"]+)"><ol>([\s\S]*?)<\/ol><\/nav>\n/.exec(m) || []);
+        const items = [...(nav[2] || '').matchAll(/<li><a href="([^"]+)"( aria-current="page")?>([^<]+)<\/a><\/li>/g)];
+        if (nav[1] !== (en ? 'Pages of the Legality Statement' : '適法性の説明の頁') || items.length !== N || items.map((y) => y[1]).join() !== Array.from({ length: N }, (_, i) => base(i + 1, en)).join()
+          || items.some((y, i) => !!y[2] !== (i + 1 === k))) bad.push(f + ' の目次');
+        /* 前後の頁へのリンク。 */
+        const pg = [k > 1 ? '<a href="' + base(k - 1, en) + '">' + (en ? 'Previous page' : '前の頁') + '</a>' : null, k < N ? '<a href="' + base(k + 1, en) + '">' + (en ? 'Next page' : '次の頁') + '</a>' : null].filter(Boolean).join(' / ');
+        if (!m.endsWith('\n<p>' + pg + '</p>')) bad.push(f + ' の前後のリンク');
+        /* 言語の切り替えと hreflang は、対になる頁を指す。 */
+        if (!h.includes('<link rel="alternate" hreflang="' + (en ? 'ja' : 'en') + '" href="' + B.BASE + B.legalityFile(k, !en) + '">') || !h.includes('<a class="lang" href="../' + B.legalityFile(k, !en) + '"')) bad.push(f + ' の対の頁');
+        /* 頁の頭（題の後）は、分ける前の頁の頭と同じ。 */
+        const at = m.indexOf(h1), nv = m.indexOf(nav[0] || '\u0000');
+        if (at < 0 || nv < 0 || m.slice(0, at) + m.slice(at + h1.length, nv) !== WHOLE[en ? 1 : 0].head) bad.push(f + ' の頭が、分ける前の頁と違う');
+        let b = nv < 0 ? '' : m.slice(nv + (nav[0] || '').length);
+        b = b.endsWith('\n<p>' + pg + '</p>') ? b.slice(0, b.length - ('\n<p>' + pg + '</p>').length) + '\n' : b;
+        /* 節の途中から始まる頁は、その節の ## の見出しを前に置く。置いた見出しは、元の文には一度しかないので、合わせるときに外す。 */
+        if (parts[k - 1] && parts[k - 1].led) {
+          const lead = '<h2>' + parts[k - 1].text.split('\n')[0].slice(3) + '</h2>\n';
+          if (!b.startsWith(lead)) bad.push(f + ' が節の見出しを前に置かない');
+          b = b.slice(lead.length);
+        }
+        joined += b;
+      }
+      if (joined !== WHOLE[en ? 1 : 0].body + '\n') bad.push((en ? '英語の' : '') + '適法性の説明の頁を合わせた文が、分ける前の一つの頁の文と違う');
+    }
+    /* サイトマップに、分けた頁がどれもある。 */
+    const sm = x['site/sitemap.xml'] || '';
+    for (const f of files87) if ((sm.split('<loc>' + B.BASE + f.slice(5) + '</loc>').length - 1) !== 1) bad.push('サイトマップに ' + f + ' が一度だけない');
+    if (!(x['README.md'] || '').includes('\n' + TL_SPLIT + '\n')) bad.push('年表に、頁を分けた行がない');
+    /* 二、王の正誤表 7 は書き換えず、57 が正す。いまの「ほかの場所」は MicroWiki の記事だけを挙げる。 */
+    const r7 = row(x['ERRATA.md'], 7), f7 = row(x['ERRATA.en.md'], 7), r57 = row(x['ERRATA.md'], 57), f57 = row(x['ERRATA.en.md'], 57);
+    if (!r7.endsWith(E7_JA) || !f7.endsWith(E7_EN)) bad.push('王の正誤表 7 を書き換えた');
+    if (!r57.startsWith('| 57 | 2026-11-16 | 王の正誤表 7 の「正」と「確かめた先」 | 紹介のために自ら書いた「記事や投稿」とし、どれも README「ほかの場所」に挙げる形にした。（正）／王の投稿（README「ほかの場所」）（確かめた先） |')
+      || !r57.includes('いまの「ほかの場所」が挙げるのは、MicroWiki（日本語版）の記事だけである。') || !r57.includes('7 の行は記した文なので書き換えず、ここで正す（「記すもの」）。')
+      || !/2026-11-16 に Claude が決めました。[^|]*ためです。/.test(r57) || !r57.endsWith('| 事実 | Insula Facti XIII |')) bad.push('王の正誤表 57');
+    if (!f57.startsWith('| 57 | 2026-11-16 | The King\'s errata, entry 7, "Right" and "Checked against" | "it became "articles or posts" written by himself to introduce it, each listed under "ほかの場所" (Elsewhere) in the README." (Right)')
+      || !f57.includes('"ほかの場所" now lists only the article on MicroWiki (Japanese edition).') || !f57.includes('The row of entry 7 is recorded text, so it is not rewritten; it is corrected here ("What is recorded").')
+      || !f57.includes('Claude decided this on 2026-11-16') || !f57.endsWith('| Fact | Insula Facti XIII |')) bad.push('英語の王の正誤表 57');
+    const elsewhere = sectionOf(x['README.md'], 'ほかの場所').split('\n').filter((l) => l.startsWith('- '));
+    if (elsewhere.length !== 1 || !elsewhere[0].startsWith('- MicroWiki（日本語版）：') || /x\.com|twitter\.com|\bX：/.test(sectionOf(x['README.md'], 'ほかの場所'))) bad.push('README「ほかの場所」が MicroWiki の記事だけを挙げない');
+    /* 三、似た名の国：名称と権利の「名前の由来」に一文を置き、リンクを付けない。名を書くのは、その一文と年表の行だけ。 */
+    if (!sectionOf(x['policies/names.md'], '名前の由来').includes('\n' + NAMES_JA + '\n') || !sectionOf(x['policies/names.en.md'], 'Where the names come from').includes('\n' + NAMES_EN + '\n')) bad.push('名称と権利に、似た名の国の一文がない');
+    if (!(x['README.md'] || '').includes('\n' + TL_NAMES + '\n')) bad.push('年表に、似た名の国の行がない');
+    for (const [f, t] of Object.entries(x)) {
+      /* この検査のファイルは、壊し方に名を書くので見ない。 */
+      if (typeof t !== 'string' || !/nusquamia/i.test(t) || f === 'verification/check.js') continue;
+      if (f.startsWith('site/')) {
+        if (/<a [^>]*>[^<]*Nusquamia|href="[^"]*nusquamia/i.test(t)) bad.push(f + ' が似た名の国へリンクする');
+        continue;
+      }
+      for (const l of t.split('\n').filter((y) => /nusquamia/i.test(y))) if (![NAMES_JA, NAMES_EN, TL_NAMES].includes(l)) bad.push(f + ' が似た名の国について、決めた一文のほかを書く：' + l.slice(0, 40));
+    }
+    for (const [f, s] of [['site/policies/names.html', NAMES_JA], ['site/policies/names.en.html', NAMES_EN.replace(/"/g, '&quot;')]]) if (!(x[f] || '').includes(s)) bad.push(f + ' に似た名の国の一文がない');
+    return bad;
+  }
+  const textFiles87 = walk(ROOT).filter((f) => !f.startsWith('.git/') && /\.(md|html|xml|txt|json|js|yml|ics)$/.test(f));
+  const real = Object.fromEntries(textFiles87.map((f) => [f, read(f)]));
+  const bad = verdict(real);
+  ok('適法性の説明の頁（日本語と英語で ' + N + ' ずつ）は、どれも 128 KiB 以下で、題・目次・前後のリンク・対の頁を持ち、合わせると分ける前の一つの頁の文と一字一句同じで、サイトマップにある。王の正誤表 7 は書き換えず、57 が正し、README「ほかの場所」は MicroWiki の記事だけを挙げる。名称と権利が似た名のほかの国とは関係がないと書き、その国にリンクせず、名のほかは何も書かない。年表の二行もそろう',
+    bad.length === 0, bad.slice(0, 6).join(' / '));
+  const mut = (f, a, b) => { if (typeof real[f] !== 'string' || !real[f].includes(a)) throw new Error('検査 87 の壊し方が当たらない：' + f + '：' + String(a).slice(0, 30)); return Object.assign({}, real, { [f]: real[f].replace(a, b) }); };
+  const drop = (f) => Object.assign({}, real, { [f]: undefined });
+  const add = (f, t) => Object.assign({}, real, { [f]: t });
+  const p3 = 'site/policies/legality-3.html', p2e = 'site/policies/legality-2.en.html';
+  const firstLi = (f) => (/<li>[\s\S]*?<\/li>/.exec(/<main[\s\S]*<\/main>/.exec(real[f])[0].replace(/^[\s\S]*?<h2>/, '')) || [''])[0];
+  const breaks = [
+    ['分けた頁から文を一つ外す', mut(p3, firstLi(p3), '')],
+    ['英語の分けた頁の文を変える', mut(p2e, 'Elements, in summary', 'Elements in short')],
+    ['分けた頁に文を一つ足す', mut('site/policies/legality-5.html', '<h2>結論</h2>\n', '<h2>結論</h2>\n<p>違法となるおそれはありません。</p>\n')],
+    ['頁を一つ外す', drop('site/policies/legality-4.html')],
+    ['頁を一つ足す', add('site/policies/legality-6.html', real['site/policies/legality-5.html'])],
+    ['頁が上限を超える', mut('site/policies/legality-2.html', '</main>', '<!--' + 'x'.repeat(PAGE87) + '-->\n</main>')],
+    ['目次のいまの頁の印を外す', mut(p3, ' aria-current="page"', '')],
+    ['目次から頁を一つ外す', mut('site/policies/legality.html', '<li><a href="legality-5.html">', '<li hidden><a href="legality-5.html">')],
+    ['次の頁へのリンクを外す', mut('site/policies/legality.en.html', '<p><a href="legality-2.en.html">Next page</a></p>', '<p></p>')],
+    ['対の頁を最初の頁にする', mut(p3, 'hreflang="en" href="' + B.BASE + 'policies/legality-3.en.html"', 'hreflang="en" href="' + B.BASE + 'policies/legality.en.html"')],
+    ['節の途中から始まる頁の前の見出しを外す', mut('site/policies/legality-4.html', '</nav>\n<h2>法令ごとの整理</h2>\n', '</nav>\n')],
+    ['頁の頭の最終更新を変える', mut('site/policies/legality-5.html', '<p>最終更新：', '<p>最終更新は')],
+    ['サイトマップから頁を外す', mut('site/sitemap.xml', '  <url><loc>' + B.BASE + 'policies/legality-3.en.html</loc></url>\n', '')],
+    ['年表から頁を分けた行を外す', mut('README.md', TL_SPLIT + '\n', '')],
+    ['王の正誤表 7 を書き換える', mut('ERRATA.md', 'どれも README「ほかの場所」に挙げる形にした。 | 王の投稿', 'MicroWiki の記事を README「ほかの場所」に挙げる形にした。 | 王の投稿')],
+    ['王の正誤表 57 を外す', mut('ERRATA.md', row(real['ERRATA.md'], 57) + '\n', '')],
+    ['英語の王の正誤表 57 の決めた者を外す', mut('ERRATA.en.md', 'Claude decided this on 2026-11-16, so that', 'This was done so that')],
+    ['王の正誤表 57 の分類を変える', mut('ERRATA.md', '| 事実 | Insula Facti XIII |', '| 範囲 | Insula Finis XXIII |')],
+    ['README「ほかの場所」に X の投稿を戻す', mut('README.md', '\n- MicroWiki（日本語版）：', '\n- X：建国を知らせる投稿。\n- MicroWiki（日本語版）：')],
+    ['名称と権利から似た名の国の一文を外す', mut('policies/names.md', NAMES_JA + '\n', '')],
+    ['英語の名称と権利から似た名の国の一文を外す', mut('policies/names.en.md', NAMES_EN + '\n', '')],
+    ['似た名の国にリンクを付ける', mut('policies/names.md', '「Nusquamia」', '「[Nusquamia](https://example.org/)」')],
+    ['似た名の国について名のほかを書く', mut('policies/names.en.md', NAMES_EN + '\n', NAMES_EN + '\nNusquamia was founded in Europe.\n')],
+    ['ほかの頁で似た名の国を書く', mut('policies/disclaimer.md', '\n## 責任\n', '\nNusquamia とは関係がありません。\n\n## 責任\n')],
+    ['生成した頁で似た名の国にリンクする', mut('site/policies/names.html', '「Nusquamia」', '「<a href="https://example.org/nusquamia">Nusquamia</a>」')],
+    ['年表から似た名の国の行を外す', mut('README.md', TL_NAMES + '\n', '')],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：分けた頁の文を外す・変える・足す、頁を外す・足す、上限を超える、目次・前後のリンク・対の頁・前に置く見出し・頁の頭、サイトマップ、年表、王の正誤表 7 と 57、README「ほかの場所」、似た名の国の一文・リンク・名のほかの文・ほかの頁・生成した頁のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
+    missed.length === 0, missed.join(' / '));
 }
 
 console.log('\n' + '-'.repeat(56));

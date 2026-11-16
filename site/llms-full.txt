@@ -209,6 +209,8 @@ Source: https://nusquama.vercel.app/
 | 2026-11-14（日本時間） | 突き合わせの受付を置く。2026-12-01 から、誤りの知らせは、引いた語が示した所にそのとおりになければ閉じる。求めは自動では閉じない。叙任の規程に、受付に戻すときは日本に住んでいることを ORCID の記録の前からの項目で確かめ、ORCID iD のない人からは受けない決まりを書く。受付は止めたまま | The checked intake is set up. From 2026-12-01, an error report is closed if the quoted words do not occur at the place given. Requests are never closed automatically. The Rules on Knighting state that, when applications reopen, living in Japan is checked by earlier entries of the ORCID record, and that no application is received from a person without an ORCID iD. Applications stay paused |
 | 2026-11-15（日本時間） | 突き合わせの受付は、どの issue も閉じず、鍵も掛けないと改める。通らない誤りの知らせには、ラベルと決まった文のコメントだけを付ける。求めの規程の、自分を指さない「訂正」の語を「自分についての記載の訂正」と改める。叙任の規程の、受付に戻すときの確かめから GitHub のプロフィールの所在の欄を外し、ORCID の国の符号だけを読むと改める。受付は止めたまま | The checked intake now never closes or locks an issue. An error report that fails gets only a label and a fixed comment. On the page on requests, "correction" is narrowed to "a correction of what is written about oneself". In the Rules on Knighting, the check for reopening no longer reads the location field of the GitHub profile, and reads only the country codes in ORCID. Applications stay paused |
 | 2026-11-15（日本時間） | 点検の答えを入れる。2026-12-01 から、誤りの知らせは、ORCID の公開の記録で日本にいると確かめられる人からだけ受ける。求めはどの国の人からも受ける。履歴から名簿の行を消す前に、提供の記録の項目だけを別に記す。発信者情報の開示の求めの扱いを書き、利用規約の終わりを凍結と解散に分ける。適法性の説明に、商標法第25条の範囲、イタリアの罰の厳しい読み方、栄典との違いを書き、配信の題に「（創作）」を付ける | The answers to the review are put in. From 2026-12-01, error reports are received only from people who can be checked, in the public ORCID record, as being in Japan. Requests are received from people in every country. Before a line of the roll is erased from the history, only the items of its record of provision are recorded separately. The handling of requests to disclose sender information is written, and the ending in the Terms of Use is split into freezing and dissolution. The Legality Statement gives the scope of Article 25 of the Trademark Act, the stricter reading of the Italian penalty and how the names differ from honours, and the titles of the feeds carry "（創作）" |
+| 2026-11-16（日本時間） | 適法性の説明を、文に手を入れずに、節の境で分けたいくつかの頁に作る。最初の頁は元の所在のままで、どの頁にも全部の頁の目次を置く。一つの頁が重さの上限に近づき、次の正誤が入らなくなったためで、上限は上げない | The Legality Statement is now built as several pages, divided at its headings, with no change to the text. The first page keeps the old address, and every page carries a list of all the pages. One page had come close to the weight limit, so that the next correction would not fit; the limit is not raised |
+| 2026-11-16（日本時間） | 名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く | Names and rights now states that Nusquama is not related to any other micronation with a similar name, such as "Nusquamia" |
 
 ---
 
@@ -367,6 +369,7 @@ Source: https://nusquama.vercel.app/errata.html
 | 54 | 2026-11-15 | 適法性の説明「規程の外で、要件に近づく行い」 | 商標法第25条 | 第25条は、商標権者の専用権の条で、他人の登録商標と重ならなければ当たらない。表に「（他人の登録商標と重なるとき）」を添えた。2026-11-15 に利用者が決め、Claude が書きました。国章や名を付けることが、それだけで商標権の侵害になると読まれないためです。 | 商標法第25条 | 法 | Insula Legis XVI |
 | 55 | 2026-11-15 | 利用規約「変更と終了」 | ヌスクァマは、予告なく終わることがあります。終わる場合も、騎士の名簿は、本人から辞退の求めがない限り、リポジトリに残します。 | 国の仕組みは、凍結と解散を分けており、解散には終わりの言葉を掲げてから少なくとも 30 日の期間を置く。予告なく終わるのは凍結だけである。利用規約を、凍結は予告なくありうること、解散では 30 日以上の期間を置くことに改めた。2026-11-15 に利用者が決め、Claude が書きました。利用規約と国の仕組みが食い違わないためです。 | 国の仕組み「凍結」「解散」 | 事実 | Insula Facti XII |
 | 56 | 2026-11-15 | 個人情報の取り扱い「利用の目的」 | 叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと。これ以外には使いません。 | 誤りではなく、範囲を改めた。2026-12-01 から、誤りの知らせを日本にいる人からだけ受けるので、知らせる人が日本にいることを確かめる目的を足し、個人情報保護法第21条第1項を引いた。2026-11-15 に利用者が決め、Claude が書きました。新しく読むものの目的を、読む前に公表するためです。 | 個人情報保護法第21条第1項 | 範囲 | Insula Finis XXII |
+| 57 | 2026-11-16 | 王の正誤表 7 の「正」と「確かめた先」 | 紹介のために自ら書いた「記事や投稿」とし、どれも README「ほかの場所」に挙げる形にした。（正）／王の投稿（README「ほかの場所」）（確かめた先） | 7 を記したのは 2026-11-08 の 10 時 29 分（日本時間）で、そのときは X の投稿を「ほかの場所」に挙げていた。同じ日の 11 時 55 分に、その投稿へのリンクを「ほかの場所」から外した（10）。いまの「ほかの場所」が挙げるのは、MicroWiki（日本語版）の記事だけである。そこに挙げていない投稿は、運営者が書いたものでも、この国の中に入らない（免責事項「この国の外での発言」）。X の投稿も入らない。10 は、7 がいまは挙げていないものを挙げると書くことを記したが、7 を正す行を記さなかった。7 の行は記した文なので書き換えず、ここで正す（「記すもの」）。2026-11-16 に Claude が決めました。記した行を消さず、前の行の誤りを新しい行に記すためです。 | リポジトリの履歴（コミット efaf5ce と 3aa7340）、README「ほかの場所」、王の正誤表 10 | 事実 | Insula Facti XIII |
 
 MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあります。記事は書き換えず、この正誤表で正します（十則の二）。
 
@@ -1891,7 +1894,7 @@ Source: https://nusquama.vercel.app/policies/names.html
 
 # 名称と権利
 
-最終更新：2026-11-15。
+最終更新：2026-11-16。
 
 ## 名前の由来
 
@@ -1902,6 +1905,7 @@ Source: https://nusquama.vercel.app/policies/names.html
 
 これらはどれも一般の言葉や古典に由来するもので、特定の作品・団体・人物の名を借りたものではありません。
 『ユートピア』と『海底二万里』、アーサー王伝説を題材とする作品や、その登場人物・絵・紋章とは関係がありません。
+ヌスクァマは、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がありません。
 
 ## 国章
 
@@ -2958,7 +2962,7 @@ Source: https://nusquama.vercel.app/policies/names.en.html
 
 # Names and rights
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-16.
 
 This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
 
@@ -2971,6 +2975,7 @@ This is an English translation. The [Japanese version](./names.md) governs; if t
 
 All of these come from common words or classics; none borrows the name of a particular work, body or person.
 Nusquama has no relation to Utopia, Twenty Thousand Leagues Under the Seas, works on the Arthurian legend, or their characters, pictures or coats of arms.
+Nusquama is not related to any other micronation with a similar name, such as "Nusquamia".
 
 ## The emblem
 
@@ -3539,6 +3544,7 @@ These errata are the domain under Article 3 of the Basic Law.
 | 54 | 2026-11-15 | Legality Statement, "Acts outside the rules that come near a law's elements" | "Trademark Act, Article 25" | Article 25 gives the owner of a trademark right the exclusive right, and does not apply unless the use overlaps another's registered mark. The table now adds "(when it overlaps another's registered mark)". The owner decided this on 2026-11-15, and Claude wrote it, so that putting the emblem or the name on something is not read as an infringement by itself. | Trademark Act, Article 25 | Law | Insula Legis XVI |
 | 55 | 2026-11-15 | Terms of Use, "Changes and ending" | "Nusquama may end without notice. If it ends, the roll of knights stays in the repository unless a knight asks to withdraw." | Institutions separates freezing from dissolution, and a dissolution keeps a period of at least 30 days after the closing words are posted. Only a freeze can come without notice. The Terms of Use now say that the country may be frozen without notice, and that a dissolution keeps a period of at least 30 days. The owner decided this on 2026-11-15, and Claude wrote it, so that the Terms of Use and Institutions do not contradict each other. | Institutions, "Freezing" and "Dissolution" | Fact | Insula Facti XII |
 | 56 | 2026-11-15 | Privacy, "Purposes of use" | "To decide on knighting, to keep the roll, to answer requests, and to check reported mistakes and record them in the King's errata. Nothing else." | Not a mistake; the scope was changed. From 2026-12-01 error reports are received only from people in Japan, so the purpose of checking that a reporter is in Japan was added, with Article 21(1) of the Act on the Protection of Personal Information quoted. The owner decided this on 2026-11-15, and Claude wrote it, so that the purpose of what is newly read is published before it is read. | Act on the Protection of Personal Information, Article 21(1) | Scope | Insula Finis XXII |
+| 57 | 2026-11-16 | The King's errata, entry 7, "Right" and "Checked against" | "it became "articles or posts" written by himself to introduce it, each listed under "ほかの場所" (Elsewhere) in the README." (Right) / "The King's post (README, "ほかの場所" (Elsewhere))" (Checked against) | Entry 7 was recorded at 10:29 on 2026-11-08 (Japan time), when the post on X was listed under "ほかの場所". At 11:55 on the same day, the link to that post was taken out of "ほかの場所" (entry 10). "ほかの場所" now lists only the article on MicroWiki (Japanese edition). A post not listed there is outside the kingdom, even if the operator wrote it (Disclaimer, "Statements outside the kingdom"). So is the post on X. Entry 10 noted that entry 7 speaks of a listing that no longer exists, but no entry corrected entry 7. The row of entry 7 is recorded text, so it is not rewritten; it is corrected here ("What is recorded"). Claude decided this on 2026-11-16, so that a recorded row is not erased and the mistake in an earlier row is recorded in a new row. | The history of the repository (commits efaf5ce and 3aa7340); README, "ほかの場所" (Elsewhere); King's errata, entry 10 | Fact | Insula Facti XIII |
 
 The article on MicroWiki (Japanese edition) has the same mistakes as 1 to 3. The article is not rewritten; these errata correct it (Precept 2).
 
