@@ -36,7 +36,7 @@ const ASSETS = ['emblem.svg', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.pn
 /* build.js が描く画像。版図の地図は正誤表から。 */
 const DRAWN = ['territory.svg'];
 /* build.js が作る頁と画像の所在。Markdown から指すときは、site/ を付けても付けなくても解ける。 */
-const GENERATED = /^(territory(-\d{4})?\.svg|calendar\.ics|(errata|gazette|story)\/\d+(\.en)?\.html|monthly\/\d{4}-\d{2}(\.en)?\.html|(territory-years|symbols-construction)(\.en)?\.html)$/;
+const GENERATED = /^(territory(-\d{4})?\.svg|calendar\.ics|(errata|gazette|story)\/\d+(\.en)?\.html|monthly\/\d{4}-\d{2}(\.en)?\.html|(territory-years|symbols-construction)(\.en)?\.html|policies\/legality-\d+(\.en)?\.html)$/;
 
 /* どの頁にも先頭に出す断り。README の冒頭と同じ内容である。 */
 const NOTICE = 'これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。ここで贈る騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。';
@@ -625,7 +625,7 @@ function calendarIcs() {
 }
 
 function firstParagraph(md) {
-  const p = md.split('\n').find((l) => l.trim() && !/^(#|>|\||-|!|\d+\.)/.test(l));
+  const p = md.split('\n').find((l) => l.trim() && !/^(#|>|\||-|!|\d+\.|<!-- )/.test(l));
   return (p || '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`]/g, '').slice(0, 120);
 }
 
@@ -658,6 +658,59 @@ function quoteOne(key, en) {
       : `<a href="${esc(so.url)}">${esc(so.name)}</a>から引きました（${PRIMARY.fetched} に取り寄せ）。訳は付けていません。`}</p></details>`;
 }
 const quoteBlock = (keys, en) => keys.split('、').map((k) => quoteOne(k.trim(), en)).join('\n');
+
+/* 適法性の説明は、一つの Markdown（policies/legality.md と英語の訳）から、節の境で分けたいくつかの頁に作る。
+ * 2026-11-16 に分けた。一つの頁が 128 KiB の上限の手前（130,976 バイト）まで来て、次の正誤が入らなかったため。上限は上げない。
+ * 文には手を入れない。元の文を、見出しの順のまま、一字一句そのまま頁に配る。最初の頁は元の所在（policies/legality.html）のまま。
+ * 分け目は見出しの行の始まりで指す。見出しが見つからないか、順が崩れれば、頁を作らずに止まる。
+ * 節の途中（### の見出し）から始まる頁には、その節の ## の見出しを前に置く（見出しの段を飛ばさないため）。
+ * どの頁の頭にも全部の頁の目次を、終わりに前後の頁へのリンクを置く。 */
+const LEGALITY_SPLITS = [
+  { ja: '## 法令ごとの整理', en: '## Law by law' },
+  { ja: '### 商標と表示', en: '### Trademarks and indications' },
+  { ja: '### 国際法での立場', en: '### Status under international law' },
+  { ja: '## 規程の外で、要件に近づく行い', en: "## Acts outside the rules that come near a law's elements" },
+];
+/* 適法性の説明の k 番目の頁の所在（site/ から）。 */
+const legalityFile = (k, en = false) => 'policies/legality' + (k > 1 ? '-' + k : '') + (en ? '.en' : '') + '.html';
+function legalityParts(en = false) {
+  const md = fs.readFileSync(path.join(ROOT, 'policies', en ? 'legality.en.md' : 'legality.md'), 'utf8').replace(/\r\n/g, '\n');
+  const lines = md.split('\n');
+  const first = lines.findIndex((l) => l.startsWith('## '));
+  const cuts = [first].concat(LEGALITY_SPLITS.map((s) => lines.findIndex((l) => l.startsWith(en ? s.en : s.ja))));
+  if (cuts.some((c, i) => c < 0 || (i && c <= cuts[i - 1]))) throw new Error('適法性の説明の分け目の見出しが' + (en ? '英語の訳' : '') + 'に見つからないか、順が崩れている');
+  const head = lines.slice(1, first).join('\n').trim();
+  return cuts.map((c, i) => {
+    const own = lines.slice(c, i + 1 < cuts.length ? cuts[i + 1] : lines.length);
+    const lead = own[0].startsWith('### ') ? [lines.slice(0, c).reverse().find((l) => l.startsWith('## ')), ''] : [];
+    const text = lead.concat(own).join('\n').trim();
+    const heads = text.split('\n').filter((l) => /^#{2,3} /.test(l)).map((l) => ({ level: l.startsWith('### ') ? 3 : 2, text: l.replace(/^#+ /, '') }));
+    return { n: i + 1, head, text, heads, led: lead.length > 0 };
+  });
+}
+/* 目次の一行：## の見出しを並べ、### の見出しは条の括弧を外して「：」の後に並べる。 */
+function legalityLabel(heads, en) {
+  const cut = (t) => (en ? t.replace(/ \([^()]*\)$/, '') : t.replace(/（[^（）]*）$/, ''));
+  const groups = [];
+  for (const h of heads) {
+    if (h.level === 2 || !groups.length) groups.push({ top: h.text, subs: [] });
+    else groups[groups.length - 1].subs.push(cut(h.text));
+  }
+  const sep = en ? ' / ' : ' ／ ';
+  return groups.map((g) => g.top + (g.subs.length ? (en ? ': ' : '：') + g.subs.join(sep) : '')).join(sep);
+}
+function legalityToc(k, en) {
+  const parts = legalityParts(en);
+  return `<nav aria-label="${en ? 'Pages of the Legality Statement' : '適法性の説明の頁'}"><ol>`
+    + parts.map((p) => `<li><a href="${path.posix.basename(legalityFile(p.n, en))}"${p.n === k ? ' aria-current="page"' : ''}>${esc(legalityLabel(p.heads, en))}</a></li>`).join('') + '</ol></nav>';
+}
+function legalityPartMd(p, total, en = false) {
+  const href = (k) => (k === 1 ? (en ? 'legality.en.md' : 'legality.md') : path.posix.basename(legalityFile(k, en)));
+  const nav = (k, t) => (k >= 1 && k <= total ? `[${t}](${href(k)})` : null);
+  const pager = [nav(p.n - 1, en ? 'Previous page' : '前の頁'), nav(p.n + 1, en ? 'Next page' : '次の頁')].filter(Boolean);
+  const h1 = en ? `# Legality Statement (${p.n} of ${total})` : `# 適法性の説明（${p.n} / ${total}）`;
+  return `${h1}\n\n${p.head}\n\n<!-- 適法性の頁 ${p.n} -->\n\n${p.text}\n\n${pager.join(' / ')}\n`;
+}
 
 /* 建国の物語の章。STORY.md の「## 」の節を、文に手を入れずにそのまま一章とする。 */
 function storyChapters(en = false) {
@@ -784,6 +837,7 @@ const FILLERS = { map: errataMap, growth: errataGrowth, years: errataYearTable, 
   months: gazetteMonthTable, yearmaps: territoryYears, flagsteps: (en) => constructionSteps('flag', en), emblemsteps: (en) => constructionSteps('emblem', en), colors: colorTable, tiles: tileTable, first: firstScreen, entries };
 function fill(html, en) {
   html = html.replace(/<p>&lt;!-- 条文 (.+?) --&gt;<\/p>/g, (m, keys) => quoteBlock(keys, en));
+  html = html.replace(/<p>&lt;!-- 適法性の頁 (\d+) --&gt;<\/p>/g, (m, k) => legalityToc(Number(k), en));
   return html.replace(/<p>&lt;!-- (\w+) --&gt;<\/p>/g, (m, k) => {
     if (!FILLERS[k]) throw new Error('印 ' + k + ' を置き換えるものがない');
     return FILLERS[k](en);
@@ -801,7 +855,7 @@ function anchored(outRel, html) {
   return html;
 }
 
-/* opts.md：ファイルではなく、この関数に渡した Markdown から頁を作る（正誤一件・官報一号の頁）。
+/* opts.md：ファイルではなく、この関数に渡した Markdown から頁を作る（正誤一件・官報一号の頁）。opts.desc：頁の説明（適法性の説明の二つめからの頁）。
  * opts.en：英語の頁として作る。opts.twin：対になる頁。リンクの解き方は srcRel の位置による。 */
 function page(srcRel, outRel, opts = {}) {
   const md = opts.md || fs.readFileSync(path.join(ROOT, srcRel), 'utf8');
@@ -810,7 +864,7 @@ function page(srcRel, outRel, opts = {}) {
   const pre = up ? up + '/' : './';
   const title = outRel === 'index.html' ? NAME : h1 + ' | ' + NAME;
   const url = BASE + (outRel === 'index.html' ? '' : outRel);
-  const desc = outRel === 'index.html' ? 'どこにもない国の、誰でもない王。誤りは守り、己を治める。創作であり、遊びです。' : firstParagraph(md.replace(/^# .*$/m, '').replace(/^最終更新.*$/m, '')) || h1;
+  const desc = opts.desc ? opts.desc : outRel === 'index.html' ? 'どこにもない国の、誰でもない王。誤りは守り、己を治める。創作であり、遊びです。' : firstParagraph(md.replace(/^# .*$/m, '').replace(/^最終更新.*$/m, '')) || h1;
   const csp = `default-src 'none'; style-src '${STYLE_HASH}'; img-src 'self'; base-uri 'none'; form-action 'none'`;
   const en = opts.md ? !!opts.en : srcRel.endsWith('.en.md');
   const h1of = (rel) => (/^# (.*)$/m.exec(fs.readFileSync(path.join(ROOT, rel), 'utf8')) || [])[1];
@@ -933,6 +987,11 @@ function build(out = OUT) {
   if (later.length) throw new Error('王の正誤表の「のちに改めた」の注：' + later.join(' / '));
   const files = {};
   for (const [src, dst] of SOURCES) files[dst] = page(src, dst);
+  /* 適法性の説明は、元の所在の頁を最初の頁とし、残りを policies/legality-<番>.html に作る。 */
+  for (const en of [false, true]) {
+    const parts = legalityParts(en), src = en ? 'policies/legality.en.md' : 'policies/legality.md';
+    for (const p of parts) files[legalityFile(p.n, en)] = page(src, legalityFile(p.n, en), { md: legalityPartMd(p, parts.length, en), en, twin: legalityFile(p.n, !en), desc: p.n > 1 ? legalityLabel(p.heads, en).slice(0, 120) : null });
+  }
   files['404.html'] = notFound();
   files['robots.txt'] = 'User-agent: *\nAllow: /\n\nSitemap: ' + BASE + 'sitemap.xml\n';
   files['errata.xml'] = atom('errata');
@@ -987,7 +1046,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, LATER, LATER_JA, LATER_EN, laterNote, ERRATA_LATER, ERRATA_LATER_JA, ERRATA_LATER_EN, errataLaterNote, errataLaterProblems, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { LEGALITY_SPLITS, legalityFile, legalityParts, NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, LATER, LATER_JA, LATER_EN, laterNote, ERRATA_LATER, ERRATA_LATER_JA, ERRATA_LATER_EN, errataLaterNote, errataLaterProblems, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;
