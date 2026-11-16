@@ -5,7 +5,7 @@
   <id>https://nusquama.vercel.app/errata.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/errata.xml"/>
   <link href="https://nusquama.vercel.app/errata.html"/>
-  <updated>2026-11-15T00:00:00+09:00</updated>
+  <updated>2026-11-16T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
   <entry>
     <id>https://nusquama.vercel.app/errata.html#errata-1</id>
@@ -398,5 +398,12 @@
     <link href="https://nusquama.vercel.app/errata.html"/>
     <updated>2026-11-15T00:00:00+09:00</updated>
     <summary>個人情報の取り扱い「利用の目的」。正：誤りではなく、範囲を改めた。2026-12-01 から、誤りの知らせを日本にいる人からだけ受けるので、知らせる人が日本にいることを確かめる目的を足し、個人情報保護法第21条第1項を引いた。2026-11-15 に利用者が決め、Claude が書きました。新しく読むものの目的を、読む前に公表するためです。</summary>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/errata.html#errata-57</id>
+    <title>王の正誤表（創作）第 57 件：王の正誤表 7 の「正」と「確かめた先」</title>
+    <link href="https://nusquama.vercel.app/errata.html"/>
+    <updated>2026-11-16T00:00:00+09:00</updated>
+    <summary>王の正誤表 7 の「正」と「確かめた先」。正：7 を記したのは 2026-11-08 の 10 時 29 分（日本時間）で、そのときは X の投稿を「ほかの場所」に挙げていた。同じ日の 11 時 55 分に、その投稿へのリンクを「ほかの場所」から外した（10）。いまの「ほかの場所」が挙げるのは、MicroWiki（日本語版）の記事だけである。そこに挙げていない投稿は、運営者が書いたものでも、この国の中に入らない（免責事項「この国の外での発言」）。X の投稿も入らない。10 は、7 がいまは挙げていないものを挙げると書くことを記したが、7 を正す行を記さなかった。7 の行は記した文なので書き換えず、ここで正す（「記すもの」）。2026-11-16 に Claude が決めました。記した行を消さず、前の行の誤りを新しい行に記すためです。</summary>
   </entry>
 </feed>

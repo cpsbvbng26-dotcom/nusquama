@@ -5,8 +5,26 @@
   <id>https://nusquama.vercel.app/gazette.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/gazette.xml"/>
   <link href="https://nusquama.vercel.app/gazette.html"/>
-  <updated>2026-11-15T00:00:00+09:00</updated>
+  <updated>2026-11-16T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g105</id>
+    <title>官報（創作）第 105 号　王の正誤表：第 57 件を記す（王の正誤表 7 の「正」と「確かめた先」）</title>
+    <link href="https://nusquama.vercel.app/gazette/105.html"/>
+    <updated>2026-11-16T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g104</id>
+    <title>官報（創作）第 104 号　年表：名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く</title>
+    <link href="https://nusquama.vercel.app/gazette/104.html"/>
+    <updated>2026-11-16T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g103</id>
+    <title>官報（創作）第 103 号　年表：適法性の説明を、文に手を入れずに、節の境で分けたいくつかの頁に作る。最初の頁は元の所在のままで、どの頁にも全部の頁の目次を置く。一つの頁が重さの上限に近づき、次の正誤が入らなくなったためで、上限は上げない</title>
+    <link href="https://nusquama.vercel.app/gazette/103.html"/>
+    <updated>2026-11-16T00:00:00+09:00</updated>
+  </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g102</id>
     <title>官報（創作）第 102 号　王の正誤表：第 56 件を記す（個人情報の取り扱い「利用の目的」）</title>
