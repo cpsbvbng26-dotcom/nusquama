@@ -1,6 +1,6 @@
 # Names and rights
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-16.
 
 This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
 
@@ -13,6 +13,7 @@ This is an English translation. The [Japanese version](./names.md) governs; if t
 
 All of these come from common words or classics; none borrows the name of a particular work, body or person.
 Nusquama has no relation to Utopia, Twenty Thousand Leagues Under the Seas, works on the Arthurian legend, or their characters, pictures or coats of arms.
+Nusquama is not related to any other micronation with a similar name, such as "Nusquamia".
 
 ## The emblem
 
