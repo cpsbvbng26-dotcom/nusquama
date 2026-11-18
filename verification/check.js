@@ -1191,6 +1191,9 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     'check.yml': { contents: 'read' },
     /* 突き合わせの受付（2026-11-14）：誤りの知らせにラベルを付け、通らなければ閉じる。 */
     'checked-intake.yml': { contents: 'read', issues: 'write' },
+    /* 本文の空の issue に答える（2026-11-19）：ラベルとコメントを付けるだけで、リポジトリの中身は読まない。閉じず、鍵も掛けず、消さない。
+     * 15 のリポジトリで同じファイルで、cpsbvbng26-dotcom の check_ecosystem.js（13f）が中身を固めている。 */
+    'empty-issue.yml': { issues: 'write' },
     'knighting.yml': { contents: 'read', issues: 'write' },
     'labels.yml': { issues: 'write' },
     'live.yml': { contents: 'read', issues: 'write' },
@@ -3007,7 +3010,7 @@ console.log('\n73. GitHub Actions の規約：追加製品の規約を取り寄�
     ['新しいワークフローに行がない', Object.assign({}, real, { wf: WF.concat(['newsletter.yml']) })],
     ['消したワークフローの行が残る', Object.assign({}, real, { wf: WF.filter((f) => f !== 'labels.yml') })],
     ['表から行を外す', mut(AUD, /\n\| `\.github\/workflows\/review\.yml`[^\n]*/, '')],
-    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 13 件で、合わせて 16 件です。', '漏れ 2 件、表現 0 件、問題なし 13 件で、合わせて 16 件です。')],
+    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 14 件で、合わせて 17 件です。', '漏れ 2 件、表現 0 件、問題なし 14 件で、合わせて 17 件です。')],
     ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
     ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
     ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：十一度目の見落とし', '\n\n## 2026-11-12 の続き：十一度目の見落とし')],
