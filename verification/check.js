@@ -5113,7 +5113,7 @@ console.log('\n89. 名称と商標（2026-11-18）：名称と権利の節（日
       '白地に赤の十字や赤の新月の形は、どの画像にもありません。そのため、赤十字の標章及び名称等の使用の制限に関する法律の条文は取り寄せていません。',
       '経済産業大臣の指定と経済産業省令が定める紋章・記章・標章の一覧は、取り寄せていません。突き合わせたのは、ファイルの形と色です。',
       '3. 決めるまでのあいだ、運営者は、名が出る所に、ヌスクァマがその権利者と関わりがないことの断り書きを足すことがあります。',
-      'リポジトリの古い名へのリンクは、GitHub が新しい名へ送ります。', '8. 権利が確かめられないときも、同じ所に理由を書きます。'],
+      '4. 権利が確かめられたときは、運営者が、サイトの題と文、Vercel のプロジェクトの名とサイトのアドレス、リポジトリの名、様式、README を変えます。\n', '8. 権利が確かめられないときも、同じ所に理由を書きます。'],
     en: ['It is not legal advice, and no lawyer has reviewed it.', 'The owner asked for it on 2026-11-18, and Claude wrote it.',
       'The operator has not applied to register any of these names and marks as a trade mark, in Japan or anywhere else.', 'The operator will not apply, as "Trade marks" in [Symbols of the kingdom](../SYMBOLS.en.md) says',
       'Nusquama sells nothing.', 'The way Nusquama uses its names, dealing in no goods and no services 「業として」, is taken to be outside that definition.',
@@ -5127,7 +5127,7 @@ console.log('\n89. 名称と商標（2026-11-18）：名称と権利の節（日
       'No image shows a red cross or a red crescent on white.',
       'The lists of arms, insignia and marks that the Minister designates and the ordinance sets were not fetched. What was compared is the shapes and colours of the files.',
       '3. While deciding, the operator may add a note where the name appears, saying that Nusquama is not connected with the rights holder.',
-      'GitHub sends links to the old name of a repository on to the new one.', '8. If the right is not confirmed, the operator gives the reason in the same place.'],
+      '4. If the right is confirmed, the operator changes the title and the text of the site, the name of the Vercel project and the address of the site, the name of the repository, the forms and the README.\n', '8. If the right is not confirmed, the operator gives the reason in the same place.'],
   };
   const NO_MARK = [SAY.ja[13], SAY.en[13]];
   const COUNT_RE = {
@@ -5194,6 +5194,8 @@ console.log('\n89. 名称と商標（2026-11-18）：名称と権利の節（日
       for (const h of S.subs) { const i = s.indexOf('\n' + h + '\n'); if (i < at) bad.push(S.file + '：' + h + ' がないか順が違う'); at = Math.max(at, i); }
       for (const w of SAY[lang]) if (!s.includes(w)) bad.push(S.file + '：' + w.slice(0, 24));
       if (/within \d+ days|\d+ 日以内|deadline|期限/i.test(s)) bad.push(S.file + '：期限');
+      /* 2026-11-18：名を変えたあとに GitHub が何をするかは取り寄せていないので、節に書かない。 */
+      if (/redirect|links to the old name|old name of a repository on|古い名へのリンク|新しい名へ送/i.test(s)) bad.push(S.file + '：取り寄せていない GitHub の振る舞いを書く');
       if (/@[a-z0-9-]+\.[a-z]/i.test(s)) bad.push(S.file + '：メールアドレス');
       if (/reviewed by a lawyer|a lawyer (has )?(reviewed|checked)|弁護士が(確か|確認|見)|certainly|guarantee|no risk|違法とはならない|侵害しません|おそれはありません/i.test(s)) bad.push(S.file + '：弁護士か確かさを言う');
       if (RESEARCH.test(s)) bad.push(S.file + '：研究の系列につなぐ');
@@ -5320,6 +5322,8 @@ console.log('\n89. 名称と商標（2026-11-18）：名称と権利の節（日
     ['条文を一字変える', Object.assign({}, real, { 'verification/statutes-texts.json': real['verification/statutes-texts.json'].replace('何人も、その国際機関', '何人も、国際機関') })],
     ['赤十字の法律を足して書いたまま', Object.assign({}, real, { 'verification/statutes.json': JSON.stringify(Object.assign(JSON.parse(real['verification/statutes.json']), { statutes: JSON.parse(real['verification/statutes.json']).statutes.concat([{ name: '赤十字標章法', label: '第1条', title: '赤十字の標章及び名称等の使用の制限に関する法律' }]) })) })],
     ['EUIPO の調べを変える', w('policies/names.md', 'どちらも結果は **0** 件でした。', 'どちらも問題はありませんでした。')],
+    ['取り寄せていない GitHub の振る舞いを書く', w('policies/names.md', '5. 運営者は、MicroWiki の記事', 'リポジトリの古い名へのリンクは、GitHub が新しい名へ送ります。\n5. 運営者は、MicroWiki の記事')],
+    ['リポジトリの名を変える段を外す', w('policies/names.en.md', 'the name of the repository, the forms', 'the forms')],
     ['期限を約束する', w('policies/names.md', '2. 運営者は、それを読みます。', '2. 運営者は、それを 7 日以内に読みます。')],
     ['弁護士を言う', w('policies/names.en.md', '2. The operator reads it.', '2. The operator reads it, and it is reviewed by a lawyer.')],
     ['王の正誤表の 52 から読み方を外す', w('ERRATA.md', 'この定義の外にあると考える。', 'この定義の外にある。')],
