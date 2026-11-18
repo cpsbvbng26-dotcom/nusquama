@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-18.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -65,6 +65,9 @@ There are two cases in which GitHub and Vercel use public content themselves, ea
 If these uses worry you because of your personal data, do not apply. A knight may ask at any time to be taken off the roll, and their name is then taken off it.
 GitHub and Vercel are not processors handling personal data on the operator's behalf. They are used as the place of publication and of serving, after their terms and policies were checked.
 The operator considers listing on the roll to be a provision to an unspecified large number of people. Its record (Article 29 of the Act on the Protection of Personal Information) is the repository history in which the row was added. The history keeps the day the row was added, the account name and the items listed. A row is added only for a person who ticked every pledge in the application form.
+From 2026-11-18, for an issue opened with the form [Notice from a rights holder](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml) whose box of consent to a language model is ticked, the operator may give its title and text to Claude (Anthropic, United States), to help handle the notice.
+The operator treats this as a provision to a third party in a foreign country under Article 28 of the Act on the Protection of Personal Information. The system of the United States is as set out above. Anthropic's measures are in [Anthropic's Privacy Policy](https://www.anthropic.com/legal/privacy).
+The box is optional. Without it, the operator handles the notice without giving it to Claude or to any other language model. Comments on the issue are not given to a language model. The consent can be withdrawn at any time, in that issue.
 The operator receives no personal data from third parties. What it handles is only what the person writes and the link to the correction the person made public.
 Except where the law requires, nothing is given to any other third party.
 

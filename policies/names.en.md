@@ -1,6 +1,6 @@
 # Names and rights
 
-Last updated: 2026-11-16.
+Last updated: 2026-11-18.
 
 This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
 
@@ -31,6 +31,13 @@ CC BY 4.0 allows only what copyright covers. It does not reach other rights such
 The emblem and the titles must not be used as if they were the insignia of a real body or official titles ([Terms of Use](./terms.en.md)). Such use may, apart from copyright, break the law (such as Article 1, item 15 of Japan's Minor Offenses Act).
 The text and the emblem were written with Claude Code at the operator's request. How far copyright reaches in what is made with a language model is not settled. CC BY 4.0 allows only as far as rights reach.
 
-## If you find an infringement of your rights
+## For rights holders
 
-If you think that any part of Nusquama infringes your rights, let us know as set out in [Requests for removal, correction or withdrawal](./requests.en.md).
+A rights holder who thinks that the name of Nusquama, its emblem or the text of the site infringes a right can tell the operator.
+This covers a trademark or a confusingly similar name, copyright in the text or the emblem, a likeness, and other rights.
+The notice goes by the form [Notice from a rights holder](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml).
+A correction or removal of what is written about oneself is still received by the form of [Requests for removal, correction or withdrawal](./requests.en.md) too.
+Where there is a reason not to write in public, the steps under "Requests that cannot be made in public" in [Requests for removal, correction or withdrawal](./requests.en.md) apply.
+The operator reads every notice.
+If the right is confirmed, the operator changes the name, or stops using the text or the emblem.
+The decision is written in the issue, and the change is recorded in the [timeline](../README.md) and the Gazette.
