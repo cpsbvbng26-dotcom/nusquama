@@ -1769,8 +1769,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-22).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|2026-11-15：自動化を固める|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）、名称と商標の節（89）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-23).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|2026-11-15：自動化を固める|2026-11-18：名称と商標|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -5081,6 +5081,254 @@ console.log('\n88. 権利者の知らせ（2026-11-18）：名・国章・文の
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：様式・同意の欄の必須・決まった文・欄・非公開の道・様式の ORCID と研究のサイト・節・英語のリンク・日数の約束・商標と表示（日本語と英語）・個人情報の取り扱い・README・年表・足した文の ORCID・生成した頁・ラベルのどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
+    missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n89. 名称と商標（2026-11-18）：名称と権利の節（日本語と英語）とつなぎ、名としるしの数と初めて現れた日、調べた記録、ほかの者の名、配る画像とその色、登録の表示、引いた条文、年表と点検の記録。研究の系列へつながない');
+{
+  /* 2026-11-18 に利用者が求め、Claude が書いた。節の数はここで数え、挙げたほかの者の名はサイトにあることを確かめ、
+   * 配る画像は節の一覧のものだけで、その色は国の色だけであること（赤と白の画素がないこと）を確かめる。 */
+  const zlib = require('zlib');
+  const crypto = require('crypto');
+  const { execFileSync } = require('child_process');
+  const T = (f) => { try { return read(f); } catch (e) { return null; } };
+  const URL = 'https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml';
+  const SEC = {
+    ja: { file: 'policies/names.md', head: '## 名称と商標', subs: ['### ヌスクァマの名としるし', '### 名の使い方', '### 調べた記録', '### ほかの者の名', '### 登録の表示を付けないこと', '### 国旗と国章', '### 知らせが来たとき'], built: 'site/policies/names.html', pages: (f) => /^site\/.+\.html$/.test(f) && !f.endsWith('.en.html') },
+    en: { file: 'policies/names.en.md', head: '## Names and trademarks', subs: ['### The names and marks of Nusquama', '### How the names are used', '### The search record', "### Others' names", '### No registration marks', '### The flag and the emblem', '### When a notice comes'], built: 'site/policies/names.en.html', pages: (f) => /^site\/.+\.en\.html$/.test(f) },
+  };
+  const LINKS = { 'policies/names.md': ['## 権利者の方へ', '[名称と権利](./names.md)の「名称と商標」'], 'policies/names.en.md': ['## For rights holders', '"Names and trademarks" in [Names and rights](./names.en.md)'] };
+  const FORM = '.github/ISSUE_TEMPLATE/rights.yml', FORM_SAY = '名としるし、調べた記録、知らせが来たときの手順は、名称と権利の「名称と商標」にあります。https://nusquama.vercel.app/policies/names.html';
+  const SAY = {
+    ja: ['法的な助言ではなく、弁護士の確認も受けていません。', '2026-11-18 に利用者が求め、Claude が書きました。',
+      '運営者は、これらの名としるしのどれも、日本でもほかの国でも、商標の登録を出願していません。', 'これからも出願しません。[国のしるし](../SYMBOLS.md)の「商標」に',
+      'ヌスクァマは何も売りません。', '業として商品も役務も扱わないヌスクァマの名の使い方は、この定義の外にあると考えます。',
+      '2026-11-17（日本時間）に、運営者が EUIPO の商標のデータベースで Nusquama と Nusquamae を調べ、どちらも結果は **0** 件でした。',
+      'Claude は、その結果を運営者の画面の写しで見ました。', 'J-PlatPat の利用規約は機械による利用を禁じているので、Claude は J-PlatPat に問い合わせません。',
+      'J-PlatPat・WIPO・USPTO のデータベースで調べた記録は、このリポジトリにありません。',
+      'これらの名は、それぞれの持ち主に属します。その中には商標もあります。', '提携・後援・推薦の関係を示すものではありません。', 'サイトは、ほかの者のロゴを配りません。',
+      'サイトは、自分の名としるしに、®・™・「登録商標」・"registered trademark" を付けません。どれも登録していないからです。',
+      '国旗と国章は、実在のどの国の国旗や紋章でも、国際機関の標章でもありません。それらを写してもいません。',
+      'ファイルに描いてあるのは、紺 `#14213d`・金 `#c9a227`・明るい金 `#e8cf74`・深い紺 `#0b1428` の長方形と多角形だけです。',
+      '白地に赤の十字や赤の新月の形は、どの画像にもありません。そのため、赤十字の標章及び名称等の使用の制限に関する法律の条文は取り寄せていません。',
+      '経済産業大臣の指定と経済産業省令が定める紋章・記章・標章の一覧は、取り寄せていません。突き合わせたのは、ファイルの形と色です。',
+      '3. 決めるまでのあいだ、運営者は、名が出る所に、ヌスクァマがその権利者と関わりがないことの断り書きを足すことがあります。',
+      'リポジトリの古い名へのリンクは、GitHub が新しい名へ送ります。', '8. 権利が確かめられないときも、同じ所に理由を書きます。'],
+    en: ['It is not legal advice, and no lawyer has reviewed it.', 'The owner asked for it on 2026-11-18, and Claude wrote it.',
+      'The operator has not applied to register any of these names and marks as a trade mark, in Japan or anywhere else.', 'The operator will not apply, as "Trade marks" in [Symbols of the kingdom](../SYMBOLS.en.md) says',
+      'Nusquama sells nothing.', 'The way Nusquama uses its names, dealing in no goods and no services 「業として」, is taken to be outside that definition.',
+      'On 2026-11-17 (Japan time), the operator searched the trade mark database of EUIPO for Nusquama and Nusquamae, and each gave **0** results.',
+      "Claude saw those results in the operator's screenshots.", 'The terms of J-PlatPat forbid automated use, so Claude does not query it.',
+      'No search of the databases of J-PlatPat, WIPO or the USPTO is recorded in this repository.',
+      'These names belong to their owners, and some of them are trade marks.', 'Their use implies no affiliation, sponsorship or endorsement.', 'The site serves no logo of anyone else.',
+      'The site never puts ®, ™, 「登録商標」 or "registered trademark" on its own names and marks, because none of them is registered.',
+      'The flag and the emblem are not the flag or the arms of any real state, nor the mark of any international organisation. They do not copy any of them.',
+      'The files draw only rectangles and polygons in navy `#14213d`, gold `#c9a227`, light gold `#e8cf74` and deep navy `#0b1428`.',
+      'No image shows a red cross or a red crescent on white.',
+      'The lists of arms, insignia and marks that the Minister designates and the ordinance sets were not fetched. What was compared is the shapes and colours of the files.',
+      '3. While deciding, the operator may add a note where the name appears, saying that Nusquama is not connected with the rights holder.',
+      'GitHub sends links to the old name of a repository on to the new one.', '8. If the right is not confirmed, the operator gives the reason in the same place.'],
+  };
+  const NO_MARK = [SAY.ja[13], SAY.en[13]];
+  const COUNT_RE = {
+    ja: { marks: /^ヌスクァマが使う名としるしは、次の \*\*(\d+)\*\* つです。$/m, names: /^サイトは、次の \*\*(\d+)\*\* のサービス・製品・組織の名を挙げています：(.+)。$/m, images: /^配る画像は、次のファイルだけです。どれも運営者のものです。\n\n((?:- .+\n)+)/m, sep: '、' },
+    en: { marks: /^Nusquama uses these \*\*(\d+)\*\* names and marks\.$/m, names: /^The site names these \*\*(\d+)\*\* services, products and organisations: (.+)\.$/m, images: /^It serves only these image files, all of them the operator's own:\n\n((?:- .+\n)+)/m, sep: ', ' },
+  };
+  const MARKS = ['商標法 第2条', '商標法 第73条、商標法 第74条', '商標法 第4条第1項第1号〜第5号、不正競争防止法 第16条、不正競争防止法 第17条'];
+  const COLOURS = ['#14213d', '#c9a227', '#e8cf74', '#0b1428'];
+  const IMG = /\.(svg|png|ico|jpe?g|gif|webp|avif|bmp|tiff?)$/i;
+  const OWN = /nusquama|ヌスクァマ|無何有騎士王国|Regnum Nusquamae/gi;
+  /* 名のすぐ横の表示：名の前に置いた表示か、名のすぐ後の表示、または「名は登録商標」の形。登録商標を論じる文の中の名は数えない。 */
+  const MARK_BEFORE = /(®|™|℠|\(R\)|\(TM\)|登録商標|registered\s+trade\s*-?\s*mark)\s*[「"“『]?\s*$/i;
+  const MARK_AFTER = /^\s*[」"”』]?\s*(®|™|℠|\(R\)|\(TM\)|（登録商標）|\(registered\s+trade\s*-?\s*mark\)|(?:は|が)、?[^。\n]{0,8}登録商標|,?\s+(?:is|are)\s+(?:a\s+)?registered\s+trade\s*-?\s*marks?)/i;
+  const SITE_R = ['cpsbvbng26-dotcom', 'github', 'io'].join('.');
+  const RESEARCH = new RegExp(['ORCID', 'orcid\\.org', SITE_R.replace(/\./g, '\\.'), 'cpsbvbng26-dotcom/cpsbvbng26-dotcom', 'DISCLAIMER', 'researchmap', '\\bdoi\\.org\\b'].join('|'), 'i');
+  const AUD = 'docs/legal-audit-2026-11-12.md', AHEAD = '\n## 2026-11-18：名称と商標\n';
+  const ROW = '| 2026-11-18（日本時間） | 名称と権利に「名称と商標」を書く。';
+  const JUDGE = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const git = (args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', env: Object.assign({}, process.env, { TZ: 'Asia/Tokyo' }), stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 });
+  const tracked = git(['ls-files']).split('\n').filter((f) => f && /\.(md|json|js|yml|yaml|html|xml|txt|ics|svg|css)$/.test(f) && f !== 'verification/check.js' && !f.startsWith('verification/world/') && fs.existsSync(path.join(ROOT, f)));
+  const real = Object.fromEntries(tracked.concat(['README.md', FORM, AUD, 'ERRATA.md', 'verification/statutes.json', 'verification/statutes-texts.json']).map((f) => [f, T(f)]));
+  real.__images = walk(path.join(ROOT, 'site')).filter((f) => IMG.test(f)).sort();
+  real.__bin = Object.fromEntries(real.__images.filter((f) => /\.(png|ico)$/i.test(f)).map((f) => [f, fs.readFileSync(path.join(ROOT, 'site', f))]));
+  /* 初めて現れた日（日本時間）。 */
+  const firstAdd = (...fs_) => fs_.map((f) => git(['log', '--diff-filter=A', '--format=%cd', '--date=format-local:%Y-%m-%d', '--', f]).trim().split('\n').pop()).filter(Boolean).sort()[0] || '';
+  const firstS = (s) => (git(['log', '--reverse', '--format=%cd', '--date=format-local:%Y-%m-%d', '-S', s]).trim().split('\n')[0] || '');
+  const DAYS = { '無何有騎士王国': firstS('無何有騎士王国'), 'ヌスクァマ': firstS('ヌスクァマ'), 'Regnum Nusquamae': firstS('Regnum Nusquamae'), 'emblem.svg': firstAdd('emblem.svg', 'assets/emblem.svg'),
+    'flag.svg': firstAdd('assets/flag.svg'), 'territory.svg': firstAdd('site/territory.svg') };
+  for (const f of ['favicon.svg', 'favicon.ico', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'og.png']) DAYS[f] = firstAdd('assets/' + f);
+  /* PNG（ICO の中の PNG も）の画素。8 ビットで飛び越しのないものだけを読む。読めなければ、読めないと言う。 */
+  function pixels(buf) {
+    if (buf.slice(0, 8).toString('hex') !== '89504e470d0a1a0a') return null;
+    let p = 8, w, h, bd, ct, il, pal = null, trns = null; const idat = [];
+    while (p < buf.length) { const n = buf.readUInt32BE(p), t = buf.slice(p + 4, p + 8).toString('latin1'), c = buf.slice(p + 8, p + 8 + n); p += 12 + n;
+      if (t === 'IHDR') { w = c.readUInt32BE(0); h = c.readUInt32BE(4); bd = c[8]; ct = c[9]; il = c[12]; } else if (t === 'PLTE') pal = c; else if (t === 'tRNS') trns = c; else if (t === 'IDAT') idat.push(c); }
+    if (bd !== 8 || il !== 0) return null;
+    const ch = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 }[ct], stride = w * ch, raw = zlib.inflateSync(Buffer.concat(idat)), out = [];
+    let prev = Buffer.alloc(stride), q = 0;
+    for (let y = 0; y < h; y++) {
+      const f = raw[q++], line = Buffer.from(raw.slice(q, q + stride)); q += stride;
+      for (let i = 0; i < stride; i++) { const a = i >= ch ? line[i - ch] : 0, b = prev[i], c = i >= ch ? prev[i - ch] : 0;
+        const pr = f === 1 ? a : f === 2 ? b : f === 3 ? (a + b) >> 1 : f === 4 ? ((pa, pb, pc) => (pa <= pb && pa <= pc ? a : pb <= pc ? b : c))(Math.abs(b - c), Math.abs(a - c), Math.abs(a + b - 2 * c)) : 0;
+        line[i] = (line[i] + pr) & 255; }
+      prev = line;
+      for (let x = 0; x < w; x++) { const o = x * ch;
+        if (ct === 6) out.push([line[o], line[o + 1], line[o + 2], line[o + 3]]); else if (ct === 2) out.push([line[o], line[o + 1], line[o + 2], 255]);
+        else if (ct === 3) { const k = line[o]; out.push([pal[3 * k], pal[3 * k + 1], pal[3 * k + 2], trns && k < trns.length ? trns[k] : 255]); }
+        else if (ct === 0) out.push([line[o], line[o], line[o], 255]); else out.push([line[o], line[o], line[o], line[o + 1]]); }
+    }
+    return out;
+  }
+  const images = (f, buf) => (/\.ico$/i.test(f) ? Array.from({ length: buf.readUInt16LE(4) }, (_, k) => { const e = 6 + 16 * k; return buf.slice(buf.readUInt32LE(e + 12), buf.readUInt32LE(e + 12) + buf.readUInt32LE(e + 8)); }) : [buf]);
+  const textOf = (h) => String(h || '').replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+  const unhtml = (x) => x.replace(/<br>\n?/g, ' ').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const sectionOf = (t, head) => { const s = String(t || ''); const i = s.indexOf('\n' + head + '\n'); if (i < 0) return ''; const j = s.indexOf('\n## ', i + head.length + 2); return s.slice(i, j < 0 ? undefined : j); };
+  function verdict(x) {
+    const bad = [], parts = {}, C = {};
+    for (const [lang, S] of Object.entries(SEC)) {
+      const s = sectionOf(x[S.file], S.head);
+      if (!s) { bad.push(S.file + '：節がない'); continue; }
+      parts[lang] = s;
+      let at = 0;
+      for (const h of S.subs) { const i = s.indexOf('\n' + h + '\n'); if (i < at) bad.push(S.file + '：' + h + ' がないか順が違う'); at = Math.max(at, i); }
+      for (const w of SAY[lang]) if (!s.includes(w)) bad.push(S.file + '：' + w.slice(0, 24));
+      if (/within \d+ days|\d+ 日以内|deadline|期限/i.test(s)) bad.push(S.file + '：期限');
+      if (/@[a-z0-9-]+\.[a-z]/i.test(s)) bad.push(S.file + '：メールアドレス');
+      if (/reviewed by a lawyer|a lawyer (has )?(reviewed|checked)|弁護士が(確か|確認|見)|certainly|guarantee|no risk|違法とはならない|侵害しません|おそれはありません/i.test(s)) bad.push(S.file + '：弁護士か確かさを言う');
+      if (RESEARCH.test(s)) bad.push(S.file + '：研究の系列につなぐ');
+      if (!String(x[S.built] || '').includes('<h2>' + S.head.slice(3) + '</h2>')) bad.push(S.built + '：生成した頁に節がない');
+    }
+    if (bad.length) return bad;
+    for (const lang of ['ja', 'en']) {
+      const s = parts[lang], R = COUNT_RE[lang];
+      const items = (s.split('\n### ')[1] || '').split('\n').filter((l) => /^- /.test(l));
+      const n = (R.marks.exec(s) || [])[1];
+      if (Number(n) !== items.length) bad.push(lang + '：名としるしの数 ' + n + ' が、挙げた ' + items.length + ' と違う');
+      for (const it of items) {
+        const day = (/(\d{4}-\d{2}-\d{2})/.exec(it) || [])[1];
+        const files = [...it.matchAll(/`([^`]+)`/g)].map((m) => m[1]).filter((f) => DAYS[f]);
+        const keys = files.length ? files : Object.keys(DAYS).filter((k) => !/\./.test(k) && it.includes(k));
+        const first = keys.map((k) => DAYS[k]).filter(Boolean).sort()[0];
+        if (!keys.length || first !== day) bad.push(lang + '：' + (keys.join('・') || it.slice(0, 20)) + ' の日 ' + day + ' が、履歴に初めて現れた日 ' + first + ' と違う');
+      }
+      C[lang] = items.length;
+      const m = R.names.exec(s);
+      if (!m) { bad.push(lang + '：ほかの者の名の一覧がない'); continue; }
+      const names = m[2].split(R.sep);
+      if (Number(m[1]) !== names.length || new Set(names).size !== names.length) bad.push(lang + '：ほかの者の名の数 ' + m[1] + ' が、挙げた ' + new Set(names).size + ' と違う');
+      const text = Object.keys(x).filter((f) => SEC[lang].pages(f) && !/^site\/policies\/names(\.en)?\.html$/.test(f)).map((f) => textOf(x[f])).join('\n');
+      for (const nm of names) if (!new RegExp('(?<![A-Za-z0-9])' + escRe(nm) + '(?![A-Za-z0-9])').test(text)) bad.push(lang + '：サイトに ' + nm + ' がない');
+      C[lang + 'names'] = names.length;
+      const im = R.images.exec(s);
+      C[lang + 'images'] = im ? im[1].split('\n').filter(Boolean).flatMap((l) => [...l.split('：')[0].split(': ')[0].matchAll(/`([^`]+)`/g)].map((y) => y[1].replace(/<(年|year)>/, '<年>'))) : [];
+    }
+    if (C.ja !== C.en || C.janames !== C.ennames) bad.push('日本語と英語で数が違う');
+    if (JSON.stringify(C.jaimages) !== JSON.stringify(C.enimages) || !(C.jaimages || []).length) bad.push('日本語と英語で画像の一覧が違う');
+    const pats = (C.jaimages || []).map((p) => new RegExp('^' + escRe(p).replace('<年>', '\\d{4}') + '$'));
+    for (const f of x.__images) if (!pats.some((p) => p.test(f))) bad.push('一覧にない画像を配る：' + f);
+    for (const p of pats) if (!x.__images.some((f) => p.test(f))) bad.push('一覧の画像を配らない：' + p.source);
+    for (const f of Object.keys(x).filter((y) => /^site\/.+\.(html|xml|json|txt)$/.test(y))) {
+      const h = String(x[f] || '');
+      if (/data:image\//i.test(h)) bad.push(f + '：data: の画像');
+      for (const m of h.matchAll(/(?:src|href|content|srcset)="([^"]+)"/g)) {
+        const u = m[1].split('#')[0].split('?')[0];
+        if (!IMG.test(u)) continue;
+        const rel = u.replace(/^https:\/\/nusquama\.vercel\.app\//, '').replace(/^(?:\.\.\/|\.\/)+/, '').replace(/^\//, '');
+        if (/^[a-z]+:/i.test(rel) || !pats.some((p) => p.test(rel))) bad.push(f + '：運営者のものでない画像を指す：' + m[1]);
+      }
+    }
+    /* 色：配る SVG と頁の中の SVG は国の色だけ。PNG と ICO の画素に、赤と白がない。 */
+    const svgs = Object.keys(x).filter((f) => /^site\/.+\.svg$/.test(f)).map((f) => [f, x[f]]).concat(Object.keys(x).filter((f) => /^site\/.+\.html$/.test(f)).flatMap((f) => [...String(x[f] || '').matchAll(/<svg[\s\S]*?<\/svg>/g)].map((m) => [f, m[0]])));
+    for (const [f, s] of svgs) for (const m of String(s || '').matchAll(/(?:fill|stroke|stop-color)="([^"]+)"/g)) if (m[1] !== 'none' && !COLOURS.includes(m[1].toLowerCase())) { bad.push(f + '：国の色でない ' + m[1]); break; }
+    for (const [f, buf] of Object.entries(x.__bin)) for (const img of images(f, buf)) {
+      const px = pixels(img);
+      if (!px) { bad.push(f + '：画素を読めない'); continue; }
+      const vis = px.filter((q) => q[3] > 0);
+      if (vis.some(([r, g, b]) => r - Math.max(g, b) >= 60)) bad.push(f + '：赤い画素');
+      if (vis.some(([r, g, b]) => r >= 230 && g >= 230 && b >= 230)) bad.push(f + '：白い画素');
+    }
+    /* 登録の表示：自分の名の横に、リポジトリにもサイトにも置かない。 */
+    for (const [f, t0] of Object.entries(x)) {
+      if (f.startsWith('__') || typeof t0 !== 'string') continue;
+      const t = NO_MARK.reduce((a, s) => a.split(s).join(''), t0);
+      for (const m of t.matchAll(OWN)) if (MARK_BEFORE.test(t.slice(Math.max(0, m.index - 12), m.index)) || MARK_AFTER.test(t.slice(m.index + m[0].length, m.index + m[0].length + 30))) { bad.push(f + '：' + m[0] + ' の横に登録の表示'); break; }
+    }
+    /* 引いた条文：印が日本語と英語で同じで、どれも見張りが記した文。生成した頁は、その文のまま引く。 */
+    let ST = null, TX = null;
+    try { ST = JSON.parse(x['verification/statutes.json']); TX = JSON.parse(x['verification/statutes-texts.json']); } catch (e) { bad.push('見張りの表が読めない'); return bad; }
+    for (const lang of ['ja', 'en']) { const mk = [...parts[lang].matchAll(/^<!-- 条文 (.+) -->$/gm)].map((m) => m[1]); if (JSON.stringify(mk) !== JSON.stringify(MARKS)) bad.push(lang + '：引く条文の印'); }
+    const keys = MARKS.join('、').split('、');
+    for (const k of keys) { const e = ST.statutes.find((y) => y.name + ' ' + y.label === k); if (!e || !TX[k] || crypto.createHash('sha256').update(TX[k], 'utf8').digest('hex') !== e.sha256) bad.push(k + ' を見張りが記していない'); }
+    for (const S of Object.values(SEC)) {
+      const h = String(x[S.built] || ''), i = h.indexOf('<h2>' + S.head.slice(3) + '</h2>');
+      const blocks = [...h.slice(i).matchAll(/<summary>(?:条文　|Text of )(.+?)(?: \(Japanese original\))?<\/summary><blockquote lang="ja"><p>([\s\S]*?)<\/p><\/blockquote>/g)];
+      if (blocks.length !== keys.length || blocks.some(([, k, b]) => unhtml(b) !== TX[unhtml(k)])) bad.push(S.built + '：生成した頁の条文が記した文と違う');
+      if (!h.slice(i).includes(ST.recorded)) bad.push(S.built + '：取り寄せた日がない');
+    }
+    if (ST.statutes.some((e) => /赤十字/.test(e.title || e.name))) bad.push('赤十字の法律を取り寄せたのに、取り寄せていないと書く');
+    /* 拠り所：王の正誤表の 52。 */
+    const e52 = String(x['ERRATA.md'] || '').split('\n').find((l) => l.startsWith('| 52 |')) || '';
+    if (!e52.includes('商標法第2条第1項') || !e52.includes('この定義の外にあると考える')) bad.push('王の正誤表の 52 が、節の拠る読み方を持たない');
+    /* つなぎ：「権利者の方へ」と様式から。 */
+    for (const [f, [head, link]] of Object.entries(LINKS)) if (!sectionOf(x[f], head).includes(link)) bad.push(f + '：' + head + ' から節へつながない');
+    if (!String(x[FORM] || '').includes(FORM_SAY)) bad.push('様式から節へつながない');
+    /* 年表と点検の記録。 */
+    const row = String(x['README.md'] || '').split('\n').find((l) => l.startsWith(ROW)) || '';
+    if (!row.includes('2026-11-18 に利用者が求め、Claude が書きました') || !row.includes('The owner asked for this on 2026-11-18, and Claude wrote it')
+      || !row.includes('名としるし ' + C.ja + ' つ') || !row.includes('ほかの者の名 ' + C.janames + '、') || !row.includes('the ' + C.en + ' names and marks') || !row.includes('the ' + C.ennames + ' names of others') || RESEARCH.test(row)) bad.push('年表の行');
+    const a = String(x[AUD] || ''), ai = a.indexOf(AHEAD), sec = ai < 0 ? '' : a.slice(ai, a.indexOf('\n## ', ai + 5));
+    const rows = sec.split('\n').filter((l) => /^\| (?!---|箇所 \|)/.test(l)).map((l) => l.slice(2, -2).split(' | '));
+    const tally = 'この表の判定は、' + JUDGE.filter((j) => rows.some((r) => r[4] === j)).map((j) => j + ' ' + rows.filter((r) => r[4] === j).length).join('、') + ' です。';
+    if (!sec || rows.length < 6 || !rows.every((r) => r.length === 6 && JUDGE.includes(r[4])) || !sec.includes(tally)) bad.push('点検の記録の表か判定の数');
+    if (!sec.includes('2026-11-18 に利用者が求め、Claude が書きました。') || !sec.includes('この節も、弁護士は見ていません。') || RESEARCH.test(sec)) bad.push('点検の記録の、求めた人・書いた者・弁護士の文');
+    for (const r of rows.filter((y) => y[4] !== '問題なし')) if (!/2026-11-18 に Claude が決めました。[^|]*(ためです|だからです)$/.test(r[5])) bad.push('決めた者と理由のない行');
+    return bad;
+  }
+  const now = verdict(real);
+  ok('名称と権利の「名称と商標」が日本語と英語にあり、「権利者の方へ」と様式からつながり、期限・メールアドレス・弁護士・確かさ・研究の系列を書かず、名としるしの数と初めて現れた日が履歴と合い、ほかの者の名の数が合ってどれもサイトにあり、配る画像は一覧のものだけで色は国の色だけ（赤と白の画素がない）、自分の名の横に登録の表示がなく（' + tracked.length + ' のファイル）、引いた条文は見張りの文そのまま、年表と点検の記録に行がある',
+    now.length === 0, now.slice(0, 6).join(' / '));
+  const w = (f, a, b) => Object.assign({}, real, { [f]: String(real[f] || '').replace(a, b) });
+  /* 赤い画素を一つ持つ 1 × 1 の PNG。 */
+  const chunk = (t, d) => { const l = Buffer.alloc(4); l.writeUInt32BE(d.length); return Buffer.concat([l, Buffer.from(t, 'latin1'), d, Buffer.alloc(4)]); };
+  const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(1, 0); ihdr.writeUInt32BE(1, 4); ihdr[8] = 8; ihdr[9] = 6;
+  const pngOf = (rgba) => Buffer.concat([Buffer.from('89504e470d0a1a0a', 'hex'), chunk('IHDR', ihdr), chunk('IDAT', zlib.deflateSync(Buffer.from([0].concat(rgba)))), chunk('IEND', Buffer.alloc(0))]);
+  const breaks = [
+    ['日本語の節を外す', w('policies/names.md', '## 名称と商標\n', '## 名称\n')],
+    ['英語の小見出しを外す', w('policies/names.en.md', '### The flag and the emblem\n', '### Flag\n')],
+    ['生成した頁に節がない', w('site/policies/names.html', '<h2>名称と商標</h2>', '<h2>名称</h2>')],
+    ['「権利者の方へ」から節へつながない', w('policies/names.md', '[名称と権利](./names.md)の「名称と商標」', '名称と権利')],
+    ['様式から節へつながない', w(FORM, FORM_SAY, '')],
+    ['名としるしの数を変える', w('policies/names.md', '次の **5** つです。', '次の **6** つです。')],
+    ['英語の名としるしを一つ外す', w('policies/names.en.md', '- The flag, `flag.svg`: 2026-11-10.\n', '')],
+    ['初めて現れた日を動かす', w('policies/names.md', '- 国旗 `flag.svg`：2026-11-10。', '- 国旗 `flag.svg`：2026-11-09。')],
+    ['ほかの者の名の数を変える', w('policies/names.en.md', 'these **18** services', 'these **19** services')],
+    ['サイトにない名を足す', Object.assign({}, real, { 'policies/names.md': real['policies/names.md'].replace('、Noto Serif JP。', '、Noto Serif JP、Bluesky。').replace('次の **18** の', '次の **19** の'), 'policies/names.en.md': real['policies/names.en.md'].replace(', Noto Serif JP.', ', Noto Serif JP, Bluesky.').replace('these **18** services', 'these **19** services') })],
+    ['足した文に ORCID を書く', w('policies/names.md', '叙任の規程が、本人を確かめるのに使う識別子のサービスの名', '叙任の規程が、本人を確かめるのに使う ORCID の名')],
+    ['一覧にない画像を配る', Object.assign({}, real, { __images: real.__images.concat(['crest-of-someone.png']) })],
+    ['一覧の画像を配らない', Object.assign({}, real, { __images: real.__images.filter((f) => f !== 'flag.svg') })],
+    ['頁がほかの画像を指す', w('site/symbols.html', '</main>', '<img src="https://example.org/flag.png" alt=""></main>')],
+    ['国旗に赤を足す', w('site/flag.svg', '</svg>', '<rect x="0" y="0" width="10" height="10" fill="#d00000"/></svg>')],
+    ['頁の中の図に白を足す', w('site/symbols-construction.html', '</svg>', '<rect width="1" height="1" fill="#ffffff"/></svg>')],
+    ['赤い画素の PNG', Object.assign({}, real, { __bin: Object.assign({}, real.__bin, { 'og.png': pngOf([230, 20, 20, 255]) }) })],
+    ['白い画素の PNG', Object.assign({}, real, { __bin: Object.assign({}, real.__bin, { 'icon-192.png': pngOf([255, 255, 255, 255]) }) })],
+    ['README で名の横に ®', w('README.md', '# 無何有騎士王国ヌスクァマ（Regnum Nusquamae）', '# 無何有騎士王国ヌスクァマ®（Regnum Nusquamae）')],
+    ['生成した頁で名の横に「登録商標」', w('site/index.html', 'Regnum Nusquamae', 'Regnum Nusquamae（登録商標）')],
+    ['英語の頁で名を登録商標と書く', w('site/policies/names.en.html', 'Nusquama sells nothing.', 'Nusquama is a registered trademark. It sells nothing.')],
+    ['名の前に ™', w('README.md', '# 無何有騎士王国ヌスクァマ（Regnum Nusquamae）', '# ™ 無何有騎士王国ヌスクァマ（Regnum Nusquamae）')],
+    ['引く条文の印を外す', w('policies/names.en.md', '<!-- 条文 商標法 第73条、商標法 第74条 -->', '<!-- 条文 商標法 第74条 -->')],
+    ['条文を一字変える', Object.assign({}, real, { 'verification/statutes-texts.json': real['verification/statutes-texts.json'].replace('何人も、その国際機関', '何人も、国際機関') })],
+    ['赤十字の法律を足して書いたまま', Object.assign({}, real, { 'verification/statutes.json': JSON.stringify(Object.assign(JSON.parse(real['verification/statutes.json']), { statutes: JSON.parse(real['verification/statutes.json']).statutes.concat([{ name: '赤十字標章法', label: '第1条', title: '赤十字の標章及び名称等の使用の制限に関する法律' }]) })) })],
+    ['EUIPO の調べを変える', w('policies/names.md', 'どちらも結果は **0** 件でした。', 'どちらも問題はありませんでした。')],
+    ['期限を約束する', w('policies/names.md', '2. 運営者は、それを読みます。', '2. 運営者は、それを 7 日以内に読みます。')],
+    ['弁護士を言う', w('policies/names.en.md', '2. The operator reads it.', '2. The operator reads it, and it is reviewed by a lawyer.')],
+    ['王の正誤表の 52 から読み方を外す', w('ERRATA.md', 'この定義の外にあると考える。', 'この定義の外にある。')],
+    ['年表から求めた人を外す', w('README.md', '見張りのすべての条を取り寄せ直す。2026-11-18 に利用者が求め、Claude が書きました |', '見張りのすべての条を取り寄せ直す |')],
+    ['年表の数を変える', w('README.md', 'ほかの者の名 18、', 'ほかの者の名 17、')],
+    ['点検の記録の判定の数を変える', w(AUD, 'この表の判定は、漏れ 2、表現 1、問題なし 5 です。\n\nこの節も、弁護士は見ていません。\n\n## 調べた法令', 'この表の判定は、漏れ 2、問題なし 6 です。\n\nこの節も、弁護士は見ていません。\n\n## 調べた法令')],
+  ];
+  const missed = breaks.filter(([, b]) => verdict(b).length === 0).map(([k]) => k);
+  ok('壊して確かめる：節・小見出し・生成した頁・二つのつなぎ・名としるしの数と一覧と日・ほかの者の名の数とサイトにない名・ORCID・配る画像と指す画像・SVG と頁の図と PNG の赤と白・名の横の登録の表示（README と生成した頁）・条文の印と文・赤十字の法律・調べた記録・期限・弁護士・王の正誤表の 52・年表・点検の記録のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
     missed.length === 0, missed.join(' / '));
 }
 
