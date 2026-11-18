@@ -1,6 +1,6 @@
 # Legality Statement
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-18.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -122,6 +122,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: there is no use in business, and no one else's indication is used.
 - **Rules that keep this true**: [Names and rights](./names.en.md); Disclaimer, "Relation to real things".
 - **Added in the review (2026-11-12)**: the definition of a trademark and the reading of "business" were moved to the audit record (2026-11-15).
+- **For rights holders (2026-11-18)**: a rights holder who thinks that a name, the emblem or the text infringes a right can say so by the form [Notice from a rights holder](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml). The operator reads every notice, and if the right is confirmed, changes the name or stops using the material. How it is handled is in [Names and rights](./names.en.md), "For rights holders".
 
 <!-- 条文 商標法 第25条、不正競争防止法 第2条第1項第1号・第2号 -->
 

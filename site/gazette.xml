@@ -5,8 +5,14 @@
   <id>https://nusquama.vercel.app/gazette.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/gazette.xml"/>
   <link href="https://nusquama.vercel.app/gazette.html"/>
-  <updated>2026-11-16T00:00:00+09:00</updated>
+  <updated>2026-11-18T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g106</id>
+    <title>官報（創作）第 106 号　年表：権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。適法性の説明「商標と表示」と README から様式へつなぎ、個人情報の取り扱いに、同意の印のある知らせの題と本文だけを Claude に渡すことを書く。2026-11-18 に利用者が求め、Claude が書きました</title>
+    <link href="https://nusquama.vercel.app/gazette/106.html"/>
+    <updated>2026-11-18T00:00:00+09:00</updated>
+  </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g105</id>
     <title>官報（創作）第 105 号　王の正誤表：第 57 件を記す（王の正誤表 7 の「正」と「確かめた先」）</title>

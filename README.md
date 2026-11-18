@@ -201,6 +201,7 @@
 | 2026-11-15（日本時間） | 点検の答えを入れる。2026-12-01 から、誤りの知らせは、ORCID の公開の記録で日本にいると確かめられる人からだけ受ける。求めはどの国の人からも受ける。履歴から名簿の行を消す前に、提供の記録の項目だけを別に記す。発信者情報の開示の求めの扱いを書き、利用規約の終わりを凍結と解散に分ける。適法性の説明に、商標法第25条の範囲、イタリアの罰の厳しい読み方、栄典との違いを書き、配信の題に「（創作）」を付ける | The answers to the review are put in. From 2026-12-01, error reports are received only from people who can be checked, in the public ORCID record, as being in Japan. Requests are received from people in every country. Before a line of the roll is erased from the history, only the items of its record of provision are recorded separately. The handling of requests to disclose sender information is written, and the ending in the Terms of Use is split into freezing and dissolution. The Legality Statement gives the scope of Article 25 of the Trademark Act, the stricter reading of the Italian penalty and how the names differ from honours, and the titles of the feeds carry "（創作）" |
 | 2026-11-16（日本時間） | 適法性の説明を、文に手を入れずに、節の境で分けたいくつかの頁に作る。最初の頁は元の所在のままで、どの頁にも全部の頁の目次を置く。一つの頁が重さの上限に近づき、次の正誤が入らなくなったためで、上限は上げない | The Legality Statement is now built as several pages, divided at its headings, with no change to the text. The first page keeps the old address, and every page carries a list of all the pages. One page had come close to the weight limit, so that the next correction would not fit; the limit is not raised |
 | 2026-11-16（日本時間） | 名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く | Names and rights now states that Nusquama is not related to any other micronation with a similar name, such as "Nusquamia" |
+| 2026-11-18（日本時間） | 権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。適法性の説明「商標と表示」と README から様式へつなぎ、個人情報の取り扱いに、同意の印のある知らせの題と本文だけを Claude に渡すことを書く。2026-11-18 に利用者が求め、Claude が書きました | A form for notices from rights holders is set up, and Names and rights gains "For rights holders". The Legality Statement, under "Trademarks and indications", and the README link the form, and the Privacy Policy states that only the title and text of a notice whose box of consent is ticked are given to Claude. The owner asked for this on 2026-11-18, and Claude wrote it |
 
 ---
 
@@ -216,6 +217,8 @@
 - [交流の規程](policies/exchange.md)
 
 運営の考え方は、[運営理念・声明](MISSION.md)にあります。声明は規程ではなく、決まりは規程です。
+
+名や国章、サイトの文が権利を侵していると考える権利者は、[権利者の知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml)の様式で知らせることができます。扱いは[名称と権利](policies/names.md)の「権利者の方へ」にあります。
 
 国のしるし（国章・国旗・版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 国の成り立ちは[建国の物語](STORY.md)に、国の名や制度に使うラテン語は[国の言葉](LEXICON.md)に、機関と手続きは[国の仕組み](INSTITUTIONS.md)にあります。

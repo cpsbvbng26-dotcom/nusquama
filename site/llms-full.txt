@@ -211,6 +211,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-15（日本時間） | 点検の答えを入れる。2026-12-01 から、誤りの知らせは、ORCID の公開の記録で日本にいると確かめられる人からだけ受ける。求めはどの国の人からも受ける。履歴から名簿の行を消す前に、提供の記録の項目だけを別に記す。発信者情報の開示の求めの扱いを書き、利用規約の終わりを凍結と解散に分ける。適法性の説明に、商標法第25条の範囲、イタリアの罰の厳しい読み方、栄典との違いを書き、配信の題に「（創作）」を付ける | The answers to the review are put in. From 2026-12-01, error reports are received only from people who can be checked, in the public ORCID record, as being in Japan. Requests are received from people in every country. Before a line of the roll is erased from the history, only the items of its record of provision are recorded separately. The handling of requests to disclose sender information is written, and the ending in the Terms of Use is split into freezing and dissolution. The Legality Statement gives the scope of Article 25 of the Trademark Act, the stricter reading of the Italian penalty and how the names differ from honours, and the titles of the feeds carry "（創作）" |
 | 2026-11-16（日本時間） | 適法性の説明を、文に手を入れずに、節の境で分けたいくつかの頁に作る。最初の頁は元の所在のままで、どの頁にも全部の頁の目次を置く。一つの頁が重さの上限に近づき、次の正誤が入らなくなったためで、上限は上げない | The Legality Statement is now built as several pages, divided at its headings, with no change to the text. The first page keeps the old address, and every page carries a list of all the pages. One page had come close to the weight limit, so that the next correction would not fit; the limit is not raised |
 | 2026-11-16（日本時間） | 名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く | Names and rights now states that Nusquama is not related to any other micronation with a similar name, such as "Nusquamia" |
+| 2026-11-18（日本時間） | 権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。適法性の説明「商標と表示」と README から様式へつなぎ、個人情報の取り扱いに、同意の印のある知らせの題と本文だけを Claude に渡すことを書く。2026-11-18 に利用者が求め、Claude が書きました | A form for notices from rights holders is set up, and Names and rights gains "For rights holders". The Legality Statement, under "Trademarks and indications", and the README link the form, and the Privacy Policy states that only the title and text of a notice whose box of consent is ticked are given to Claude. The owner asked for this on 2026-11-18, and Claude wrote it |
 
 ---
 
@@ -226,6 +227,8 @@ Source: https://nusquama.vercel.app/
 - [交流の規程](policies/exchange.md)
 
 運営の考え方は、[運営理念・声明](MISSION.md)にあります。声明は規程ではなく、決まりは規程です。
+
+名や国章、サイトの文が権利を侵していると考える権利者は、[権利者の知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml)の様式で知らせることができます。扱いは[名称と権利](policies/names.md)の「権利者の方へ」にあります。
 
 国のしるし（国章・国旗・版図の地図）は[国のしるし](SYMBOLS.md)に、記念日は[暦と祝日](CALENDAR.md)に、王国の出来事は[官報](GAZETTE.md)にあります。
 国の成り立ちは[建国の物語](STORY.md)に、国の名や制度に使うラテン語は[国の言葉](LEXICON.md)に、機関と手続きは[国の仕組み](INSTITUTIONS.md)にあります。
@@ -1460,7 +1463,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-15。
+最終更新：2026-11-18。
 
 ## 取り扱う者
 
@@ -1523,6 +1526,9 @@ GitHub と Vercel が自ら公開の内容を使う場合が二つあり、そ�
 これらの利用で個人情報が心配な方は、願い出ないでください。叙任された人は、いつでも名簿からの辞退を求めることができ、そのときは名簿から名を外します。
 GitHub と Vercel は、運営者に代わって個人データを扱う委託先ではありません。公開の場と配信の場として、それぞれの規約と方針を確かめたうえで使っています。
 名簿に載せることは、不特定かつ多数の人への提供に当たると運営者は考えます。その記録（個人情報保護法第29条）は、名簿の行を足したリポジトリの履歴で作ります。履歴には、足した日、アカウント名、載せた項目が残ります。名簿の行は、願い出の様式の誓いのすべてに印がある人の分だけを足します。
+2026-11-18 から、[権利者の知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml)の様式で開かれた issue のうち、言語モデルに渡ることへの同意の欄に印があるものは、その題と本文を、運営者が Claude（Anthropic、米国）に渡すことがあります。知らせを扱う手助けのためです。
+運営者は、これを個人情報保護法第28条の外国にある第三者への提供として扱います。米国の制度は、上の段落のとおりです。Anthropic の措置は、[Anthropic のプライバシーの方針](https://www.anthropic.com/legal/privacy)に書かれています。
+印は任意です。印がなければ、運営者は、Claude にもほかの言語モデルにも渡さずに知らせを扱います。issue のコメントは、言語モデルに渡しません。同意は、その issue で、いつでも撤回できます。
 運営者は、個人データを第三者から受け取りません。扱うのは、本人が書いたものと、本人が公開した訂正へのリンクだけです。
 法令に基づく場合を除き、これ以外に第三者へ渡すことはありません。
 
@@ -1894,7 +1900,7 @@ Source: https://nusquama.vercel.app/policies/names.html
 
 # 名称と権利
 
-最終更新：2026-11-16。
+最終更新：2026-11-18。
 
 ## 名前の由来
 
@@ -1923,9 +1929,16 @@ CC BY 4.0 が許すのは、著作権の及ぶ範囲のことだけです。商�
 国章や称号を、実在の団体の記章や、公的な称号であるかのように使ってはいけません（[利用規約](./terms.md)）。そうした使い方は、著作権とは別に、法令（軽犯罪法第1条第15号など）に触れるおそれがあります。
 文と国章は、運営者の求めにより Claude Code で書いたものです。言語モデルを使って作ったものに、著作権がどこまで及ぶかは定まっていません。CC BY 4.0 は、権利が及ぶ範囲で許すものです。
 
-## 権利の侵害を見つけたとき
+## 権利者の方へ
 
-ヌスクァマのどこかが、あなたの権利を侵していると考えるときは、[削除・訂正・辞退の求め](./requests.md)に沿って知らせてください。
+ヌスクァマの名や国章、サイトの文が権利を侵していると考える権利者は、運営者に知らせることができます。
+商標や紛らわしい名、文や国章の著作権、肖像、そのほかの権利が対象です。
+知らせは、[権利者の知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml)の様式で出します。
+自分についての記載の訂正や削除は、これまでどおり[削除・訂正・辞退の求め](./requests.md)の様式でも受けます。
+公開の場で書けない事情があるときは、[削除・訂正・辞退の求め](./requests.md)の「公開できない求め」の手順によります。
+運営者は、すべての知らせを読みます。
+権利が確かめられたときは、運営者が名を変えるか、その文や国章を使うのをやめます。
+決めたことは issue に書き、変えたことは[年表](../README.md)と官報に記します。
 
 ---
 
@@ -1933,7 +1946,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
 
-最終更新：2026-11-15。
+最終更新：2026-11-18。
 
 ## この頁の位置づけ
 
@@ -2053,6 +2066,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **当てはまらない理由**：営業上の使用がなく、他人の表示を使っていない。
 - **保つための決め**：[名称と権利](./names.md)、[免責事項](./disclaimer.md)「実在のものとの関係」。
 - **点検で足したこと（2026-11-12）**：商標の定義と「営業」の読み方は、点検の記録に移した（2026-11-15）。
+- **権利者の方へ（2026-11-18）**：名や国章、文が権利を侵していると考える権利者は、[権利者の知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml)の様式で知らせることができる。運営者がすべて読み、権利が確かめられたときは名を変えるか、使うのをやめる。扱いは[名称と権利](./names.md)の「権利者の方へ」にある。
 
 <!-- 条文 商標法 第25条、不正競争防止法 第2条第1項第1号・第2号 -->
 
@@ -2522,7 +2536,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-18.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -2587,6 +2601,9 @@ There are two cases in which GitHub and Vercel use public content themselves, ea
 If these uses worry you because of your personal data, do not apply. A knight may ask at any time to be taken off the roll, and their name is then taken off it.
 GitHub and Vercel are not processors handling personal data on the operator's behalf. They are used as the place of publication and of serving, after their terms and policies were checked.
 The operator considers listing on the roll to be a provision to an unspecified large number of people. Its record (Article 29 of the Act on the Protection of Personal Information) is the repository history in which the row was added. The history keeps the day the row was added, the account name and the items listed. A row is added only for a person who ticked every pledge in the application form.
+From 2026-11-18, for an issue opened with the form [Notice from a rights holder](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml) whose box of consent to a language model is ticked, the operator may give its title and text to Claude (Anthropic, United States), to help handle the notice.
+The operator treats this as a provision to a third party in a foreign country under Article 28 of the Act on the Protection of Personal Information. The system of the United States is as set out above. Anthropic's measures are in [Anthropic's Privacy Policy](https://www.anthropic.com/legal/privacy).
+The box is optional. Without it, the operator handles the notice without giving it to Claude or to any other language model. Comments on the issue are not given to a language model. The consent can be withdrawn at any time, in that issue.
 The operator receives no personal data from third parties. What it handles is only what the person writes and the link to the correction the person made public.
 Except where the law requires, nothing is given to any other third party.
 
@@ -2962,7 +2979,7 @@ Source: https://nusquama.vercel.app/policies/names.en.html
 
 # Names and rights
 
-Last updated: 2026-11-16.
+Last updated: 2026-11-18.
 
 This is an English translation. The [Japanese version](./names.md) governs; if the two differ, the Japanese version applies.
 
@@ -2993,9 +3010,16 @@ CC BY 4.0 allows only what copyright covers. It does not reach other rights such
 The emblem and the titles must not be used as if they were the insignia of a real body or official titles ([Terms of Use](./terms.en.md)). Such use may, apart from copyright, break the law (such as Article 1, item 15 of Japan's Minor Offenses Act).
 The text and the emblem were written with Claude Code at the operator's request. How far copyright reaches in what is made with a language model is not settled. CC BY 4.0 allows only as far as rights reach.
 
-## If you find an infringement of your rights
+## For rights holders
 
-If you think that any part of Nusquama infringes your rights, let us know as set out in [Requests for removal, correction or withdrawal](./requests.en.md).
+A rights holder who thinks that the name of Nusquama, its emblem or the text of the site infringes a right can tell the operator.
+This covers a trademark or a confusingly similar name, copyright in the text or the emblem, a likeness, and other rights.
+The notice goes by the form [Notice from a rights holder](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml).
+A correction or removal of what is written about oneself is still received by the form of [Requests for removal, correction or withdrawal](./requests.en.md) too.
+Where there is a reason not to write in public, the steps under "Requests that cannot be made in public" in [Requests for removal, correction or withdrawal](./requests.en.md) apply.
+The operator reads every notice.
+If the right is confirmed, the operator changes the name, or stops using the text or the emblem.
+The decision is written in the issue, and the change is recorded in the [timeline](../README.md) and the Gazette.
 
 ---
 
@@ -3003,7 +3027,7 @@ Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-18.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -3125,6 +3149,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: there is no use in business, and no one else's indication is used.
 - **Rules that keep this true**: [Names and rights](./names.en.md); Disclaimer, "Relation to real things".
 - **Added in the review (2026-11-12)**: the definition of a trademark and the reading of "business" were moved to the audit record (2026-11-15).
+- **For rights holders (2026-11-18)**: a rights holder who thinks that a name, the emblem or the text infringes a right can say so by the form [Notice from a rights holder](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml). The operator reads every notice, and if the right is confirmed, changes the name or stops using the material. How it is handled is in [Names and rights](./names.en.md), "For rights holders".
 
 <!-- 条文 商標法 第25条、不正競争防止法 第2条第1項第1号・第2号 -->
 

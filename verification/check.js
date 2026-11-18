@@ -2189,9 +2189,9 @@ console.log('\n66. リポジトリに記す他人の文：法令・条約と国�
     if (!WS.spans_only || !WS.spans_only.constitute || !WS.spans_only['LVA-crim'] || 'KOR-pipa' in WS.spans_only) bad.push('各国の法令の調べで、私的な団体の文の出典を挙げていない');
     /* ライセンスの断りと、調べの README。 */
     need('README.md', ['文と国章は CC BY 4.0 です。\n' + LIC_JA]);
-    /* 名称と権利の最終更新は、2026-11-16 に似た名の国の一文を足して改めた（検査 87）。ライセンスの断りは 2026-11-15 のまま。 */
-    need('policies/names.md', ['最終更新：2026-11-16。', LIC_JA]);
-    need('policies/names.en.md', ['Last updated: 2026-11-16.', LIC_EN]);
+    /* 名称と権利の最終更新は、2026-11-16 に似た名の国の一文を足して改め、2026-11-18 に「権利者の方へ」を足して改めた（検査 88）。ライセンスの断りは 2026-11-15 のまま。 */
+    need('policies/names.md', ['最終更新：2026-11-18。', LIC_JA]);
+    need('policies/names.en.md', ['Last updated: 2026-11-18.', LIC_EN]);
     need('verification/world/README.md', ['ここに記した他人の文は、CC BY 4.0 の対象ではなく、それぞれの権利者のものです。', '全文は、取り寄せの実行の artifact（`world-full`）に残し、git には入れていません。']);
     /* 適法性の説明の改めた文。前の文は残らない。 */
     need('policies/legality.md', ['頁は引用のほかに他人の著作物を載せず、リポジトリも、法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。']);
@@ -2469,7 +2469,7 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     ['英語の叙任の規程から開かないことを外す', mut('policies/knighting.en.md', 'The automatic check does not open the link to the correction. ', '')],
     ['英語の個人情報の取り扱いから要求しないことを外す', mut('policies/privacy.en.md', 'It sends no request to the linked site, ', '')],
     ['国の仕組みの追記を外す', mut('INSTITUTIONS.md', '。2026-11-13 から、自動の確認はリンクを開かず、https の URL で受けない先を指さないことだけを見る（王の正誤表 30）', '')],
-    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', 'Last updated: 2026-11-15.', 'Last updated: 2026-11-11.')],
+    ['英語の規程の最終更新をずらす', mut('policies/privacy.en.md', /Last updated: \d{4}-\d{2}-\d{2}\./, 'Last updated: 2026-11-11.')],
     ['王の正誤表 30 を事実の分類にする', mut('ERRATA.md', '| 範囲 | Insula Finis XIII |', '| 事実 | Insula Facti VII |')],
     ['王の正誤表 30 から理由を一つ外す', mut('ERRATA.md', '規約を読めない先へ、機械で要求を出さないためです。', '規約を読めない先へ、機械で要求を出さない。')],
     ['英語の王の正誤表 30 から前の文を外す', mut('ERRATA.en.md', 'opens the link to the correction once.', 'checks the link.')],
@@ -2709,7 +2709,7 @@ console.log('\n70. 頁の日付は日本時間で、公開の日より前にな�
     bad.length === 0, bad.join(' / '));
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
   const breaks = [
-    ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', '最終更新：2026-11-15。', '最終更新：2026-11-12。'), facts],
+    ['規程の最終更新を前の日に戻す', mut('policies/privacy.md', /最終更新：\d{4}-\d{2}-\d{2}。/, '最終更新：2026-11-12。'), facts],
     ['英語の規程の最終更新を前の日に戻す', mut('policies/terms.en.md', /Last updated: \d{4}-\d{2}-\d{2}\./, 'Last updated: 2026-11-12.'), facts],
     ['文を変えていない頁の最終更新を、文を変えた日より前にする', mut('policies/exchange.md', '最終更新：2026-11-12。', '最終更新：2026-11-11。'), facts],
     ['年表の行を作業の時計の日付に戻す', mut('README.md', '| 2026-11-13（日本時間） | 利用規約の合意管轄を、', '| 2026-11-12（日本時間） | 利用規約の合意管轄を、'), facts],
@@ -4984,6 +4984,103 @@ console.log('\n87. 適法性の説明を頁に分ける（文に手を入れず�
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：分けた頁の文を外す・変える・足す、頁を外す・足す、上限を超える、目次・前後のリンク・対の頁・前に置く見出し・頁の頭、サイトマップ、年表、王の正誤表 7 と 57、README「ほかの場所」、似た名の国の一文・リンク・名のほかの文・ほかの頁・生成した頁のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
+    missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n88. 権利者の知らせ（2026-11-18）：名・国章・文の権利の様式、任意の言語モデルの同意の欄、これまでの非公開の道だけ、名称と権利と適法性の説明と README と個人情報の取り扱いからつなぎ、研究の系列へつながない');
+{
+  /* 2026-11-18 に利用者が求め、Claude が書いた。名の商標の調べは、EUIPO で Nusquama と Nusquamae に当たるものがなく、J-PlatPat は確かめていない。
+   * 調べを重ねずに進め、権利者からの知らせを受ける窓口を置く。非公開の道は、求めの様式の「非公開の連絡を求める」だけで、新しい道を作らない。
+   * 研究の系列（ORCID・研究のサイト・ほかの企画）へは、様式からも節からもつながない。 */
+  const T = (f) => { try { return read(f); } catch (e) { return null; } };
+  const FORM = '.github/ISSUE_TEMPLATE/rights.yml', URL = 'https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=rights.yml';
+  const PHRASE = 'I consent to the operator giving the title and text of this issue to Claude';
+  const BOX = '        - label: この issue の題と本文を、運営者が Claude（Anthropic、米国）に渡すことに同意します。 / ' + PHRASE + ' (Anthropic, United States).\n          required: false\n';
+  const NEED = ['labels: ["求め"]', '      label: どの権利か\n', '        - 商標、または紛らわしい名\n        - 著作権\n        - 肖像やパブリシティ\n        - そのほかの権利\n',
+    '      label: どこにあるか\n', '      label: どんな権利か\n', '登録されていればその登録番号と登録した官庁', '      label: 何を求めるか\n', '      label: どう関わるか\n',
+    '        - 権利を持っている\n        - 権利者の代理をしている\n', 'この国は創作であり、遊びです。', 'この issue は公開されます。本名・住所・所属・連絡先は書きません。',
+    '種類に「非公開の連絡を求める」を選び、ほかは空のまま出します。運営者が非公開で答えるのは、GitHub のプロフィールに連絡先を公開している人にだけです。https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=request.yml',
+    '印がなければ、運営者は、Claude にもほかの言語モデルにも渡さずに知らせを扱います。この issue のコメントは、言語モデルに渡しません。'];
+  const SEC = { 'policies/names.md': '## 権利者の方へ', 'policies/names.en.md': '## For rights holders' };
+  const SAY = { 'policies/names.md': ['[削除・訂正・辞退の求め](./requests.md)の「公開できない求め」の手順によります。', '権利が確かめられたときは、運営者が名を変えるか、その文や国章を使うのをやめます。', '変えたことは[年表](../README.md)と官報に記します。'],
+    'policies/names.en.md': ['"Requests that cannot be made in public" in [Requests for removal, correction or withdrawal](./requests.en.md) apply.', 'If the right is confirmed, the operator changes the name, or stops using the text or the emblem.'] };
+  const LEG = { 'policies/legality.md': ['### 商標と表示', '- **権利者の方へ（2026-11-18）**：', '[名称と権利](./names.md)の「権利者の方へ」'], 'policies/legality.en.md': ['### Trademarks and indications', '- **For rights holders (2026-11-18)**: ', '[Names and rights](./names.en.md), "For rights holders"'] };
+  const PRIV = { 'policies/privacy.md': ['2026-11-18 から、[権利者の知らせ](' + URL + ')の様式で開かれた issue のうち、言語モデルに渡ることへの同意の欄に印があるものは', '印がなければ、運営者は、Claude にもほかの言語モデルにも渡さずに知らせを扱います。issue のコメントは、言語モデルに渡しません。'],
+    'policies/privacy.en.md': ['From 2026-11-18, for an issue opened with the form [Notice from a rights holder](' + URL + ') whose box of consent to a language model is ticked', 'Without it, the operator handles the notice without giving it to Claude or to any other language model. Comments on the issue are not given to a language model.'] };
+  const README_SAY = '名や国章、サイトの文が権利を侵していると考える権利者は、[権利者の知らせ](' + URL + ')の様式で知らせることができます。扱いは[名称と権利](policies/names.md)の「権利者の方へ」にあります。';
+  const ROW = '| 2026-11-18（日本時間） | 権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。';
+  const BUILT = ['site/policies/names.html', 'site/policies/names.en.html', 'site/index.html'];
+  /* 研究の系列へつなぐ語。ORCID と、運営者の研究のサイトの所在と、言語モデルの扱いを書いたほかのリポジトリの免責事項。 */
+  const SITE_R = ['cpsbvbng26-dotcom', 'github', 'io'].join('.');
+  const RESEARCH = new RegExp(['ORCID', 'orcid\\.org', SITE_R.replace(/\./g, '\\.'), 'cpsbvbng26-dotcom/cpsbvbng26-dotcom', 'DISCLAIMER', 'researchmap', '\\bdoi\\.org\\b'].join('|'), 'i');
+  const files = [FORM, ...Object.keys(SEC), ...Object.keys(LEG), ...Object.keys(PRIV), 'README.md', '.github/workflows/labels.yml', ...BUILT];
+  const real = Object.fromEntries(files.map((f) => [f, T(f)]));
+  const sectionOf = (s, head, next = '\n## ') => { const x = String(s || ''); const i = x.indexOf('\n' + head); if (i < 0) return ''; const j = x.indexOf(next, i + head.length + 1); return x.slice(i, j < 0 ? undefined : j); };
+  function verdict(x) {
+    const bad = [];
+    const y = x[FORM];
+    if (y === null || y === undefined) bad.push('様式がない');
+    else {
+      const consent = (y.split('\n  - type: ').find((s) => /^checkboxes\n    id: consent\n/.test(s)) || '') + '\n';
+      if (!consent.includes(BOX)) bad.push('任意の同意の欄と決まった文がない');
+      if (/required: true/.test(consent)) bad.push('同意の欄が必須');
+      for (const s of NEED) if (!y.includes(s)) bad.push('様式：' + s.trim().slice(0, 20));
+      if (RESEARCH.test(y)) bad.push('様式が研究の系列につなぐ');
+      if (/@[a-z0-9-]+\.[a-z]/i.test(y)) bad.push('様式にメールアドレス');
+      if (!String(x['.github/workflows/labels.yml'] || '').includes('gh label create "求め"')) bad.push('様式のラベルをそろえない');
+    }
+    const parts = [];
+    for (const [f, head] of Object.entries(SEC)) {
+      const s = sectionOf(x[f], head + '\n');
+      if (!s) { bad.push(f + '：節がない'); continue; }
+      parts.push(s);
+      if (!s.includes('](' + URL + ')')) bad.push(f + '：様式へつながない');
+      for (const w of SAY[f]) if (!s.includes(w)) bad.push(f + '：' + w.slice(0, 20));
+      if (/\d+ 日以内|within \d+ days/.test(s)) bad.push(f + '：答えの日数を約束する');
+    }
+    for (const [f, [head, bullet, link]] of Object.entries(LEG)) {
+      const s = sectionOf(x[f], head, '\n### ');
+      const b = (s.split('\n').find((l) => l.startsWith(bullet)) || '');
+      if (!b || !b.includes('](' + URL + ')') || !b.includes(link)) bad.push(f + '：商標と表示から様式と節へつながない');
+      parts.push(b);
+    }
+    for (const [f, ws] of Object.entries(PRIV)) { const s = String(x[f] || ''); for (const w of ws) if (!s.includes(w)) bad.push(f + '：' + w.slice(0, 24)); const i = s.indexOf(ws[0]); parts.push(i < 0 ? '' : s.slice(i, s.indexOf('\n', s.indexOf(ws[1])))); }
+    const rd = String(x['README.md'] || '');
+    if (!sectionOf(rd, '## 規程\n').includes(README_SAY)) bad.push('README の規程の節から様式へつながない');
+    parts.push(README_SAY);
+    const row = rd.split('\n').find((l) => l.startsWith(ROW)) || '';
+    if (!row.includes('2026-11-18 に利用者が求め、Claude が書きました') || !row.includes('The owner asked for this on 2026-11-18, and Claude wrote it')) bad.push('年表の行と、だれが求め、だれが書いたか');
+    parts.push(row);
+    if (parts.some((s) => RESEARCH.test(s))) bad.push('足した文が研究の系列につなぐ');
+    for (const f of BUILT) if (!String(x[f] || '').includes(URL.replace('?', '?'))) bad.push(f + '：生成した頁に様式へのリンクがない');
+    return bad;
+  }
+  const now = verdict(real);
+  ok('権利者の知らせの様式が、どの権利か・どこにあるか・どんな権利か・何を求めるか・どう関わるかを尋ね、任意の同意の欄に決まった文を持ち、非公開は求めの様式の「非公開の連絡を求める」だけに案内し、名称と権利（日本語と英語）・適法性の説明の「商標と表示」（日本語と英語）・README・個人情報の取り扱い（日本語と英語）・生成した頁からつながり、年表に行があり、どれも ORCID にも研究のサイトにもつながない',
+    now.length === 0, now.slice(0, 6).join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: String(real[f] || '').replace(a, b) });
+  const breaks = [
+    ['様式を外す', Object.assign({}, real, { [FORM]: null })],
+    ['同意の欄を必須にする', mut(FORM, '(Anthropic, United States).\n          required: false', '(Anthropic, United States).\n          required: true')],
+    ['決まった文を変える', mut(FORM, ' / ' + PHRASE, ' / I agree that the operator gives the title and text of this issue to Claude')],
+    ['欄を一つ外す', mut(FORM, '      label: どう関わるか\n', '      label: 立場\n')],
+    ['新しい非公開の道を作る', mut(FORM, '種類に「非公開の連絡を求める」を選び、ほかは空のまま出します。', 'メールで送ります。')],
+    ['様式から ORCID につなぐ', mut(FORM, '      label: どう関わるか\n', '      label: どう関わるか\n      description: ORCID iD を添えます。\n')],
+    ['様式に研究のサイトを書く', mut(FORM, '費用はかかりません。', '費用はかかりません。https://' + SITE_R + '/')],
+    ['名称と権利の節を外す', mut('policies/names.md', '## 権利者の方へ\n', '## 権利の侵害を見つけたとき\n')],
+    ['英語の節から様式へのリンクを外す', mut('policies/names.en.md', '[Notice from a rights holder](' + URL + ')', 'Notice from a rights holder')],
+    ['節に答えの日数を約束する', mut('policies/names.md', '運営者は、すべての知らせを読みます。', '運営者は、すべての知らせを 7 日以内に読みます。')],
+    ['商標と表示の行を外す', mut('policies/legality.md', '- **権利者の方へ（2026-11-18）**：', '- **権利者へ**：')],
+    ['英語の商標と表示から節へのつなぎを外す', mut('policies/legality.en.md', '[Names and rights](./names.en.md), "For rights holders"', '[Names and rights](./names.en.md)')],
+    ['個人情報の取り扱いから印の条件を外す', mut('policies/privacy.md', '印がなければ、運営者は、Claude にもほかの言語モデルにも渡さずに知らせを扱います。', '')],
+    ['README から様式を外す', mut('README.md', README_SAY, '')],
+    ['年表から求めた人と書いた者を外す', mut('README.md', '。2026-11-18 に利用者が求め、Claude が書きました |', ' |')],
+    ['足した文から研究の ORCID につなぐ', mut('policies/names.md', '運営者は、すべての知らせを読みます。', '運営者は、すべての知らせを読みます。https://orcid.org/0000-0000-0000-0000')],
+    ['生成した頁にリンクがない', mut('site/policies/names.html', URL.replace('?', '?'), 'https://example.org/')],
+    ['ラベルをそろえない', mut('.github/workflows/labels.yml', 'gh label create "求め"', 'gh label create "願い"')],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：様式・同意の欄の必須・決まった文・欄・非公開の道・様式の ORCID と研究のサイト・節・英語のリンク・日数の約束・商標と表示（日本語と英語）・個人情報の取り扱い・README・年表・足した文の ORCID・生成した頁・ラベルのどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
     missed.length === 0, missed.join(' / '));
 }
 
