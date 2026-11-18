@@ -1,7 +1,7 @@
 name: 一次資料の取り寄せ
 
 # 適法性の説明が引く外国の一次資料を取り寄せ、verification/sources-raw.json に記して、新しい枝 sources/<日付> に置く。
-# 手で動かす。main には直に入れない。取り寄せた文は、運営者が読んでから verification/sources.json の引用に使う。
+# 手で動かす。main には直に入れない。取り寄せた文は、読んでから verification/sources.json の引用に使う。
 # 法令・条約と国の機関の文のほかは、引いた箇所と検査が拠る箇所だけを記す。取り寄せた全文と窓は、この実行の
 # artifact（sources-full）に残し、git には入れない（tools/sources.js の冒頭の注釈）。
 on:
