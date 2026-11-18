@@ -136,7 +136,7 @@ The lists of arms, insignia and marks that the Minister designates and the ordin
 1. A notice comes by the form for rights holders that "For rights holders" above gives, or by the steps under "Requests that cannot be made in public" in [Requests for removal, correction or withdrawal](./requests.en.md).
 2. The operator reads it.
 3. While deciding, the operator may add a note where the name appears, saying that Nusquama is not connected with the rights holder.
-4. If the right is confirmed, the operator changes the title and the text of the site, the name of the Vercel project and the address of the site, the name of the repository, the forms and the README. GitHub sends links to the old name of a repository on to the new one.
+4. If the right is confirmed, the operator changes the title and the text of the site, the name of the Vercel project and the address of the site, the name of the repository, the forms and the README.
 5. The operator also changes the article on MicroWiki and the name of the account on X, as far as each service allows.
 6. Some things are not rewritten. The rows of the King's errata and of the timeline, past issues of the Gazette and the history of the repository keep the old name. Where the site shows them, it adds a note that the name was changed.
 7. Every change is recorded in the [timeline](../README.md) and the Gazette. The decision is written in the issue.
