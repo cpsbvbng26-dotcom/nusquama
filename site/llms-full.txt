@@ -212,6 +212,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-16（日本時間） | 適法性の説明を、文に手を入れずに、節の境で分けたいくつかの頁に作る。最初の頁は元の所在のままで、どの頁にも全部の頁の目次を置く。一つの頁が重さの上限に近づき、次の正誤が入らなくなったためで、上限は上げない | The Legality Statement is now built as several pages, divided at its headings, with no change to the text. The first page keeps the old address, and every page carries a list of all the pages. One page had come close to the weight limit, so that the next correction would not fit; the limit is not raised |
 | 2026-11-16（日本時間） | 名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く | Names and rights now states that Nusquama is not related to any other micronation with a similar name, such as "Nusquamia" |
 | 2026-11-18（日本時間） | 権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。適法性の説明「商標と表示」と README から様式へつなぎ、個人情報の取り扱いに、同意の印のある知らせの題と本文だけを Claude に渡すことを書く。2026-11-18 に利用者が求め、Claude が書きました | A form for notices from rights holders is set up, and Names and rights gains "For rights holders". The Legality Statement, under "Trademarks and indications", and the README link the form, and the Privacy Policy states that only the title and text of a notice whose box of consent is ticked are given to Claude. The owner asked for this on 2026-11-18, and Claude wrote it |
+| 2026-11-18（日本時間） | 名称と権利に「名称と商標」を書く。名としるし 5 つと初めて現れた日、出願しないこと、名の使い方、2026-11-17 の EUIPO の調べ、サイトが挙げるほかの者の名 18、配る画像、登録の表示を付けないこと、国旗と国章、知らせが来たときの手順を記す。権利者の知らせの様式と「権利者の方へ」から節へつなぐ。商標法と不正競争防止法の条を見張りに加え、見張りのすべての条を取り寄せ直す。2026-11-18 に利用者が求め、Claude が書きました | Names and rights gains "Names and trademarks": the 5 names and marks with the day each first appears, that none is or will be filed, how the names are used, the search at EUIPO on 2026-11-17, the 18 names of others that the site uses, the images it serves, that no registration mark is used, the flag and the emblem, and the steps when a notice comes. The form for rights holders and "For rights holders" link it. Articles of the Trademark Act and of the Unfair Competition Prevention Act join the watch, and every watched article is fetched again. The owner asked for this on 2026-11-18, and Claude wrote it |
 
 ---
 
@@ -1939,6 +1940,106 @@ CC BY 4.0 が許すのは、著作権の及ぶ範囲のことだけです。商�
 運営者は、すべての知らせを読みます。
 権利が確かめられたときは、運営者が名を変えるか、その文や国章を使うのをやめます。
 決めたことは issue に書き、変えたことは[年表](../README.md)と官報に記します。
+名としるしの扱い、調べた記録、知らせが来たときの手順は、[名称と権利](./names.md)の「名称と商標」にあります。
+
+## 名称と商標
+
+この節は、ヌスクァマの名としるし、その使い方、調べた記録、サイトが挙げるほかの者の名、国旗と国章、権利者から知らせが来たときの扱いを記します。
+運営者自身の立場を書いたものです。法的な助言ではなく、弁護士の確認も受けていません。
+2026-11-18 に利用者が求め、Claude が書きました。
+
+### ヌスクァマの名としるし
+
+ヌスクァマが使う名としるしは、次の **5** つです。
+どれも、運営者の求めにより、Claude Code で書いたものです。
+日付は、それぞれが公開のリポジトリの履歴に初めて現れた日（日本時間）です。
+
+- 国の名。無何有騎士王国、ヌスクァマ、Nusquama、Regnum Nusquamae：2026-11-08。
+- 国章 `emblem.svg`：2026-11-08。
+- 国旗 `flag.svg`：2026-11-10。
+- 版図の地図 `territory.svg` と、年ごとの `territory-<年>.svg`：2026-11-10。`build.js` が王の正誤表から描きます。
+- 国章から作ったファビコンとアイコン `favicon.svg`・`favicon.ico`・`icon-192.png`・`icon-512.png`・`apple-touch-icon.png` と、共有したときの画像 `og.png`：2026-11-08。
+
+国の記号の ∅（U+2205）は、もとからある文字です。運営者が作ったものではありません。
+運営者は、これらの名としるしのどれも、日本でもほかの国でも、商標の登録を出願していません。
+これからも出願しません。[国のしるし](../SYMBOLS.md)の「商標」に、しるしを独り占めしないためと書いてあるとおりです。
+
+### 名の使い方
+
+ヌスクァマは創作であり、遊びです。
+名は、この創作と、そのサイトと記録を指すためだけに使います。
+ヌスクァマは何も売りません。
+称号を売らず、寄付を受けず、広告を出しません。
+商標法第2条第1項は、商標を使い方で定めます。業として商品を生産し、証明し、または譲渡する者がその商品について使う標章と、業として役務を提供し、または証明する者がその役務について使う標章です。
+業として商品も役務も扱わないヌスクァマの名の使い方は、この定義の外にあると考えます。
+この読み方は、点検の記録に移した段落（[王の正誤表](../ERRATA.md)の **52**）と、[適法性の説明](./legality.md)の「商標と表示（商標法第25条、不正競争防止法第2条第1項第1号・第2号）」によります。
+
+<!-- 条文 商標法 第2条 -->
+
+### 調べた記録
+
+2026-11-17（日本時間）に、運営者が EUIPO の商標のデータベースで Nusquama と Nusquamae を調べ、どちらも結果は **0** 件でした。
+Claude は、その結果を運営者の画面の写しで見ました。
+Claude は、J-PlatPat・WIPO・USPTO を自分では調べていません。
+J-PlatPat の利用規約は機械による利用を禁じているので、Claude は J-PlatPat に問い合わせません。
+J-PlatPat・WIPO・USPTO のデータベースで調べた記録は、このリポジトリにありません。
+無何有騎士王国・ヌスクァマ・Regnum Nusquamae の表記、国旗と国章の図形、登録されずに使われている名は、調べていません。
+調べた結果は、その日にデータベースにあったものだけを示します。
+
+### ほかの者の名
+
+サイトは、次の **18** のサービス・製品・組織の名を挙げています：GitHub、GitHub Actions、Dependabot、Vercel、Anthropic、Claude、Claude Code、X、MicroWiki、Internet Archive、Cambridge Core、Avalon Project、e-Gov、EUR-Lex、Normattiva、ヒラギノ明朝、游明朝、Noto Serif JP。
+ほかに、叙任の規程が、本人を確かめるのに使う識別子のサービスの名を挙げています。
+これらの名は、それぞれの持ち主に属します。その中には商標もあります。
+ヌスクァマは、どの名も、そのサービス・製品・組織そのものを指すためだけに使います。
+提携・後援・推薦の関係を示すものではありません。
+国・公の機関・国際機関・大学・法令・人・地名・作品の名と、形式や規格の名は、一覧に入れていません。同じように、それを指すためだけに使います。
+一覧は、2026-11-18 に Claude がサイトのすべての頁を読んで作りました。
+
+サイトは、ほかの者のロゴを配りません。
+配る画像は、次のファイルだけです。どれも運営者のものです。
+
+- `emblem.svg`：国章。
+- `flag.svg`：国旗。
+- `territory.svg`・`territory-<年>.svg`：版図の地図。
+- `favicon.svg`・`favicon.ico`・`icon-192.png`・`icon-512.png`・`apple-touch-icon.png`：国章のアイコン。
+- `og.png`：頁を共有したときの画像。国章を描いたものです。
+
+### 登録の表示を付けないこと
+
+サイトは、自分の名としるしに、®・™・「登録商標」・"registered trademark" を付けません。どれも登録していないからです。
+商標法第74条第1号は、登録商標以外の商標の使用をする場合に、その商標に商標登録表示またはこれと紛らわしい表示を付する行為を禁じています。
+同法第73条は、商標登録表示を、その商標が登録商標である旨の表示と定めています。
+
+<!-- 条文 商標法 第73条、商標法 第74条 -->
+
+### 国旗と国章
+
+国旗と国章は、実在のどの国の国旗や紋章でも、国際機関の標章でもありません。それらを写してもいません。
+ファイルに描いてあるのは、紺 `#14213d`・金 `#c9a227`・明るい金 `#e8cf74`・深い紺 `#0b1428` の長方形と多角形だけです。
+国旗は、紺の地に金の縁、黄金比の矩形、三つの角石です。帯・十字・星・月の形はありません。
+国章は、金の縁の紺の盾に、黄金比の矩形と三つの角石、切っ先を下に向けた剣です。剣の鍔と刃は、十字の形に交わります。色は金と明るい金です。
+2026-11-18 に、Claude が、配っているすべての画像の色を数えました。SVG の色は上の色だけで、PNG と ICO の画素にも、赤と白はありませんでした。
+白地に赤の十字や赤の新月の形は、どの画像にもありません。そのため、赤十字の標章及び名称等の使用の制限に関する法律の条文は取り寄せていません。
+商標法第4条第1項第1号から第5号は、登録できない商標を挙げています。国旗・菊花紋章・勲章・褒章・外国の国旗、指定された外国の紋章や記章、指定された国際機関の標章、赤十字の標章や名称と国民保護の特殊標章、指定された監督用や証明用の印章や記号と、同じか似た商標です。
+不正競争防止法第16条は、経済産業省令で定める外国の国旗や紋章などと同じか似たものを、商標として使うことなどを禁じています。
+同法第17条は、国際機関と関係があると誤認させる方法で、その標章と同じか似たものを商標として使うことなどを禁じています。
+ヌスクァマは、商標の登録を出願しません。
+国旗と国章を商標として使わず、何も売りません。
+経済産業大臣の指定と経済産業省令が定める紋章・記章・標章の一覧は、取り寄せていません。突き合わせたのは、ファイルの形と色です。
+
+<!-- 条文 商標法 第4条第1項第1号〜第5号、不正競争防止法 第16条、不正競争防止法 第17条 -->
+
+### 知らせが来たとき
+
+1. 知らせは、上の「権利者の方へ」にある権利者の知らせの様式か、[削除・訂正・辞退の求め](./requests.md)の「公開できない求め」の手順で届きます。
+2. 運営者は、それを読みます。
+3. 決めるまでのあいだ、運営者は、名が出る所に、ヌスクァマがその権利者と関わりがないことの断り書きを足すことがあります。
+4. 権利が確かめられたときは、運営者が、サイトの題と文、Vercel のプロジェクトの名とサイトのアドレス、リポジトリの名、様式、README を変えます。リポジトリの古い名へのリンクは、GitHub が新しい名へ送ります。
+5. 運営者は、MicroWiki の記事と X のアカウントの名も、それぞれのサービスが許す範囲で変えます。
+6. 書き換えないものもあります。王の正誤表の行、年表の行、過去の官報の号、リポジトリの履歴は、古い名のまま残ります。サイトがそれらを示す所には、名を変えたことの断り書きを添えます。
+7. 変えたことは、どれも[年表](../README.md)と官報に記します。決めたことは issue に書きます。
+8. 権利が確かめられないときも、同じ所に理由を書きます。
 
 ---
 
@@ -3020,6 +3121,106 @@ Where there is a reason not to write in public, the steps under "Requests that c
 The operator reads every notice.
 If the right is confirmed, the operator changes the name, or stops using the text or the emblem.
 The decision is written in the issue, and the change is recorded in the [timeline](../README.md) and the Gazette.
+How the names and marks are handled, what was searched and the steps when a notice comes are under "Names and trademarks" in [Names and rights](./names.en.md).
+
+## Names and trademarks
+
+This section sets out the names and marks of Nusquama, how they are used, what was searched, the names of others that the site uses, the flag and the emblem, and what happens when a rights holder writes.
+It describes the operator's own position. It is not legal advice, and no lawyer has reviewed it.
+The owner asked for it on 2026-11-18, and Claude wrote it.
+
+### The names and marks of Nusquama
+
+Nusquama uses these **5** names and marks.
+Each was written with Claude Code at the operator's request.
+The date is the day on which each first appears in the history of the public repository, in Japan time.
+
+- The name of the kingdom: 無何有騎士王国, ヌスクァマ, Nusquama and Regnum Nusquamae: 2026-11-08.
+- The emblem, `emblem.svg`: 2026-11-08.
+- The flag, `flag.svg`: 2026-11-10.
+- The map of the domain, `territory.svg`, and the map of each year, `territory-<year>.svg`: 2026-11-10. `build.js` draws them from the King's errata.
+- The favicon and icons made from the emblem, `favicon.svg`, `favicon.ico`, `icon-192.png`, `icon-512.png` and `apple-touch-icon.png`, and the image shown when a page is shared, `og.png`: 2026-11-08.
+
+The sign of the kingdom, ∅ (U+2205), is an existing character. The operator did not make it.
+The operator has not applied to register any of these names and marks as a trade mark, in Japan or anywhere else.
+The operator will not apply, as "Trade marks" in [Symbols of the kingdom](../SYMBOLS.en.md) says, so that no one holds the symbols alone.
+
+### How the names are used
+
+Nusquama is a work of fiction, written for fun.
+The names are used only to name this work of fiction, its site and its records.
+Nusquama sells nothing.
+It sells no titles, takes no donations and shows no advertising.
+Article 2(1) of the Trademark Act defines a trade mark by its use: a mark used by a person who produces, certifies or transfers goods 「業として」 on those goods, or by a person who provides or certifies services 「業として」 on those services.
+The way Nusquama uses its names, dealing in no goods and no services 「業として」, is taken to be outside that definition.
+This reading rests on the paragraph moved to the record of the audit (entry **52** of the [King's errata](../ERRATA.en.md)) and on "Trademarks and indications" in the [Legality Statement](./legality.en.md).
+
+<!-- 条文 商標法 第2条 -->
+
+### The search record
+
+On 2026-11-17 (Japan time), the operator searched the trade mark database of EUIPO for Nusquama and Nusquamae, and each gave **0** results.
+Claude saw those results in the operator's screenshots.
+Claude did not search J-PlatPat, WIPO or the USPTO itself.
+The terms of J-PlatPat forbid automated use, so Claude does not query it.
+No search of the databases of J-PlatPat, WIPO or the USPTO is recorded in this repository.
+The forms 無何有騎士王国, ヌスクァマ and Regnum Nusquamae, the figures of the flag and the emblem, and names in use that are not registered were not searched.
+A search shows only what a database held on that day.
+
+### Others' names
+
+The site names these **18** services, products and organisations: GitHub, GitHub Actions, Dependabot, Vercel, Anthropic, Claude, Claude Code, X, MicroWiki, Internet Archive, Cambridge Core, Avalon Project, e-Gov, EUR-Lex, Normattiva, Hiragino Mincho, Yu Mincho, Noto Serif JP.
+The Rules on Knighting also name the service of identifiers that they use to confirm a person.
+These names belong to their owners, and some of them are trade marks.
+Nusquama uses each of them only to name the service, the product or the organisation itself.
+Their use implies no affiliation, sponsorship or endorsement.
+The names of states, public bodies, international organisations, universities, laws, persons, places and works, and of formats and standards, are not in the list; they are used in the same way.
+Claude found the list by reading every page of the site on 2026-11-18.
+
+The site serves no logo of anyone else.
+It serves only these image files, all of them the operator's own:
+
+- `emblem.svg`: the emblem.
+- `flag.svg`: the flag.
+- `territory.svg` and `territory-<year>.svg`: the maps of the domain.
+- `favicon.svg`, `favicon.ico`, `icon-192.png`, `icon-512.png` and `apple-touch-icon.png`: the emblem as icons.
+- `og.png`: the image shown when a page is shared, a drawing of the emblem.
+
+### No registration marks
+
+The site never puts ®, ™, 「登録商標」 or "registered trademark" on its own names and marks, because none of them is registered.
+Article 74(i) of the Trademark Act forbids putting a 商標登録表示, or an indication that may be confused with one, on a trade mark that is not a registered trade mark when it is used.
+Article 73 of the same Act defines the 商標登録表示 as an indication that a trade mark is a registered trade mark.
+
+<!-- 条文 商標法 第73条、商標法 第74条 -->
+
+### The flag and the emblem
+
+The flag and the emblem are not the flag or the arms of any real state, nor the mark of any international organisation. They do not copy any of them.
+The files draw only rectangles and polygons in navy `#14213d`, gold `#c9a227`, light gold `#e8cf74` and deep navy `#0b1428`.
+The flag is a navy field with a gold border, a golden rectangle and three cornerstones. It has no stripes, cross, star or crescent.
+The emblem is a navy shield with a gold border, bearing a golden rectangle, three cornerstones and a sword pointing down. The guard and the blade of the sword cross. Their colours are gold and light gold.
+On 2026-11-18, Claude counted the colours of every image the site serves. The SVG files use only the colours above, and the pixels of the PNG and ICO files hold no red and no white.
+No image shows a red cross or a red crescent on white. For that reason, the text of the Act on the Restriction of the Use of the Red Cross Emblem and Name (赤十字の標章及び名称等の使用の制限に関する法律) was not fetched.
+Article 4(1)(i) to (v) of the Trademark Act lists trade marks that cannot be registered: those identical or similar to the national flag, the imperial chrysanthemum crest, decorations, medals and foreign national flags, to designated foreign arms and insignia, to designated marks of international organisations, to the red cross emblem and name and the distinctive emblem of civil protection, and to designated official signs of control or certification.
+Article 16 of the Unfair Competition Prevention Act forbids, among other things, the use as a trade mark of anything identical or similar to the foreign flags, arms and other insignia that an ordinance of the Ministry of Economy, Trade and Industry sets.
+Article 17 of the same Act forbids, among other things, the use as a trade mark of anything identical or similar to the mark of an international organisation, in a way that suggests a connection with it.
+Nusquama does not apply to register a trade mark.
+It does not use the flag or the emblem as a trade mark, and sells nothing.
+The lists of arms, insignia and marks that the Minister designates and the ordinance sets were not fetched. What was compared is the shapes and colours of the files.
+
+<!-- 条文 商標法 第4条第1項第1号〜第5号、不正競争防止法 第16条、不正競争防止法 第17条 -->
+
+### When a notice comes
+
+1. A notice comes by the form for rights holders that "For rights holders" above gives, or by the steps under "Requests that cannot be made in public" in [Requests for removal, correction or withdrawal](./requests.en.md).
+2. The operator reads it.
+3. While deciding, the operator may add a note where the name appears, saying that Nusquama is not connected with the rights holder.
+4. If the right is confirmed, the operator changes the title and the text of the site, the name of the Vercel project and the address of the site, the name of the repository, the forms and the README. GitHub sends links to the old name of a repository on to the new one.
+5. The operator also changes the article on MicroWiki and the name of the account on X, as far as each service allows.
+6. Some things are not rewritten. The rows of the King's errata and of the timeline, past issues of the Gazette and the history of the repository keep the old name. Where the site shows them, it adds a note that the name was changed.
+7. Every change is recorded in the [timeline](../README.md) and the Gazette. The decision is written in the issue.
+8. If the right is not confirmed, the operator gives the reason in the same place.
 
 ---
 
