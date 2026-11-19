@@ -410,6 +410,9 @@ MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあり
 ## 誤りの知らせ
 
 王の文の誤りは、誰でも[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式で知らせることができます。費用はかかりません。
+ただし、2026-12-01 から、知らせを受けるのは、日本にいると ORCID の公開の記録で確かめられる人からだけです。2026-12-15 から、その記録の日数と「確かめた先」の欄の決まりも加わります。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+知らせを受ける条件は、[国の仕組み](INSTITUTIONS.md)の「参加のハードル」と、[個人情報の取り扱い](policies/privacy.md)の「誤りの知らせで扱うもの」にあります。
 王が確かめた誤りは、王の誤りとしてここに記します。確かめられなかった知らせは、そのことを issue に書いて閉じます。
 知らせた人の名は、この正誤表に書きません。
 王の誤りを知らせても、叙任の条件（自分の誤りを一つ、公に訂正したこと）には当たりません。
@@ -1539,7 +1542,7 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 願い出の issue が開かれたり直されたりすると、GitHub Actions の自動の確認が、様式の印と、訂正へのリンクの文字を読みます。
 自動の確認は、訂正へのリンクを開きません。リンク先へは何も要求せず、リンク先の中身はどこにも残しません。
 リンク先を開いて読むのは運営者です（[叙任の規程](./knighting.md)「運営者が確かめること」）。
-2026-12-15 から、自動の確認は、同じアカウントが前に開いた叙任の願い出の issue の、開いた時刻と題も読みます。前の願い出から 365 日たったかを確かめるためで、ほかには使わず、どこにも残しません。
+2026-12-15 から、自動の確認は、前の願い出から 365 日たったかを確かめるために、GitHub の API から、同じアカウントが開いた叙任の願い出の issue の一覧を受け取ります。一覧には題や本文も含まれますが、使うのは issue の番号と開いた時刻だけで、ほかは捨てます。使ったものも、どこにも残しません。
 
 ## 誤りの知らせで扱うもの
 
@@ -1628,6 +1631,8 @@ PR の会話は、この確認の外にあり、運営者が読みます。
 16 歳未満の人は、叙任を願い出ることができません。
 個人情報保護委員会の Q&A は、一般に 12 歳から 15 歳までの年齢以下の子どもについて、法定代理人などの同意が要るとしています（[Q&A](https://www.ppc.go.jp/personalinfo/faq/APPI_QA/) の Q1-62。2026-11-08 に確かめた）。ヌスクァマはその同意を確かめる手立てを持たないので、16 歳未満の願い出を受けません。
 16 歳未満の人の願い出だと分かったときは、求めがなくても、名簿から名を外し、その issue を削除します。
+2026-12-15 から、18 歳未満の人も、叙任を願い出ることができません（[叙任の規程](./knighting.md)「参加のハードル」）。年齢は、様式の印による本人の申告で受けます。
+2026-12-15 から、18 歳未満の人が 18 歳以上の印を付けて願い出たと分かったときも、求めがなくても、名簿から名を外し、その issue を削除します。
 
 ## この方針の変更
 
@@ -1718,17 +1723,20 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 2026-12-15 から、受付に戻ったあとの叙任には、次の六つの条件も加わります。
 
 1. 18 歳未満の人は、願い出ることができません。年齢は、様式の誓いへの印による本人の申告で受けます。
-2. 同じ GitHub のアカウントからの願い出は、そのアカウントが前に叙任の願い出の issue を開いた時から 365 日のあいだ受けません。断った願い出も、取り下げた願い出も数えます。受付の停止のあいだに届き、自動の確認が閉じた願い出は数えません。
+2. 同じ GitHub のアカウントからの願い出は、そのアカウントが前に叙任の願い出の issue を開いた日から 365 日のあいだ受けません。断った願い出も、取り下げた願い出も数えます。受付の停止のあいだ（2026-11-12 から受付に戻るまで）に開かれた願い出は数えません。
 3. 叙任は、一年（1 月 1 日から 12 月 31 日まで、日本時間）に 1 人までとします。名簿の叙任の日で数えます。
 4. 叙任を決めるのは、願い出の issue を開いた日（日本時間）から 90 日を過ぎてからです。
 5. 願い出る人は、様式の「称号を使わない場所」の欄に、この国の称号を書かない場所を、規程の語で三つ以上書きます。規程の語は、履歴書・論文・名刺・公的な書類・学術の場・商取引・広告です（王国基本法第八条、利用規約「称号の扱い」）。
 6. 「受付に戻すときの場所の確かめ」の 30 日を、365 日に替えます。日本を指す ORCID の項目は、issue を開く 365 日以上前に足されたものでなければなりません。
 
+この節の日数は、日本時間の日で数え、初めの日（願い出や前の願い出の issue を開いた日、ORCID の項目を足した日）を数えません。たとえば、2026-12-15 に開いた願い出は、2026-12-16 から数えて 90 日が過ぎる 2027-03-15 の終わりまで決めず、決められるのは早くて 2027-03-16 です。同じ日に開いた願い出の次の願い出を受けるのは、2027-12-16 からです。
+
 18 歳は、民法第4条が成年とする年齢です。同条は「年齢十八歳をもって、成年とする。」と定めます。
 願い出る人は、様式で利用規約に同意します。同法第5条第1項は「未成年者が法律行為をするには、その法定代理人の同意を得なければならない。」と定め、同条第2項は「前項の規定に反する法律行為は、取り消すことができる。」と定めます。
-様式での同意が同条の法律行為に当たるかは、条文からは決まりません。運営者は、厳しいほうの読み方を採り、18 歳未満の人の願い出を受けません。
+運営者は、[適法性の説明](./legality.md)「審査の方法と、前提が崩れる道」と同じく、利用規約への同意を、単に権利を得る法律行為（同条第1項ただし書）には当たらないものと読みます。法定代理人の同意を確かめる手立てはないので、18 歳未満の人の願い出を受けません。
 1・2・5 は、自動の確認が確かめます。4 は、自動の確認が、叙任を決められる最も早い日をコメントに書きます。3 は、検査（`verification/check.js`）が名簿の行から確かめます。6 は、受付に戻すときに、場所の確かめと同じ手順で確かめます。
-2 のために、自動の確認は、同じアカウントが前に開いた叙任の願い出の issue の、開いた時刻と題だけを読みます。題は、受付の停止のあいだに閉じた願い出を見分けるためだけに読みます。新しく尋ねることも、新しく集める情報もありません。
+2 のために、自動の確認は、GitHub の API から、同じアカウントが開いた叙任の願い出の issue の一覧を受け取ります。一覧には題や本文も含まれますが、使うのは issue の番号（いまの issue を除くため）と開いた時刻だけで、ほかは捨てます。使ったものも残さず、コメントには前の issue の番号も書きません。
+様式には、18 歳以上の印と「称号を使わない場所」の欄を足しました。「称号を使わない場所」で尋ねるのは規程の語で、自分のことは書かないよう様式で求めています。
 どの条件も、国籍・性別・信条などで人を分けません。場所の決めは、「願い出ることができる人」「外国の称号を縛る国」「法令に適合しない国と地域」のままで、足していません。
 受付は止めたままです。この節は、受付に戻ったあとの条件を定めるもので、受付に戻すことを決めるものではありません。
 2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選びました。ひとりの運営者が読み、確かめきれる数の願い出だけを受けるためです。
@@ -1862,6 +1870,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 本人として扱うのは、願い出た GitHub のアカウントです。
 願い出の条件に当たらなかったことが分かったときは、名簿から名を外します。
 16 歳未満の人の願い出だったときは、求めがなくても、その issue も削除します。
+2026-12-15 から、18 歳未満の人の願い出だったときも、求めがなくても、その issue を削除します（「参加のハードル」）。
 
 ## 断ること
 
@@ -2119,7 +2128,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
 
-最終更新：2026-11-18。
+最終更新：2026-11-19。
 
 ## この頁の位置づけ
 
@@ -2159,6 +2168,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - 扱う個人情報は、GitHub のアカウント名と、本人が公開した訂正へのリンクと、本人が書いた説明だけ。リンクの先から本名や所属が分かることがあり、そのことを様式で知らせている。
 - 誤りの知らせと求めの issue では、GitHub のアカウント名と、本人が書いたことを扱う。
 - 16 歳未満の人と、住んでいる国の法令が私人の授ける騎士の称号を禁じている人の願い出は受けない。
+- 2026-12-15 から、18 歳未満の人の願い出も受けない（[叙任の規程](./knighting.md)「参加のハードル」）。
 - 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国・国籍は、様式の誓いによる本人の申告で受ける。
 - どの頁も、創作であり、実在の何とも関係がないと断っている。
 
@@ -2346,6 +2356,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 | ヌスクァマの名で、通貨・点数・引換券を作り、対価を取って配る | 資金決済法第3条 | しない。ヌスクァマは通貨を持たない |
 | issue やほかの場所で、他人を名指しして評する。他人の個人情報を書く | 刑法第230条・第231条・第233条、民法第709条 | しない。書かれたものは、判断の前にただちに外す |
 | 年齢を偽り、16 歳未満で願い出る | 民法第5条 | 偽らない。分かった時点で、求めがなくても名簿から外す |
+| 2026-12-15 から、年齢を偽り、18 歳未満で願い出る | 民法第5条 | 偽らない。分かった時点で、求めがなくても名簿から外し、issue を削除する |
 
 規程に反して、または規程の外で行われた行いの責任は、行った本人にあります。
 運営者は、騎士・読む人・第三者のそうした行いについて、責任を負いません。
@@ -2383,6 +2394,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 16 歳と 17 歳の人は、日本の民法では未成年です。法定代理人の同意のない合意は、取り消されることがあります。ヌスクァマの側には、取り消されて困る対価がありません。
 成年は 18 歳です（民法第4条）。利用規約への同意は、してはいけないことや管轄の合意を含むので、単に権利を得る法律行為（民法第5条第1項ただし書）には当たらないと考えます。
 取り消されたときは、その人との間の利用規約の合意と管轄の合意は、初めからなかったものになります。取り消しの求めは、名簿からの辞退の求めとして受けます。
+2026-12-15 から、16 歳と 17 歳の人の願い出も受けません（[叙任の規程](./knighting.md)「参加のハードル」）。上の読み方のとおり、同意が取り消されうる人を、叙任の願い出の相手にしないためです。この段落の上の文は、2026-12-14 までに開かれる願い出について述べたものです。
 
 <!-- 条文 民法 第5条 -->
 
@@ -2762,7 +2774,7 @@ Issues are also subject to GitHub's Terms of Service and Privacy Statement.
 When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and the text of the link to the correction.
 The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.
 The operator is the one who opens and reads the linked page ([Rules on Knighting](./knighting.en.md), "What the operator checks").
-From 2026-12-15, the automatic check also reads the time of opening and the title of the application issues that the same account opened before. This is only to check whether 365 days have passed since the previous application; it is used for nothing else and kept nowhere.
+From 2026-12-15, to check whether 365 days have passed since the previous application, the automatic check receives from GitHub's API the list of application issues for knighting opened by the same account. The list also contains titles and bodies, but only the issue number and the time of opening are used; the rest is discarded. Nothing used is kept anywhere.
 
 ## What a report of a mistake involves
 
@@ -2851,6 +2863,8 @@ Complaints about the handling of personal data are received through the same req
 A person under 16 may not apply for knighthood.
 The Q&A of the Personal Information Protection Commission says that, in general, the consent of a legal representative or the like is needed for children up to the age of 12 to 15 ([Q&A](https://www.ppc.go.jp/personalinfo/faq/APPI_QA/), Q1-62, checked on 2026-11-08). Nusquama has no means to check such consent, so it accepts no application from a person under 16.
 When an application turns out to be from a person under 16, the name is taken off the roll and the issue is deleted, without being asked.
+From 2026-12-15, a person under 18 may not apply for knighthood either ([Rules on Knighting](./knighting.en.md), "Barriers to participation"). Age is taken from the applicant's own declaration, by a tick in the form.
+From 2026-12-15, when a person under 18 turns out to have applied with the box for being 18 or over ticked, the name is likewise taken off the roll and the issue is deleted, without being asked.
 
 ## Changes to this policy
 
@@ -2943,17 +2957,20 @@ Because Nusquama is run by one individual, its barriers to participation are set
 From 2026-12-15, once applications reopen, the six conditions below also apply to knighting.
 
 1. A person under 18 may not apply. Age is taken from the applicant's own declaration, by a tick in the form.
-2. An application from a GitHub account is not received for 365 days from the time that account last opened an application issue for knighting. Applications that were declined or withdrawn count. Applications that arrived during the pause and were closed by the automatic check do not count.
+2. An application from a GitHub account is not received for 365 days from the day that account last opened an application issue for knighting. Applications that were declined or withdrawn count. Applications opened during the pause (from 2026-11-12 until applications reopen) do not count.
 3. At most 1 person is knighted in a year (1 January to 31 December, Japan time), counted by the day of knighting on the roll.
 4. Knighting is decided only after 90 days have passed from the day (Japan time) the application issue was opened.
 5. In the field "称号を使わない場所" (Places where the title is not used) of the form, the applicant names at least three places where the title of this kingdom is not written, in the words of the rules. The words are CV, paper, business card, official document, academic setting, commerce and advertising (Basic Law, Article 8; Terms of Use, "Titles").
 6. The 30 days in "Checking the place when applications reopen" become 365 days. An ORCID entry naming Japan must have been added at least 365 days before the issue was opened.
 
+The days in this section are counted in Japan time, and the first day (the day an application or the previous application was opened, or the day an ORCID entry was added) is not counted. For example, an application opened on 2026-12-15 is not decided before 90 days have passed counting from 2026-12-16, that is, before the end of 2027-03-15; the earliest day of decision is 2027-03-16. The next application from the same account is received from 2027-12-16.
+
 18 is the age of majority under Article 4 of the Civil Code. The Japanese text of the article is "年齢十八歳をもって、成年とする。"
 An applicant agrees to the Terms of Use in the form. Article 5(1) of the same Code says that a minor needs the consent of their legal representative to perform a juristic act, and Article 5(2) says that a juristic act in breach of paragraph 1 may be rescinded.
-Whether agreeing in the form is such a juristic act is not settled by the texts. The operator takes the stricter reading, and does not receive applications from people under 18.
+As in the [Legality Statement](./legality.en.md), "How this was reviewed, and how the premises could fail", the operator reads agreeing to the Terms of Use as not an act by which the person merely acquires a right (proviso to Article 5(1)). There is no means to confirm a legal representative's consent, so applications from people under 18 are not received.
 Conditions 1, 2 and 5 are checked by the automatic check. For condition 4, the automatic check writes in its comment the earliest day on which knighting can be decided. Condition 3 is checked by the checks (`verification/check.js`) against the rows of the roll. Condition 6 is checked, when applications reopen, in the same way as the check of the place.
-For condition 2, the automatic check reads only the time of opening and the title of the application issues that the same account opened before. The title is read only to tell apart the applications closed during the pause. Nothing new is asked, and no new information is collected.
+For condition 2, the automatic check receives from GitHub's API the list of application issues for knighting opened by the same account. The list also contains titles and bodies, but only the issue number (to leave out the present issue) and the time of opening are used; the rest is discarded. Nothing used is kept, and the comment does not give the number of the earlier issue either.
+The form gains a box for being 18 or over and the field "称号を使わない場所" (Places where the title is not used). That field asks for the words of the rules, and the form asks applicants not to write about themselves.
 None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
 Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
 The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions, so that only as many applications are received as one operator can read and check.
@@ -3087,6 +3104,7 @@ But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
 If the application was from a person under 16, its issue is also deleted, without being asked.
+From 2026-12-15, if the application was from a person under 18, its issue is also deleted, without being asked ("Barriers to participation").
 
 ## What is declined
 
@@ -3348,7 +3366,7 @@ Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
 
-Last updated: 2026-11-18.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -3390,6 +3408,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
 - Issues reporting mistakes and issues making requests handle the GitHub account name and what the person writes.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
+- From 2026-12-15, it accepts no applications from people under 18 either ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
 - It collects no documents to check nationality, age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
 
@@ -3577,6 +3596,7 @@ It lists possible paths. It does not say that a listed act is always an offence 
 | Making currency, points or vouchers in Nusquama's name and handing them out for a price | Payment Services Act, Article 3 | Do not. Nusquama has no currency |
 | Naming and judging another person, or writing another person's personal information, in an issue or elsewhere | Penal Code, Articles 230, 231 and 233; Civil Code, Article 709 | Do not. Such text is removed at once, before any decision |
 | Applying under the age of 16 by giving a false age | Civil Code, Article 5 | Do not. Once known, the name is removed from the roll, even without a request |
+| From 2026-12-15, applying under the age of 18 by giving a false age | Civil Code, Article 5 | Do not. Once known, the name is removed from the roll and the issue is deleted, even without a request |
 
 The responsibility for an act done against the rules, or outside them, lies with the person who did it.
 The operator is not responsible for such acts of knights, readers or third parties.
@@ -3614,6 +3634,7 @@ The ways the facts relied on could fail are these.
 People aged 16 and 17 are minors under the Japanese Civil Code. An agreement made without the consent of a legal representative can be cancelled. Nusquama receives nothing that it would lose by such a cancellation.
 The age of majority is 18 (Civil Code, Article 4). Agreeing to the Terms includes what is not allowed and the agreement on courts, so the operator considers that it is not an act by which the person merely acquires a right (proviso to Article 5(1) of the Civil Code).
 If it is cancelled, the agreement to the Terms and the agreement on courts with that person are treated as never made. A request to cancel is received as a request to withdraw from the roll.
+From 2026-12-15, applications from people aged 16 and 17 are not received either ([Rules on Knighting](./knighting.en.md), "Barriers to participation"). Following the reading above, a person whose agreement can be cancelled is not taken as an applicant for knighting. The sentences above in this paragraph describe applications opened up to 2026-12-14.
 
 <!-- 条文 民法 第5条 -->
 
@@ -3930,6 +3951,9 @@ If an entry itself turns out to be wrong, the earlier row is not erased. A new r
 ## Reporting a mistake
 
 Anyone may report a mistake in the King's texts through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml). There is no fee.
+From 2026-12-01, however, reports are received only from people who can be checked, in their public ORCID record, as being in Japan. From 2026-12-15, the rules on the age of that record and on the field "確かめた先" (Checked against) are added.
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+The conditions for reports are in [Institutions](INSTITUTIONS.en.md), "Barriers to participation", and in [Privacy](policies/privacy.en.md), "What a report of a mistake involves".
 A mistake the King confirms is recorded here as the King's own mistake. A report that cannot be confirmed is closed with a note saying so in the issue.
 These errata do not name the person who reported the mistake.
 Reporting a mistake of the King's does not meet the condition for knighthood (having publicly corrected a mistake of one's own).
