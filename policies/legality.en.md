@@ -1,6 +1,6 @@
 # Legality Statement
 
-Last updated: 2026-11-18.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -42,6 +42,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
 - Issues reporting mistakes and issues making requests handle the GitHub account name and what the person writes.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
+- From 2026-12-15, it accepts no applications from people under 18 either ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
 - It collects no documents to check nationality, age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
 
@@ -229,6 +230,7 @@ It lists possible paths. It does not say that a listed act is always an offence 
 | Making currency, points or vouchers in Nusquama's name and handing them out for a price | Payment Services Act, Article 3 | Do not. Nusquama has no currency |
 | Naming and judging another person, or writing another person's personal information, in an issue or elsewhere | Penal Code, Articles 230, 231 and 233; Civil Code, Article 709 | Do not. Such text is removed at once, before any decision |
 | Applying under the age of 16 by giving a false age | Civil Code, Article 5 | Do not. Once known, the name is removed from the roll, even without a request |
+| From 2026-12-15, applying under the age of 18 by giving a false age | Civil Code, Article 5 | Do not. Once known, the name is removed from the roll and the issue is deleted, even without a request |
 
 The responsibility for an act done against the rules, or outside them, lies with the person who did it.
 The operator is not responsible for such acts of knights, readers or third parties.
@@ -266,6 +268,7 @@ The ways the facts relied on could fail are these.
 People aged 16 and 17 are minors under the Japanese Civil Code. An agreement made without the consent of a legal representative can be cancelled. Nusquama receives nothing that it would lose by such a cancellation.
 The age of majority is 18 (Civil Code, Article 4). Agreeing to the Terms includes what is not allowed and the agreement on courts, so the operator considers that it is not an act by which the person merely acquires a right (proviso to Article 5(1) of the Civil Code).
 If it is cancelled, the agreement to the Terms and the agreement on courts with that person are treated as never made. A request to cancel is received as a request to withdraw from the roll.
+From 2026-12-15, applications from people aged 16 and 17 are not received either ([Rules on Knighting](./knighting.en.md), "Barriers to participation"). Following the reading above, a person whose agreement can be cancelled is not taken as an applicant for knighting. The sentences above in this paragraph describe applications opened up to 2026-12-14.
 
 <!-- 条文 民法 第5条 -->
 

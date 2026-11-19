@@ -37,7 +37,7 @@ Issues are also subject to GitHub's Terms of Service and Privacy Statement.
 When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and the text of the link to the correction.
 The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.
 The operator is the one who opens and reads the linked page ([Rules on Knighting](./knighting.en.md), "What the operator checks").
-From 2026-12-15, the automatic check also reads the time of opening and the title of the application issues that the same account opened before. This is only to check whether 365 days have passed since the previous application; it is used for nothing else and kept nowhere.
+From 2026-12-15, to check whether 365 days have passed since the previous application, the automatic check receives from GitHub's API the list of application issues for knighting opened by the same account. The list also contains titles and bodies, but only the issue number and the time of opening are used; the rest is discarded. Nothing used is kept anywhere.
 
 ## What a report of a mistake involves
 
@@ -126,6 +126,8 @@ Complaints about the handling of personal data are received through the same req
 A person under 16 may not apply for knighthood.
 The Q&A of the Personal Information Protection Commission says that, in general, the consent of a legal representative or the like is needed for children up to the age of 12 to 15 ([Q&A](https://www.ppc.go.jp/personalinfo/faq/APPI_QA/), Q1-62, checked on 2026-11-08). Nusquama has no means to check such consent, so it accepts no application from a person under 16.
 When an application turns out to be from a person under 16, the name is taken off the roll and the issue is deleted, without being asked.
+From 2026-12-15, a person under 18 may not apply for knighthood either ([Rules on Knighting](./knighting.en.md), "Barriers to participation"). Age is taken from the applicant's own declaration, by a tick in the form.
+From 2026-12-15, when a person under 18 turns out to have applied with the box for being 18 or over ticked, the name is likewise taken off the roll and the issue is deleted, without being asked.
 
 ## Changes to this policy
 

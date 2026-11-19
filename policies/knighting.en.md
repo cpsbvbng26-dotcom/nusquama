@@ -80,17 +80,20 @@ Because Nusquama is run by one individual, its barriers to participation are set
 From 2026-12-15, once applications reopen, the six conditions below also apply to knighting.
 
 1. A person under 18 may not apply. Age is taken from the applicant's own declaration, by a tick in the form.
-2. An application from a GitHub account is not received for 365 days from the time that account last opened an application issue for knighting. Applications that were declined or withdrawn count. Applications that arrived during the pause and were closed by the automatic check do not count.
+2. An application from a GitHub account is not received for 365 days from the day that account last opened an application issue for knighting. Applications that were declined or withdrawn count. Applications opened during the pause (from 2026-11-12 until applications reopen) do not count.
 3. At most 1 person is knighted in a year (1 January to 31 December, Japan time), counted by the day of knighting on the roll.
 4. Knighting is decided only after 90 days have passed from the day (Japan time) the application issue was opened.
 5. In the field "称号を使わない場所" (Places where the title is not used) of the form, the applicant names at least three places where the title of this kingdom is not written, in the words of the rules. The words are CV, paper, business card, official document, academic setting, commerce and advertising (Basic Law, Article 8; Terms of Use, "Titles").
 6. The 30 days in "Checking the place when applications reopen" become 365 days. An ORCID entry naming Japan must have been added at least 365 days before the issue was opened.
 
+The days in this section are counted in Japan time, and the first day (the day an application or the previous application was opened, or the day an ORCID entry was added) is not counted. For example, an application opened on 2026-12-15 is not decided before 90 days have passed counting from 2026-12-16, that is, before the end of 2027-03-15; the earliest day of decision is 2027-03-16. The next application from the same account is received from 2027-12-16.
+
 18 is the age of majority under Article 4 of the Civil Code. The Japanese text of the article is "年齢十八歳をもって、成年とする。"
 An applicant agrees to the Terms of Use in the form. Article 5(1) of the same Code says that a minor needs the consent of their legal representative to perform a juristic act, and Article 5(2) says that a juristic act in breach of paragraph 1 may be rescinded.
-Whether agreeing in the form is such a juristic act is not settled by the texts. The operator takes the stricter reading, and does not receive applications from people under 18.
+As in the [Legality Statement](./legality.en.md), "How this was reviewed, and how the premises could fail", the operator reads agreeing to the Terms of Use as not an act by which the person merely acquires a right (proviso to Article 5(1)). There is no means to confirm a legal representative's consent, so applications from people under 18 are not received.
 Conditions 1, 2 and 5 are checked by the automatic check. For condition 4, the automatic check writes in its comment the earliest day on which knighting can be decided. Condition 3 is checked by the checks (`verification/check.js`) against the rows of the roll. Condition 6 is checked, when applications reopen, in the same way as the check of the place.
-For condition 2, the automatic check reads only the time of opening and the title of the application issues that the same account opened before. The title is read only to tell apart the applications closed during the pause. Nothing new is asked, and no new information is collected.
+For condition 2, the automatic check receives from GitHub's API the list of application issues for knighting opened by the same account. The list also contains titles and bodies, but only the issue number (to leave out the present issue) and the time of opening are used; the rest is discarded. Nothing used is kept, and the comment does not give the number of the earlier issue either.
+The form gains a box for being 18 or over and the field "称号を使わない場所" (Places where the title is not used). That field asks for the words of the rules, and the form asks applicants not to write about themselves.
 None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
 Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
 The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions, so that only as many applications are received as one operator can read and check.
@@ -224,6 +227,7 @@ But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
 If the application was from a person under 16, its issue is also deleted, without being asked.
+From 2026-12-15, if the application was from a person under 18, its issue is also deleted, without being asked ("Barriers to participation").
 
 ## What is declined
 
