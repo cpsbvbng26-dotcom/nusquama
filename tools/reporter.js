@@ -19,6 +19,8 @@
  *   - LONG_FROM 以後に開かれた知らせでは、日本を指す項目は issue を開く LONG_DAYS 日以上前に足されたものでなければならない（読む項目は変えない）
  *   - SOURCE_FROM 以後に開かれた知らせは、様式の「確かめた先」に空白を除いて SOURCE_MIN 文字以上がなければ受け付けず、
  *     ラベル SOURCE_LABEL と決まった文のコメントを付ける。issue は閉じない。この欄は前から様式にあり、新しく集めるものはない
+ *   - 直して通るようになった issue からは、通らなかったときのラベル（PLACE_LABEL・SOURCE_LABEL）を外す。ORCID を読めなかったときは、場所のラベルを
+ *     変えず、確かめた先の決めは当てる（2026-11-19 の点検で改めた）
  */
 'use strict';
 const fs = require('fs');
@@ -72,10 +74,11 @@ function daysFor(day) {
   return day >= LONG_FROM ? LONG_DAYS : DAYS;
 }
 
-/* 純：「確かめた先」が書かれているか。GitHub が空の欄に書く「_No response_」は書かれていないものとする。 */
+/* 純：「確かめた先」が書かれているか（空白を除いて SOURCE_MIN 文字以上）。GitHub が空の欄に書く「_No response_」は書かれていないものとする。 */
+/* 文字は Unicode の符号位置で数える（UTF-16 の単位では数えない。2026-11-19 の点検で改めた）。 */
 function sourceGiven(text) {
   const t = String(text || '').trim();
-  return t !== '_No response_' && t.replace(/\s+/g, '').length >= SOURCE_MIN;
+  return t !== '_No response_' && [...t.replace(/\s+/g, '')].length >= SOURCE_MIN;
 }
 
 /* 純：この issue に手を出すか。誤りの知らせで、FROM 以後に開かれ、求めと読めず、人に渡すラベルがなく、持ち主の出来事でないもの。 */
@@ -104,11 +107,11 @@ const NOTE = note(DAYS);
 
 const NOTE_SOURCE = SOURCE_MARK + `
 **誤りの知らせには、「確かめた先」が要ります（2026-12-15 から）。** この知らせの「確かめた先」には、空白を除いて ${SOURCE_MIN} 文字以上が書かれていないので、受け付けません。issue は閉じず、人が読みます。
-辞書・資料・条文など、誤りを確かめた先を書いて、この issue を直すか、新しい issue で知らせ直せます。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+書名・資料の名・条文の名など、何で確かめたかが分かるように（「辞書」や「条文」だけでなく）書いて、この issue を直すか、新しい issue で知らせ直せます。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 削除・訂正・辞退・権利・個人の情報・同意の求めは、「削除・訂正・辞退の求め」の様式で、どの国の人からも受けます。
 
 **An error report needs the field 確かめた先 (Checked against) (from 2026-12-15).** At least ${SOURCE_MIN} characters, not counting spaces, are not written in that field of this report, so it is not accepted. The issue is not closed; a person reads it.
-Write what the mistake was checked against, such as a dictionary, a source or a statute, and edit this issue, or make the report again in a new issue. Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+Write what the mistake was checked against, naming the book, source or statute so that it can be found (not just "a dictionary"), and edit this issue, or make the report again in a new issue. Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 Requests about removal, correction, withdrawal, rights, personal data or consent are received from people in every country, with the request form.
 `;
 
@@ -132,31 +135,42 @@ async function main() {
   const i = event.issue;
   const form = V.parseForm(i.body);
   const id = (String(V.field(form, ['ORCID iD']) || '').match(/\d{4}-\d{4}-\d{4}-\d{3}[\dX]/) || [''])[0];
-  let ok = false;
+  /* 場所：'yes'（確かめた）、'no'（確かめられない）、'unchecked'（ORCID を読めなかった）。読めなかったときも、確かめた先の決めは当てる（2026-11-19 の点検で改めた）。 */
+  let place = 'no';
   if (V.orcidOk(id)) {
     try {
       const base = 'https://pub.orcid.org/v3.0/' + id;
       const urls = await get(base + '/researcher-urls');
       const linked = V.linksGithub(V.orcidUrls(urls), i.user.login);
       const s = signals({ address: await get(base + '/address'), employments: await get(base + '/employments'), educations: await get(base + '/educations') });
-      ok = inJapan({ linked, signals: s, opened: V.jstDay(i.created_at), days: daysFor(V.jstDay(i.created_at)) }).ok;
-    } catch (e) { console.log('reporter: not checked'); return; }
+      place = inJapan({ linked, signals: s, opened: V.jstDay(i.created_at), days: daysFor(V.jstDay(i.created_at)) }).ok ? 'yes' : 'no';
+    } catch (e) { place = 'unchecked'; console.log('reporter: place not checked'); }
   }
   const n = i.number;
   const day = V.jstDay(i.created_at);
   const sourced = day < SOURCE_FROM || sourceGiven(V.field(form, ['確かめた先']));
-  const cs = ok && sourced ? [] : ((await gh('GET', '/issues/' + n + '/comments?per_page=100')) || []);
+  /* 直して通るようになった issue からは、通らなかったときのラベルを外す（2026-11-19 の点検で改めた）。付いていないラベルは外さない。 */
+  const has = (name) => (i.labels || []).some((l) => (typeof l === 'string' ? l : l && l.name) === name);
+  const drop = async (name) => {
+    if (!has(name)) return;
+    try { await gh('DELETE', '/issues/' + n + '/labels/' + encodeURIComponent(name)); } catch (e) { if (!/HTTP 404$/.test(e.message)) throw e; }
+  };
+  const cs = place === 'no' || !sourced ? ((await gh('GET', '/issues/' + n + '/comments?per_page=100')) || []) : [];
   const posted = (mark) => cs.some((c) => c.user && c.user.type === 'Bot' && String(c.body).startsWith(mark));
-  if (ok) await gh('POST', '/issues/' + n + '/labels', { labels: [PLACE_OK] });
-  else {
+  if (place === 'yes') {
+    await drop(PLACE_LABEL);
+    await gh('POST', '/issues/' + n + '/labels', { labels: [PLACE_OK] });
+  } else if (place === 'no') {
+    await drop(PLACE_OK);
     await gh('POST', '/issues/' + n + '/labels', { labels: [PLACE_LABEL] });
     if (!posted(MARK)) await gh('POST', '/issues/' + n + '/comments', { body: note(daysFor(day)) });
   }
-  if (!sourced) {
+  if (sourced) await drop(SOURCE_LABEL);
+  else {
     await gh('POST', '/issues/' + n + '/labels', { labels: [SOURCE_LABEL] });
     if (!posted(SOURCE_MARK)) await gh('POST', '/issues/' + n + '/comments', { body: NOTE_SOURCE });
   }
-  console.log('reporter: issue ' + n + ' ' + (ok ? 'place verified' : 'place not verified') + (sourced ? '' : ', source not given'));
+  console.log('reporter: issue ' + n + ' ' + ({ yes: 'place verified', no: 'place not verified', unchecked: 'place not checked' })[place] + (sourced ? '' : ', source not given'));
 }
 
 module.exports = { FROM, DAYS, PLACE_LABEL, PLACE_OK, MARK, NOTE, note, LONG_FROM, LONG_DAYS, SOURCE_FROM, SOURCE_MIN, SOURCE_LABEL, SOURCE_MARK, NOTE_SOURCE, daysFor, sourceGiven, signals, inJapan, applies, main };

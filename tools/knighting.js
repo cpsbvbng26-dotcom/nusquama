@@ -28,9 +28,12 @@
  * 参加のハードル（2026-12-15 から。2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選んだ。叙任の規程「参加のハードル」）。前の願い出の日数は addInterval が足す：
  *   - 18 歳以上の印があること（DATED に足した）
  *   - 「称号を使わない場所」の欄が、規程の語（PLACE_WORDS）を PLACES_MIN 以上挙げること
- *   - 同じアカウントが前に開いた叙任の願い出の issue から INTERVAL_DAYS 日たっていること。読むのは、その issue の番号・開いた時刻・題だけで、
- *     題は、受付の停止のあいだに閉じた願い出（PAUSE_TITLE）を数えないためにだけ見る。読んだものは残さず、記録にも書かない
- *   - 叙任を決められる最も早い日（願い出の issue を開いた日から WAIT_DAYS 日を過ぎた日、日本時間）をコメントに書く。決めるのは運営者である
+ *   - 同じアカウントが前に開いた叙任の願い出の issue から INTERVAL_DAYS 日たっていること。GitHub の API は issue の全体を返すが、
+ *     使うのは番号（いまの issue を除くため）と開いた時刻だけで、ほかは捨てる。受付の停止のあいだに開かれたものは、開いた時刻で除く（題は見ない。
+ *     題は誰でも書き換えられるため。2026-11-19 の点検で改めた）。読んだものは残さず、コメントにも記録にも書かない（前の issue の番号も書かない）
+ *   - 叙任を決められる最も早い日をコメントに書く。決めるのは運営者である
+ *   日数は日本時間の日で数え、初めの日（前の願い出や、この願い出の issue を開いた日）を数えない。90 日なら、開いた日の次の日から数えて
+ *   90 日が過ぎた次の日が、決められる最も早い日である。365 日も同じに数える（2026-11-19 の点検で改めた）。
  *   一年に 1 人までという数は、名簿の行から検査 90 が確かめる（ここでは見ない）。
  *
  * 様式の定義は tools/knighting-form.yml に置く。受付を止めているあいだは、issue の様式の一覧（.github/ISSUE_TEMPLATE/）に置かない
@@ -195,24 +198,28 @@ function placesNamed(text) {
   return PLACE_WORDS.filter((ws) => ws.some((w) => (/^[\x00-\x7f]+$/.test(w) ? new RegExp('(^|[^a-z])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z])', 'i').test(t) : t.toLowerCase().includes(w.toLowerCase())))).length;
 }
 
-/* 純：同じアカウントの前の願い出から INTERVAL_DAYS 日たっているか。たっていれば null、いなければ理由。
- * previous は、そのアカウントが開いた叙任のラベルの issue の一覧（番号・開いた時刻・題）。null は読めなかったことを表す。
- * いまの issue、PR、受付の停止のあいだに閉じた願い出（題が PAUSE_TITLE）、いまの issue より後に開いたものは数えない。 */
-function intervalProblem(previous, opened, number) {
+/* 純：日本時間の日（YYYY-MM-DD）の通し番号。日の差を数えるために使う。 */
+const dayNo = (day) => Math.round(Date.parse(day + 'T00:00:00Z') / DAY);
+
+/* 純：同じアカウントの前の願い出から INTERVAL_DAYS 日たっているか。たっていれば null、いなければ理由（前の issue の番号は書かない）。
+ * previous は、そのアカウントが開いた叙任のラベルの issue の、番号と開いた時刻の一覧。null は読めなかったことを表す。
+ * いまの issue、受付の停止のあいだ（PAUSE_FROM から受付に戻るまで）に開かれたもの、いまの issue より後に開いたものは数えない。
+ * 前の願い出を開いた日を数えずに INTERVAL_DAYS 日が過ぎるまで（日の差が INTERVAL_DAYS 以下のあいだ）は受けない。 */
+function intervalProblem(previous, opened, number, reopen = REOPEN) {
   if (previous === null || previous === undefined) return '前の願い出を読めなかった';
   const t = Date.parse(opened);
   for (const p of previous) {
-    if (!p || p.pull_request || p.number === number || p.title === PAUSE_TITLE) continue;
+    if (!p || p.number === number) continue;
     const s = Date.parse(p.created_at);
-    if (!Number.isFinite(s) || s > t) continue;
-    if (t - s < INTERVAL_DAYS * DAY) return '#' + p.number + ' を開いてから ' + INTERVAL_DAYS + ' 日たっていない';
+    if (!Number.isFinite(s) || s > t || paused(p.created_at, reopen)) continue;
+    if (dayNo(jstDay(opened)) - dayNo(jstDay(p.created_at)) <= INTERVAL_DAYS) return '前の願い出から ' + INTERVAL_DAYS + ' 日たっていない';
   }
   return null;
 }
 
-/* 純：叙任を決められる最も早い日（日本時間）。願い出の issue を開いた日から WAIT_DAYS 日を過ぎた日。 */
+/* 純：叙任を決められる最も早い日（日本時間）。願い出の issue を開いた日を数えずに WAIT_DAYS 日が過ぎた、次の日。 */
 function earliestDecision(opened) {
-  return new Date(Date.parse(jstDay(opened) + 'T00:00:00Z') + WAIT_DAYS * DAY).toISOString().slice(0, 10);
+  return new Date(Date.parse(jstDay(opened) + 'T00:00:00Z') + (WAIT_DAYS + 1) * DAY).toISOString().slice(0, 10);
 }
 
 /* 訂正へのリンクの先として受けないもの。どれも公開の頁を指さず、運営者が開けば運営者の手元の機械や網に届きうる。
@@ -265,16 +272,24 @@ function check(form, opened, oaths = requiredOaths()) {
 }
 
 /* 純：前の願い出からの日数の行を、確かめた結果に足す（HURDLE_FROM から）。前の願い出の一覧は GitHub の API から読むので、check とは分けてある。 */
-function addInterval(result, previous, opened, number) {
+const INTERVAL_LABEL = '同じアカウントの前の願い出から ' + INTERVAL_DAYS + ' 日たっている';
+function addInterval(result, previous, opened, number, reopen = REOPEN) {
   if (jstDay(opened) < HURDLE_FROM) return result;
-  const gap = intervalProblem(previous, opened, number);
-  result.rows.push(['同じアカウントの前の願い出から ' + INTERVAL_DAYS + ' 日たっている', gap === null, gap || '']);
+  const gap = intervalProblem(previous, opened, number, reopen);
+  result.rows.push([INTERVAL_LABEL, gap === null, gap || '']);
   result.ok = result.rows.every((r) => r[1]);
   return result;
 }
 
 /* 純：コメントの本文。 */
 function comment(result) {
+  /* 前の願い出からの日数は、この issue を直しても変わらない。その行だけが通らないときは、直すよう求めない（2026-11-19 の点検で改めた）。 */
+  const failed = result.rows.filter((r) => !r[1]).map((r) => r[0]);
+  const waitOnly = failed.length > 0 && failed.every((l) => l === INTERVAL_LABEL);
+  const waitToo = failed.includes(INTERVAL_LABEL);
+  const verdict = result.ok ? '様式は整っています。'
+    : (waitOnly ? '' : '通らなかったところを直し、この issue を編集してください。' + (waitToo ? '\n' : ''))
+      + (waitToo ? '前の願い出から ' + INTERVAL_DAYS + ' 日たっていないので、この願い出は受けません。この issue を直しても変わりません。日がたってから、新しい issue で願い出ることができます（叙任の規程「参加のハードル」）。' : '');
   const rows = result.rows.map(([label, pass, detail]) => `| ${pass ? '通' : '**不**'} | ${label} | ${String(detail).replace(/[|<>`]/g, '')} |`).join('\n');
   return `${MARK}
 **自動の確認**（この issue を直すたびに、もう一度動きます）
@@ -283,8 +298,8 @@ function comment(result) {
 | --- | --- | --- |
 ${rows}
 
-${result.ok ? '様式は整っています。' : '通らなかったところを直し、この issue を編集してください。'}
-${result.earliest ? '叙任を決められるのは、早くて ' + result.earliest + '（日本時間）です。願い出の issue を開いた日から ' + WAIT_DAYS + ' 日を過ぎるまで、叙任を決めません（叙任の規程「参加のハードル」）。\n' : ''}この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
+${verdict}
+${result.earliest ? '叙任を決められるのは、早くて ' + result.earliest + '（日本時間）です。願い出の issue を開いた日を数えずに ' + WAIT_DAYS + ' 日が過ぎるまで、叙任を決めません（叙任の規程「参加のハードル」）。\n' : ''}この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
 これは創作であり、遊びです。称号に法的な効力はありません。
 `;
 }
@@ -298,14 +313,15 @@ async function github(method, p, body) {
   return r.status === 204 ? null : r.json();
 }
 
-/* 同じアカウントが開いた叙任のラベルの issue の、番号・開いた時刻・題。一覧は終わりの頁まで読む。読めなければ throw する（実行が落ち、何も書かない）。 */
+/* 同じアカウントが開いた叙任のラベルの issue の、番号と開いた時刻。GitHub の API は issue の全体を返すが、この二つのほかは捨てる。
+ * 一覧は終わりの頁まで読む。読めなければ throw する（実行が落ち、何も書かない）。 */
 async function previousApplications(login, gh = github) {
   if (!login) return null;
   const out = [];
   for (let page = 1; page <= 50; page++) {
     const list = await gh('GET', '/issues?creator=' + encodeURIComponent(login) + '&labels=' + encodeURIComponent(LABEL) + '&state=all&per_page=100&page=' + page);
     if (!Array.isArray(list)) throw new Error('一覧でない答え');
-    for (const i of list) out.push({ number: i.number, created_at: i.created_at, title: i.title, pull_request: !!i.pull_request });
+    for (const i of list) out.push({ number: i.number, created_at: i.created_at });
     if (list.length < 100) return out;
   }
   throw new Error('一覧が長すぎる');
@@ -338,7 +354,7 @@ async function main() {
   }
   const form = parse(issue.body);
   const result = check(form, opened);
-  if (jstDay(opened) >= HURDLE_FROM) addInterval(result, await previousApplications(issue.user && issue.user.login), opened, n);
+  if (jstDay(opened) >= HURDLE_FROM) addInterval(result, await previousApplications(issue.user && issue.user.login), opened, n, reopen);
   const body = comment(result);
   const mine = mine0;
   if (mine) await github('PATCH', '/issues/comments/' + mine.id, { body });
@@ -346,6 +362,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+module.exports = { HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
