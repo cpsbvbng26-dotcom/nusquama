@@ -27,3 +27,4 @@ jobs:
           gh label create "記す" --color 2f6f4e --description "見張りの PR を、検査を通してから記す（運営者だけ）" --force
           gh label create "place not verified" --color 9a6700 --description "誤りの知らせ：日本にいると ORCID から確かめられなかった（tools/reporter.js）" --force
           gh label create "place verified" --color 2f6f4e --description "誤りの知らせ：日本にいると ORCID から確かめた（tools/reporter.js）" --force
+          gh label create "source not given" --color 9a6700 --description "誤りの知らせ：確かめた先が書かれていない（tools/reporter.js、2026-12-15 から）" --force
