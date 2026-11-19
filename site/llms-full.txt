@@ -25,6 +25,11 @@ Source: https://nusquama.vercel.app/
 >
 > English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.
 
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+参加の道ごとの条件は、[国の仕組み](INSTITUTIONS.md)の「参加のハードル」にあります。
+
+English: Because Nusquama is run by one individual, its barriers to participation are set extremely high. The conditions for each way of taking part are in [Institutions](INSTITUTIONS.en.md), "Barriers to participation".
+
 ![ヌスクァマの国章（創作）](assets/emblem.svg)
 
 **国是**：Errata servo, me ipsum rego. ―― 誤りは守り、己を治める。
@@ -128,6 +133,9 @@ Source: https://nusquama.vercel.app/
 2026-11-22 から、騎士の呼び名は、ヌスクァマに関わることにだけ使います（[叙任の規程](policies/knighting.md)「騎士の呼び名の使い方」）。
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（[叙任の規程](policies/knighting.md)「法令に適合しない国と地域」）。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+2026-12-15 から、受付に戻ったあとも、18 歳未満の人は願い出ることができません。同じ GitHub のアカウントからの願い出は、前の願い出から 365 日のあいだ受けません（[叙任の規程](policies/knighting.md)「参加のハードル」）。
+2026-12-15 から、叙任は一年に 1 人までとし、決めるのは願い出の issue を開いた日から 90 日を過ぎてからです。様式では、称号を使わない場所も答えます（[叙任の規程](policies/knighting.md)「参加のハードル」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
 ただし、訂正へのリンクの先から、身元が分かることがあります。
 叙任は創作の中のことで、法的な効力も、現実の栄誉もありません。
@@ -213,6 +221,7 @@ Source: https://nusquama.vercel.app/
 | 2026-11-16（日本時間） | 名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く | Names and rights now states that Nusquama is not related to any other micronation with a similar name, such as "Nusquamia" |
 | 2026-11-18（日本時間） | 権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。適法性の説明「商標と表示」と README から様式へつなぎ、個人情報の取り扱いに、同意の印のある知らせの題と本文だけを Claude に渡すことを書く。2026-11-18 に利用者が求め、Claude が書きました | A form for notices from rights holders is set up, and Names and rights gains "For rights holders". The Legality Statement, under "Trademarks and indications", and the README link the form, and the Privacy Policy states that only the title and text of a notice whose box of consent is ticked are given to Claude. The owner asked for this on 2026-11-18, and Claude wrote it |
 | 2026-11-18（日本時間） | 名称と権利に「名称と商標」を書く。名としるし 5 つと初めて現れた日、出願しないこと、名の使い方、2026-11-17 の EUIPO の調べ、サイトが挙げるほかの者の名 18、配る画像、登録の表示を付けないこと、国旗と国章、知らせが来たときの手順を記す。権利者の知らせの様式と「権利者の方へ」から節へつなぐ。商標法と不正競争防止法の条を見張りに加え、見張りのすべての条を取り寄せ直す。2026-11-18 に利用者が求め、Claude が書きました | Names and rights gains "Names and trademarks": the 5 names and marks with the day each first appears, that none is or will be filed, how the names are used, the search at EUIPO on 2026-11-17, the 18 names of others that the site uses, the images it serves, that no registration mark is used, the flag and the emblem, and the steps when a notice comes. The form for rights holders and "For rights holders" link it. Articles of the Trademark Act and of the Unfair Competition Prevention Act join the watch, and every watched article is fetched again. The owner asked for this on 2026-11-18, and Claude wrote it |
+| 2026-11-19（日本時間） | 個人で運営しているため、参加のハードルを極端に高くしていると、トップの頁と、参加を書く頁に書き、国の仕組みに「参加のハードル」を置く。2026-12-15 から、受付に戻ったあとの叙任の願い出は 18 歳以上の人に限り、同じアカウントからは 365 日に一度、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてからとし、称号を使わない場所の答えを求め、場所の確かめの日数を 365 日とする。誤りの知らせは、場所の確かめの日数を 365 日とし、確かめた先の欄を求める。新しい交流の申し出は受けない。利用規約で予告する。叙任の受付は止めたまま。2026-11-19 に利用者が決め、Claude が書きました | Pages that describe taking part, and the top page, now say that Nusquama is run by one individual and so sets its barriers to participation extremely high, and the Institutions gain "Barriers to participation". From 2026-12-15, once applications reopen, only people aged 18 or over may apply for knighting, an account may apply once in 365 days, at most 1 person is knighted a year, the decision comes only after 90 days from the application, an answer naming the places where the title is not used is required, and the check of the place uses 365 days. Error reports use 365 days for the check of the place, and require the field for what the report was checked against. No new offer of exchange is received. The Terms of Use give notice. Applications for knighting stay paused. The owner decided this on 2026-11-19, and Claude wrote it |
 
 ---
 
@@ -272,6 +281,8 @@ Source: https://nusquama.vercel.app/knights.html
 叙任された騎士を、叙任の順に並べます。位は「騎士」の一つだけで、上下はありません（基本法第七条）。
 名は GitHub のアカウント名で記し、本名・所属は記しません。
 騎士は、いつでも名簿からの辞退を求めることができます（[叙任の規程](policies/knighting.md)）。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+条件は、[叙任の規程](policies/knighting.md)の「参加のハードル」にあります。
 
 | 番 | 騎士 | 叙任の日 | 正した誤り | 願い出 |
 | --- | --- | --- | --- | --- |
@@ -281,6 +292,7 @@ Source: https://nusquama.vercel.app/knights.html
 ## 記し方
 
 叙任するときは、表に一行を足します。[官報](GAZETTE.md)の号は、その行から作ります。
+2026-12-15 から、叙任は一年（1 月 1 日から 12 月 31 日まで、日本時間）に 1 人までです。表の行も、叙任の日の年ごとに一行までです。検査が、表の行から数えて確かめます。
 
 - 番：1 から欠けずに続けます。
 - 騎士：GitHub のアカウント名です。
@@ -645,6 +657,7 @@ Source: https://nusquama.vercel.app/story.html
 誤るたびに、[王の正誤表](ERRATA.md)に一行を足し、版図を一区画広げます。
 自分の誤りを一つ公に正した人は、[叙任の規程](policies/knighting.md)の条件を満たせば、[正誤表騎士団](KNIGHTS.md)に加わることができます。
 願い出の受付は、2026-11-12 から止めています。受付に戻る日は決めていません。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 
 ---
 
@@ -712,6 +725,8 @@ Nemo I, Rex Eques, die VII mensis Novembris anno MMXXVI.
 
 王のラテン語には、辞書や文法書で確かめていないところがあります。
 ラテン語に詳しい人は、[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式で、分類に「語」を選んで知らせることができます。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+誤りの知らせを受ける条件は、[国の仕組み](INSTITUTIONS.md)の「参加のハードル」にあります。
 王が確かめた誤りは、[王の正誤表](ERRATA.md)に分類「語」で記します。地名は Insula Verbi の島に付きます。
 ラテン語の文を改めるときは、改める前の文を王の正誤表に残します。
 知らせた人の名は、正誤表に書きません。知らせても、叙任にはなりません。
@@ -784,6 +799,22 @@ Source: https://nusquama.vercel.app/institutions.html
 記した正誤そのものが誤りだったと分かったときも、前の行は消しません。新しい行に、前の行が誤っていたことを記します。
 そのため、恩赦を求めると、版図はかえって一区画広がります。
 騎士の名を名簿から外すことは、恩赦ではありません。辞退と取り消しは、[叙任の規程](policies/knighting.md)によります。
+
+## 参加のハードル
+
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+外の人がこの国に加わる道と、それぞれの条件は、次の表のとおりです。
+
+| 道 | 2026-12-14 まで | 2026-12-15 から |
+| --- | --- | --- |
+| 叙任の願い出 | 2026-11-12 から受付を止めている。受付に戻る日は決めていない | 受付は止めたまま。受付に戻ったあとは、18 歳以上の人に限り、同じアカウントからは 365 日に一度、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてから。称号を使わない場所の答えを求め、場所の確かめの日数は 365 日（[叙任の規程](policies/knighting.md)「参加のハードル」） |
+| 誤りの知らせ | 2026-12-01 から、引いた語の突き合わせと、ORCID の記録で日本にいることの確かめ（30 日） | 日本を指す ORCID の項目は 365 日以上前から。確かめた先の欄が要る（[個人情報の取り扱い](policies/privacy.md)「誤りの知らせで扱うもの」） |
+| 交流の申し出 | [交流の規程](policies/exchange.md)の手順で答える | 新しい申し出を受けない（交流の規程「参加のハードル」） |
+
+ヌスクァマは国籍を与えないので、国民として加わる道はありません（[叙任の規程](policies/knighting.md)「確かめないこと」）。
+どの道にも、費用はかかりません（[利用規約](policies/terms.md)「費用」）。
+削除・訂正・辞退の求め、権利者の知らせ、安全の問題の知らせは、加わる道ではありません。これらのハードルは上げず、どの国の人からも受けます（[削除・訂正・辞退の求め](policies/requests.md)）。
+2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選びました。条件を選んだ理由と、採らなかった案は、[点検の記録](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md)の「2026-11-19：参加のハードル」にあります。
 
 ## 改めるとき
 
@@ -934,7 +965,7 @@ Source: https://nusquama.vercel.app/press.html
 
 - 一言：誤りを領土にする、どこにもない国。
 - 一文：無何有騎士王国ヌスクァマは、王が自分の誤りを正誤表に記すたびに版図が広がる、遊びの創作の国です。
-- 一段落：ヌスクァマは、ラテン語の nusquam（どこにも…ない）から名を取った、創作の国です。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて記します。記した誤りの数が、この国の版図です。自分の誤りを一つ公に正した人は、叙任の規程の条件を満たすときにだけ、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。受付に戻ったときも、願い出ることができるのは、日本に住み、願い出のときに日本にいる 16 歳以上の人に限ります。イタリアの国籍を持つ人と、外国の称号を受けることを縛る国の国籍を持つ人は、願い出ることができません。称号に法的な効力はなく、お金は一切動きません。
+- 一段落：ヌスクァマは、ラテン語の nusquam（どこにも…ない）から名を取った、創作の国です。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて記します。記した誤りの数が、この国の版図です。自分の誤りを一つ公に正した人は、叙任の規程の条件を満たすときにだけ、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。受付に戻ったときも、願い出ることができるのは、日本に住み、願い出のときに日本にいる 16 歳以上の人に限ります。イタリアの国籍を持つ人と、外国の称号を受けることを縛る国の国籍を持つ人は、願い出ることができません。称号に法的な効力はなく、お金は一切動きません。2026-12-15 からは、受付に戻ったあとも、願い出ることができるのは 18 歳以上の人に限り、叙任は一年に 1 人までです。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 
 ## 添える文
 
@@ -970,7 +1001,7 @@ Source: https://nusquama.vercel.app/press.html
 
 ミクロネーションの wiki や集まりで、ヌスクァマを英語で紹介するときの文です。英語の頁に、この文の英語の版があります。最初の文で、創作であることを断ります。
 
-これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。外国の称号を受けることを縛る国の国籍を持つ人も同じです。叙任は、称号を遊びとして扱う良識ある人であることを前提とします。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。
+これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。外国の称号を受けることを縛る国の国籍を持つ人も同じです。叙任は、称号を遊びとして扱う良識ある人であることを前提とします。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。-12-15 から、新しい交流の申し出は受けません。
 
 ## 界隈の言い回しとの対応
 
@@ -1021,6 +1052,7 @@ Source: https://nusquama.vercel.app/play.html
 3. 確かめていないことは、確かめていないと書く。
 
 この表で正した誤りは、叙任の願い出に使えます（[叙任の規程](policies/knighting.md)）。叙任の願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 
 ## 誤り探しの練習
 
@@ -1106,7 +1138,7 @@ Source: https://nusquama.vercel.app/mission.html
 
 # 運営理念・声明
 
-最終更新：2026-11-14。
+最終更新：2026-11-19。
 
 > これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。この声明は、創作の国を遊びとして運営する個人が、運営の考え方を述べたものです。
 
@@ -1171,7 +1203,8 @@ Source: https://nusquama.vercel.app/mission.html
 3. 2026-11-22 から、叙任の規程が国籍で除く国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。国籍で除く国は、現在、19 か国です。イタリアと、叙任の規程「外国の称号を縛る国」の表の 18 か国です。表の国のほかにも、国籍を持つ国の法令が同じ節の三つの型のどれかに当たる人は、願い出ることができません。
 4. そのほか、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができず、叙任しません。運営者がそう判断したときは、その国や地域と理由を、叙任の規程に書き足します（叙任の規程「法令に適合しない国と地域」）。
 5. 叙任しない国と地域の数は、法令の変化や運営者の判断によって増えることがあります。
-6. この声明の目的は、これらの定めを変えません。
+6. ヌスクァマは、現在、個人で運営しているため、参加のハードルを極端に高くしています。2026-12-15 から、受付に戻ったあとの叙任には、叙任の規程「参加のハードル」の条件も加わります。
+7. この声明の目的は、これらの定めを変えません。
 
 ## 第 9 条（権利）
 
@@ -1185,6 +1218,7 @@ Source: https://nusquama.vercel.app/mission.html
 2. 本名・住所・所属・連絡先は求めません。
 3. 叙任の願い出と誤りの知らせは、GitHub（米国）の公開の issue で受けます。
 4. 16 歳未満の人は、叙任を願い出ることができません。
+5. 2026-12-15 から、18 歳未満の人も、叙任を願い出ることができません（[叙任の規程](policies/knighting.md)「参加のハードル」）。
 
 ## 第 11 条（言語モデルの使用）
 
@@ -1226,7 +1260,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 
 # 利用規約
 
-最終更新：2026-11-15。
+最終更新：2026-11-19。
 
 ## この規約が及ぶ人
 
@@ -1321,6 +1355,12 @@ Source: https://nusquama.vercel.app/policies/terms.html
 予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。「書いてあること」の語が「どこにあるか」の所にそのとおりになければ、ラベル「not verified」と決まった文のコメントを付けます。本文を直すか、新しい issue で知らせ直せば、もう一度確かめます。突き合わせの受付は、どの issue も閉じません（[削除・訂正・辞退の求め](./requests.md)「求めを受けた後」。2026-11-14 に示し、2026-11-15 に閉じないと改めました）。
 予告：2026-12-01 から、その日以後に開かれた誤りの知らせは、日本にいる人からだけ受けます。知らせる人の ORCID の公開の記録で確かめ、確かめられない知らせは受け付けず、ラベルと決まった文のコメントを付けます。issue は閉じません。削除・訂正・辞退・権利・個人の情報・同意の求めは、どの国の人からも受けます（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
 予告：2026-12-01 から、求めに応じてリポジトリの履歴から名簿の行を消す前に、その行の提供の記録の項目だけを別に記し、三年、公開のまま残します（[削除・訂正・辞退の求め](./requests.md)「外せないもの」）。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。次の四つの予告は、そのためのものです。
+予告：2026-12-15 から、受付に戻ったあとの叙任の願い出は、18 歳以上の人に限ります。同じ GitHub のアカウントからの願い出は、前の願い出から 365 日のあいだ受けません。叙任は一年に 1 人までとし、決めるのは願い出の issue を開いた日から 90 日を過ぎてからとします。様式の「称号を使わない場所」の欄への答えを求め、受付に戻すときの場所の確かめの 30 日を 365 日とします（[叙任の規程](./knighting.md)「参加のハードル」）。
+予告：2026-12-15 から、その日以後に開かれた誤りの知らせは、日本を指す ORCID の項目が issue を開く 365 日以上前に足されていなければ、日本にいると確かめたとしません（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
+予告：2026-12-15 から、その日以後に開かれた誤りの知らせは、様式の「確かめた先」の欄に空白を除いて 6 文字以上が書かれていなければ受け付けず、ラベル「source not given」と決まった文のコメントを付けます。issue は閉じません（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
+予告：2026-12-15 から、新しい交流の申し出を受けません（[交流の規程](./exchange.md)「参加のハードル」）。
+
 どの変更によっても、料金は生じません。
 王が国を続けられなくなったときは、予告なく国を凍結することがあります（[国の仕組み](../INSTITUTIONS.md)「凍結」）。凍結しても、名簿・正誤表・規程は公開に残し、削除・訂正・辞退の求めにはできる限り応えます。
 国を解散するときは、終わりの言葉を掲げてから、辞退などの求めに応じる期間を少なくとも 30 日置きます（国の仕組み「解散」）。
@@ -1464,7 +1504,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-18。
+最終更新：2026-11-19。
 
 ## 取り扱う者
 
@@ -1489,6 +1529,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 - GitHub のアカウント名
 - 訂正への公開のリンク
 - 何を誤り、どう正したかの説明
+- 称号を使わない場所の答え（2026-12-15 から。[叙任の規程](./knighting.md)「参加のハードル」）
 
 これらは issue で公開され、叙任された人については、GitHub のアカウント名・叙任の日・正した誤りの要約・願い出へのリンクを[騎士の名簿](../KNIGHTS.md)に載せます。
 本名・住所・所属・連絡先は求めません。様式でも、書かないよう求めています。
@@ -1498,6 +1539,7 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 願い出の issue が開かれたり直されたりすると、GitHub Actions の自動の確認が、様式の印と、訂正へのリンクの文字を読みます。
 自動の確認は、訂正へのリンクを開きません。リンク先へは何も要求せず、リンク先の中身はどこにも残しません。
 リンク先を開いて読むのは運営者です（[叙任の規程](./knighting.md)「運営者が確かめること」）。
+2026-12-15 から、自動の確認は、同じアカウントが前に開いた叙任の願い出の issue の、開いた時刻と題も読みます。前の願い出から 365 日たったかを確かめるためで、ほかには使わず、どこにも残しません。
 
 ## 誤りの知らせで扱うもの
 
@@ -1507,6 +1549,8 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 本名・住所・所属・連絡先は求めません。様式でも、書かないよう求めています。
 2026-12-01 から、誤りの知らせは、日本にいる人からだけ受けます。そのために、知らせる人の ORCID iD を様式で尋ね、その ORCID の公開の記録のうち、GitHub のアカウントへのリンク、公開の住所の国、終わりの日のないいまの勤め先と在学先の組織の国（それぞれを足した日とともに）だけを読みます。国の符号（ISO）だけを読み、国籍は読みません。
 日本を指す項目が issue を開く 30 日以上前からあり、ほかの国を指す項目がないときに限り、日本にいると確かめたとします。確かめられない知らせは受け付けず、ラベルと決まった文のコメントを付けます。issue は閉じません。
+2026-12-15 から、その日以後に開かれた知らせでは、この 30 日を 365 日とします。読む項目は変わりません。
+2026-12-15 から、その日以後に開かれた知らせは、様式の「確かめた先」の欄に空白を除いて 6 文字以上が書かれていなければ受け付けず、ラベル「source not given」と決まった文のコメントを付けます。issue は閉じません。この欄は前から様式にあり、新しく集める情報はありません。
 読んだ国も組織も、保存せず、コメントにも実行の記録にも書きません。書くのは、確かめられたかどうかだけです。
 削除・訂正・辞退・権利・個人の情報・同意の求めには、この限りは掛かりません。
 
@@ -1596,7 +1640,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 
 # 叙任の規程
 
-最終更新：2026-11-15。
+最終更新：2026-11-19。
 
 ## 叙任とは
 
@@ -1613,6 +1657,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 この規程が条件を足すところは、この規程に従います。
 足した条件は、年齢、住む国、願い出のときにいる国、国籍、良識の前提と、受付の停止です。
 2026-11-29 からは、「法令に適合しない国と地域」の定めも、足した条件に加わります。
+2026-12-15 からは、「参加のハードル」の条件も、足した条件に加わります。
 第六条の条件を満たしても、この規程の条件を満たさない人は、叙任しません。
 2026-11-13 に Claude が決めました。基本法の条を改めずに、第六条の条件だけで叙任されると読まれないためです。
 
@@ -1632,6 +1677,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています（「受付の停止」、[適法性の説明](./legality.md)「日本の外の法令」）。
 旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
 2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（「法令に適合しない国と地域」）。
+2026-12-15 から、18 歳未満の人は願い出ることができません（「参加のハードル」）。
 
 ## 受付の停止
 
@@ -1664,6 +1710,28 @@ ORCID の項目が日本を指し、issue を開く 30 日以上前に足され�
 これで証せるのは、前からある公開の記録が食い違わないことであって、どこに住んでいるかではありません。偽りの記録を 30 日保つ人は、通ることがあります。そのため、事実でない印を付けることを禁じる利用規約の定めと、名簿から名を外す定めは、そのまま保ちます。
 ORCID の記録を読むことは、受付に戻すときに、個人情報の取り扱いに目的と読む項目を書き足し、利用規約で前もって示してから始めます。
 2026-11-14 に利用者が求め、Claude が決めました。日本に住んでいることを本人の申告だけで受けないようにし、それでも受付を止めたままにするのは、日本の外の法令の一点が条文から決まらないことが変わっていないためです。
+2026-12-15 から、この節の 30 日は 365 日です（「参加のハードル」）。
+
+## 参加のハードル
+
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+2026-12-15 から、受付に戻ったあとの叙任には、次の六つの条件も加わります。
+
+1. 18 歳未満の人は、願い出ることができません。年齢は、様式の誓いへの印による本人の申告で受けます。
+2. 同じ GitHub のアカウントからの願い出は、そのアカウントが前に叙任の願い出の issue を開いた時から 365 日のあいだ受けません。断った願い出も、取り下げた願い出も数えます。受付の停止のあいだに届き、自動の確認が閉じた願い出は数えません。
+3. 叙任は、一年（1 月 1 日から 12 月 31 日まで、日本時間）に 1 人までとします。名簿の叙任の日で数えます。
+4. 叙任を決めるのは、願い出の issue を開いた日（日本時間）から 90 日を過ぎてからです。
+5. 願い出る人は、様式の「称号を使わない場所」の欄に、この国の称号を書かない場所を、規程の語で三つ以上書きます。規程の語は、履歴書・論文・名刺・公的な書類・学術の場・商取引・広告です（王国基本法第八条、利用規約「称号の扱い」）。
+6. 「受付に戻すときの場所の確かめ」の 30 日を、365 日に替えます。日本を指す ORCID の項目は、issue を開く 365 日以上前に足されたものでなければなりません。
+
+18 歳は、民法第4条が成年とする年齢です。同条は「年齢十八歳をもって、成年とする。」と定めます。
+願い出る人は、様式で利用規約に同意します。同法第5条第1項は「未成年者が法律行為をするには、その法定代理人の同意を得なければならない。」と定め、同条第2項は「前項の規定に反する法律行為は、取り消すことができる。」と定めます。
+様式での同意が同条の法律行為に当たるかは、条文からは決まりません。運営者は、厳しいほうの読み方を採り、18 歳未満の人の願い出を受けません。
+1・2・5 は、自動の確認が確かめます。4 は、自動の確認が、叙任を決められる最も早い日をコメントに書きます。3 は、検査（`verification/check.js`）が名簿の行から確かめます。6 は、受付に戻すときに、場所の確かめと同じ手順で確かめます。
+2 のために、自動の確認は、同じアカウントが前に開いた叙任の願い出の issue の、開いた時刻と題だけを読みます。題は、受付の停止のあいだに閉じた願い出を見分けるためだけに読みます。新しく尋ねることも、新しく集める情報もありません。
+どの条件も、国籍・性別・信条などで人を分けません。場所の決めは、「願い出ることができる人」「外国の称号を縛る国」「法令に適合しない国と地域」のままで、足していません。
+受付は止めたままです。この節は、受付に戻ったあとの条件を定めるもので、受付に戻すことを決めるものではありません。
+2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選びました。ひとりの運営者が読み、確かめきれる数の願い出だけを受けるためです。
 
 ## 良識の前提
 
@@ -1767,6 +1835,8 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 
 本名・住所・所属・連絡先は書きません。
 
+2026-12-15 から、様式の「称号を使わない場所」の欄にも書き、18 歳以上の印も付けます（「参加のハードル」）。
+
 ## 運営者が確かめること
 
 - リンク先が公開されていて、訂正であると読めること。
@@ -1780,6 +1850,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 願い出の issue が開かれたり直されたりすると、自動の確認が、様式の誓いの印と、訂正へのリンクが https の URL で受けない先を指さないことを確かめ、結果を issue にコメントします。
 自動の確認は、訂正へのリンクを開きません。リンク先を開いて読むのは運営者です。
 受けない先は、localhost、.localhost・.local・.internal・.home.arpa・.test・.example・.invalid・.onion で終わる名、数で書いた先、点を含まない名、名や合言葉を含む URL です。どれも公開の頁を指さないためです。
+2026-12-15 から、自動の確認は、18 歳以上の印、「称号を使わない場所」の答え、同じアカウントの前の願い出の日も確かめ、叙任を決められる最も早い日を書きます（「参加のハードル」）。
 自動の確認は何も決めません。叙任を決めるのは運営者です。
 
 ## 確かめないこと
@@ -1802,6 +1873,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 - 願い出の条件（年齢・住んでいる国・願い出のときにいる国・国籍）に当たらないことが、訂正のリンク先からはっきり読めるもの。
 - 2026-11-12 から、受付に戻るより前に開かれた願い出（「受付の停止」）。
 - 2026-11-22 から、「良識の前提」に当たらないことが、願い出た人が書いたことや訂正のリンク先からはっきり読めるもの。
+- 2026-12-15 から、「参加のハードル」の条件に当たらないもの。
 
 断るときは、決めた一文（「叙任の条件に当たりません。」）だけを issue に書き、人を評しません。本人の求めがあれば、その issue を削除します。
 
@@ -2342,7 +2414,7 @@ Source: https://nusquama.vercel.app/policies/exchange.html
 
 # 交流の規程
 
-最終更新：2026-11-12。
+最終更新：2026-11-19。
 
 ## この規程について
 
@@ -2385,6 +2457,16 @@ Source: https://nusquama.vercel.app/policies/exchange.html
 始めた日も、年表に残します。
 交流は、どちらからでも、いつでも終えられます。終えたときは、リンクを外し、外した日を年表に残します。
 
+## 参加のハードル
+
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+2026-12-15 から、新しい交流の申し出を受けません。受けるのに戻る日は決めていません。
+2026-12-15 より前に届いた申し出には、この規程の「申し出を受けたとき」の手順で答えます。
+2026-12-15 から届いた申し出には、この節によって受けていないことだけを答えます。
+受けるのに戻すときは、戻る日を、この節と[利用規約](terms.md)で、その日より前に示します。
+2026-11-19 の時点で、交流している相手はありません。
+2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が決めました。交流を始めると、相手の頁を読み続け、相手の書くことを確かめ続ける務めが、ひとりの運営者に残るためです。
+
 ## 求め
 
 相手の国の運営者は、[削除・訂正・辞退の求め](requests.md)の手順で、リンクの訂正や取り下げを求めることができます。
@@ -2395,7 +2477,7 @@ Source: https://nusquama.vercel.app/policies/terms.en.html
 
 # Terms of Use
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -2492,6 +2574,12 @@ Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay p
 Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake. If the words under "What it says" do not occur at the place under "Where", the label "not verified" and a fixed comment are added; editing the issue, or reporting again in a new issue, runs the check again. The checked intake never closes an issue ([Requests](./requests.en.md), "After a request"; shown on 2026-11-14, and changed on 2026-11-15 so that nothing is closed).
 Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan. This is checked in the reporter's public ORCID record; a report that cannot be checked is not accepted, and gets a label and a fixed comment. The issue is not closed. Requests about removal, correction, withdrawal, rights, personal data or consent are received from people in every country ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 Notice: from 2026-12-01, before a line of the roll is erased from the history of the repository on request, only the items of the record of provision for that line are recorded separately, and stay public for three years ([Requests](./requests.en.md), "What cannot be removed").
+Because Nusquama is run by one individual, its barriers to participation are set extremely high. The four notices below are for that purpose.
+Notice: from 2026-12-15, once applications reopen, only people aged 18 or over may apply for knighting. An application from a GitHub account is not received for 365 days after its previous application. At most 1 person is knighted in a year, and knighting is decided only after 90 days have passed from the day the application issue was opened. An answer in the field "称号を使わない場所" (Places where the title is not used) of the form is required, and the 30 days in the check of the place when applications reopen become 365 days ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
+Notice: from 2026-12-15, for an error report opened on or after that day, being in Japan is not taken as checked unless an ORCID entry naming Japan was added at least 365 days before the issue was opened ([Privacy](./privacy.en.md), "What a report of a mistake involves").
+Notice: from 2026-12-15, an error report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment. The issue is not closed ([Privacy](./privacy.en.md), "What a report of a mistake involves").
+Notice: from 2026-12-15, no new offer of exchange is received ([Rules on exchange](./exchange.en.md), "Barriers to participation").
+
 No change will ever create a fee.
 When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.
 When the country is dissolved, a period of at least 30 days for withdrawal and other requests follows the posting of the closing words (Institutions, "Dissolution").
@@ -2637,7 +2725,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-18.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -2664,6 +2752,7 @@ Once applications reopen, an application involves:
 - The GitHub account name
 - A public link to the correction
 - An account of what was wrong and how it was corrected
+- The answer under "称号を使わない場所" (Places where the title is not used) (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
@@ -2673,6 +2762,7 @@ Issues are also subject to GitHub's Terms of Service and Privacy Statement.
 When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and the text of the link to the correction.
 The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.
 The operator is the one who opens and reads the linked page ([Rules on Knighting](./knighting.en.md), "What the operator checks").
+From 2026-12-15, the automatic check also reads the time of opening and the title of the application issues that the same account opened before. This is only to check whether 365 days have passed since the previous application; it is used for nothing else and kept nowhere.
 
 ## What a report of a mistake involves
 
@@ -2682,6 +2772,8 @@ These are public in the issue. The King's errata do not name the person who repo
 No real name, address, affiliation or contact details are asked for, and the form asks reporters not to write them.
 From 2026-12-01, error reports are received only from people in Japan. To check this, the form asks for the reporter's ORCID iD, and only these parts of that public ORCID record are read: the link to the GitHub account, the country of each public address, and the country of the organisation of each current (no end date) employment and education, each with the day it was added. Only the country codes (ISO) are read; nationality is never read.
 A reporter is taken as being in Japan only if an entry naming Japan was added at least 30 days before the issue was opened and no entry names another country. A report that cannot be checked is not accepted, and gets a label and a fixed comment; the issue is not closed.
+From 2026-12-15, for a report opened on or after that day, the 30 days become 365 days. The items read do not change.
+From 2026-12-15, a report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment, and the issue is not closed. The field has always been in the form, and no new information is collected.
 The countries and organisations read are not stored, and are written neither in a comment nor in the log of the run; only whether the check passed is written.
 This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent.
 
@@ -2771,7 +2863,7 @@ Source: https://nusquama.vercel.app/policies/knighting.en.html
 
 # Rules on Knighting
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -2790,6 +2882,7 @@ The conditions of these rules apply in addition to the condition of Article 6.
 Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
+From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
 A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
 Claude decided this on 2026-11-13, so that, without amending any article of the Basic Law, Article 6 is not read as making its condition alone enough to be knighted.
 
@@ -2809,6 +2902,7 @@ Excluding people who hold Italian nationality is the operator's own rule. It onl
 Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused ("Pause in receiving applications"; [Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either ("Countries and regions where knighting would not conform to the law").
+From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
 
 ## Pause in receiving applications
 
@@ -2841,6 +2935,28 @@ The countries and organisations read are not kept, not written, and not printed 
 This proves that earlier public records agree, not where a person lives: a person who keeps false records for 30 days can still pass. The rule of the Terms of Use against ticking a box untruly, and the removal from the roll, therefore stay as they are.
 Reading ORCID records starts only when applications reopen, after the purposes and the items read are added to the privacy page and the change is shown ahead in the Terms of Use.
 The owner asked for this on 2026-11-14, and Claude decided it. Living in Japan is no longer to rest on the applicant's statement alone, and applications still stay paused, because the point of law outside Japan that the texts do not settle has not changed.
+From 2026-12-15, the 30 days in this section are 365 days ("Barriers to participation").
+
+## Barriers to participation
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+From 2026-12-15, once applications reopen, the six conditions below also apply to knighting.
+
+1. A person under 18 may not apply. Age is taken from the applicant's own declaration, by a tick in the form.
+2. An application from a GitHub account is not received for 365 days from the time that account last opened an application issue for knighting. Applications that were declined or withdrawn count. Applications that arrived during the pause and were closed by the automatic check do not count.
+3. At most 1 person is knighted in a year (1 January to 31 December, Japan time), counted by the day of knighting on the roll.
+4. Knighting is decided only after 90 days have passed from the day (Japan time) the application issue was opened.
+5. In the field "称号を使わない場所" (Places where the title is not used) of the form, the applicant names at least three places where the title of this kingdom is not written, in the words of the rules. The words are CV, paper, business card, official document, academic setting, commerce and advertising (Basic Law, Article 8; Terms of Use, "Titles").
+6. The 30 days in "Checking the place when applications reopen" become 365 days. An ORCID entry naming Japan must have been added at least 365 days before the issue was opened.
+
+18 is the age of majority under Article 4 of the Civil Code. The Japanese text of the article is "年齢十八歳をもって、成年とする。"
+An applicant agrees to the Terms of Use in the form. Article 5(1) of the same Code says that a minor needs the consent of their legal representative to perform a juristic act, and Article 5(2) says that a juristic act in breach of paragraph 1 may be rescinded.
+Whether agreeing in the form is such a juristic act is not settled by the texts. The operator takes the stricter reading, and does not receive applications from people under 18.
+Conditions 1, 2 and 5 are checked by the automatic check. For condition 4, the automatic check writes in its comment the earliest day on which knighting can be decided. Condition 3 is checked by the checks (`verification/check.js`) against the rows of the roll. Condition 6 is checked, when applications reopen, in the same way as the check of the place.
+For condition 2, the automatic check reads only the time of opening and the title of the application issues that the same account opened before. The title is read only to tell apart the applications closed during the pause. Nothing new is asked, and no new information is collected.
+None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
+Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
+The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions, so that only as many applications are received as one operator can read and check.
 
 ## The premise of good sense
 
@@ -2944,6 +3060,8 @@ What an applicant agrees to is the version of the rules on the day of the applic
 
 Do not write your real name, address, affiliation or contact details.
 
+From 2026-12-15, also fill in the field "称号を使わない場所" (Places where the title is not used) in the form, and tick the box that you are 18 or over ("Barriers to participation").
+
 ## What the operator checks
 
 - That the link is public and reads as a correction.
@@ -2957,6 +3075,7 @@ The operator does not judge whether the correction itself is right. The operator
 When an application issue is opened or edited, an automatic check looks at the ticks in the form and whether the link to the correction is an https URL that does not point to a refused destination, and comments the result in the issue.
 The automatic check does not open the link to the correction. The operator is the one who opens and reads it.
 The refused destinations are localhost; names ending in .localhost, .local, .internal, .home.arpa, .test, .example, .invalid or .onion; addresses written as numbers; names without a dot; and URLs that contain a user name or password. None of them points to a public page.
+From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
@@ -2979,6 +3098,7 @@ No knighthood is given for:
 - An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
 - An application opened from 2026-11-12 until applications reopen ("Pause in receiving applications").
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
+- From 2026-12-15, an application that does not meet the conditions in "Barriers to participation".
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 
@@ -3525,7 +3645,7 @@ Source: https://nusquama.vercel.app/policies/exchange.en.html
 
 # Rules on exchange
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./exchange.md) governs; if the two differ, the Japanese version applies.
 
@@ -3570,6 +3690,16 @@ When an exchange begins, a link to the other party's page is put, with the date,
 The day it begins is also kept in the timeline.
 Either side may end an exchange at any time. When it ends, the link is taken down, and the day is kept in the timeline.
 
+## Barriers to participation
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+From 2026-12-15, no new offer of exchange is received. No date has been set for receiving offers again.
+An offer that arrived before 2026-12-15 is answered under "When an offer is received" in these rules.
+An offer that arrives from 2026-12-15 gets only the answer that offers are not received, under this section.
+If offers are to be received again, the day will be shown in this section and in the [Terms of Use](terms.en.md) before that day.
+As of 2026-11-19, Nusquama has no exchange with anyone.
+The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude decided this, because once an exchange begins, one operator is left with the duty of reading the other party's pages and checking what the other party writes, for as long as it lasts.
+
 ## Requests
 
 The operator of the other country may ask for a link to be corrected or taken down, by the procedure in [Requests for removal, correction or withdrawal](./requests.en.md).
@@ -3580,9 +3710,11 @@ Source: https://nusquama.vercel.app/founding.en.html
 
 # Founding Declaration, Basic Law and Ten Precepts
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-19.
 
 This is an English translation of three parts of the top page. The [Japanese version](./README.md) governs; if the two differ, the Japanese version applies.
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high. The conditions for each way of taking part are in [Institutions](./INSTITUTIONS.en.md), "Barriers to participation".
 
 ## The founding declaration
 
@@ -3667,6 +3799,8 @@ This is an English translation. The [Japanese version](KNIGHTS.md) governs; if t
 The knights are listed in the order of their knighting. There is only one rank, "knight", with nothing above or below it (Basic Law, Article 7).
 Names are given as GitHub account names, with no real name or affiliation.
 A knight may ask at any time to be taken off the roll ([Rules on Knighting](policies/knighting.en.md)).
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+The conditions are in [Rules on Knighting](policies/knighting.en.md), "Barriers to participation".
 
 | No. | Knight | Knighted | Mistake corrected | Application |
 | --- | --- | --- | --- | --- |
@@ -3676,6 +3810,7 @@ Nemo I, Knight-King, is the King and is not on this roll.
 ## How entries are recorded
 
 On knighting, one row is added to the table. The issue of the [gazette](GAZETTE.en.md) is made from that row.
+From 2026-12-15, at most 1 person is knighted in a year (1 January to 31 December, Japan time). The table also has at most one row for each year of the day of knighting. The checks count the rows of the table to confirm this.
 
 - No.: continues from 1 with no gaps.
 - Knight: the GitHub account name.
@@ -4050,6 +4185,7 @@ The king will make more mistakes.
 Each time, he adds a row to the [King's errata](ERRATA.en.md) and the domain grows by one parcel.
 A person who has publicly corrected one of their own mistakes can join the [Ordo Erratorum](KNIGHTS.en.md) if they meet the conditions of the [Rules on Knighting](policies/knighting.en.md).
 Applications have been paused since 2026-11-12. No date for reopening has been set.
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 
 ---
 
@@ -4119,6 +4255,8 @@ Nemo I, Rex Eques, die VII mensis Novembris anno MMXXVI.
 
 Parts of the King's Latin have not been checked against a dictionary or a grammar.
 Anyone who knows Latin well may report a mistake through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml), choosing the category 語 (Word).
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+The conditions on which reports of mistakes are received are in [Institutions](INSTITUTIONS.en.md), "Barriers to participation".
 A mistake the King confirms is recorded in the [King's errata](ERRATA.en.md) under the category Word. Its place name falls on the island Insula Verbi.
 When a Latin text is changed, the text before the change is kept in the King's errata.
 The errata do not name the person who reported the mistake. Reporting a mistake does not make anyone a knight.
@@ -4193,6 +4331,22 @@ Nusquama has no pardon that erases a mistake (Article 5 of the Basic Law).
 If a recorded entry itself turns out to be wrong, the earlier row is not erased. A new row records that the earlier row was wrong.
 So asking for a pardon makes the domain one parcel larger.
 Removing a knight's name from the roll is not a pardon. Leaving and revocation follow the [Rules on Knighting](policies/knighting.en.md).
+
+## Barriers to participation
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+The ways in which someone from outside takes part in the kingdom, and the conditions of each, are in the table below.
+
+| Way | Until 2026-12-14 | From 2026-12-15 |
+| --- | --- | --- |
+| Application for knighthood | Paused since 2026-11-12. No date for reopening has been set | Still paused. Once applications reopen: only people aged 18 or over; once in 365 days from the same account; at most 1 person knighted a year; the decision only after 90 days from the application. An answer naming the places where the title is not used is required, and the check of the place uses 365 days ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation") |
+| Report of a mistake | From 2026-12-01, the quoted words are checked, and being in Japan is checked in the ORCID record (30 days) | The ORCID entry naming Japan must be at least 365 days old. The field "確かめた先" (Checked against) is required ([Privacy](policies/privacy.en.md), "What a report of a mistake involves") |
+| Offer of exchange | Answered by the procedure in the [Rules on exchange](policies/exchange.en.md) | No new offer is received (Rules on exchange, "Barriers to participation") |
+
+Nusquama gives no nationality, so there is no way to join as one of its people ([Rules on Knighting](policies/knighting.en.md), "What is not checked").
+None of the ways costs anything ([Terms of Use](policies/terms.en.md), "Fees").
+Requests for removal, correction or withdrawal, notices from rights holders and reports of security problems are not ways of taking part. Their barriers are not raised, and they are received from people in every country ([Requests](policies/requests.en.md)).
+The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions. The reasons for the choice, and the ideas not taken, are in the section "2026-11-19：参加のハードル" of the [record of the legal review](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md).
 
 ## Changing the rules
 
@@ -4345,7 +4499,7 @@ Text and numbers for anyone introducing Nusquama in an article or a post are gat
 
 - In a phrase: a kingdom that is nowhere, whose territory is its mistakes.
 - In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of the King's own mistakes in the errata.
-- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. If they reopen, only people aged 16 or over who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality, or the nationality of a country that restricts accepting foreign titles, may not apply. The titles have no legal effect, and no money changes hands.
+- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. If they reopen, only people aged 16 or over who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality, or the nationality of a country that restricts accepting foreign titles, may not apply. The titles have no legal effect, and no money changes hands. From 2026-12-15, even once applications reopen, only people aged 18 or over may apply, and at most 1 person is knighted a year. Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 
 ## Sentences to add
 
@@ -4381,7 +4535,7 @@ To the operator of ○○: this is Nemo I, Knight-King of Nusquama. Nusquama is 
 
 Text for introducing Nusquama in English on micronation wikis and forums. Its first sentence says that Nusquama is fiction.
 
-This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality may not apply, even if they also hold another nationality, and nor may people who hold the nationality of a country that restricts accepting foreign titles. Knighting presumes a person of good sense who treats the title as play. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money.
+This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality may not apply, even if they also hold another nationality, and nor may people who hold the nationality of a country that restricts accepting foreign titles. Knighting presumes a person of good sense who treats the title as play. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money. Because Nusquama is run by one individual, its barriers to participation are set extremely high. From 2026-12-15, no new offer of exchange is received.
 
 ## Terms used in the micronation community
 
@@ -4434,6 +4588,7 @@ Three rules go with it.
 3. Say so when something has not been checked.
 
 A mistake corrected in such a table can be used in a request for knighthood ([Rules on Knighting](policies/knighting.en.md)). Applications for knighting have been paused since 2026-11-12, and no date for reopening has been set.
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 
 ## Practice: find the mistake
 
@@ -4519,7 +4674,7 @@ Source: https://nusquama.vercel.app/mission.en.html
 
 # Statement of Purpose
 
-Last updated: 2026-11-14.
+Last updated: 2026-11-19.
 
 > This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. This statement sets out how the individual who runs this fictional country as play thinks about running it.
 
@@ -4586,7 +4741,8 @@ Where this statement says "at present", it means as of the date this page was la
 3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. At present the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
 4. In addition, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either, and are not knighted. When the operator so judges, the country or region and the reason are added to the Rules on Knighting (Rules on Knighting, "Countries and regions where knighting would not conform to the law").
 5. The number of countries and regions where knighting is not given may grow as laws change or as the operator judges.
-6. The purpose of this statement does not change any of these rules.
+6. At present, because Nusquama is run by one individual, its barriers to participation are set extremely high. From 2026-12-15, once applications reopen, the conditions in the Rules on Knighting, "Barriers to participation", also apply to knighting.
+7. The purpose of this statement does not change any of these rules.
 
 ## Article 9 (Rights)
 
@@ -4600,6 +4756,7 @@ Where this statement says "at present", it means as of the date this page was la
 2. Real names, addresses, affiliations and contact details are not asked for.
 3. Applications for knighting and reports of mistakes are received as public issues on GitHub (United States).
 4. A person under 16 may not apply for knighting.
+5. From 2026-12-15, a person under 18 may not apply for knighting either ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation").
 
 ## Article 11 (Use of language models)
 
