@@ -263,7 +263,8 @@ function markdown(md, srcRel, outRel) {
     if (/^!\[/.test(l)) { out.push(il(l)); i++; continue; }
     const para = [];
     while (i < lines.length && lines[i].trim() && !/^(#{1,3} |>|\||- |\d+\. |---+$|!\[)/.test(lines[i])) { para.push(lines[i]); i++; }
-    out.push('<p>' + joinLines(para.map(il)) + '</p>');
+    /* 日本語の頁の中の英語の段落（「English: 」で始まるもの）には、読み上げのために言語を付ける（2026-11-19、トップの参加のハードルの注）。 */
+    out.push((/^English: /.test(para[0]) ? '<p lang="en">' : '<p>') + joinLines(para.map(il)) + '</p>');
   }
   return out.join('\n');
 }

@@ -1,6 +1,6 @@
 # Statement of Purpose
 
-Last updated: 2026-11-14.
+Last updated: 2026-11-19.
 
 > This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. This statement sets out how the individual who runs this fictional country as play thinks about running it.
 
@@ -67,7 +67,8 @@ Where this statement says "at present", it means as of the date this page was la
 3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. At present the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
 4. In addition, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either, and are not knighted. When the operator so judges, the country or region and the reason are added to the Rules on Knighting (Rules on Knighting, "Countries and regions where knighting would not conform to the law").
 5. The number of countries and regions where knighting is not given may grow as laws change or as the operator judges.
-6. The purpose of this statement does not change any of these rules.
+6. At present, because Nusquama is run by one individual, its barriers to participation are set extremely high. From 2026-12-15, once applications reopen, the conditions in the Rules on Knighting, "Barriers to participation", also apply to knighting.
+7. The purpose of this statement does not change any of these rules.
 
 ## Article 9 (Rights)
 
@@ -81,6 +82,7 @@ Where this statement says "at present", it means as of the date this page was la
 2. Real names, addresses, affiliations and contact details are not asked for.
 3. Applications for knighting and reports of mistakes are received as public issues on GitHub (United States).
 4. A person under 16 may not apply for knighting.
+5. From 2026-12-15, a person under 18 may not apply for knighting either ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation").
 
 ## Article 11 (Use of language models)
 

@@ -25,6 +25,17 @@
  * リンク先を開いて読むのは運営者である（叙任の規程「運営者が確かめること」）。
  * 受付に戻ったあとは、2026-11-22 から求める印（日本にいる・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提）で確かめる。
  *
+ * 参加のハードル（2026-12-15 から。2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選んだ。叙任の規程「参加のハードル」）。前の願い出の日数は addInterval が足す：
+ *   - 18 歳以上の印があること（DATED に足した）
+ *   - 「称号を使わない場所」の欄が、規程の語（PLACE_WORDS）を PLACES_MIN 以上挙げること
+ *   - 同じアカウントが前に開いた叙任の願い出の issue から INTERVAL_DAYS 日たっていること。GitHub の API は issue の全体を返すが、
+ *     使うのは番号（いまの issue を除くため）と開いた時刻だけで、ほかは捨てる。受付の停止のあいだに開かれたものは、開いた時刻で除く（題は見ない。
+ *     題は誰でも書き換えられるため。2026-11-19 の点検で改めた）。読んだものは残さず、コメントにも記録にも書かない（前の issue の番号も書かない）
+ *   - 叙任を決められる最も早い日をコメントに書く。決めるのは運営者である
+ *   日数は日本時間の日で数え、初めの日（前の願い出や、この願い出の issue を開いた日）を数えない。90 日なら、開いた日の次の日から数えて
+ *   90 日が過ぎた次の日が、決められる最も早い日である。365 日も同じに数える（2026-11-19 の点検で改めた）。
+ *   一年に 1 人までという数は、名簿の行から検査 90 が確かめる（ここでは見ない）。
+ *
  * 様式の定義は tools/knighting-form.yml に置く。受付を止めているあいだは、issue の様式の一覧（.github/ISSUE_TEMPLATE/）に置かない
  * （2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十四度目の見落とし」）。受付に戻すときに、定義をそこへ写す。
  * 停止のあいだに叙任の願い出として届いた issue は、題と本文を短い断りに替え、閉じて、書き込みを止める（ロック）。
@@ -51,6 +62,17 @@ const FOREIGN_FROM = '2026-11-22';
 const FOREIGN = '次の国の国籍を持っていません：';
 const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
+/* 参加のハードル（2026-12-15 から）。2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選んだ。 */
+const HURDLE_FROM = '2026-12-15';
+const AGE = '18 歳以上です';
+const PLACES_FIELD = '称号を使わない場所';
+/* 規程の語（王国基本法第八条と利用規約「称号の扱い」）。英語の言い方でも数える。一つの語は一度だけ数える。 */
+const PLACE_WORDS = [['履歴書', 'CV', 'CVs', 'résumé', 'resume'], ['論文', 'paper', 'papers'], ['名刺', 'business card', 'business cards'], ['公的な書類', 'official document', 'official documents'], ['学術の場', 'academic'],
+  ['商取引', 'commerce', 'commercial', 'business transaction', 'business transactions'], ['広告', 'advertisement', 'advertisements', 'advertising']];
+const PLACES_MIN = 3;
+const INTERVAL_DAYS = 365;
+const WAIT_DAYS = 90;
+const DAY = 24 * 3600 * 1000;
 /* 様式が付けるラベル。ワークフローはどの issue でも動き、ラベルと様式の見出しや印で、ここが扱うかを決める。 */
 const LABEL = '叙任';
 /* 受付に戻す決め。null のあいだは受付を閉じており、どの日に開かれた願い出も受けない（日付では終わらない）。
@@ -116,6 +138,7 @@ const DATED = [
   { from: NATIONALITY_FROM, text: NATIONALITY, label: 'イタリアの国籍を持っていない印がある' },
   { from: PREMISE_FROM, text: PREMISE, label: '称号を遊びとして扱う印（良識の前提）がある' },
   { from: FOREIGN_FROM, text: FOREIGN, label: '外国の称号を縛る国の国籍を持っていない印がある' },
+  { from: HURDLE_FROM, text: AGE, label: '18 歳以上の印がある' },
 ];
 
 /* 純：様式の定義から、必ず印を付ける誓いの文を取り出す。 */
@@ -169,6 +192,36 @@ function parse(body) {
 
 const jstDay = (t) => new Date(Date.parse(t) + 9 * 3600 * 1000).toISOString().slice(0, 10);
 
+/* 純：「称号を使わない場所」の答えが挙げる規程の語の数。日本語の語は文字の上で、英語の言い方は語として（前後が英字でない所で）、大文字と小文字を問わずに見る。 */
+function placesNamed(text) {
+  const t = String(text || '');
+  return PLACE_WORDS.filter((ws) => ws.some((w) => (/^[\x00-\x7f]+$/.test(w) ? new RegExp('(^|[^a-z])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z])', 'i').test(t) : t.toLowerCase().includes(w.toLowerCase())))).length;
+}
+
+/* 純：日本時間の日（YYYY-MM-DD）の通し番号。日の差を数えるために使う。 */
+const dayNo = (day) => Math.round(Date.parse(day + 'T00:00:00Z') / DAY);
+
+/* 純：同じアカウントの前の願い出から INTERVAL_DAYS 日たっているか。たっていれば null、いなければ理由（前の issue の番号は書かない）。
+ * previous は、そのアカウントが開いた叙任のラベルの issue の、番号と開いた時刻の一覧。null は読めなかったことを表す。
+ * いまの issue、受付の停止のあいだ（PAUSE_FROM から受付に戻るまで）に開かれたもの、いまの issue より後に開いたものは数えない。
+ * 前の願い出を開いた日を数えずに INTERVAL_DAYS 日が過ぎるまで（日の差が INTERVAL_DAYS 以下のあいだ）は受けない。 */
+function intervalProblem(previous, opened, number, reopen = REOPEN) {
+  if (previous === null || previous === undefined) return '前の願い出を読めなかった';
+  const t = Date.parse(opened);
+  for (const p of previous) {
+    if (!p || p.number === number) continue;
+    const s = Date.parse(p.created_at);
+    if (!Number.isFinite(s) || s > t || paused(p.created_at, reopen)) continue;
+    if (dayNo(jstDay(opened)) - dayNo(jstDay(p.created_at)) <= INTERVAL_DAYS) return '前の願い出から ' + INTERVAL_DAYS + ' 日たっていない';
+  }
+  return null;
+}
+
+/* 純：叙任を決められる最も早い日（日本時間）。願い出の issue を開いた日を数えずに WAIT_DAYS 日が過ぎた、次の日。 */
+function earliestDecision(opened) {
+  return new Date(Date.parse(jstDay(opened) + 'T00:00:00Z') + (WAIT_DAYS + 1) * DAY).toISOString().slice(0, 10);
+}
+
 /* 訂正へのリンクの先として受けないもの。どれも公開の頁を指さず、運営者が開けば運営者の手元の機械や網に届きうる。
  * 2026-11-12 に Claude が決めた。一覧は docs/legal-audit-2026-11-12.md「2026-11-12 の続き：三度目の見落とし」に記し、検査 68 が照らし合わせる。 */
 const CLOSED = {
@@ -206,16 +259,37 @@ function check(form, opened, oaths = requiredOaths()) {
     const has = oath.split('\n').some((l) => /^- \[[xX]\] /.test(l) && l.includes(d.text));
     add(d.label, has, has ? '' : d.from + ' から、この印のない願い出は受けません');
   }
+  if (jstDay(opened) >= HURDLE_FROM) {
+    const named = placesNamed(form[PLACES_FIELD]);
+    add('「' + PLACES_FIELD + '」が規程の語を ' + PLACES_MIN + ' つ以上挙げる', named >= PLACES_MIN, named + ' つ');
+  }
   const link = (form['訂正への公開のリンク'] || '').trim();
   const problem = linkProblem(link);
   add('訂正へのリンクが https の URL で、受けない先を指さない', problem === null, problem || '開いていない。リンク先は運営者が読む');
   const what = (form['何を誤り、どう正したか'] || '').trim();
   add('何を誤り、どう正したかが書かれている', what.length >= 10 && what !== '_No response_');
-  return { ok: rows.every((r) => r[1]), rows };
+  return { ok: rows.every((r) => r[1]), rows, earliest: jstDay(opened) >= HURDLE_FROM ? earliestDecision(opened) : null };
+}
+
+/* 純：前の願い出からの日数の行を、確かめた結果に足す（HURDLE_FROM から）。前の願い出の一覧は GitHub の API から読むので、check とは分けてある。 */
+const INTERVAL_LABEL = '同じアカウントの前の願い出から ' + INTERVAL_DAYS + ' 日たっている';
+function addInterval(result, previous, opened, number, reopen = REOPEN) {
+  if (jstDay(opened) < HURDLE_FROM) return result;
+  const gap = intervalProblem(previous, opened, number, reopen);
+  result.rows.push([INTERVAL_LABEL, gap === null, gap || '']);
+  result.ok = result.rows.every((r) => r[1]);
+  return result;
 }
 
 /* 純：コメントの本文。 */
 function comment(result) {
+  /* 前の願い出からの日数は、この issue を直しても変わらない。その行だけが通らないときは、直すよう求めない（2026-11-19 の点検で改めた）。 */
+  const failed = result.rows.filter((r) => !r[1]).map((r) => r[0]);
+  const waitOnly = failed.length > 0 && failed.every((l) => l === INTERVAL_LABEL);
+  const waitToo = failed.includes(INTERVAL_LABEL);
+  const verdict = result.ok ? '様式は整っています。'
+    : (waitOnly ? '' : '通らなかったところを直し、この issue を編集してください。' + (waitToo ? '\n' : ''))
+      + (waitToo ? '前の願い出から ' + INTERVAL_DAYS + ' 日たっていないので、この願い出は受けません。この issue を直しても変わりません。日がたってから、新しい issue で願い出ることができます（叙任の規程「参加のハードル」）。' : '');
   const rows = result.rows.map(([label, pass, detail]) => `| ${pass ? '通' : '**不**'} | ${label} | ${String(detail).replace(/[|<>`]/g, '')} |`).join('\n');
   return `${MARK}
 **自動の確認**（この issue を直すたびに、もう一度動きます）
@@ -224,8 +298,8 @@ function comment(result) {
 | --- | --- | --- |
 ${rows}
 
-${result.ok ? '様式は整っています。' : '通らなかったところを直し、この issue を編集してください。'}
-この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
+${verdict}
+${result.earliest ? '叙任を決められるのは、早くて ' + result.earliest + '（日本時間）です。願い出の issue を開いた日を数えずに ' + WAIT_DAYS + ' 日が過ぎるまで、叙任を決めません（叙任の規程「参加のハードル」）。\n' : ''}この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
 これは創作であり、遊びです。称号に法的な効力はありません。
 `;
 }
@@ -237,6 +311,20 @@ async function github(method, p, body) {
   });
   if (!r.ok) throw new Error(method + ' ' + p + ': HTTP ' + r.status);
   return r.status === 204 ? null : r.json();
+}
+
+/* 同じアカウントが開いた叙任のラベルの issue の、番号と開いた時刻。GitHub の API は issue の全体を返すが、この二つのほかは捨てる。
+ * 一覧は終わりの頁まで読む。読めなければ throw する（実行が落ち、何も書かない）。 */
+async function previousApplications(login, gh = github) {
+  if (!login) return null;
+  const out = [];
+  for (let page = 1; page <= 50; page++) {
+    const list = await gh('GET', '/issues?creator=' + encodeURIComponent(login) + '&labels=' + encodeURIComponent(LABEL) + '&state=all&per_page=100&page=' + page);
+    if (!Array.isArray(list)) throw new Error('一覧でない答え');
+    for (const i of list) out.push({ number: i.number, created_at: i.created_at });
+    if (list.length < 100) return out;
+  }
+  throw new Error('一覧が長すぎる');
 }
 
 async function main() {
@@ -266,6 +354,7 @@ async function main() {
   }
   const form = parse(issue.body);
   const result = check(form, opened);
+  if (jstDay(opened) >= HURDLE_FROM) addInterval(result, await previousApplications(issue.user && issue.user.login), opened, n, reopen);
   const body = comment(result);
   const mine = mine0;
   if (mine) await github('PATCH', '/issues/comments/' + mine.id, { body });
@@ -273,6 +362,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+module.exports = { HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
