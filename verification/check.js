@@ -5467,6 +5467,10 @@ console.log('\n90. 参加のハードル（2026-11-19）：個人運営のため
     /* 七、求めは上げない。 */
     for (const f of ['.github/ISSUE_TEMPLATE/request.yml', '.github/ISSUE_TEMPLATE/rights.yml', 'SECURITY.md']) if (/ORCID|2026-12-15|参加のハードル/.test(String(x[f] || ''))) bad.push(f + '：ハードルを上げる');
     if (!String(x['.github/ISSUE_TEMPLATE/request.yml']).includes('求めは、住んでいる国や国籍を問わず、どの国の人からも同じ手順で受け、同じ速さで答えます。')) bad.push('求めの様式の、どの国からも受ける文');
+    /* 紹介の頁（日本語と英語）の、受付と交流の文。 */
+    const pr = String(x['PRESS.md'] || ''), pe2 = String(x['PRESS.en.md'] || '');
+    if (!pr.includes('2026-12-15 からは、受付に戻ったあとも、願い出ることができるのは 18 歳以上の人に限り、叙任は一年に 1 人までです。' + NJ) || !pr.includes('金銭のやりとりをしません。' + NJ + '2026-12-15 から、新しい交流の申し出は受けません。')
+      || !pe2.includes('only people aged 18 or over may apply, and at most 1 person is knighted a year. Because ' + NE) || !pe2.includes('handles no money. Because ' + NE + ' From 2026-12-15, no new offer of exchange is received.')) bad.push('紹介の頁の受付と交流の文');
     /* 六、交流。 */
     const xj = sec(x['policies/exchange.md'], '参加のハードル'), xe = sec(x['policies/exchange.en.md'], 'Barriers to participation');
     for (const s of XJ) if (!xj.includes(s)) bad.push('交流の規程：' + s.slice(0, 20));
@@ -5573,6 +5577,8 @@ console.log('\n90. 参加のハードル（2026-11-19）：個人運営のため
     ['英語の名簿から注を外す', mut('KNIGHTS.en.md', 'Because ' + NE, 'Because Nusquama is small, its barriers are high.')],
     ['誤りの知らせの様式から注を外す', mut('.github/ISSUE_TEMPLATE/error.yml', NJ, '')],
     ['声明から「現在」の注を外す', mut('MISSION.md', MJ, '')],
+    ['紹介の頁の交流の文から日付を欠く', mut('PRESS.md', '高くしています。2026-12-15 から、新しい交流の申し出は受けません。', '高くしています。-12-15 から、新しい交流の申し出は受けません。')],
+    ['英語の紹介の頁から 18 歳の文を外す', mut('PRESS.en.md', 'only people aged 18 or over may apply, and at most 1 person is knighted a year. ', '')],
     ['生成した遊びの頁から注を外す', mut('site/play.html', NJ, '')],
     ['叙任の規程の条件を一つ外す', mut('policies/knighting.md', '4. 叙任を決めるのは、願い出の issue を開いた日（日本時間）から 90 日を過ぎてからです。\n', '')],
     ['叙任の規程の数の語を変える', mut('policies/knighting.md', '次の六つの条件も加わります。', '次の五つの条件も加わります。')],
