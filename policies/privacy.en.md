@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-18.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -27,6 +27,7 @@ Once applications reopen, an application involves:
 - The GitHub account name
 - A public link to the correction
 - An account of what was wrong and how it was corrected
+- The answer under "称号を使わない場所" (Places where the title is not used) (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
@@ -36,6 +37,7 @@ Issues are also subject to GitHub's Terms of Service and Privacy Statement.
 When an application issue is opened or edited, an automatic check in GitHub Actions reads the ticks in the form and the text of the link to the correction.
 The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.
 The operator is the one who opens and reads the linked page ([Rules on Knighting](./knighting.en.md), "What the operator checks").
+From 2026-12-15, the automatic check also reads the time of opening and the title of the application issues that the same account opened before. This is only to check whether 365 days have passed since the previous application; it is used for nothing else and kept nowhere.
 
 ## What a report of a mistake involves
 
@@ -45,6 +47,8 @@ These are public in the issue. The King's errata do not name the person who repo
 No real name, address, affiliation or contact details are asked for, and the form asks reporters not to write them.
 From 2026-12-01, error reports are received only from people in Japan. To check this, the form asks for the reporter's ORCID iD, and only these parts of that public ORCID record are read: the link to the GitHub account, the country of each public address, and the country of the organisation of each current (no end date) employment and education, each with the day it was added. Only the country codes (ISO) are read; nationality is never read.
 A reporter is taken as being in Japan only if an entry naming Japan was added at least 30 days before the issue was opened and no entry names another country. A report that cannot be checked is not accepted, and gets a label and a fixed comment; the issue is not closed.
+From 2026-12-15, for a report opened on or after that day, the 30 days become 365 days. The items read do not change.
+From 2026-12-15, a report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment, and the issue is not closed. The field has always been in the form, and no new information is collected.
 The countries and organisations read are not stored, and are written neither in a comment nor in the log of the run; only whether the check passed is written.
 This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent.
 

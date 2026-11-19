@@ -21,6 +21,7 @@ Three rules go with it.
 3. Say so when something has not been checked.
 
 A mistake corrected in such a table can be used in a request for knighthood ([Rules on Knighting](policies/knighting.en.md)). Applications for knighting have been paused since 2026-11-12, and no date for reopening has been set.
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 
 ## Practice: find the mistake
 

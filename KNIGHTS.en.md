@@ -8,6 +8,8 @@ This is an English translation. The [Japanese version](KNIGHTS.md) governs; if t
 The knights are listed in the order of their knighting. There is only one rank, "knight", with nothing above or below it (Basic Law, Article 7).
 Names are given as GitHub account names, with no real name or affiliation.
 A knight may ask at any time to be taken off the roll ([Rules on Knighting](policies/knighting.en.md)).
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+The conditions are in [Rules on Knighting](policies/knighting.en.md), "Barriers to participation".
 
 | No. | Knight | Knighted | Mistake corrected | Application |
 | --- | --- | --- | --- | --- |
@@ -17,6 +19,7 @@ Nemo I, Knight-King, is the King and is not on this roll.
 ## How entries are recorded
 
 On knighting, one row is added to the table. The issue of the [gazette](GAZETTE.en.md) is made from that row.
+From 2026-12-15, at most 1 person is knighted in a year (1 January to 31 December, Japan time). The table also has at most one row for each year of the day of knighting. The checks count the rows of the table to confirm this.
 
 - No.: continues from 1 with no gaps.
 - Knight: the GitHub account name.

@@ -15,6 +15,11 @@
 >
 > English: This is a work of fiction, made for entertainment. Nusquama is an imaginary kingdom. It is not a state, and it is not academic research.
 
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+参加の道ごとの条件は、[国の仕組み](INSTITUTIONS.md)の「参加のハードル」にあります。
+
+English: Because Nusquama is run by one individual, its barriers to participation are set extremely high. The conditions for each way of taking part are in [Institutions](INSTITUTIONS.en.md), "Barriers to participation".
+
 ![ヌスクァマの国章（創作）](assets/emblem.svg)
 
 **国是**：Errata servo, me ipsum rego. ―― 誤りは守り、己を治める。
@@ -118,6 +123,9 @@
 2026-11-22 から、騎士の呼び名は、ヌスクァマに関わることにだけ使います（[叙任の規程](policies/knighting.md)「騎士の呼び名の使い方」）。
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（[叙任の規程](policies/knighting.md)「法令に適合しない国と地域」）。
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+2026-12-15 から、受付に戻ったあとも、18 歳未満の人は願い出ることができません。同じ GitHub のアカウントからの願い出は、前の願い出から 365 日のあいだ受けません（[叙任の規程](policies/knighting.md)「参加のハードル」）。
+2026-12-15 から、叙任は一年に 1 人までとし、決めるのは願い出の issue を開いた日から 90 日を過ぎてからです。様式では、称号を使わない場所も答えます（[叙任の規程](policies/knighting.md)「参加のハードル」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
 ただし、訂正へのリンクの先から、身元が分かることがあります。
 叙任は創作の中のことで、法的な効力も、現実の栄誉もありません。
@@ -203,6 +211,7 @@
 | 2026-11-16（日本時間） | 名称と権利に、似た名を持つほかのミクロネーション（たとえば「Nusquamia」）とは関係がないことを書く | Names and rights now states that Nusquama is not related to any other micronation with a similar name, such as "Nusquamia" |
 | 2026-11-18（日本時間） | 権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。適法性の説明「商標と表示」と README から様式へつなぎ、個人情報の取り扱いに、同意の印のある知らせの題と本文だけを Claude に渡すことを書く。2026-11-18 に利用者が求め、Claude が書きました | A form for notices from rights holders is set up, and Names and rights gains "For rights holders". The Legality Statement, under "Trademarks and indications", and the README link the form, and the Privacy Policy states that only the title and text of a notice whose box of consent is ticked are given to Claude. The owner asked for this on 2026-11-18, and Claude wrote it |
 | 2026-11-18（日本時間） | 名称と権利に「名称と商標」を書く。名としるし 5 つと初めて現れた日、出願しないこと、名の使い方、2026-11-17 の EUIPO の調べ、サイトが挙げるほかの者の名 18、配る画像、登録の表示を付けないこと、国旗と国章、知らせが来たときの手順を記す。権利者の知らせの様式と「権利者の方へ」から節へつなぐ。商標法と不正競争防止法の条を見張りに加え、見張りのすべての条を取り寄せ直す。2026-11-18 に利用者が求め、Claude が書きました | Names and rights gains "Names and trademarks": the 5 names and marks with the day each first appears, that none is or will be filed, how the names are used, the search at EUIPO on 2026-11-17, the 18 names of others that the site uses, the images it serves, that no registration mark is used, the flag and the emblem, and the steps when a notice comes. The form for rights holders and "For rights holders" link it. Articles of the Trademark Act and of the Unfair Competition Prevention Act join the watch, and every watched article is fetched again. The owner asked for this on 2026-11-18, and Claude wrote it |
+| 2026-11-19（日本時間） | 個人で運営しているため、参加のハードルを極端に高くしていると、トップの頁と、参加を書く頁に書き、国の仕組みに「参加のハードル」を置く。2026-12-15 から、受付に戻ったあとの叙任の願い出は 18 歳以上の人に限り、同じアカウントからは 365 日に一度、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてからとし、称号を使わない場所の答えを求め、場所の確かめの日数を 365 日とする。誤りの知らせは、場所の確かめの日数を 365 日とし、確かめた先の欄を求める。新しい交流の申し出は受けない。利用規約で予告する。叙任の受付は止めたまま。2026-11-19 に利用者が決め、Claude が書きました | Pages that describe taking part, and the top page, now say that Nusquama is run by one individual and so sets its barriers to participation extremely high, and the Institutions gain "Barriers to participation". From 2026-12-15, once applications reopen, only people aged 18 or over may apply for knighting, an account may apply once in 365 days, at most 1 person is knighted a year, the decision comes only after 90 days from the application, an answer naming the places where the title is not used is required, and the check of the place uses 365 days. Error reports use 365 days for the check of the place, and require the field for what the report was checked against. No new offer of exchange is received. The Terms of Use give notice. Applications for knighting stay paused. The owner decided this on 2026-11-19, and Claude wrote it |
 
 ---
 

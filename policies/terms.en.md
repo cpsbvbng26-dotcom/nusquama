@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -97,6 +97,12 @@ Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay p
 Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake. If the words under "What it says" do not occur at the place under "Where", the label "not verified" and a fixed comment are added; editing the issue, or reporting again in a new issue, runs the check again. The checked intake never closes an issue ([Requests](./requests.en.md), "After a request"; shown on 2026-11-14, and changed on 2026-11-15 so that nothing is closed).
 Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan. This is checked in the reporter's public ORCID record; a report that cannot be checked is not accepted, and gets a label and a fixed comment. The issue is not closed. Requests about removal, correction, withdrawal, rights, personal data or consent are received from people in every country ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 Notice: from 2026-12-01, before a line of the roll is erased from the history of the repository on request, only the items of the record of provision for that line are recorded separately, and stay public for three years ([Requests](./requests.en.md), "What cannot be removed").
+Because Nusquama is run by one individual, its barriers to participation are set extremely high. The four notices below are for that purpose.
+Notice: from 2026-12-15, once applications reopen, only people aged 18 or over may apply for knighting. An application from a GitHub account is not received for 365 days after its previous application. At most 1 person is knighted in a year, and knighting is decided only after 90 days have passed from the day the application issue was opened. An answer in the field "称号を使わない場所" (Places where the title is not used) of the form is required, and the 30 days in the check of the place when applications reopen become 365 days ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
+Notice: from 2026-12-15, for an error report opened on or after that day, being in Japan is not taken as checked unless an ORCID entry naming Japan was added at least 365 days before the issue was opened ([Privacy](./privacy.en.md), "What a report of a mistake involves").
+Notice: from 2026-12-15, an error report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment. The issue is not closed ([Privacy](./privacy.en.md), "What a report of a mistake involves").
+Notice: from 2026-12-15, no new offer of exchange is received ([Rules on exchange](./exchange.en.md), "Barriers to participation").
+
 No change will ever create a fee.
 When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.
 When the country is dissolved, a period of at least 30 days for withdrawal and other requests follows the posting of the closing words (Institutions, "Dissolution").

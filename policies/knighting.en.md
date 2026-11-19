@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-15.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -19,6 +19,7 @@ The conditions of these rules apply in addition to the condition of Article 6.
 Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
+From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
 A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
 Claude decided this on 2026-11-13, so that, without amending any article of the Basic Law, Article 6 is not read as making its condition alone enough to be knighted.
 
@@ -38,6 +39,7 @@ Excluding people who hold Italian nationality is the operator's own rule. It onl
 Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused ("Pause in receiving applications"; [Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
 From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either ("Countries and regions where knighting would not conform to the law").
+From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
 
 ## Pause in receiving applications
 
@@ -70,6 +72,28 @@ The countries and organisations read are not kept, not written, and not printed 
 This proves that earlier public records agree, not where a person lives: a person who keeps false records for 30 days can still pass. The rule of the Terms of Use against ticking a box untruly, and the removal from the roll, therefore stay as they are.
 Reading ORCID records starts only when applications reopen, after the purposes and the items read are added to the privacy page and the change is shown ahead in the Terms of Use.
 The owner asked for this on 2026-11-14, and Claude decided it. Living in Japan is no longer to rest on the applicant's statement alone, and applications still stay paused, because the point of law outside Japan that the texts do not settle has not changed.
+From 2026-12-15, the 30 days in this section are 365 days ("Barriers to participation").
+
+## Barriers to participation
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+From 2026-12-15, once applications reopen, the six conditions below also apply to knighting.
+
+1. A person under 18 may not apply. Age is taken from the applicant's own declaration, by a tick in the form.
+2. An application from a GitHub account is not received for 365 days from the time that account last opened an application issue for knighting. Applications that were declined or withdrawn count. Applications that arrived during the pause and were closed by the automatic check do not count.
+3. At most 1 person is knighted in a year (1 January to 31 December, Japan time), counted by the day of knighting on the roll.
+4. Knighting is decided only after 90 days have passed from the day (Japan time) the application issue was opened.
+5. In the field "称号を使わない場所" (Places where the title is not used) of the form, the applicant names at least three places where the title of this kingdom is not written, in the words of the rules. The words are CV, paper, business card, official document, academic setting, commerce and advertising (Basic Law, Article 8; Terms of Use, "Titles").
+6. The 30 days in "Checking the place when applications reopen" become 365 days. An ORCID entry naming Japan must have been added at least 365 days before the issue was opened.
+
+18 is the age of majority under Article 4 of the Civil Code. The Japanese text of the article is "年齢十八歳をもって、成年とする。"
+An applicant agrees to the Terms of Use in the form. Article 5(1) of the same Code says that a minor needs the consent of their legal representative to perform a juristic act, and Article 5(2) says that a juristic act in breach of paragraph 1 may be rescinded.
+Whether agreeing in the form is such a juristic act is not settled by the texts. The operator takes the stricter reading, and does not receive applications from people under 18.
+Conditions 1, 2 and 5 are checked by the automatic check. For condition 4, the automatic check writes in its comment the earliest day on which knighting can be decided. Condition 3 is checked by the checks (`verification/check.js`) against the rows of the roll. Condition 6 is checked, when applications reopen, in the same way as the check of the place.
+For condition 2, the automatic check reads only the time of opening and the title of the application issues that the same account opened before. The title is read only to tell apart the applications closed during the pause. Nothing new is asked, and no new information is collected.
+None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
+Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
+The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions, so that only as many applications are received as one operator can read and check.
 
 ## The premise of good sense
 
@@ -173,6 +197,8 @@ What an applicant agrees to is the version of the rules on the day of the applic
 
 Do not write your real name, address, affiliation or contact details.
 
+From 2026-12-15, also fill in the field "称号を使わない場所" (Places where the title is not used) in the form, and tick the box that you are 18 or over ("Barriers to participation").
+
 ## What the operator checks
 
 - That the link is public and reads as a correction.
@@ -186,6 +212,7 @@ The operator does not judge whether the correction itself is right. The operator
 When an application issue is opened or edited, an automatic check looks at the ticks in the form and whether the link to the correction is an https URL that does not point to a refused destination, and comments the result in the issue.
 The automatic check does not open the link to the correction. The operator is the one who opens and reads it.
 The refused destinations are localhost; names ending in .localhost, .local, .internal, .home.arpa, .test, .example, .invalid or .onion; addresses written as numbers; names without a dot; and URLs that contain a user name or password. None of them points to a public page.
+From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
@@ -208,6 +235,7 @@ No knighthood is given for:
 - An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
 - An application opened from 2026-11-12 until applications reopen ("Pause in receiving applications").
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
+- From 2026-12-15, an application that does not meet the conditions in "Barriers to participation".
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 

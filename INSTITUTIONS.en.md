@@ -65,6 +65,22 @@ If a recorded entry itself turns out to be wrong, the earlier row is not erased.
 So asking for a pardon makes the domain one parcel larger.
 Removing a knight's name from the roll is not a pardon. Leaving and revocation follow the [Rules on Knighting](policies/knighting.en.md).
 
+## Barriers to participation
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+The ways in which someone from outside takes part in the kingdom, and the conditions of each, are in the table below.
+
+| Way | Until 2026-12-14 | From 2026-12-15 |
+| --- | --- | --- |
+| Application for knighthood | Paused since 2026-11-12. No date for reopening has been set | Still paused. Once applications reopen: only people aged 18 or over; once in 365 days from the same account; at most 1 person knighted a year; the decision only after 90 days from the application. An answer naming the places where the title is not used is required, and the check of the place uses 365 days ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation") |
+| Report of a mistake | From 2026-12-01, the quoted words are checked, and being in Japan is checked in the ORCID record (30 days) | The ORCID entry naming Japan must be at least 365 days old. The field "確かめた先" (Checked against) is required ([Privacy](policies/privacy.en.md), "What a report of a mistake involves") |
+| Offer of exchange | Answered by the procedure in the [Rules on exchange](policies/exchange.en.md) | No new offer is received (Rules on exchange, "Barriers to participation") |
+
+Nusquama gives no nationality, so there is no way to join as one of its people ([Rules on Knighting](policies/knighting.en.md), "What is not checked").
+None of the ways costs anything ([Terms of Use](policies/terms.en.md), "Fees").
+Requests for removal, correction or withdrawal, notices from rights holders and reports of security problems are not ways of taking part. Their barriers are not raised, and they are received from people in every country ([Requests](policies/requests.en.md)).
+The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions. The reasons for the choice, and the ideas not taken, are in the section "2026-11-19：参加のハードル" of the [record of the legal review](https://github.com/cpsbvbng26-dotcom/nusquama/blob/main/docs/legal-audit-2026-11-12.md).
+
 ## Changing the rules
 
 The Basic Law and the rules are changed by the King, in this order:

@@ -1,8 +1,10 @@
 # Founding Declaration, Basic Law and Ten Precepts
 
-Last updated: 2026-11-13.
+Last updated: 2026-11-19.
 
 This is an English translation of three parts of the top page. The [Japanese version](./README.md) governs; if the two differ, the Japanese version applies.
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high. The conditions for each way of taking part are in [Institutions](./INSTITUTIONS.en.md), "Barriers to participation".
 
 ## The founding declaration
 

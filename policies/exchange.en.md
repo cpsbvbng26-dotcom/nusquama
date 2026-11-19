@@ -1,6 +1,6 @@
 # Rules on exchange
 
-Last updated: 2026-11-12.
+Last updated: 2026-11-19.
 
 This is an English translation. The [Japanese version](./exchange.md) governs; if the two differ, the Japanese version applies.
 
@@ -44,6 +44,16 @@ The King decides whether to engage in an exchange.
 When an exchange begins, a link to the other party's page is put, with the date, under "Elsewhere" on the top page.
 The day it begins is also kept in the timeline.
 Either side may end an exchange at any time. When it ends, the link is taken down, and the day is kept in the timeline.
+
+## Barriers to participation
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+From 2026-12-15, no new offer of exchange is received. No date has been set for receiving offers again.
+An offer that arrived before 2026-12-15 is answered under "When an offer is received" in these rules.
+An offer that arrives from 2026-12-15 gets only the answer that offers are not received, under this section.
+If offers are to be received again, the day will be shown in this section and in the [Terms of Use](terms.en.md) before that day.
+As of 2026-11-19, Nusquama has no exchange with anyone.
+The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude decided this, because once an exchange begins, one operator is left with the duty of reading the other party's pages and checking what the other party writes, for as long as it lasts.
 
 ## Requests
 
