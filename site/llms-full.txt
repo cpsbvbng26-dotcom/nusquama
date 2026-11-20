@@ -222,6 +222,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 | 2026-11-18（日本時間） | 権利者の知らせの様式を置き、名称と権利に「権利者の方へ」を書く。適法性の説明「商標と表示」と README から様式へつなぎ、個人情報の取り扱いに、同意の印のある知らせの題と本文だけを Claude に渡すことを書く。2026-11-18 に利用者が求め、Claude が書きました | A form for notices from rights holders is set up, and Names and rights gains "For rights holders". The Legality Statement, under "Trademarks and indications", and the README link the form, and the Privacy Policy states that only the title and text of a notice whose box of consent is ticked are given to Claude. The owner asked for this on 2026-11-18, and Claude wrote it |
 | 2026-11-18（日本時間） | 名称と権利に「名称と商標」を書く。名としるし 5 つと初めて現れた日、出願しないこと、名の使い方、2026-11-17 の EUIPO の調べ、サイトが挙げるほかの者の名 18、配る画像、登録の表示を付けないこと、国旗と国章、知らせが来たときの手順を記す。権利者の知らせの様式と「権利者の方へ」から節へつなぐ。商標法と不正競争防止法の条を見張りに加え、見張りのすべての条を取り寄せ直す。2026-11-18 に利用者が求め、Claude が書きました | Names and rights gains "Names and trademarks": the 5 names and marks with the day each first appears, that none is or will be filed, how the names are used, the search at EUIPO on 2026-11-17, the 18 names of others that the site uses, the images it serves, that no registration mark is used, the flag and the emblem, and the steps when a notice comes. The form for rights holders and "For rights holders" link it. Articles of the Trademark Act and of the Unfair Competition Prevention Act join the watch, and every watched article is fetched again. The owner asked for this on 2026-11-18, and Claude wrote it |
 | 2026-11-19（日本時間） | 個人で運営しているため、参加のハードルを極端に高くしていると、トップの頁と、参加を書く頁に書き、国の仕組みに「参加のハードル」を置く。2026-12-15 から、受付に戻ったあとの叙任の願い出は 18 歳以上の人に限り、同じアカウントからは 365 日に一度、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてからとし、称号を使わない場所の答えを求め、場所の確かめの日数を 365 日とする。誤りの知らせは、場所の確かめの日数を 365 日とし、確かめた先の欄を求める。新しい交流の申し出は受けない。利用規約で予告する。叙任の受付は止めたまま。2026-11-19 に利用者が決め、Claude が書きました | Pages that describe taking part, and the top page, now say that Nusquama is run by one individual and so sets its barriers to participation extremely high, and the Institutions gain "Barriers to participation". From 2026-12-15, once applications reopen, only people aged 18 or over may apply for knighting, an account may apply once in 365 days, at most 1 person is knighted a year, the decision comes only after 90 days from the application, an answer naming the places where the title is not used is required, and the check of the place uses 365 days. Error reports use 365 days for the check of the place, and require the field for what the report was checked against. No new offer of exchange is received. The Terms of Use give notice. Applications for knighting stay paused. The owner decided this on 2026-11-19, and Claude wrote it |
+| 2026-11-21（日本時間） | 有名なミクロネーションの決まりと突き合わせ、利用規約に「与えないもの」の節を、国の仕組みに「訪れる人の五つの自由」を置く | After a comparison with the rules of well-known micronations, the Terms of Use gain the section "What Nusquama does not give", and the Institutions gain "Five freedoms of a visitor" |
 
 ---
 
@@ -790,6 +791,18 @@ Source: https://nusquama.vercel.app/institutions.html
 騎士でない人は「訪れる人」と呼びます。訪れる人に、届け出や登録はありません。
 王は人口に数えません。王は名簿に載らないからです。
 
+## 訪れる人の五つの自由
+
+創作の中の言葉です。法的な権利でも務めでもなく、法令が認める権利を狭めるものでもありません。
+
+1. 誰もが、誤る自由を持つ。
+2. 誰もが、自分の誤りを正す自由を持つ。
+3. 誰もが、訪れる人のままでいる自由を持つ。
+4. 誰もが、この国を信じない自由を持つ。
+5. 誰もが、いつでもこの国を去る自由を持つ。去るのに、届け出は要らない。
+
+王には、誤りを消す自由と、黙って去る自由がありません（基本法第四条・第五条、この頁の「凍結」と「解散」）。
+
 ## 決め方
 
 決めるのは王です。投票や選挙は行いません。
@@ -1263,7 +1276,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 
 # 利用規約
 
-最終更新：2026-11-19。
+最終更新：2026-11-21。
 
 ## この規約が及ぶ人
 
@@ -1310,6 +1323,13 @@ Source: https://nusquama.vercel.app/policies/terms.html
 称号を売らず、寄付を受けず、広告を出さず、何も販売しません。
 叙任の願い出にも、名簿への記載にも、費用はかかりません。
 ヌスクァマの称号を有料で授けると称する者がいても、ヌスクァマとは関係がありません。
+
+## 与えないもの
+
+ヌスクァマは、住む所・仕事・移住・査証・在留の資格・国籍を与えません。
+騎士であることも、ヌスクァマを訪れることも、どの国の法令の務め（税・兵役・裁判の手続きを含みます）も免れさせず、どの国の法令からも外れた身分を与えません。
+ヌスクァマは、この国を代表する者（大使・領事・代理人など）を置きません。ヌスクァマの代表と称する者がいても、ヌスクァマとは関係がありません。
+ヌスクァマが出したと称する旅券・身分証・国籍や身分の証明・叙任状・勲章・車の番号札は、どれもヌスクァマが出したものではありません。ヌスクァマは、そのどれも作らないからです。
 
 ## してはいけないこと
 
@@ -2489,7 +2509,7 @@ Source: https://nusquama.vercel.app/policies/terms.en.html
 
 # Terms of Use
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-21.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -2538,6 +2558,13 @@ Nusquama charges no one anything.
 It sells no titles, takes no donations, shows no advertising and sells nothing.
 Applying for knighting and being listed on the roll are free.
 Anyone who claims to grant Nusquama's titles for a fee has nothing to do with Nusquama.
+
+## What Nusquama does not give
+
+Nusquama gives no place to live, no work, no migration, no visa, no right of residence and no nationality.
+Being a knight, or visiting Nusquama, exempts no one from any duty under the law of any country, including taxes, military service and court proceedings, and gives no status outside the law of any country.
+Nusquama has no one who represents it, such as an ambassador, a consul or an agent. Anyone who claims to represent Nusquama has nothing to do with Nusquama.
+A passport, an identity card, a proof of nationality or status, a certificate of knighting, a decoration or a vehicle number plate said to be issued by Nusquama was not issued by Nusquama, because Nusquama makes none of them.
 
 ## What is not allowed
 
@@ -4342,6 +4369,18 @@ The current population and the numbers by year are in the tables of [For anyone 
 Knights are not citizens. Nusquama gives no nationality ([Rules on Knighting](policies/knighting.en.md)).
 Anyone who is not a knight is called a visitor. Visitors have nothing to register or report.
 The King is not counted in the population, because the King is not on the roll.
+
+## Five freedoms of a visitor
+
+These are words inside the fiction. They are neither legal rights nor duties, and they narrow no right that the law recognises.
+
+1. Anyone has the freedom to make mistakes.
+2. Anyone has the freedom to correct their own mistakes.
+3. Anyone has the freedom to remain a visitor.
+4. Anyone has the freedom not to believe in this kingdom.
+5. Anyone has the freedom to leave this kingdom at any time. Leaving needs no notice.
+
+The King has neither the freedom to erase a mistake nor the freedom to leave in silence (Basic Law, Articles 4 and 5; "Freezing" and "Dissolution" on this page).
 
 ## How decisions are made
 
