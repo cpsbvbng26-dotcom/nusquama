@@ -62,7 +62,8 @@ These are words inside the fiction. They are neither legal rights nor duties, an
 4. Anyone has the freedom not to believe in this kingdom.
 5. Anyone has the freedom to leave this kingdom at any time. Leaving needs no notice.
 
-The King has neither the freedom to erase a mistake nor the freedom to leave in silence (Basic Law, Articles 4 and 5; "Freezing" and "Dissolution" on this page).
+A knight who wants their name off the roll asks to withdraw ([Rules on Knighting](policies/knighting.en.md), "Withdrawal and revocation").
+The King has no freedom to erase a mistake (Basic Law, Article 5). When the King closes the kingdom, the closing words are put up ("Freezing" and "Dissolution" on this page).
 
 ## How decisions are made
 

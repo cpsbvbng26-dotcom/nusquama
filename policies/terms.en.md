@@ -52,9 +52,9 @@ Anyone who claims to grant Nusquama's titles for a fee has nothing to do with Nu
 
 ## What Nusquama does not give
 
-Nusquama gives no place to live, no work, no migration, no visa, no right of residence and no nationality.
+Nusquama gives no place to live, no work, no migration, no visa, no status of residence and no nationality.
 Being a knight, or visiting Nusquama, exempts no one from any duty under the law of any country, including taxes, military service and court proceedings, and gives no status outside the law of any country.
-Nusquama has no one who represents it, such as an ambassador, a consul or an agent. Anyone who claims to represent Nusquama has nothing to do with Nusquama.
+Nusquama has no one other than the operator who represents it, such as an ambassador, a consul or an agent. Anyone who claims to represent Nusquama has nothing to do with Nusquama.
 A passport, an identity card, a proof of nationality or status, a certificate of knighting, a decoration or a vehicle number plate said to be issued by Nusquama was not issued by Nusquama, because Nusquama makes none of them.
 
 ## What is not allowed
