@@ -5676,19 +5676,19 @@ console.log('\n91. ほかのミクロネーションとの突き合わせ（2026
   const R = (f) => { try { return fs.readFileSync(path.join(ROOT, f), 'utf8'); } catch (e) { return ''; } };
   const TJ = ['ヌスクァマは、住む所・仕事・移住・査証・在留の資格・国籍を与えません。',
     '騎士であることも、ヌスクァマを訪れることも、どの国の法令の務め（税・兵役・裁判の手続きを含みます）も免れさせず、どの国の法令からも外れた身分を与えません。',
-    'ヌスクァマは、この国を代表する者（大使・領事・代理人など）を置きません。ヌスクァマの代表と称する者がいても、ヌスクァマとは関係がありません。',
+    'ヌスクァマは、運営者のほかに、この国を代表する者（大使・領事・代理人など）を置きません。ヌスクァマの代表と称する者がいても、ヌスクァマとは関係がありません。',
     'ヌスクァマが出したと称する旅券・身分証・国籍や身分の証明・叙任状・勲章・車の番号札は、どれもヌスクァマが出したものではありません。ヌスクァマは、そのどれも作らないからです。'];
-  const TE = ['Nusquama gives no place to live, no work, no migration, no visa, no right of residence and no nationality.',
+  const TE = ['Nusquama gives no place to live, no work, no migration, no visa, no status of residence and no nationality.',
     'Being a knight, or visiting Nusquama, exempts no one from any duty under the law of any country, including taxes, military service and court proceedings, and gives no status outside the law of any country.',
-    'Nusquama has no one who represents it, such as an ambassador, a consul or an agent. Anyone who claims to represent Nusquama has nothing to do with Nusquama.',
+    'Nusquama has no one other than the operator who represents it, such as an ambassador, a consul or an agent. Anyone who claims to represent Nusquama has nothing to do with Nusquama.',
     'A passport, an identity card, a proof of nationality or status, a certificate of knighting, a decoration or a vehicle number plate said to be issued by Nusquama was not issued by Nusquama, because Nusquama makes none of them.'];
   const FJ = ['創作の中の言葉です。法的な権利でも務めでもなく、法令が認める権利を狭めるものでもありません。', '1. 誰もが、誤る自由を持つ。', '2. 誰もが、自分の誤りを正す自由を持つ。',
     '3. 誰もが、訪れる人のままでいる自由を持つ。', '4. 誰もが、この国を信じない自由を持つ。', '5. 誰もが、いつでもこの国を去る自由を持つ。去るのに、届け出は要らない。',
-    '王には、誤りを消す自由と、黙って去る自由がありません（基本法第四条・第五条、この頁の「凍結」と「解散」）。'];
+    '騎士が名簿から名を外すときは、辞退を求めます（', '王には、誤りを消す自由がありません（基本法第五条）。王が国を閉じるときは、終わりの言葉を掲げます（この頁の「凍結」と「解散」）。'];
   const FE = ['These are words inside the fiction. They are neither legal rights nor duties, and they narrow no right that the law recognises.', '1. Anyone has the freedom to make mistakes.',
     '2. Anyone has the freedom to correct their own mistakes.', '3. Anyone has the freedom to remain a visitor.', '4. Anyone has the freedom not to believe in this kingdom.',
-    '5. Anyone has the freedom to leave this kingdom at any time. Leaving needs no notice.', 'The King has neither the freedom to erase a mistake nor the freedom to leave in silence (Basic Law, Articles 4 and 5; "Freezing" and "Dissolution" on this page).'];
-  const ROW = '| 2026-11-21（日本時間） | 有名なミクロネーションの決まりと突き合わせ、利用規約に「与えないもの」の節を、国の仕組みに「訪れる人の五つの自由」を置く |';
+    '5. Anyone has the freedom to leave this kingdom at any time. Leaving needs no notice.', 'A knight who wants their name off the roll asks to withdraw (', 'The King has no freedom to erase a mistake (Basic Law, Article 5). When the King closes the kingdom, the closing words are put up ("Freezing" and "Dissolution" on this page).'];
+  const ROW = '| 2026-11-21（日本時間） | 有名なミクロネーションの決まりと突き合わせ、利用規約に「与えないもの」の節を、国の仕組みに「訪れる人の五つの自由」を置く。2026-11-21 に利用者が求め、Claude が書きました |';
   const AUD = 'docs/micronation-comparison-2026-11-21.md';
   const files = ['policies/terms.md', 'policies/terms.en.md', 'INSTITUTIONS.md', 'INSTITUTIONS.en.md', 'README.md', AUD, 'site/policies/terms.html', 'site/policies/terms.en.html', 'site/institutions.html', 'site/institutions.en.html'];
   const real = Object.fromEntries(files.map((f) => [f, R(f)]));
@@ -5706,6 +5706,7 @@ console.log('\n91. ほかのミクロネーションとの突き合わせ（2026
     }
     if (!x['README.md'].split('\n').some((l) => l.startsWith(ROW))) bad.push('年表の行が無い');
     if (!x[AUD].startsWith('# ほかのミクロネーションとの突き合わせ（2026-11-21）\n\n> これは創作であり、遊びです。') || !x[AUD].includes('全文を読めたのは、Liberland が GitHub で公開している憲法の案と法令（CC0）だけです。')
+      || (x[AUD].split('\n').filter((l) => l.startsWith('| ') && l.includes('例（')).some((l) => !l.includes('中身は確かめていません')))
       || !x[AUD].includes('要約の文は、元の頁とそのとおり同じかを確かめていません。')) bad.push('記録の断りか、読んだものの書き方');
     /* 五つの自由が、称号・料金・勧誘に触れない。 */
     for (const f of ['INSTITUTIONS.md', 'INSTITUTIONS.en.md']) { const s = sec(x[f], f.endsWith('.en.md') ? '## Five freedoms of a visitor' : '## 訪れる人の五つの自由'); if (/騎士にな|become a knight|円|fee|寄付|donat/i.test(s)) bad.push(f + '：五つの自由が叙任や料金に触れる'); }
@@ -5718,14 +5719,16 @@ console.log('\n91. ほかのミクロネーションとの突き合わせ（2026
     ['税と兵役を免れさせないことを外す', mut('policies/terms.md', '（税・兵役・裁判の手続きを含みます）', '')],
     ['英語の代表の文を外す', mut('policies/terms.en.md', TE[2], '')],
     ['称する物から旅券を外す', mut('policies/terms.md', 'ヌスクァマが出したと称する旅券・身分証', 'ヌスクァマが出したと称する身分証')],
-    ['国籍を与えると書く', mut('policies/terms.en.md', 'no right of residence and no nationality.', 'no right of residence.')],
+    ['国籍を与えると書く', mut('policies/terms.en.md', 'no status of residence and no nationality.', 'no status of residence.')],
+    ['騎士の辞退の文を外す', mut('INSTITUTIONS.md', '騎士が名簿から名を外すときは、辞退を求めます（', '')],
     ['五つの自由の断りを外す', mut('INSTITUTIONS.md', FJ[0], '')],
     ['英語の自由を一つ外す', mut('INSTITUTIONS.en.md', FE[4] + '\n', '')],
-    ['王の一文を外す', mut('INSTITUTIONS.md', FJ[6], '')],
+    ['王の一文を外す', mut('INSTITUTIONS.md', FJ[7], '')],
     ['自由を叙任の誘いにする', mut('INSTITUTIONS.md', '3. 誰もが、訪れる人のままでいる自由を持つ。', '3. 誰もが、騎士になる自由を持つ。')],
-    ['生成した英語の頁が古いまま', mut('site/policies/terms.en.html', 'no visa, no right of residence', 'no visa')],
+    ['生成した英語の頁が古いまま', mut('site/policies/terms.en.html', 'no visa, no status of residence', 'no visa')],
     ['年表の行を外す', mut('README.md', ROW, '| 2026-11-21 | 何か |')],
     ['記録から読んだものの限りを外す', mut(AUD, '要約の文は、元の頁とそのとおり同じかを確かめていません。', '')],
+    ['記録の例の一つを言い切る', mut(AUD, '（いくつかの報道。中身は確かめていません）', '（いくつかの報道）')],
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：税と兵役・代表・旅券・国籍・断り・自由の数・王の一文・叙任の誘い・生成した頁・年表・記録のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
