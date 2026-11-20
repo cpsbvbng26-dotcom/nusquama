@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-21.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -49,6 +49,13 @@ Nusquama charges no one anything.
 It sells no titles, takes no donations, shows no advertising and sells nothing.
 Applying for knighting and being listed on the roll are free.
 Anyone who claims to grant Nusquama's titles for a fee has nothing to do with Nusquama.
+
+## What Nusquama does not give
+
+Nusquama gives no place to live, no work, no migration, no visa, no right of residence and no nationality.
+Being a knight, or visiting Nusquama, exempts no one from any duty under the law of any country, including taxes, military service and court proceedings, and gives no status outside the law of any country.
+Nusquama has no one who represents it, such as an ambassador, a consul or an agent. Anyone who claims to represent Nusquama has nothing to do with Nusquama.
+A passport, an identity card, a proof of nationality or status, a certificate of knighting, a decoration or a vehicle number plate said to be issued by Nusquama was not issued by Nusquama, because Nusquama makes none of them.
 
 ## What is not allowed
 

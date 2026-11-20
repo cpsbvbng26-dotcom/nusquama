@@ -52,6 +52,18 @@ Knights are not citizens. Nusquama gives no nationality ([Rules on Knighting](po
 Anyone who is not a knight is called a visitor. Visitors have nothing to register or report.
 The King is not counted in the population, because the King is not on the roll.
 
+## Five freedoms of a visitor
+
+These are words inside the fiction. They are neither legal rights nor duties, and they narrow no right that the law recognises.
+
+1. Anyone has the freedom to make mistakes.
+2. Anyone has the freedom to correct their own mistakes.
+3. Anyone has the freedom to remain a visitor.
+4. Anyone has the freedom not to believe in this kingdom.
+5. Anyone has the freedom to leave this kingdom at any time. Leaving needs no notice.
+
+The King has neither the freedom to erase a mistake nor the freedom to leave in silence (Basic Law, Articles 4 and 5; "Freezing" and "Dissolution" on this page).
+
 ## How decisions are made
 
 The King decides. There are no votes and no elections.
