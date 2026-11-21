@@ -132,7 +132,9 @@ ${PAUSE_TEXT_EN}
 `;
 }
 
-/* 日付から見る印。様式では必須にせず（その日より前の願い出を止めないため）、ここで日付を見て求める。 */
+/* 日付から見る印。その日より前に開かれた願い出には求めないため、ここで日付を見て求める。
+ * 効力を生じた印は、様式でも必須にする（2026-11-22 に、その日からの四つを必須にした）。必須でも requiredOaths はこれらを除く。
+ * 除かないと、同じ印を「必ず印を付ける誓い」と日付の行で二度数え、その日より前の願い出にも求めてしまう。 */
 const DATED = [
   { from: PRESENCE_FROM, text: PRESENCE, label: '日本に住み、いま日本にいる印がある' },
   { from: NATIONALITY_FROM, text: NATIONALITY, label: 'イタリアの国籍を持っていない印がある' },
@@ -141,12 +143,12 @@ const DATED = [
   { from: HURDLE_FROM, text: AGE, label: '18 歳以上の印がある' },
 ];
 
-/* 純：様式の定義から、必ず印を付ける誓いの文を取り出す。 */
+/* 純：様式の定義から、必ず印を付ける誓いの文を取り出す。日付から見る印（DATED）は、様式で必須でも除く。 */
 function requiredOaths(yml = fs.readFileSync(path.join(ROOT, FORM), 'utf8')) {
   const out = [];
   const re = /- label: (.+)\n\s+required: (true|false)/g;
   let m;
-  while ((m = re.exec(yml))) if (m[2] === 'true') out.push(m[1].trim());
+  while ((m = re.exec(yml))) if (m[2] === 'true' && !DATED.some((d) => m[1].trim().startsWith(d.text))) out.push(m[1].trim());
   return out;
 }
 

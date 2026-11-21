@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-22.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -43,7 +43,7 @@ From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
 
 ## Pause in receiving applications
 
-Since 2026-11-12, applications for knighting are not received. The owner decided this on 2026-11-12. The reason is that, in the period before the revised rules take effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained.
+Since 2026-11-12, applications for knighting are not received. The owner decided this on 2026-11-12. The reason is that, in the period before the revised rules took effect on 2026-11-22 (only people who live and are in Japan; people who hold Italian nationality excluded; the premise of good sense), the possibility that laws outside Japan apply remained.
 The pause continues from 00:00 on 2026-11-22 (Japan time), and no date for reopening has been set, because how Italy's Penal Code and Law No. 178 of 1951 reach conferral is not settled by the texts. The owner asked on 2026-11-13 for legal risk to be made as small as possible, and Claude decided this.
 Only the receiving of applications stops; these rules and the roll of knights remain.
 While applications are paused, the application form is not offered in the list of issue forms. The definition of the form is kept in the repository at `tools/knighting-form.yml`, for when applications reopen. Claude decided this on 2026-11-13, because a form left open would invite applications that are not received.
