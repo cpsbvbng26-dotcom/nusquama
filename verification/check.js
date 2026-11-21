@@ -84,17 +84,17 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   must['policies/knighting.md'].push('16 歳未満の人は願い出ることができません。', '- 様式の誓いのすべてに印があること。',
     '住んでいる国の法令が、私人の授ける騎士の称号を受けることや使うことを禁じている人も、願い出ることができません。');
   must['policies/knighting.md'].push('叙任では、任命書・証書・記章などの書面や物を発行しません。名簿にアカウント名を載せるだけです。');
-  /* 2026-11-22 から、願い出は日本に住む人に限る。国籍は、イタリアの国籍を持つ人を除いて問わない。利用規約で予告する（不利な変更は効力の前に示す）。 */
+  /* 2026-11-22 から、願い出は日本に住む人に限る。国籍は、イタリアの国籍を持つ人を除いて問わない。利用規約で効力の前に示し、2026-11-22 に効力を生じた。 */
   must['policies/knighting.md'].push('2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '2026-11-22 から、日本の外に住む人は、国籍を問わず願い出ることができません。日本の外の法令を、国ごとに確かめきれないためです。',
     '2026-11-22 から、日本に住んでいても、旅行・出張・留学などで日本の外にいるあいだは、願い出ることができません。外国の法令には、そこに住む人だけでなく、そこにいる人に及ぶものがあるためです。', '旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。');
-  must['policies/terms.md'].push('予告：2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人と、外国の称号を縛る国の国籍を持つ人を除き、国籍は問いません');
+  must['policies/terms.md'].push('2026-11-22 から、叙任を願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人と、外国の称号を縛る国の国籍を持つ人を除き、国籍は問いません');
   must['policies/legality.md'].push('- 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。', '旅行・出張・留学などで日本の外にいるあいだの願い出も受けない');
   /* 2026-11-22 から、イタリアの国籍を持つ人（重国籍を含む）の願い出を受けない。理由は、常識に照らして場違いであることが先で、イタリアの 1951 年法律第 178 号第 8 条が次。
    * 限っても、及ぶおそれは減るだけで、なくならない。2026-11-12 に利用者が決めた。 */
   must['policies/knighting.md'].push('2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。理由は二つです。',
     '一つめに、イタリアの国民が日本のミクロネーションの騎士になることは、常識に照らして、そもそも場違いです。', '二つめに、イタリアの 1951 年法律第 178 号第 8 条は、称号を使う者も罰し、使う者の罰は授けたのが国外であっても及ぶとしています。',
     '同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています（「受付の停止」、[適法性の説明](./legality.md)「日本の外の法令」）。');
-  must['policies/terms.md'].push('予告：2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません');
+  must['policies/terms.md'].push('2026-11-22 から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません');
   must['policies/legality.md'].push('- 2026-11-22 から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。理由は、イタリアの国民が日本のミクロネーションの騎士になるのは常識に照らして場違いであることと、上の条が使う者も罰することである。同条の終わりの段落が国外として挙げるのは授けた場所で、使う場所は書いていない。イタリアの外で使う国民に使う者の罰が及ぶかは、取り寄せた条文からは決まらない。除くのは運営者の決めで、同条の及ぶ範囲を述べるものではない。',
     '- これらの限定のもとでも、日本の外の法令が叙任にどう及ぶかは、取り寄せた条文からは決まらない。運営者は、受付を止めている（叙任の規程「受付の停止」）。');
   /* 良識の前提。2026-11-22 から、称号を遊びとして扱う人を前提とし、既にある禁止を守ることを指す。当たらなければ叙任せず、既にある取り消しの定めで取り消す。 */
@@ -103,7 +103,7 @@ console.log('\n3. 規程の約束（消せば落ちる）');
     '願い出た人が書いたことや訂正のリンク先から、この前提に当たらないことがはっきり分かったときは、叙任しません（「断ること」）。',
     '叙任した後に分かったときは、「辞退と取り消し」の定めにより、叙任を取り消します。', '取り消すときは、願い出の issue に、当たらなかった決まりだけを短く書き、人を評しません。',
     '- 2026-11-22 から、「良識の前提」に当たらないことが、願い出た人が書いたことや訂正のリンク先からはっきり読めるもの。');
-  must['policies/terms.md'].push('予告：2026-11-22 から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし、様式でこの前提に印のない願い出は受けません');
+  must['policies/terms.md'].push('2026-11-22 から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし、様式でこの前提に印のない願い出は受けません');
   must['policies/legality.md'].push('[叙任の規程](./knighting.md)「良識の前提」。', '良識の前提（叙任の規程）も同じである。');
   /* 気づくことができた事柄を見落とさない。リンク先にはっきり書かれた住む国や年齢は、尋ねてから決める。 */
   must['policies/knighting.md'].push('- 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、イタリアや「外国の称号を縛る国」の国籍を持つこと、16 歳未満であることが、はっきり書かれていないこと。', 'ただし、訂正のリンク先にはっきり書かれていることは、見落としません。',
@@ -112,7 +112,7 @@ console.log('\n3. 規程の約束（消せば落ちる）');
   /* 事実でない印。してはいけないことに挙げ、知った時点で名簿から外し、信頼して受けたこと・公開に残ること・違約金を求めないことを書く。 */
   must['policies/terms.md'].push('- 願い出の様式で、事実でないことに印を付けること。', '印が事実でないと分かったときは、運営者は、知った時点で名簿から名を外します。',
     '運営者は、印を信頼して受け、確かめません。', '願い出た人に、違約金や、法令が定める以上の損害の賠償を求めることはありません。',
-    '予告：2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります');
+    '2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります');
   // 確かめないことを確かめていると読ませない。国籍・年齢・住む国は本人の申告で、身分証は取らない。
   must['policies/knighting.md'].push('運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。',
     'ヌスクァマは国籍を与えません。騎士は国民ではありません。', '年齢・住んでいる国・願い出のときにいる国・イタリアと「外国の称号を縛る国」の国籍を持たないことは、様式の誓いへの印による本人の申告で受けます。');
@@ -350,7 +350,7 @@ console.log('\n15. 規程の英語版（日本語の版を正とする訳）');
       html.includes('<html lang="en">') && html.includes('hreflang="ja" href="' + B.BASE + 'policies/' + p + '.html"') && jaHtml.includes('hreflang="en" href="' + B.BASE + 'policies/' + p + '.en.html"'));
   }
   const mustEn = {
-    'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'Notice: from 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded', 'Notice: from 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality', 'Notice: from 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
+    'policies/terms.en.md': ['- Ticking a box in the application form for something that is not true', 'The operator relies on the ticked boxes in good faith and does not check them.', 'Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.', 'From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded', 'From 2026-11-22, people who hold Italian nationality may not apply for knighthood, even if they live in Japan, and even if they also hold another nationality', 'From 2026-11-22, knighting presumes that the applicant is a person of good sense who treats the title as play', 'It is not a state. It has no territory, people, government, currency, passports or nationality, and it claims no sovereignty and no land.',
       'Nusquama charges no one anything.', 'Nusquama means no harm. It does not aim to deceive anyone or to hurt anyone.', 'Disputes are to be settled by agreement first.',
       'as the court of first instance by agreement, for a person who has agreed to these terms in the application form for knighting, and only for suits based on these terms or on that person\'s own application for knighting, listing on the roll of knights or withdrawal.\nThis agreement is not exclusive.\nAny other dispute, and any dispute with a person who has not agreed in the form, goes to the court that the law sets.',
       'the operator brings it only in the Utsunomiya District Court or the Utsunomiya Summary Court, or in the court with jurisdiction over the place of that person\'s general forum.',
@@ -580,7 +580,7 @@ console.log('\n23. 叙任の願い出の自動の確認（何も決めない）'
   const oaths = K.requiredOaths();
   const tpl = read('tools/knighting-form.yml');
   ok('必ず印を付ける誓いを、様式の定義から読む（' + oaths.length + ' 件）。日本にいる印は、そのうちに入らない',
-    oaths.length === (tpl.match(/required: true\n/g) || []).length - 2 && oaths.every((o) => tpl.includes('- label: ' + o + '\n')) && !oaths.some((o) => o.includes(K.PRESENCE)));
+    oaths.length === (tpl.match(/required: true\n/g) || []).length - 2 - K.DATED.filter((d) => d.from === '2026-11-22').length && oaths.every((o) => tpl.includes('- label: ' + o + '\n')) && !oaths.some((o) => o.includes(K.PRESENCE)));
   const body = (ticks, link, what) => '### 訂正への公開のリンク\n\n' + link + '\n\n### 何を誤り、どう正したか\n\n' + what + '\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
   const dated = ['- [X] ' + K.PRESENCE + '（旅行・出張・留学などで日本の外にいるあいだは願い出られません。）', '- [X] ' + K.NATIONALITY + '（ほかの国籍と重ねて持つ場合も含みます。）', '- [X] ' + K.PREMISE + '。', '- [X] ' + K.FOREIGN + 'アイルランド、アメリカ合衆国。'];
   const all = oaths.map((o) => '- [X] ' + o).concat(dated);
@@ -1709,11 +1709,11 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
     need('policies/knighting.md', [DAY + ' から、イタリアの国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '\n## 良識の前提\n', '同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています']);
     need('policies/knighting.en.md', ['From ' + DAY + ', a person who holds Italian nationality may not apply, even if they live in Japan, and even if they also hold another nationality.', '\n## The premise of good sense\n',
       'From ' + DAY + ', knighting presumes that the applicant is a person of good sense who treats the title as play.', 'From ' + DAY + ', the applicant ticks a box in the form for this premise.', "Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused"]);
-    need('policies/terms.md', ['予告：' + DAY + ' から、イタリアの国籍を持つ人は、', '予告：' + DAY + ' から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし']);
-    need('policies/terms.en.md', ['Notice: from ' + DAY + ', people who hold Italian nationality may not apply', 'Notice: from ' + DAY + ', knighting presumes that the applicant is a person of good sense']);
+    need('policies/terms.md', [DAY + ' から、イタリアの国籍を持つ人は、', DAY + ' から、叙任は、願い出る人が称号を遊びとして扱う良識ある人であることを前提とし']);
+    need('policies/terms.en.md', ['From ' + DAY + ', people who hold Italian nationality may not apply', 'From ' + DAY + ', knighting presumes that the applicant is a person of good sense']);
     need('policies/legality.md', ['- ' + DAY + ' から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。', '[叙任の規程](./knighting.md)「良識の前提」。']);
     need('policies/legality.en.md', ['- From ' + DAY + ', applications from people who hold Italian nationality (including dual nationals) are not accepted either.', ', "The premise of good sense".', '- Even under these limits, how laws outside Japan reach knighting is not settled by the fetched texts.']);
-    need('tools/knighting-form.yml', ['        - label: ' + BOX_N + '\n          required: false\n', '        - label: ' + BOX_P + '\n          required: false\n']);
+    need('tools/knighting-form.yml', ['        - label: ' + BOX_N + '\n          required: true\n', '        - label: ' + BOX_P + '\n          required: true\n']);
     /* 前の文言（国籍を問わない）が、規程にも様式にも残っていない。 */
     if (/(?<!除き、)国籍は問いません|(?<!除き、)国籍は問わない/.test(x['policies/knighting.md'] + x['policies/legality.md'] + x['tools/knighting-form.yml'])) bad.push('前の文言「国籍は問いません」が残る');
     if (/whatever their nationality\.\n|may apply for knighthood, whatever their nationality/.test(x['policies/knighting.en.md'] + x['policies/terms.en.md'] + x['policies/legality.en.md'])) bad.push('前の文言「whatever their nationality」が残る');
@@ -1734,8 +1734,8 @@ console.log('\n61. イタリアの国籍を持つ人の願い出と、良識の�
   ok('イタリアの国籍を持つ人の願い出を受けないことと良識の前提が、日本語と英語の規程・利用規約・適法性の説明・様式の印・受付のコードにそろい、効力の日は ' + DAY + '、理由は常識が先', bad.length === 0, bad.join(' / '));
   const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
   const breaks = [
-    ['様式から国籍の印を外す', mut('tools/knighting-form.yml', '        - label: ' + BOX_N + '\n          required: false\n', '')],
-    ['様式から良識の前提の印を外す', mut('tools/knighting-form.yml', '        - label: ' + BOX_P + '\n          required: false\n', '')],
+    ['様式から国籍の印を外す', mut('tools/knighting-form.yml', '        - label: ' + BOX_N + '\n          required: true\n', '')],
+    ['様式から良識の前提の印を外す', mut('tools/knighting-form.yml', '        - label: ' + BOX_P + '\n          required: true\n', '')],
     ['様式を前の文言（国籍は問いません）に戻す', mut('tools/knighting-form.yml', 'イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）', '国籍は問いません）')],
     ['叙任の規程を前の文言に戻す', mut('policies/knighting.md', 'イタリアの国籍を持つ人と、「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません。', '国籍は問いません。')],
     ['英語の利用規約を前の文言に戻す', mut('policies/terms.en.md', 'may apply for knighthood; nationality does not matter, except that people who hold Italian nationality, or the nationality of a country that restricts foreign titles, are excluded', 'may apply for knighthood, whatever their nationality')],
@@ -1943,8 +1943,8 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     need('policies/knighting.md', ['\n## 受付の停止\n', '2026-11-12 から、叙任の願い出を受けていません。2026-11-12 に利用者が決めました。', '2026-11-22 0 時（日本時間）からも、停止を続けます。受付に戻る日は決めていません。授けることに、イタリアの刑法典と 1951 年法律第 178 号がどう及ぶかが、条文からは決まらないためです。2026-11-13 に利用者が法的リスクを限りなく小さくするよう求め、Claude が決めました。', '止めるのは受付だけで、この規程と騎士の名簿は残します。',
       '日付が来ただけでは、受付に戻りません。', '受付に戻すことを、日付ではなく、点検の記録に記した決めに結ぶことは、2026-11-13 に Claude が決めました。', '開いている叙任の願い出は 0 件', '- 2026-11-12 から、受付に戻るより前に開かれた願い出（「受付の停止」）。', '1. 受付に戻ってから、叙任の願い出の様式で issue を開く（受付を止めているあいだは、様式を置いていない。「受付の停止」）。']);
     need('policies/knighting.en.md', ['\n## Pause in receiving applications\n', 'The owner decided this on 2026-11-12.', 'The pause continues from 00:00 on 2026-11-22 (Japan time), and no date for reopening has been set', 'The owner asked on 2026-11-13 for legal risk to be made as small as possible, and Claude decided this.', 'Applications do not reopen merely because a date arrives.', 'Claude decided on 2026-11-13 to tie reopening to a decision recorded in the legal review', '1. Once applications reopen, open an issue']);
-    need('policies/terms.md', ['2026-11-12 から、叙任の願い出を受け付けていません（[叙任の規程](./knighting.md)「受付の停止」）。', '予告：2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにし、受付に戻る日は決めていません。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻すときは、戻る日を、叙任の規程とこの頁で、その日より前に示します（2026-11-13 に示しました）。']);
-    need('policies/terms.en.md', ['Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications").', 'Notice: from 00:00 on 2026-11-22 (Japan time), applications for knighting stay paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts.']);
+    need('policies/terms.md', ['2026-11-12 から、叙任の願い出を受け付けていません（[叙任の規程](./knighting.md)「受付の停止」）。', '2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにしています。受付に戻る日は決めていません。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻すときは、戻る日を、叙任の規程とこの頁で、その日より前に示します（2026-11-13 に示しました）。']);
+    need('policies/terms.en.md', ['Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications").', 'From 00:00 on 2026-11-22 (Japan time), applications for knighting have stayed paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts.']);
     need('README.md', ['2026-11-12 から、願い出の受付を止めています（[叙任の規程](policies/knighting.md)「受付の停止」）。2026-11-22 0 時（日本時間）からも止めたままで、受付に戻る日は決めていません。', '2. 受付に戻ってから、その訂正への公開のリンクを添えて、']);
     need('STORY.md', ['願い出の受付は、2026-11-12 から止めています。受付に戻る日は決めていません。']);
     need('STORY.en.md', ['Applications have been paused since 2026-11-12. No date for reopening has been set.']);
@@ -1989,7 +1989,7 @@ console.log('\n63. 叙任の願い出の受付の停止（2026-11-12 から。�
     ['英訳の注から受付の停止を外す', mut('founding.en.md', ' Applications for knighting have been paused since 2026-11-12, and no date for reopening has been set', '')],
     ['規程の手順を前の文に戻す', mut('policies/knighting.md', '1. 受付に戻ってから、叙任の願い出の様式で issue を開く', '1. 2026-11-22 0 時（日本時間）から、叙任の願い出の様式で issue を開く')],
     ['英語の規程にひとりでに戻る文を足す', mut('policies/knighting.en.md', 'Applications do not reopen merely because a date arrives.', 'From 00:00 on 2026-11-22 (Japan time), receiving resumes without anyone acting.')],
-    ['利用規約の予告を外す', mut('policies/terms.md', '予告：2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにし、受付に戻る日は決めていません。', '')],
+    ['利用規約の予告を外す', mut('policies/terms.md', '2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにしています。受付に戻る日は決めていません。', '')],
     ['英語の物語を前の文に戻す', mut('STORY.en.md', 'Applications have been paused since 2026-11-12. No date for reopening has been set.', 'Applications are paused until 00:00 on 2026-11-22 (Japan time).')],
     ['紹介の頁を前の文に戻す', mut('PRESS.md', '願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。受付に戻ったときも、', '願い出の受付は、2026-11-22 0 時（日本時間）より前は止めています。その後も、')],
     ['記録の節を外す', mut(AUD63, '\n### 受付の停止を、日付で終わらせない\n', '\n### 停止\n')],
@@ -2065,7 +2065,7 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     const yml = x['tools/knighting-form.yml'];
     let K;
     try { K = load(x['tools/knighting.js']); } catch (e) { return bad.concat(['受付のコードが読めない']); }
-    const box = (new RegExp('        - label: (' + K.FOREIGN + '[^\\n]+)\\n          required: false\\n').exec(yml) || [])[1] || '';
+    const box = (new RegExp('        - label: (' + K.FOREIGN + '[^\\n]+)\\n          required: true\\n').exec(yml) || [])[1] || '';
     const listed = box.slice(K.FOREIGN.length).split('。')[0].split('、');
     if (!box || listed.slice().sort().join() !== rj.map((r) => r[0]).sort().join() || !box.includes('（ほかの国籍と重ねて持つ場合も含みます。この印のない願い出は受けません）。')) bad.push('様式の印の国が表と違う');
     if (!(K.FOREIGN_FROM === DAY && (K.DATED || []).some((d) => d.text === K.FOREIGN && d.from === DAY))) bad.push('受付のコードがその日から印を求めない');
@@ -2076,9 +2076,9 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     if (K.check(K.parse(FORM(noF)), DAY + 'T00:00:00+09:00', oaths).ok) bad.push('22 日から、印のない願い出が通る');
     if (!K.check(K.parse(FORM(noF)), '2026-11-21T23:59:59+09:00', oaths).ok) bad.push('22 日より前から印を求める');
     /* 利用規約と適法性の説明（日本語と英語）。 */
-    need('policies/terms.md', ['予告：' + DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません', '予告：' + DAY + ' から、騎士の呼び名は、ヌスクァマに関わることにだけ使い、',
+    need('policies/terms.md', [DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません', DAY + ' から、騎士の呼び名は、ヌスクァマに関わることにだけ使い、',
       DAY + ' から、騎士の呼び名は、ヌスクァマに関わることにだけ使います。', DAY + ' から、これに反したときは、運営者は名簿から名を外します（[叙任の規程](./knighting.md)「騎士の呼び名の使い方」）。']);
-    need('policies/terms.en.md', ['Notice: from ' + DAY + ', people who hold the nationality of a country that restricts accepting foreign titles may not apply', 'Notice: from ' + DAY + ', the name of knight is used only in connection with Nusquama',
+    need('policies/terms.en.md', ['From ' + DAY + ', people who hold the nationality of a country that restricts accepting foreign titles may not apply', 'From ' + DAY + ', the name of knight is used only in connection with Nusquama',
       'From ' + DAY + ', if this is breached, the operator removes the name from the roll']);
     need('policies/legality.md', ['- ' + DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人の願い出も受けない（[叙任の規程](./knighting.md)「外国の称号を縛る国」）。']);
     need('policies/legality.en.md', ['- From ' + DAY + ', applications from people who hold the nationality of a country that restricts accepting foreign titles are not accepted either']);
@@ -2143,7 +2143,7 @@ console.log('\n65. 各国の法令の調べの当てはめ：外国の称号を�
     ['印を求める日を一日遅らせる', mut('tools/knighting.js', "const FOREIGN_FROM = '2026-11-22';", "const FOREIGN_FROM = '2026-11-23';"), D],
     ['呼び名の使い方の決まりを一つ外す', mut('policies/knighting.md', '- 公的な場・商取引・法的な場（書類・届出・契約・裁判など）で使わない。\n', ''), D],
     ['呼び名の使い方に取り寄せていない条を挙げる', mut('policies/knighting.md', '- ドイツ：Strafgesetzbuch (StGB) § 132a\n', '- ドイツ：Strafgesetzbuch (StGB) § 132b\n'), D],
-    ['利用規約の予告を外す', mut('policies/terms.md', '予告：' + DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人は、', '予告：'), D],
+    ['利用規約の予告を外す', mut('policies/terms.md', DAY + ' から、外国の称号を受けることを縛る国の国籍を持つ人は、', '予告：'), D],
     ['削除の求めから、どの国の人からも同じ手順で受ける文を外す', mut('policies/requests.md', '求めは、住んでいる国や国籍を問わず、どの国の人からも同じ手順で受け、同じ速さで答えます。', ''), D],
     ['適法性の説明の見出しから第233条を外す', mut('policies/legality.md', '### 名誉と信用（刑法第230条・第231条・第233条、民法第709条）', '### 名誉と信用（刑法第230条・第231条、民法第709条）'), D],
     ['記録の引用を一字変える', mut(REC, '> No citizen shall, without the prior approval of the President', '> No citizen shall, without the prior approval of the Prezident'), D],
@@ -2903,8 +2903,8 @@ console.log('\n72. 型で「当たらない」に分けた称号の条の読み�
     /* 規程の足した文、利用規約の予告（日本語と英語）、調べの README。 */
     need('policies/knighting.md', ['表のうちイエメン・オーストリア・ギリシャは、2026-11-13 に Claude が足しました。', '足した国の国籍を持つ人も、2026-11-22 から願い出ることができません。受付は 2026-11-12 から止めているので、さかのぼって断られる人はいません。']);
     need('policies/knighting.en.md', ['Austria, Greece and Yemen were added to the table by Claude on 2026-11-13', 'Applications have been paused since 2026-11-12, so no one is refused retroactively.']);
-    need('policies/terms.md', ['予告：2026-11-22 から、叙任の規程「外国の称号を縛る国」の表に、イエメン・オーストリア・ギリシャを足します。この三つの国の国籍を持つ人も、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません（2026-11-13 に示しました）。']);
-    need('policies/terms.en.md', ['Notice: from 2026-11-22, Yemen, Austria and Greece are added to the table in the Rules on Knighting, "Countries that restrict foreign titles".']);
+    need('policies/terms.md', ['2026-11-22 から、叙任の規程「外国の称号を縛る国」の表に、イエメン・オーストリア・ギリシャを足しました。この三つの国の国籍を持つ人も、日本に住んでいても、ほかの国籍と重ねて持っていても、叙任を願い出ることができません（2026-11-13 に示しました）。']);
+    need('policies/terms.en.md', ['From 2026-11-22, Yemen, Austria and Greece were added to the table in the Rules on Knighting, "Countries that restrict foreign titles".']);
     need('verification/world/README.md', ['称号・栄典の主題の条は、2026-11-13 から、型の決めだけで分けません。']);
     /* 王の正誤表 34：改める前の文、分類、地名。年表の行。 */
     const e34 = cells(x['ERRATA.md'].split('\n').find((l) => l.startsWith('| 34 | ')) || ''), e34en = cells(x['ERRATA.en.md'].split('\n').find((l) => l.startsWith('| 34 | ')) || '');
@@ -2931,8 +2931,8 @@ console.log('\n72. 型で「当たらない」に分けた称号の条の読み�
     ['記録から弁護士の文を外す', mut(REC, '\nこの節も、弁護士の確認は受けていません。\n\n## 残る限り', '\n## 残る限り'), WS],
     ['規程から足した国の文を外す', mut('policies/knighting.md', '表のうちイエメン・オーストリア・ギリシャは、2026-11-13 に Claude が足しました。', ''), WS],
     ['英語の規程から足した国の文を外す', mut('policies/knighting.en.md', 'Austria, Greece and Yemen were added to the table by Claude on 2026-11-13', 'Countries were added'), WS],
-    ['利用規約の予告を外す', mut('policies/terms.md', '予告：2026-11-22 から、叙任の規程「外国の称号を縛る国」の表に、イエメン・オーストリア・ギリシャを足します。', ''), WS],
-    ['英語の利用規約の予告を外す', mut('policies/terms.en.md', 'Notice: from 2026-11-22, Yemen, Austria and Greece are added', 'Yemen, Austria and Greece are added'), WS],
+    ['利用規約の予告を外す', mut('policies/terms.md', '2026-11-22 から、叙任の規程「外国の称号を縛る国」の表に、イエメン・オーストリア・ギリシャを足しました。', ''), WS],
+    ['英語の利用規約の予告を外す', mut('policies/terms.en.md', 'From 2026-11-22, Yemen, Austria and Greece were added', 'Yemen, Austria and Greece were added'), WS],
     ['王の正誤表 34 から改める前の文を外す', mut('ERRATA.md', OLD_FORM, ''), WS],
     ['英語の王の正誤表 34 の分類を変える', mut('ERRATA.en.md', '| Scope | Insula Finis XIV |', '| Fact | Insula Finis XIV |'), WS],
     ['年表の行を外す', mut('README.md', '| 2026-11-13（日本時間） | 叙任の規程「外国の称号を縛る国」の表に、', '| 2026-11-13（日本時間） | 規程の表に、'), WS],
@@ -5732,6 +5732,53 @@ console.log('\n91. ほかのミクロネーションとの突き合わせ（2026
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：税と兵役・代表・旅券・国籍・断り・自由の数・王の一文・叙任の誘い・生成した頁・年表・記録のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n92. 2026-11-22 に効力を生じた叙任の定め：利用規約（日本語と英語）は予告ではなく今の定めとして書き、様式は日付から見る四つの印を必須にし、受付のコードはそれを二度数えない');
+{
+  const K = require('../tools/knighting.js');
+  const DAY = '2026-11-22';
+  const LEAD_JA = '次の定めは、効力の生じる前にこの頁で示し、' + DAY + ' に効力を生じました。';
+  const LEAD_EN = 'The following provisions were shown on this page before they took effect, and took effect on ' + DAY + '.';
+  const files = ['policies/terms.md', 'policies/terms.en.md', 'policies/knighting.md', 'policies/knighting.en.md', 'tools/knighting-form.yml'];
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const after = (t, lead, n) => { const ls = t.split('\n'); const i = ls.indexOf(lead); return i < 0 ? [] : ls.slice(i + 1, i + 1 + n); };
+  function verdict(x) {
+    const bad = [];
+    const tj = x['policies/terms.md'], te = x['policies/terms.en.md'], yml = x['tools/knighting-form.yml'];
+    const lj = after(tj, LEAD_JA, 7), le = after(te, LEAD_EN, 7);
+    if (lj.length !== 7 || !lj.every((l) => l.startsWith(DAY + ' から、'))) bad.push('利用規約の今の定めの並び');
+    if (le.length !== 7 || !le.every((l) => l.startsWith('From ' + DAY + ', '))) bad.push('英語の利用規約の今の定めの並び');
+    if (tj.split('\n').some((l) => l.startsWith('予告：' + DAY))) bad.push('利用規約に効力を生じた予告が残る');
+    if (te.split('\n').some((l) => l.startsWith('Notice: from ' + DAY) || l.startsWith('Notice: from 00:00 on ' + DAY))) bad.push('英語の利用規約に効力を生じた予告が残る');
+    if (!tj.split('\n').some((l) => l.startsWith(DAY + ' 0 時（日本時間）からも、叙任の願い出の受付を止めたままにしています。受付に戻る日は決めていません。'))) bad.push('受付の停止の文');
+    if (!te.split('\n').some((l) => l.startsWith('From 00:00 on ' + DAY + ' (Japan time), applications for knighting have stayed paused, and no date for reopening has been set'))) bad.push('英語の受付の停止の文');
+    if (!x['policies/knighting.md'].includes(DAY + ' に効力を生じた改めた規程') || x['policies/knighting.md'].includes('効力を持つ改めた規程')) bad.push('叙任の規程の停止の理由の時制');
+    if (!x['policies/knighting.en.md'].includes('before the revised rules took effect on ' + DAY) || x['policies/knighting.en.md'].includes('rules take effect on ' + DAY)) bad.push('英語の叙任の規程の停止の理由の時制');
+    const req = (text) => (new RegExp('\\n        - label: ' + text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[^\\n]*\\n          required: (true|false)\\n').exec(yml) || [])[1];
+    for (const d of K.DATED) {
+      const want = d.from <= DAY ? 'true' : 'false';
+      if (req(d.text) !== want) bad.push('様式の印「' + d.text.slice(0, 12) + '」は required: ' + want + ' でない');
+    }
+    const oaths = K.requiredOaths(yml);
+    if (oaths.some((o) => K.DATED.some((d) => o.startsWith(d.text)))) bad.push('必ず印を付ける誓いに、日付から見る印が入る');
+    return bad;
+  }
+  const now = verdict(real);
+  ok('利用規約（日本語と英語）は、' + DAY + ' に効力を生じた定めを前置きの一文のあとに今の定めとして並べて予告を残さず、受付の停止は続いていると書く。叙任の規程の時制がそろい、様式は ' + DAY + ' からの印を必須にし 18 歳の印はまだ必須にせず、受付のコードは必須の誓いに日付から見る印を入れない', now.length === 0, now.join(' / '));
+  const mut = (f, a, b) => Object.assign({}, real, { [f]: real[f].replace(a, b) });
+  const breaks = [
+    ['居住の定めを予告の書き方に戻す', mut('policies/terms.md', '\n' + DAY + ' から、叙任を願い出ることができるのは', '\n予告：' + DAY + ' から、叙任を願い出ることができるのは')],
+    ['英語の良識の前提を予告の書き方に戻す', mut('policies/terms.en.md', '\nFrom ' + DAY + ', knighting presumes', '\nNotice: from ' + DAY + ', knighting presumes')],
+    ['前置きの一文を外す', mut('policies/terms.md', LEAD_JA + '\n', '')],
+    ['受付の停止を予告に戻す', mut('policies/terms.md', DAY + ' 0 時（日本時間）からも、叙任の願い出の受付を止めたままにしています。', '予告：' + DAY + ' 0 時（日本時間）からも、叙任の願い出の受付を止めたままにし、')],
+    ['叙任の規程の時制を戻す', mut('policies/knighting.md', DAY + ' に効力を生じた改めた規程', DAY + ' から効力を持つ改めた規程')],
+    ['居住の印を必須でなくす', mut('tools/knighting-form.yml', /(- label: 日本に住んでいて、いま日本にいます[^\n]*\n          required: )true/, '$1false')],
+    ['良識の前提の印を必須でなくす', mut('tools/knighting-form.yml', /(- label: 称号を遊びとして扱い[^\n]*\n          required: )true/, '$1false')],
+    ['18 歳の印を先に必須にする', mut('tools/knighting-form.yml', /(- label: 18 歳以上です[^\n]*\n          required: )false/, '$1true')],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：予告の書き方に戻す（日本語・英語・受付の停止）・前置きを外す・時制を戻す・印を必須でなくす・18 歳の印を先に必須にする、のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
 /* 非同期の確かめ（PENDING）を、同期の検査がすべて済んだ後に順に動かしてから集計する（2026-11-19、検査 90）。 */
