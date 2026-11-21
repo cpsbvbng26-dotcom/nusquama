@@ -996,6 +996,87 @@
       "article": "1",
       "sha256": "44e957109a0ad996676c46775f08ef4f4add90a3117575ee43d8ce7dc4ad9229",
       "title": "明治十四年太政官布告第六十三号（褒章条例）"
+    },
+    {
+      "name": "著作権法",
+      "label": "第2条第1項第1号",
+      "law_id": "345AC0000000048",
+      "article": "2",
+      "items": [
+        "1"
+      ],
+      "sha256": "0f88f7f03918f732cfd781dbb99e4866384cea43aa62ca7e592ba493fe25cdf9",
+      "title": "著作権法"
+    },
+    {
+      "name": "著作権法",
+      "label": "第10条第1項第4号",
+      "law_id": "345AC0000000048",
+      "article": "10",
+      "items": [
+        "4"
+      ],
+      "sha256": "1b51b19db7203d4b06a5c38df46175351f6ec7066007c6e7fc656dbbb655d184",
+      "title": "著作権法"
+    },
+    {
+      "name": "著作権法",
+      "label": "第19条",
+      "law_id": "345AC0000000048",
+      "article": "19",
+      "sha256": "e544aec935d1d2d11c98e1f90407335be874712ae20f88a90ea4ff100d8bf042",
+      "title": "著作権法"
+    },
+    {
+      "name": "著作権法",
+      "label": "第20条",
+      "law_id": "345AC0000000048",
+      "article": "20",
+      "sha256": "fd3c3f660c5bc41d424736d468def4f29f0f65d368f3a8c7be334dc9294e21c9",
+      "title": "著作権法"
+    },
+    {
+      "name": "意匠法",
+      "label": "第2条",
+      "law_id": "334AC0000000125",
+      "article": "2",
+      "sha256": "1269a8ef67318251bacfa8d8e3e21c068c595c209bcf8b75a44b30c155dfcc0a",
+      "title": "意匠法"
+    },
+    {
+      "name": "意匠法",
+      "label": "第23条",
+      "law_id": "334AC0000000125",
+      "article": "23",
+      "sha256": "9b5f05ea19a53e1d43811f6be3cf4d311e1e97e59667fdfad36e4ab19917bc3e",
+      "title": "意匠法"
+    },
+    {
+      "name": "不正競争防止法",
+      "label": "第2条第1項第3号",
+      "law_id": "405AC0000000047",
+      "article": "2",
+      "items": [
+        "3"
+      ],
+      "sha256": "252a66b5a09d62812203a03b27a15a835de6216b0b8059f044519dd7b2ad28a9",
+      "title": "不正競争防止法"
+    },
+    {
+      "name": "障害者差別解消法",
+      "label": "第2条",
+      "law_id": "425AC0000000065",
+      "article": "2",
+      "sha256": "3c5f4837cb368517ec9d236bc43ea08bfdb8b190f228e0f27800623c6a23522f",
+      "title": "障害を理由とする差別の解消の推進に関する法律"
+    },
+    {
+      "name": "障害者差別解消法",
+      "label": "第8条",
+      "law_id": "425AC0000000065",
+      "article": "8",
+      "sha256": "0a058f1f4e2e5968d50afd70576a381409a1e62d19e629036114dea9139934f2",
+      "title": "障害を理由とする差別の解消の推進に関する法律"
     }
   ],
   "policies": [
@@ -1018,5 +1099,5 @@
       "commit": "166eb97e485b7de3cd5dbaf8c8d16e4310fda46c"
     }
   ],
-  "recorded": "2026-11-18"
+  "recorded": "2026-11-22"
 }
