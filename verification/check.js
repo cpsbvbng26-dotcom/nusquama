@@ -5781,6 +5781,201 @@ console.log('\n92. 2026-11-22 に効力を生じた叙任の定め：利用規�
   ok('壊して確かめる：予告の書き方に戻す（日本語・英語・受付の停止）・前置きを外す・時制を戻す・印を必須でなくす・18 歳の印を先に必須にする、のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
+console.log('\n93. デザインに関する法的な扱い（2026-11-23）：部品の一覧と配る画像が過不足なく一致し、書体は配らず端末の書体を名指すだけ、引いた条文は写しのとおりで「」の語句は写しの部分文字列、許諾・見やすさ・図の形の事実が検査と合い、規程の一覧と年表につながり、研究の系列へつながない');
+{
+  /* 2026-11-22 に利用者が求め、Claude が書いた。頁の文に書いた事実を、ここで機械に確かめさせる。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const crypto = require('crypto');
+  const { execFileSync } = require('child_process');
+  const T = (f) => { try { return read(f); } catch (e) { return null; } };
+  const SEC = {
+    ja: { file: 'policies/design.md', built: 'site/policies/design.html', title: '# デザインに関する法的な扱い', date: /^最終更新：(\d{4}-\d{2}-\d{2})。$/m,
+      heads: ['## この頁について', '## 部品の一覧', '### 書体', '### 頁の中の図', '### 配色と配置', '## 著作権', '### 許諾', '### 著作者人格権', '### 他人の素材', '## 商標・意匠・不正競争', '### 商標', '### 意匠', '### 表示と形態', '## 見やすさ', '### サイトがしていること', '## 人と団体', '## 変わったとき'],
+      table: '## 部品の一覧', places: /^スタイルで書体を決める所は \*\*(\d+)\*\* か所です。/m, generic: /^端末に名指したどの書体もなければ、総称の書体（(.+?)）に任せます。$/m, year: '<年>' },
+    en: { file: 'policies/design.en.md', built: 'site/policies/design.en.html', title: '# Legal handling of the design', date: /^Last updated: (\d{4}-\d{2}-\d{2})\.$/m,
+      heads: ['## About this page', '## List of parts', '### Typefaces', '### Figures inside pages', '### Colours and layout', '## Copyright', '### Licence', '### Moral rights of the author', '### Material of others', '## Trade marks, designs and unfair competition', '### Trade marks', '### Designs', '### Indications and product forms', '## Accessibility', '### What the site does', '## People and organisations', '## When something changes'],
+      table: '## List of parts', places: /^The style sets typefaces in \*\*(\d+)\*\* places\./m, generic: /^If none of the named typefaces is on the device, the generic typeface \((.+?)\) is used\.$/m, year: '<year>' },
+  };
+  const SAY = {
+    ja: ['運営者自身の理解を書いたものです。法的な助言ではなく、弁護士の確認も受けていません。', '（コミット 85dd680、e-Gov 法令 API から 2026-11-22 に取り寄せ）', '2026-11-22 に利用者が求め、Claude が書きました。',
+      '条を挙げる文の中で「」に入れた語句は、写しから一字一句そのまま切り出したものです。', '[名称と権利](./names.md)にあります。この頁は、それを繰り返さず、そちらへつなぎます。',
+      'サイトは、書体のファイルを配りません。', 'リポジトリの [LICENSE](../LICENSE) は CC BY 4.0 です。', '許諾は変えません。', 'CC BY 4.0 の Section 2(b)(1) は、',
+      'サイトは、他人の画像・書体・アイコン・図を使っていません。', '国章・国旗・アイコン・頁の形について、意匠登録を出願した記録は、このリポジトリにありません。', '他人の登録意匠と突き合わせた記録もありません。確かめていません。',
+      '国章・国旗・アイコンを、他人の商品の形態と突き合わせた記録はありません。確かめていません。', 'この頁は、障害を理由とする差別の解消の推進に関する法律を、障害者差別解消法と呼びます。',
+      '運営者がこの法律の事業者に当たるかどうかは、条文からは決まりません。この頁は、それを決めません。', '読み上げの道具で聞くこと、キーボードだけで通して操作すること、色覚の型ごとの見え方は、確かめていません。',
+      '実在の人の肖像や写真は、どの画像にもありません。', '部品を足したり、変えたり、外したりするときは、同じ PR で、この頁と検査を直します。'],
+    en: ["It sets out the operator's own understanding. It is not legal advice, and no lawyer has reviewed it.", '(commit 85dd680, fetched from the e-Gov law API on 2026-11-22)', 'The owner asked for this page on 2026-11-22, and Claude wrote it.',
+      'The English descriptions of the articles on this page are summaries, not translations. Each article is quoted in the Japanese original.', 'This page does not repeat them; it links there.',
+      'The site serves no font file.', 'The [LICENSE](../LICENSE) of the repository is CC BY 4.0.', 'The licence will not be changed.', 'Section 2(b)(1) of CC BY 4.0 leaves moral rights',
+      'The site uses no image, typeface, icon or figure of anyone else.', 'No record of an application for design registration of the emblem, the flag, the icons or the form of the pages exists in this repository.',
+      'No record of a comparison with registered designs of others exists either. It was not checked.', 'No record of a comparison of the emblem, the flag or the icons with the forms of goods of others exists. It was not checked.',
+      'Whether the operator is a business operator under this Act is not decided by the text of the articles. This page does not decide it.',
+      'Listening with a screen reader, operating the whole site with a keyboard only, and how the site looks for each type of colour vision were not checked.',
+      'No image shows a portrait or a photograph of a real person.', 'When a part is added, changed or removed, this page and the checks are corrected in the same PR.'],
+  };
+  const MARKS = ['著作権法 第2条第1項第1号、著作権法 第10条第1項第4号', '著作権法 第19条、著作権法 第20条', '商標法 第25条', '意匠法 第2条、意匠法 第23条',
+    '不正競争防止法 第2条第1項第1号・第2号、不正競争防止法 第2条第1項第3号', '障害者差別解消法 第2条、障害者差別解消法 第8条'];
+  const KEYS = MARKS.join('、').split('、');
+  const COMMIT = '85dd68091ce06598f55740428d3f1a927448523c';
+  const IMG = /\.(svg|png|ico|jpe?g|gif|webp|avif|bmp|tiff?)$/i, FONT = /\.(woff2?|ttf|otf|eot)$/i;
+  const GENERIC = ['serif', 'sans-serif', 'monospace', 'cursive', 'fantasy', 'system-ui', 'ui-serif', 'ui-sans-serif', 'ui-monospace', 'ui-rounded', 'math', 'emoji', 'fangsong'];
+  const SHAPES = new Set(['svg', 'title', 'rect', 'polygon', 'a']);
+  const SITE_R = ['cpsbvbng26-dotcom', 'github', 'io'].join('.');
+  const RESEARCH = new RegExp(['ORCID', 'orcid\\.org', SITE_R.replace(/\./g, '\\.'), 'cpsbvbng26-dotcom/cpsbvbng26-dotcom', 'researchmap', '\\bdoi\\.org\\b', 'zenodo'].join('|'), 'i');
+  const ROW = '| 2026-11-23（日本時間） | 規程に「デザインに関する法的な扱い」を置く。';
+  const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const unhtml = (s) => s.replace(/<br>\n?/g, ' ').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+  const ratio = (a, b) => { const [p, q] = [lum(a), lum(b)].sort((m, n) => n - m); return (p + 0.05) / (q + 0.05); };
+  const TEXT = [['fg', 'bg'], ['muted', 'bg'], ['accent', 'bg'], ['gold', 'bg'], ['fg', 'notice'], ['accent', 'notice'], ['muted', 'notice'], ['fg', 'card'], ['muted', 'card'], ['accent', 'card'], ['onband', 'band'], ['bandgold', 'band'], ['bandmuted', 'band']];
+  const RING = [['gold', 'bg'], ['gold', 'notice'], ['gold', 'card'], ['bandgold', 'band']];
+  let commitTexts = null;
+  try { commitTexts = execFileSync('git', ['show', COMMIT + ':verification/statutes-texts.json'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); } catch (e) { commitTexts = null; }
+  const siteFiles = walk(path.join(ROOT, 'site'));
+  const real = Object.fromEntries(['policies/design.md', 'policies/design.en.md', 'site/policies/design.html', 'site/policies/design.en.html', 'README.md', 'LICENSE',
+    'verification/statutes.json', 'verification/statutes-texts.json', 'verification/check_layout.js'].map((f) => [f, T(f)]));
+  Object.assign(real, { __files: siteFiles, __style: B.STYLE, __policies: B.POLICIES, __en: B.EN, __kinds: B.KINDS.map((k) => k.shape), __commit: commitTexts,
+    __html: Object.fromEntries(siteFiles.filter((f) => f.endsWith('.html')).map((f) => [f, read('site/' + f)])), __svg: Object.fromEntries(siteFiles.filter((f) => f.endsWith('.svg')).map((f) => [f, read('site/' + f)])) });
+  const sectionOf = (t, head) => { const i = t.indexOf('\n' + head + '\n'); if (i < 0) return ''; const rest = t.slice(i + head.length + 2); const j = rest.search(/\n##? /); return j < 0 ? rest : rest.slice(0, j); };
+  function verdict(x) {
+    const bad = [], pats = {}, rows = {};
+    let ST, TX, CT;
+    try { ST = JSON.parse(x['verification/statutes.json']); TX = JSON.parse(x['verification/statutes-texts.json']); } catch (e) { return ['見張りの表が読めない']; }
+    try { CT = JSON.parse(x.__commit); } catch (e) { CT = null; }
+    for (const [lang, S] of Object.entries(SEC)) {
+      const t = x[S.file];
+      if (typeof t !== 'string') { bad.push(S.file + '：ない'); continue; }
+      if (!t.startsWith(S.title + '\n')) bad.push(S.file + '：題');
+      const heads = t.split('\n').filter((l) => /^##+ /.test(l));
+      if (JSON.stringify(heads) !== JSON.stringify(S.heads)) bad.push(S.file + '：節の並び');
+      for (const w of SAY[lang]) if (!t.includes(w)) bad.push(S.file + '：' + w.slice(0, 24));
+      if (RESEARCH.test(t) || RESEARCH.test(String(x[S.built] || ''))) bad.push(S.file + '：研究の系列につなぐ');
+      if (/@[a-z0-9-]+\.[a-z]/i.test(t)) bad.push(S.file + '：メールアドレス');
+      if (/reviewed by a lawyer|a lawyer (has )?(reviewed|checked)|弁護士が(確か|確認|見)|guarantee|no risk|侵害しません|おそれはありません|してください/i.test(t)) bad.push(S.file + '：弁護士・確かさ・二人称を言う');
+      /* 部品の一覧の表。ファイルの欄の名を、配る画像と突き合わせる。 */
+      rows[lang] = sectionOf(t, S.table).split('\n').filter((l) => /^\| (?!---|部品 \||Part \|)/.test(l)).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+      if (!rows[lang].length || rows[lang].some((r) => r.length !== 5)) bad.push(S.file + '：表の欄の数');
+      pats[lang] = rows[lang].flatMap((r) => [...r[1].matchAll(/`([^`]+)`/g)].map((m) => m[1].replace(S.year, '<Y>')));
+      for (const r of rows[lang]) if (/`/.test(r[1]) && r[3] !== 'CC BY 4.0') bad.push(S.file + '：' + r[0] + ' の許諾が LICENSE と違う');
+      /* 書体：決める所の数と、総称の書体。 */
+      const fams = [...x.__style.matchAll(/font-family:\s*([^;]+);/g)].map((m) => m[1].split(',').map((y) => y.trim().replace(/^"|"$/g, '')));
+      if (Number((S.places.exec(t) || [])[1]) !== fams.length) bad.push(S.file + '：書体を決める所の数 ' + (S.places.exec(t) || [])[1] + ' が、スタイルの ' + fams.length + ' と違う');
+      const gen = [...((S.generic.exec(t) || [])[1] || '').matchAll(/`([^`]+)`/g)].map((m) => m[1]);
+      const have = [...new Set(fams.flat().filter((y) => GENERIC.includes(y)))];
+      if (JSON.stringify(gen.slice().sort()) !== JSON.stringify(have.slice().sort()) || !fams.every((f) => GENERIC.includes(f[f.length - 1]))) bad.push(S.file + '：総称の書体');
+      /* 引いた条文。 */
+      const mk = [...t.matchAll(/^<!-- 条文 (.+) -->$/gm)].map((m) => m[1]);
+      if (JSON.stringify(mk) !== JSON.stringify(MARKS)) bad.push(S.file + '：引く条文の印');
+      const h = String(x[S.built] || '');
+      if (!h.includes('<h1>' + S.title.slice(2) + '</h1>')) bad.push(S.built + '：生成した頁がない');
+      const blocks = [...h.matchAll(/<summary>(?:条文　|Text of )(.+?)(?: \(Japanese original\))?<\/summary><blockquote lang="ja"><p>([\s\S]*?)<\/p><\/blockquote>/g)];
+      if (blocks.length !== KEYS.length || blocks.some(([, k, b], i) => unhtml(k) !== KEYS[i] || unhtml(b) !== TX[KEYS[i]])) bad.push(S.built + '：生成した頁の条文が記した文と違う');
+      if (!h.includes(ST.recorded)) bad.push(S.built + '：取り寄せた日がない');
+    }
+    if (bad.length) return bad;
+    if (SEC.ja.date.exec(x['policies/design.md'])[1] !== SEC.en.date.exec(x['policies/design.en.md'])[1]) bad.push('最終更新の日が日本語と英語で違う');
+    if (JSON.stringify(pats.ja) !== JSON.stringify(pats.en) || rows.ja.length !== rows.en.length) bad.push('日本語と英語で部品の一覧が違う');
+    const images = x.__files.filter((f) => IMG.test(f)), re = pats.ja.map((p) => new RegExp('^' + escRe(p).replace('<Y>', '\\d{4}') + '$'));
+    for (const f of images) if (!re.some((p) => p.test(f))) bad.push('一覧にない画像を配る：' + f);
+    for (const p of re) if (!images.some((f) => p.test(f))) bad.push('一覧の画像を配らない：' + p.source);
+    if (x.__files.some((f) => FONT.test(f))) bad.push('書体のファイルを配る');
+    if (/@font-face|@import|url\(/i.test(x.__style)) bad.push('スタイルが書体か外のものを読み込む');
+    /* 条文は見張りが記した値で、写しのコミット 85dd680 の文と同じ。「」の語句は、条を挙げる文の中で写しの部分文字列。 */
+    for (const k of KEYS) {
+      const e = ST.statutes.find((y) => y.name + ' ' + y.label === k);
+      if (!e || !TX[k] || crypto.createHash('sha256').update(TX[k], 'utf8').digest('hex') !== e.sha256) bad.push(k + ' を見張りが記していない');
+      if (!CT || CT[k] !== TX[k]) bad.push(k + ' がコミット 85dd680 の写しと違う');
+    }
+    if (ST.recorded !== '2026-11-22') bad.push('写しの取り寄せた日が頁の文と違う');
+    const law = /法第\d+条|同法第|同項/;
+    let quotes = 0;
+    for (const l of x['policies/design.md'].split('\n').filter((y) => law.test(y))) for (const m of l.matchAll(/「([^」]+)」/g)) {
+      if (/^(商標と表示|名称と商標|国旗と国章|ライセンス|国章|国の書体|ほかの者の名)/.test(m[1])) continue;
+      quotes++;
+      if (!KEYS.some((k) => TX[k].includes(m[1]))) bad.push('写しにない語句：「' + m[1].slice(0, 20) + '」');
+    }
+    if (quotes < 8) bad.push('条を挙げる文の「」の語句が少ない（' + quotes + '）');
+    if (/「[^」]+」/.test(x['policies/design.en.md'].replace(/\([^)]*[一-龥][^)]*\)/g, ''))) bad.push('英語の頁が日本語の語句を引用として置く');
+    /* 許諾：LICENSE は CC BY 4.0 で、Section 2(b)(1) の人格権の文を持つ。 */
+    const lic = String(x.LICENSE || '');
+    if (!lic.startsWith('Creative Commons Attribution 4.0 International') || !lic.includes('1. Moral rights, such as the right of integrity, are not licensed under this Public License') || !lic.includes('the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights')) bad.push('LICENSE が CC BY 4.0 の人格権の文を持たない');
+    /* 見やすさ：配色の比、動きのないこと、本文へのリンク、フォーカスの枠、区画の形、拡大と幅。 */
+    const css = x.__style;
+    const tok = (s) => Object.fromEntries([...(s || '').matchAll(/--(\w+): (#[0-9a-f]{6})/g)].map((m) => [m[1], m[2]]));
+    for (const t of [tok((/^:root \{([^}]*)\}/m.exec(css) || [])[1]), tok((/prefers-color-scheme: dark\) \{ :root \{([^}]*)\}/.exec(css) || [])[1])]) {
+      if (!Object.keys(t).length || TEXT.some(([f, b]) => !(ratio(t[f], t[b]) >= 4.5)) || RING.some(([f, b]) => !(ratio(t[f], t[b]) >= 3))) bad.push('配色の比');
+    }
+    if (/animation|transition|@keyframes|scroll-behavior:\s*smooth/i.test(css)) bad.push('スタイルに動きがある');
+    if (!/a:focus-visible \{ outline: 3px solid var\(--gold\)/.test(css)) bad.push('フォーカスの枠');
+    if (new Set(x.__kinds).size !== x.__kinds.length) bad.push('区画の形が分類ごとに違わない');
+    if (!/const WIDTHS = \[[^\]]*\b640\b[^\]]*\b360\b[^\]]*\];/.test(String(x['verification/check_layout.js'] || ''))) bad.push('はみ出しの検査の幅');
+    for (const [f, h] of Object.entries(x.__html)) {
+      const foot = (/<footer>([\s\S]*?)<\/footer>/.exec(h) || [])[1] || '';
+      if (!/<a class="skip" href="#main">(本文へ|Skip to content)<\/a>/.test(h) || !h.includes('<main id="main">')) bad.push(f + '：本文へのリンク');
+      if (!foot.includes('CC BY 4.0') || !foot.includes('Claude Code')) bad.push(f + '：下の欄の許諾と開示');
+      if (!/<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">/.test(h)) bad.push(f + '：拡大');
+      if (/@font-face|<link [^>]*rel="stylesheet"/i.test(h)) bad.push(f + '：書体か外のスタイル');
+    }
+    /* 図の形：配る SVG と頁の中の図は、長方形と多角形（と題と区画のリンク）だけ。 */
+    const svgs = Object.entries(x.__svg).concat(Object.entries(x.__html).flatMap(([f, h]) => [...h.matchAll(/<svg[\s\S]*?<\/svg>/g)].map((m) => [f, m[0]])));
+    for (const [f, s] of svgs) { const odd = [...s.matchAll(/<([a-zA-Z][\w:-]*)/g)].map((m) => m[1]).filter((g) => !SHAPES.has(g)); if (odd.length) { bad.push(f + '：図に ' + odd[0]); } }
+    /* つなぎ：規程の一覧、README、年表。 */
+    if (!x.__policies.includes('design') || !x.__en.includes('design')) bad.push('規程の一覧にない');
+    const rd = String(x['README.md'] || '');
+    if (!rd.includes('- [デザインに関する法的な扱い](policies/design.md)\n') || !rd.includes('[Legal handling of the design](policies/design.en.md)')) bad.push('README の規程の一覧');
+    const row = rd.split('\n').find((l) => l.startsWith(ROW)) || '';
+    if (!row.includes('2026-11-22 に利用者が求め、Claude が書きました') || !row.includes('The owner asked for this on 2026-11-22, and Claude wrote it') || RESEARCH.test(row)) bad.push('年表の行');
+    for (const f of ['index.html', 'policies/terms.html', 'policies/terms.en.html']) if (!/href="[^"]*policies\/design(\.en)?\.html"/.test(x.__html[f] || '')) bad.push(f + '：下の欄から頁へつながない');
+    return bad;
+  }
+  const now = verdict(real);
+  ok('デザインに関する法的な扱い（日本語と英語）：節の並び・約束の文・部品の一覧と配る画像（' + real.__files.filter((f) => IMG.test(f)).length + '）が過不足なく一致し、書体のファイルと読み込みがなく、書体を決める所の数と総称の書体がスタイルと合い、引いた条文（' + KEYS.length + '）は見張りの値でコミット 85dd680 の写しと同じ、「」の語句は写しの部分文字列、LICENSE の人格権の文、配色の比・動き・本文へのリンク・フォーカス・区画の形・拡大・図の形（' + Object.keys(real.__html).length + ' 頁）、規程の一覧・README・年表・下の欄がそろい、研究の系列へつながない',
+    now.length === 0, now.slice(0, 6).join(' / '));
+  const w = (f, a, b) => Object.assign({}, real, { [f]: String(real[f] || '').replace(a, b) });
+  const wh = (f, a, b) => Object.assign({}, real, { __html: Object.assign({}, real.__html, { [f]: real.__html[f].replace(a, b) }) });
+  const breaks = [
+    ['日本語の節を外す', w('policies/design.md', '\n## 人と団体\n', '\n## 人\n')],
+    ['英語の小見出しを外す', w('policies/design.en.md', '### Material of others\n', '')],
+    ['一覧にない画像を配る', Object.assign({}, real, { __files: real.__files.concat(['portrait.png']) })],
+    ['一覧の画像を配らない', Object.assign({}, real, { __files: real.__files.filter((f) => f !== 'og.png') })],
+    ['英語の一覧から画像を外す', w('policies/design.en.md', '`icon-192.png`, `icon-512.png`, `apple-touch-icon.png`', '`icon-192.png`, `icon-512.png`')],
+    ['画像の許諾を変える', w('policies/design.md', '| `og.png` | `tools/icons.js` が、同じように作る（1200 × 630 px） | CC BY 4.0 |', '| `og.png` | `tools/icons.js` が、同じように作る（1200 × 630 px） | CC BY-NC 4.0 |')],
+    ['書体のファイルを配る', Object.assign({}, real, { __files: real.__files.concat(['fonts/serif.woff2']) })],
+    ['スタイルに書体の規則を足す', Object.assign({}, real, { __style: real.__style + '\n@font-face { src: url(x.woff2); }' })],
+    ['書体を決める所を一つ足す', Object.assign({}, real, { __style: real.__style + '\nh1 { font-family: "Some Face", sans-serif; }' })],
+    ['書体を決める所の数を変える', w('policies/design.en.md', 'in **2** places', 'in **3** places')],
+    ['総称の書体を一つ落とす', w('policies/design.md', '（`serif`・`ui-monospace`・`monospace`）', '（`serif`・`monospace`）')],
+    ['スタイルに動きを足す', Object.assign({}, real, { __style: real.__style.replace('a:hover {', 'a:hover { transition: color 0.2s;') })],
+    ['フォーカスの枠を外す', Object.assign({}, real, { __style: real.__style.replace('a:focus-visible { outline: 3px solid var(--gold);', 'a:focus-visible {') })],
+    ['文字の色を薄くする', Object.assign({}, real, { __style: real.__style.replace('--muted: #595246;', '--muted: #a59e90;') })],
+    ['区画の形を二つ同じにする', Object.assign({}, real, { __kinds: real.__kinds.map((s, i) => (i === 1 ? real.__kinds[0] : s)) })],
+    ['頁から本文へのリンクを外す', wh('policies/design.html', /<a class="skip" href="#main">[^<]*<\/a>/, '')],
+    ['下の欄から許諾を外す', wh('policies/names.en.html', 'Text and emblem: CC BY 4.0.', 'Text and emblem: see the repository.')],
+    ['拡大を止める', wh('index.html', 'viewport-fit=cover">', 'viewport-fit=cover, maximum-scale=1">')],
+    ['頁の図に文字を描く', wh('errata.html', '</svg>', '<text x="1" y="1">A</text></svg>')],
+    ['配る SVG に画像を埋める', Object.assign({}, real, { __svg: Object.assign({}, real.__svg, { 'flag.svg': real.__svg['flag.svg'].replace('</svg>', '<image href="p.png"/></svg>') }) })],
+    ['引く条文の印を変える', w('policies/design.en.md', '<!-- 条文 商標法 第25条 -->', '<!-- 条文 商標法 第26条 -->')],
+    ['条文を一字変える', Object.assign({}, real, { 'verification/statutes-texts.json': real['verification/statutes-texts.json'].replace('絵画、版画、彫刻その他の美術の著作物', '絵画、彫刻その他の美術の著作物') })],
+    ['写しのコミットの文が違う', Object.assign({}, real, { __commit: String(real.__commit || '').replace('（同一性保持権）', '（同一性）') })],
+    ['生成した頁の条文を変える', w('site/policies/design.html', '第二十三条 意匠権者は、業として', '第二十三条 意匠権者は、')],
+    ['「」の語句を言い換える', w('policies/design.md', '「絵画、版画、彫刻その他の美術の著作物」', '「絵画その他の美術の著作物」')],
+    ['取り寄せた日を変える', Object.assign({}, real, { 'verification/statutes.json': String(real['verification/statutes.json']).replace('"recorded": "2026-11-22"', '"recorded": "2026-11-29"') })],
+    ['LICENSE の人格権の文を外す', w('LICENSE', '1. Moral rights, such as the right of integrity, are not licensed', '1. Moral rights are not licensed')],
+    ['英語の要旨の断りを外す', w('policies/design.en.md', 'are summaries, not translations', 'are translations')],
+    ['意匠の確かめていない文を外す', w('policies/design.md', '他人の登録意匠と突き合わせた記録もありません。確かめていません。', '他人の登録意匠とは似ていません。')],
+    ['事業者に当たると決める', w('policies/design.md', 'この頁は、それを決めません。', '運営者は事業者に当たらないと決めます。')],
+    ['弁護士を言う', w('policies/design.en.md', 'This page does not decide it.', 'This page does not decide it, though a lawyer reviewed it.')],
+    ['研究の系列へつなぐ', w('policies/design.md', '2026-11-22 に利用者が求め、Claude が書きました。', '2026-11-22 に利用者が求め、Claude が書きました。https://' + SITE_R + '/')],
+    ['規程の一覧から外す', Object.assign({}, real, { __policies: real.__policies.filter((p) => p !== 'design') })],
+    ['README の一覧から外す', w('README.md', '- [デザインに関する法的な扱い](policies/design.md)\n', '')],
+    ['年表から求めた人を外す', w('README.md', 'を、取り寄せた条文とともに書く。2026-11-22 に利用者が求め、Claude が書きました |', 'を、取り寄せた条文とともに書く |')],
+    ['最終更新の日をずらす', w('policies/design.en.md', 'Last updated: 2026-11-23.', 'Last updated: 2026-11-22.')],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：節・一覧と配る画像・許諾・書体のファイルと規則と数と総称・動き・フォーカス・配色の比・区画の形・本文へのリンク・下の欄・拡大・図の形・条文の印と文と写し・「」の語句・取り寄せた日・LICENSE・要旨の断り・確かめていない文・事業者・弁護士・研究の系列・規程の一覧・README・年表・最終更新のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
+    missed.length === 0, missed.join(' / '));
+}
+
 /* 非同期の確かめ（PENDING）を、同期の検査がすべて済んだ後に順に動かしてから集計する（2026-11-19、検査 90）。 */
 (async () => {
   for (const [label, fn] of PENDING) { let r; try { r = await fn(); } catch (e) { r = e.message; } ok(label, r === null, r || ''); }
