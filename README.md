@@ -225,6 +225,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 - [叙任の規程](policies/knighting.md)
 - [削除・訂正・辞退の求め](policies/requests.md)
 - [名称と権利](policies/names.md)
+- [デザインに関する法的な扱い](policies/design.md)
 - [適法性の説明](policies/legality.md)
 - [交流の規程](policies/exchange.md)
 
@@ -236,7 +237,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 国の成り立ちは[建国の物語](STORY.md)に、国の名や制度に使うラテン語は[国の言葉](LEXICON.md)に、機関と手続きは[国の仕組み](INSTITUTIONS.md)にあります。
 紹介に使う文と数は[紹介する人のために](PRESS.md)に、正誤表の雛形と問いは[遊び](PLAY.md)にあります。
 
-English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Statement of Purpose](MISSION.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md) / [Story of the founding](STORY.en.md) / [Words of the kingdom](LEXICON.en.md) / [Institutions](INSTITUTIONS.en.md) / [For anyone introducing Nusquama](PRESS.en.md) / [Play](PLAY.en.md)
+English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legal handling of the design](policies/design.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Statement of Purpose](MISSION.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md) / [Story of the founding](STORY.en.md) / [Words of the kingdom](LEXICON.en.md) / [Institutions](INSTITUTIONS.en.md) / [For anyone introducing Nusquama](PRESS.en.md) / [Play](PLAY.en.md)
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。

@@ -21,9 +21,9 @@ const NAME = '無何有騎士王国ヌスクァマ';
 const GOOGLE_SITE_VERIFICATION = 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8';
 
 /* 頁の元。README がトップ、名簿、王の正誤表、規程。 */
-const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality', 'exchange'];
+const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'design', 'legality', 'exchange'];
 /* 英語の訳がある規程。日本語の版を正とする。 */
-const EN = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'legality', 'exchange'];
+const EN = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'design', 'legality', 'exchange'];
 /* 英語の訳がある、トップ以外の頁。KNIGHTS.md には KNIGHTS.en.md が対になる。 */
 const ROOT_EN = [['KNIGHTS', 'knights'], ['ERRATA', 'errata'], ['SYMBOLS', 'symbols'], ['CALENDAR', 'calendar'], ['GAZETTE', 'gazette'],
   ['STORY', 'story'], ['LEXICON', 'lexicon'], ['INSTITUTIONS', 'institutions'], ['PRESS', 'press'], ['PLAY', 'play'], ['MISSION', 'mission']];
