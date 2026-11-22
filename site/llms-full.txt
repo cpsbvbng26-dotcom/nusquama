@@ -224,6 +224,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 | 2026-11-19（日本時間） | 個人で運営しているため、参加のハードルを極端に高くしていると、トップの頁と、参加を書く頁に書き、国の仕組みに「参加のハードル」を置く。2026-12-15 から、受付に戻ったあとの叙任の願い出は 18 歳以上の人に限り、同じアカウントからは 365 日に一度、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてからとし、称号を使わない場所の答えを求め、場所の確かめの日数を 365 日とする。誤りの知らせは、場所の確かめの日数を 365 日とし、確かめた先の欄を求める。新しい交流の申し出は受けない。利用規約で予告する。叙任の受付は止めたまま。2026-11-19 に利用者が決め、Claude が書きました | Pages that describe taking part, and the top page, now say that Nusquama is run by one individual and so sets its barriers to participation extremely high, and the Institutions gain "Barriers to participation". From 2026-12-15, once applications reopen, only people aged 18 or over may apply for knighting, an account may apply once in 365 days, at most 1 person is knighted a year, the decision comes only after 90 days from the application, an answer naming the places where the title is not used is required, and the check of the place uses 365 days. Error reports use 365 days for the check of the place, and require the field for what the report was checked against. No new offer of exchange is received. The Terms of Use give notice. Applications for knighting stay paused. The owner decided this on 2026-11-19, and Claude wrote it |
 | 2026-11-21（日本時間） | 有名なミクロネーションの決まりと突き合わせ、利用規約に「与えないもの」の節を、国の仕組みに「訪れる人の五つの自由」を置く。2026-11-21 に利用者が求め、Claude が書きました | After a comparison with the rules of well-known micronations, the Terms of Use gain the section "What Nusquama does not give", and the Institutions gain "Five freedoms of a visitor". The owner asked for this on 2026-11-21, and Claude wrote it |
 | 2026-11-22（日本時間） | 2026-11-22 に効力を生じた叙任の定め（日本に住み、願い出のときに日本にいる人に限ること、イタリアの国籍と外国の称号を縛る国の国籍、騎士の呼び名の使い方、良識の前提）を、利用規約で予告の書き方から今の定めの書き方に改める。願い出の様式で、日本にいること・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提の印を必須にする。受付は止めたままです | The provisions on knighting that took effect on 2026-11-22 (only people who live in Japan and are in Japan when they apply; Italian nationality and the nationality of countries that restrict foreign titles; the use of the name of knight; the premise of good sense) are rewritten in the Terms of Use from notices into provisions in force. In the application form, the boxes for being in Japan, Italian nationality, the nationality of countries that restrict foreign titles, and the premise of good sense become required. Applications stay paused |
+| 2026-11-23（日本時間） | 規程に「デザインに関する法的な扱い」を置く。国章・国旗・アイコン・版図の地図・頁の中の図・書体・配色と配置について、作り方と出所、権利と許諾、著作権法・商標法・意匠法・不正競争防止法・障害者差別解消法の条との関わりを、取り寄せた条文とともに書く。2026-11-22 に利用者が求め、Claude が書きました | The rules gain "Legal handling of the design". For the emblem, the flag, the icons, the map of the domain, the figures inside pages, the typefaces, and the colours and layout, it records how each was made and where it came from, the rights and licence, and how it touches the articles of the Copyright Act, the Trademark Act, the Design Act, the Unfair Competition Prevention Act and the Disability Discrimination Act, with the fetched texts of the articles. The owner asked for this on 2026-11-22, and Claude wrote it |
 
 ---
 
@@ -235,6 +236,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 - [叙任の規程](policies/knighting.md)
 - [削除・訂正・辞退の求め](policies/requests.md)
 - [名称と権利](policies/names.md)
+- [デザインに関する法的な扱い](policies/design.md)
 - [適法性の説明](policies/legality.md)
 - [交流の規程](policies/exchange.md)
 
@@ -246,7 +248,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 国の成り立ちは[建国の物語](STORY.md)に、国の名や制度に使うラテン語は[国の言葉](LEXICON.md)に、機関と手続きは[国の仕組み](INSTITUTIONS.md)にあります。
 紹介に使う文と数は[紹介する人のために](PRESS.md)に、正誤表の雛形と問いは[遊び](PLAY.md)にあります。
 
-English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Statement of Purpose](MISSION.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md) / [Story of the founding](STORY.en.md) / [Words of the kingdom](LEXICON.en.md) / [Institutions](INSTITUTIONS.en.md) / [For anyone introducing Nusquama](PRESS.en.md) / [Play](PLAY.en.md)
+English (translations; the Japanese version governs): [Founding Declaration, Basic Law and Ten Precepts](founding.en.md) / [Terms of Use](policies/terms.en.md) / [Disclaimer](policies/disclaimer.en.md) / [Privacy](policies/privacy.en.md) / [Rules on Knighting](policies/knighting.en.md) / [Requests](policies/requests.en.md) / [Names and rights](policies/names.en.md) / [Legal handling of the design](policies/design.en.md) / [Legality Statement](policies/legality.en.md) / [Rules on exchange](policies/exchange.en.md) / [Statement of Purpose](MISSION.en.md) / [Roll of knights](KNIGHTS.en.md) / [King's errata](ERRATA.en.md) / [Symbols](SYMBOLS.en.md) / [Calendar](CALENDAR.en.md) / [Gazette](GAZETTE.en.md) / [Story of the founding](STORY.en.md) / [Words of the kingdom](LEXICON.en.md) / [Institutions](INSTITUTIONS.en.md) / [For anyone introducing Nusquama](PRESS.en.md) / [Play](PLAY.en.md)
 
 サイト：<https://nusquama.vercel.app/>（このリポジトリの文から生成しています）
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
@@ -2147,6 +2149,162 @@ J-PlatPat・WIPO・USPTO のデータベースで調べた記録は、このリ�
 
 ---
 
+Source: https://nusquama.vercel.app/policies/design.html
+
+# デザインに関する法的な扱い
+
+最終更新：2026-11-23。
+
+## この頁について
+
+この頁は、サイトの見た目の部品について、誰が作ったか、どこから来たか、権利と許諾がどうなっているか、どの法令の条にどう関わるかを記します。
+部品は、書体、国章・国旗・ファビコン・アイコン・共有したときの画像、版図の地図と頁の中の図、配色と配置です。
+運営者自身の理解を書いたものです。法的な助言ではなく、弁護士の確認も受けていません。
+条文は、このリポジトリの [verification/statutes-texts.json](../verification/statutes-texts.json)（コミット 85dd680、e-Gov 法令 API から 2026-11-22 に取り寄せ）の写しのとおりに引きます。写しは、見張りが取り寄せて記したものです。
+条を挙げる文の中で「」に入れた語句は、写しから一字一句そのまま切り出したものです。
+名と国旗・国章の商標の扱い、調べた記録、権利者から知らせが来たときの手順は、[名称と権利](./names.md)にあります。この頁は、それを繰り返さず、そちらへつなぎます。
+2026-11-22 に利用者が求め、Claude が書きました。
+
+## 部品の一覧
+
+サイトが配る画像は、次の表の「ファイル」の欄に挙げたものだけです。
+頁の中の図、書体、配色と配置は、画像のファイルとしては配りません。
+
+| 部品 | ファイル | 作り方と出所 | 権利と許諾 | 確かめ方 |
+| --- | --- | --- | --- | --- |
+| 国章 | `emblem.svg` | 運営者の求めにより、Claude Code が長方形と多角形だけで描き、assets/ に置いた | CC BY 4.0 | 検査が、色は国の色だけで、長方形と多角形のほかの形がないことを確かめる |
+| 国旗 | `flag.svg` | 運営者の求めにより、Claude Code が長方形だけで描き、assets/ に置いた | CC BY 4.0 | 国章と同じ |
+| 正方形のファビコン | `favicon.svg` | `tools/favicon.js` が、国章を紺の正方形の中に置いて作る | CC BY 4.0 | 検査が、国章から作り直したものと同じであることを確かめる |
+| 小さいファビコン | `favicon.ico` | `tools/icons.js` が、国章をブラウザで描いて作る（16・32・48 px） | CC BY 4.0 | 検査が、画素に赤と白がないことを確かめる |
+| アイコン | `icon-192.png`・`icon-512.png`・`apple-touch-icon.png` | `tools/icons.js` が、同じように作る | CC BY 4.0 | 小さいファビコンと同じ |
+| 共有したときの画像 | `og.png` | `tools/icons.js` が、同じように作る（1200 × 630 px） | CC BY 4.0 | 小さいファビコンと同じ |
+| 版図の地図 | `territory.svg`・`territory-<年>.svg` | `build.js` が、王の正誤表から描く | CC BY 4.0 | 国章と同じ。検査が、site/ が build.js の出力と同じであることも確かめる |
+| 頁の中の図 | なし | `build.js` が、王の正誤表・年ごとの版図・しるしの作図の頁の中に描く | CC BY 4.0 | 版図の地図と同じ |
+| 書体 | なし | 配らない。閲覧者の端末にある書体を名指すだけ | 名指す書体は、それぞれの権利者のもの | 検査が、書体のファイルと、書体を読み込む規則（font-face）がないことを確かめる |
+| 配色と配置 | なし | `build.js` のスタイルを、頁ごとの `<style>` に入れる | CC BY 4.0 | 検査が、配色の比と、外から何も読み込まないことを確かめる |
+
+### 書体
+
+サイトは、書体のファイルを配りません。
+スタイルに、書体のファイルを読み込む規則（font-face）はなく、書体を外から読み込むこともしません。
+スタイルで書体を決める所は **2** か所です。どちらも、閲覧者の端末にある書体の名を並べて名指すだけです。
+端末に名指したどの書体もなければ、総称の書体（`serif`・`ui-monospace`・`monospace`）に任せます。
+名指した書体は、閲覧者の端末にあるもので、それぞれの権利者のものです。
+国章・国旗・版図の地図は、書体を使いません（[国のしるし](../SYMBOLS.md)の「国の書体」）。
+
+### 頁の中の図
+
+頁の中の図は、`build.js` が、王の正誤表・年ごとの版図・しるしの作図の頁を作るときに描きます。
+どの図も、国の色の長方形と多角形だけでできていて、文字を描きません。
+どの図にも題（title）を付けます。
+
+### 配色と配置
+
+配色と配置は、`build.js` のスタイル一つで決めます。
+スタイルは頁ごとの `<style>` に入れ、外のスタイルシートを読みません。
+どの頁も、ほかのサーバーから何も読み込みません（CSP の `default-src 'none'`）。
+
+## 著作権
+
+著作権法第2条第1項第1号は、著作物を「思想又は感情を創作的に表現したものであつて、文芸、学術、美術又は音楽の範囲に属するもの」と定めます。
+同法第10条第1項第4号は、著作物の例として「絵画、版画、彫刻その他の美術の著作物」を挙げます。
+国章・国旗・アイコン・版図の地図と頁の中の図が美術の著作物に当たるかどうかは、条文だけからは決まりません。
+どれも、長方形と多角形を、[国のしるし](../SYMBOLS.md)の作図に書いた寸法で並べた図です。
+言語モデルを使って作ったものに著作権がどこまで及ぶかが定まっていないことは、[名称と権利](./names.md)の「ライセンス」にあります。
+
+<!-- 条文 著作権法 第2条第1項第1号、著作権法 第10条第1項第4号 -->
+
+### 許諾
+
+リポジトリの [LICENSE](../LICENSE) は CC BY 4.0 です。
+部品の一覧の画像、頁の中の図、スタイルは、この許諾で公開しています。
+CC BY 4.0 は、権利が及ぶ範囲で許すものです。
+許諾は変えません。
+
+### 著作者人格権
+
+著作権法第19条は、著作者が「その実名若しくは変名を著作者名として表示し、又は著作者名を表示しないこととする権利」を持つと定めます。
+同法第20条は、著作者が「その著作物及びその題号の同一性を保持する権利」を持つと定めます。
+CC BY 4.0 の Section 2(b)(1) は、同一性保持権などの人格権を許諾の外に置きます。そのうえで、許諾した使い方に要る限りで、許諾者がその権利を放棄するか、行使しないと定めます。
+どの頁の下の欄も、運営者と、文と国章が CC BY 4.0 であることと、Claude Code で書いたことを示します。
+
+<!-- 条文 著作権法 第19条、著作権法 第20条 -->
+
+### 他人の素材
+
+サイトは、他人の画像・書体・アイコン・図を使っていません。
+そのため、他人の素材の許諾の文と条件は、この頁にありません。
+
+## 商標・意匠・不正競争
+
+### 商標
+
+運営者は、ヌスクァマの名としるしの商標の登録を、日本でもほかの国でも出願していません（[名称と権利](./names.md)の「名称と商標」）。
+商標法第25条は、商標権者が「指定商品又は指定役務について登録商標の使用をする権利を専有する」と定めます。
+ヌスクァマは、この条による権利を持ちません。
+
+<!-- 条文 商標法 第25条 -->
+
+### 意匠
+
+意匠法第2条第1項は、意匠を、物品の形状等、建築物の形状等、または画像であって「視覚を通じて美感を起こさせるもの」と定めます。
+同項の画像は、「機器の操作の用に供されるもの又は機器がその機能を発揮した結果として表示されるもの」に限られます。
+同法第23条は、意匠権者が「業として登録意匠及びこれに類似する意匠の実施をする権利を専有する」と定めます。
+国章・国旗・アイコン・頁の形について、意匠登録を出願した記録は、このリポジトリにありません。
+他人の登録意匠と突き合わせた記録もありません。確かめていません。
+ヌスクァマは、何も売らず、物を作らず、配りません（[利用規約](./terms.md)）。
+
+<!-- 条文 意匠法 第2条、意匠法 第23条 -->
+
+### 表示と形態
+
+不正競争防止法第2条第1項第1号・第2号の商品等表示の扱いは、[適法性の説明](./legality.md)の「商標と表示（商標法第25条、不正競争防止法第2条第1項第1号・第2号）」にあります。
+同項第3号は、「他人の商品の形態（当該商品の機能を確保するために不可欠な形態を除く。）を模倣した商品」を譲渡し、または電気通信回線を通じて提供することなどの行為を挙げます。
+ヌスクァマは、商品を作らず、売らず、配りません。
+国章・国旗・アイコンを、他人の商品の形態と突き合わせた記録はありません。確かめていません。
+国旗と国章が実在の国旗や紋章を写していないことと、その確かめ方は、[名称と権利](./names.md)の「国旗と国章」にあります。
+
+<!-- 条文 不正競争防止法 第2条第1項第1号・第2号、不正競争防止法 第2条第1項第3号 -->
+
+## 見やすさ
+
+この頁は、障害を理由とする差別の解消の推進に関する法律を、障害者差別解消法と呼びます。
+障害者差別解消法第2条第7号は、事業者を「商業その他の事業を行う者（国、独立行政法人等、地方公共団体及び地方独立行政法人を除く。）」と定めます。
+同法第8条は、事業者が、不当な差別的取扱いによって障害者の権利利益を侵害してはならないことと、社会的障壁の除去について必要かつ合理的な配慮をすることを定めます。
+運営者がこの法律の事業者に当たるかどうかは、条文からは決まりません。この頁は、それを決めません。
+
+<!-- 条文 障害者差別解消法 第2条、障害者差別解消法 第8条 -->
+
+### サイトがしていること
+
+次の事柄は、どれも [verification/check.js](../verification/check.js) か、CI の別の job が確かめています。
+
+- 配色：明るい配色と暗い配色を、端末の設定で切り替えます。どちらの配色でも、文字と背景の組は 4.5:1 以上、フォーカスの枠と背景の組は 3:1 以上です。色はすべて二つの配色の変数から取ります。
+- 色だけに頼らないこと：版図の区画は金一色で、誤りの分類は形で分けます。分類ごとに形が違います。
+- 動き：スタイルに、動き（animation・transition）がありません。
+- 代替テキスト：頁の上の国章は飾りとして空にし、中身の画像には何の画像かと「（創作）」を書きます。頁の中の図には題を付けます。
+- 言語と見出し：どの頁も言語を示し、h1 を一つ持ち、見出しの段を飛ばしません。
+- キーボード：どの頁も、先頭に「本文へ」のリンクを置きます。スタイルは、フォーカスした所に枠を描きます。
+- 拡大：拡大を止めません。360 px と、200% に当たる 640 px の幅で、横にはみ出さないことを、CI の別の job がブラウザで描いて確かめます。
+
+読み上げの道具で聞くこと、キーボードだけで通して操作すること、色覚の型ごとの見え方は、確かめていません。
+
+## 人と団体
+
+SVG の画像と頁の中の図は、どれも長方形と多角形だけでできています。
+PNG と ICO の画像は、国章を描いたものです。
+実在の人の肖像や写真は、どの画像にもありません。
+国旗と国章が実在の国家・王室・騎士団・勲章・大学・企業の紋章や記章を写していないことは、[名称と権利](./names.md)の「国章」と「国旗と国章」にあります。
+ほかの者のロゴを配らないことは、同じ頁の「ほかの者の名」にあります。
+
+## 変わったとき
+
+部品を足したり、変えたり、外したりするときは、同じ PR で、この頁と検査を直します。
+検査は、この頁の部品の一覧と、配る画像が食い違えば落ちます。
+変えたことは、[年表](../README.md)と官報に記します。
+
+---
+
 Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
@@ -3390,6 +3548,164 @@ The lists of arms, insignia and marks that the Minister designates and the ordin
 6. Some things are not rewritten. The rows of the King's errata and of the timeline, past issues of the Gazette and the history of the repository keep the old name. Where the site shows them, it adds a note that the name was changed.
 7. Every change is recorded in the [timeline](../README.md) and the Gazette. The decision is written in the issue.
 8. If the right is not confirmed, the operator gives the reason in the same place.
+
+---
+
+Source: https://nusquama.vercel.app/policies/design.en.html
+
+# Legal handling of the design
+
+Last updated: 2026-11-23.
+
+This is an English translation. The [Japanese version](./design.md) governs; if the two differ, the Japanese version applies.
+
+## About this page
+
+This page records, for each visual part of the site, who made it, where it came from, what rights and licence apply to it, and which articles of which laws it touches.
+The parts are the typefaces, the emblem, the flag, the favicons, the icons and the image shown when a page is shared, the map of the domain and the figures inside pages, and the colours and the layout.
+It sets out the operator's own understanding. It is not legal advice, and no lawyer has reviewed it.
+The articles are quoted as they stand in the copy in [verification/statutes-texts.json](../verification/statutes-texts.json) in this repository (commit 85dd680, fetched from the e-Gov law API on 2026-11-22). The weekly watch fetched and recorded that copy.
+The English descriptions of the articles on this page are summaries, not translations. Each article is quoted in the Japanese original.
+The trade mark handling of the names, the flag and the emblem, the search record, and the steps when a rights holder writes are in [Names and rights](./names.en.md). This page does not repeat them; it links there.
+The owner asked for this page on 2026-11-22, and Claude wrote it.
+
+## List of parts
+
+The only images the site serves are those listed in the "File" column of the table below.
+The figures inside pages, the typefaces, and the colours and layout are not served as image files.
+
+| Part | File | How it was made, and where it came from | Rights and licence | How it is checked |
+| --- | --- | --- | --- | --- |
+| Emblem | `emblem.svg` | Drawn by Claude Code at the operator's request, with rectangles and polygons only, and placed in assets/ | CC BY 4.0 | The checks confirm that it uses only the colours of the kingdom and no shapes other than rectangles and polygons |
+| Flag | `flag.svg` | Drawn by Claude Code at the operator's request, with rectangles only, and placed in assets/ | CC BY 4.0 | As for the emblem |
+| Square favicon | `favicon.svg` | Made by `tools/favicon.js`, which puts the emblem inside a navy square | CC BY 4.0 | The checks confirm that it is the same as one made again from the emblem |
+| Small favicon | `favicon.ico` | Made by `tools/icons.js`, which draws the emblem in a browser (16, 32 and 48 px) | CC BY 4.0 | The checks confirm that no pixel is red or white |
+| Icons | `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` | Made by `tools/icons.js` in the same way | CC BY 4.0 | As for the small favicon |
+| Image shown when a page is shared | `og.png` | Made by `tools/icons.js` in the same way (1200 × 630 px) | CC BY 4.0 | As for the small favicon |
+| Map of the domain | `territory.svg`, `territory-<year>.svg` | Drawn by `build.js` from the King's errata | CC BY 4.0 | As for the emblem. The checks also confirm that site/ is the same as the output of build.js |
+| Figures inside pages | None | Drawn by `build.js` inside the pages of the errata, the domain year by year, and the construction of the symbols | CC BY 4.0 | As for the map of the domain |
+| Typefaces | None | Not served. The site only names typefaces on the reader's device | The typefaces named belong to their owners | The checks confirm that there is no font file and no rule that loads a font file (font-face) |
+| Colours and layout | None | The style in `build.js` is put into a `<style>` on each page | CC BY 4.0 | The checks confirm the contrast ratios, and that nothing is loaded from outside |
+
+### Typefaces
+
+The site serves no font file.
+The style has no rule that loads a font file (font-face), and loads no typeface from outside.
+The style sets typefaces in **2** places. Each only names, in order, typefaces that may be on the reader's device.
+If none of the named typefaces is on the device, the generic typeface (`serif`, `ui-monospace` or `monospace`) is used.
+The typefaces named are on the reader's device and belong to their owners.
+The emblem, the flag and the map of the domain use no typeface ("Typeface" in [Symbols](../SYMBOLS.en.md)).
+
+### Figures inside pages
+
+The figures inside pages are drawn by `build.js` when it makes the pages of the errata, the domain year by year, and the construction of the symbols.
+Every figure is made only of rectangles and polygons in the colours of the kingdom, and draws no letters.
+Every figure has a title.
+
+### Colours and layout
+
+The colours and the layout are set by one style in `build.js`.
+The style is put into a `<style>` on each page, and no outside stylesheet is read.
+No page loads anything from another server (`default-src 'none'` in the CSP).
+
+## Copyright
+
+In summary, Article 2(1)(i) of the Copyright Act defines a work as a creative expression of thoughts or sentiments within the literary, scientific, artistic or musical domain.
+In summary, Article 10(1)(iv) of the same Act gives paintings, engravings, sculptures and other artistic works as an example of works.
+Whether the emblem, the flag, the icons, the map of the domain and the figures inside pages are artistic works is not decided by the text of the articles alone.
+Each of them is a figure that arranges rectangles and polygons at the measurements written in the construction in [Symbols](../SYMBOLS.en.md).
+That the reach of copyright over things made with a language model is unsettled is stated under "Licence" in [Names and rights](./names.en.md).
+
+<!-- 条文 著作権法 第2条第1項第1号、著作権法 第10条第1項第4号 -->
+
+### Licence
+
+The [LICENSE](../LICENSE) of the repository is CC BY 4.0.
+The images in the list of parts, the figures inside pages and the style are published under this licence.
+CC BY 4.0 grants permission to the extent that rights exist.
+The licence will not be changed.
+
+### Moral rights of the author
+
+In summary, Article 19 of the Copyright Act gives the author the right to show their real name or a pseudonym as the author's name, or to show no name.
+In summary, Article 20 of the same Act gives the author the right to keep the work and its title as they are.
+Section 2(b)(1) of CC BY 4.0 leaves moral rights, such as the right of integrity, outside the licence. It then says that, to the limited extent needed for the licensed use, the licensor waives those rights or agrees not to assert them.
+The footer of every page names the operator, says that the text and the emblem are under CC BY 4.0, and says that they were written with Claude Code.
+
+<!-- 条文 著作権法 第19条、著作権法 第20条 -->
+
+### Material of others
+
+The site uses no image, typeface, icon or figure of anyone else.
+So this page gives no licence text or conditions for material of others.
+
+## Trade marks, designs and unfair competition
+
+### Trade marks
+
+The operator has not applied to register the names and marks of Nusquama as trade marks, in Japan or anywhere else ("Names and trademarks" in [Names and rights](./names.en.md)).
+In summary, Article 25 of the Trademark Act gives the holder of a trade mark right the exclusive right to use the registered trade mark for the designated goods or services.
+Nusquama holds no right under this article.
+
+<!-- 条文 商標法 第25条 -->
+
+### Designs
+
+In summary, Article 2(1) of the Design Act defines a design as the shape and similar features of an article or a building, or an image, that gives an aesthetic impression through the eye.
+Under that paragraph, an image counts only if it is used to operate a device, or is shown as the result of a device performing its function.
+In summary, Article 23 of the same Act gives the holder of a design right the exclusive right to work the registered design, and designs similar to it, as a business.
+No record of an application for design registration of the emblem, the flag, the icons or the form of the pages exists in this repository.
+No record of a comparison with registered designs of others exists either. It was not checked.
+Nusquama sells nothing, and makes and hands out no objects ([Terms of Use](./terms.en.md)).
+
+<!-- 条文 意匠法 第2条、意匠法 第23条 -->
+
+### Indications and product forms
+
+The handling of indications of goods or business under Article 2(1)(i) and (ii) of the Unfair Competition Prevention Act is in "Trademarks and indications (Trademark Act, Article 25; Unfair Competition Prevention Act, Article 2, paragraph 1, items 1 and 2)" in the [Legality Statement](./legality.en.md).
+In summary, Article 2(1)(iii) of the same Act lists acts such as transferring, or providing through a telecommunications line, goods that imitate the form of another person's goods.
+Nusquama makes no goods, and sells and hands out none.
+No record of a comparison of the emblem, the flag or the icons with the forms of goods of others exists. It was not checked.
+That the flag and the emblem do not copy any real flag or arms, and how that was checked, are in "The flag and the emblem" in [Names and rights](./names.en.md).
+
+<!-- 条文 不正競争防止法 第2条第1項第1号・第2号、不正競争防止法 第2条第1項第3号 -->
+
+## Accessibility
+
+This page calls the Act for Eliminating Discrimination against Persons with Disabilities (障害を理由とする差別の解消の推進に関する法律) the Disability Discrimination Act.
+In summary, Article 2(vii) of the Disability Discrimination Act defines a business operator as a person who carries out commerce or another business, other than the State, incorporated administrative agencies and similar bodies, local governments and local incorporated administrative agencies.
+In summary, Article 8 of the same Act says that a business operator must not infringe the rights and interests of persons with disabilities by unfair discriminatory treatment, and must give necessary and reasonable accommodation for removing social barriers.
+Whether the operator is a business operator under this Act is not decided by the text of the articles. This page does not decide it.
+
+<!-- 条文 障害者差別解消法 第2条、障害者差別解消法 第8条 -->
+
+### What the site does
+
+Each of the following is checked by [verification/check.js](../verification/check.js) or by a separate job in CI.
+
+- Colours: a light and a dark colour scheme, switched by the device setting. In both schemes, every pair of text and background is at least 4.5:1, and every pair of focus ring and background is at least 3:1. Every colour is taken from the variables of the two schemes.
+- Not relying on colour alone: the parcels of the map of the domain are all gold, and the categories of mistakes are told apart by shape. Each category has a different shape.
+- Motion: the style has no motion (animation or transition).
+- Text alternatives: the emblem at the top of the page is decoration and has an empty alternative; each image in the content says what it is and adds "(fiction)". Each figure inside a page has a title.
+- Language and headings: every page states its language, has one h1, and skips no heading level.
+- Keyboard: every page starts with a "Skip to content" link. The style draws a ring where the focus is.
+- Zoom: zoom is not blocked. A separate job in CI draws every page in a browser at widths of 360 px and 640 px (the latter matching 200%), and checks that nothing overflows sideways.
+
+Listening with a screen reader, operating the whole site with a keyboard only, and how the site looks for each type of colour vision were not checked.
+
+## People and organisations
+
+The SVG images and the figures inside pages are made only of rectangles and polygons.
+The PNG and ICO images are drawings of the emblem.
+No image shows a portrait or a photograph of a real person.
+That the flag and the emblem do not copy the arms or insignia of any real state, royal house, order of knighthood, decoration, university or company is in "The emblem" and "The flag and the emblem" in [Names and rights](./names.en.md).
+That the site serves no logo of anyone else is in "Others' names" on the same page.
+
+## When something changes
+
+When a part is added, changed or removed, this page and the checks are corrected in the same PR.
+The checks fail if the list of parts on this page and the images served differ.
+The change is recorded in the [timeline](../README.md) and in the Gazette.
 
 ---
 

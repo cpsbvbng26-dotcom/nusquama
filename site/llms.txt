@@ -94,6 +94,7 @@ GitHub の API など、ほかの道で開かれた issue は、運営者が読�
 - [叙任の規程](https://nusquama.vercel.app/policies/knighting.html)
 - [削除・訂正・辞退の求め](https://nusquama.vercel.app/policies/requests.html)
 - [名称と権利](https://nusquama.vercel.app/policies/names.html)
+- [デザインに関する法的な扱い](https://nusquama.vercel.app/policies/design.html)
 - [適法性の説明](https://nusquama.vercel.app/policies/legality.html)
 - [交流の規程](https://nusquama.vercel.app/policies/exchange.html)
 
@@ -117,6 +118,7 @@ GitHub の API など、ほかの道で開かれた issue は、運営者が読�
 - [Rules on Knighting](https://nusquama.vercel.app/policies/knighting.en.html)
 - [Requests for removal, correction or withdrawal](https://nusquama.vercel.app/policies/requests.en.html)
 - [Names and rights](https://nusquama.vercel.app/policies/names.en.html)
+- [Legal handling of the design](https://nusquama.vercel.app/policies/design.en.html)
 - [Legality Statement](https://nusquama.vercel.app/policies/legality.en.html)
 - [Rules on exchange](https://nusquama.vercel.app/policies/exchange.en.html)
 
