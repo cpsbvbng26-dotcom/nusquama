@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-23.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -28,9 +28,11 @@ Once applications reopen, an application involves:
 - A public link to the correction
 - An account of what was wrong and how it was corrected
 - The answer under "称号を使わない場所" (Places where the title is not used) (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation")
+- The tick that the applicant has never been outside Japan since birth (from 2026-11-24; [Rules on Knighting](./knighting.en.md), "Never having been outside Japan")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
+About never having been outside Japan, only whether the box is ticked or not is handled. The tick stays as part of the application issue. No passport, document, date or country visited is asked for, and no history of travel outside Japan is collected or kept. The form also asks applicants not to write them.
 Nothing sensitive, such as illness, disability, belief or criminal record, is asked for either, and the form asks applicants not to write it.
 But if the linked correction gives a real name or affiliation, the roll and the issue publicly connect the account name with that person.
 Issues are also subject to GitHub's Terms of Service and Privacy Statement.

@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-22.
+Last updated: 2026-11-23.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -18,6 +18,7 @@ Article 6 of the Basic Law of the Kingdom sets one condition for knighting: to h
 The conditions of these rules apply in addition to the condition of Article 6.
 Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
+From 2026-11-24, the condition in "Never having been outside Japan" is also one of the added conditions.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
 A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
@@ -38,6 +39,7 @@ Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses s
 Excluding people who hold Italian nationality is the operator's own rule. It only excludes applicants, and says nothing about how far the article reaches.
 Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused ("Pause in receiving applications"; [Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
+From 2026-11-24, only people who have never been outside Japan since birth may apply ("Never having been outside Japan").
 From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either ("Countries and regions where knighting would not conform to the law").
 From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
 
@@ -114,6 +116,22 @@ From 2026-11-22, the applicant ticks a box in the form for this premise.
 If what the applicant wrote, or the linked correction, shows clearly that this premise does not hold, the applicant is not knighted ("What is declined").
 If it becomes clear after knighting, the knighting is revoked under "Withdrawal and revocation".
 When revoking, the operator writes in the application issue only which rule was not kept, briefly, and comments on no one. The issue is deleted if the person asks.
+
+## Never having been outside Japan
+
+From 2026-11-24, only people who have never been outside Japan since birth may apply.
+A person who has been outside Japan for travel, a business trip, study abroad or transit may not apply. A person born outside Japan may not apply either.
+This condition is in addition to the conditions in the other sections. None of them is removed, such as living in Japan and being in Japan when applying, the rules on nationality, and the check of the place when applications reopen.
+This condition is a rule of this play's world, decided by the operator on 2026-11-23. Claude decided the details on the same day.
+This condition does not look down on people who have been outside Japan, and does not rank anyone. It says nothing about any real country or nationality.
+Whether a person has been outside Japan is not a nationality. This condition does not ask about nationality, and looks only at the person's own declaration.
+It is confirmed only by the applicant's own declaration, by a tick in the form. The text of the box begins "生まれてから一度も、日本の外に出たことがありません" (Since birth, I have never been outside Japan).
+No passport, document, date or country visited is asked for. No history of travel outside Japan is collected or kept.
+The operator handles only whether the box is ticked or not. The tick stays as part of the application issue ([Privacy](./privacy.en.md), "What an application for knighthood involves").
+If a tick turns out to be untrue, it is handled like any other tick, under "What is not allowed" in the Terms of Use: the operator removes the name from the roll as soon as the operator learns of it, and may also refuse further applications from the same GitHub account.
+The roll of knights does not change. On 2026-11-23, there is no knight on the roll. The condition does not apply to a knight knighted before 2026-11-24. No knight is asked about having been outside Japan.
+Applications stay paused. When they reopen, this condition applies to every application.
+The content of the change and the date it takes effect were shown on 2026-11-23 under "Changes and ending" in the Terms of Use.
 
 
 ## Countries that restrict foreign titles
@@ -215,6 +233,7 @@ The operator does not judge whether the correction itself is right. The operator
 When an application issue is opened or edited, an automatic check looks at the ticks in the form and whether the link to the correction is an https URL that does not point to a refused destination, and comments the result in the issue.
 The automatic check does not open the link to the correction. The operator is the one who opens and reads it.
 The refused destinations are localhost; names ending in .localhost, .local, .internal, .home.arpa, .test, .example, .invalid or .onion; addresses written as numbers; names without a dot; and URLs that contain a user name or password. None of them points to a public page.
+From 2026-11-24, the automatic check also checks the tick that the applicant has never been outside Japan since birth ("Never having been outside Japan").
 From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
 The automatic check decides nothing. The operator decides on knighting.
 
@@ -223,6 +242,7 @@ The automatic check decides nothing. The operator decides on knighting.
 The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
 Nusquama gives no nationality. Knights are not its people.
 Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality or the nationality of a country under "Countries that restrict foreign titles" are taken from the applicant's own declaration, by the ticks in the form.
+From 2026-11-24, never having been outside Japan since birth is also taken from the applicant's own declaration, by a tick in the form. No passport or other document is asked for ("Never having been outside Japan").
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
@@ -239,6 +259,7 @@ No knighthood is given for:
 - An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
 - An application opened from 2026-11-12 until applications reopen ("Pause in receiving applications").
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
+- From 2026-11-24, an application without the tick for "Never having been outside Japan".
 - From 2026-12-15, an application that does not meet the conditions in "Barriers to participation".
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
