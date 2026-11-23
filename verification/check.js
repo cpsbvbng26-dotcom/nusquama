@@ -1774,8 +1774,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）、名称と商標の節（89）、参加のハードルの節（90）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-24).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|2026-11-15：自動化を固める|2026-11-18：名称と商標|2026-11-19：参加のハードル|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）、名称と商標の節（89）、参加のハードルの節（90）、日本の外に出たことがないことの節（94）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-25).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|2026-11-15：自動化を固める|2026-11-18：名称と商標|2026-11-19：参加のハードル|2026-11-23：日本の外に出たことがないこと|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -5659,7 +5659,7 @@ console.log('\n90. 参加のハードル（2026-11-19）：個人運営のため
     ['記録の引用を一字変える', mut(AUD, '| 「年齢十八歳をもって、成年とする。」「前項の', '| 「年齢十八歳をもって成年とする。」「前項の')],
     ['記録から採らなかった案を一つ外す', mut(AUD, '- 料金を取る案。称号を売ると読まれうるうえ、利用規約が料金を取らないと定めているためです。\n', '')],
     ['記録の道の数を変える', mut(AUD, '交流の申し出の三つです。', '交流の申し出の四つです。')],
-    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-23：日本の外に出たことがないこと', '\n## 2026-11-23：日本の外に出たことがないこと')],
     ['足した文から研究のサイトへつなぐ', mut('policies/exchange.md', XJ[1], XJ[1] + 'https://' + SITE_R + '/')],
     ['足した文に料金を書く', mut('INSTITUTIONS.md', 'どの道にも、費用はかかりません', '叙任の願い出には 1000 円かかります。どの道にも、費用はかかりません')],
   ];
@@ -5974,6 +5974,142 @@ console.log('\n93. デザインに関する法的な扱い（2026-11-23）：部
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：節・一覧と配る画像・許諾・書体のファイルと規則と数と総称・動き・フォーカス・配色の比・区画の形・本文へのリンク・下の欄・拡大・図の形・条文の印と文と写し・「」の語句・取り寄せた日・LICENSE・要旨の断り・確かめていない文・事業者・弁護士・研究の系列・規程の一覧・README・年表・最終更新のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
     missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n94. 日本の外に出たことがないこと（2026-11-23 に示し、2026-11-24 から）：様式の印の文（日本語と英語）、受付のコードが日付で求めること、規程・様式・予告・個人情報の取り扱いがそろうこと、効力の日が示した日より後であること、経歴を尋ねる欄がないこと');
+{
+  /* 2026-11-23 に運営者が決め、細かな定めは Claude が決めた（点検の記録「2026-11-23：日本の外に出たことがないこと」）。 */
+  const FROM = '2026-11-24';
+  const AUD = 'docs/legal-audit-2026-11-12.md', HEAD = '\n## 2026-11-23：日本の外に出たことがないこと\n';
+  const LABEL_JA = '生まれてから一度も、日本の外に出たことがありません（旅行・出張・留学・乗り継ぎで出たことも、日本の外で生まれたことも、出たことに数えます。' + FROM + ' から、この印が要ります）。';
+  const LABEL_EN = 'Since birth, I have never been outside Japan (travel, business trips, study abroad, transit and being born outside Japan all count as having been outside; this box is required from ' + FROM + ').';
+  const COND_JA = FROM + ' から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります。';
+  const COND_EN = 'From ' + FROM + ', only people who have never been outside Japan since birth may apply.';
+  const files = ['tools/knighting.js', 'tools/knighting-form.yml', 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md',
+    'policies/privacy.md', 'policies/privacy.en.md', 'policies/legality.md', 'policies/legality.en.md', 'README.md', AUD];
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const sec = (t, h) => { const i = t.indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = t.indexOf('\n## ', i + 4); return t.slice(i, j < 0 ? undefined : j); };
+  const lines = (t) => String(t || '').split('\n');
+  /* 受付のコードを、手元の文から読み込む（壊した文でも動きを見るため）。外へは何も出さない。 */
+  const load = (src) => { const m = { exports: {} }; new Function('module', 'exports', 'require', '__dirname', '__filename', String(src).replace(/^#![^\n]*/, ''))(m, m.exports, require, path.join(ROOT, 'tools'), path.join(ROOT, 'tools', 'knighting.js')); return m.exports; };
+  const KANJI = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+  function verdict(x) {
+    const bad = [];
+    let K;
+    try { K = load(x['tools/knighting.js']); } catch (e) { return ['受付のコードが読めない：' + e.message]; }
+    const yml = x['tools/knighting-form.yml'];
+    /* 一、様式：印の文が日本語と英語でそのままあり、日付から見る印として、効力の日までは必須にしない（検査 92 と同じ形）。 */
+    if (!yml.includes('\n        - label: ' + LABEL_JA + ' / ' + LABEL_EN + '\n          required: false\n')) bad.push('様式の印の文（日本語と英語）');
+    if (!(LABEL_JA.startsWith(K.ABROAD + '（') && LABEL_EN.startsWith('Since birth, I have never been outside Japan ('))) bad.push('印の文と受付のコードの文');
+    if (!yml.includes('        ' + FROM + ' から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人だけです。')) bad.push('様式の断り（日本語）');
+    if (!yml.includes('        From ' + FROM + ', only people who have never been outside Japan since birth may apply.')) bad.push('様式の断り（英語）');
+    /* 二、経歴を尋ねる欄がない：書き込む欄は三つだけで、どれも旅券・日付・行った国を尋ねない。 */
+    const blocks = yml.split(/\n  - type: /).slice(1).map((b) => ({ type: b.split('\n')[0].trim(), id: ((/\n    id: (\S+)/.exec(b) || [])[1] || ''), body: b }));
+    const fields = blocks.filter((b) => b.type !== 'markdown' && b.type !== 'checkboxes');
+    if (fields.map((b) => b.id).join() !== 'correction,what,places') bad.push('様式の書き込む欄が、訂正・説明・称号を使わない場所の三つでない');
+    if (fields.some((b) => /旅券|パスポート|渡航|出国|入国|行った国|訪れた国|滞在|海外|passport|travel|visited|abroad|countr/i.test(b.body))) bad.push('様式の欄が日本の外に出たことを尋ねる');
+    if (blocks.filter((b) => b.type === 'checkboxes').length !== 1) bad.push('様式の印の組が一つでない');
+    /* 三、受付のコード：効力の日から日付で求め、必ず印を付ける誓いには数えない。 */
+    if (K.ABROAD_FROM !== FROM || !(K.DATED || []).some((d) => d.from === FROM && d.text === K.ABROAD)) bad.push('受付のコードが効力の日から印を求めない');
+    const oaths = K.requiredOaths(yml);
+    if (oaths.some((o) => o.startsWith(K.ABROAD))) bad.push('必ず印を付ける誓いに、日本の外の印が入る');
+    const body = (ticks) => '### 訂正への公開のリンク\n\nhttps://example.org/erratum\n\n### 何を誤り、どう正したか\n\nブログの記事で年を誤り、追記で正しました。\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
+    const full = oaths.map((o) => '- [X] ' + o).concat((K.DATED || []).filter((d) => d.text !== K.ABROAD).map((d) => '- [X] ' + d.text));
+    const withBox = full.concat(['- [X] ' + LABEL_JA + ' / ' + LABEL_EN]);
+    const r = (ticks, at) => K.check(K.parse(body(ticks)), at, oaths);
+    const before = r(full, '2026-11-23T23:59:00+09:00'), after = r(full, FROM + 'T00:00:00+09:00'), good = r(withBox, FROM + 'T00:00:00+09:00');
+    const unticked = r(full.concat(['- [ ] ' + LABEL_JA + ' / ' + LABEL_EN]), FROM + 'T00:00:00+09:00');
+    if (!before.ok || after.ok || unticked.ok || !good.ok || !after.rows.some((row) => !row[1] && row[0].includes('日本の外に出たことがない'))) bad.push('受付のコードの動き（効力の日の前は求めず、その日からは印のない願い出を通さない）');
+    /* 受付のコードの注釈の数（決めごと 5）。 */
+    const cm = /\* 確かめるのは(.)つだけ：\n((?: \*   .*\n| \*     .*\n)+)/.exec(x['tools/knighting.js']);
+    if (!cm || KANJI.indexOf(cm[1]) !== cm[2].split('\n').filter((l) => l.startsWith(' *   - ')).length) bad.push('受付のコードの注釈の数');
+    /* 四、規程（日本語と英語）：条件の文、印の文、確かめ方、残すもの、事実でない印、騎士の名簿、決めた者と書き方。 */
+    const kj = sec(x['policies/knighting.md'], '日本の外に出たことがないこと'), ke = sec(x['policies/knighting.en.md'], 'Never having been outside Japan');
+    for (const s of [COND_JA, '旅行・出張・留学・乗り継ぎで日本の外に出たことがある人は、願い出ることができません。日本の外で生まれた人も、願い出ることができません。',
+      '印の文は「' + K.ABROAD + '」で始まります。', '旅券・書類・日付・行った国を求めず、尋ねません。日本の外に出た経歴を集めず、残しません。',
+      '運営者が扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります', '印が事実でないと分かったときは、ほかの印と同じく、利用規約「してはいけないこと」の定めによります。',
+      '騎士の名簿は変えません。', 'どの騎士にも、日本の外に出たことを尋ねません。', '2026-11-23 に運営者が決めた、この遊びの世界の決まりです。',
+      '日本の外に出たことがある人を低く見るものでも、人に順位を付けるものでもありません。実在の国や国籍について、何かを述べるものでもありません。',
+      '日本の外に出たことがあるかどうかは、国籍ではありません。', '受付に戻ったときは、どの願い出にもこの条件を当てます。']) if (!kj.includes(s)) bad.push('叙任の規程：' + s.slice(0, 16));
+    for (const s of [COND_EN, 'A person who has been outside Japan for travel, a business trip, study abroad or transit may not apply. A person born outside Japan may not apply either.',
+      'The text of the box begins "' + K.ABROAD + '" (Since birth, I have never been outside Japan).', 'No passport, document, date or country visited is asked for. No history of travel outside Japan is collected or kept.',
+      'The operator handles only whether the box is ticked or not. The tick stays as part of the application issue', 'If a tick turns out to be untrue, it is handled like any other tick, under "What is not allowed" in the Terms of Use',
+      'The roll of knights does not change.', 'No knight is asked about having been outside Japan.', "This condition is a rule of this play's world, decided by the operator on 2026-11-23.",
+      'This condition does not look down on people who have been outside Japan, and does not rank anyone. It says nothing about any real country or nationality.',
+      'Whether a person has been outside Japan is not a nationality.', 'When they reopen, this condition applies to every application.']) if (!ke.includes(s)) bad.push('英語の叙任の規程：' + s.slice(0, 16));
+    if (!sec(x['policies/knighting.md'], '願い出ることができる人').includes(FROM + ' から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります（「日本の外に出たことがないこと」）。')
+      || !sec(x['policies/knighting.en.md'], 'Who may apply').includes('From ' + FROM + ', only people who have never been outside Japan since birth may apply ("Never having been outside Japan").')) bad.push('願い出ることができる人');
+    if (!sec(x['policies/knighting.md'], '断ること').includes('- ' + FROM + ' から、「日本の外に出たことがないこと」の印のないもの。') || !sec(x['policies/knighting.en.md'], 'What is declined').includes('- From ' + FROM + ', an application without the tick for "Never having been outside Japan".')) bad.push('断ること');
+    /* 五、予告（日本語と英語）と、示した日・効力の日。 */
+    const tj = lines(sec(x['policies/terms.md'], '変更と終了')).filter((l) => l.startsWith('予告：' + FROM + ' から、叙任を願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります。'));
+    const te = lines(sec(x['policies/terms.en.md'], 'Changes and ending')).filter((l) => l.startsWith('Notice: from ' + FROM + ', only people who have never been outside Japan since birth may apply for knighting.'));
+    const shownJ = tj.length === 1 ? (/。(\d{4}-\d{2}-\d{2}) に示しました）。$/.exec(tj[0]) || [])[1] : null;
+    const shownE = te.length === 1 ? (/; shown on (\d{4}-\d{2}-\d{2})\)\.$/.exec(te[0]) || [])[1] : null;
+    const shownK = (/変える内容と効力の生じる日は、(\d{4}-\d{2}-\d{2}) に、利用規約「変更と終了」で示しました。/.exec(kj) || [])[1];
+    const shownKE = (/The content of the change and the date it takes effect were shown on (\d{4}-\d{2}-\d{2}) under "Changes and ending" in the Terms of Use\./.exec(ke) || [])[1];
+    const row = lines(x['README.md']).find((l) => l.includes(' | ' + FROM + ' から、叙任を願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ると叙任の規程に書き、利用規約で予告する。'));
+    const shownR = row ? (/^\| (\d{4}-\d{2}-\d{2})（日本時間） \| /.exec(row) || [])[1] : null;
+    const shown = [shownJ, shownE, shownK, shownKE, shownR];
+    if (shown.some((d) => !d) || new Set(shown).size !== 1) bad.push('示した日が、予告（日本語と英語）・規程（日本語と英語）・年表でそろわない');
+    else if (!(shown[0] < FROM && shown[0] < K.ABROAD_FROM)) bad.push('効力の日が、示した日より後でない');
+    if (!(tj[0] || '').includes('確かめるのは様式の印による本人の申告だけで、旅券・書類・日付・行った国は尋ねません。') || !(tj[0] || '').includes('騎士の名簿は変えず、騎士に日本の外に出たことを尋ねません')) bad.push('予告の中身');
+    if (!(te[0] || '').includes('no passport, document, date or country visited is asked for') || !(te[0] || '').includes('The roll of knights does not change, and no knight is asked about having been outside Japan')) bad.push('英語の予告の中身');
+    if (!sec(x['policies/terms.md'], 'してはいけないこと').includes('訂正が自分の誤りであること、日本の外に出たことがないことがあります。') || !sec(x['policies/terms.en.md'], 'What is not allowed').includes('that the correction is of your own error, or that you have never been outside Japan.')) bad.push('事実でない印の例');
+    /* 六、個人情報の取り扱い（日本語と英語）：扱うのは印のあるなしだけで、issue の一部として残る。 */
+    const pj = sec(x['policies/privacy.md'], '叙任の願い出で扱うもの'), pe = sec(x['policies/privacy.en.md'], 'What an application for knighthood involves');
+    if (!pj.includes('\n- 生まれてから一度も日本の外に出たことがないことの印（' + FROM + ' から。') || !pj.includes('日本の外に出たことがないことについて扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります。旅券・書類・日付・行った国は求めず、日本の外に出た経歴を集めず、残しません。')) bad.push('個人情報の取り扱い');
+    if (!pe.includes('\n- The tick that the applicant has never been outside Japan since birth (from ' + FROM + ';') || !pe.includes('About never having been outside Japan, only whether the box is ticked or not is handled. The tick stays as part of the application issue. No passport, document, date or country visited is asked for, and no history of travel outside Japan is collected or kept.')) bad.push('英語の個人情報の取り扱い');
+    /* 七、適法性の説明（日本語と英語）：国籍ではないこと、運営者の決めであること、確かめていないこと。 */
+    const lj = x['policies/legality.md'], le = x['policies/legality.en.md'];
+    if (!lj.includes('これは 2026-11-23 に運営者が決めた、遊びの世界の決まりで、日本の外の法令の及ぶ範囲から導いたものではない。日本の外に出たことがあるかどうかは国籍ではない。この条件は国籍を尋ねず、本人の申告の印だけを見る。')
+      || !lj.includes('同項が政令に委ねる記述等は、取り寄せていないので確かめていない。これらのほかは、これまでの点検を越えて確かめていない。')) bad.push('適法性の説明');
+    if (!le.includes('and is not derived from how far the laws outside Japan reach. Whether a person has been outside Japan is not a nationality. This condition does not ask about nationality, and looks only at the tick of the person\'s own declaration.')
+      || !le.includes('have not been fetched, and so have not been checked. Beyond these, nothing has been checked beyond the earlier review.')) bad.push('英語の適法性の説明');
+    /* 八、点検の記録：表の判定を数えた数が、書いた数と同じ。弁護士の確認を受けていないと書く。 */
+    const a = x[AUD], i = a.indexOf(HEAD), j = a.indexOf('\n## ', i + 4), as = i < 0 ? '' : a.slice(i, j);
+    const rows = lines(as).filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    const n = (k) => rows.filter((rw) => rw[4] === k).length;
+    const stated = /\n判定は、漏れ (\d+) 件、問題なし (\d+) 件で、合わせて (\d+) 件です。\n/.exec(as);
+    if (!stated || +stated[1] !== n('漏れ') || +stated[2] !== n('問題なし') || +stated[3] !== rows.length || rows.some((rw) => rw.length !== 6 || !['漏れ', '問題なし'].includes(rw[4]))) bad.push('記録の判定の数');
+    if (!as.includes('\nこの節も、弁護士の確認は受けていません。\n')) bad.push('記録の弁護士の文');
+    return bad;
+  }
+  const now = verdict(real);
+  ok('様式は印を日本語と英語の文で持ち、書き込む欄は三つのまま経歴を尋ねない。受付のコードは ' + FROM + ' から日付で印を求め、規程・予告・個人情報の取り扱い・適法性の説明（日本語と英語）・年表・記録がそろい、示した日は効力の日より前', now.length === 0, now.join(' / '));
+  const mut = (f, a, b) => { const v = String(real[f] || ''); if (!(typeof a === 'string' ? v.includes(a) : a.test(v))) throw new Error('検査 94 の壊し方が当たらない：' + f + '：' + String(a).slice(0, 30)); return Object.assign({}, real, { [f]: v.replace(a, b) }); };
+  const breaks = [
+    ['様式から印を外す', mut('tools/knighting-form.yml', '        - label: ' + LABEL_JA + ' / ' + LABEL_EN + '\n          required: false\n', '')],
+    ['印の日本語の文を変える', mut('tools/knighting-form.yml', '生まれてから一度も、日本の外に出たことがありません（旅行', '生まれてから、日本の外に住んだことがありません（旅行')],
+    ['印から英語の文を外す', mut('tools/knighting-form.yml', ' / ' + LABEL_EN, '')],
+    ['印を効力の日より前に必須にする', mut('tools/knighting-form.yml', LABEL_EN + '\n          required: false\n', LABEL_EN + '\n          required: true\n')],
+    ['様式に行った国を書く欄を足す', mut('tools/knighting-form.yml', '  - type: checkboxes\n', '  - type: textarea\n    id: countries\n    attributes:\n      label: 行った国\n    validations:\n      required: false\n  - type: checkboxes\n')],
+    ['様式の欄の説明で旅券を尋ねる', mut('tools/knighting-form.yml', 'どれでもよい。', 'どれでもよい。旅券の番号も書きます。')],
+    ['様式の断り（日本語）を外す', mut('tools/knighting-form.yml', /\n        2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人だけです。[^\n]*/, '')],
+    ['様式の断り（英語）を外す', mut('tools/knighting-form.yml', /\n        From 2026-11-24, only people who have never been outside Japan since birth may apply\.[^\n]*/, '')],
+    ['受付のコードから印を外す', mut('tools/knighting.js', "  { from: ABROAD_FROM, text: ABROAD, label: '生まれてから一度も日本の外に出たことがない印がある' },\n", '')],
+    ['受付のコードの効力の日を示した日にする', mut('tools/knighting.js', "const ABROAD_FROM = '2026-11-24';", "const ABROAD_FROM = '2026-11-23';")],
+    ['受付のコードの注釈の数を変える', mut('tools/knighting.js', ' * 確かめるのは八つだけ：', ' * 確かめるのは七つだけ：')],
+    ['規程の条件の文を変える', mut('policies/knighting.md', '\n' + COND_JA + '\n', '\n2026-11-24 から、願い出ることができるのは、日本の外に住んだことがない人に限ります。\n')],
+    ['英語の規程から名簿の文を外す', mut('policies/knighting.en.md', 'The roll of knights does not change. ', '')],
+    ['規程から書き方の断りを外す', mut('policies/knighting.md', '日本の外に出たことがある人を低く見るものでも、人に順位を付けるものでもありません。', '')],
+    ['予告を外す', mut('policies/terms.md', /\n予告：2026-11-24 から、[^\n]*/, '')],
+    ['予告の示した日を効力の日にする（日本語と英語と規程と年表）', Object.assign({}, real, {
+      'policies/terms.md': real['policies/terms.md'].replace('「日本の外に出たことがないこと」。2026-11-23 に示しました）', '「日本の外に出たことがないこと」。2026-11-24 に示しました）'),
+      'policies/terms.en.md': real['policies/terms.en.md'].replace('"Never having been outside Japan"; shown on 2026-11-23)', '"Never having been outside Japan"; shown on 2026-11-24)'),
+      'policies/knighting.md': real['policies/knighting.md'].replace('変える内容と効力の生じる日は、2026-11-23 に', '変える内容と効力の生じる日は、2026-11-24 に'),
+      'policies/knighting.en.md': real['policies/knighting.en.md'].replace('were shown on 2026-11-23 under', 'were shown on 2026-11-24 under'),
+      'README.md': real['README.md'].replace('| 2026-11-23（日本時間） | 2026-11-24 から、叙任を', '| 2026-11-24（日本時間） | 2026-11-24 から、叙任を') })],
+    ['英語の予告の示した日だけを変える', mut('policies/terms.en.md', '"Never having been outside Japan"; shown on 2026-11-23)', '"Never having been outside Japan"; shown on 2026-11-22)')],
+    ['年表の行を外す', mut('README.md', /\n\| 2026-11-23（日本時間） \| 2026-11-24 から、叙任を[^\n]*/, '')],
+    ['個人情報の取り扱いから、印のあるなしだけを扱う文を外す', mut('policies/privacy.md', '日本の外に出たことがないことについて扱うのは、印があるかないかだけです。', '')],
+    ['英語の個人情報の取り扱いの一覧から印を外す', mut('policies/privacy.en.md', /\n- The tick that the applicant has never been outside Japan since birth[^\n]*/, '')],
+    ['利用規約の事実でない印の例から外す', mut('policies/terms.md', '訂正が自分の誤りであること、日本の外に出たことがないことがあります。', '訂正が自分の誤りであることがあります。')],
+    ['適法性の説明から、確かめていない文を外す', mut('policies/legality.md', '同項が政令に委ねる記述等は、取り寄せていないので確かめていない。', '')],
+    ['記録の判定の数を変える', mut(AUD, '判定は、漏れ 2 件、問題なし 6 件で、合わせて 8 件です。', '判定は、漏れ 1 件、問題なし 7 件で、合わせて 8 件です。')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：様式（印を外す・日本語の文・英語の文・先に必須・経歴の欄・旅券の説明・断りの日本語と英語）・受付のコード（印・効力の日・注釈の数）・規程（条件・名簿・書き方）・予告（外す・示した日・英語だけ）・年表・個人情報の取り扱い（日本語と英語）・事実でない印の例・適法性の説明・記録（判定の数・弁護士）のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
 /* 非同期の確かめ（PENDING）を、同期の検査がすべて済んだ後に順に動かしてから集計する（2026-11-19、検査 90）。 */
