@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -29,6 +29,7 @@ Once applications reopen, an application involves:
 - An account of what was wrong and how it was corrected
 - The answer under "称号を使わない場所" (Places where the title is not used) (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation")
 - The tick that the applicant has never been outside Japan since birth (from 2026-11-24; [Rules on Knighting](./knighting.en.md), "Never having been outside Japan")
+- The day the correction was published, and the tick that the original text with the error is a text the applicant wrote (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
@@ -40,6 +41,9 @@ When an application issue is opened or edited, an automatic check in GitHub Acti
 The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.
 The operator is the one who opens and reads the linked page ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 From 2026-12-15, to check whether 365 days have passed since the previous application, the automatic check receives from GitHub's API the list of application issues for knighting opened by the same account. The list also contains titles and bodies, but only the issue number and the time of opening are used; the rest is discarded. Nothing used is kept anywhere.
+From 2026-12-15, to check whether there is a declined application, the automatic check also receives from GitHub's API the list of application issues for knighting opened by the same account that have the label 断った (declined). Likewise, only the issue number and the time of opening are used.
+From 2026-12-15, to check whether the account was created at least 2 years earlier, the automatic check receives from GitHub's public API the answer for the account that opened the application issue. The answer also contains the items of the profile, but only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is written neither in the comment nor in the log of the run. The applicant is asked nothing.
+All of these are public information, and are used for nothing but deciding on knighting.
 
 ## What a report of a mistake involves
 
@@ -52,7 +56,9 @@ A reporter is taken as being in Japan only if an entry naming Japan was added at
 From 2026-12-15, for a report opened on or after that day, the 30 days become 365 days. The items read do not change.
 From 2026-12-15, a report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment, and the issue is not closed. The field has always been in the form, and no new information is collected.
 The countries and organisations read are not stored, and are written neither in a comment nor in the log of the run; only whether the check passed is written.
-This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent.
+From 2026-12-15, a report opened on or after that day is received at most once in 30 days from the same GitHub account. Until 30 days, not counting the day itself, have passed since that account opened its previous error report, a report is not accepted, and gets the label "one per 30 days" and a fixed comment; the issue is not closed. Every issue with the label 誤り (error) counts, including reports that were not accepted.
+For this, the list of issues with the label 誤り (error) opened by the same account is received from GitHub's API. The list also contains titles and bodies, but only the issue number and the time of opening are used; the rest is discarded and kept nowhere. For a report that is not accepted, the ORCID record is not read.
+This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent. Nor does it apply to reports of security problems.
 
 ## Purposes of use
 
@@ -81,6 +87,7 @@ Except where the law requires, nothing is given to any other third party.
 
 An entry on the roll is kept until a request to withdraw.
 The issue of a declined application is kept, to show the one sentence of the decline; it is deleted if the applicant asks.
+From 2026-12-15, the issue of a declined application gets the label 断った (declined). The issue with this label is the record that no application for knighting is ever received again from that account. If that issue is deleted at the applicant's request, the record goes too. No other list of declined accounts is made ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
 An issue that arrives as an application for knighthood while applications are paused has its title and body replaced with a short note by the automatic check, and is closed and locked. The operator copies nothing of what arrived to the roll or anywhere else. After the replacement, the issue shows only the account name of the person who opened it, the date it was opened, and the note.
 The earlier title and body remain in the edit history that GitHub keeps for the issue. They are removed on a request to delete.
 The automatic check does not copy the body of an issue into the record of its run (the GitHub Actions log).

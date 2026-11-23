@@ -20,6 +20,7 @@ Nemo I, Knight-King, is the King and is not on this roll.
 
 On knighting, one row is added to the table. The issue of the [gazette](GAZETTE.en.md) is made from that row.
 From 2026-12-15, at most 1 person is knighted in a year (1 January to 31 December, Japan time). The table also has at most one row for each year of the day of knighting. The checks count the rows of the table to confirm this.
+From 2026-12-15, at most 1 person is knighted in 2 years. No row is added until 2 years, not counting the day of knighting of the previous row, have passed. The checks confirm this from the days of knighting in the rows of the table ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation (continued)").
 
 - No.: continues from 1 with no gaps.
 - Knight: the GitHub account name.

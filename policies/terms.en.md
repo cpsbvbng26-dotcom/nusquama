@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -111,6 +111,12 @@ Notice: from 2026-12-15, once applications reopen, only people aged 18 or over m
 Notice: from 2026-12-15, for an error report opened on or after that day, being in Japan is not taken as checked unless an ORCID entry naming Japan was added at least 365 days before the issue was opened ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 Notice: from 2026-12-15, an error report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment. The issue is not closed ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 Notice: from 2026-12-15, no new offer of exchange is received ([Rules on exchange](./exchange.en.md), "Barriers to participation").
+The five notices below were shown on 2026-11-24, and are for raising the barriers to participation further. The owner decided this on 2026-11-23.
+Notice: from 2026-12-15, once applications reopen, the correction for knighting must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version, and have been published at least 180 days before the day the application issue was opened ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, once applications reopen, applications for knighting are received only from GitHub accounts created at least 2 years before the day the issue was opened. Only the time the account was created, as shown by GitHub's public API, is checked, and the applicant is asked nothing ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, once applications reopen, at most 1 person is knighted in 2 years. This replaces the 1 person a year of the notice above ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, no application for knighting is ever received again from a GitHub account whose application for knighting was declined. A withdrawn application counts, as before, only for 365 days ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, an error report opened on or after that day is not accepted until 30 days, not counting the day itself, have passed since the same GitHub account opened its previous error report; it gets the label "one per 30 days" and a fixed comment. The issue is not closed. Requests about removal, correction or withdrawal, notices from rights holders, and reports of security problems are not limited ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 
 No change will ever create a fee.
 When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.

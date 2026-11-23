@@ -92,7 +92,7 @@ If an entry itself turns out to be wrong, the earlier row is not erased. A new r
 ## Reporting a mistake
 
 Anyone may report a mistake in the King's texts through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml). There is no fee.
-From 2026-12-01, however, reports are received only from people who can be checked, in their public ORCID record, as being in Japan. From 2026-12-15, the rules on the age of that record and on the field "確かめた先" (Checked against) are added.
+From 2026-12-01, however, reports are received only from people who can be checked, in their public ORCID record, as being in Japan. From 2026-12-15, the rules on the age of that record and on the field "確かめた先" (Checked against) are added. From 2026-12-15, a report is received at most once in 30 days from the same GitHub account.
 Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 The conditions for reports are in [Institutions](INSTITUTIONS.en.md), "Barriers to participation", and in [Privacy](policies/privacy.en.md), "What a report of a mistake involves".
 A mistake the King confirms is recorded here as the King's own mistake. A report that cannot be confirmed is closed with a note saying so in the issue.

@@ -1,6 +1,6 @@
 # Legality Statement
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -44,6 +44,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - From 2026-12-15, it accepts no applications from people under 18 either ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
 - From 2026-11-24, it accepts applications only from people who have never been outside Japan since birth. Never having been outside Japan is taken from the applicant's own declaration, by a tick in the form, and no passport, document, date or country visited is asked for ([Rules on Knighting](./knighting.en.md), "Never having been outside Japan").
+- From 2026-12-15, an application for knighting also gives, in the form, the day the correction was published. The time the account was created, as shown by GitHub's public API, and the numbers and times of opening of declined applications from the same account are used only for the check, and are not kept. For an error report, the numbers and times of opening of earlier reports from the same account are likewise used and not kept ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)"; [Privacy](./privacy.en.md), "What a report of a mistake involves").
 - It collects no documents to check nationality, age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
 
