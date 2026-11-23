@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-22.
+Last updated: 2026-11-23.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -65,7 +65,7 @@ A passport, an identity card, a proof of nationality or status, a certificate of
 - Using Nusquama's titles or emblem as if they were a real title, decoration or the insignia of a real organisation.
 - Collecting money or goods in Nusquama's name.
 - Trying to break the site or the forms.
-- Ticking a box in the application form for something that is not true, such as your age, the country you live in, your nationality, or that the correction is of your own error.
+- Ticking a box in the application form for something that is not true, such as your age, the country you live in, your nationality, that the correction is of your own error, or that you have never been outside Japan.
 
 The operator may refuse such applications, close the issues, and remove names from the roll.
 If a ticked box turns out to be untrue, the operator removes the name from the roll as soon as the operator learns of it. From 2026-11-22, the operator may also refuse further applications from the same GitHub account.
@@ -101,6 +101,7 @@ From 2026-11-22, knighting presumes that the applicant is a person of good sense
 From 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
 From 00:00 on 2026-11-22 (Japan time), applications for knighting have stayed paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts. If applications are to reopen, the day will be shown in the Rules on Knighting and on this page before that day (shown on 2026-11-13).
+Notice: from 2026-11-24, only people who have never been outside Japan since birth may apply for knighting. A person who has been outside Japan for travel, a business trip, study abroad or transit, and a person born outside Japan, may not apply. This is confirmed only by the applicant's own declaration, by a tick in the form; no passport, document, date or country visited is asked for. When applications reopen, this condition applies to every application. The roll of knights does not change, and no knight is asked about having been outside Japan ([Rules on Knighting](./knighting.en.md), "Never having been outside Japan"; shown on 2026-11-23).
 Notice: from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply for knighthood, even if they live in Japan. When the operator so judges, the country or region and the reason are added to the Rules on Knighting ([Rules on Knighting](./knighting.en.md), "Countries and regions where knighting would not conform to the law"; shown on 2026-11-13).
 Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake. If the words under "What it says" do not occur at the place under "Where", the label "not verified" and a fixed comment are added; editing the issue, or reporting again in a new issue, runs the check again. The checked intake never closes an issue ([Requests](./requests.en.md), "After a request"; shown on 2026-11-14, and changed on 2026-11-15 so that nothing is closed).
 Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan. This is checked in the reporter's public ORCID record; a report that cannot be checked is not accepted, and gets a label and a fixed comment. The issue is not closed. Requests about removal, correction, withdrawal, rights, personal data or consent are received from people in every country ([Privacy](./privacy.en.md), "What a report of a mistake involves").

@@ -6,12 +6,14 @@
  * issue の番号・開いた時刻・本文は、出来事のファイル（GITHUB_EVENT_PATH）から読む。本文を環境変数で渡すと、
  * 実行の記録（Actions のログ）に本文が写るため（2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十四度目の見落とし」）。
  *
- * 確かめるのは七つだけ：
+ * 確かめるのは八つだけ：
  *   - 様式の誓いのうち、必ず印を付けるものすべてに印があること
  *   - 2026-11-22 から（日本時間で issue を開いた日）、日本に住み、いま日本にいる印があること
  *   - 2026-11-22 から、イタリアの国籍を持っていない印があること（ほかの国籍と重ねて持つ場合も含む）
  *   - 2026-11-22 から、外国の称号を縛る国（叙任の規程「外国の称号を縛る国」）の国籍を持っていない印があること
  *   - 2026-11-22 から、称号を遊びとして扱い、規程の禁じる使い方をしない印（良識の前提）があること
+ *   - 2026-11-24 から、生まれてから一度も日本の外に出たことがない印があること（叙任の規程「日本の外に出たことがないこと」。
+ *     2026-11-23 に運営者が決め、細かな定めは Claude が決めた）。見るのは印のあるなしだけで、旅券・日付・行った国は読まず、残さない
  *   - 訂正へのリンクが https の URL で、受けない先（CLOSED）を指さないこと（文字の上だけで見る。リンクは開かない）
  *   - 何を誤り、どう正したかが書かれていること
  *
@@ -61,6 +63,9 @@ const PREMISE_FROM = '2026-11-22';
 const FOREIGN_FROM = '2026-11-22';
 const FOREIGN = '次の国の国籍を持っていません：';
 const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方をしません';
+/* 日本の外に出たことがないこと（2026-11-24 から）。2026-11-23 に運営者が決め、細かな定めは Claude が決めた。 */
+const ABROAD_FROM = '2026-11-24';
+const ABROAD = '生まれてから一度も、日本の外に出たことがありません';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
 /* 参加のハードル（2026-12-15 から）。2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選んだ。 */
 const HURDLE_FROM = '2026-12-15';
@@ -140,6 +145,7 @@ const DATED = [
   { from: NATIONALITY_FROM, text: NATIONALITY, label: 'イタリアの国籍を持っていない印がある' },
   { from: PREMISE_FROM, text: PREMISE, label: '称号を遊びとして扱う印（良識の前提）がある' },
   { from: FOREIGN_FROM, text: FOREIGN, label: '外国の称号を縛る国の国籍を持っていない印がある' },
+  { from: ABROAD_FROM, text: ABROAD, label: '生まれてから一度も日本の外に出たことがない印がある' },
   { from: HURDLE_FROM, text: AGE, label: '18 歳以上の印がある' },
 ];
 
@@ -364,6 +370,6 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+module.exports = { ABROAD_FROM, ABROAD, HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });

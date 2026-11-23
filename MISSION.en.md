@@ -1,6 +1,6 @@
 # Statement of Purpose
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-23.
 
 > This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. This statement sets out how the individual who runs this fictional country as play thinks about running it.
 
@@ -63,7 +63,7 @@ Where this statement says "at present", it means as of the date this page was la
 ## Article 8 (Knighting, and the countries and regions where knighting is not given)
 
 1. At present, applications for knighting are not received; they have not been received since 2026-11-12. At present, no date for reopening has been set ([Rules on Knighting](policies/knighting.en.md), "Pause in receiving applications").
-2. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply (Rules on Knighting, "Who may apply").
+2. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply (Rules on Knighting, "Who may apply"). From 2026-11-24, only people who have never been outside Japan since birth may apply (Rules on Knighting, "Never having been outside Japan").
 3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. At present the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
 4. In addition, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either, and are not knighted. When the operator so judges, the country or region and the reason are added to the Rules on Knighting (Rules on Knighting, "Countries and regions where knighting would not conform to the law").
 5. The number of countries and regions where knighting is not given may grow as laws change or as the operator judges.
