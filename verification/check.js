@@ -252,10 +252,12 @@ console.log('\n11. 配色（WCAG の比）');
   const dark = tok((/prefers-color-scheme: dark\) \{ :root \{([^}]*)\}/.exec(css) || [])[1]);
   const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
   const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
-  /* 頁の上と下の欄は紺の帯（band）、トップの入口と断りの枠は札の地（card）。国名のラテン語は金（gold）の文字で書く。 */
+  /* 頁の上と下の欄は紺の帯（band）、トップの入口と断りの枠は札の地（card）。国名のラテン語は金（gold）の文字で書く。
+   * 2026-11-23 に奥行きを足した。浮いた面（raised）、地の左上の明かり（glow）、帯の上の端（bandtop）の上にも文字が載るので、組に足す。 */
   const TEXT = [['fg', 'bg'], ['muted', 'bg'], ['accent', 'bg'], ['gold', 'bg'], ['fg', 'notice'], ['accent', 'notice'], ['muted', 'notice'],
-    ['fg', 'card'], ['muted', 'card'], ['accent', 'card'], ['onband', 'band'], ['bandgold', 'band'], ['bandmuted', 'band']];
-  const RING = [['gold', 'bg'], ['gold', 'notice'], ['gold', 'card'], ['bandgold', 'band']];
+    ['fg', 'card'], ['muted', 'card'], ['accent', 'card'], ['onband', 'band'], ['bandgold', 'band'], ['bandmuted', 'band'],
+    ['gold', 'card'], ['fg', 'raised'], ['muted', 'raised'], ['accent', 'raised'], ['gold', 'raised'], ['fg', 'glow'], ['muted', 'glow'], ['accent', 'glow'], ['gold', 'glow'], ['onband', 'bandtop'], ['bandgold', 'bandtop']];
+  const RING = [['gold', 'bg'], ['gold', 'notice'], ['gold', 'card'], ['bandgold', 'band'], ['gold', 'raised'], ['gold', 'glow'], ['bandgold', 'bandtop']];
   for (const [name, t] of [['明るい配色', light], ['暗い配色', dark]]) {
     const low = TEXT.filter(([f, b]) => !(t[f] && t[b] && ratio(t[f], t[b]) >= 4.5)).map(([f, b]) => f + '/' + b);
     ok(name + '：文字と背景の組（' + TEXT.length + ' 組）がどれも 4.5:1 以上', Object.keys(t).length > 0 && low.length === 0, low.join(', '));
@@ -5827,8 +5829,9 @@ console.log('\n93. デザインに関する法的な扱い（2026-11-23）：部
   const unhtml = (s) => s.replace(/<br>\n?/g, ' ').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
   const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
   const ratio = (a, b) => { const [p, q] = [lum(a), lum(b)].sort((m, n) => n - m); return (p + 0.05) / (q + 0.05); };
-  const TEXT = [['fg', 'bg'], ['muted', 'bg'], ['accent', 'bg'], ['gold', 'bg'], ['fg', 'notice'], ['accent', 'notice'], ['muted', 'notice'], ['fg', 'card'], ['muted', 'card'], ['accent', 'card'], ['onband', 'band'], ['bandgold', 'band'], ['bandmuted', 'band']];
-  const RING = [['gold', 'bg'], ['gold', 'notice'], ['gold', 'card'], ['bandgold', 'band']];
+  const TEXT = [['fg', 'bg'], ['muted', 'bg'], ['accent', 'bg'], ['gold', 'bg'], ['fg', 'notice'], ['accent', 'notice'], ['muted', 'notice'], ['fg', 'card'], ['muted', 'card'], ['accent', 'card'], ['onband', 'band'], ['bandgold', 'band'], ['bandmuted', 'band'],
+    ['gold', 'card'], ['fg', 'raised'], ['muted', 'raised'], ['accent', 'raised'], ['gold', 'raised'], ['fg', 'glow'], ['muted', 'glow'], ['accent', 'glow'], ['gold', 'glow'], ['onband', 'bandtop'], ['bandgold', 'bandtop']];
+  const RING = [['gold', 'bg'], ['gold', 'notice'], ['gold', 'card'], ['bandgold', 'band'], ['gold', 'raised'], ['gold', 'glow'], ['bandgold', 'bandtop']];
   let commitTexts = null;
   try { commitTexts = execFileSync('git', ['show', COMMIT + ':verification/statutes-texts.json'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); } catch (e) { commitTexts = null; }
   const siteFiles = walk(path.join(ROOT, 'site'));
@@ -5948,6 +5951,7 @@ console.log('\n93. デザインに関する法的な扱い（2026-11-23）：部
     ['スタイルに動きを足す', Object.assign({}, real, { __style: real.__style.replace('a:hover {', 'a:hover { transition: color 0.2s;') })],
     ['フォーカスの枠を外す', Object.assign({}, real, { __style: real.__style.replace('a:focus-visible { outline: 3px solid var(--gold);', 'a:focus-visible {') })],
     ['文字の色を薄くする', Object.assign({}, real, { __style: real.__style.replace('--muted: #595246;', '--muted: #a59e90;') })],
+    ['浮いた面の色を暗い配色で明るくしすぎる', Object.assign({}, real, { __style: real.__style.replace('--raised: #1a2742;', '--raised: #6a7792;') })],
     ['区画の形を二つ同じにする', Object.assign({}, real, { __kinds: real.__kinds.map((s, i) => (i === 1 ? real.__kinds[0] : s)) })],
     ['頁から本文へのリンクを外す', wh('policies/design.html', /<a class="skip" href="#main">[^<]*<\/a>/, '')],
     ['下の欄から許諾を外す', wh('policies/names.en.html', 'Text and emblem: CC BY 4.0.', 'Text and emblem: see the repository.')],
@@ -6110,6 +6114,123 @@ console.log('\n94. 日本の外に出たことがないこと（2026-11-23 に�
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：様式（印を外す・日本語の文・英語の文・先に必須・経歴の欄・旅券の説明・断りの日本語と英語）・受付のコード（印・効力の日・注釈の数）・規程（条件・名簿・書き方）・予告（外す・示した日・英語だけ）・年表・個人情報の取り扱い（日本語と英語）・事実でない印の例・適法性の説明・記録（判定の数・弁護士）のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n95. 頁の奥行き（2026-11-23）：高さの段と影の段の数、光の向き、暗い配色の影の長さと面の明るさ、部品ごとの段、浮くときの動き、余白と角の丸みの段、紙の幅と一行の字数、印刷で平らに戻すことが、スタイルとデザインの記録（日本語と英語）で合う');
+{
+  /* 2026-11-23 に利用者が求め、Claude が決めた。デザインの記録「配色と配置」に書いた数と約束を、スタイル（build.js の STYLE）から数え直す。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const real = { style: B.STYLE, ja: read('policies/design.md'), en: read('policies/design.en.md') };
+  const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+  /* 段ごとの部品。記録の「面」「浮いた面」「最前面」に挙げたものと同じ。 */
+  const PARTS = { face: ['.notice', '.entries a', '.table'], raised: ['main', '.hero + blockquote', '.first a img'], front: ['header', '.entries a:hover, .entries a:focus-visible', '.first a:hover img, .first a:focus-visible img'] };
+  const REC = {
+    ja: { steps: /^高さは \*\*(\d+)\*\* 段です。/m, shadows: /^影は ((?:`--e\d+`・?)+) の \*\*(\d+)\*\* 段です。/m, sep: '・',
+      map: /^地は影を持たず、面は `--(e\d+)`、浮いた面は `--(e\d+)`、最前面は `--(e\d+)` を使います。$/m, lift: /、\*\*(\d+)\*\* px 浮きます。$/m,
+      scale: /^余白は \*\*(\d+)\*\* 段、角の丸みは \*\*(\d+)\*\* 段の変数から取ります。$/m, sheet: /^幅が \*\*(\d+)\*\* px 以上の画面では、本文を紙の面に載せ、一行を全角でおよそ \*\*(\d+)\*\* 字にします。$/m,
+      say: ['光は左上の一方向から当て、どの影も右下に落とします。', '暗い配色では影を短くし、面の明るさの差と、上と左の縁の明かりで高さを示します。', '国章・国旗・版図の地図は、形も色も変えません。額の縁と影だけで手前に出します。',
+        '動き（animation・transition）は使わず、位置が一度に変わるだけです。端末が動きを減らす設定のときは位置を変えず、影だけを深くします。', '印刷では、影とぼかしと面の色の移り変わりを外し、平らに戻します。'] },
+    en: { steps: /^There are \*\*(\d+)\*\* steps of height\./m, shadows: /^There are \*\*(\d+)\*\* shadows: ((?:`--e\d+`(?:, | and )?)+)\.$/m, sep: /, | and /,
+      map: /^The ground has no shadow; surfaces use `--(e\d+)`, raised surfaces `--(e\d+)`, and the front `--(e\d+)`\.$/m, lift: /rise by \*\*(\d+)\*\* px when/,
+      scale: /^Spacing is taken from \*\*(\d+)\*\* steps of variables, and the rounding of corners from \*\*(\d+)\*\*\.$/m, sheet: /^On screens \*\*(\d+)\*\* px wide or wider, the text sits on a sheet, and a line holds about \*\*(\d+)\*\* full-width characters\.$/m,
+      say: ['Light comes from one direction, the upper left, and every shadow falls to the lower right.', 'In the dark scheme, shadows are shorter, and height is shown by the difference in the lightness of surfaces and by a light on the top and left edges.',
+        'The emblem, the flag and the map of the domain keep their shapes and colours. Only a frame and a shadow bring them forward.',
+        'No motion (animation or transition) is used; the position changes at once. When the device asks for reduced motion, the position does not change, and only the shadow deepens.',
+        'In print, shadows, blurs and gradients of surfaces are removed, and the page is flat again.'] },
+  };
+  function verdict(x) {
+    const bad = [], css = String(x.style || '');
+    const rootL = (/^:root \{([^}]*)\}/m.exec(css) || [])[1] || '', rootD = (/prefers-color-scheme: dark\) \{ :root \{([^}]*)\}/.exec(css) || [])[1] || '';
+    const vars = (s, re) => Object.fromEntries([...s.matchAll(re)].map((m) => [m[1], m[2].trim()]));
+    const L = vars(rootL, /--(e\d+): ([^;]+);/g), Dk = vars(rootD, /--(e\d+): ([^;]+);/g);
+    const names = Object.keys(L);
+    if (!names.length || JSON.stringify(names) !== JSON.stringify(Object.keys(Dk))) bad.push('影の段が明るい配色と暗い配色で違う');
+    const layers = (v) => v.split(/,(?![^(]*\))/).map((t) => t.trim());
+    const nums = (l) => (l.replace(/rgba?\([^)]*\)/g, '').match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+    /* 光は左上から：どの影も右（x ≥ 0）と下（y > 0）に落ちる。上と左の縁の明かり（--hi）は、内側の上と左に付く。 */
+    for (const [k, v] of Object.entries(L).map(([a, b]) => ['明るい ' + a, b]).concat(Object.entries(Dk).map(([a, b]) => ['暗い ' + a, b]))) {
+      for (const l of layers(v)) { const [dx, dy] = nums(l); if (/^inset/.test(l) || !(dx >= 0 && dy > 0)) bad.push(k + ' の影が右下に落ちない'); }
+    }
+    for (const r of [rootL, rootD]) { const h = /--hi: inset (\d+)px (\d+)px 0 rgba\(255, 255, 255, [\d.]+\);/.exec(r); if (!h || !(+h[1] > 0 && +h[2] > 0)) bad.push('縁の明かりが上と左にない'); }
+    /* 暗い配色の影は、明るい配色より短い（ずれとぼかしを足した届く長さで比べる）。 */
+    const reach = (v) => Math.max(...layers(v).map((l) => { const n = nums(l); return Math.abs(n[1] || 0) + Math.abs(n[2] || 0); }));
+    for (const k of names) if (Dk[k] && !(reach(Dk[k]) < reach(L[k]))) bad.push(k + ' の影が暗い配色で短くない');
+    /* 面の明るさの差：浮いた面 > 面（札の地）> 地、の順に明るい（どちらの配色でも）。 */
+    for (const r of [rootL, rootD]) { const c = vars(r, /--(raised|card|bg): (#[0-9a-f]{6});/g); if (!(c.raised && c.card && c.bg && lum(c.raised) > lum(c.card) && lum(c.card) > lum(c.bg))) bad.push('面の明るさが奥から手前へ順に明るくならない'); }
+    /* 部品ごとの段。 */
+    const shadowOf = (sel) => (new RegExp('(?:^|\\n|\\} )' + escRe(sel) + ' \\{[^}]*box-shadow: var\\(--(e\\d+)\\)').exec(css) || [])[1];
+    /* 浮くときの動き：位置を変えるのは、動きを減らす設定でないときの塊の中だけ。 */
+    const motion = (/^@media \(prefers-reduced-motion: no-preference\) \{ (.*) \}$/m.exec(css) || [])[1] || '';
+    const rest = css.split('\n').filter((l) => !l.startsWith('@media (prefers-reduced-motion: no-preference) {')).join('\n');
+    if (/translate/.test(rest)) bad.push('動きを減らす設定でも札が浮く');
+    const lift = (/transform: translateY\(-(\d+)px\)/.exec(motion) || [])[1];
+    if (!lift || !/\.entries a:hover, \.entries a:focus-visible, \.first a:hover, \.first a:focus-visible \{ transform: translateY\(-\d+px\); \}/.test(motion)) bad.push('浮く札');
+    /* 余白と角の丸みの段。 */
+    const sp = vars(rootL, /--(s\d+): (\d+px);/g), rd = vars(rootL, /--(r\d+): (\d+px);/g);
+    /* 紙の幅と一行の字数：本文の幅（46rem）から紙の左右の余白を引き、文字の大きさ（17px）で割る。 */
+    const sheet = /^@media \(min-width: (\d+)px\) \{ body \{[^}]*\} main \{([^}]*)\} \}$/m.exec(css);
+    const side = sheet && (/padding: var\(--s\d+\) var\(--(s\d+)\)/.exec(sheet[2]) || [])[1];
+    const width = (/\.wrap, main \{ max-width: ([\d.]+)rem;/.exec(css) || [])[1], font = (/^body \{[^}]*font-size: (\d+)px; \}/m.exec(css) || [])[1];
+    const chars = sheet && side && sp[side] && width && font ? Math.floor((Number(width) * 16 - 2 * parseInt(sp[side], 10)) / Number(font)) : NaN;
+    if (!sheet || !/box-shadow: var\(--e\d+\), var\(--hi\);/.test(sheet[2]) || !/var\(--grid\)/.test(sheet[0])) bad.push('紙の面');
+    /* 印刷：影・ぼかし・位置を外し、面の色の移り変わりを外す。 */
+    const print = (/^@media print \{ (.*) \}$/m.exec(css) || [])[1] || '';
+    if (!print.includes('* { box-shadow: none !important; filter: none !important; transform: none !important; }')) bad.push('印刷で影を外さない');
+    const flat = ((/ ([^{}]*) \{ background: none; \} main \{/.exec(print) || [])[1] || '').split(', ');
+    for (const s of ['body', 'main', 'header', '.notice', '.hero + blockquote', '.entries a', 'th']) if (!flat.includes(s)) bad.push('印刷で ' + s + ' の面を平らにしない');
+    for (const lang of ['ja', 'en']) {
+      const t = String(x[lang] || ''), R = REC[lang];
+      const steps = R.steps.exec(t), sh = R.shadows.exec(t), map = R.map.exec(t), li = R.lift.exec(t), sc = R.scale.exec(t), shp = R.sheet.exec(t);
+      if (!steps || !sh || !map || !li || !sc || !shp) { bad.push(lang + '：記録の文がない'); continue; }
+      const [count, list] = lang === 'ja' ? [sh[2], sh[1]] : [sh[1], sh[2]];
+      const listed = list.split(R.sep).filter(Boolean).map((y) => y.replace(/`|--/g, ''));
+      if (Number(steps[1]) !== names.length + 1) bad.push(lang + '：高さの段の数 ' + steps[1] + ' が、地と影の段（' + (names.length + 1) + '）と違う');
+      if (Number(count) !== names.length || JSON.stringify(listed) !== JSON.stringify(names)) bad.push(lang + '：影の段の数か名');
+      const tok = { face: map[1], raised: map[2], front: map[3] };
+      if (new Set(Object.values(tok)).size !== 3 || Object.values(tok).some((k) => !names.includes(k))) bad.push(lang + '：段ごとの影');
+      for (const [step, sels] of Object.entries(PARTS)) for (const s of sels) if (shadowOf(s) !== tok[step]) bad.push(lang + '：' + s + ' の影が ' + tok[step] + ' でない（' + shadowOf(s) + '）');
+      if (li[1] !== lift) bad.push(lang + '：浮く高さ ' + li[1] + ' px が、スタイルの ' + lift + ' px と違う');
+      if (Number(sc[1]) !== Object.keys(sp).length || Number(sc[2]) !== Object.keys(rd).length) bad.push(lang + '：余白か角の丸みの段の数');
+      if (!sheet || shp[1] !== sheet[1] || Number(shp[2]) !== chars) bad.push(lang + '：紙の幅か一行の字数（スタイルでは ' + (sheet && sheet[1]) + ' px、' + chars + ' 字）');
+      for (const w of R.say) if (!t.includes(w)) bad.push(lang + '：' + w.slice(0, 20));
+    }
+    if (/animation|transition|@keyframes/i.test(css)) bad.push('スタイルに動きがある');
+    return bad;
+  }
+  const now = verdict(real);
+  ok('頁の奥行き：高さの段と影の段（' + Object.keys(Object.fromEntries([...((/^:root \{([^}]*)\}/m.exec(real.style) || [])[1] || '').matchAll(/--(e\d+): /g)].map((m) => [m[1], 1]))).length + '）の数と名、光の向き、暗い配色の影の長さと面の明るさ、部品ごとの段、浮く高さと動きを減らす設定、余白と角の丸みの段、紙の幅と一行の字数、印刷で平らに戻すことが、スタイルとデザインの記録（日本語と英語）で合う',
+    now.length === 0, now.slice(0, 6).join(' / '));
+  const st = (a, b) => Object.assign({}, real, { style: real.style.replace(a, b) });
+  const rec = (lang, a, b) => Object.assign({}, real, { [lang]: real[lang].replace(a, b) });
+  const breaks = [
+    ['動きを減らす設定でも札を浮かせる', Object.assign({}, real, { style: real.style + '\n.entries a:hover { transform: translateY(-2px); }' })],
+    ['スタイルの浮く高さだけを変える', st('transform: translateY(-2px);', 'transform: translateY(-3px);')],
+    ['暗い配色から影の段を一つ外す', st(/(prefers-color-scheme: dark\) \{ :root \{[^}]*?)--e3: [^;]+; /, '$1')],
+    ['影を左上に落とす', st('--e1: 1px 1px 0 rgba(74, 58, 30, 0.06)', '--e1: -1px -1px 0 rgba(74, 58, 30, 0.06)')],
+    ['暗い配色の影を長くする', st('2px 6px 16px rgba(0, 0, 0, 0.22)', '2px 6px 40px rgba(0, 0, 0, 0.22)')],
+    ['暗い配色の浮いた面を札の地より暗くする', st('--raised: #1a2742;', '--raised: #10192d;')],
+    ['縁の明かりを下に付ける', st('--hi: inset 1px 1px 0', '--hi: inset 0 -1px 0')],
+    ['頁の上の欄を浮いた面の段にする', st('border-bottom: 4px double var(--rule); box-shadow: var(--e3);', 'border-bottom: 4px double var(--rule); box-shadow: var(--e2);')],
+    ['断りの枠を浮いた面の段にする', st('border-radius: 0 var(--r2) var(--r2) 0; box-shadow: var(--e1), var(--hi);', 'border-radius: 0 var(--r2) var(--r2) 0; box-shadow: var(--e2), var(--hi);')],
+    ['印刷で影を残す', st('* { box-shadow: none !important; filter: none !important; transform: none !important; } ', '')],
+    ['印刷で断りの枠の面を残す', st('header a.lang, .notice, .hero + blockquote', 'header a.lang, .hero + blockquote')],
+    ['紙の左右の余白を変える（字数が変わる）', st('padding: var(--s2) var(--s7) var(--s7)', 'padding: var(--s2) var(--s5) var(--s7)')],
+    ['余白の段を一つ足す', st('--s7: 48px;', '--s7: 48px; --s8: 64px;')],
+    ['スタイルに動きを足す', st('a:hover {', 'a:hover { transition: color 0.2s;')],
+    ['日本語の記録の高さの段の数を変える', rec('ja', '高さは **4** 段です。', '高さは **5** 段です。')],
+    ['英語の記録の影の段の数を変える', rec('en', 'There are **3** shadows:', 'There are **4** shadows:')],
+    ['日本語の記録の段ごとの影を入れ替える', rec('ja', '面は `--e1`、浮いた面は `--e2`', '面は `--e2`、浮いた面は `--e1`')],
+    ['英語の記録の浮く高さを変える', rec('en', 'rise by **2** px', 'rise by **4** px')],
+    ['日本語の記録の一行の字数を変える', rec('ja', 'およそ **37** 字', 'およそ **40** 字')],
+    ['英語の記録の紙の幅を変える', rec('en', 'On screens **840** px wide', 'On screens **800** px wide')],
+    ['日本語の記録の角の丸みの段の数を変える', rec('ja', '角の丸みは **3** 段', '角の丸みは **4** 段')],
+    ['日本語の記録から光の向きの文を外す', rec('ja', '光は左上の一方向から当て、どの影も右下に落とします。\n', '')],
+    ['英語の記録から印刷の文を外す', rec('en', 'In print, shadows, blurs and gradients of surfaces are removed, and the page is flat again.\n', '')],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：動きを減らす設定・浮く高さ・影の段・光の向き・暗い配色の影の長さと面の明るさ・縁の明かり・部品ごとの段・印刷・紙の余白と字数・余白の段・動き・記録の数と文（日本語と英語）のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
+    missed.length === 0, missed.join(' / '));
 }
 
 /* 非同期の確かめ（PENDING）を、同期の検査がすべて済んだ後に順に動かしてから集計する（2026-11-19、検査 90）。 */
