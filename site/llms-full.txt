@@ -137,6 +137,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 2026-12-15 から、受付に戻ったあとも、18 歳未満の人は願い出ることができません。同じ GitHub のアカウントからの願い出は、前の願い出から 365 日のあいだ受けません（[叙任の規程](policies/knighting.md)「参加のハードル」）。
 2026-12-15 から、叙任は一年に 1 人までとし、決めるのは願い出の issue を開いた日から 90 日を過ぎてからです。様式では、称号を使わない場所も答えます（[叙任の規程](policies/knighting.md)「参加のハードル」）。
+2026-12-15 から、叙任の訂正は、自分が書いて公開した文の誤りを、前の版が残る場（Git の履歴・版を分けて残す登録・正誤表の頁）で正し、願い出の 180 日以上前に公開したものに限ります。願い出の GitHub のアカウントは 2 年以上前に作られたものに限り、叙任は 2 年に 1 人までとし、断った願い出のアカウントからは二度と受けません（[叙任の規程](policies/knighting.md)「参加のハードルの続き」）。
 費用はかかりません。本名も、住所も、所属も、様式に書く必要はありません。GitHub のアカウント名で足ります。
 ただし、訂正へのリンクの先から、身元が分かることがあります。
 叙任は創作の中のことで、法的な効力も、現実の栄誉もありません。
@@ -228,6 +229,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 | 2026-11-23（日本時間） | 規程に「デザインに関する法的な扱い」を置く。国章・国旗・アイコン・版図の地図・頁の中の図・書体・配色と配置について、作り方と出所、権利と許諾、著作権法・商標法・意匠法・不正競争防止法・障害者差別解消法の条との関わりを、取り寄せた条文とともに書く。2026-11-22 に利用者が求め、Claude が書きました | The rules gain "Legal handling of the design". For the emblem, the flag, the icons, the map of the domain, the figures inside pages, the typefaces, and the colours and layout, it records how each was made and where it came from, the rights and licence, and how it touches the articles of the Copyright Act, the Trademark Act, the Design Act, the Unfair Competition Prevention Act and the Disability Discrimination Act, with the fetched texts of the articles. The owner asked for this on 2026-11-22, and Claude wrote it |
 | 2026-11-23（日本時間） | 2026-11-24 から、叙任を願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ると叙任の規程に書き、利用規約で予告する。個人情報の取り扱い・適法性の説明・運営理念・声明・紹介の頁にも書く。確かめるのは様式の印による本人の申告だけで、旅券・日付・行った国は尋ねず、日本の外に出た経歴を集めない。騎士の名簿は変えない。受付は止めたまま。2026-11-23 に運営者が決め、細かな定めは Claude が決めました | From 2026-11-24, only people who have never been outside Japan since birth may apply for knighting; the Rules on Knighting say so, and the Terms of Use give notice. The Privacy Policy, the Legality Statement, the Statement of Purpose and the page for introducers say so too. Only the applicant's own declaration, by a tick in the form, is taken; no passport, date or country visited is asked for, and no history of travel outside Japan is collected. The roll of knights does not change. Applications stay paused. The operator decided this on 2026-11-23, and Claude decided the details |
 | 2026-11-23（日本時間） | 頁の見た目に奥行きを足す。高さを段に分け、光を左上からそろえた影と縁の明かりで、断りの枠・入口の札・表・頁の上の欄を浮かせ、広い画面では本文を紙の面に載せる。国章・国旗・版図の地図は形も色も変えず、額の縁と影だけを足す。印刷では平らに戻す。文は変えない。デザインに関する法的な扱いの「配色と配置」に記す。2026-11-23 に利用者が求め、Claude が決めました | The pages gain depth. Height is divided into steps, and shadows lit from the upper left, with a light on the edges, raise the notice boxes, the entry cards, the tables and the band at the top of the page; on wide screens the text sits on a sheet. The emblem, the flag and the map of the domain keep their shapes and colours, and gain only a frame and a shadow. In print the pages are flat again. No text is changed. "Colours and layout" in Legal handling of the design records it. The owner asked for this on 2026-11-23, and Claude decided it |
+| 2026-11-24（日本時間） | 2026-12-15 から、参加の条件を七つ厳しくすると叙任の規程「参加のハードルの続き」と個人情報の取り扱いに書き、利用規約で予告する。叙任の訂正は、自分が書いて公開した文の誤りを前の版が残る場で正し、願い出の 180 日以上前に公開したものに限る。願い出の GitHub のアカウントは 2 年以上前に作られたものに限り、叙任は 2 年に 1 人までとし、断った願い出のアカウントからは二度と受けない。誤りの知らせは、同じアカウントから 30 日に一件までとする。削除・訂正・辞退の求め、権利者の知らせ、安全の問題の知らせは縛らない。受付は止めたまま。2026-11-23 に利用者が七つの条件を採ると決め、細かな定めは Claude が決めました | From 2026-12-15, seven conditions of participation become stricter; the Rules on Knighting ("Barriers to participation (continued)") and the Privacy Policy say so, and the Terms of Use give notice. The correction for knighting must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version, and have been published at least 180 days before the application. The GitHub account must have been created at least 2 years earlier, at most 1 person is knighted in 2 years, and no application is ever received again from an account whose application was declined. An error report is received at most once in 30 days from the same account. Requests about removal, correction or withdrawal, notices from rights holders, and reports of security problems are not limited. Applications stay paused. The owner decided on 2026-11-23 to adopt the seven conditions, and Claude decided the details |
 
 ---
 
@@ -300,6 +302,7 @@ Source: https://nusquama.vercel.app/knights.html
 
 叙任するときは、表に一行を足します。[官報](GAZETTE.md)の号は、その行から作ります。
 2026-12-15 から、叙任は一年（1 月 1 日から 12 月 31 日まで、日本時間）に 1 人までです。表の行も、叙任の日の年ごとに一行までです。検査が、表の行から数えて確かめます。
+2026-12-15 から、叙任は 2 年に 1 人までです。前の行の叙任の日を数えずに 2 年が過ぎるまで、次の行を足しません。検査が、表の行の叙任の日から確かめます（[叙任の規程](policies/knighting.md)「参加のハードルの続き」）。
 
 - 番：1 から欠けずに続けます。
 - 騎士：GitHub のアカウント名です。
@@ -417,7 +420,7 @@ MicroWiki（日本語版）の記事にも、1 から 3 と同じ誤りがあり
 ## 誤りの知らせ
 
 王の文の誤りは、誰でも[誤りの知らせ](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml)の様式で知らせることができます。費用はかかりません。
-ただし、2026-12-01 から、知らせを受けるのは、日本にいると ORCID の公開の記録で確かめられる人からだけです。2026-12-15 から、その記録の日数と「確かめた先」の欄の決まりも加わります。
+ただし、2026-12-01 から、知らせを受けるのは、日本にいると ORCID の公開の記録で確かめられる人からだけです。2026-12-15 から、その記録の日数と「確かめた先」の欄の決まりも加わります。2026-12-15 から、知らせは同じ GitHub のアカウントから 30 日に一件までです。
 ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 知らせを受ける条件は、[国の仕組み](INSTITUTIONS.md)の「参加のハードル」と、[個人情報の取り扱い](policies/privacy.md)の「誤りの知らせで扱うもの」にあります。
 王が確かめた誤りは、王の誤りとしてここに記します。確かめられなかった知らせは、そのことを issue に書いて閉じます。
@@ -830,8 +833,8 @@ Source: https://nusquama.vercel.app/institutions.html
 
 | 道 | 2026-12-14 まで | 2026-12-15 から |
 | --- | --- | --- |
-| 叙任の願い出 | 2026-11-12 から受付を止めている。受付に戻る日は決めていない | 受付は止めたまま。受付に戻ったあとは、18 歳以上の人に限り、同じアカウントからは 365 日に一度、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてから。称号を使わない場所の答えを求め、場所の確かめの日数は 365 日（[叙任の規程](policies/knighting.md)「参加のハードル」） |
-| 誤りの知らせ | 2026-12-01 から、引いた語の突き合わせと、ORCID の記録で日本にいることの確かめ（30 日） | 日本を指す ORCID の項目は 365 日以上前から。確かめた先の欄が要る（[個人情報の取り扱い](policies/privacy.md)「誤りの知らせで扱うもの」） |
+| 叙任の願い出 | 2026-11-12 から受付を止めている。受付に戻る日は決めていない | 受付は止めたまま。受付に戻ったあとは、18 歳以上の人に限り、同じアカウントからは 365 日に一度、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてから。称号を使わない場所の答えを求め、場所の確かめの日数は 365 日（[叙任の規程](policies/knighting.md)「参加のハードル」）。一年に 1 人までは 2 年に 1 人までに替え、訂正は自分が書いた文の誤りを前の版が残る場で正し 180 日以上前に公開したものに、アカウントは 2 年以上前に作られたものに限り、断った願い出のアカウントからは二度と受けない（叙任の規程「参加のハードルの続き」） |
+| 誤りの知らせ | 2026-12-01 から、引いた語の突き合わせと、ORCID の記録で日本にいることの確かめ（30 日） | 日本を指す ORCID の項目は 365 日以上前から。確かめた先の欄が要る。同じアカウントから 30 日に一件まで（[個人情報の取り扱い](policies/privacy.md)「誤りの知らせで扱うもの」） |
 | 交流の申し出 | [交流の規程](policies/exchange.md)の手順で答える | 新しい申し出を受けない（交流の規程「参加のハードル」） |
 
 ヌスクァマは国籍を与えないので、国民として加わる道はありません（[叙任の規程](policies/knighting.md)「確かめないこと」）。
@@ -988,7 +991,7 @@ Source: https://nusquama.vercel.app/press.html
 
 - 一言：誤りを領土にする、どこにもない国。
 - 一文：無何有騎士王国ヌスクァマは、王が自分の誤りを正誤表に記すたびに版図が広がる、遊びの創作の国です。
-- 一段落：ヌスクァマは、ラテン語の nusquam（どこにも…ない）から名を取った、創作の国です。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて記します。記した誤りの数が、この国の版図です。自分の誤りを一つ公に正した人は、叙任の規程の条件を満たすときにだけ、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。受付に戻ったときも、願い出ることができるのは、日本に住み、願い出のときに日本にいる 16 歳以上の人に限ります。イタリアの国籍を持つ人と、外国の称号を受けることを縛る国の国籍を持つ人は、願い出ることができません。2026-11-24 から、生まれてから一度も日本の外に出たことがない人に限ります。称号に法的な効力はなく、お金は一切動きません。2026-12-15 からは、受付に戻ったあとも、願い出ることができるのは 18 歳以上の人に限り、叙任は一年に 1 人までです。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+- 一段落：ヌスクァマは、ラテン語の nusquam（どこにも…ない）から名を取った、創作の国です。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて記します。記した誤りの数が、この国の版図です。自分の誤りを一つ公に正した人は、叙任の規程の条件を満たすときにだけ、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。受付に戻ったときも、願い出ることができるのは、日本に住み、願い出のときに日本にいる 16 歳以上の人に限ります。イタリアの国籍を持つ人と、外国の称号を受けることを縛る国の国籍を持つ人は、願い出ることができません。2026-11-24 から、生まれてから一度も日本の外に出たことがない人に限ります。称号に法的な効力はなく、お金は一切動きません。2026-12-15 からは、受付に戻ったあとも、願い出ることができるのは 18 歳以上の人に限り、叙任は一年に 1 人までです。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。同じ 2026-12-15 から、叙任は 2 年に 1 人までとし、訂正は自分が書いた文の誤りを前の版が残る場で正して 180 日以上前に公開したものに、アカウントは 2 年以上前に作られたものに限り、断った願い出のアカウントからは二度と受けません。
 
 ## 添える文
 
@@ -1161,7 +1164,7 @@ Source: https://nusquama.vercel.app/mission.html
 
 # 運営理念・声明
 
-最終更新：2026-11-23。
+最終更新：2026-11-24。
 
 > これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。この声明は、創作の国を遊びとして運営する個人が、運営の考え方を述べたものです。
 
@@ -1226,7 +1229,7 @@ Source: https://nusquama.vercel.app/mission.html
 3. 2026-11-22 から、叙任の規程が国籍で除く国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。国籍で除く国は、現在、19 か国です。イタリアと、叙任の規程「外国の称号を縛る国」の表の 18 か国です。表の国のほかにも、国籍を持つ国の法令が同じ節の三つの型のどれかに当たる人は、願い出ることができません。
 4. そのほか、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができず、叙任しません。運営者がそう判断したときは、その国や地域と理由を、叙任の規程に書き足します（叙任の規程「法令に適合しない国と地域」）。
 5. 叙任しない国と地域の数は、法令の変化や運営者の判断によって増えることがあります。
-6. ヌスクァマは、現在、個人で運営しているため、参加のハードルを極端に高くしています。2026-12-15 から、受付に戻ったあとの叙任には、叙任の規程「参加のハードル」の条件も加わります。
+6. ヌスクァマは、現在、個人で運営しているため、参加のハードルを極端に高くしています。2026-12-15 から、受付に戻ったあとの叙任には、叙任の規程「参加のハードル」の条件も加わります。叙任の規程「参加のハードルの続き」の条件も加わります。
 7. この声明の目的は、これらの定めを変えません。
 
 ## 第 9 条（権利）
@@ -1283,7 +1286,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 
 # 利用規約
 
-最終更新：2026-11-23。
+最終更新：2026-11-24。
 
 ## この規約が及ぶ人
 
@@ -1392,6 +1395,12 @@ Source: https://nusquama.vercel.app/policies/terms.html
 予告：2026-12-15 から、その日以後に開かれた誤りの知らせは、日本を指す ORCID の項目が issue を開く 365 日以上前に足されていなければ、日本にいると確かめたとしません（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
 予告：2026-12-15 から、その日以後に開かれた誤りの知らせは、様式の「確かめた先」の欄に空白を除いて 6 文字以上が書かれていなければ受け付けず、ラベル「source not given」と決まった文のコメントを付けます。issue は閉じません（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
 予告：2026-12-15 から、新しい交流の申し出を受けません（[交流の規程](./exchange.md)「参加のハードル」）。
+次の五つの予告は、2026-11-24 に示したもので、参加のハードルをさらに高くするためのものです。2026-11-23 に利用者が決めました。
+予告：2026-12-15 から、受付に戻ったあとの叙任の訂正は、願い出る人が自分で書いて公開した文の誤りを前の版が残る場で正したもので、願い出の issue を開いた日の 180 日以上前に公開されたものに限ります（[叙任の規程](./knighting.md)「参加のハードルの続き」）。
+予告：2026-12-15 から、受付に戻ったあとの叙任の願い出は、issue を開いた日の 2 年以上前に作られた GitHub のアカウントからだけ受けます。確かめるのは、GitHub の公開の API が示すアカウントの作られた日時だけで、本人には何も尋ねません（[叙任の規程](./knighting.md)「参加のハードルの続き」）。
+予告：2026-12-15 から、受付に戻ったあとの叙任は、2 年に 1 人までとします。上の予告の一年に 1 人までを、これに替えます（[叙任の規程](./knighting.md)「参加のハードルの続き」）。
+予告：2026-12-15 から、断った叙任の願い出の GitHub のアカウントからは、二度と叙任の願い出を受けません。取り下げた願い出は、これまでどおり 365 日のあいだだけ数えます（[叙任の規程](./knighting.md)「参加のハードルの続き」）。
+予告：2026-12-15 から、その日以後に開かれた誤りの知らせは、同じ GitHub のアカウントが前に誤りの知らせを開いた日を数えずに 30 日が過ぎるまで受け付けず、ラベル「one per 30 days」と決まった文のコメントを付けます。issue は閉じません。削除・訂正・辞退の求め、権利者の知らせ、安全の問題の知らせは縛りません（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
 
 どの変更によっても、料金は生じません。
 王が国を続けられなくなったときは、予告なく国を凍結することがあります（[国の仕組み](../INSTITUTIONS.md)「凍結」）。凍結しても、名簿・正誤表・規程は公開に残し、削除・訂正・辞退の求めにはできる限り応えます。
@@ -1536,7 +1545,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-23。
+最終更新：2026-11-24。
 
 ## 取り扱う者
 
@@ -1563,6 +1572,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 - 何を誤り、どう正したかの説明
 - 称号を使わない場所の答え（2026-12-15 から。[叙任の規程](./knighting.md)「参加のハードル」）
 - 生まれてから一度も日本の外に出たことがないことの印（2026-11-24 から。[叙任の規程](./knighting.md)「日本の外に出たことがないこと」）
+- 訂正を公開した日と、誤りの元の文が自分の書いた文であることの印（2026-12-15 から。[叙任の規程](./knighting.md)「参加のハードルの続き」）
 
 これらは issue で公開され、叙任された人については、GitHub のアカウント名・叙任の日・正した誤りの要約・願い出へのリンクを[騎士の名簿](../KNIGHTS.md)に載せます。
 本名・住所・所属・連絡先は求めません。様式でも、書かないよう求めています。
@@ -1574,6 +1584,9 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 自動の確認は、訂正へのリンクを開きません。リンク先へは何も要求せず、リンク先の中身はどこにも残しません。
 リンク先を開いて読むのは運営者です（[叙任の規程](./knighting.md)「運営者が確かめること」）。
 2026-12-15 から、自動の確認は、前の願い出から 365 日たったかを確かめるために、GitHub の API から、同じアカウントが開いた叙任の願い出の issue の一覧を受け取ります。一覧には題や本文も含まれますが、使うのは issue の番号と開いた時刻だけで、ほかは捨てます。使ったものも、どこにも残しません。
+2026-12-15 から、自動の確認は、断った願い出があるかを確かめるために、GitHub の API から、同じアカウントが開き、ラベル「断った」の付いた叙任の願い出の issue の一覧も受け取ります。使うのは、同じく issue の番号と開いた時刻だけです。
+2026-12-15 から、自動の確認は、アカウントが 2 年以上前に作られたかを確かめるために、GitHub の公開の API から、願い出の issue を開いたアカウントの答えを受け取ります。答えにはプロフィールの項目も含まれますが、使うのはアカウントが作られた日時だけで、ほかは捨てます。作られた日時も残さず、コメントにも実行の記録にも書きません。本人には何も尋ねません。
+これらは、どれも公開されている情報で、叙任を判断することのほかには使いません。
 
 ## 誤りの知らせで扱うもの
 
@@ -1586,7 +1599,9 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 2026-12-15 から、その日以後に開かれた知らせでは、この 30 日を 365 日とします。読む項目は変わりません。
 2026-12-15 から、その日以後に開かれた知らせは、様式の「確かめた先」の欄に空白を除いて 6 文字以上が書かれていなければ受け付けず、ラベル「source not given」と決まった文のコメントを付けます。issue は閉じません。この欄は前から様式にあり、新しく集める情報はありません。
 読んだ国も組織も、保存せず、コメントにも実行の記録にも書きません。書くのは、確かめられたかどうかだけです。
-削除・訂正・辞退・権利・個人の情報・同意の求めには、この限りは掛かりません。
+2026-12-15 から、その日以後に開かれた知らせは、同じ GitHub のアカウントから 30 日に一件までです。そのアカウントが前に誤りの知らせを開いた日を数えずに 30 日が過ぎるまでは受け付けず、ラベル「one per 30 days」と決まった文のコメントを付けます。issue は閉じません。数えるのは、ラベル「誤り」の付いた issue のすべてで、受け付けなかった知らせも数えます。
+そのために、GitHub の API から、同じアカウントが開いたラベル「誤り」の issue の一覧を受け取ります。一覧には題や本文も含まれますが、使うのは issue の番号と開いた時刻だけで、ほかは捨て、どこにも残しません。受け付けない知らせでは、ORCID の記録を読みません。
+削除・訂正・辞退・権利・個人の情報・同意の求めには、この限りは掛かりません。安全の問題の知らせにも、掛かりません。
 
 ## 利用の目的
 
@@ -1615,6 +1630,7 @@ GitHub と Vercel は、運営者に代わって個人データを扱う委託�
 
 名簿の記載は、辞退の求めがあるまで残します。
 断った願い出の issue は、断った一文を示すために残します。本人の求めがあれば削除します。
+2026-12-15 から、断った願い出の issue には、ラベル「断った」を付けます。このラベルの付いた issue が、そのアカウントから二度と叙任の願い出を受けないことの記録です。本人の求めでその issue を削除したときは、記録も無くなります。断ったアカウントの一覧を、ほかに作りません（[叙任の規程](./knighting.md)「参加のハードルの続き」）。
 受付を止めているあいだに叙任の願い出として届いた issue は、自動の確認が、題と本文を短い断りに替えて閉じ、書き込みを止めます。運営者は、届いた中身を名簿にもほかの場所にも写しません。替えたあとの issue に示されるのは、開いた人のアカウント名と開いた日と断りだけです。
 替える前の題と本文は、GitHub が issue の編集の履歴に残します。その削除は、削除の求めに応じて行います。
 自動の確認は、issue の本文を実行の記録（GitHub Actions のログ）に写しません。
@@ -1676,7 +1692,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 
 # 叙任の規程
 
-最終更新：2026-11-23。
+最終更新：2026-11-24。
 
 ## 叙任とは
 
@@ -1695,6 +1711,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 2026-11-24 からは、「日本の外に出たことがないこと」の条件も、足した条件に加わります。
 2026-11-29 からは、「法令に適合しない国と地域」の定めも、足した条件に加わります。
 2026-12-15 からは、「参加のハードル」の条件も、足した条件に加わります。
+2026-12-15 からは、「参加のハードルの続き」の条件も、足した条件に加わります。
 第六条の条件を満たしても、この規程の条件を満たさない人は、叙任しません。
 2026-11-13 に Claude が決めました。基本法の条を改めずに、第六条の条件だけで叙任されると読まれないためです。
 
@@ -1716,6 +1733,8 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります（「日本の外に出たことがないこと」）。
 2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（「法令に適合しない国と地域」）。
 2026-12-15 から、18 歳未満の人は願い出ることができません（「参加のハードル」）。
+2026-12-15 から、訂正は、自分が書いて公開した文の誤りを、前の版が残る場で正したもので、願い出の issue を開いた日の 180 日以上前に公開したものに限ります（「参加のハードルの続き」）。
+2026-12-15 から、願い出は、issue を開いた日の 2 年以上前に作られた GitHub のアカウントからだけ受けます。断った願い出のアカウントからは、二度と受けません（「参加のハードルの続き」）。
 
 ## 受付の停止
 
@@ -1773,6 +1792,44 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 どの条件も、国籍・性別・信条などで人を分けません。場所の決めは、「願い出ることができる人」「外国の称号を縛る国」「法令に適合しない国と地域」のままで、足していません。
 受付は止めたままです。この節は、受付に戻ったあとの条件を定めるもので、受付に戻すことを決めるものではありません。
 2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選びました。ひとりの運営者が読み、確かめきれる数の願い出だけを受けるためです。
+
+## 参加のハードルの続き
+
+ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+2026-12-15 から、受付に戻ったあとの叙任には、「参加のハードル」の条件に加えて、次の六つの条件も加わります。
+
+1. 叙任の訂正は、願い出の issue を開いた日（日本時間）の 180 日以上前に公開されたものに限ります。願い出る人は、様式の「訂正を公開した日」の欄に、その日を書きます。
+2. 叙任の訂正は、願い出る人が自分で書いて公開した文の誤りを正したものに限ります。他人の文の誤りを指摘したものは数えません。共著の文は、願い出る人が著者に入っていれば数えます。
+3. 叙任の訂正は、前の版が残る場でしたものに限ります。場の種類は、下の表の三つです。誤りの元の文と直した文の両方を、第三者が確かめられなければなりません。
+4. 願い出の issue を開いた GitHub のアカウントは、issue を開いた日の 2 年以上前に作られたものでなければなりません。
+5. 叙任は、2 年に 1 人までとします。「参加のハードル」の 3 の一年に 1 人までを、これに替えます。名簿の叙任の日で数え、前の叙任の日から 2 年が過ぎるまで、次の叙任をしません。
+6. 断った願い出の GitHub のアカウントからは、二度と叙任の願い出を受けません。取り下げた願い出は、これまでどおり「参加のハードル」の 2 の 365 日のあいだだけ数えます。
+
+| 場の種類 | 自動の確認が受けるリンクの形 | 前の版が残るところ |
+| --- | --- | --- |
+| Git の履歴 | GitHub のコミットとプルリクエスト、GitLab のコミットとマージリクエスト、Codeberg のコミットとプルリクエストの頁 | 差分に直す前の行と直した後の行が並び、前の版もリポジトリの履歴に残る |
+| 版を分けて残す登録 | DOI の頁、Zenodo の記録の頁、arXiv の版の番号の付いた頁 | 版ごとに識別子が付き、前の版も公開に残る |
+| 正誤表の頁 | 正誤表に付いた DOI の頁 | 正誤表が元の文と直した文を並べ、元の文の頁も残る |
+
+この節の日と年も、日本時間の日で数え、初めの日（訂正を公開した日、アカウントが作られた日、前の叙任の日）を数えません。
+2 年は、初めの日の次の日から数えて、2 年後の同じ月日の前の日の終わりに過ぎます。2 年後に同じ月日がない（初めの日の次の日が 2 月 29 日の）ときは、2 年後の 2 月の終わりに過ぎます。
+2 年に 1 人までの 2 年は、暦の上の区切り（年の初めから 2 年ごとなど）ではなく、前の叙任の日から数えます。区切りの境で続けて叙任しないためです。
+たとえば、2026-12-15 に開いた願い出では、2026-06-17 に公開した訂正を数え、2026-06-18 に公開した訂正は数えません。2024-12-14 に作られたアカウントは通り、2024-12-15 に作られたアカウントは 2026-12-16 から通ります。2027-03-16 に叙任したときは、次に叙任できるのは早くて 2029-03-17 です。
+
+1・3・4・6 は、自動の確認が確かめます。1 は様式の「訂正を公開した日」の日付で、3 は訂正へのリンクが上の表の場の形かで見ます。自動の確認は、これまでどおり、訂正へのリンクを開きません。
+リンクの先で、公開した日が様式の日と合うこと、元の文と直した文の両方が見られること、元の文が願い出た人の書いた文であることを確かめるのは、運営者です（「運営者が確かめること」）。
+2 は、様式の誓いへの印で受け、運営者がリンクの先で確かめます。印の文は「誤りの元の文は、自分が書いて公開した文です」で始まります。
+5 は、検査（`verification/check.js`）が名簿の行から確かめます。自動の確認は、前の叙任の日から 2 年が過ぎる日を、叙任を決められる最も早い日に入れます。
+4 のために、自動の確認は、GitHub の公開の API から、願い出の issue を開いたアカウントの答えを受け取ります。答えにはプロフィールの項目も含まれますが、使うのはアカウントが作られた日時だけで、ほかは捨てます。作られた日時も残さず、コメントにも書きません。本人には何も尋ねません。
+「受付に戻すときの場所の確かめ」の「GitHub のプロフィールは読みません」は、そのまま保ちます。この確かめでも、プロフィールの所在の欄などは使いません。
+6 のために、運営者は、断った願い出の issue にラベル「断った」を付けて閉じます。自動の確認は、GitHub の API から、同じアカウントが開き、ラベル「断った」の付いた叙任の願い出の issue の一覧を受け取ります。使うのは issue の番号（いまの issue を除くため）と開いた時刻だけで、ほかは捨てます。コメントには、前の issue の番号を書きません。
+受付の停止のあいだに閉じた願い出には、このラベルを付けません。5 の 2 年に 1 人までのために断った願い出にも、付けません。願い出た人が条件に当たらなかったのではないためです。これらは、取り下げた願い出と同じく、「参加のハードル」の 2 の 365 日のあいだだけ数えます。
+本人の求めで断った願い出の issue を削除したときは、自動の確認はその願い出を見つけられません。運営者は、断ったアカウントの一覧を別に作りません。削除の求めに応じることをこの条件より先にし、新しい個人情報を集めないためです。
+様式には、「訂正を公開した日」の欄と、誤りの元の文が自分の書いた文である印を足しました。どちらも、2026-12-15 から求めます。
+どの条件も、国籍・性別・信条などで人を分けません。場所の決めは、「願い出ることができる人」「外国の称号を縛る国」「法令に適合しない国と地域」のままで、足していません。
+受付は止めたままです。この節は、受付に戻ったあとの条件を定めるもので、受付に戻すことを決めるものではありません。
+変える内容と効力の生じる日は、2026-11-24 に、利用規約「変更と終了」で示しました。
+2026-11-23 に利用者がこの六つの条件を採ると決め、細かな定め（共著の文の扱い、場の表、日と年の数え方、2 年の区切り方、断った願い出の記し方）は Claude が決めました。ひとりの運営者が読み、確かめきれる数の願い出だけを受けるためです。
 
 ## 良識の前提
 
@@ -1894,12 +1951,15 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 
 2026-12-15 から、様式の「称号を使わない場所」の欄にも書き、18 歳以上の印も付けます（「参加のハードル」）。
 
+2026-12-15 から、様式の「訂正を公開した日」の欄にも書き、誤りの元の文が自分の書いた文である印も付けます（「参加のハードルの続き」）。
+
 ## 運営者が確かめること
 
 - リンク先が公開されていて、訂正であると読めること。
 - 訂正したのが、願い出た人自身の誤りであると読めること。
 - 他人の個人情報や、他人を傷つける内容が含まれていないこと。
 - 様式の誓いのすべてに印があること。
+- 2026-12-15 から、リンク先で、公開した日が様式の「訂正を公開した日」と合うこと、誤りの元の文と直した文の両方が見られること、元の文が願い出た人の書いた文（共著の文では、願い出た人が著者に入っているもの）であると読めること（「参加のハードルの続き」）。
 - 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、イタリアや「外国の称号を縛る国」の国籍を持つこと、16 歳未満であることが、はっきり書かれていないこと。書かれていれば、本人に尋ね、願い出の条件に当たると確かめられなければ叙任しません。
 
 運営者は、訂正の中身が正しいかどうかを判断しません。判断するのは、訂正があったことだけです。
@@ -1909,6 +1969,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 受けない先は、localhost、.localhost・.local・.internal・.home.arpa・.test・.example・.invalid・.onion で終わる名、数で書いた先、点を含まない名、名や合言葉を含む URL です。どれも公開の頁を指さないためです。
 2026-11-24 から、自動の確認は、生まれてから一度も日本の外に出たことがない印も確かめます（「日本の外に出たことがないこと」）。
 2026-12-15 から、自動の確認は、18 歳以上の印、「称号を使わない場所」の答え、同じアカウントの前の願い出の日も確かめ、叙任を決められる最も早い日を書きます（「参加のハードル」）。
+2026-12-15 から、自動の確認は、誤りの元の文が自分の書いた文である印、訂正を公開した日、訂正へのリンクが前の版が残る場の形か、アカウントの作られた日、同じアカウントの断った願い出も確かめます（「参加のハードルの続き」）。
 自動の確認は何も決めません。叙任を決めるのは運営者です。
 
 ## 確かめないこと
@@ -1935,8 +1996,13 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 - 2026-11-22 から、「良識の前提」に当たらないことが、願い出た人が書いたことや訂正のリンク先からはっきり読めるもの。
 - 2026-11-24 から、「日本の外に出たことがないこと」の印のないもの。
 - 2026-12-15 から、「参加のハードル」の条件に当たらないもの。
+- 様式の誓いのうち、必ず印を付けるものに印のないもの。
+- 2026-11-29 から、「法令に適合しない国と地域」に当たることが、訂正のリンク先からはっきり読めるもの。
+- 2026-12-15 から、「参加のハードルの続き」の条件に当たらないもの。
 
 断るときは、決めた一文（「叙任の条件に当たりません。」）だけを issue に書き、人を評しません。本人の求めがあれば、その issue を削除します。
+2026-12-15 から、断った願い出の issue には、ラベル「断った」を付けます。そのアカウントからは、二度と叙任の願い出を受けません（「参加のハードルの続き」）。
+受付の停止のあいだに閉じた願い出と、2 年に 1 人までのために断った願い出は、この断った願い出に数えません。
 
 ## 名簿
 
@@ -2350,7 +2416,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
 
-最終更新：2026-11-23。
+最終更新：2026-11-24。
 
 ## この頁の位置づけ
 
@@ -2392,6 +2458,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - 16 歳未満の人と、住んでいる国の法令が私人の授ける騎士の称号を禁じている人の願い出は受けない。
 - 2026-12-15 から、18 歳未満の人の願い出も受けない（[叙任の規程](./knighting.md)「参加のハードル」）。
 - 2026-11-24 から、生まれてから一度も日本の外に出たことがない人の願い出だけを受ける。日本の外に出たことがないことは、様式の印による本人の申告で受け、旅券・書類・日付・行った国を求めない（[叙任の規程](./knighting.md)「日本の外に出たことがないこと」）。
+- 2026-12-15 から、叙任の願い出では、訂正を公開した日も様式で受ける。GitHub の公開の API が示すアカウントの作られた日時と、同じアカウントの断った願い出の番号と開いた時刻は、確かめのためだけに使い、残さない。誤りの知らせでは、同じアカウントの前の知らせの番号と開いた時刻を、同じく使って残さない（[叙任の規程](./knighting.md)「参加のハードルの続き」、[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
 - 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国・国籍は、様式の誓いによる本人の申告で受ける。
 - どの頁も、創作であり、実在の何とも関係がないと断っている。
 
@@ -2714,7 +2781,7 @@ Source: https://nusquama.vercel.app/policies/terms.en.html
 
 # Terms of Use
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -2825,6 +2892,12 @@ Notice: from 2026-12-15, once applications reopen, only people aged 18 or over m
 Notice: from 2026-12-15, for an error report opened on or after that day, being in Japan is not taken as checked unless an ORCID entry naming Japan was added at least 365 days before the issue was opened ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 Notice: from 2026-12-15, an error report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment. The issue is not closed ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 Notice: from 2026-12-15, no new offer of exchange is received ([Rules on exchange](./exchange.en.md), "Barriers to participation").
+The five notices below were shown on 2026-11-24, and are for raising the barriers to participation further. The owner decided this on 2026-11-23.
+Notice: from 2026-12-15, once applications reopen, the correction for knighting must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version, and have been published at least 180 days before the day the application issue was opened ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, once applications reopen, applications for knighting are received only from GitHub accounts created at least 2 years before the day the issue was opened. Only the time the account was created, as shown by GitHub's public API, is checked, and the applicant is asked nothing ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, once applications reopen, at most 1 person is knighted in 2 years. This replaces the 1 person a year of the notice above ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, no application for knighting is ever received again from a GitHub account whose application for knighting was declined. A withdrawn application counts, as before, only for 365 days ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
+Notice: from 2026-12-15, an error report opened on or after that day is not accepted until 30 days, not counting the day itself, have passed since the same GitHub account opened its previous error report; it gets the label "one per 30 days" and a fixed comment. The issue is not closed. Requests about removal, correction or withdrawal, notices from rights holders, and reports of security problems are not limited ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 
 No change will ever create a fee.
 When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.
@@ -2971,7 +3044,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -3000,6 +3073,7 @@ Once applications reopen, an application involves:
 - An account of what was wrong and how it was corrected
 - The answer under "称号を使わない場所" (Places where the title is not used) (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation")
 - The tick that the applicant has never been outside Japan since birth (from 2026-11-24; [Rules on Knighting](./knighting.en.md), "Never having been outside Japan")
+- The day the correction was published, and the tick that the original text with the error is a text the applicant wrote (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
@@ -3011,6 +3085,9 @@ When an application issue is opened or edited, an automatic check in GitHub Acti
 The automatic check does not open the link to the correction. It sends no request to the linked site, and keeps nothing of what is there.
 The operator is the one who opens and reads the linked page ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 From 2026-12-15, to check whether 365 days have passed since the previous application, the automatic check receives from GitHub's API the list of application issues for knighting opened by the same account. The list also contains titles and bodies, but only the issue number and the time of opening are used; the rest is discarded. Nothing used is kept anywhere.
+From 2026-12-15, to check whether there is a declined application, the automatic check also receives from GitHub's API the list of application issues for knighting opened by the same account that have the label 断った (declined). Likewise, only the issue number and the time of opening are used.
+From 2026-12-15, to check whether the account was created at least 2 years earlier, the automatic check receives from GitHub's public API the answer for the account that opened the application issue. The answer also contains the items of the profile, but only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is written neither in the comment nor in the log of the run. The applicant is asked nothing.
+All of these are public information, and are used for nothing but deciding on knighting.
 
 ## What a report of a mistake involves
 
@@ -3023,7 +3100,9 @@ A reporter is taken as being in Japan only if an entry naming Japan was added at
 From 2026-12-15, for a report opened on or after that day, the 30 days become 365 days. The items read do not change.
 From 2026-12-15, a report opened on or after that day is not accepted unless at least 6 characters, not counting spaces, are written in the field "確かめた先" (Checked against) of the form; it gets the label "source not given" and a fixed comment, and the issue is not closed. The field has always been in the form, and no new information is collected.
 The countries and organisations read are not stored, and are written neither in a comment nor in the log of the run; only whether the check passed is written.
-This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent.
+From 2026-12-15, a report opened on or after that day is received at most once in 30 days from the same GitHub account. Until 30 days, not counting the day itself, have passed since that account opened its previous error report, a report is not accepted, and gets the label "one per 30 days" and a fixed comment; the issue is not closed. Every issue with the label 誤り (error) counts, including reports that were not accepted.
+For this, the list of issues with the label 誤り (error) opened by the same account is received from GitHub's API. The list also contains titles and bodies, but only the issue number and the time of opening are used; the rest is discarded and kept nowhere. For a report that is not accepted, the ORCID record is not read.
+This limit does not apply to requests about removal, correction, withdrawal, rights, personal data or consent. Nor does it apply to reports of security problems.
 
 ## Purposes of use
 
@@ -3052,6 +3131,7 @@ Except where the law requires, nothing is given to any other third party.
 
 An entry on the roll is kept until a request to withdraw.
 The issue of a declined application is kept, to show the one sentence of the decline; it is deleted if the applicant asks.
+From 2026-12-15, the issue of a declined application gets the label 断った (declined). The issue with this label is the record that no application for knighting is ever received again from that account. If that issue is deleted at the applicant's request, the record goes too. No other list of declined accounts is made ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
 An issue that arrives as an application for knighthood while applications are paused has its title and body replaced with a short note by the automatic check, and is closed and locked. The operator copies nothing of what arrived to the roll or anywhere else. After the replacement, the issue shows only the account name of the person who opened it, the date it was opened, and the note.
 The earlier title and body remain in the edit history that GitHub keeps for the issue. They are removed on a request to delete.
 The automatic check does not copy the body of an issue into the record of its run (the GitHub Actions log).
@@ -3113,7 +3193,7 @@ Source: https://nusquama.vercel.app/policies/knighting.en.html
 
 # Rules on Knighting
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -3134,6 +3214,7 @@ The added conditions are age, the country of residence, the country where the ap
 From 2026-11-24, the condition in "Never having been outside Japan" is also one of the added conditions.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
+From 2026-12-15, the conditions in "Barriers to participation (continued)" are also among the added conditions.
 A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
 Claude decided this on 2026-11-13, so that, without amending any article of the Basic Law, Article 6 is not read as making its condition alone enough to be knighted.
 
@@ -3155,6 +3236,8 @@ A person who only stays in Japan briefly, such as a traveller, does not count as
 From 2026-11-24, only people who have never been outside Japan since birth may apply ("Never having been outside Japan").
 From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either ("Countries and regions where knighting would not conform to the law").
 From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
+From 2026-12-15, the correction must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version, and have been published at least 180 days before the day the application issue was opened ("Barriers to participation (continued)").
+From 2026-12-15, applications are received only from GitHub accounts created at least 2 years before the day the issue was opened. No application is ever received again from an account whose application was declined ("Barriers to participation (continued)").
 
 ## Pause in receiving applications
 
@@ -3212,6 +3295,44 @@ The form gains a box for being 18 or over and the field "称号を使わない�
 None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
 Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
 The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions, so that only as many applications are received as one operator can read and check.
+
+## Barriers to participation (continued)
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+From 2026-12-15, once applications reopen, the six conditions below also apply to knighting, in addition to the conditions in "Barriers to participation".
+
+1. The correction for knighting must have been published at least 180 days before the day (Japan time) the application issue was opened. The applicant writes that day in the field "訂正を公開した日" (Day the correction was published) of the form.
+2. The correction for knighting must fix an error in a text that the applicant wrote and published. Pointing out an error in someone else's text does not count. A co-authored text counts if the applicant is one of its authors.
+3. The correction for knighting must have been made in a place that keeps the earlier version. The kinds of place are the three in the table below. Both the original text with the error and the corrected text must be checkable by a third party.
+4. The GitHub account that opened the application issue must have been created at least 2 years before the day the issue was opened.
+5. At most 1 person is knighted in 2 years. This replaces the 1 person in a year of condition 3 in "Barriers to participation". It is counted by the day of knighting on the roll, and no one is knighted until 2 years have passed from the previous day of knighting.
+6. No application for knighting is ever received again from a GitHub account whose application was declined. A withdrawn application counts, as before, only for the 365 days of condition 2 in "Barriers to participation".
+
+| Kind of place | Link forms the automatic check accepts | Where the earlier version stays |
+| --- | --- | --- |
+| A Git history | A commit or pull request page on GitHub, a commit or merge request page on GitLab, a commit or pull request page on Codeberg | The diff shows the lines before and after the correction, and the earlier version stays in the history of the repository |
+| A registry that keeps versions apart | A DOI page, a Zenodo record page, an arXiv page with a version number | Each version has its own identifier, and earlier versions stay public |
+| An erratum page | The DOI page of an erratum | The erratum sets the original and the corrected text side by side, and the page with the original text stays |
+
+The days and years in this section are also counted in Japan time, and the first day (the day the correction was published, the day the account was created, or the previous day of knighting) is not counted.
+2 years end at the end of the day before the same month and day 2 years later, counting from the day after the first day. If that month and day does not exist 2 years later (the day after the first day is 29 February), the 2 years end at the end of February 2 years later.
+The 2 years of 1 person in 2 years are counted from the previous day of knighting, not by calendar blocks (such as every 2 years from the start of a year), so that no two knightings fall on either side of a boundary.
+For example, for an application opened on 2026-12-15, a correction published on 2026-06-17 counts, and one published on 2026-06-18 does not. An account created on 2024-12-14 passes, and an account created on 2024-12-15 passes from 2026-12-16. After a knighting on 2027-03-16, the earliest next knighting is on 2029-03-17.
+
+Conditions 1, 3, 4 and 6 are checked by the automatic check. Condition 1 is checked by the date in the field "訂正を公開した日" (Day the correction was published), and condition 3 by whether the link to the correction has the form of a place in the table above. As before, the automatic check does not open the link to the correction.
+The operator is the one who checks, at the link, that the day of publication matches the day in the form, that both the original and the corrected text can be seen, and that the original text was written by the applicant ("What the operator checks").
+Condition 2 is taken from a tick in the pledges of the form, and the operator checks it at the link. The text of the box begins "誤りの元の文は、自分が書いて公開した文です" (The original text with the error is a text I wrote and published).
+Condition 5 is checked by the checks (`verification/check.js`) against the rows of the roll. The automatic check puts the day on which 2 years from the previous day of knighting have passed into the earliest day on which knighting can be decided.
+For condition 4, the automatic check receives from GitHub's public API the answer for the account that opened the application issue. The answer also contains the items of the profile, but only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is not written in the comment. The applicant is asked nothing.
+"The GitHub profile is not read" in "Checking the place when applications reopen" stays as it is. This check does not use the location field of the profile or the like either.
+For condition 6, the operator closes a declined application issue with the label 断った (declined). The automatic check receives from GitHub's API the list of application issues for knighting opened by the same account that have the label 断った (declined). Only the issue number (to leave out the present issue) and the time of opening are used; the rest is discarded. The comment does not give the number of the earlier issue.
+An application closed during the pause does not get this label. Nor does an application declined only because of 1 person in 2 years in condition 5, since the applicant did not fail a condition. Like a withdrawn application, these count only for the 365 days of condition 2 in "Barriers to participation".
+If the issue of a declined application is deleted at the applicant's request, the automatic check cannot find that application. The operator keeps no separate list of declined accounts, so that a request for deletion comes before this condition and no new personal data is collected.
+The form gains the field "訂正を公開した日" (Day the correction was published) and a box that the original text with the error is a text the applicant wrote. Both are required from 2026-12-15.
+None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
+Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
+The content of the change and the date it takes effect were shown on 2026-11-24 under "Changes and ending" in the Terms of Use.
+The owner decided on 2026-11-23 to adopt these six conditions, and Claude decided the details (how co-authored texts count, the table of places, how days and years are counted, how the 2 years are divided, and how declined applications are recorded), so that only as many applications are received as one operator can read and check.
 
 ## The premise of good sense
 
@@ -3333,12 +3454,15 @@ Do not write your real name, address, affiliation or contact details.
 
 From 2026-12-15, also fill in the field "称号を使わない場所" (Places where the title is not used) in the form, and tick the box that you are 18 or over ("Barriers to participation").
 
+From 2026-12-15, also fill in the field "訂正を公開した日" (Day the correction was published) in the form, and tick the box that the original text with the error is a text you wrote ("Barriers to participation (continued)").
+
 ## What the operator checks
 
 - That the link is public and reads as a correction.
 - That it reads as a correction of the applicant's own mistake.
 - That it contains no personal data of others and nothing that hurts others.
 - That every pledge in the form is ticked.
+- From 2026-12-15, that at the link the day of publication matches "訂正を公開した日" (Day the correction was published) in the form, that both the original text with the error and the corrected text can be seen, and that the original text reads as written by the applicant (for a co-authored text, one with the applicant among its authors) ("Barriers to participation (continued)").
 - That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality or the nationality of a country under "Countries that restrict foreign titles", or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
@@ -3348,6 +3472,7 @@ The automatic check does not open the link to the correction. The operator is th
 The refused destinations are localhost; names ending in .localhost, .local, .internal, .home.arpa, .test, .example, .invalid or .onion; addresses written as numbers; names without a dot; and URLs that contain a user name or password. None of them points to a public page.
 From 2026-11-24, the automatic check also checks the tick that the applicant has never been outside Japan since birth ("Never having been outside Japan").
 From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
+From 2026-12-15, the automatic check also checks the tick that the original text with the error is a text the applicant wrote, the day the correction was published, whether the link to the correction has the form of a place that keeps the earlier version, the day the account was created, and declined applications from the same account ("Barriers to participation (continued)").
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
@@ -3374,8 +3499,13 @@ No knighthood is given for:
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
 - From 2026-11-24, an application without the tick for "Never having been outside Japan".
 - From 2026-12-15, an application that does not meet the conditions in "Barriers to participation".
+- An application in which a pledge of the form that must be ticked is not ticked.
+- From 2026-11-29, an application where the linked correction clearly shows that "Countries and regions where knighting would not conform to the law" applies.
+- From 2026-12-15, an application that does not meet the conditions in "Barriers to participation (continued)".
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
+From 2026-12-15, the issue of a declined application gets the label 断った (declined). No application for knighting is ever received again from that account ("Barriers to participation (continued)").
+An application closed during the pause, and an application declined only because of 1 person in 2 years, do not count as declined applications here.
 
 ## The roll
 
@@ -3795,7 +3925,7 @@ Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -3839,6 +3969,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - From 2026-12-15, it accepts no applications from people under 18 either ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
 - From 2026-11-24, it accepts applications only from people who have never been outside Japan since birth. Never having been outside Japan is taken from the applicant's own declaration, by a tick in the form, and no passport, document, date or country visited is asked for ([Rules on Knighting](./knighting.en.md), "Never having been outside Japan").
+- From 2026-12-15, an application for knighting also gives, in the form, the day the correction was published. The time the account was created, as shown by GitHub's public API, and the numbers and times of opening of declined applications from the same account are used only for the check, and are not kept. For an error report, the numbers and times of opening of earlier reports from the same account are likewise used and not kept ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)"; [Privacy](./privacy.en.md), "What a report of a mistake involves").
 - It collects no documents to check nationality, age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
 
@@ -4264,6 +4395,7 @@ Nemo I, Knight-King, is the King and is not on this roll.
 
 On knighting, one row is added to the table. The issue of the [gazette](GAZETTE.en.md) is made from that row.
 From 2026-12-15, at most 1 person is knighted in a year (1 January to 31 December, Japan time). The table also has at most one row for each year of the day of knighting. The checks count the rows of the table to confirm this.
+From 2026-12-15, at most 1 person is knighted in 2 years. No row is added until 2 years, not counting the day of knighting of the previous row, have passed. The checks confirm this from the days of knighting in the rows of the table ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation (continued)").
 
 - No.: continues from 1 with no gaps.
 - Knight: the GitHub account name.
@@ -4383,7 +4515,7 @@ If an entry itself turns out to be wrong, the earlier row is not erased. A new r
 ## Reporting a mistake
 
 Anyone may report a mistake in the King's texts through the form [誤りの知らせ (Report a mistake)](https://github.com/cpsbvbng26-dotcom/nusquama/issues/new?template=error.yml). There is no fee.
-From 2026-12-01, however, reports are received only from people who can be checked, in their public ORCID record, as being in Japan. From 2026-12-15, the rules on the age of that record and on the field "確かめた先" (Checked against) are added.
+From 2026-12-01, however, reports are received only from people who can be checked, in their public ORCID record, as being in Japan. From 2026-12-15, the rules on the age of that record and on the field "確かめた先" (Checked against) are added. From 2026-12-15, a report is received at most once in 30 days from the same GitHub account.
 Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 The conditions for reports are in [Institutions](INSTITUTIONS.en.md), "Barriers to participation", and in [Privacy](policies/privacy.en.md), "What a report of a mistake involves".
 A mistake the King confirms is recorded here as the King's own mistake. A report that cannot be confirmed is closed with a note saying so in the issue.
@@ -4808,8 +4940,8 @@ The ways in which someone from outside takes part in the kingdom, and the condit
 
 | Way | Until 2026-12-14 | From 2026-12-15 |
 | --- | --- | --- |
-| Application for knighthood | Paused since 2026-11-12. No date for reopening has been set | Still paused. Once applications reopen: only people aged 18 or over; once in 365 days from the same account; at most 1 person knighted a year; the decision only after 90 days from the application. An answer naming the places where the title is not used is required, and the check of the place uses 365 days ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation") |
-| Report of a mistake | From 2026-12-01, the quoted words are checked, and being in Japan is checked in the ORCID record (30 days) | The ORCID entry naming Japan must be at least 365 days old. The field "確かめた先" (Checked against) is required ([Privacy](policies/privacy.en.md), "What a report of a mistake involves") |
+| Application for knighthood | Paused since 2026-11-12. No date for reopening has been set | Still paused. Once applications reopen: only people aged 18 or over; once in 365 days from the same account; at most 1 person knighted a year; the decision only after 90 days from the application. An answer naming the places where the title is not used is required, and the check of the place uses 365 days ([Rules on Knighting](policies/knighting.en.md), "Barriers to participation"). 1 person a year becomes 1 person in 2 years; the correction must fix an error in a text the applicant wrote, be made in a place that keeps the earlier version and have been published at least 180 days earlier; the account must have been created at least 2 years earlier; and no application is ever received again from an account whose application was declined (Rules on Knighting, "Barriers to participation (continued)") |
+| Report of a mistake | From 2026-12-01, the quoted words are checked, and being in Japan is checked in the ORCID record (30 days) | The ORCID entry naming Japan must be at least 365 days old. The field "確かめた先" (Checked against) is required. At most one report in 30 days from the same account ([Privacy](policies/privacy.en.md), "What a report of a mistake involves") |
 | Offer of exchange | Answered by the procedure in the [Rules on exchange](policies/exchange.en.md) | No new offer is received (Rules on exchange, "Barriers to participation") |
 
 Nusquama gives no nationality, so there is no way to join as one of its people ([Rules on Knighting](policies/knighting.en.md), "What is not checked").
@@ -4968,7 +5100,7 @@ Text and numbers for anyone introducing Nusquama in an article or a post are gat
 
 - In a phrase: a kingdom that is nowhere, whose territory is its mistakes.
 - In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of the King's own mistakes in the errata.
-- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. If they reopen, only people aged 16 or over who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality, or the nationality of a country that restricts accepting foreign titles, may not apply. From 2026-11-24, only people who have never been outside Japan since birth may apply. The titles have no legal effect, and no money changes hands. From 2026-12-15, even once applications reopen, only people aged 18 or over may apply, and at most 1 person is knighted a year. Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. If they reopen, only people aged 16 or over who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality, or the nationality of a country that restricts accepting foreign titles, may not apply. From 2026-11-24, only people who have never been outside Japan since birth may apply. The titles have no legal effect, and no money changes hands. From 2026-12-15, even once applications reopen, only people aged 18 or over may apply, and at most 1 person is knighted a year. Because Nusquama is run by one individual, its barriers to participation are set extremely high. From the same day, at most 1 person is knighted in 2 years; the correction must fix an error in a text the applicant wrote, be made in a place that keeps the earlier version and have been published at least 180 days earlier; the account must have been created at least 2 years earlier; and no application is ever received again from an account whose application was declined.
 
 ## Sentences to add
 
@@ -5143,7 +5275,7 @@ Source: https://nusquama.vercel.app/mission.en.html
 
 # Statement of Purpose
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 > This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. This statement sets out how the individual who runs this fictional country as play thinks about running it.
 
@@ -5210,7 +5342,7 @@ Where this statement says "at present", it means as of the date this page was la
 3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. At present the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
 4. In addition, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either, and are not knighted. When the operator so judges, the country or region and the reason are added to the Rules on Knighting (Rules on Knighting, "Countries and regions where knighting would not conform to the law").
 5. The number of countries and regions where knighting is not given may grow as laws change or as the operator judges.
-6. At present, because Nusquama is run by one individual, its barriers to participation are set extremely high. From 2026-12-15, once applications reopen, the conditions in the Rules on Knighting, "Barriers to participation", also apply to knighting.
+6. At present, because Nusquama is run by one individual, its barriers to participation are set extremely high. From 2026-12-15, once applications reopen, the conditions in the Rules on Knighting, "Barriers to participation", also apply to knighting. So do the conditions in "Barriers to participation (continued)".
 7. The purpose of this statement does not change any of these rules.
 
 ## Article 9 (Rights)

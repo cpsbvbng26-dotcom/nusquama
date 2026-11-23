@@ -5,8 +5,14 @@
   <id>https://nusquama.vercel.app/gazette.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/gazette.xml"/>
   <link href="https://nusquama.vercel.app/gazette.html"/>
-  <updated>2026-11-23T00:00:00+09:00</updated>
+  <updated>2026-11-24T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g114</id>
+    <title>官報（創作）第 114 号　年表：2026-12-15 から、参加の条件を七つ厳しくすると叙任の規程「参加のハードルの続き」と個人情報の取り扱いに書き、利用規約で予告する。叙任の訂正は、自分が書いて公開した文の誤りを前の版が残る場で正し、願い出の 180 日以上前に公開したものに限る。願い出の GitHub のアカウントは 2 年以上前に作られたものに限り、叙任は 2 年に 1 人までとし、断った願い出のアカウントからは二度と受けない。誤りの知らせは、同じアカウントから 30 日に一件までとする。削除・訂正・辞退の求め、権利者の知らせ、安全の問題の知らせは縛らない。受付は止めたまま。2026-11-23 に利用者が七つの条件を採ると決め、細かな定めは Claude が決めました</title>
+    <link href="https://nusquama.vercel.app/gazette/114.html"/>
+    <updated>2026-11-24T00:00:00+09:00</updated>
+  </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g113</id>
     <title>官報（創作）第 113 号　年表：頁の見た目に奥行きを足す。高さを段に分け、光を左上からそろえた影と縁の明かりで、断りの枠・入口の札・表・頁の上の欄を浮かせ、広い画面では本文を紙の面に載せる。国章・国旗・版図の地図は形も色も変えず、額の縁と影だけを足す。印刷では平らに戻す。文は変えない。デザインに関する法的な扱いの「配色と配置」に記す。2026-11-23 に利用者が求め、Claude が決めました</title>
