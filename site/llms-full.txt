@@ -132,6 +132,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 2026-11-22 から、外国の称号を受けることを縛る国の国籍を持つ人も、願い出ることができません（[叙任の規程](policies/knighting.md)「外国の称号を縛る国」）。
 2026-11-22 から、騎士の呼び名は、ヌスクァマに関わることにだけ使います（[叙任の規程](policies/knighting.md)「騎士の呼び名の使い方」）。
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
+2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります（[叙任の規程](policies/knighting.md)「日本の外に出たことがないこと」）。
 2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（[叙任の規程](policies/knighting.md)「法令に適合しない国と地域」）。
 ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 2026-12-15 から、受付に戻ったあとも、18 歳未満の人は願い出ることができません。同じ GitHub のアカウントからの願い出は、前の願い出から 365 日のあいだ受けません（[叙任の規程](policies/knighting.md)「参加のハードル」）。
@@ -225,6 +226,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 | 2026-11-21（日本時間） | 有名なミクロネーションの決まりと突き合わせ、利用規約に「与えないもの」の節を、国の仕組みに「訪れる人の五つの自由」を置く。2026-11-21 に利用者が求め、Claude が書きました | After a comparison with the rules of well-known micronations, the Terms of Use gain the section "What Nusquama does not give", and the Institutions gain "Five freedoms of a visitor". The owner asked for this on 2026-11-21, and Claude wrote it |
 | 2026-11-22（日本時間） | 2026-11-22 に効力を生じた叙任の定め（日本に住み、願い出のときに日本にいる人に限ること、イタリアの国籍と外国の称号を縛る国の国籍、騎士の呼び名の使い方、良識の前提）を、利用規約で予告の書き方から今の定めの書き方に改める。願い出の様式で、日本にいること・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提の印を必須にする。受付は止めたままです | The provisions on knighting that took effect on 2026-11-22 (only people who live in Japan and are in Japan when they apply; Italian nationality and the nationality of countries that restrict foreign titles; the use of the name of knight; the premise of good sense) are rewritten in the Terms of Use from notices into provisions in force. In the application form, the boxes for being in Japan, Italian nationality, the nationality of countries that restrict foreign titles, and the premise of good sense become required. Applications stay paused |
 | 2026-11-23（日本時間） | 規程に「デザインに関する法的な扱い」を置く。国章・国旗・アイコン・版図の地図・頁の中の図・書体・配色と配置について、作り方と出所、権利と許諾、著作権法・商標法・意匠法・不正競争防止法・障害者差別解消法の条との関わりを、取り寄せた条文とともに書く。2026-11-22 に利用者が求め、Claude が書きました | The rules gain "Legal handling of the design". For the emblem, the flag, the icons, the map of the domain, the figures inside pages, the typefaces, and the colours and layout, it records how each was made and where it came from, the rights and licence, and how it touches the articles of the Copyright Act, the Trademark Act, the Design Act, the Unfair Competition Prevention Act and the Disability Discrimination Act, with the fetched texts of the articles. The owner asked for this on 2026-11-22, and Claude wrote it |
+| 2026-11-23（日本時間） | 2026-11-24 から、叙任を願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ると叙任の規程に書き、利用規約で予告する。個人情報の取り扱い・適法性の説明・運営理念・声明・紹介の頁にも書く。確かめるのは様式の印による本人の申告だけで、旅券・日付・行った国は尋ねず、日本の外に出た経歴を集めない。騎士の名簿は変えない。受付は止めたまま。2026-11-23 に運営者が決め、細かな定めは Claude が決めました | From 2026-11-24, only people who have never been outside Japan since birth may apply for knighting; the Rules on Knighting say so, and the Terms of Use give notice. The Privacy Policy, the Legality Statement, the Statement of Purpose and the page for introducers say so too. Only the applicant's own declaration, by a tick in the form, is taken; no passport, date or country visited is asked for, and no history of travel outside Japan is collected. The roll of knights does not change. Applications stay paused. The operator decided this on 2026-11-23, and Claude decided the details |
 
 ---
 
@@ -985,7 +987,7 @@ Source: https://nusquama.vercel.app/press.html
 
 - 一言：誤りを領土にする、どこにもない国。
 - 一文：無何有騎士王国ヌスクァマは、王が自分の誤りを正誤表に記すたびに版図が広がる、遊びの創作の国です。
-- 一段落：ヌスクァマは、ラテン語の nusquam（どこにも…ない）から名を取った、創作の国です。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて記します。記した誤りの数が、この国の版図です。自分の誤りを一つ公に正した人は、叙任の規程の条件を満たすときにだけ、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。受付に戻ったときも、願い出ることができるのは、日本に住み、願い出のときに日本にいる 16 歳以上の人に限ります。イタリアの国籍を持つ人と、外国の称号を受けることを縛る国の国籍を持つ人は、願い出ることができません。称号に法的な効力はなく、お金は一切動きません。2026-12-15 からは、受付に戻ったあとも、願い出ることができるのは 18 歳以上の人に限り、叙任は一年に 1 人までです。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
+- 一段落：ヌスクァマは、ラテン語の nusquam（どこにも…ない）から名を取った、創作の国です。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて記します。記した誤りの数が、この国の版図です。自分の誤りを一つ公に正した人は、叙任の規程の条件を満たすときにだけ、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。受付に戻ったときも、願い出ることができるのは、日本に住み、願い出のときに日本にいる 16 歳以上の人に限ります。イタリアの国籍を持つ人と、外国の称号を受けることを縛る国の国籍を持つ人は、願い出ることができません。2026-11-24 から、生まれてから一度も日本の外に出たことがない人に限ります。称号に法的な効力はなく、お金は一切動きません。2026-12-15 からは、受付に戻ったあとも、願い出ることができるのは 18 歳以上の人に限り、叙任は一年に 1 人までです。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
 
 ## 添える文
 
@@ -1021,7 +1023,7 @@ Source: https://nusquama.vercel.app/press.html
 
 ミクロネーションの wiki や集まりで、ヌスクァマを英語で紹介するときの文です。英語の頁に、この文の英語の版があります。最初の文で、創作であることを断ります。
 
-これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。外国の称号を受けることを縛る国の国籍を持つ人も同じです。叙任は、称号を遊びとして扱う良識ある人であることを前提とします。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。2026-12-15 から、新しい交流の申し出は受けません。
+これは創作であり、娯楽のための遊びです。無何有騎士王国ヌスクァマ（Regnum Nusquamae）は、2026 年 11 月 7 日に建国を宣した、創作のミクロネーションです。国家ではなく、領土も主権も主張せず、国家としての承認を求めません。王は騎士王ネモ一世ただ一人で、自分の誤りを消さずに、日付を付けて正誤表に記します。誤りを一つ記すたびに、版図が一区画広がります。自分の誤りを一つ公に正した人は、叙任の規程に沿って、無償で騎士の名簿に載ることができます。願い出の受付は、2026-11-12 から止めており、受付に戻る日は決めていません。2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります。イタリアの国籍を持つ人は、ほかの国籍と重ねて持っていても、願い出ることができません。外国の称号を受けることを縛る国の国籍を持つ人も同じです。2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります。叙任は、称号を遊びとして扱う良識ある人であることを前提とします。称号に法的な効力はなく、この国の中でだけ使います。ほかの国との交流は、挨拶と互いの頁へのリンクに留め、条約を結ばず、称号を授け合わず、金銭のやりとりをしません。ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。2026-12-15 から、新しい交流の申し出は受けません。
 
 ## 界隈の言い回しとの対応
 
@@ -1158,7 +1160,7 @@ Source: https://nusquama.vercel.app/mission.html
 
 # 運営理念・声明
 
-最終更新：2026-11-19。
+最終更新：2026-11-23。
 
 > これは創作であり、遊びです。ヌスクァマは国家ではなく、いかなる実在の国家・王室・騎士団・叙勲・称号とも関係がありません。この声明は、創作の国を遊びとして運営する個人が、運営の考え方を述べたものです。
 
@@ -1219,7 +1221,7 @@ Source: https://nusquama.vercel.app/mission.html
 ## 第 8 条（叙任と、叙任しない国と地域）
 
 1. 叙任の願い出の受付は、2026-11-12 から現在まで止めています。受付に戻る日は、現在、決めていません（[叙任の規程](policies/knighting.md)「受付の停止」）。
-2. 2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります（叙任の規程「願い出ることができる人」）。
+2. 2026-11-22 から、願い出ることができるのは、日本に住んでいて、願い出のときに日本にいる人に限ります（叙任の規程「願い出ることができる人」）。2026-11-24 から、生まれてから一度も日本の外に出たことがない人に限ります（叙任の規程「日本の外に出たことがないこと」）。
 3. 2026-11-22 から、叙任の規程が国籍で除く国の国籍を持つ人は、日本に住んでいても、ほかの国籍と重ねて持っていても、願い出ることができません。国籍で除く国は、現在、19 か国です。イタリアと、叙任の規程「外国の称号を縛る国」の表の 18 か国です。表の国のほかにも、国籍を持つ国の法令が同じ節の三つの型のどれかに当たる人は、願い出ることができません。
 4. そのほか、2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができず、叙任しません。運営者がそう判断したときは、その国や地域と理由を、叙任の規程に書き足します（叙任の規程「法令に適合しない国と地域」）。
 5. 叙任しない国と地域の数は、法令の変化や運営者の判断によって増えることがあります。
@@ -1280,7 +1282,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 
 # 利用規約
 
-最終更新：2026-11-22。
+最終更新：2026-11-23。
 
 ## この規約が及ぶ人
 
@@ -1343,7 +1345,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 - ヌスクァマの称号や国章を、実在の称号・叙勲・団体の記章であるかのように使うこと。
 - ヌスクァマの名で、金銭や物品を集めること。
 - サイトや様式を壊そうとすること。
-- 願い出の様式で、事実でないことに印を付けること。例として、年齢、住んでいる国、国籍、訂正が自分の誤りであることがあります。
+- 願い出の様式で、事実でないことに印を付けること。例として、年齢、住んでいる国、国籍、訂正が自分の誤りであること、日本の外に出たことがないことがあります。
 
 運営者は、これらに当たる願い出を断り、issue を閉じ、名簿から名を外すことがあります。
 印が事実でないと分かったときは、運営者は、知った時点で名簿から名を外します。2026-11-22 からは、同じ GitHub アカウントからのその後の願い出を断ることもあります。
@@ -1379,6 +1381,7 @@ Source: https://nusquama.vercel.app/policies/terms.html
 2026-11-22 から、事実でない印を付けた GitHub アカウントからのその後の願い出を断ることがあります（「してはいけないこと」）。
 2026-11-12 から、叙任の願い出を受け付けていません（[叙任の規程](./knighting.md)「受付の停止」）。「悪意がないことと、法令を守ること」の、法令に触れるおそれが分かった部分を止める定めによります。
 2026-11-22 0 時（日本時間）からも、叙任の願い出の受付を止めたままにしています。受付に戻る日は決めていません。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです。受付に戻すときは、戻る日を、叙任の規程とこの頁で、その日より前に示します（2026-11-13 に示しました）。
+予告：2026-11-24 から、叙任を願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります。旅行・出張・留学・乗り継ぎで日本の外に出たことがある人と、日本の外で生まれた人は、願い出ることができません。確かめるのは様式の印による本人の申告だけで、旅券・書類・日付・行った国は尋ねません。受付に戻ったときは、どの願い出にもこの条件を当てます。騎士の名簿は変えず、騎士に日本の外に出たことを尋ねません（[叙任の規程](./knighting.md)「日本の外に出たことがないこと」。2026-11-23 に示しました）。
 予告：2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人は、日本に住んでいても、叙任を願い出ることができません。運営者がそう判断したときは、その国や地域と理由を叙任の規程に書き足します（[叙任の規程](./knighting.md)「法令に適合しない国と地域」。2026-11-13 に示しました）。
 予告：2026-12-01 から、その日以後に開かれた誤りの知らせの issue は、突き合わせの受付で確かめます。「書いてあること」の語が「どこにあるか」の所にそのとおりになければ、ラベル「not verified」と決まった文のコメントを付けます。本文を直すか、新しい issue で知らせ直せば、もう一度確かめます。突き合わせの受付は、どの issue も閉じません（[削除・訂正・辞退の求め](./requests.md)「求めを受けた後」。2026-11-14 に示し、2026-11-15 に閉じないと改めました）。
 予告：2026-12-01 から、その日以後に開かれた誤りの知らせは、日本にいる人からだけ受けます。知らせる人の ORCID の公開の記録で確かめ、確かめられない知らせは受け付けず、ラベルと決まった文のコメントを付けます。issue は閉じません。削除・訂正・辞退・権利・個人の情報・同意の求めは、どの国の人からも受けます（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
@@ -1532,7 +1535,7 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 
 # 個人情報の取り扱い
 
-最終更新：2026-11-19。
+最終更新：2026-11-23。
 
 ## 取り扱う者
 
@@ -1558,9 +1561,11 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 - 訂正への公開のリンク
 - 何を誤り、どう正したかの説明
 - 称号を使わない場所の答え（2026-12-15 から。[叙任の規程](./knighting.md)「参加のハードル」）
+- 生まれてから一度も日本の外に出たことがないことの印（2026-11-24 から。[叙任の規程](./knighting.md)「日本の外に出たことがないこと」）
 
 これらは issue で公開され、叙任された人については、GitHub のアカウント名・叙任の日・正した誤りの要約・願い出へのリンクを[騎士の名簿](../KNIGHTS.md)に載せます。
 本名・住所・所属・連絡先は求めません。様式でも、書かないよう求めています。
+日本の外に出たことがないことについて扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります。旅券・書類・日付・行った国は求めず、日本の外に出た経歴を集めず、残しません。様式でも、書かないよう求めています。
 病気・障害・信条・犯罪の経歴など、配慮の要る事柄も求めません。様式で、書かないよう求めています。
 ただし、訂正へのリンクの先に本名や所属が書かれている場合は、名簿と issue によって、アカウント名とその人が結び付いて公開されます。
 issue の扱いは、GitHub の利用規約とプライバシーステートメントにも従います。
@@ -1670,7 +1675,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 
 # 叙任の規程
 
-最終更新：2026-11-22。
+最終更新：2026-11-23。
 
 ## 叙任とは
 
@@ -1686,6 +1691,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 この規程の条件は、第六条の条件に加わります。
 この規程が条件を足すところは、この規程に従います。
 足した条件は、年齢、住む国、願い出のときにいる国、国籍、良識の前提と、受付の停止です。
+2026-11-24 からは、「日本の外に出たことがないこと」の条件も、足した条件に加わります。
 2026-11-29 からは、「法令に適合しない国と地域」の定めも、足した条件に加わります。
 2026-12-15 からは、「参加のハードル」の条件も、足した条件に加わります。
 第六条の条件を満たしても、この規程の条件を満たさない人は、叙任しません。
@@ -1706,6 +1712,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 イタリアの国籍を持つ人を除くのは、運営者の決めです。この決めは願い出る人を除くだけで、同条がどこまで及ぶかを述べるものではありません。
 同条の授けた者の罰が運営者に及ぶかは、取り寄せた条文からは決まりません。運営者は、そのために受付を止めています（「受付の停止」、[適法性の説明](./legality.md)「日本の外の法令」）。
 旅行などで日本に短く滞在しているだけの人は、日本に住んでいる人に当たりません。
+2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります（「日本の外に出たことがないこと」）。
 2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（「法令に適合しない国と地域」）。
 2026-12-15 から、18 歳未満の人は願い出ることができません（「参加のハードル」）。
 
@@ -1782,6 +1789,22 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 願い出た人が書いたことや訂正のリンク先から、この前提に当たらないことがはっきり分かったときは、叙任しません（「断ること」）。
 叙任した後に分かったときは、「辞退と取り消し」の定めにより、叙任を取り消します。
 取り消すときは、願い出の issue に、当たらなかった決まりだけを短く書き、人を評しません。本人の求めがあれば、その issue を削除します。
+
+## 日本の外に出たことがないこと
+
+2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります。
+旅行・出張・留学・乗り継ぎで日本の外に出たことがある人は、願い出ることができません。日本の外で生まれた人も、願い出ることができません。
+この条件は、ほかの節の条件に加わります。日本に住み、願い出のときに日本にいること、国籍の定め、受付に戻すときの場所の確かめなど、どの条件も外しません。
+この条件は、2026-11-23 に運営者が決めた、この遊びの世界の決まりです。細かな定めは、同じ日に Claude が決めました。
+この条件は、日本の外に出たことがある人を低く見るものでも、人に順位を付けるものでもありません。実在の国や国籍について、何かを述べるものでもありません。
+日本の外に出たことがあるかどうかは、国籍ではありません。この条件は国籍を尋ねず、本人の申告だけを見ます。
+確かめ方は、様式の誓いの印による本人の申告だけです。印の文は「生まれてから一度も、日本の外に出たことがありません」で始まります。
+旅券・書類・日付・行った国を求めず、尋ねません。日本の外に出た経歴を集めず、残しません。
+運営者が扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります（[個人情報の取り扱い](./privacy.md)「叙任の願い出で扱うもの」）。
+印が事実でないと分かったときは、ほかの印と同じく、利用規約「してはいけないこと」の定めによります。運営者は、知った時点で名簿から名を外し、同じ GitHub アカウントからのその後の願い出を断ることもあります。
+騎士の名簿は変えません。2026-11-23 の時点で、名簿に騎士はいません。2026-11-24 の前に叙任された騎士には、この条件を当てません。どの騎士にも、日本の外に出たことを尋ねません。
+受付は止めたままです。受付に戻ったときは、どの願い出にもこの条件を当てます。
+変える内容と効力の生じる日は、2026-11-23 に、利用規約「変更と終了」で示しました。
 
 
 ## 外国の称号を縛る国
@@ -1883,6 +1906,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 願い出の issue が開かれたり直されたりすると、自動の確認が、様式の誓いの印と、訂正へのリンクが https の URL で受けない先を指さないことを確かめ、結果を issue にコメントします。
 自動の確認は、訂正へのリンクを開きません。リンク先を開いて読むのは運営者です。
 受けない先は、localhost、.localhost・.local・.internal・.home.arpa・.test・.example・.invalid・.onion で終わる名、数で書いた先、点を含まない名、名や合言葉を含む URL です。どれも公開の頁を指さないためです。
+2026-11-24 から、自動の確認は、生まれてから一度も日本の外に出たことがない印も確かめます（「日本の外に出たことがないこと」）。
 2026-12-15 から、自動の確認は、18 歳以上の印、「称号を使わない場所」の答え、同じアカウントの前の願い出の日も確かめ、叙任を決められる最も早い日を書きます（「参加のハードル」）。
 自動の確認は何も決めません。叙任を決めるのは運営者です。
 
@@ -1891,6 +1915,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。
 ヌスクァマは国籍を与えません。騎士は国民ではありません。
 年齢・住んでいる国・願い出のときにいる国・イタリアと「外国の称号を縛る国」の国籍を持たないことは、様式の誓いへの印による本人の申告で受けます。
+2026-11-24 から、生まれてから一度も日本の外に出たことがないことも、様式の誓いへの印による本人の申告で受けます。旅券などの書類は求めません（「日本の外に出たことがないこと」）。
 ただし、訂正のリンク先にはっきり書かれていることは、見落としません。
 本人として扱うのは、願い出た GitHub のアカウントです。
 願い出の条件に当たらなかったことが分かったときは、名簿から名を外します。
@@ -1907,6 +1932,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 - 願い出の条件（年齢・住んでいる国・願い出のときにいる国・国籍）に当たらないことが、訂正のリンク先からはっきり読めるもの。
 - 2026-11-12 から、受付に戻るより前に開かれた願い出（「受付の停止」）。
 - 2026-11-22 から、「良識の前提」に当たらないことが、願い出た人が書いたことや訂正のリンク先からはっきり読めるもの。
+- 2026-11-24 から、「日本の外に出たことがないこと」の印のないもの。
 - 2026-12-15 から、「参加のハードル」の条件に当たらないもの。
 
 断るときは、決めた一文（「叙任の条件に当たりません。」）だけを issue に書き、人を評しません。本人の求めがあれば、その issue を削除します。
@@ -2309,7 +2335,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 
 # 適法性の説明
 
-最終更新：2026-11-19。
+最終更新：2026-11-23。
 
 ## この頁の位置づけ
 
@@ -2350,6 +2376,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - 誤りの知らせと求めの issue では、GitHub のアカウント名と、本人が書いたことを扱う。
 - 16 歳未満の人と、住んでいる国の法令が私人の授ける騎士の称号を禁じている人の願い出は受けない。
 - 2026-12-15 から、18 歳未満の人の願い出も受けない（[叙任の規程](./knighting.md)「参加のハードル」）。
+- 2026-11-24 から、生まれてから一度も日本の外に出たことがない人の願い出だけを受ける。日本の外に出たことがないことは、様式の印による本人の申告で受け、旅券・書類・日付・行った国を求めない（[叙任の規程](./knighting.md)「日本の外に出たことがないこと」）。
 - 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国・国籍は、様式の誓いによる本人の申告で受ける。
 - どの頁も、創作であり、実在の何とも関係がないと断っている。
 
@@ -2451,6 +2478,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **当てはまらない理由**：法令が求める扱いを、規程と様式で満たしている。第32条の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先のない人は一時的に公開すれば受け取れる。
 - **項ごとの対応**：個人情報保護法第17条・第18条・第20条〜第23条・第25条〜第28条・第32条〜第38条・第40条と、同法施行令第10条、同法施行規則第7条・第8条・第10条・第17条の義務を、項ごとに規程の文と結んだ表を `verification/duties.json` に置いた。検査が、文の実在と、条文の見張りとの対応を確かめる。
 - **点検で足したこと（2026-11-12）**：個人情報取扱事業者は、個人情報データベース等を事業の用に供している者で、国の機関などを除く（個人情報保護法第16条第2項）。営利かどうかは要件にない。名簿は、アカウント名を叙任の順に並べた表で、訂正へのリンクの先から本人が分かることがある（同法第2条第1項）。運営者は、自らを個人情報取扱事業者として扱う。従業者は置かず、名簿を変えられるのは運営者のアカウントだけである（同法第24条）。名簿に載せることは、不特定かつ多数の人への提供に当たると考える。その記録（同法第29条、同法施行規則第19条・第20条）は、名簿の行を足したリポジトリの履歴で作る。保存の期間は同法施行規則第21条による。名簿から外す求めに応じても、行を足した履歴は残る（[削除・訂正・辞退の求め](./requests.md)「外せないもの」）。第三者から個人データを受け取らないので、同法第30条の確認は起こらない。
+- **点検で足したこと（2026-11-23）**：2026-11-24 から様式で求める、生まれてから一度も日本の外に出たことがないことの印は、アカウントに結び付いた本人の申告で、ほかの印と同じく個人情報として扱う。利用の目的は、特定した叙任を判断することのままで変わらず、[個人情報の取り扱い](./privacy.md)が前もって公表している（同法第17条第1項・第21条第1項）。印は、本人が、目的を示した様式で付けるもので、偽りや不正の手段で取るものではない（同法第20条第1項）。旅券・書類・日付・行った国を求めず、日本の外に出た経歴を集めず残さないので、目的に要る範囲を超えて扱わない（同法第18条第1項）。同法第2条第3項が要配慮個人情報として文で挙げる事柄（人種、信条、社会的身分、病歴、犯罪の経歴、犯罪により害を被った事実）に、日本の外に出たことがあるかどうかは入っていない。同項が政令に委ねる記述等は、取り寄せていないので確かめていない。これらのほかは、これまでの点検を越えて確かめていない。
 - **保つための決め**：[個人情報の取り扱い](./privacy.md)、[叙任の規程](./knighting.md)「辞退と取り消し」、叙任の願い出の様式の誓い。
 
 <!-- 条文 個人情報保護法 第17条、個人情報保護法 第18条、個人情報保護法 第27条、個人情報保護法 第28条 -->
@@ -2505,6 +2533,7 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - 2026-11-22 から、願い出は日本に住み、願い出のときに日本にいる人に限る。日本の外の法令は国ごとに確かめきれないので、及ぶおそれのある国に住む人を、はじめから受けない。外国の法令には、そこにいる人に及ぶものがあるので、旅行・出張・留学などで日本の外にいるあいだの願い出も受けない（[叙任の規程](./knighting.md)「願い出ることができる人」）。
 - 2026-11-22 から、イタリアの国籍を持つ人（重国籍を含む）の願い出も受けない。理由は、イタリアの国民が日本のミクロネーションの騎士になるのは常識に照らして場違いであることと、上の条が使う者も罰することである。同条の終わりの段落が国外として挙げるのは授けた場所で、使う場所は書いていない。イタリアの外で使う国民に使う者の罰が及ぶかは、取り寄せた条文からは決まらない。除くのは運営者の決めで、同条の及ぶ範囲を述べるものではない。
 - 2026-11-22 から、外国の称号を受けることを縛る国の国籍を持つ人の願い出も受けない（[叙任の規程](./knighting.md)「外国の称号を縛る国」）。
+- 2026-11-24 から、願い出は、生まれてから一度も日本の外に出たことがない人に限る（[叙任の規程](./knighting.md)「日本の外に出たことがないこと」）。これは 2026-11-23 に運営者が決めた、遊びの世界の決まりで、日本の外の法令の及ぶ範囲から導いたものではない。日本の外に出たことがあるかどうかは国籍ではない。この条件は国籍を尋ねず、本人の申告の印だけを見る。
 - これらの限定のもとでも、日本の外の法令が叙任にどう及ぶかは、取り寄せた条文からは決まらない。運営者は、受付を止めている（叙任の規程「受付の停止」）。
 - 本人の申告は確かめないが、願い出の条件に当たらないことが訂正のリンク先にはっきり書かれていれば、本人に尋ね、条件に当たると確かめられなければ叙任しない。気づくことができた事柄を見落とさないためである（[叙任の規程](./knighting.md)「運営者が確かめること」）。
 
@@ -2670,7 +2699,7 @@ Source: https://nusquama.vercel.app/policies/terms.en.html
 
 # Terms of Use
 
-Last updated: 2026-11-22.
+Last updated: 2026-11-23.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -2735,7 +2764,7 @@ A passport, an identity card, a proof of nationality or status, a certificate of
 - Using Nusquama's titles or emblem as if they were a real title, decoration or the insignia of a real organisation.
 - Collecting money or goods in Nusquama's name.
 - Trying to break the site or the forms.
-- Ticking a box in the application form for something that is not true, such as your age, the country you live in, your nationality, or that the correction is of your own error.
+- Ticking a box in the application form for something that is not true, such as your age, the country you live in, your nationality, that the correction is of your own error, or that you have never been outside Japan.
 
 The operator may refuse such applications, close the issues, and remove names from the roll.
 If a ticked box turns out to be untrue, the operator removes the name from the roll as soon as the operator learns of it. From 2026-11-22, the operator may also refuse further applications from the same GitHub account.
@@ -2771,6 +2800,7 @@ From 2026-11-22, knighting presumes that the applicant is a person of good sense
 From 2026-11-22, further applications from a GitHub account that ticked a box untruly may be refused ("What is not allowed").
 Since 2026-11-12, applications for knighting are not received ([Rules on Knighting](./knighting.en.md), "Pause in receiving applications"). This rests on the provision in "No ill intent, and obeying the law" for stopping a part when a risk of breaking the law is found.
 From 00:00 on 2026-11-22 (Japan time), applications for knighting have stayed paused, and no date for reopening has been set, because a point of Italian law concerning conferral is not settled by the texts. If applications are to reopen, the day will be shown in the Rules on Knighting and on this page before that day (shown on 2026-11-13).
+Notice: from 2026-11-24, only people who have never been outside Japan since birth may apply for knighting. A person who has been outside Japan for travel, a business trip, study abroad or transit, and a person born outside Japan, may not apply. This is confirmed only by the applicant's own declaration, by a tick in the form; no passport, document, date or country visited is asked for. When applications reopen, this condition applies to every application. The roll of knights does not change, and no knight is asked about having been outside Japan ([Rules on Knighting](./knighting.en.md), "Never having been outside Japan"; shown on 2026-11-23).
 Notice: from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply for knighthood, even if they live in Japan. When the operator so judges, the country or region and the reason are added to the Rules on Knighting ([Rules on Knighting](./knighting.en.md), "Countries and regions where knighting would not conform to the law"; shown on 2026-11-13).
 Notice: from 2026-12-01, an error report issue opened on or after that day is checked by the checked intake. If the words under "What it says" do not occur at the place under "Where", the label "not verified" and a fixed comment are added; editing the issue, or reporting again in a new issue, runs the check again. The checked intake never closes an issue ([Requests](./requests.en.md), "After a request"; shown on 2026-11-14, and changed on 2026-11-15 so that nothing is closed).
 Notice: from 2026-12-01, error reports opened on or after that day are received only from people in Japan. This is checked in the reporter's public ORCID record; a report that cannot be checked is not accepted, and gets a label and a fixed comment. The issue is not closed. Requests about removal, correction, withdrawal, rights, personal data or consent are received from people in every country ([Privacy](./privacy.en.md), "What a report of a mistake involves").
@@ -2926,7 +2956,7 @@ Source: https://nusquama.vercel.app/policies/privacy.en.html
 
 # Privacy
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-23.
 
 This is an English translation. The [Japanese version](./privacy.md) governs; if the two differ, the Japanese version applies.
 
@@ -2954,9 +2984,11 @@ Once applications reopen, an application involves:
 - A public link to the correction
 - An account of what was wrong and how it was corrected
 - The answer under "称号を使わない場所" (Places where the title is not used) (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation")
+- The tick that the applicant has never been outside Japan since birth (from 2026-11-24; [Rules on Knighting](./knighting.en.md), "Never having been outside Japan")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
+About never having been outside Japan, only whether the box is ticked or not is handled. The tick stays as part of the application issue. No passport, document, date or country visited is asked for, and no history of travel outside Japan is collected or kept. The form also asks applicants not to write them.
 Nothing sensitive, such as illness, disability, belief or criminal record, is asked for either, and the form asks applicants not to write it.
 But if the linked correction gives a real name or affiliation, the roll and the issue publicly connect the account name with that person.
 Issues are also subject to GitHub's Terms of Service and Privacy Statement.
@@ -3066,7 +3098,7 @@ Source: https://nusquama.vercel.app/policies/knighting.en.html
 
 # Rules on Knighting
 
-Last updated: 2026-11-22.
+Last updated: 2026-11-23.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -3084,6 +3116,7 @@ Article 6 of the Basic Law of the Kingdom sets one condition for knighting: to h
 The conditions of these rules apply in addition to the condition of Article 6.
 Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
+From 2026-11-24, the condition in "Never having been outside Japan" is also one of the added conditions.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
 A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
@@ -3104,6 +3137,7 @@ Second, Article 8 of Italy's Law No. 178 of 1951 also punishes anyone who uses s
 Excluding people who hold Italian nationality is the operator's own rule. It only excludes applicants, and says nothing about how far the article reaches.
 Whether the article's penalty for conferring reaches the operator is not settled by the fetched texts. For that reason, the operator keeps applications paused ("Pause in receiving applications"; [Legality Statement](./legality.en.md), "Laws outside Japan").
 A person who only stays in Japan briefly, such as a traveller, does not count as living in Japan.
+From 2026-11-24, only people who have never been outside Japan since birth may apply ("Never having been outside Japan").
 From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either ("Countries and regions where knighting would not conform to the law").
 From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
 
@@ -3180,6 +3214,22 @@ From 2026-11-22, the applicant ticks a box in the form for this premise.
 If what the applicant wrote, or the linked correction, shows clearly that this premise does not hold, the applicant is not knighted ("What is declined").
 If it becomes clear after knighting, the knighting is revoked under "Withdrawal and revocation".
 When revoking, the operator writes in the application issue only which rule was not kept, briefly, and comments on no one. The issue is deleted if the person asks.
+
+## Never having been outside Japan
+
+From 2026-11-24, only people who have never been outside Japan since birth may apply.
+A person who has been outside Japan for travel, a business trip, study abroad or transit may not apply. A person born outside Japan may not apply either.
+This condition is in addition to the conditions in the other sections. None of them is removed, such as living in Japan and being in Japan when applying, the rules on nationality, and the check of the place when applications reopen.
+This condition is a rule of this play's world, decided by the operator on 2026-11-23. Claude decided the details on the same day.
+This condition does not look down on people who have been outside Japan, and does not rank anyone. It says nothing about any real country or nationality.
+Whether a person has been outside Japan is not a nationality. This condition does not ask about nationality, and looks only at the person's own declaration.
+It is confirmed only by the applicant's own declaration, by a tick in the form. The text of the box begins "生まれてから一度も、日本の外に出たことがありません" (Since birth, I have never been outside Japan).
+No passport, document, date or country visited is asked for. No history of travel outside Japan is collected or kept.
+The operator handles only whether the box is ticked or not. The tick stays as part of the application issue ([Privacy](./privacy.en.md), "What an application for knighthood involves").
+If a tick turns out to be untrue, it is handled like any other tick, under "What is not allowed" in the Terms of Use: the operator removes the name from the roll as soon as the operator learns of it, and may also refuse further applications from the same GitHub account.
+The roll of knights does not change. On 2026-11-23, there is no knight on the roll. The condition does not apply to a knight knighted before 2026-11-24. No knight is asked about having been outside Japan.
+Applications stay paused. When they reopen, this condition applies to every application.
+The content of the change and the date it takes effect were shown on 2026-11-23 under "Changes and ending" in the Terms of Use.
 
 
 ## Countries that restrict foreign titles
@@ -3281,6 +3331,7 @@ The operator does not judge whether the correction itself is right. The operator
 When an application issue is opened or edited, an automatic check looks at the ticks in the form and whether the link to the correction is an https URL that does not point to a refused destination, and comments the result in the issue.
 The automatic check does not open the link to the correction. The operator is the one who opens and reads it.
 The refused destinations are localhost; names ending in .localhost, .local, .internal, .home.arpa, .test, .example, .invalid or .onion; addresses written as numbers; names without a dot; and URLs that contain a user name or password. None of them points to a public page.
+From 2026-11-24, the automatic check also checks the tick that the applicant has never been outside Japan since birth ("Never having been outside Japan").
 From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
 The automatic check decides nothing. The operator decides on knighting.
 
@@ -3289,6 +3340,7 @@ The automatic check decides nothing. The operator decides on knighting.
 The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
 Nusquama gives no nationality. Knights are not its people.
 Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality or the nationality of a country under "Countries that restrict foreign titles" are taken from the applicant's own declaration, by the ticks in the form.
+From 2026-11-24, never having been outside Japan since birth is also taken from the applicant's own declaration, by a tick in the form. No passport or other document is asked for ("Never having been outside Japan").
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
@@ -3305,6 +3357,7 @@ No knighthood is given for:
 - An application where the linked correction clearly shows that the applicant does not meet the conditions (age, country of residence, the country where the applicant is when applying, or nationality).
 - An application opened from 2026-11-12 until applications reopen ("Pause in receiving applications").
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
+- From 2026-11-24, an application without the tick for "Never having been outside Japan".
 - From 2026-12-15, an application that does not meet the conditions in "Barriers to participation".
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
@@ -3713,7 +3766,7 @@ Source: https://nusquama.vercel.app/policies/legality.en.html
 
 # Legality Statement
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-23.
 
 This is an English translation. The [Japanese version](./legality.md) governs; if the two differ, the Japanese version applies.
 
@@ -3756,6 +3809,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - Issues reporting mistakes and issues making requests handle the GitHub account name and what the person writes.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - From 2026-12-15, it accepts no applications from people under 18 either ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
+- From 2026-11-24, it accepts applications only from people who have never been outside Japan since birth. Never having been outside Japan is taken from the applicant's own declaration, by a tick in the form, and no passport, document, date or country visited is asked for ([Rules on Knighting](./knighting.en.md), "Never having been outside Japan").
 - It collects no documents to check nationality, age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form.
 - Every page states that it is fiction and unrelated to anything real.
 
@@ -3857,6 +3911,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Why the law does not apply**: the handling the law requires is met by the pages and the form. The name and address under Article 32 are given at a contact the person has made public on their profile; a person with none can receive them by making one public for a while.
 - **Duty by duty**: the duties of Articles 17, 18, 20–23, 25–28, 32–38 and 40 of the Act, Article 10 of its Cabinet Order and Articles 7, 8, 10 and 17 of its Rules are paired, paragraph by paragraph, with the sentences that meet them, in `verification/duties.json`. The check confirms that every sentence exists and that every article is watched.
 - **Added in the review (2026-11-12)**: a business handling personal information is anyone who uses a personal information database for a business, other than state organs and the like (Article 16(2) of the Act). Profit is not an element. The roll is a table of account names in the order of knighting, and the linked correction may reveal who the person is (Article 2(1) of the Act). The operator treats itself as a business handling personal information. There are no employees, and only the operator's account can change the roll (Article 24 of the Act). Listing on the roll is considered a provision to an unspecified large number of people. Its record (Article 29 of the Act; Articles 19 and 20 of its Rules) is the repository history in which the row was added. The retention period follows Article 21 of the Rules. When a name is removed from the roll on request, the history in which the row was added remains ([Requests](./requests.en.md), "What cannot be removed"). No personal data is received from third parties, so the confirmation of Article 30 of the Act does not arise.
+- **Added in the review (2026-11-23)**: the tick, required in the form from 2026-11-24, that the applicant has never been outside Japan since birth is the person's own declaration tied to an account, and is handled as personal information like the other ticks. The purpose of use stays the specified purpose of judging knighting, and [Privacy](./privacy.en.md) publishes it in advance (Articles 17(1) and 21(1) of the Act). The tick is made by the person in a form that states the purpose, and is not obtained by deception or other wrongful means (Article 20(1)). No passport, document, date or country visited is asked for, and no history of travel outside Japan is collected or kept, so nothing is handled beyond what the purpose needs (Article 18(1)). The matters that Article 2(3) names in its text as special care-required personal information (race, creed, social status, medical history, criminal record, and the fact of having suffered harm by a crime) do not include whether a person has been outside Japan. The descriptions that the paragraph leaves to a Cabinet Order have not been fetched, and so have not been checked. Beyond these, nothing has been checked beyond the earlier review.
 - **Rules that keep this true**: [Privacy](./privacy.en.md); [Rules on Knighting](./knighting.en.md), "Withdrawal and revocation"; the pledges in the application form.
 
 <!-- 条文 個人情報保護法 第17条、個人情報保護法 第18条、個人情報保護法 第27条、個人情報保護法 第28条 -->
@@ -3911,6 +3966,7 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. The laws of other countries cannot all be checked, so people who live where one of them might reach are not accepted at all. Some of those laws reach people who are in the country, not only those who live there, so an application made while abroad, for travel, work or study, is not accepted either ([Rules on Knighting](./knighting.en.md), "Who may apply").
 - From 2026-11-22, applications from people who hold Italian nationality (including dual nationals) are not accepted either. The reasons are that, by plain common sense, an Italian national becoming a knight of a Japanese micronation is out of place to begin with, and that the article also punishes anyone who uses such a title. The last paragraph of the article names as abroad only the place of conferral, not the place of use. Whether the penalty for use reaches a national who uses the title outside Italy is not settled by the fetched texts. The exclusion is the operator's own rule, and says nothing about how far the article reaches.
 - From 2026-11-22, applications from people who hold the nationality of a country that restricts accepting foreign titles are not accepted either ([Rules on Knighting](./knighting.en.md), "Countries that restrict foreign titles").
+- From 2026-11-24, applications are limited to people who have never been outside Japan since birth ([Rules on Knighting](./knighting.en.md), "Never having been outside Japan"). This is a rule of the play's world, decided by the operator on 2026-11-23, and is not derived from how far the laws outside Japan reach. Whether a person has been outside Japan is not a nationality. This condition does not ask about nationality, and looks only at the tick of the person's own declaration.
 - Even under these limits, how laws outside Japan reach knighting is not settled by the fetched texts. The operator keeps applications paused (Rules on Knighting, "Pause in receiving applications").
 - The applicant's declaration is not checked, but if the linked correction states clearly that the applicant does not meet the conditions, the operator asks the applicant, and does not knight them unless they are confirmed to meet the conditions. This keeps what could have been noticed from being overlooked ([Rules on Knighting](./knighting.en.md), "What the operator checks").
 
@@ -4883,7 +4939,7 @@ Text and numbers for anyone introducing Nusquama in an article or a post are gat
 
 - In a phrase: a kingdom that is nowhere, whose territory is its mistakes.
 - In a sentence: The Knightly Kingdom of Nusquama is a playful fiction whose domain grows each time its king records one of the King's own mistakes in the errata.
-- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. If they reopen, only people aged 16 or over who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality, or the nationality of a country that restricts accepting foreign titles, may not apply. The titles have no legal effect, and no money changes hands. From 2026-12-15, even once applications reopen, only people aged 18 or over may apply, and at most 1 person is knighted a year. Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+- In a paragraph: Nusquama is a fictional kingdom named from the Latin nusquam ("nowhere"). Its only king, Nemo I, Knight-King, records the King's own mistakes with dates and never erases them. The number of recorded mistakes is the kingdom's domain. A person who has publicly corrected one of their own mistakes can be put on the roll of knights, free of charge, only if they meet the conditions of the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. If they reopen, only people aged 16 or over who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality, or the nationality of a country that restricts accepting foreign titles, may not apply. From 2026-11-24, only people who have never been outside Japan since birth may apply. The titles have no legal effect, and no money changes hands. From 2026-12-15, even once applications reopen, only people aged 18 or over may apply, and at most 1 person is knighted a year. Because Nusquama is run by one individual, its barriers to participation are set extremely high.
 
 ## Sentences to add
 
@@ -4919,7 +4975,7 @@ To the operator of ○○: this is Nemo I, Knight-King of Nusquama. Nusquama is 
 
 Text for introducing Nusquama in English on micronation wikis and forums. Its first sentence says that Nusquama is fiction.
 
-This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality may not apply, even if they also hold another nationality, and nor may people who hold the nationality of a country that restricts accepting foreign titles. Knighting presumes a person of good sense who treats the title as play. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money. Because Nusquama is run by one individual, its barriers to participation are set extremely high. From 2026-12-15, no new offer of exchange is received.
+This is a work of fiction, written for entertainment. The Knightly Kingdom of Nusquama (Regnum Nusquamae) is a fictional micronation whose founding was declared on 7 November 2026. It is not a state: it claims no territory and no sovereignty, and it seeks no recognition as a state. Its only king, Nemo I, Knight-King, records the King's own mistakes in the errata with dates and never erases them. Each recorded mistake adds one parcel to the kingdom's domain. Anyone who has publicly corrected one of their own mistakes can be put on the roll of knights free of charge, under the Rules on Knighting. Applications have been paused since 2026-11-12, and no date for reopening has been set. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply. People who hold Italian nationality may not apply, even if they also hold another nationality, and nor may people who hold the nationality of a country that restricts accepting foreign titles. From 2026-11-24, only people who have never been outside Japan since birth may apply. Knighting presumes a person of good sense who treats the title as play. The titles have no legal effect and are used only within the kingdom. Exchanges with other nations are limited to greetings and links to each other's pages: Nusquama makes no treaties, gives no titles in exchange, and handles no money. Because Nusquama is run by one individual, its barriers to participation are set extremely high. From 2026-12-15, no new offer of exchange is received.
 
 ## Terms used in the micronation community
 
@@ -5058,7 +5114,7 @@ Source: https://nusquama.vercel.app/mission.en.html
 
 # Statement of Purpose
 
-Last updated: 2026-11-19.
+Last updated: 2026-11-23.
 
 > This is a work of fiction, written for fun. Nusquama is not a state and is not related to any real state, royal house, order of knighthood, honour or title. This statement sets out how the individual who runs this fictional country as play thinks about running it.
 
@@ -5121,7 +5177,7 @@ Where this statement says "at present", it means as of the date this page was la
 ## Article 8 (Knighting, and the countries and regions where knighting is not given)
 
 1. At present, applications for knighting are not received; they have not been received since 2026-11-12. At present, no date for reopening has been set ([Rules on Knighting](policies/knighting.en.md), "Pause in receiving applications").
-2. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply (Rules on Knighting, "Who may apply").
+2. From 2026-11-22, only people who live in Japan and are in Japan when they apply may apply (Rules on Knighting, "Who may apply"). From 2026-11-24, only people who have never been outside Japan since birth may apply (Rules on Knighting, "Never having been outside Japan").
 3. From 2026-11-22, people who hold the nationality of a country that the Rules on Knighting exclude by nationality may not apply, even if they live in Japan, and even if they also hold another nationality. At present the countries excluded by nationality number 19: Italy, and the 18 countries in the table under "Countries that restrict foreign titles" in the Rules on Knighting. Beyond the countries in the table, a person whose country of nationality has a law of any of the three types in that section may not apply either.
 4. In addition, from 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either, and are not knighted. When the operator so judges, the country or region and the reason are added to the Rules on Knighting (Rules on Knighting, "Countries and regions where knighting would not conform to the law").
 5. The number of countries and regions where knighting is not given may grow as laws change or as the operator judges.
