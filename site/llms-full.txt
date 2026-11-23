@@ -227,6 +227,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 | 2026-11-22（日本時間） | 2026-11-22 に効力を生じた叙任の定め（日本に住み、願い出のときに日本にいる人に限ること、イタリアの国籍と外国の称号を縛る国の国籍、騎士の呼び名の使い方、良識の前提）を、利用規約で予告の書き方から今の定めの書き方に改める。願い出の様式で、日本にいること・イタリアの国籍・外国の称号を縛る国の国籍・良識の前提の印を必須にする。受付は止めたままです | The provisions on knighting that took effect on 2026-11-22 (only people who live in Japan and are in Japan when they apply; Italian nationality and the nationality of countries that restrict foreign titles; the use of the name of knight; the premise of good sense) are rewritten in the Terms of Use from notices into provisions in force. In the application form, the boxes for being in Japan, Italian nationality, the nationality of countries that restrict foreign titles, and the premise of good sense become required. Applications stay paused |
 | 2026-11-23（日本時間） | 規程に「デザインに関する法的な扱い」を置く。国章・国旗・アイコン・版図の地図・頁の中の図・書体・配色と配置について、作り方と出所、権利と許諾、著作権法・商標法・意匠法・不正競争防止法・障害者差別解消法の条との関わりを、取り寄せた条文とともに書く。2026-11-22 に利用者が求め、Claude が書きました | The rules gain "Legal handling of the design". For the emblem, the flag, the icons, the map of the domain, the figures inside pages, the typefaces, and the colours and layout, it records how each was made and where it came from, the rights and licence, and how it touches the articles of the Copyright Act, the Trademark Act, the Design Act, the Unfair Competition Prevention Act and the Disability Discrimination Act, with the fetched texts of the articles. The owner asked for this on 2026-11-22, and Claude wrote it |
 | 2026-11-23（日本時間） | 2026-11-24 から、叙任を願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ると叙任の規程に書き、利用規約で予告する。個人情報の取り扱い・適法性の説明・運営理念・声明・紹介の頁にも書く。確かめるのは様式の印による本人の申告だけで、旅券・日付・行った国は尋ねず、日本の外に出た経歴を集めない。騎士の名簿は変えない。受付は止めたまま。2026-11-23 に運営者が決め、細かな定めは Claude が決めました | From 2026-11-24, only people who have never been outside Japan since birth may apply for knighting; the Rules on Knighting say so, and the Terms of Use give notice. The Privacy Policy, the Legality Statement, the Statement of Purpose and the page for introducers say so too. Only the applicant's own declaration, by a tick in the form, is taken; no passport, date or country visited is asked for, and no history of travel outside Japan is collected. The roll of knights does not change. Applications stay paused. The operator decided this on 2026-11-23, and Claude decided the details |
+| 2026-11-23（日本時間） | 頁の見た目に奥行きを足す。高さを段に分け、光を左上からそろえた影と縁の明かりで、断りの枠・入口の札・表・頁の上の欄を浮かせ、広い画面では本文を紙の面に載せる。国章・国旗・版図の地図は形も色も変えず、額の縁と影だけを足す。印刷では平らに戻す。文は変えない。デザインに関する法的な扱いの「配色と配置」に記す。2026-11-23 に利用者が求め、Claude が決めました | The pages gain depth. Height is divided into steps, and shadows lit from the upper left, with a light on the edges, raise the notice boxes, the entry cards, the tables and the band at the top of the page; on wide screens the text sits on a sheet. The emblem, the flag and the map of the domain keep their shapes and colours, and gain only a frame and a shadow. In print the pages are flat again. No text is changed. "Colours and layout" in Legal handling of the design records it. The owner asked for this on 2026-11-23, and Claude decided it |
 
 ---
 
@@ -2230,6 +2231,20 @@ Source: https://nusquama.vercel.app/policies/design.html
 スタイルは頁ごとの `<style>` に入れ、外のスタイルシートを読みません。
 どの頁も、ほかのサーバーから何も読み込みません（CSP の `default-src 'none'`）。
 
+頁の奥行きも、同じスタイルの中で、高さの段として決めます。
+高さは **4** 段です。奥から順に、地（頁の背景）、面（断りの枠・入口の札・表）、浮いた面（広い画面で本文を載せる紙・トップの断りの枠・国旗と地図）、最前面（頁の上の欄と、ポインタを重ねた札）です。
+影は `--e1`・`--e2`・`--e3` の **3** 段です。
+地は影を持たず、面は `--e1`、浮いた面は `--e2`、最前面は `--e3` を使います。
+光は左上の一方向から当て、どの影も右下に落とします。
+暗い配色では影を短くし、面の明るさの差と、上と左の縁の明かりで高さを示します。
+国章・国旗・版図の地図は、形も色も変えません。額の縁と影だけで手前に出します。
+入口の札と、トップの国旗と地図は、ポインタを重ねたときとフォーカスしたときに影が深くなり、**2** px 浮きます。
+動き（animation・transition）は使わず、位置が一度に変わるだけです。端末が動きを減らす設定のときは位置を変えず、影だけを深くします。
+余白は **7** 段、角の丸みは **3** 段の変数から取ります。
+幅が **840** px 以上の画面では、本文を紙の面に載せ、一行を全角でおよそ **37** 字にします。
+印刷では、影とぼかしと面の色の移り変わりを外し、平らに戻します。
+奥行きは、2026-11-23 に利用者が求め、Claude が決めました。
+
 ## 著作権
 
 著作権法第2条第1項第1号は、著作物を「思想又は感情を創作的に表現したものであつて、文芸、学術、美術又は音楽の範囲に属するもの」と定めます。
@@ -2307,7 +2322,7 @@ CC BY 4.0 の Section 2(b)(1) は、同一性保持権などの人格権を許�
 
 - 配色：明るい配色と暗い配色を、端末の設定で切り替えます。どちらの配色でも、文字と背景の組は 4.5:1 以上、フォーカスの枠と背景の組は 3:1 以上です。色はすべて二つの配色の変数から取ります。
 - 色だけに頼らないこと：版図の区画は金一色で、誤りの分類は形で分けます。分類ごとに形が違います。
-- 動き：スタイルに、動き（animation・transition）がありません。
+- 動き：スタイルに、動き（animation・transition）がありません。札が浮くときも、位置が一度に変わるだけです。動きを減らす設定では、位置を変えません。
 - 代替テキスト：頁の上の国章は飾りとして空にし、中身の画像には何の画像かと「（創作）」を書きます。頁の中の図には題を付けます。
 - 言語と見出し：どの頁も言語を示し、h1 を一つ持ち、見出しの段を飛ばしません。
 - キーボード：どの頁も、先頭に「本文へ」のリンクを置きます。スタイルは、フォーカスした所に枠を描きます。
@@ -3661,6 +3676,20 @@ The colours and the layout are set by one style in `build.js`.
 The style is put into a `<style>` on each page, and no outside stylesheet is read.
 No page loads anything from another server (`default-src 'none'` in the CSP).
 
+The depth of the pages is also set in the same style, as steps of height.
+There are **4** steps of height. From back to front: the ground (the page background), surfaces (the notice boxes, the entry cards and the tables), raised surfaces (on wide screens, the sheet that carries the text; on the top page, the notice box, the flag and the map), and the front (the band at the top of the page, and a card under the pointer).
+There are **3** shadows: `--e1`, `--e2` and `--e3`.
+The ground has no shadow; surfaces use `--e1`, raised surfaces `--e2`, and the front `--e3`.
+Light comes from one direction, the upper left, and every shadow falls to the lower right.
+In the dark scheme, shadows are shorter, and height is shown by the difference in the lightness of surfaces and by a light on the top and left edges.
+The emblem, the flag and the map of the domain keep their shapes and colours. Only a frame and a shadow bring them forward.
+The entry cards, and the flag and the map on the top page, cast a deeper shadow and rise by **2** px when the pointer is over them or when they have the focus.
+No motion (animation or transition) is used; the position changes at once. When the device asks for reduced motion, the position does not change, and only the shadow deepens.
+Spacing is taken from **7** steps of variables, and the rounding of corners from **3**.
+On screens **840** px wide or wider, the text sits on a sheet, and a line holds about **37** full-width characters.
+In print, shadows, blurs and gradients of surfaces are removed, and the page is flat again.
+The owner asked for the depth on 2026-11-23, and Claude decided it.
+
 ## Copyright
 
 In summary, Article 2(1)(i) of the Copyright Act defines a work as a creative expression of thoughts or sentiments within the literary, scientific, artistic or musical domain.
@@ -3738,7 +3767,7 @@ Each of the following is checked by [verification/check.js](../verification/chec
 
 - Colours: a light and a dark colour scheme, switched by the device setting. In both schemes, every pair of text and background is at least 4.5:1, and every pair of focus ring and background is at least 3:1. Every colour is taken from the variables of the two schemes.
 - Not relying on colour alone: the parcels of the map of the domain are all gold, and the categories of mistakes are told apart by shape. Each category has a different shape.
-- Motion: the style has no motion (animation or transition).
+- Motion: the style has no motion (animation or transition). When a card rises, its position changes at once. With reduced motion, the position does not change.
 - Text alternatives: the emblem at the top of the page is decoration and has an empty alternative; each image in the content says what it is and adds "(fiction)". Each figure inside a page has a title.
 - Language and headings: every page states its language, has one h1, and skips no heading level.
 - Keyboard: every page starts with a "Skip to content" link. The style draws a ring where the focus is.

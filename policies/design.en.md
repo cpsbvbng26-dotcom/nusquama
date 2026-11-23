@@ -53,6 +53,20 @@ The colours and the layout are set by one style in `build.js`.
 The style is put into a `<style>` on each page, and no outside stylesheet is read.
 No page loads anything from another server (`default-src 'none'` in the CSP).
 
+The depth of the pages is also set in the same style, as steps of height.
+There are **4** steps of height. From back to front: the ground (the page background), surfaces (the notice boxes, the entry cards and the tables), raised surfaces (on wide screens, the sheet that carries the text; on the top page, the notice box, the flag and the map), and the front (the band at the top of the page, and a card under the pointer).
+There are **3** shadows: `--e1`, `--e2` and `--e3`.
+The ground has no shadow; surfaces use `--e1`, raised surfaces `--e2`, and the front `--e3`.
+Light comes from one direction, the upper left, and every shadow falls to the lower right.
+In the dark scheme, shadows are shorter, and height is shown by the difference in the lightness of surfaces and by a light on the top and left edges.
+The emblem, the flag and the map of the domain keep their shapes and colours. Only a frame and a shadow bring them forward.
+The entry cards, and the flag and the map on the top page, cast a deeper shadow and rise by **2** px when the pointer is over them or when they have the focus.
+No motion (animation or transition) is used; the position changes at once. When the device asks for reduced motion, the position does not change, and only the shadow deepens.
+Spacing is taken from **7** steps of variables, and the rounding of corners from **3**.
+On screens **840** px wide or wider, the text sits on a sheet, and a line holds about **37** full-width characters.
+In print, shadows, blurs and gradients of surfaces are removed, and the page is flat again.
+The owner asked for the depth on 2026-11-23, and Claude decided it.
+
 ## Copyright
 
 In summary, Article 2(1)(i) of the Copyright Act defines a work as a creative expression of thoughts or sentiments within the literary, scientific, artistic or musical domain.
@@ -130,7 +144,7 @@ Each of the following is checked by [verification/check.js](../verification/chec
 
 - Colours: a light and a dark colour scheme, switched by the device setting. In both schemes, every pair of text and background is at least 4.5:1, and every pair of focus ring and background is at least 3:1. Every colour is taken from the variables of the two schemes.
 - Not relying on colour alone: the parcels of the map of the domain are all gold, and the categories of mistakes are told apart by shape. Each category has a different shape.
-- Motion: the style has no motion (animation or transition).
+- Motion: the style has no motion (animation or transition). When a card rises, its position changes at once. With reduced motion, the position does not change.
 - Text alternatives: the emblem at the top of the page is decoration and has an empty alternative; each image in the content says what it is and adds "(fiction)". Each figure inside a page has a title.
 - Language and headings: every page states its language, has one h1, and skips no heading level.
 - Keyboard: every page starts with a "Skip to content" link. The style draws a ring where the focus is.
