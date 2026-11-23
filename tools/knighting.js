@@ -38,6 +38,19 @@
  *   90 日が過ぎた次の日が、決められる最も早い日である。365 日も同じに数える（2026-11-19 の点検で改めた）。
  *   一年に 1 人までという数は、名簿の行から検査 90 が確かめる（ここでは見ない）。
  *
+ * 参加のハードルの続き（2026-12-15 から。2026-11-23 に利用者が七つの条件を採ると決め、細かな定めは Claude が決めた。
+ * 叙任の規程「参加のハードルの続き」、点検の記録「2026-11-24：参加の条件を七つ厳しくする」）：
+ *   - 誤りの元の文が、自分が書いて公開した文である印があること（DATED に足した。共著の文は、著者に入っていれば数える）
+ *   - 様式の「訂正を公開した日」（PUBLISHED_FIELD）が日付で、issue を開いた日の PUBLISHED_DAYS 日以上前であること
+ *   - 訂正へのリンクが、前の版が残る場（VENUES）の形であること。文字の上だけで見て、リンクは開かない
+ *   - 願い出の issue を開いたアカウントが、issue を開いた日の ACCOUNT_YEARS 年以上前に作られていること（addAccount）。GitHub の公開の API
+ *     （users）の答えのうち、使うのは created_at だけで、ほかは捨てる。作られた日時は残さず、コメントにも記録にも書かない。本人には何も尋ねない
+ *   - 同じアカウントの叙任の願い出に、運営者がラベル REFUSED_LABEL を付けたもの（断った願い出）がないこと（addRefused）。
+ *     ラベルでの絞り込みは GitHub の API がする。使うのは番号と開いた時刻だけで、ほかは捨てる。受付の停止のあいだに開かれたものは数えない
+ *   - 叙任を決められる最も早い日に、前の叙任の日（名簿の行）から ACCOUNT_YEARS 年が過ぎる日を入れる（2 年に 1 人まで。数は検査 96 が名簿から確かめる）
+ *   日と年は日本時間の日で数え、初めの日（訂正を公開した日、アカウントが作られた日、前の叙任の日）を数えない。
+ *   2 年は、初めの日の次の日の 2 年後の同じ月日に過ぎ終えている。その月日がない（2 月 29 日の）ときは、3 月 1 日である。
+ *
  * 様式の定義は tools/knighting-form.yml に置く。受付を止めているあいだは、issue の様式の一覧（.github/ISSUE_TEMPLATE/）に置かない
  * （2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十四度目の見落とし」）。受付に戻すときに、定義をそこへ写す。
  * 停止のあいだに叙任の願い出として届いた issue は、題と本文を短い断りに替え、閉じて、書き込みを止める（ロック）。
@@ -78,6 +91,28 @@ const PLACES_MIN = 3;
 const INTERVAL_DAYS = 365;
 const WAIT_DAYS = 90;
 const DAY = 24 * 3600 * 1000;
+/* 参加のハードルの続き（2026-12-15 から）。2026-11-23 に利用者が採ると決め、細かな定めは Claude が決めた。 */
+const STRICT_FROM = '2026-12-15';
+const OWN = '誤りの元の文は、自分が書いて公開した文です';
+const PUBLISHED_FIELD = '訂正を公開した日';
+const PUBLISHED_DAYS = 180;
+const ACCOUNT_YEARS = 2;
+const QUOTA_YEARS = 2;
+/* 断った願い出に運営者が付けるラベル。受付の停止のあいだに閉じた願い出と、2 年に 1 人までのために断った願い出には付けない。 */
+const REFUSED_LABEL = '断った';
+/* 前の版が残る場（叙任の規程「参加のハードルの続き」の表）。種類ごとに、受けるリンクの形を持つ。文字の上だけで見る。 */
+const VENUES = [
+  { kind: 'Git の履歴', forms: [
+    { host: 'github.com', path: /^\/[^/]+\/[^/]+\/(?:commit\/[0-9a-f]{7,40}|pull\/\d+)\/?$/i },
+    { host: 'gitlab.com', path: /^\/(?:[^/]+\/)+-\/(?:commit\/[0-9a-f]{7,40}|merge_requests\/\d+)\/?$/i },
+    { host: 'codeberg.org', path: /^\/[^/]+\/[^/]+\/(?:commit\/[0-9a-f]{7,40}|pulls\/\d+)\/?$/i }] },
+  { kind: '版を分けて残す登録', forms: [
+    { host: 'doi.org', path: /^\/10\.\d{4,9}\/\S+$/ },
+    { host: 'zenodo.org', path: /^\/records\/\d+\/?$/ },
+    { host: 'arxiv.org', path: /^\/abs\/(?:\d{4}\.\d{4,5}|[a-z-]+(?:\.[A-Z]{2})?\/\d{7})v\d+\/?$/ }] },
+  { kind: '正誤表の頁', forms: [
+    { host: 'doi.org', path: /^\/10\.\d{4,9}\/\S+$/ }] },
+];
 /* 様式が付けるラベル。ワークフローはどの issue でも動き、ラベルと様式の見出しや印で、ここが扱うかを決める。 */
 const LABEL = '叙任';
 /* 受付に戻す決め。null のあいだは受付を閉じており、どの日に開かれた願い出も受けない（日付では終わらない）。
@@ -147,6 +182,7 @@ const DATED = [
   { from: FOREIGN_FROM, text: FOREIGN, label: '外国の称号を縛る国の国籍を持っていない印がある' },
   { from: ABROAD_FROM, text: ABROAD, label: '生まれてから一度も日本の外に出たことがない印がある' },
   { from: HURDLE_FROM, text: AGE, label: '18 歳以上の印がある' },
+  { from: STRICT_FROM, text: OWN, label: '誤りの元の文が、自分が書いて公開した文である印がある' },
 ];
 
 /* 純：様式の定義から、必ず印を付ける誓いの文を取り出す。日付から見る印（DATED）は、様式で必須でも除く。 */
@@ -254,6 +290,72 @@ function linkProblem(link) {
   return null;
 }
 
+/* 純：訂正へのリンクが、前の版が残る場（VENUES）の形か。形なら場の種類（DOI は二つの種類に当たるので、・で並べる）、そうでなければ null。開かずに文字の上だけで見る。 */
+function venueOf(link) {
+  if (linkProblem(link) !== null) return null;
+  const u = new URL(link);
+  const h = u.hostname.toLowerCase().replace(/\.$/, '');
+  const kinds = VENUES.filter((x) => x.forms.some((f) => f.host === h && f.path.test(u.pathname))).map((x) => x.kind);
+  return kinds.length ? kinds.join('・') : null;
+}
+
+/* 純：年-月-日の形の、暦にある日か。 */
+function realDay(s) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s || '').trim());
+  if (!m) return null;
+  const t = Date.UTC(+m[1], +m[2] - 1, +m[3]);
+  return new Date(t).toISOString().slice(0, 10) === m[0] ? m[0] : null;
+}
+
+/* 純：訂正を公開した日が、issue を開いた日（日本時間）の PUBLISHED_DAYS 日以上前か。初めの日を数えないので、日の差が PUBLISHED_DAYS より大きいときに通る。
+ * 通れば null、通らなければ理由。 */
+function publishedProblem(text, opened) {
+  const d = realDay(text);
+  if (!d) return '日付（2026-06-17 の形）として読めない';
+  if (dayNo(jstDay(opened)) - dayNo(d) <= PUBLISHED_DAYS) return PUBLISHED_DAYS + ' 日以上前でない';
+  return null;
+}
+
+/* 純：初めの日（YYYY-MM-DD）を数えずに years 年が過ぎ終えた次の日。初めの日の次の日の years 年後の同じ月日で、その月日がない 2 月 29 日は 3 月 1 日になる。 */
+function yearsAfter(day, years) {
+  const [y, m, d] = day.split('-').map(Number);
+  const next = new Date(Date.UTC(y, m - 1, d + 1));
+  return new Date(Date.UTC(next.getUTCFullYear() + years, next.getUTCMonth(), next.getUTCDate())).toISOString().slice(0, 10);
+}
+
+/* 純：アカウントが、issue を開いた日の ACCOUNT_YEARS 年以上前に作られたか。created は GitHub の API の created_at。通れば null、通らなければ理由。
+ * 作られた日時は理由にも書かない。 */
+function accountProblem(created, opened) {
+  if (!created || !Number.isFinite(Date.parse(created))) return 'アカウントの作られた日を読めなかった';
+  if (jstDay(opened) < yearsAfter(jstDay(created), ACCOUNT_YEARS)) return ACCOUNT_YEARS + ' 年以上前に作られていない';
+  return null;
+}
+
+/* 純：同じアカウントの断った願い出（ラベル REFUSED_LABEL の issue の、番号と開いた時刻）があるか。なければ null、あれば理由（番号は書かない）。
+ * いまの issue、いまの issue より後に開いたもの、受付の停止のあいだに開かれたものは数えない。null は読めなかったことを表す。 */
+function refusedProblem(refused, opened, number, reopen = REOPEN) {
+  if (refused === null || refused === undefined) return '断った願い出を読めなかった';
+  const t = Date.parse(opened);
+  for (const p of refused) {
+    if (!p || p.number === number) continue;
+    const s = Date.parse(p.created_at);
+    if (!Number.isFinite(s) || s > t || paused(p.created_at, reopen)) continue;
+    return '前に断った願い出がある';
+  }
+  return null;
+}
+
+/* 純：名簿（KNIGHTS.md）の行の叙任の日のうち、いちばん遅い日。行がなければ null。辞退した行も、叙任の日で数える。 */
+function lastKnighted(roll) {
+  const days = String(roll || '').split('\n').filter((l) => /^\| \d+ \|/.test(l)).map((l) => l.split('|').map((c) => c.trim())[3]).filter((d) => !!realDay(d)).sort();
+  return days.length ? days[days.length - 1] : null;
+}
+
+/* 純：前の叙任の日を数えずに QUOTA_YEARS 年が過ぎ、次の叙任ができる最も早い日。前の叙任がなければ null。 */
+function quotaEarliest(last) {
+  return last ? yearsAfter(last, QUOTA_YEARS) : null;
+}
+
 /* 純：確かめた結果の行。訂正へのリンクは開かず、linkProblem で文字の上だけを見る。 */
 function check(form, opened, oaths = requiredOaths()) {
   const rows = [];
@@ -274,6 +376,12 @@ function check(form, opened, oaths = requiredOaths()) {
   const link = (form['訂正への公開のリンク'] || '').trim();
   const problem = linkProblem(link);
   add('訂正へのリンクが https の URL で、受けない先を指さない', problem === null, problem || '開いていない。リンク先は運営者が読む');
+  if (jstDay(opened) >= STRICT_FROM) {
+    const pub = publishedProblem(form[PUBLISHED_FIELD], opened);
+    add('「' + PUBLISHED_FIELD + '」が、issue を開いた日の ' + PUBLISHED_DAYS + ' 日以上前', pub === null, pub || '');
+    const venue = venueOf(link);
+    add('訂正へのリンクが、前の版が残る場（叙任の規程の表）の形', venue !== null, venue || '表の場の形でない');
+  }
   const what = (form['何を誤り、どう正したか'] || '').trim();
   add('何を誤り、どう正したかが書かれている', what.length >= 10 && what !== '_No response_');
   return { ok: rows.every((r) => r[1]), rows, earliest: jstDay(opened) >= HURDLE_FROM ? earliestDecision(opened) : null };
@@ -289,15 +397,51 @@ function addInterval(result, previous, opened, number, reopen = REOPEN) {
   return result;
 }
 
+/* 純：アカウントの作られた日の行を、確かめた結果に足す（STRICT_FROM から）。作られた日時は GitHub の API から読むので、check とは分けてある。 */
+const ACCOUNT_LABEL = 'GitHub のアカウントが、issue を開いた日の ' + ACCOUNT_YEARS + ' 年以上前に作られている';
+function addAccount(result, created, opened) {
+  if (jstDay(opened) < STRICT_FROM) return result;
+  const p = accountProblem(created, opened);
+  result.rows.push([ACCOUNT_LABEL, p === null, p || '']);
+  result.ok = result.rows.every((r) => r[1]);
+  return result;
+}
+
+/* 純：断った願い出の行を、確かめた結果に足す（STRICT_FROM から）。 */
+const REFUSED_ROW = '同じアカウントの叙任の願い出を、前に断っていない';
+function addRefused(result, refused, opened, number, reopen = REOPEN) {
+  if (jstDay(opened) < STRICT_FROM) return result;
+  const p = refusedProblem(refused, opened, number, reopen);
+  result.rows.push([REFUSED_ROW, p === null, p || '']);
+  result.ok = result.rows.every((r) => r[1]);
+  return result;
+}
+
+/* 純：叙任を決められる最も早い日に、前の叙任から QUOTA_YEARS 年が過ぎる日を入れる（STRICT_FROM から）。遅いほうを書く。 */
+function addQuota(result, last, opened) {
+  if (jstDay(opened) < STRICT_FROM || !result.earliest) return result;
+  const q = quotaEarliest(last);
+  if (q && q > result.earliest) { result.earliest = q; result.quota = true; }
+  return result;
+}
+
 /* 純：コメントの本文。 */
 function comment(result) {
-  /* 前の願い出からの日数は、この issue を直しても変わらない。その行だけが通らないときは、直すよう求めない（2026-11-19 の点検で改めた）。 */
+  /* 前の願い出からの日数、アカウントの作られた日、前に断った願い出は、この issue を直しても変わらない。
+   * それらの行だけが通らないときは、直すよう求めない（2026-11-19 の点検で改め、2026-11-24 にアカウントと断った願い出を足した）。 */
   const failed = result.rows.filter((r) => !r[1]).map((r) => r[0]);
-  const waitOnly = failed.length > 0 && failed.every((l) => l === INTERVAL_LABEL);
+  const FIXED = [INTERVAL_LABEL, ACCOUNT_LABEL, REFUSED_ROW];
+  const waitOnly = failed.length > 0 && failed.every((l) => FIXED.includes(l));
+  const fixedToo = failed.some((l) => FIXED.includes(l));
   const waitToo = failed.includes(INTERVAL_LABEL);
+  const why = [
+    waitToo ? '前の願い出から ' + INTERVAL_DAYS + ' 日たっていないので、この願い出は受けません。この issue を直しても変わりません。日がたってから、新しい issue で願い出ることができます（叙任の規程「参加のハードル」）。' : '',
+    failed.includes(ACCOUNT_LABEL) ? 'この GitHub のアカウントは、issue を開いた日の ' + ACCOUNT_YEARS + ' 年以上前に作られたものと確かめられないので、この願い出は受けません。この issue を直しても変わりません（叙任の規程「参加のハードルの続き」）。' : '',
+    failed.includes(REFUSED_ROW) ? 'このアカウントの叙任の願い出を前に断っているので、この願い出は受けません。この issue を直しても変わりません。断った願い出のアカウントからは、二度と願い出を受けません（叙任の規程「参加のハードルの続き」）。' : '',
+  ].filter(Boolean).join('\n');
   const verdict = result.ok ? '様式は整っています。'
-    : (waitOnly ? '' : '通らなかったところを直し、この issue を編集してください。' + (waitToo ? '\n' : ''))
-      + (waitToo ? '前の願い出から ' + INTERVAL_DAYS + ' 日たっていないので、この願い出は受けません。この issue を直しても変わりません。日がたってから、新しい issue で願い出ることができます（叙任の規程「参加のハードル」）。' : '');
+    : (waitOnly ? '' : '通らなかったところを直し、この issue を編集してください。' + (fixedToo ? '\n' : ''))
+      + why;
   const rows = result.rows.map(([label, pass, detail]) => `| ${pass ? '通' : '**不**'} | ${label} | ${String(detail).replace(/[|<>`]/g, '')} |`).join('\n');
   return `${MARK}
 **自動の確認**（この issue を直すたびに、もう一度動きます）
@@ -307,18 +451,23 @@ function comment(result) {
 ${rows}
 
 ${verdict}
-${result.earliest ? '叙任を決められるのは、早くて ' + result.earliest + '（日本時間）です。願い出の issue を開いた日を数えずに ' + WAIT_DAYS + ' 日が過ぎるまで、叙任を決めません（叙任の規程「参加のハードル」）。\n' : ''}この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
+${result.earliest ? '叙任を決められるのは、早くて ' + result.earliest + '（日本時間）です。' + (result.quota ? '前の叙任の日を数えずに ' + QUOTA_YEARS + ' 年が過ぎるまで、次の叙任をしません（叙任の規程「参加のハードルの続き」）。\n' : '願い出の issue を開いた日を数えずに ' + WAIT_DAYS + ' 日が過ぎるまで、叙任を決めません（叙任の規程「参加のハードル」）。\n') : ''}この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
 これは創作であり、遊びです。称号に法的な効力はありません。
 `;
 }
 
-async function github(method, p, body) {
-  const r = await fetch('https://api.github.com/repos/' + process.env.GITHUB_REPOSITORY + p, {
+/* 外へ出す要求は、この一つの fetch だけで、先は GitHub の API だけである。p は 'repos/<このリポジトリ>/…' か 'users/<アカウント>'。 */
+async function githubApi(method, p, body) {
+  const r = await fetch('https://api.github.com/' + p, {
     method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json', 'User-Agent': 'nusquama-knighting' },
     body: body ? JSON.stringify(body) : undefined,
   });
-  if (!r.ok) throw new Error(method + ' ' + p + ': HTTP ' + r.status);
+  if (!r.ok) throw new Error(method + ' ' + p.replace(/^users\/.*/, 'users') + ': HTTP ' + r.status);
   return r.status === 204 ? null : r.json();
+}
+
+async function github(method, p, body) {
+  return githubApi(method, 'repos/' + process.env.GITHUB_REPOSITORY + p, body);
 }
 
 /* 同じアカウントが開いた叙任のラベルの issue の、番号と開いた時刻。GitHub の API は issue の全体を返すが、この二つのほかは捨てる。
@@ -333,6 +482,27 @@ async function previousApplications(login, gh = github) {
     if (list.length < 100) return out;
   }
   throw new Error('一覧が長すぎる');
+}
+
+/* 同じアカウントが開き、運営者がラベル REFUSED_LABEL を付けた叙任の願い出の issue の、番号と開いた時刻。ラベルでの絞り込みは GitHub の API がする。
+ * API は issue の全体を返すが、この二つのほかは捨てる。一覧は終わりの頁まで読む。読めなければ throw する（実行が落ち、何も書かない）。 */
+async function refusedApplications(login, gh = github) {
+  if (!login) return null;
+  const out = [];
+  for (let page = 1; page <= 50; page++) {
+    const list = await gh('GET', '/issues?creator=' + encodeURIComponent(login) + '&labels=' + encodeURIComponent(LABEL + ',' + REFUSED_LABEL) + '&state=all&per_page=100&page=' + page);
+    if (!Array.isArray(list)) throw new Error('一覧でない答え');
+    for (const r of list) out.push({ number: r.number, created_at: r.created_at });
+    if (list.length < 100) return out;
+  }
+  throw new Error('一覧が長すぎる');
+}
+
+/* アカウントが作られた日時。GitHub の公開の API（users）の答えのうち created_at だけを返し、ほかは捨てる。読めなければ throw する。 */
+async function accountCreated(login, api = githubApi) {
+  if (!login) return null;
+  const j = await api('GET', 'users/' + encodeURIComponent(login));
+  return (j && typeof j.created_at === 'string') ? j.created_at : null;
 }
 
 async function main() {
@@ -363,6 +533,12 @@ async function main() {
   const form = parse(issue.body);
   const result = check(form, opened);
   if (jstDay(opened) >= HURDLE_FROM) addInterval(result, await previousApplications(issue.user && issue.user.login), opened, n, reopen);
+  if (jstDay(opened) >= STRICT_FROM) {
+    const login = issue.user && issue.user.login;
+    addAccount(result, await accountCreated(login), opened);
+    addRefused(result, await refusedApplications(login), opened, n, reopen);
+    addQuota(result, lastKnighted(fs.readFileSync(path.join(ROOT, 'KNIGHTS.md'), 'utf8')), opened);
+  }
   const body = comment(result);
   const mine = mine0;
   if (mine) await github('PATCH', '/issues/comments/' + mine.id, { body });
@@ -370,6 +546,7 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { ABROAD_FROM, ABROAD, HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+module.exports = { STRICT_FROM, OWN, PUBLISHED_FIELD, PUBLISHED_DAYS, ACCOUNT_YEARS, QUOTA_YEARS, REFUSED_LABEL, VENUES, venueOf, realDay, publishedProblem, yearsAfter, accountProblem, refusedProblem, lastKnighted, quotaEarliest,
+  ACCOUNT_LABEL, addAccount, REFUSED_ROW, addRefused, addQuota, refusedApplications, accountCreated, githubApi, ABROAD_FROM, ABROAD, HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });

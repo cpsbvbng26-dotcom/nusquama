@@ -15,6 +15,8 @@ body:
         2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人だけです。旅行・出張・留学・乗り継ぎで出たことも、日本の外で生まれたことも、出たことに数えます。確かめるのは下の誓いの印だけで、旅券・日付・行った国は尋ねません。書かないでください（叙任の規程「日本の外に出たことがないこと」）。
         From 2026-11-24, only people who have never been outside Japan since birth may apply. Travel, business trips, study abroad, transit and being born outside Japan all count as having been outside. Only the box below is checked; no passport, date or country visited is asked for. Do not write them (Rules on Knighting, "Never having been outside Japan").
         2026-12-15 から、願い出ることができるのは 18 歳以上の人だけです。同じアカウントからの願い出は 365 日に一度までで、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてからです（叙任の規程「参加のハードル」）。
+        2026-12-15 から、訂正は、自分が書いて公開した文の誤りを、前の版が残る場（Git の履歴・版を分けて残す登録・正誤表の頁）で正し、願い出の 180 日以上前に公開したものに限ります。願い出の GitHub のアカウントは 2 年以上前に作られたものに限り、叙任は 2 年に 1 人までです。断った願い出のアカウントからは、二度と願い出を受けません（叙任の規程「参加のハードルの続き」）。
+        From 2026-12-15, the correction must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version (a Git history, a registry that keeps versions apart, or an erratum page), and have been published at least 180 days before the application. The GitHub account must have been created at least 2 years earlier, and at most 1 person is knighted in 2 years. No application is ever received again from an account whose application was declined (Rules on Knighting, "Barriers to participation (continued)").
         この国は創作であり、遊びです。実在の国家・王室・騎士団・叙勲とは関係がなく、ここで贈る騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。
         叙任は無償です。本名・住所・所属・連絡先は書かないでください。この issue は公開されます。
         訂正へのリンクの先に本名や所属が書かれていると、このアカウントとその人が結び付いて公開されます。
@@ -29,6 +31,14 @@ body:
       placeholder: https://
     validations:
       required: true
+  - type: input
+    id: published
+    attributes:
+      label: 訂正を公開した日
+      description: 2026-12-15 から必須です。訂正を公開した日を、2026-06-17 の形（年-月-日）で書きます。リンクの先で、同じ日が見られるものに限ります。
+      placeholder: 2026-06-17
+    validations:
+      required: false
   - type: textarea
     id: what
     attributes:
@@ -50,6 +60,8 @@ body:
       options:
         - label: 訂正したのは、自分自身の誤りです。
           required: true
+        - label: 誤りの元の文は、自分が書いて公開した文です。他人の文の誤りを指摘したものではありません（共著の文は、自分が著者に入っていれば数えます。2026-12-15 から、この印が要ります）。
+          required: false
         - label: この国が創作であり、称号に法的な効力も現実の栄誉もないことを分かっています。
           required: true
         - label: 騎士の称号は、この国の中でだけ使います。履歴書・論文・名刺・公的な書類には書きません（基本法第八条）。
