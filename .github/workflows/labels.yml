@@ -28,3 +28,5 @@ jobs:
           gh label create "place not verified" --color 9a6700 --description "誤りの知らせ：日本にいると ORCID から確かめられなかった（tools/reporter.js）" --force
           gh label create "place verified" --color 2f6f4e --description "誤りの知らせ：日本にいると ORCID から確かめた（tools/reporter.js）" --force
           gh label create "source not given" --color 9a6700 --description "誤りの知らせ：確かめた先が書かれていない（tools/reporter.js、2026-12-15 から）" --force
+          gh label create "one per 30 days" --color 9a6700 --description "誤りの知らせ：同じアカウントの前の知らせから 30 日が過ぎていない（tools/reporter.js、2026-12-15 から）" --force
+          gh label create "断った" --color 5c5c5c --description "叙任の願い出：運営者が断った。このアカウントからは二度と願い出を受けない（tools/knighting.js、2026-12-15 から）" --force

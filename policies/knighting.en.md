@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-23.
+Last updated: 2026-11-24.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -21,6 +21,7 @@ The added conditions are age, the country of residence, the country where the ap
 From 2026-11-24, the condition in "Never having been outside Japan" is also one of the added conditions.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
+From 2026-12-15, the conditions in "Barriers to participation (continued)" are also among the added conditions.
 A person who meets the condition of Article 6 but not the conditions of these rules is not knighted.
 Claude decided this on 2026-11-13, so that, without amending any article of the Basic Law, Article 6 is not read as making its condition alone enough to be knighted.
 
@@ -42,6 +43,8 @@ A person who only stays in Japan briefly, such as a traveller, does not count as
 From 2026-11-24, only people who have never been outside Japan since birth may apply ("Never having been outside Japan").
 From 2026-11-29, people who hold the nationality of, live in, or are in when applying, a country or region where the operator has judged that knighting would not conform to the law of that country or region may not apply either ("Countries and regions where knighting would not conform to the law").
 From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
+From 2026-12-15, the correction must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version, and have been published at least 180 days before the day the application issue was opened ("Barriers to participation (continued)").
+From 2026-12-15, applications are received only from GitHub accounts created at least 2 years before the day the issue was opened. No application is ever received again from an account whose application was declined ("Barriers to participation (continued)").
 
 ## Pause in receiving applications
 
@@ -99,6 +102,44 @@ The form gains a box for being 18 or over and the field "称号を使わない�
 None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
 Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
 The owner decided on 2026-11-19 to raise the barriers as far as they go, and Claude chose the conditions, so that only as many applications are received as one operator can read and check.
+
+## Barriers to participation (continued)
+
+Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+From 2026-12-15, once applications reopen, the six conditions below also apply to knighting, in addition to the conditions in "Barriers to participation".
+
+1. The correction for knighting must have been published at least 180 days before the day (Japan time) the application issue was opened. The applicant writes that day in the field "訂正を公開した日" (Day the correction was published) of the form.
+2. The correction for knighting must fix an error in a text that the applicant wrote and published. Pointing out an error in someone else's text does not count. A co-authored text counts if the applicant is one of its authors.
+3. The correction for knighting must have been made in a place that keeps the earlier version. The kinds of place are the three in the table below. Both the original text with the error and the corrected text must be checkable by a third party.
+4. The GitHub account that opened the application issue must have been created at least 2 years before the day the issue was opened.
+5. At most 1 person is knighted in 2 years. This replaces the 1 person in a year of condition 3 in "Barriers to participation". It is counted by the day of knighting on the roll, and no one is knighted until 2 years have passed from the previous day of knighting.
+6. No application for knighting is ever received again from a GitHub account whose application was declined. A withdrawn application counts, as before, only for the 365 days of condition 2 in "Barriers to participation".
+
+| Kind of place | Link forms the automatic check accepts | Where the earlier version stays |
+| --- | --- | --- |
+| A Git history | A commit or pull request page on GitHub, a commit or merge request page on GitLab, a commit or pull request page on Codeberg | The diff shows the lines before and after the correction, and the earlier version stays in the history of the repository |
+| A registry that keeps versions apart | A DOI page, a Zenodo record page, an arXiv page with a version number | Each version has its own identifier, and earlier versions stay public |
+| An erratum page | The DOI page of an erratum | The erratum sets the original and the corrected text side by side, and the page with the original text stays |
+
+The days and years in this section are also counted in Japan time, and the first day (the day the correction was published, the day the account was created, or the previous day of knighting) is not counted.
+2 years end at the end of the day before the same month and day 2 years later, counting from the day after the first day. If that month and day does not exist 2 years later (the day after the first day is 29 February), the 2 years end at the end of February 2 years later.
+The 2 years of 1 person in 2 years are counted from the previous day of knighting, not by calendar blocks (such as every 2 years from the start of a year), so that no two knightings fall on either side of a boundary.
+For example, for an application opened on 2026-12-15, a correction published on 2026-06-17 counts, and one published on 2026-06-18 does not. An account created on 2024-12-14 passes, and an account created on 2024-12-15 passes from 2026-12-16. After a knighting on 2027-03-16, the earliest next knighting is on 2029-03-17.
+
+Conditions 1, 3, 4 and 6 are checked by the automatic check. Condition 1 is checked by the date in the field "訂正を公開した日" (Day the correction was published), and condition 3 by whether the link to the correction has the form of a place in the table above. As before, the automatic check does not open the link to the correction.
+The operator is the one who checks, at the link, that the day of publication matches the day in the form, that both the original and the corrected text can be seen, and that the original text was written by the applicant ("What the operator checks").
+Condition 2 is taken from a tick in the pledges of the form, and the operator checks it at the link. The text of the box begins "誤りの元の文は、自分が書いて公開した文です" (The original text with the error is a text I wrote and published).
+Condition 5 is checked by the checks (`verification/check.js`) against the rows of the roll. The automatic check puts the day on which 2 years from the previous day of knighting have passed into the earliest day on which knighting can be decided.
+For condition 4, the automatic check receives from GitHub's public API the answer for the account that opened the application issue. The answer also contains the items of the profile, but only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is not written in the comment. The applicant is asked nothing.
+"The GitHub profile is not read" in "Checking the place when applications reopen" stays as it is. This check does not use the location field of the profile or the like either.
+For condition 6, the operator closes a declined application issue with the label 断った (declined). The automatic check receives from GitHub's API the list of application issues for knighting opened by the same account that have the label 断った (declined). Only the issue number (to leave out the present issue) and the time of opening are used; the rest is discarded. The comment does not give the number of the earlier issue.
+An application closed during the pause does not get this label. Nor does an application declined only because of 1 person in 2 years in condition 5, since the applicant did not fail a condition. Like a withdrawn application, these count only for the 365 days of condition 2 in "Barriers to participation".
+If the issue of a declined application is deleted at the applicant's request, the automatic check cannot find that application. The operator keeps no separate list of declined accounts, so that a request for deletion comes before this condition and no new personal data is collected.
+The form gains the field "訂正を公開した日" (Day the correction was published) and a box that the original text with the error is a text the applicant wrote. Both are required from 2026-12-15.
+None of the conditions divides people by nationality, sex, belief or the like. The rules on place stay as they are in "Who may apply", "Countries that restrict foreign titles" and "Countries and regions where knighting would not conform to the law"; none is added.
+Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.
+The content of the change and the date it takes effect were shown on 2026-11-24 under "Changes and ending" in the Terms of Use.
+The owner decided on 2026-11-23 to adopt these six conditions, and Claude decided the details (how co-authored texts count, the table of places, how days and years are counted, how the 2 years are divided, and how declined applications are recorded), so that only as many applications are received as one operator can read and check.
 
 ## The premise of good sense
 
@@ -220,12 +261,15 @@ Do not write your real name, address, affiliation or contact details.
 
 From 2026-12-15, also fill in the field "称号を使わない場所" (Places where the title is not used) in the form, and tick the box that you are 18 or over ("Barriers to participation").
 
+From 2026-12-15, also fill in the field "訂正を公開した日" (Day the correction was published) in the form, and tick the box that the original text with the error is a text you wrote ("Barriers to participation (continued)").
+
 ## What the operator checks
 
 - That the link is public and reads as a correction.
 - That it reads as a correction of the applicant's own mistake.
 - That it contains no personal data of others and nothing that hurts others.
 - That every pledge in the form is ticked.
+- From 2026-12-15, that at the link the day of publication matches "訂正を公開した日" (Day the correction was published) in the form, that both the original text with the error and the corrected text can be seen, and that the original text reads as written by the applicant (for a co-authored text, one with the applicant among its authors) ("Barriers to participation (continued)").
 - That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality or the nationality of a country under "Countries that restrict foreign titles", or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
@@ -235,6 +279,7 @@ The automatic check does not open the link to the correction. The operator is th
 The refused destinations are localhost; names ending in .localhost, .local, .internal, .home.arpa, .test, .example, .invalid or .onion; addresses written as numbers; names without a dot; and URLs that contain a user name or password. None of them points to a public page.
 From 2026-11-24, the automatic check also checks the tick that the applicant has never been outside Japan since birth ("Never having been outside Japan").
 From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
+From 2026-12-15, the automatic check also checks the tick that the original text with the error is a text the applicant wrote, the day the correction was published, whether the link to the correction has the form of a place that keeps the earlier version, the day the account was created, and declined applications from the same account ("Barriers to participation (continued)").
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
@@ -261,8 +306,13 @@ No knighthood is given for:
 - From 2026-11-22, an application where what the applicant wrote, or the linked correction, clearly shows that "The premise of good sense" does not hold.
 - From 2026-11-24, an application without the tick for "Never having been outside Japan".
 - From 2026-12-15, an application that does not meet the conditions in "Barriers to participation".
+- An application in which a pledge of the form that must be ticked is not ticked.
+- From 2026-11-29, an application where the linked correction clearly shows that "Countries and regions where knighting would not conform to the law" applies.
+- From 2026-12-15, an application that does not meet the conditions in "Barriers to participation (continued)".
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
+From 2026-12-15, the issue of a declined application gets the label 断った (declined). No application for knighting is ever received again from that account ("Barriers to participation (continued)").
+An application closed during the pause, and an application declined only because of 1 person in 2 years, do not count as declined applications here.
 
 ## The roll
 

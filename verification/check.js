@@ -1521,8 +1521,10 @@ console.log('\n57. 叙任の通し稽古（本物の issue を開かず、試し
     && K.LABEL === label && K.target({ labels: [{ name: label }] }, '2026-11-01T00:00:00Z', null) === 'label');
   /* 段 3：自動の確認。リンクは開かない（2026-11-12 から、自動の確認そのものが外へ何も要求しない）。 */
   const result = K.check(form, TRIAL.opened), c = K.comment(result);
+  /* 行の数は、必ず付ける誓い・リンク・説明の三行に、その日に効いている日付の印（DATED）の行と、2026-12-15 からの行を足した数（2026-11-24 に、決まった 7 から数える形に改めた。
+   * 日本の外に出たことがない印は 2026-11-24 から見るので、官報の最後の号が 2026-11-24 になると、行が一つ増える）。 */
   ok('段 3：試しの一件は自動の確認を通り（' + result.rows.length + ' 行）、コメントは整っていると書いて何も決めない。日本にいる印がなければ通らない',
-    result.ok && result.rows.length === 7 && c.startsWith(K.MARK) && c.includes('様式は整っています。') && c.includes('この確認は何も決めません。')
+    result.ok && result.rows.length === 3 + K.DATED.filter((d) => d.from <= TRIAL.day).length + (TRIAL.day >= K.HURDLE_FROM ? 1 : 0) + (TRIAL.day >= K.STRICT_FROM ? 2 : 0) && c.startsWith(K.MARK) && c.includes('様式は整っています。') && c.includes('この確認は何も決めません。')
     && !K.check(K.parse(body.replace('- [X] ' + K.PRESENCE, '- [ ] ' + K.PRESENCE)), TRIAL.opened).ok);
   /* 試しの一件は、イタリアの国籍を持たない印と良識の前提の印も付けて願い出る。どちらかを外せば通らない。 */
   ok('段 3：試しの一件は、イタリアの国籍を持たない印・良識の前提の印・外国の称号を縛る国の国籍を持たない印を付けて通り、どれかの印を外すと通らない',
@@ -1776,8 +1778,8 @@ console.log('\n62. 法令の点検の続き：取り寄せた周辺の文と、�
     const i = a.indexOf('\n## 2026-11-12 の続き：取り寄せた周辺の文\n'), j = a.indexOf('\n## ', i + 5);
     const sec = i < 0 ? '' : a.slice(i, j);
     const heads = [...a.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）、名称と商標の節（89）、参加のハードルの節（90）、日本の外に出たことがないことの節（94）はその後に置く。並びは一通りに固める。 */
-    if (heads.slice(-25).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|2026-11-15：自動化を固める|2026-11-18：名称と商標|2026-11-19：参加のハードル|2026-11-23：日本の外に出たことがないこと|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
+    /* 2026-11-12 の二度目の見落としの節（67）はこの節のすぐ後に、三度目の見落としの節（68）、五度目の見落としの節（69）、六度目の見落としの節（70）、七度目の見落としの節（71）、八度目の見落としの節（73）、十一度目の見落としの節（74）、公開の頁の書き方の節（76）、十三度目の見落としの節（77）、十四度目の見落としの節（78）、十五度目の見落としの節（79）、十六度目の見落としの節（80）、運営理念・声明の節（81）、形を保って詰める節（82）、名称と商標の節（89）、参加のハードルの節（90）、日本の外に出たことがないことの節（94）、参加の条件を七つ厳しくする節（96）はその後に置く。並びは一通りに固める。 */
+    if (heads.slice(-26).join('|') !== '2026-11-12 の続き：取り寄せた周辺の文|2026-11-12 の続き：二度目の見落とし|2026-11-12 の続き：三度目の見落とし|2026-11-12 の続き：五度目の見落とし|2026-11-12 の続き：六度目の見落とし|2026-11-12 の続き：七度目の見落とし|2026-11-12 の続き：八度目の見落とし|2026-11-12 の続き：十一度目の見落とし|2026-11-13：公開の頁の書き方|2026-11-13：十三度目の見落とし|2026-11-13：十四度目の見落とし|2026-11-13：十五度目の見落とし|2026-11-13：十六度目の見落とし|2026-11-13：運営理念・声明|2026-11-14：形を保って詰める|2026-11-14：突き合わせの受付|2026-11-15：十八度目の点検|2026-11-15：点検の答え|2026-11-15：自動化を固める|2026-11-18：名称と商標|2026-11-19：参加のハードル|2026-11-23：日本の外に出たことがないこと|2026-11-24：参加の条件を七つ厳しくする|調べた法令|取り寄せられなかった文|弁護士の確認') bad.push('記録の節の並び');
     const t0 = sec.indexOf('\n### 確かめ直した表\n'), t1 = sec.indexOf('\n### ', t0 + 5);
     const table = t0 < 0 ? '' : sec.slice(t0, t1);
     const rows = table.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
@@ -2391,7 +2393,11 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
     /* コード：外へ出す要求は GitHub の API だけ。要求の先をすべて数える。 */
     const src = x[CODE];
     const calls = [...src.matchAll(/\bfetch\s*\(\s*([^,)]*)/g)].map((m) => m[1].trim());
-    if (calls.length !== 1 || !calls.every((a) => a.startsWith("'https://api.github.com/repos/'"))) bad.push('要求の先が GitHub の API だけでない：' + calls.join(' / '));
+    if (calls.length !== 1 || !calls.every((a) => a.startsWith("'https://api.github.com/'"))) bad.push('要求の先が GitHub の API だけでない：' + calls.join(' / '));
+    /* 2026-11-24 から、一つの fetch が GitHub の API の二つの所（このリポジトリの repos/ と、アカウントの作られた日の users/）へ出る（検査 96）。
+     * fetch の先は 'https://api.github.com/' に続く道で、道は 'repos/' + このリポジトリか 'users/' だけ。ほかの道を組む呼び出しがあれば落とす。 */
+    const roads = [...src.matchAll(/\b(?:githubApi|api)\(\s*'[A-Z]+',\s*'([^']*)'/g)].map((m) => m[1]);
+    if (!src.includes("return githubApi(method, 'repos/' + process.env.GITHUB_REPOSITORY + p, body);") || roads.some((r) => r !== 'users/')) bad.push('GitHub の API の道が、このリポジトリと users のほかを指す：' + roads.join(' / '));
     if (/\b(?:https?|net|tls|dns|child_process|undici)\b['"]\s*\)/.test(src) || /\brequire\(\s*['"](?:https?|net|tls|dns|child_process|undici)['"]/.test(src)) bad.push('外へ出る別の道を読み込む');
     let K;
     try { K = load(src); } catch (e) { return bad.concat(['受付のコードが読めない：' + e.message]); }
@@ -2458,6 +2464,8 @@ console.log('\n68. 叙任の願い出の自動の確認は、訂正へのリン�
   const STATUS = "async function status(url) { const r = await fetch(url, { method: 'HEAD' }); return r.status; }\n";
   const breaks = [
     ['リンクを開く関数を戻す', mut(CODE, '\nasync function github(', '\n' + STATUS + 'async function github(')],
+    ['GitHub の API のほかの道を組む', mut(CODE, "  const j = await api('GET', 'users/' + encodeURIComponent(login));", "  await api('GET', 'search/users?q=' + encodeURIComponent(login));\n  const j = await api('GET', 'users/' + encodeURIComponent(login));")],
+    ['repos の道からこのリポジトリを外す', mut(CODE, "return githubApi(method, 'repos/' + process.env.GITHUB_REPOSITORY + p, body);", "return githubApi(method, 'repos/' + p, body);")],
     ['リンクを開く関数を書き出す', mut(CODE, 'module.exports = { ', 'module.exports = { status: async () => 200, ')],
     ['main で開いた結果を渡す', mut(CODE, 'const result = check(form, opened);', "const result = check(form, opened); await fetch((form['訂正への公開のリンク'] || '').trim());")],
     ['http の読み込みで外へ出る', mut(CODE, "const fs = require('fs');", "const fs = require('fs');\nconst https = require('https');")],
@@ -5454,7 +5462,8 @@ console.log('\n90. 参加のハードル（2026-11-19）：個人運営のため
       if (!yml.includes('        - label: ' + KK.AGE + '（2026-12-15 から、この印が要ります）。\n          required: false\n') || !yml.includes('      label: ' + KK.PLACES_FIELD + '\n') || !/id: places\n[\s\S]*?required: false\n/.test(yml)) bad.push('様式の定義');
       const oaths = KK.requiredOaths(yml);
       const dated = KK.DATED.map((d) => '- [X] ' + d.text);
-      const body = (ticks, places) => '### 訂正への公開のリンク\n\nhttps://example.org/erratum\n\n### 何を誤り、どう正したか\n\nブログの記事で年を誤り、追記で正しました。\n\n### ' + KK.PLACES_FIELD + '\n\n' + places + '\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
+      /* 2026-12-15 から、訂正は前の版が残る場で 180 日以上前に公開したものに限る（検査 96）。試しの一件も、その形のリンクと日を持つ。 */
+      const body = (ticks, places) => '### 訂正への公開のリンク\n\nhttps://github.com/someone/notes/commit/0123abc\n\n### 訂正を公開した日\n\n2026-01-10\n\n### 何を誤り、どう正したか\n\nブログの記事で年を誤り、追記で正しました。\n\n### ' + KK.PLACES_FIELD + '\n\n' + places + '\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
       const full = oaths.map((o) => '- [X] ' + o).concat(dated);
       const r = (ticks, places, at) => KK.check(KK.parse(body(ticks, places)), at, oaths);
       const at = '2026-12-15T00:00:00+09:00', before = '2026-12-14T23:59:00+09:00';
@@ -5513,7 +5522,9 @@ console.log('\n90. 参加のハードル（2026-11-19）：個人運営のため
     if (!R.NOTE_SOURCE.includes(NE) || !R.NOTE_SOURCE.includes(NJ) || /閉じます|lock/i.test(R.NOTE_SOURCE.replace('issue は閉じず', '').replace('The issue is not closed', ''))) bad.push('確かめた先の決まった文');
     /* 八、利用規約の予告。 */
     const tj = sec(x['policies/terms.md'], '変更と終了'), te = sec(x['policies/terms.en.md'], 'Changes and ending');
-    const lj = tj.split('\n').filter((l) => l.startsWith('予告：' + EFFECTIVE + ' から')), le = te.split('\n').filter((l) => l.startsWith('Notice: from ' + EFFECTIVE));
+    /* 数えるのは、「次の四つの予告は、そのためのものです。」の行のすぐ後に続く予告の行（2026-11-24 に、その後ろに別の前置きと五つの予告が足された。検査 96）。 */
+    const block = (t, lead, head) => { const ls = t.split('\n'); const k = ls.findIndex((l) => l.includes(lead)); if (k < 0) return []; const out = []; for (let n = k + 1; n < ls.length && ls[n].startsWith(head); n++) out.push(ls[n]); return out; };
+    const lj = block(tj, 'つの予告は、そのためのものです。', '予告：' + EFFECTIVE + ' から'), le = block(te, 'notices below are for that purpose.', 'Notice: from ' + EFFECTIVE);
     const cj = KJN.indexOf((/次の(.)つの予告は、そのためのものです。/.exec(tj) || [])[1] || '?'), ce = KEN.indexOf(((/The (\w+) notices below are for that purpose\./.exec(te) || [])[1] || '?'));
     if (lj.length !== 4 || le.length !== 4 || cj !== lj.length || ce !== le.length) bad.push('利用規約の予告の数');
     if (!tj.includes(NJ + '次の') || !te.includes('Because ' + NE + ' The')) bad.push('利用規約の予告の前の注');
@@ -6010,7 +6021,8 @@ console.log('\n94. 日本の外に出たことがないこと（2026-11-23 に�
     /* 二、経歴を尋ねる欄がない：書き込む欄は三つだけで、どれも旅券・日付・行った国を尋ねない。 */
     const blocks = yml.split(/\n  - type: /).slice(1).map((b) => ({ type: b.split('\n')[0].trim(), id: ((/\n    id: (\S+)/.exec(b) || [])[1] || ''), body: b }));
     const fields = blocks.filter((b) => b.type !== 'markdown' && b.type !== 'checkboxes');
-    if (fields.map((b) => b.id).join() !== 'correction,what,places') bad.push('様式の書き込む欄が、訂正・説明・称号を使わない場所の三つでない');
+    /* 2026-11-24 に「訂正を公開した日」（published）を足した（検査 96）。欄は四つで、どれも経歴を尋ねない。 */
+    if (fields.map((b) => b.id).join() !== 'correction,published,what,places') bad.push('様式の書き込む欄が、訂正・公開した日・説明・称号を使わない場所の四つでない');
     if (fields.some((b) => /旅券|パスポート|渡航|出国|入国|行った国|訪れた国|滞在|海外|passport|travel|visited|abroad|countr/i.test(b.body))) bad.push('様式の欄が日本の外に出たことを尋ねる');
     if (blocks.filter((b) => b.type === 'checkboxes').length !== 1) bad.push('様式の印の組が一つでない');
     /* 三、受付のコード：効力の日から日付で求め、必ず印を付ける誓いには数えない。 */
@@ -6079,7 +6091,7 @@ console.log('\n94. 日本の外に出たことがないこと（2026-11-23 に�
     return bad;
   }
   const now = verdict(real);
-  ok('様式は印を日本語と英語の文で持ち、書き込む欄は三つのまま経歴を尋ねない。受付のコードは ' + FROM + ' から日付で印を求め、規程・予告・個人情報の取り扱い・適法性の説明（日本語と英語）・年表・記録がそろい、示した日は効力の日より前', now.length === 0, now.join(' / '));
+  ok('様式は印を日本語と英語の文で持ち、書き込む欄は四つ（2026-11-24 に公開した日を足した）で経歴を尋ねない。受付のコードは ' + FROM + ' から日付で印を求め、規程・予告・個人情報の取り扱い・適法性の説明（日本語と英語）・年表・記録がそろい、示した日は効力の日より前', now.length === 0, now.join(' / '));
   const mut = (f, a, b) => { const v = String(real[f] || ''); if (!(typeof a === 'string' ? v.includes(a) : a.test(v))) throw new Error('検査 94 の壊し方が当たらない：' + f + '：' + String(a).slice(0, 30)); return Object.assign({}, real, { [f]: v.replace(a, b) }); };
   const breaks = [
     ['様式から印を外す', mut('tools/knighting-form.yml', '        - label: ' + LABEL_JA + ' / ' + LABEL_EN + '\n          required: false\n', '')],
@@ -6110,7 +6122,7 @@ console.log('\n94. 日本の外に出たことがないこと（2026-11-23 に�
     ['利用規約の事実でない印の例から外す', mut('policies/terms.md', '訂正が自分の誤りであること、日本の外に出たことがないことがあります。', '訂正が自分の誤りであることがあります。')],
     ['適法性の説明から、確かめていない文を外す', mut('policies/legality.md', '同項が政令に委ねる記述等は、取り寄せていないので確かめていない。', '')],
     ['記録の判定の数を変える', mut(AUD, '判定は、漏れ 2 件、問題なし 6 件で、合わせて 8 件です。', '判定は、漏れ 1 件、問題なし 7 件で、合わせて 8 件です。')],
-    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 2026-11-24：参加の条件を七つ厳しくする', '\n## 2026-11-24：参加の条件を七つ厳しくする')],
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：様式（印を外す・日本語の文・英語の文・先に必須・経歴の欄・旅券の説明・断りの日本語と英語）・受付のコード（印・効力の日・注釈の数）・規程（条件・名簿・書き方）・予告（外す・示した日・英語だけ）・年表・個人情報の取り扱い（日本語と英語）・事実でない印の例・適法性の説明・記録（判定の数・弁護士）のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
@@ -6231,6 +6243,368 @@ console.log('\n95. 頁の奥行き（2026-11-23）：高さの段と影の段の
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：動きを減らす設定・浮く高さ・影の段・光の向き・暗い配色の影の長さと面の明るさ・縁の明かり・部品ごとの段・印刷・紙の余白と字数・余白の段・動き・記録の数と文（日本語と英語）のどれでも落ちる（' + (breaks.length - missed.length) + ' / ' + breaks.length + '）',
     missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n96. 参加の条件を七つ厳しくする（2026-11-24 に示し、2026-12-15 から）：叙任の規程「参加のハードルの続き」の六つの条件と場の表、自動の確認（訂正の日・場の形・自分の文の印・アカウントの作られた日・断った願い出・2 年に 1 人）、名簿、誤りの知らせの 30 日に一件、予告・個人情報の取り扱い・頁・年表・記録がそろう（日本語と英語）');
+{
+  /* 2026-11-23 に利用者が七つの案を採ると決め、細かな定めは 2026-11-24 に Claude が決めた（点検の記録「2026-11-24：参加の条件を七つ厳しくする」）。
+   * 一、叙任の規程（日本語と英語）の「参加のハードルの続き」：数の語と箇条の数、箇条の文、日・年の数（道具の値と同じ）、場の表（道具の VENUES と同じ種類と数）、
+   *     数え方の例（道具で計算し直す）、属性で人を分けない一文、受付は止めたまま、示した日、決めた者。ほかの節（第六条・願い出ることができる人・確かめること・断ること）。
+   * 二、自動の確認：効力の日の前は新しい行を足さず、その日からは印・日・場の形を見る。アカウントの作られた日と断った願い出は直しても変わらないので編集を求めず、
+   *     日時も前の番号も書かない。名簿の前の叙任から 2 年を最も早い日に入れる。外へは GitHub の API の二つの道だけで、一覧から使うのは番号と開いた時刻だけ。
+   *     main を試しの出来事で通し、users の答えのほかの項目がコメントに写らないことを見る（外へは出さない）。
+   * 三、名簿：2026-12-15 からの叙任の日は、前の叙任の日を数えずに 2 年が過ぎた後。名簿の記し方（日本語と英語）。
+   * 四、誤りの知らせ：30 日に一件まで。道具の値・ラベル・決まった文・様式・個人情報の取り扱い。main を試しの出来事で通す（外へは出さない）。求めの様式には掛けない。
+   * 五、利用規約の五つの予告（日本語と英語）：前置きの数の語、示した日、効力の日の前の満 14 日。
+   * 六、国の仕組み・声明・紹介の頁・王の正誤表・適法性の説明・年表（日本語と英語）。
+   * 七、点検の記録：七つの案の数、表の形と判定の数、引いた条文、効力の日、採らなかった細目、弁護士の文、調べた法令。
+   * 八、足した文は研究の系列へつながず、料金を書かない。
+   * 確かめる関数に壊した入力を渡し、落ちることも確かめる（壊して確かめる）。 */
+  const EFFECTIVE = '2026-12-15', SHOWN = '2026-11-24', LATEST_PUBLISH = '2026-11-30';
+  const AUD = 'docs/legal-audit-2026-11-12.md', HEAD = '\n## 2026-11-24：参加の条件を七つ厳しくする\n';
+  const KC = 'tools/knighting.js', RC = 'tools/reporter.js', FORM = 'tools/knighting-form.yml', EY = '.github/ISSUE_TEMPLATE/error.yml';
+  const files = [KC, RC, FORM, EY, 'policies/knighting.md', 'policies/knighting.en.md', 'policies/terms.md', 'policies/terms.en.md', 'policies/privacy.md', 'policies/privacy.en.md',
+    'policies/legality.md', 'policies/legality.en.md', 'INSTITUTIONS.md', 'INSTITUTIONS.en.md', 'MISSION.md', 'MISSION.en.md', 'PRESS.md', 'PRESS.en.md', 'ERRATA.md', 'ERRATA.en.md',
+    'KNIGHTS.md', 'KNIGHTS.en.md', 'README.md', '.github/workflows/labels.yml', '.github/ISSUE_TEMPLATE/request.yml', '.github/ISSUE_TEMPLATE/rights.yml', 'SECURITY.md', AUD];
+  const real = Object.fromEntries(files.map((f) => [f, read(f)]));
+  const TEXTS = JSON.parse(read('verification/statutes-texts.json'));
+  const KJN = ' 一二三四五六七八九十', KEN = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+  const sec = (t, h) => { const s = String(t || ''); const i = s.indexOf('\n## ' + h + '\n'); if (i < 0) return ''; const j = s.indexOf('\n## ', i + 4); return s.slice(i, j < 0 ? undefined : j); };
+  const items = (s) => s.split('\n').filter((l) => /^\d+\. /.test(l));
+  const trows = (s) => s.split('\n').filter((l) => /^\| /.test(l) && !/^\| (場の種類|Kind of place|---) /.test(l));
+  /* 道具を、手元の文から読み込む（壊した文でも動きを見るため）。外へは何も出さない。 */
+  const load = (src, file) => { const m = { exports: {} }; new Function('module', 'exports', 'require', '__dirname', '__filename', String(src).replace(/^#![^\n]*/, ''))(m, m.exports, (q) => require(q.startsWith('../') ? path.join(ROOT, q.slice(3)) : q), path.join(ROOT, 'tools'), path.join(ROOT, file)); return m.exports; };
+  const KITEMS_JA = ['叙任の訂正は、願い出の issue を開いた日（日本時間）の 180 日以上前に公開されたものに限ります。', '叙任の訂正は、願い出る人が自分で書いて公開した文の誤りを正したものに限ります。他人の文の誤りを指摘したものは数えません。共著の文は、願い出る人が著者に入っていれば数えます。',
+    '叙任の訂正は、前の版が残る場でしたものに限ります。場の種類は、下の表の三つです。誤りの元の文と直した文の両方を、第三者が確かめられなければなりません。', '願い出の issue を開いた GitHub のアカウントは、issue を開いた日の 2 年以上前に作られたものでなければなりません。',
+    '叙任は、2 年に 1 人までとします。「参加のハードル」の 3 の一年に 1 人までを、これに替えます。', '断った願い出の GitHub のアカウントからは、二度と叙任の願い出を受けません。取り下げた願い出は、これまでどおり「参加のハードル」の 2 の 365 日のあいだだけ数えます。'];
+  const KITEMS_EN = ['must have been published at least 180 days before the day (Japan time) the application issue was opened.', 'must fix an error in a text that the applicant wrote and published. Pointing out an error in someone else\'s text does not count. A co-authored text counts if the applicant is one of its authors.',
+    'must have been made in a place that keeps the earlier version. The kinds of place are the three in the table below.', 'must have been created at least 2 years before the day the issue was opened.',
+    'At most 1 person is knighted in 2 years. This replaces the 1 person in a year of condition 3 in "Barriers to participation".', 'No application for knighting is ever received again from a GitHub account whose application was declined.'];
+  const KSAY_JA = ['2 年に 1 人までの 2 年は、暦の上の区切り（年の初めから 2 年ごとなど）ではなく、前の叙任の日から数えます。', 'たとえば、2026-12-15 に開いた願い出では、2026-06-17 に公開した訂正を数え、2026-06-18 に公開した訂正は数えません。2024-12-14 に作られたアカウントは通り、2024-12-15 に作られたアカウントは 2026-12-16 から通ります。2027-03-16 に叙任したときは、次に叙任できるのは早くて 2029-03-17 です。',
+    '答えにはプロフィールの項目も含まれますが、使うのはアカウントが作られた日時だけで、ほかは捨てます。作られた日時も残さず、コメントにも書きません。本人には何も尋ねません。', '使うのは issue の番号（いまの issue を除くため）と開いた時刻だけで、ほかは捨てます。コメントには、前の issue の番号を書きません。',
+    '受付の停止のあいだに閉じた願い出には、このラベルを付けません。5 の 2 年に 1 人までのために断った願い出にも、付けません。', '運営者は、断ったアカウントの一覧を別に作りません。', '自動の確認は、これまでどおり、訂正へのリンクを開きません。',
+    'どの条件も、国籍・性別・信条などで人を分けません。', '受付は止めたままです。この節は、受付に戻ったあとの条件を定めるもので、受付に戻すことを決めるものではありません。', '変える内容と効力の生じる日は、' + SHOWN + ' に、利用規約「変更と終了」で示しました。',
+    '2026-11-23 に利用者がこの六つの条件を採ると決め、細かな定め（共著の文の扱い、場の表、日と年の数え方、2 年の区切り方、断った願い出の記し方）は Claude が決めました。', '印の文は「'];
+  const KSAY_EN = ['are counted from the previous day of knighting, not by calendar blocks', 'For example, for an application opened on 2026-12-15, a correction published on 2026-06-17 counts, and one published on 2026-06-18 does not. An account created on 2024-12-14 passes, and an account created on 2024-12-15 passes from 2026-12-16. After a knighting on 2027-03-16, the earliest next knighting is on 2029-03-17.',
+    'only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is not written in the comment. The applicant is asked nothing.', 'Only the issue number (to leave out the present issue) and the time of opening are used; the rest is discarded. The comment does not give the number of the earlier issue.',
+    'An application closed during the pause does not get this label.', 'The operator keeps no separate list of declined accounts', 'As before, the automatic check does not open the link to the correction.',
+    'None of the conditions divides people by nationality, sex, belief or the like.', 'Applications stay paused. This section sets the conditions after applications reopen; it does not decide to reopen.', 'were shown on ' + SHOWN + ' under "Changes and ending" in the Terms of Use.',
+    'The owner decided on 2026-11-23 to adopt these six conditions, and Claude decided the details'];
+  const TERMS_JA = ['180 日以上前に公開されたものに限ります', '2 年以上前に作られた GitHub のアカウントからだけ受けます', '2 年に 1 人までとします。上の予告の一年に 1 人までを、これに替えます', '二度と叙任の願い出を受けません。取り下げた願い出は、これまでどおり 365 日のあいだだけ数えます', '30 日が過ぎるまで受け付けず、ラベル「one per 30 days」'];
+  const TERMS_EN = ['at least 180 days before the day the application issue was opened', 'created at least 2 years before the day the issue was opened', 'at most 1 person is knighted in 2 years. This replaces the 1 person a year of the notice above', 'no application for knighting is ever received again', 'it gets the label "one per 30 days"'];
+  const PRIV_JA = ['- 訂正を公開した日と、誤りの元の文が自分の書いた文であることの印（' + EFFECTIVE + ' から。', 'ラベル「断った」の付いた叙任の願い出の issue の一覧も受け取ります。使うのは、同じく issue の番号と開いた時刻だけです。', '使うのはアカウントが作られた日時だけで、ほかは捨てます。作られた日時も残さず、コメントにも実行の記録にも書きません。本人には何も尋ねません。',
+    EFFECTIVE + ' から、その日以後に開かれた知らせは、同じ GitHub のアカウントから 30 日に一件までです。', '使うのは issue の番号と開いた時刻だけで、ほかは捨て、どこにも残しません。受け付けない知らせでは、ORCID の記録を読みません。', 'このラベルの付いた issue が、そのアカウントから二度と叙任の願い出を受けないことの記録です。本人の求めでその issue を削除したときは、記録も無くなります。'];
+  const PRIV_EN = ['- The day the correction was published, and the tick that the original text with the error is a text the applicant wrote (from ' + EFFECTIVE, 'that have the label 断った (declined). Likewise, only the issue number and the time of opening are used.', 'only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is written neither in the comment nor in the log of the run. The applicant is asked nothing.',
+    'From ' + EFFECTIVE + ', a report opened on or after that day is received at most once in 30 days from the same GitHub account.', 'only the issue number and the time of opening are used; the rest is discarded and kept nowhere. For a report that is not accepted, the ORCID record is not read.', 'The issue with this label is the record that no application for knighting is ever received again from that account. If that issue is deleted at the applicant\'s request, the record goes too.'];
+  const ROW = '| ' + SHOWN + '（日本時間） | ' + EFFECTIVE + ' から、参加の条件を七つ厳しくすると叙任の規程「参加のハードルの続き」と個人情報の取り扱いに書き、利用規約で予告する。';
+  const KINDS96 = ['誤り', '根拠不足', '漏れ', '表現', '問題なし'];
+  const SITE_R = ['cpsbvbng26-dotcom', 'github', 'io'].join('.');
+  const RESEARCH = new RegExp(['ORCID', 'orcid\\.org', SITE_R.replace(/\./g, '\\.'), 'researchmap', '\\bdoi\\.org\\b', 'zenodo\\.org', 'cpsbvbng26-dotcom/cpsbvbng26-dotcom'].join('|'), 'i');
+  const OPEN = EFFECTIVE + 'T00:00:00+09:00', BEFORE = '2026-12-14T23:59:00+09:00';
+  const GOOD_LINK = 'https://github.com/someone/notes/commit/0123abc';
+  /* 名簿の行の叙任の日。 */
+  const rollDays = (t) => String(t || '').split('\n').filter((l) => /^\| \d+ \|/.test(l)).map((l) => l.split('|').map((c) => c.trim())[3]).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)).sort();
+  function verdict(x) {
+    const bad = [];
+    let K, R;
+    try { K = load(x[KC], KC); } catch (e) { return ['自動の確認が読めない：' + e.message]; }
+    try { R = load(x[RC], RC); } catch (e) { return ['誤りの知らせの道具が読めない：' + e.message]; }
+    /* 一、叙任の規程。 */
+    const kj = sec(x['policies/knighting.md'], '参加のハードルの続き'), ke = sec(x['policies/knighting.en.md'], 'Barriers to participation (continued)');
+    const ij = items(kj), ie = items(ke);
+    const nj = KJN.indexOf((/次の(.)つの条件も加わります。/.exec(kj) || [])[1] || '?'), ne = KEN.indexOf(((/the (\w+) conditions below also apply/.exec(ke) || [])[1] || '?'));
+    if (ij.length !== 6 || ie.length !== 6 || nj !== ij.length || ne !== ie.length) bad.push('叙任の規程の条件の数（' + nj + '・' + ij.length + '・' + ne + '・' + ie.length + '）');
+    KITEMS_JA.forEach((t, k) => { if (!(ij[k] || '').includes(t)) bad.push('叙任の規程の条件 ' + (k + 1)); });
+    KITEMS_EN.forEach((t, k) => { if (!(ie[k] || '').includes(t)) bad.push('英語の叙任の規程の条件 ' + (k + 1)); });
+    for (const t of KSAY_JA) if (!kj.includes(t)) bad.push('叙任の規程：' + t.slice(0, 20));
+    for (const t of KSAY_EN) if (!ke.includes(t)) bad.push('英語の叙任の規程：' + t.slice(0, 30));
+    if (!kj.includes('印の文は「' + K.OWN + '」で始まります。') || !ke.includes('The text of the box begins "' + K.OWN + '"')) bad.push('叙任の規程の印の文が、道具の文と違う');
+    /* 数は道具の値と同じ（決めごと 5）。 */
+    if (K.PUBLISHED_DAYS !== 180 || K.ACCOUNT_YEARS !== 2 || K.QUOTA_YEARS !== 2 || K.INTERVAL_DAYS !== 365 || K.STRICT_FROM !== EFFECTIVE) bad.push('道具の値が規程の数と違う');
+    /* 場の表：種類と数が道具の VENUES と同じ。「三つ」の語と行の数が合う。 */
+    const tj = trows(kj), te = trows(ke);
+    const kinds = tj.map((l) => l.split('|')[1].trim());
+    if (tj.length !== K.VENUES.length || te.length !== K.VENUES.length || KJN.indexOf((/下の表の(.)つです。/.exec(kj) || [])[1] || '?') !== tj.length || KEN.indexOf(((/the (\w+) in the table below/.exec(ke) || [])[1] || '?')) !== te.length
+      || kinds.join() !== K.VENUES.map((v) => v.kind).join()) bad.push('場の表が、道具の一覧と合わない');
+    if (!tj.every((l) => l.split('|').length === 5) || !te.every((l) => l.split('|').length === 5)) bad.push('場の表の形');
+    /* 数え方の例を、道具で計算し直す。 */
+    try {
+      if (K.publishedProblem('2026-06-17', OPEN) !== null || K.publishedProblem('2026-06-18', OPEN) === null || K.accountProblem('2024-12-14T12:00:00+09:00', OPEN) !== null
+        || K.accountProblem('2024-12-15T12:00:00+09:00', OPEN) === null || K.accountProblem('2024-12-15T12:00:00+09:00', '2026-12-16T00:00:00+09:00') !== null
+        || K.quotaEarliest('2027-03-16') !== '2029-03-17' || K.yearsAfter('2024-02-28', 2) !== '2026-03-01' || K.yearsAfter('2024-02-27', 2) !== '2026-02-28') bad.push('数え方の例が、道具の計算と合わない');
+    } catch (e) { bad.push('数え方の関数が動かない：' + e.message); }
+    /* 属性と場所の決めを足さない。 */
+    const attr = kj.split('\n').filter((l) => /国籍|性別|信条|宗教|住む|住んで|民族/.test(l));
+    if (attr.length !== 1 || !attr[0].startsWith('どの条件も、国籍・性別・信条などで人を分けません。')) bad.push('叙任の規程に、属性か場所の決めがある');
+    const kall = x['policies/knighting.md'], keall = x['policies/knighting.en.md'];
+    if (!sec(kall, '基本法第六条との関係').includes(EFFECTIVE + ' からは、「参加のハードルの続き」の条件も、足した条件に加わります。') || !sec(keall, 'Relation to Article 6 of the Basic Law').includes('From ' + EFFECTIVE + ', the conditions in "Barriers to participation (continued)" are also among the added conditions.')) bad.push('基本法第六条との関係');
+    if (!sec(kall, '願い出ることができる人').includes(EFFECTIVE + ' から、願い出は、issue を開いた日の 2 年以上前に作られた GitHub のアカウントからだけ受けます。断った願い出のアカウントからは、二度と受けません（「参加のハードルの続き」）。')
+      || !sec(keall, 'Who may apply').includes('No application is ever received again from an account whose application was declined ("Barriers to participation (continued)").')) bad.push('願い出ることができる人');
+    if (!sec(kall, '運営者が確かめること').includes('- ' + EFFECTIVE + ' から、リンク先で、公開した日が様式の「訂正を公開した日」と合うこと、誤りの元の文と直した文の両方が見られること') || !sec(keall, 'What the operator checks').includes('- From ' + EFFECTIVE + ', that at the link the day of publication matches')) bad.push('運営者が確かめること');
+    const dj = sec(kall, '断ること'), de = sec(keall, 'What is declined');
+    if (!dj.includes('\n- ' + EFFECTIVE + ' から、「参加のハードルの続き」の条件に当たらないもの。\n') || !dj.includes('\n- 様式の誓いのうち、必ず印を付けるものに印のないもの。\n') || !dj.includes('\n- 2026-11-29 から、「法令に適合しない国と地域」に当たることが、訂正のリンク先からはっきり読めるもの。\n')
+      || !dj.includes(EFFECTIVE + ' から、断った願い出の issue には、ラベル「' + K.REFUSED_LABEL + '」を付けます。そのアカウントからは、二度と叙任の願い出を受けません') || !dj.includes('受付の停止のあいだに閉じた願い出と、2 年に 1 人までのために断った願い出は、この断った願い出に数えません。')) bad.push('断ること');
+    if (!de.includes('\n- From ' + EFFECTIVE + ', an application that does not meet the conditions in "Barriers to participation (continued)".\n') || !de.includes('the issue of a declined application gets the label ' + K.REFUSED_LABEL + ' (declined)') || items(dj).length !== items(de).length || dj.split('\n- ').length !== de.split('\n- ').length) bad.push('英語の断ること');
+    /* 二、自動の確認。 */
+    try {
+      const yml = x[FORM];
+      if (!yml.includes('  - type: input\n    id: published\n    attributes:\n      label: ' + K.PUBLISHED_FIELD + '\n') || !/id: published\n[\s\S]*?required: false\n/.test(yml)) bad.push('様式の「訂正を公開した日」の欄');
+      if (!(K.DATED || []).some((d) => d.from === EFFECTIVE && d.text === K.OWN) || !yml.includes('\n        - label: ' + K.OWN + '。他人の文の誤りを指摘したものではありません（共著の文は、自分が著者に入っていれば数えます。' + EFFECTIVE + ' から、この印が要ります）。\n          required: false\n')) bad.push('様式と道具の自分の文の印');
+      if (!yml.includes('        ' + EFFECTIVE + ' から、訂正は、自分が書いて公開した文の誤りを、前の版が残る場') || !yml.includes('        From ' + EFFECTIVE + ', the correction must fix an error in a text the applicant wrote and published')) bad.push('様式の断り（日本語と英語）');
+      const oaths = K.requiredOaths(yml);
+      const full = oaths.map((o) => '- [X] ' + o).concat(K.DATED.map((d) => '- [X] ' + d.text));
+      const body = (ticks, link, day) => '### 訂正への公開のリンク\n\n' + link + '\n\n### ' + K.PUBLISHED_FIELD + '\n\n' + day + '\n\n### 何を誤り、どう正したか\n\nブログの記事で年を誤り、追記で正しました。\n\n### ' + K.PLACES_FIELD + '\n\n履歴書・名刺・広告\n\n### 誓い\n\n' + ticks.join('\n') + '\n';
+      const r = (ticks, link, day, at) => K.check(K.parse(body(ticks, link, day)), at, oaths);
+      const good = r(full, GOOD_LINK, '2026-01-10', OPEN), noOwn = r(full.filter((l) => !l.includes(K.OWN)), GOOD_LINK, '2026-01-10', OPEN);
+      const late = r(full, GOOD_LINK, '2026-06-18', OPEN), bare = r(full, GOOD_LINK, '_No response_', OPEN), blog = r(full, 'https://zenn.dev/someone/articles/fix', '2026-01-10', OPEN);
+      const before = r(full.filter((l) => !l.includes(K.OWN)), 'https://zenn.dev/someone/articles/fix', '', BEFORE);
+      /* その前の日は新しい行を足さない。12-15 から足す行は、18 歳の印と称号を使わない場所（検査 90）の二つと、自分の文の印・公開した日・場の形の三つで、合わせて五つ。 */
+      if (!good.ok || noOwn.ok || late.ok || bare.ok || blog.ok || !before.ok || good.rows.length - before.rows.length !== 5) bad.push('自動の確認の、訂正の日・場の形・自分の文の印（' + [good.ok, noOwn.ok, late.ok, bare.ok, blog.ok, before.ok].join() + '）');
+      const VG = ['https://github.com/a/b/commit/0123abc', 'https://github.com/a/b/pull/12', 'https://gitlab.com/g/s/p/-/commit/abcdef0', 'https://gitlab.com/g/p/-/merge_requests/4', 'https://codeberg.org/a/b/commit/0123abcd', 'https://codeberg.org/a/b/pulls/3', 'https://doi.org/10.1234/abc.5', 'https://zenodo.org/records/123', 'https://arxiv.org/abs/2101.01234v2'];
+      const VB = ['https://github.com/a/b', 'https://github.com/a/b/blob/main/x.md', 'https://zenn.dev/x/articles/y', 'https://example.org/erratum', 'https://arxiv.org/abs/2101.01234', 'https://doi.org/11.1/x', 'https://zenodo.org/records/x', 'https://notgithub.com/a/b/commit/0123abc', 'http://github.com/a/b/commit/0123abc', 'https://github.com.example/a/b/commit/0123abc'];
+      if (VG.some((u) => K.venueOf(u) === null) || VB.some((u) => K.venueOf(u) !== null) || new Set(VG.map((u) => K.venueOf(u).split('・')[0])).size !== K.VENUES.length - 1) bad.push('場の形の見分け');
+      /* アカウントの作られた日と断った願い出：直しても変わらないので編集を求めず、日時も番号も書かない。 */
+      const RE = { at: '2026-12-01T00:00:00+09:00', record: 'x' };
+      const acc = (created) => K.addAccount(r(full, GOOD_LINK, '2026-01-10', OPEN), created, OPEN);
+      const ref = (list, num = 9) => K.addRefused(r(full, GOOD_LINK, '2026-01-10', OPEN), list, OPEN, num, RE);
+      if (!acc('2024-12-14T00:00:00Z').ok || acc('2024-12-15T03:00:00Z').ok || acc(null).ok || K.addAccount(before, '2026-12-01T00:00:00Z', BEFORE).rows.length !== before.rows.length) bad.push('アカウントの作られた日の行');
+      const young = K.comment(acc('2024-12-15T03:00:00Z'));
+      if (/2024-12-15|03:00/.test(young) || /編集してください/.test(young) || !young.includes('この issue を直しても変わりません')) bad.push('アカウントの行のコメントが、日時を書くか編集を求める');
+      if (!ref([]).ok || ref([{ number: 3, created_at: '2026-12-02T00:00:00Z' }]).ok || !ref([{ number: 9, created_at: '2026-12-02T00:00:00Z' }]).ok || !ref([{ number: 3, created_at: '2026-11-20T00:00:00Z' }]).ok
+        || !ref([{ number: 3, created_at: '2027-01-01T00:00:00Z' }]).ok || ref(null).ok) bad.push('断った願い出の行（ほか・いまの issue・停止のあいだ・後の issue・読めない）');
+      const refc = K.comment(ref([{ number: 3, created_at: '2026-12-02T00:00:00Z' }]));
+      if (/#\d/.test(refc) || /編集してください/.test(refc) || !refc.includes('断った願い出のアカウントからは、二度と願い出を受けません')) bad.push('断った願い出のコメント');
+      const mix = K.comment({ ok: false, rows: [['何を誤り、どう正したかが書かれている', false, ''], [K.ACCOUNT_LABEL, false, '']], earliest: null });
+      if (!mix.includes('編集してください') || !mix.includes('この issue を直しても変わりません')) bad.push('ほかの行も通らないのに編集を求めない');
+      /* 2 年に 1 人：前の叙任から 2 年を、最も早い日に入れる。 */
+      const q = K.addQuota(r(full, GOOD_LINK, '2026-01-10', '2028-01-01T00:00:00+09:00'), '2027-03-16', '2028-01-01T00:00:00+09:00');
+      const q2 = K.addQuota(r(full, GOOD_LINK, '2026-01-10', OPEN), null, OPEN);
+      if (q.earliest !== '2029-03-17' || !K.comment(q).includes('叙任を決められるのは、早くて 2029-03-17（日本時間）です。前の叙任の日を数えずに 2 年が過ぎるまで') || q2.earliest !== '2027-03-16') bad.push('2 年に 1 人までの最も早い日');
+      if (K.lastKnighted('| 1 | a | 2027-03-16 | x | y |\n| 2 | b | 2029-04-01 | x | y |\n') !== '2029-04-01' || K.lastKnighted(x['KNIGHTS.md']) !== (rollDays(x['KNIGHTS.md']).pop() || null)) bad.push('名簿の最後の叙任の日');
+      /* 外へは GitHub の API の二つの道だけで、一覧から使うのは番号と開いた時刻だけ。 */
+      const src = x[KC];
+      if (!src.includes("for (const r of list) out.push({ number: r.number, created_at: r.created_at });") || !src.includes("encodeURIComponent(LABEL + ',' + REFUSED_LABEL)") || !src.includes("return (j && typeof j.created_at === 'string') ? j.created_at : null;")) bad.push('一覧や答えから、番号・開いた時刻・作られた日時のほかを使う');
+      const ip = src.indexOf('if (paused(opened, reopen)) {'), ia = src.indexOf('addAccount(result, await accountCreated(');
+      if (!(ip > 0 && ia > ip) || src.indexOf('addRefused(result, await refusedApplications(') < ip) bad.push('停止のあいだにアカウントや断った願い出を読む');
+    } catch (err) { bad.push('自動の確認が動かない：' + err.message); }
+    /* 三、名簿：2026-12-15 からの叙任の日は、前の叙任から 2 年が過ぎた後。 */
+    const days = rollDays(x['KNIGHTS.md']);
+    for (let k = 1; k < days.length; k++) if (days[k] >= EFFECTIVE && days[k] < K.yearsAfter(days[k - 1], 2)) bad.push('名簿の ' + days[k] + ' の叙任が、前の叙任から 2 年たっていない');
+    if (!x['KNIGHTS.md'].includes(EFFECTIVE + ' から、叙任は 2 年に 1 人までです。前の行の叙任の日を数えずに 2 年が過ぎるまで、次の行を足しません。') || !x['KNIGHTS.en.md'].includes('From ' + EFFECTIVE + ', at most 1 person is knighted in 2 years. No row is added until 2 years')) bad.push('名簿の記し方');
+    /* 四、誤りの知らせ。 */
+    try {
+      if (R.ONCE_FROM !== EFFECTIVE || R.ONCE_DAYS !== 30 || R.ONCE_LABEL !== 'one per 30 days') bad.push('誤りの知らせの日と日数');
+      const P = (d) => [{ number: 1, created_at: d }];
+      if (R.onceProblem(P('2026-12-15T03:00:00Z'), '2027-01-14T03:00:00Z', 2) === null || R.onceProblem(P('2026-12-15T03:00:00Z'), '2027-01-15T03:00:00Z', 2) !== null || R.onceProblem(P('2027-01-01T00:00:00Z'), '2027-01-01T00:00:00Z', 1) !== null
+        || R.onceProblem(P('2027-02-01T00:00:00Z'), '2027-01-15T00:00:00Z', 2) !== null || R.onceProblem(null, '2027-01-15T00:00:00Z', 2) === null) bad.push('30 日の数え方（初めの日を数えない・いまの issue・後の issue・読めない）');
+      const NO = R.NOTE_ONCE || '';
+      if (!NO.startsWith(R.ONCE_MARK) || !NO.includes('30 日に一件まで') || !NO.includes('ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。') || !NO.includes('Because Nusquama is run by one individual, its barriers to participation are set extremely high.')
+        || /閉じます|lock/i.test(NO.replace('issue は閉じず', '').replace('The issue is not closed', '')) || (NO.match(/30 日/g) || []).length < 3 || /\b(?!30\b)\d+ (?:日|days)/.test(NO)) bad.push('30 日に一件の決まった文');
+      const rsrc = x[RC];
+      if (!rsrc.includes("for (const x of list) out.push({ number: x.number, created_at: x.created_at });") || !rsrc.includes("const once = V.jstDay(i.created_at) < ONCE_FROM || onceProblem(") || !rsrc.includes('if (once && V.orcidOk(id)) {')) bad.push('誤りの知らせの道具の、一覧の使い方と ORCID を読む順');
+      if (!x['.github/workflows/labels.yml'].includes('gh label create "' + R.ONCE_LABEL + '"') || !x['.github/workflows/labels.yml'].includes('gh label create "' + K.REFUSED_LABEL + '"')) bad.push('ラベル');
+      if (!x[EY].includes(EFFECTIVE + ' から、誤りの知らせは、同じ GitHub のアカウントから 30 日に一件までです。') || !x[EY].includes('30 日のあいだに直すときは、新しい issue を開かず、前の知らせの issue を直します。')) bad.push('誤りの知らせの様式');
+      for (const f of ['.github/ISSUE_TEMPLATE/request.yml', '.github/ISSUE_TEMPLATE/rights.yml', 'SECURITY.md']) if (/one per 30 days|30 日に一件|参加のハードルの続き|断った/.test(String(x[f] || ''))) bad.push(f + '：新しい条件を掛ける');
+    } catch (err) { bad.push('誤りの知らせの道具が動かない：' + err.message); }
+    /* 五、利用規約の五つの予告。 */
+    const block = (t, lead, head) => { const ls = t.split('\n'); const k = ls.findIndex((l) => l.includes(lead)); if (k < 0) return [[], '']; const out = []; for (let n = k + 1; n < ls.length && ls[n].startsWith(head); n++) out.push(ls[n]); return [out, ls[k]]; };
+    const [lj, hj] = block(sec(x['policies/terms.md'], '変更と終了'), 'に示したもので、参加のハードルをさらに高くするためのものです。', '予告：' + EFFECTIVE + ' から');
+    const [le, he] = block(sec(x['policies/terms.en.md'], 'Changes and ending'), 'and are for raising the barriers to participation further.', 'Notice: from ' + EFFECTIVE);
+    const cj = KJN.indexOf((/^次の(.)つの予告は、/.exec(hj) || [])[1] || '?'), ce = KEN.indexOf(((/^The (\w+) notices below were shown/.exec(he) || [])[1] || '?'));
+    if (lj.length !== 5 || le.length !== 5 || cj !== lj.length || ce !== le.length) bad.push('利用規約の予告の数（' + [cj, lj.length, ce, le.length].join('・') + '）');
+    TERMS_JA.forEach((t, k) => { if (!(lj[k] || '').includes(t)) bad.push('利用規約の予告 ' + (k + 1)); });
+    TERMS_EN.forEach((t, k) => { if (!(le[k] || '').includes(t)) bad.push('英語の利用規約の予告 ' + (k + 1)); });
+    const sj = (/(\d{4}-\d{2}-\d{2}) に示したもので/.exec(hj) || [])[1], se = (/were shown on (\d{4}-\d{2}-\d{2})/.exec(he) || [])[1];
+    if (sj !== SHOWN || se !== SHOWN || !(SHOWN < EFFECTIVE) || (Date.parse(EFFECTIVE) - Date.parse(LATEST_PUBLISH)) / 86400000 - 1 < 14) bad.push('示した日と効力の日');
+    if (!/最終更新：(\d{4}-\d{2}-\d{2})。/.test(x['policies/terms.md']) || (/最終更新：(\d{4}-\d{2}-\d{2})。/.exec(x['policies/terms.md']) || [])[1] < SHOWN) bad.push('利用規約の最終更新');
+    /* 個人情報の取り扱い。 */
+    for (const t of PRIV_JA) if (!x['policies/privacy.md'].includes(t)) bad.push('個人情報の取り扱い：' + t.slice(0, 20));
+    for (const t of PRIV_EN) if (!x['policies/privacy.en.md'].includes(t)) bad.push('英語の個人情報の取り扱い：' + t.slice(0, 30));
+    /* 六、ほかの頁。 */
+    const need = (f, t) => { if (!String(x[f] || '').includes(t)) bad.push(f + '：' + t.slice(0, 24)); };
+    need('INSTITUTIONS.md', '一年に 1 人までは 2 年に 1 人までに替え、訂正は自分が書いた文の誤りを前の版が残る場で正し 180 日以上前に公開したものに、アカウントは 2 年以上前に作られたものに限り、断った願い出のアカウントからは二度と受けない（叙任の規程「参加のハードルの続き」） |');
+    need('INSTITUTIONS.md', '確かめた先の欄が要る。同じアカウントから 30 日に一件まで（');
+    need('INSTITUTIONS.en.md', '1 person a year becomes 1 person in 2 years;');
+    need('INSTITUTIONS.en.md', 'At most one report in 30 days from the same account (');
+    need('MISSION.md', '叙任の規程「参加のハードルの続き」の条件も加わります。');
+    need('MISSION.en.md', 'So do the conditions in "Barriers to participation (continued)".');
+    need('PRESS.md', '同じ 2026-12-15 から、叙任は 2 年に 1 人までとし、訂正は自分が書いた文の誤りを前の版が残る場で正して 180 日以上前に公開したものに、アカウントは 2 年以上前に作られたものに限り、断った願い出のアカウントからは二度と受けません。');
+    need('PRESS.en.md', 'From the same day, at most 1 person is knighted in 2 years;');
+    need('ERRATA.md', '2026-12-15 から、知らせは同じ GitHub のアカウントから 30 日に一件までです。');
+    need('ERRATA.en.md', 'From 2026-12-15, a report is received at most once in 30 days from the same GitHub account.');
+    need('policies/legality.md', '\n- ' + EFFECTIVE + ' から、叙任の願い出では、訂正を公開した日も様式で受ける。');
+    need('policies/legality.en.md', '\n- From ' + EFFECTIVE + ', an application for knighting also gives, in the form, the day the correction was published.');
+    need('README.md', EFFECTIVE + ' から、叙任の訂正は、自分が書いて公開した文の誤りを、前の版が残る場（Git の履歴・版を分けて残す登録・正誤表の頁）で正し、願い出の 180 日以上前に公開したものに限ります。');
+    for (const f of ['policies/knighting.md', 'policies/privacy.md', 'policies/terms.md', 'policies/legality.md', 'MISSION.md']) { const d = (/最終更新：(\d{4}-\d{2}-\d{2})。/.exec(x[f]) || [])[1]; if (!d || d < SHOWN) bad.push(f + '：最終更新'); }
+    for (const f of ['policies/knighting.en.md', 'policies/privacy.en.md', 'policies/terms.en.md', 'policies/legality.en.md', 'MISSION.en.md']) { const d = (/Last updated: (\d{4}-\d{2}-\d{2})\./.exec(x[f]) || [])[1]; if (!d || d < SHOWN) bad.push(f + '：Last updated'); }
+    const row = String(x['README.md']).split('\n').find((l) => l.startsWith(ROW)) || '';
+    if (!row.includes('2026-11-23 に利用者が七つの条件を採ると決め、細かな定めは Claude が決めました |') || !row.endsWith('The owner decided on 2026-11-23 to adopt the seven conditions, and Claude decided the details |')) bad.push('年表の行');
+    /* 七、点検の記録。 */
+    const a = String(x[AUD] || ''), i = a.indexOf(HEAD), j = i < 0 ? -1 : a.indexOf('\n## ', i + 5);
+    const s = i < 0 ? '' : a.slice(i, j);
+    if (!s || a.indexOf('\n## 調べた法令\n') < i) bad.push('記録の節');
+    const seven = (s.split('七つの案は、次のとおりです。\n\n')[1] || '').split('\n\n')[0].split('\n').filter((l) => l.startsWith('- '));
+    if (KJN.indexOf((/参加の条件を厳しくする(.)つの案を採ると決めました。/.exec(s) || [])[1] || '?') !== seven.length || seven.length !== 7) bad.push('記録の七つの案の数');
+    const rows = s.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| 箇所 |') && !l.startsWith('| --- |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+    if (rows.length < 8 || !rows.every((y) => y.length === 6 && KINDS96.includes(y[4]))) bad.push('記録の表の形');
+    const counted = KINDS96.filter((k) => rows.some((y) => y[4] === k)).map((k) => k + ' ' + rows.filter((y) => y[4] === k).length + ' 件');
+    const m = /\n判定は、([^。]+)で、合わせて (\d+) 件です。\n/.exec(s);
+    if (!m || m[1].split('、').slice().sort().join() !== counted.slice().sort().join() || Number(m[2]) !== rows.length) bad.push('記録の判定の数');
+    if (!rows.every((y) => y[5].includes('2026-11-23 に利用者が採ると決め、細かな定めは 2026-11-24 に Claude が決めました。') && /ためです$/.test(y[5]))) bad.push('記録の決めた者と理由');
+    for (const y of rows) for (const q2 of [...y[2].matchAll(/「([^「」]+)」/g)].map((z) => z[1])) if (!Object.values(TEXTS).some((t) => t.replace(/\s+/g, '').includes(q2.replace(/\s+/g, '')))) bad.push('記録の引用：' + q2.slice(0, 12));
+    if (!s.includes('\n### 効力の日\n') || !s.includes('立場を狭める条件は、' + EFFECTIVE + '（日本時間）から効きます。') || !s.includes('公開の日を ' + LATEST_PUBLISH + ' までと見込むと、') || !s.includes('2026-11-24 に公開すれば、満 ' + ((Date.parse(EFFECTIVE) - Date.parse(SHOWN)) / 86400000 - 1) + ' 日です。')) bad.push('記録の効力の日');
+    const det = (s.split('\n### 採らなかった細目\n')[1] || '').split('\n').filter((l) => l.startsWith('- '));
+    if (det.length < 5 || !det.every((l) => /ためです。$/.test(l))) bad.push('記録の採らなかった細目');
+    if (!s.includes('\n### 2026-11-19 に採らなかった案との関係\n') || !s.includes('その節は書いたときのまま残しています。')) bad.push('記録の、前に採らなかった案との関係');
+    if (!s.includes('\nこの節も、弁護士の確認は受けていません。\n')) bad.push('記録の弁護士の文');
+    if (!a.includes('\n2026-11-24 の「参加の条件を七つ厳しくする」では、民法第548条の4、個人情報保護法第18条・第21条・第34条を読み直しました。\n')) bad.push('調べた法令');
+    /* 八、研究の系列へつながず、料金を書かない。 */
+    const added = [kj, ke, s, lj.join('\n'), le.join('\n')].join('\n');
+    if (RESEARCH.test(added.replace(/ORCID の記録|ORCID record/g, ''))) bad.push('足した文が研究の系列につなぐ');
+    if (/円|料金|掲載料|\bfees?\b|\bcharges?\b/i.test(added)) bad.push('足した文が料金を書く');
+    return bad;
+  }
+  const now = verdict(real);
+  ok('叙任の規程「参加のハードルの続き」の六つの条件と場の表（日本語と英語）が道具の値と一覧と例の計算に合い、自動の確認は ' + EFFECTIVE + ' から訂正の日・場の形・自分の文の印・アカウントの作られた日・断った願い出を見て 2 年に 1 人を最も早い日に入れ、名簿は 2 年に 1 人、誤りの知らせは 30 日に一件、利用規約の五つの予告・個人情報の取り扱い・頁・年表・記録がそろい、研究の系列へつながない',
+    now.length === 0, now.slice(0, 8).join(' / '));
+  /* 自動の確認と誤りの知らせの main を、試しの出来事で通す。外へは出さず、要求の先と中身を記す。 */
+  const fake = async (mod, file, event, answers) => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'nusquama-96-'));
+    const ev = path.join(tmp, 'event.json');
+    fs.writeFileSync(ev, JSON.stringify(event));
+    const calls = [];
+    const KEYS = ['GITHUB_EVENT_PATH', 'GITHUB_TOKEN', 'GITHUB_REPOSITORY'], saved = { fetch: global.fetch, env: KEYS.map((k) => process.env[k]), log: console.log };
+    global.fetch = async (url, o = {}) => { calls.push([o.method || 'GET', String(url), o.body || null]); const v = answers(String(url), o.method || 'GET'); return { ok: true, status: 200, json: async () => v }; };
+    process.env.GITHUB_EVENT_PATH = ev; process.env.GITHUB_TOKEN = 'x'; process.env.GITHUB_REPOSITORY = 'example/nusquama';
+    console.log = () => {};
+    try { await mod.main(); } finally { global.fetch = saved.fetch; KEYS.forEach((k, n) => { if (saved.env[n] === undefined) delete process.env[k]; else process.env[k] = saved.env[n]; }); console.log = saved.log; fs.rmSync(tmp, { recursive: true, force: true }); }
+    return calls;
+  };
+  PENDING.push(['自動の確認の main を試しの出来事で通す（受付に戻ったと仮に置き、外へは出さない）：' + EFFECTIVE + ' からはアカウントの作られた日（users）と断った願い出（ラベル「断った」）を読み、users の答えのほかの項目も作られた日時もコメントに写さず、断った願い出があれば受けない', async () => {
+    /* 受付に戻ったと仮に置いた写しの道具（REOPEN と、点検の記録の行の照らし合わせだけを替える）。ファイルは書き換えない。 */
+    const src = real[KC].replace('const REOPEN = null;', "const REOPEN = { at: '2026-12-01T00:00:00+09:00', record: 'x' };").replace('function reopenProblem(reopen, record) {', 'function reopenProblem(reopen, record) { return null;');
+    const K2 = load(src, KC);
+    const oaths = K2.requiredOaths();
+    const ticks = oaths.map((o) => '- [X] ' + o).concat(K2.DATED.map((d) => '- [X] ' + d.text)).join('\n');
+    const body = '### 訂正への公開のリンク\n\n' + GOOD_LINK + '\n\n### ' + K2.PUBLISHED_FIELD + '\n\n2026-01-10\n\n### 何を誤り、どう正したか\n\nブログの記事で年を誤り、追記で正しました。\n\n### ' + K2.PLACES_FIELD + '\n\n履歴書・名刺・広告\n\n### 誓い\n\n' + ticks + '\n';
+    const event = { issue: { number: 5, title: '叙任：someone', body, labels: [{ name: K2.LABEL }], created_at: '2026-12-15T03:00:00Z', user: { login: 'someone' } } };
+    const run = (refused) => fake(K2, KC, event, (url) => {
+      if (/\/users\/someone$/.test(url)) return { login: 'someone', created_at: '2019-05-06T07:08:09Z', location: 'Somewhere-Town', name: 'Some Person', bio: 'bio-text' };
+      if (/labels=%E5%8F%99%E4%BB%BB%2C%E6%96%AD%E3%81%A3%E3%81%9F/.test(url)) return refused;
+      return [];
+    });
+    const a = await run([]), b = await run([{ number: 2, created_at: '2026-12-02T00:00:00Z', title: 't', body: 'b' }]);
+    const posted = (c) => c.filter(([m, u]) => m === 'POST' && /\/comments$/.test(u)).map(([, , bd]) => JSON.parse(bd).body).join('\n');
+    const urls = a.map(([, u]) => u);
+    const fine = urls.every((u) => u.startsWith('https://api.github.com/repos/example/nusquama/') || u === 'https://api.github.com/users/someone')
+      && urls.includes('https://api.github.com/users/someone') && urls.some((u) => u.includes('labels=%E5%8F%99%E4%BB%BB%2C%E6%96%AD%E3%81%A3%E3%81%9F'));
+    const ca = posted(a), cb = posted(b);
+    const leak = /2019-05-06|07:08|Somewhere-Town|Some Person|bio-text|#2\b/.test(ca + cb);
+    const good = fine && !leak && ca.includes('様式は整っています。') && !cb.includes('様式は整っています。') && cb.includes('二度と願い出を受けません') && !a.some(([m, , bd]) => m === 'PATCH' && /closed|lock/.test(String(bd)));
+    return good ? null : JSON.stringify({ fine, leak, ca: ca.slice(0, 200), cb: cb.slice(0, 200) });
+  }]);
+  PENDING.push(['誤りの知らせの main を試しの出来事で通す（外へは出さない）：' + EFFECTIVE + ' からは、同じアカウントの前の知らせから 30 日の内ならラベル「one per 30 days」と決まった文を付け、ORCID を読まず、閉じない。30 日を過ぎた知らせと、その前の日の知らせには当てない', async () => {
+    const R2 = load(real[RC], RC);
+    const body = '### 分類\n\n誤字\n\n### どこにあるか\n\nKNIGHTS.md\n\n### 書いてあること\n\n叙任された騎士を、叙任の順に並べます。\n\n### 何が誤りで、何が正しいか\n\n例\n\n### ORCID iD\n\n0000-0002-1825-0097\n\n### 確かめた先\n\n広辞苑 第七版\n';
+    const ev = (created) => ({ sender: { login: 'reader-one' }, repository: { owner: { login: 'cpsbvbng26-dotcom' } }, issue: { number: 7, title: '誤り：名簿', body, labels: [{ name: '誤り' }], created_at: created, user: { login: 'reader-one' } } });
+    const run = (created, prev) => fake(R2, RC, ev(created), (url) => {
+      if (/creator=reader-one/.test(url)) return prev;
+      if (/researcher-urls$/.test(url)) return { 'researcher-url': [{ url: { value: 'https://github.com/reader-one' } }] };
+      if (/\/address$/.test(url)) return { address: [{ country: { value: 'JP' }, 'created-date': { value: Date.parse(created) - 400 * 86400000 } }] };
+      if (/\/(employments|educations)$/.test(url)) return { 'affiliation-group': [] };
+      return [];
+    });
+    const prev = (d) => [{ number: 3, created_at: d, title: 't', body: 'b' }];
+    const near = await run('2027-01-14T03:00:00Z', prev('2026-12-15T03:00:00Z')), far = await run('2027-01-15T03:00:00Z', prev('2026-12-15T03:00:00Z')), early = await run('2026-12-14T03:00:00Z', prev('2026-12-10T03:00:00Z'));
+    const labels = (c) => c.filter(([m, u]) => m === 'POST' && /\/labels$/.test(u)).flatMap(([, , bd]) => JSON.parse(bd).labels);
+    const comments = (c) => c.filter(([m, u]) => m === 'POST' && /\/comments$/.test(u)).map(([, , bd]) => JSON.parse(bd).body);
+    const orcid = (c) => c.some(([, u]) => /orcid\.org/.test(u));
+    const listed = (c) => c.some(([, u]) => /creator=reader-one&labels=%E8%AA%A4%E3%82%8A/.test(u));
+    const closed = (c) => c.some(([m, , bd]) => m === 'PATCH' && /closed|lock/.test(String(bd))) || c.some(([m]) => m === 'PUT');
+    const good = labels(near).join() === 'one per 30 days' && comments(near).length === 1 && comments(near)[0].startsWith(R2.ONCE_MARK) && !orcid(near) && listed(near)
+      && labels(far).join() === 'place verified' && comments(far).length === 0 && orcid(far)
+      && labels(early).join() === 'place verified' && !listed(early) && ![near, far, early].some(closed) && !/#3\b/.test(comments(near).join());
+    return good ? null : JSON.stringify([labels(near), labels(far), labels(early), orcid(near), listed(early)]);
+  }]);
+  const mut = (f, a, b) => { const v = String(real[f] || ''); if (!(typeof a === 'string' ? v.includes(a) : a.test(v))) throw new Error('検査 96 の壊し方が当たらない：' + f + '：' + String(a).slice(0, 30)); return Object.assign({}, real, { [f]: v.replace(a, b) }); };
+  const breaks = [
+    ['叙任の規程の条件を一つ外す', mut('policies/knighting.md', /\n4\. 願い出の issue を開いた GitHub のアカウントは[^\n]*/, '')],
+    ['叙任の規程の数の語を変える', mut('policies/knighting.md', '「参加のハードル」の条件に加えて、次の六つの条件も加わります。', '「参加のハードル」の条件に加えて、次の五つの条件も加わります。')],
+    ['叙任の規程の日数を変える', mut('policies/knighting.md', '180 日以上前に公開されたものに限ります。願い出る人は', '90 日以上前に公開されたものに限ります。願い出る人は')],
+    ['英語の叙任の規程の年数を変える', mut('policies/knighting.en.md', 'must have been created at least 2 years before', 'must have been created at least 1 year before')],
+    ['叙任の規程から共著の文を外す', mut('policies/knighting.md', '共著の文は、願い出る人が著者に入っていれば数えます。\n3.', '\n3.')],
+    ['場の表から行を外す', mut('policies/knighting.md', /\n\| 正誤表の頁 \|[^\n]*/, '')],
+    ['英語の場の表の数の語を変える', mut('policies/knighting.en.md', 'the three in the table below', 'the two in the table below')],
+    ['場の表の種類の名を変える', mut('policies/knighting.md', '| 版を分けて残す登録 |', '| 版の登録 |')],
+    ['数え方の例の日を変える', mut('policies/knighting.md', '次に叙任できるのは早くて 2029-03-17 です。', '次に叙任できるのは早くて 2029-03-16 です。')],
+    ['英語の数え方の例の日を変える', mut('policies/knighting.en.md', 'an account created on 2024-12-15 passes from 2026-12-16', 'an account created on 2024-12-15 passes from 2026-12-15')],
+    ['叙任の規程から 2 年の区切り方を外す', mut('policies/knighting.md', '2 年に 1 人までの 2 年は、暦の上の区切り（年の初めから 2 年ごとなど）ではなく、前の叙任の日から数えます。', '')],
+    ['叙任の規程に場所の決めを足す', mut('policies/knighting.md', '様式には、「訂正を公開した日」の欄と、', '東京に住む人に限ります。\n様式には、「訂正を公開した日」の欄と、')],
+    ['叙任の規程に、作られた日時をコメントに書くと書く', mut('policies/knighting.md', '作られた日時も残さず、コメントにも書きません。', '作られた日時はコメントに書きます。')],
+    ['叙任の規程から一覧を作らない文を外す', mut('policies/knighting.md', '運営者は、断ったアカウントの一覧を別に作りません。', '')],
+    ['叙任の規程の示した日を変える', mut('policies/knighting.md', '変える内容と効力の生じる日は、2026-11-24 に、利用規約', '変える内容と効力の生じる日は、2026-12-15 に、利用規約')],
+    ['叙任の規程から決めた者を外す', mut('policies/knighting.en.md', 'The owner decided on 2026-11-23 to adopt these six conditions, and Claude decided the details', 'These six conditions were adopted')],
+    ['断ることから続きの節の行を外す', mut('policies/knighting.md', '\n- 2026-12-15 から、「参加のハードルの続き」の条件に当たらないもの。\n', '\n')],
+    ['断ることから、数えない願い出の文を外す', mut('policies/knighting.md', '受付の停止のあいだに閉じた願い出と、2 年に 1 人までのために断った願い出は、この断った願い出に数えません。', '')],
+    ['英語の断ることの行を一つ外す', mut('policies/knighting.en.md', '\n- An application in which a pledge of the form that must be ticked is not ticked.', '')],
+    ['願い出ることができる人から二度との文を外す', mut('policies/knighting.md', '断った願い出のアカウントからは、二度と受けません（「参加のハードルの続き」）。', '（「参加のハードルの続き」）。')],
+    ['道具の日数を変える', mut(KC, 'const PUBLISHED_DAYS = 180;', 'const PUBLISHED_DAYS = 90;')],
+    ['道具の効力の日を早める', mut(KC, "const STRICT_FROM = '2026-12-15';", "const STRICT_FROM = '2026-11-24';")],
+    ['道具が初めの日を数える', mut(KC, '  if (dayNo(jstDay(opened)) - dayNo(d) <= PUBLISHED_DAYS) return', '  if (dayNo(jstDay(opened)) - dayNo(d) < PUBLISHED_DAYS) return')],
+    ['道具の場の一覧から arXiv の版の番号を外す', mut(KC, '|[a-z-]+(?:\\.[A-Z]{2})?\\/\\d{7})v\\d+\\/?$/ }] },', '|[a-z-]+(?:\\.[A-Z]{2})?\\/\\d{7})(?:v\\d+)?\\/?$/ }] },')],
+    ['道具が場の形を見ない', mut(KC, "    add('訂正へのリンクが、前の版が残る場（叙任の規程の表）の形', venue !== null, venue || '表の場の形でない');\n", '')],
+    ['道具から自分の文の印を外す', mut(KC, "  { from: STRICT_FROM, text: OWN, label: '誤りの元の文が、自分が書いて公開した文である印がある' },\n", '')],
+    ['道具がアカウントの年数を一年にする', mut(KC, 'const ACCOUNT_YEARS = 2;', 'const ACCOUNT_YEARS = 1;')],
+    ['道具が作られた日時をコメントに書く', mut(KC, "  result.rows.push([ACCOUNT_LABEL, p === null, p || '']);", "  result.rows.push([ACCOUNT_LABEL, p === null, (p || '') + ' ' + created]);")],
+    ['道具が停止のあいだの断った願い出を数える', mut(KC, '    if (!Number.isFinite(s) || s > t || paused(p.created_at, reopen)) continue;\n    return', '    if (!Number.isFinite(s) || s > t) continue;\n    return')],
+    ['道具が断った願い出の行で編集を求める', mut(KC, '  const FIXED = [INTERVAL_LABEL, ACCOUNT_LABEL, REFUSED_ROW];', '  const FIXED = [INTERVAL_LABEL, ACCOUNT_LABEL];')],
+    ['道具が 2 年に 1 人を最も早い日に入れない', mut(KC, '  if (q && q > result.earliest) { result.earliest = q; result.quota = true; }', '')],
+    ['道具が断った願い出の題も使う', mut(KC, 'for (const r of list) out.push({ number: r.number, created_at: r.created_at });', 'for (const r of list) out.push({ number: r.number, created_at: r.created_at, title: r.title });')],
+    ['道具が users の答えの全体を返す', mut(KC, "return (j && typeof j.created_at === 'string') ? j.created_at : null;", 'return j;')],
+    ['停止の前にアカウントを読む', Object.assign({}, real, { [KC]: real[KC].replace('    addAccount(result, await accountCreated(login), opened);\n', '').replace('  if (paused(opened, reopen)) {', '  addAccount(result, await accountCreated(issue.user.login), opened);\n  if (paused(opened, reopen)) {') })],
+    ['様式から公開した日の欄を外す', mut(FORM, '    id: published\n', '    id: day\n')],
+    ['様式の自分の文の印を先に必須にする', mut(FORM, '自分が著者に入っていれば数えます。2026-12-15 から、この印が要ります）。\n          required: false\n', '自分が著者に入っていれば数えます。2026-12-15 から、この印が要ります）。\n          required: true\n')],
+    ['様式の英語の断りを外す', mut(FORM, /\n        From 2026-12-15, the correction must fix[^\n]*/, '')],
+    ['名簿に 2 年の内の叙任を二行足す', mut('KNIGHTS.md', '| --- | --- | --- | --- | --- |\n', '| --- | --- | --- | --- | --- |\n| 1 | a | 2027-02-01 | x | y |\n| 2 | b | 2028-09-01 | x | y |\n')],
+    ['名簿の記し方から 2 年に 1 人を外す', mut('KNIGHTS.md', '2026-12-15 から、叙任は 2 年に 1 人までです。', '')],
+    ['誤りの知らせの道具の日数を変える', mut(RC, 'const ONCE_DAYS = 30;', 'const ONCE_DAYS = 14;')],
+    ['誤りの知らせの道具が初めの日を数える', mut(RC, ') <= ONCE_DAYS) return', ') < ONCE_DAYS) return')],
+    ['誤りの知らせの道具が 30 日の内でも ORCID を読む', mut(RC, '  if (once && V.orcidOk(id)) {', '  if (V.orcidOk(id)) {')],
+    ['誤りの知らせの道具が前の知らせの題も使う', mut(RC, 'for (const x of list) out.push({ number: x.number, created_at: x.created_at });', 'for (const x of list) out.push({ number: x.number, created_at: x.created_at, title: x.title });')],
+    ['誤りの知らせの決まった文が閉じると書く', mut(RC, 'issue は閉じず、人が読みます。この issue を直しても変わりません。', 'issue を閉じます。この issue を直しても変わりません。')],
+    ['ラベルをそろえない', mut('.github/workflows/labels.yml', 'gh label create "one per 30 days"', 'gh label create "once a month"')],
+    ['断ったのラベルを作らない', mut('.github/workflows/labels.yml', 'gh label create "断った"', 'gh label create "断"')],
+    ['誤りの知らせの様式から 30 日の文を外す', mut(EY, '2026-12-15 から、誤りの知らせは、同じ GitHub のアカウントから 30 日に一件までです。', '')],
+    ['求めの様式に 30 日に一件を掛ける', mut('.github/ISSUE_TEMPLATE/request.yml', '費用はかかりません。', '費用はかかりません。30 日に一件までです。')],
+    ['利用規約の予告を一つ外す', mut('policies/terms.md', /\n予告：2026-12-15 から、断った叙任の願い出[^\n]*/, '')],
+    ['英語の利用規約の予告の数の語を変える', mut('policies/terms.en.md', 'The five notices below were shown on', 'The four notices below were shown on')],
+    ['利用規約の示した日を効力の日にする', mut('policies/terms.md', '次の五つの予告は、2026-11-24 に示したもので', '次の五つの予告は、2026-12-15 に示したもので')],
+    ['利用規約の予告の年数を変える', mut('policies/terms.md', '2 年以上前に作られた GitHub のアカウントからだけ受けます', '1 年以上前に作られた GitHub のアカウントからだけ受けます')],
+    ['利用規約の最終更新を戻す', mut('policies/terms.md', '最終更新：2026-11-24。', '最終更新：2026-11-23。')],
+    ['個人情報の取り扱いから作られた日時の文を外す', mut('policies/privacy.md', '使うのはアカウントが作られた日時だけで、ほかは捨てます。作られた日時も残さず、コメントにも実行の記録にも書きません。本人には何も尋ねません。', '')],
+    ['英語の個人情報の取り扱いから 30 日の文を外す', mut('policies/privacy.en.md', 'From 2026-12-15, a report opened on or after that day is received at most once in 30 days from the same GitHub account.', '')],
+    ['個人情報の取り扱いから記録が無くなる文を外す', mut('policies/privacy.md', '本人の求めでその issue を削除したときは、記録も無くなります。', '')],
+    ['国の仕組みの表から 30 日を外す', mut('INSTITUTIONS.md', '。同じアカウントから 30 日に一件まで（', '（')],
+    ['英語の声明から続きの節を外す', mut('MISSION.en.md', ' So do the conditions in "Barriers to participation (continued)".', '')],
+    ['紹介の頁の年数を変える', mut('PRESS.md', 'アカウントは 2 年以上前に作られたものに限り、断った', 'アカウントは 1 年以上前に作られたものに限り、断った')],
+    ['王の正誤表から 30 日の文を外す', mut('ERRATA.en.md', ' From 2026-12-15, a report is received at most once in 30 days from the same GitHub account.', '')],
+    ['適法性の説明の行を外す', mut('policies/legality.md', /\n- 2026-12-15 から、叙任の願い出では、訂正を公開した日も様式で受ける。[^\n]*/, '')],
+    ['声明の最終更新を戻す', mut('MISSION.md', '最終更新：2026-11-24。', '最終更新：2026-11-23。')],
+    ['年表から決めた者を外す', mut('README.md', '2026-11-23 に利用者が七つの条件を採ると決め、細かな定めは Claude が決めました |', '2026-11-23 に決めました |')],
+    ['記録の七つの案を一つ外す', mut(AUD, '- 叙任は 2 年に 1 人までにする。\n', '')],
+    ['記録の判定の数を変える', mut(AUD, '判定は、漏れ 3 件、問題なし 7 件で、合わせて 10 件です。\n\n### 効力の日\n\n立場を狭める条件は、2026-12-15（日本時間）から効きます。その日以後に開かれた issue にだけ当てます。\n利用規約', '判定は、漏れ 2 件、問題なし 8 件で、合わせて 10 件です。\n\n### 効力の日\n\n立場を狭める条件は、2026-12-15（日本時間）から効きます。その日以後に開かれた issue にだけ当てます。\n利用規約')],
+    ['記録の引用を一字変える', mut(AUD, '| 「前条の規定により特定された利用目的の達成に必要な範囲を超えて、個人情報を取り扱ってはならない。」 | 断った願い出の', '| 「前条の規定により特定された利用目的の達成に必要な範囲を越えて、個人情報を取り扱ってはならない。」 | 断った願い出の')],
+    ['記録の行から理由を外す', mut(AUD, '公開した規程の文を、消さずに読めるようにするためです |', '公開した規程の文を、消さずに読めるようにします |')],
+    ['記録の満の日数を変える', mut(AUD, '2026-11-24 に公開すれば、満 20 日です。', '2026-11-24 に公開すれば、満 21 日です。')],
+    ['記録から採らなかった細目の理由を外す', mut(AUD, '- アカウントの作られた日を、コメントに書く案。確かめに要るのは、通ったかどうかだけであるためです。', '- アカウントの作られた日を、コメントに書く案。')],
+    ['記録から弁護士の文を外す', mut(AUD, 'この節も、弁護士の確認は受けていません。\n\n## 調べた法令', '\n## 調べた法令')],
+    ['調べた法令の行を外す', mut(AUD, '2026-11-24 の「参加の条件を七つ厳しくする」では、民法第548条の4、個人情報保護法第18条・第21条・第34条を読み直しました。\n', '')],
+    ['足した文から研究のサイトへつなぐ', mut('policies/knighting.md', '運営者は、断ったアカウントの一覧を別に作りません。', '運営者は、断ったアカウントの一覧を別に作りません。https://' + SITE_R + '/')],
+    ['足した文に料金を書く', mut('policies/terms.md', '予告：2026-12-15 から、受付に戻ったあとの叙任は、2 年に 1 人までとします。', '予告：2026-12-15 から、受付に戻ったあとの叙任は、2 年に 1 人までとし、料金を取ります。')],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：叙任の規程（条件・数の語・日数・年数・共著・場の表の行と数の語と名・例の日・区切り方・場所の決め・日時を書く・一覧・示した日・決めた者・断ること・願い出ることができる人）・道具（日数・効力の日・初めの日・場の一覧・場の形・印・年数・日時・停止・編集・2 年・題・users の答え・読む順）・様式・名簿・誤りの知らせ（日数・初めの日・ORCID・題・決まった文・ラベル・様式・求め）・利用規約（予告・数の語・示した日・年数・最終更新）・個人情報の取り扱い・頁・年表・記録（七つの案・判定の数・引用・理由・満の日数・細目・弁護士・調べた法令）・研究の系列・料金のどれでも落ちる（'
+    + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
 /* 非同期の確かめ（PENDING）を、同期の検査がすべて済んだ後に順に動かしてから集計する（2026-11-19、検査 90）。 */
