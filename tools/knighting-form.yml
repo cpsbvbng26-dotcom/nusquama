@@ -12,6 +12,8 @@ body:
         **2026-11-12 から、願い出の受付を止めています。受付に戻る日は決めていません。** そのあいだに開かれた願い出は受けず、自動の確認が閉じます。授けることに関わるイタリアの法令の一点が、条文からは決まらないためです（叙任の規程「受付の停止」）。
         Applications are paused from 2026-11-12, and no date for reopening has been set. An application opened during the pause is not accepted and is closed automatically. A point of Italian law concerning conferral is not settled by the texts (Rules on Knighting, "Pause in receiving applications").
         ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。 / Because Nusquama is run by one individual, its barriers to participation are set extremely high.
+        2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人だけです。旅行・出張・留学・乗り継ぎで出たことも、日本の外で生まれたことも、出たことに数えます。確かめるのは下の誓いの印だけで、旅券・日付・行った国は尋ねません。書かないでください（叙任の規程「日本の外に出たことがないこと」）。
+        From 2026-11-24, only people who have never been outside Japan since birth may apply. Travel, business trips, study abroad, transit and being born outside Japan all count as having been outside. Only the box below is checked; no passport, date or country visited is asked for. Do not write them (Rules on Knighting, "Never having been outside Japan").
         2026-12-15 から、願い出ることができるのは 18 歳以上の人だけです。同じアカウントからの願い出は 365 日に一度までで、叙任は一年に 1 人まで、決めるのは願い出から 90 日を過ぎてからです（叙任の規程「参加のハードル」）。
         この国は創作であり、遊びです。実在の国家・王室・騎士団・叙勲とは関係がなく、ここで贈る騎士の呼び名は、勲章・栄典・騎士の位ではなく、法的な効力もありません。
         叙任は無償です。本名・住所・所属・連絡先は書かないでください。この issue は公開されます。
@@ -62,6 +64,8 @@ body:
           required: true
         - label: 日本に住んでいて、いま日本にいます（旅行・出張・留学などで日本の外にいるあいだは願い出られません。この印のない願い出は受けません。イタリアと、叙任の規程「外国の称号を縛る国」の国籍を持つ人を除き、国籍は問いません）。
           required: true
+        - label: 生まれてから一度も、日本の外に出たことがありません（旅行・出張・留学・乗り継ぎで出たことも、日本の外で生まれたことも、出たことに数えます。2026-11-24 から、この印が要ります）。 / Since birth, I have never been outside Japan (travel, business trips, study abroad, transit and being born outside Japan all count as having been outside; this box is required from 2026-11-24).
+          required: false
         - label: イタリアの国籍を持っていません（ほかの国籍と重ねて持つ場合も含みます。この印のない願い出は受けません）。
           required: true
         - label: 次の国の国籍を持っていません：アイルランド、アメリカ合衆国、イエメン、インド、オーストリア、オランダ、ギリシャ、コロンビア、ドミニカ共和国、ネパール、ハンガリー、バングラデシュ、パキスタン、フィリピン、ベネズエラ、ベルギー、ホンジュラス、メキシコ。国籍を持つほかの国の法令も、外国の称号を受けることを禁じたり、国の許しを求めたり、受けたことに国籍の喪失や罰を結び付けたりしていません（ほかの国籍と重ねて持つ場合も含みます。この印のない願い出は受けません）。
