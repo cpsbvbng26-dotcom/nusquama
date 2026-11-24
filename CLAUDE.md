@@ -64,3 +64,4 @@ node verification/check_layout.js   # 要 playwright と Chromium
 
 サイトは Vercel の `nusquama` プロジェクトが `site/` を根にして配る。
 IndexNow の鍵のファイル `site/<鍵>.txt` も生成物で、`build.js` の `INDEXNOW_KEY` から作る（中身は鍵そのもの。秘密ではない）。`site/sitemap.xml` が変わった main への push のあと、`.github/workflows/indexnow.yml` が `tools/indexnow.js` で変わった頁を送る（`node tools/indexnow.js --dry-run` で送らずに見る）。形は検査 97 が見る。Google は IndexNow を読まず、サイトマップを読む。
+Internet Archive の写しは、手で起こす `.github/workflows/wayback.yml` が `tools/wayback.js` で頼む（offset と limit で分ける）。頼むのは `tools/wayback.json` の read（全文を読んで確かめた頁と見える文の SHA-256）にあり、外す名と名簿の騎士の名を持たない頁だけ。写しは消せないので、読まずに read に足さない。頁の文が変われば頼まなくなるので、読み直してから値を改める。形は検査 98 が見る。
