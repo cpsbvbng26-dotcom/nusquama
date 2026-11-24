@@ -1,0 +1,39 @@
+name: Internet Archive に写しを残す
+
+# 手で起こすときだけ動く。作業環境からは web.archive.org に届かないので、GitHub の実行環境から
+# Save Page Now（https://web.archive.org/save/）に頼む（tools/wayback.js）。
+# 頼むのは site/sitemap.xml の頁のうち、tools/wayback.json の read にあり、読んだときから文が変わらず、
+# ほかの人の名やアカウント名を持たず、robots.txt が閉じない頁だけ。写しはこちらから消せないので、迷う頁は頼まない。
+# 頼んだあと、その日の写しが実際にあるかを確かめ、確かめられたものだけを「残った」として要約に出す。
+# 一件ごとに 20 秒あけ、429 には 60 秒と 180 秒待って頼み直す。45 分で新しい頁を頼むのをやめ、続きの offset を出す。
+on:
+  workflow_dispatch:
+    inputs:
+      offset:
+        description: 頼める頁の並びの何番目から頼むか（0 から）
+        required: false
+        default: '0'
+      limit:
+        description: 何件まで頼むか
+        required: false
+        default: '40'
+
+permissions:
+  contents: read
+
+jobs:
+  save:
+    name: 頁の写しを頼み、残ったことを確かめる
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: node tools/wayback.js
+        env:
+          OFFSET: ${{ inputs.offset }}
+          LIMIT: ${{ inputs.limit }}
