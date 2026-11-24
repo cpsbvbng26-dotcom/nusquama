@@ -249,6 +249,7 @@ English (translations; the Japanese version governs): [Founding Declaration, Bas
 独自のドメインを取る予定はありません。ヌスクァマのサイトは、この所在だけです。
 王の正誤表と騎士の名簿と官報には、新着の配信（[errata.xml](https://nusquama.vercel.app/errata.xml)、[knights.xml](https://nusquama.vercel.app/knights.xml)、[gazette.xml](https://nusquama.vercel.app/gazette.xml)）があります。
 言語モデルを通して調べる人のために、[llms.txt](https://nusquama.vercel.app/llms.txt) と [llms-full.txt](https://nusquama.vercel.app/llms-full.txt) を置いています。llms.txt は、断りと、規程の要の節を一字一句そのまま収め、すべての頁へリンクします。llms-full.txt は、すべての頁の元の文を一字一句そのまま収めます。食い違うときは規程に従います。
+サイトマップが変わると、GitHub Actions が、変わった頁と消えた頁を IndexNow に知らせます（`tools/indexnow.js`）。Google は IndexNow を読まず、robots.txt が示すサイトマップを読みます。
 
 ## ほかの場所
 
