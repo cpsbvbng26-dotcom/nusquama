@@ -6728,7 +6728,7 @@ console.log('\n98. Internet Archive の写し（2026-11-24）：手で起こす�
     const js = x.js;
     if (!/fs\.readFileSync\(path\.join\(SITE, 'sitemap\.xml'\)/.test(js) || !/const SITE = path\.join\(ROOT, 'site'\);/.test(js)) bad.push('道具が site/sitemap.xml を読まない');
     if (!/const BASE = 'https:\/\/nusquama\.vercel\.app\/';/.test(js)) bad.push('道具の所在がこのサイトでない');
-    if (!/const AVAILABLE = 'https:\/\/archive\.org\/wayback\/available';/.test(js) || !/String\(c\.timestamp\)\.startsWith\(day\)/.test(js) || !/\(s \? done : missing\)\.push/.test(js) || !/if \(missing\.length\) throw new Error/.test(js)) bad.push('道具が、その日の写しを確かめず、見えないものがあっても落ちない');
+    if (!/const AVAILABLE = 'https:\/\/archive\.org\/wayback\/available';/.test(js) || !/String\(c\.timestamp\)\.startsWith\(day\)/.test(js) || !/\(s \? done : wait\)\.push/.test(js) || !/const RECHECK_S = \[60, 120, 180\];/.test(js) || !/missing\.push\(\.\.\.wait\);/.test(js) || !/if \(missing\.length\) throw new Error/.test(js)) bad.push('道具が、その日の写しを確かめず、見えないものがあっても落ちない');
     if (!/const BACKOFF_S = \[0, 60, 180\];/.test(js) || !/r\.status !== 429/.test(js) || !/const GAP_S = 20;/.test(js)) bad.push('道具が 429 で待たないか、間をあけない');
     if (!/robots: fs\.readFileSync\(path\.join\(SITE, 'robots\.txt'\)/.test(js) || !/const shut = disallowed\(x\.robots\);/.test(js)) bad.push('道具が robots.txt を読まない');
     if (!/const go = all\.filter\(\(p\) => !p\.why\.length\);/.test(js)) bad.push('道具が外す理由のある頁も頼む');
@@ -6786,6 +6786,8 @@ console.log('\n98. Internet Archive の写し（2026-11-24）：手で起こす�
     ['道具が根のサイトマップを読む', mut('js', real.js.replace("fs.readFileSync(path.join(SITE, 'sitemap.xml')", "fs.readFileSync(path.join(ROOT, 'sitemap.xml')"))],
     ['道具がその日の写しを確かめない', mut('js', real.js.replace('String(c.timestamp).startsWith(day)', 'true'))],
     ['道具が見えないものがあっても落ちない', mut('js', real.js.replace('if (missing.length) throw new Error', 'if (false) throw new Error'))],
+    ['道具が終わりに見直さない', mut('js', real.js.replace('const RECHECK_S = [60, 120, 180];', 'const RECHECK_S = [];'))],
+    ['道具が見直しても見えない頁を落とさない', mut('js', real.js.replace('missing.push(...wait);', ''))],
     ['道具が 429 で待たない', mut('js', real.js.replace('const BACKOFF_S = [0, 60, 180];', 'const BACKOFF_S = [0];'))],
     ['道具が robots.txt を見ない', mut('js', real.js.replace('const shut = disallowed(x.robots);', 'const shut = [];'))],
     ['道具が理由のある頁も頼む', mut('js', real.js.replace('const go = all.filter((p) => !p.why.length);', 'const go = all;'))],
@@ -6797,7 +6799,7 @@ console.log('\n98. Internet Archive の写し（2026-11-24）：手で起こす�
     ['README から写しのことを外す', mut('readme', real.readme.replace(SAY, ''))],
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
-  ok('壊して確かめる：ワークフロー（無い・push・定期・書く権限・時間・offset）・道具（サイトマップ・その日の写し・落ちること・429・robots.txt・理由のある頁）・外す頁（名簿・英語の名簿・両方・外す名・理由）・README のどれでも落ちる（'
+  ok('壊して確かめる：ワークフロー（無い・push・定期・書く権限・時間・offset）・道具（サイトマップ・その日の写し・落ちること・終わりの見直し・見直しても見えない頁・429・robots.txt・理由のある頁）・外す頁（名簿・英語の名簿・両方・外す名・理由）・README のどれでも落ちる（'
     + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
