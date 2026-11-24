@@ -1211,6 +1211,8 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     'reporter.yml': { contents: 'read', issues: 'write' },
     'sources.yml': { contents: 'write' },
     'statutes.yml': { contents: 'read' },
+    /* Internet Archive に写しを頼む（2026-11-24）：手で起こすときだけ動き、リポジトリを読むだけ。 */
+    'wayback.yml': { contents: 'read' },
     'world.yml': { contents: 'write' },
   };
   /* 仕事ごとの権限は、この表の仕事だけに置く。表にない仕事の権限も、表の仕事の権限の欠けも落とす。 */
@@ -3024,7 +3026,7 @@ console.log('\n73. GitHub Actions の規約：追加製品の規約を取り寄�
     ['新しいワークフローに行がない', Object.assign({}, real, { wf: WF.concat(['newsletter.yml']) })],
     ['消したワークフローの行が残る', Object.assign({}, real, { wf: WF.filter((f) => f !== 'labels.yml') })],
     ['表から行を外す', mut(AUD, /\n\| `\.github\/workflows\/review\.yml`[^\n]*/, '')],
-    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 15 件で、合わせて 18 件です。', '漏れ 2 件、表現 0 件、問題なし 15 件で、合わせて 18 件です。')],
+    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 16 件で、合わせて 19 件です。', '漏れ 2 件、表現 0 件、問題なし 16 件で、合わせて 19 件です。')],
     ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
     ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
     ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：十一度目の見落とし', '\n\n## 2026-11-12 の続き：十一度目の見落とし')],
@@ -6698,6 +6700,104 @@ console.log('\n97. IndexNow（2026-11-24）：鍵のファイル（32 桁の 16 
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：鍵のファイル（中身・名・所在・数・build.js の鍵・配る根・照合）・ワークフロー（無い・サイトマップ・枝・all・道具・ALL）・道具（サイトマップ・履歴・所在・終わりの /）・サイトマップ・robots.txt・README のどれでも落ちる（'
+    + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n98. Internet Archive の写し（2026-11-24）：手で起こすときだけ動き、読むだけの権限で、site/sitemap.xml の頁のうち、全文を読んで確かめた頁で、文が変わらず、人の名を持たず、robots.txt が閉じない頁だけを頼み、その日の写しを確かめる');
+{
+  /* 2026-11-24 に利用者が求め、Claude が書いた。写しはこちらから消せない。だから頼む頁を許す側で決め（tools/wayback.json の read）、
+   * 騎士の名簿と、存命かもしれない個人の名を挙げる頁は、外す側にも置く。名簿に騎士が載れば、その名を持つ頁はひとりでに外れる。 */
+  const W = require('../tools/wayback.js');
+  const WF = '.github/workflows/wayback.yml', JS = 'tools/wayback.js', CONF = 'tools/wayback.json';
+  const SAY = 'Internet Archive に、頁の写しを頼みます（`tools/wayback.js`）。';
+  const r0 = W.real();
+  const real = Object.assign({}, r0, { wf: fs.existsSync(path.join(ROOT, WF)) ? read(WF) : null, js: read(JS), readme: read('README.md') });
+  const MUST_OUT = ['knights.html', 'knights.en.html'];
+  function verdict(x) {
+    const bad = [];
+    const w = x.wf || '';
+    if (!x.wf) bad.push(WF + ' が無い');
+    else {
+      if (!/\non:\n {2}workflow_dispatch:\n {4}inputs:\n {6}offset:\n[\s\S]*\n {6}limit:\n[\s\S]*?\n\npermissions:\n {2}contents: read\n\njobs:\n/.test(w)) bad.push('ワークフローが手で起こすときだけ（offset と limit）でないか、読むだけの権限でない');
+      if (/\n {2}(push|schedule|pull_request|issues|workflow_run|pull_request_target):/.test(w) || /: write\b/.test(w)) bad.push('ワークフローが手のほかで動くか、書く権限を持つ');
+      if (!/\n {4}timeout-minutes: (\d+)\n/.test(w) || Number(/\n {4}timeout-minutes: (\d+)\n/.exec(w)[1]) > 60) bad.push('ワークフローの時間の上限が 60 分を超えるか無い');
+      if (!/\n {6}- run: node tools\/wayback\.js\n {8}env:\n {10}OFFSET: \$\{\{ inputs\.offset \}\}\n {10}LIMIT: \$\{\{ inputs\.limit \}\}\n/.test(w)) bad.push('ワークフローが tools/wayback.js を offset と limit で走らせない');
+      if (!w.includes('https://web.archive.org/save/')) bad.push('ワークフローが頼む先を書かない（横断の見張りが拾えない）');
+      if (!/persist-credentials: false/.test(w)) bad.push('checkout が鍵を残す');
+    }
+    const js = x.js;
+    if (!/fs\.readFileSync\(path\.join\(SITE, 'sitemap\.xml'\)/.test(js) || !/const SITE = path\.join\(ROOT, 'site'\);/.test(js)) bad.push('道具が site/sitemap.xml を読まない');
+    if (!/const BASE = 'https:\/\/nusquama\.vercel\.app\/';/.test(js)) bad.push('道具の所在がこのサイトでない');
+    if (!/const AVAILABLE = 'https:\/\/archive\.org\/wayback\/available';/.test(js) || !/String\(c\.timestamp\)\.startsWith\(day\)/.test(js) || !/\(s \? done : missing\)\.push/.test(js) || !/if \(missing\.length\) throw new Error/.test(js)) bad.push('道具が、その日の写しを確かめず、見えないものがあっても落ちない');
+    if (!/const BACKOFF_S = \[0, 60, 180\];/.test(js) || !/r\.status !== 429/.test(js) || !/const GAP_S = 20;/.test(js)) bad.push('道具が 429 で待たないか、間をあけない');
+    if (!/robots: fs\.readFileSync\(path\.join\(SITE, 'robots\.txt'\)/.test(js) || !/const shut = disallowed\(x\.robots\);/.test(js)) bad.push('道具が robots.txt を読まない');
+    if (!/const go = all\.filter\(\(p\) => !p\.why\.length\);/.test(js)) bad.push('道具が外す理由のある頁も頼む');
+    const c = x.conf || {};
+    const ex = c.exclude || {}, rd = c.read || {};
+    for (const f of MUST_OUT) if (!ex[f] || f in rd) bad.push(f + ' を外していない');
+    for (const f of Object.keys(rd)) {
+      if (f in ex) bad.push('読んだ頁と外す頁の両方にある：' + f);
+      if (!/^[0-9a-f]{64}$/.test(rd[f])) bad.push('読んだ頁の値の形：' + f);
+    }
+    if (!Object.values(ex).every((v) => typeof v === 'string' && v.length >= 10)) bad.push('外す頁に理由が無い');
+    const plan = W.plan(x), go = plan.filter((p) => !p.why.length);
+    const names = (c.names || []).concat(x.knights);
+    for (const p of go) {
+      const t = x.pages[p.file] || '';
+      if (!(p.file in rd) || rd[p.file] !== W.sha(W.text(t))) bad.push('読んでいないか、文の変わった頁を頼む：' + p.file);
+      if (names.some((n) => t.includes(n)) || MUST_OUT.includes(p.file) || p.file in ex) bad.push('外す頁を頼む：' + p.file);
+    }
+    for (const [f] of Object.entries(x.pages)) if (names.some((n) => (x.pages[f] || '').includes(n)) && go.some((p) => p.file === f)) bad.push('人の名を持つ頁を頼む：' + f);
+    if (!(c.names || []).length) bad.push('外す名が無い');
+    if (!x.readme.includes(SAY)) bad.push('README に写しのことが無い');
+    return bad;
+  }
+  const bad = verdict(real);
+  const plan = W.plan(real), go = plan.filter((p) => !p.why.length);
+  ok('ワークフローは手で起こすときだけ、読むだけの権限で動き、道具は site/sitemap.xml の ' + plan.length + ' 頁のうち、読んで確かめた ' + go.length + ' 頁だけを頼み、その日の写しを確かめる。騎士の名簿と、外す名（' + (real.conf.names || []).join('、') + '）を持つ頁は頼まない',
+    bad.length === 0 && go.length > 0, bad.join(' / '));
+  /* 道具の決め方を、見本で確かめる。名簿に騎士が載る、頼む頁に名が入る、robots.txt が閉じる、文が変わる。 */
+  const first = go[0] ? go[0].file : 'index.html';
+  const withPage = (f, html, rehash) => Object.assign({}, real, { pages: Object.assign({}, real.pages, { [f]: html }), conf: rehash ? Object.assign({}, real.conf, { read: Object.assign({}, real.conf.read, { [f]: W.sha(W.text(html)) }) }) : real.conf });
+  const goes = (x, f) => W.plan(x).some((p) => p.file === f && !p.why.length);
+  const knight = 'reader-one';
+  const sims = [
+    ['名簿に騎士が載れば、その名を持つ頁を頼まない', !goes(Object.assign(withPage(first, real.pages[first].replace('</main>', '<p>' + knight + '</p></main>'), true), { knights: [knight] }), first)],
+    ['外す名を、読み直した頁に足しても頼まない', !goes(withPage(first, real.pages[first].replace('</main>', '<p>' + real.conf.names[0] + '</p></main>'), true), first)],
+    ['ほかの GitHub のアカウントへのリンクを持つ頁を頼まない', !goes(withPage(first, real.pages[first].replace('</main>', '<a href="https://github.com/someone">x</a></main>'), true), first)],
+    ['メールアドレスの形を持つ頁を頼まない', !goes(withPage(first, real.pages[first].replace('</main>', '<p>' + 'a' + '@' + 'example.org</p></main>'), true), first)],
+    ['読んだときから文が変わった頁を頼まない', !goes(withPage(first, real.pages[first].replace('</main>', '<p>足した文。</p></main>'), false), first)],
+    ['robots.txt が閉じる頁を頼まない', !goes(Object.assign({}, real, { robots: real.robots.replace('Allow: /\n', 'Allow: /\nDisallow: /' + (first === 'index.html' ? '' : first) + '\n') }), first)],
+    ['見た目だけを変えた頁は、読み直さずに頼む', goes(withPage(first, real.pages[first].replace('<style>', '<style>.x{}'), false), first)],
+  ];
+  const failedSims = sims.filter(([, y]) => !y).map(([k]) => k);
+  ok('道具の決め方：' + sims.map(([k]) => k).join('・'), failedSims.length === 0, failedSims.join(' / '));
+  const mut = (k, v) => Object.assign({}, real, { [k]: v });
+  const conf = (fn) => { const c = JSON.parse(JSON.stringify(real.conf)); fn(c); return mut('conf', c); };
+  const knHash = W.sha(W.text(real.pages['knights.html'] || ''));
+  const erHash = W.sha(W.text(real.pages['errata.html'] || ''));
+  const breaks = [
+    ['ワークフローを消す', mut('wf', null)],
+    ['push でも動かす', mut('wf', (real.wf || '').replace('on:\n  workflow_dispatch:\n', 'on:\n  push:\n    branches: [main]\n  workflow_dispatch:\n'))],
+    ['定期にも動かす', mut('wf', (real.wf || '').replace('\npermissions:', "  schedule:\n    - cron: '17 3 * * 1'\n\npermissions:"))],
+    ['書く権限を持たせる', mut('wf', (real.wf || '').replace('permissions:\n  contents: read\n', 'permissions:\n  contents: write\n'))],
+    ['時間の上限を 90 分にする', mut('wf', (real.wf || '').replace('timeout-minutes: 60', 'timeout-minutes: 90'))],
+    ['offset を渡さない', mut('wf', (real.wf || '').replace('          OFFSET: ${{ inputs.offset }}\n', ''))],
+    ['道具が根のサイトマップを読む', mut('js', real.js.replace("fs.readFileSync(path.join(SITE, 'sitemap.xml')", "fs.readFileSync(path.join(ROOT, 'sitemap.xml')"))],
+    ['道具がその日の写しを確かめない', mut('js', real.js.replace('String(c.timestamp).startsWith(day)', 'true'))],
+    ['道具が見えないものがあっても落ちない', mut('js', real.js.replace('if (missing.length) throw new Error', 'if (false) throw new Error'))],
+    ['道具が 429 で待たない', mut('js', real.js.replace('const BACKOFF_S = [0, 60, 180];', 'const BACKOFF_S = [0];'))],
+    ['道具が robots.txt を見ない', mut('js', real.js.replace('const shut = disallowed(x.robots);', 'const shut = [];'))],
+    ['道具が理由のある頁も頼む', mut('js', real.js.replace('const go = all.filter((p) => !p.why.length);', 'const go = all;'))],
+    ['名簿を外す頁から外す', conf((c) => { delete c.exclude['knights.html']; })],
+    ['英語の名簿を読んだ頁に足す', conf((c) => { delete c.exclude['knights.en.html']; c.read['knights.en.html'] = W.sha(W.text(real.pages['knights.en.html'] || '')); })],
+    ['名簿を、外す頁に置いたまま読んだ頁にも足す', conf((c) => { c.read['knights.html'] = knHash; })],
+    ['外す名を空にし、名を挙げる頁を読んだ頁に足す', conf((c) => { c.names = []; delete c.exclude['errata.html']; c.read['errata.html'] = erHash; })],
+    ['外す頁の理由を消す', conf((c) => { c.exclude['errata/1.html'] = ''; })],
+    ['README から写しのことを外す', mut('readme', real.readme.replace(SAY, ''))],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：ワークフロー（無い・push・定期・書く権限・時間・offset）・道具（サイトマップ・その日の写し・落ちること・429・robots.txt・理由のある頁）・外す頁（名簿・英語の名簿・両方・外す名・理由）・README のどれでも落ちる（'
     + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
