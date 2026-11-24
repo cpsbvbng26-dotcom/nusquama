@@ -1,0 +1,44 @@
+{
+  "_": "2026-11-24。Internet Archive に写しを頼む頁を、許す側で決める表（tools/wayback.js が読み、検査 98 が形を見る）。写しはこちらから消せないので、迷う頁は頼まない。read は、Claude が 2026-11-24 にコミット a144637 の site/ で全文を読み（トップの頁は、この表と同じ PR で README に足した一文を含めて読み直し）、ほかの人の個人データ（騎士・願い出た人・知らせた人・名のある私人）も、削除・訂正・辞退の求めで外せる自分以外の人についての記載もないと確かめた頁と、その見える文の SHA-256。文が変われば頼まず、読み直してから値を改める。exclude は、頼まないと決めた頁と理由（read に足しても頼まない）。names は、見える文かリンクに一つでもあれば頼まない名。2026-11-24 に利用者が求め、Claude が決めた。",
+  "read": {
+    "index.html": "5e72d06c2c60f75a14ce2ee445c157fff5eb1561d14162b489621e3416017a1d",
+    "founding.en.html": "a3a5ae60a0fa3aef6634d909ccb44505e05b2490ec474948798a10f10d047784",
+    "symbols.html": "f5e24832bdd01b781685b1026d059f6b7c51e201e8ed32a68557751d90d63f2a",
+    "symbols.en.html": "c526e3bd339985e508ce1abf4d53ad76eba67597e83e4633958e9c4874430739",
+    "symbols-construction.html": "59fade67ad088c6021889a85386f4ea715c1ac7d93723a4b1d99a76dacfd3e25",
+    "symbols-construction.en.html": "6556b55aca7d45d49f021dccc3052539c7e609a55f265e185bb0e28787cbc16b",
+    "territory-years.html": "c2889afb1dbbf6d632c7c44ffb41fb3f9de2c164bb640f044884ca6d5b4430a8",
+    "territory-years.en.html": "6c133381e9ecb0c5072432413bb8d8635298158868eff92e8ef2fad58f08a338",
+    "calendar.html": "44e572d3575c7876a2629da69fb23a01481ed6cbd359f35c57ee37220a322a36",
+    "calendar.en.html": "9a0c5b7f9d4852faa15ce7b1a2eac123ffb90bc934bb236649d666fc3d2cdb21",
+    "story.html": "8af4ea3c0443d0951b49c812d6abb68c51ce07837716274bd8befbeb74aace5b",
+    "story.en.html": "3edf2d1283a201c7aca3ac4dfdee0c3d02396cdbd332ba14860c2e5661fbb5cd",
+    "story/1.html": "015612a5f27a5acbd25595b8ecacca4951fa25764b6529f6e23c8bb214adf931",
+    "story/1.en.html": "ef767662c0618bda0ceff4407bb54267bed1279a25893483302054b9edd7f25c",
+    "story/2.html": "d19c6647575bd6551d8ad2f85c9beccbf563ca7735a3b177876aeb47c789cb20",
+    "story/2.en.html": "d8d9f693f3da19e6991f34021e3bd691f97f0e2a5cbb8d8f0de9ba4a24b55e9f",
+    "story/3.html": "e3bbfe232d4133ed06bfe340eaeca0640fc48df1c7ecb2d3f4c9bba7cd74f541",
+    "story/3.en.html": "5a218af94d68ccae303128df14263e6a91b724b2e9ccc76947c70c13463bea31",
+    "lexicon.html": "26ac0184de9be2dabe544e8264ad3b9c189fe95ee15bb60cf356ff5873235002",
+    "lexicon.en.html": "daaa0dd9d4753e72eb6542ce2b6c7ef55a1b1f683e4137bd3d577811af7aed2b",
+    "institutions.html": "c2c03bf4f9bc8b2754145995defac3a0f30d577ebdb7ffebd9665bf933dda92f",
+    "institutions.en.html": "d6f90630b9da59f3dea4297196d7a1010f1d66235c3cf378972611b48252e460",
+    "press.html": "5aecf0f066c2613cd913da01c4d7e77d6fa8003931cd6861ee5cce86fb1716ab",
+    "press.en.html": "23a0b380d5f8f3620733b23a37bea5d9aed1212f532df93cb367dd359f0556e9",
+    "play.html": "fa6a14712c9797a07ce29152b4a6845572c4c6a59f835bed5fb9106f4091556a",
+    "play.en.html": "e3c1fa70ba4073abe4f845b968dbf41d11e62c3a78ff9c34ae2496fc40ba55d4",
+    "mission.html": "d3893cc16f7a2194aae4c6b0d8dfeb7e8bffee9c5c681b234f6d9b7427dc3b25",
+    "mission.en.html": "e7b6860a1bd91c0f0dc7350f3854595a4b29c4ea56591a85e8c57e0550615742"
+  },
+  "exclude": {
+    "knights.html": "騎士の名簿。ほかの人の GitHub のアカウント名を載せる頁で、辞退の求めで名を外す（削除・訂正・辞退の求め）。いまは空でも、写しは消せないので頼まない",
+    "knights.en.html": "騎士の名簿の英語の訳。knights.html と同じ理由",
+    "errata.html": "論文の著者の名（names）を挙げる。存命かどうかを確かめていない個人の名なので頼まない",
+    "errata.en.html": "errata.html と同じ理由",
+    "errata/1.html": "errata.html と同じ理由",
+    "errata/1.en.html": "errata.html と同じ理由"
+  },
+  "names": [
+    "Parrish"
+  ]
+}
