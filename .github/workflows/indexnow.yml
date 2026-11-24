@@ -1,0 +1,37 @@
+name: IndexNow
+
+# site/sitemap.xml が変わった main への push のあと、変わった頁と消えた頁を IndexNow に知らせる（tools/indexnow.js）。
+# 配っているサイトマップがこのコミットのものになるまで、最大 10 分待ってから送る。
+# 鍵は site/<鍵>.txt で、build.js が作る。秘密ではない。Google は IndexNow を読まず、サイトマップを読む。
+on:
+  push:
+    branches: [main]
+    paths: [site/sitemap.xml]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: サイトマップの頁を全部送る（yes / no）
+        required: false
+        default: 'no'
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    name: 変わった頁を IndexNow に知らせる
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # 前の先のサイトマップを履歴から読む。
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: node tools/indexnow.js
+        env:
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ inputs.all }}

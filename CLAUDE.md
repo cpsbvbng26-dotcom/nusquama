@@ -63,3 +63,4 @@ node verification/check_layout.js   # 要 playwright と Chromium
 ```
 
 サイトは Vercel の `nusquama` プロジェクトが `site/` を根にして配る。
+IndexNow の鍵のファイル `site/<鍵>.txt` も生成物で、`build.js` の `INDEXNOW_KEY` から作る（中身は鍵そのもの。秘密ではない）。`site/sitemap.xml` が変わった main への push のあと、`.github/workflows/indexnow.yml` が `tools/indexnow.js` で変わった頁を送る（`node tools/indexnow.js --dry-run` で送らずに見る）。形は検査 97 が見る。Google は IndexNow を読まず、サイトマップを読む。

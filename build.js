@@ -19,6 +19,9 @@ const REPO = 'https://github.com/cpsbvbng26-dotcom/nusquama';
 const NAME = '無何有騎士王国ヌスクァマ';
 /* Google Search Console の所有者の確認（URL プレフィックスのプロパティ、HTML タグの方法）。値は王から受け取ったもの。 */
 const GOOGLE_SITE_VERIFICATION = 'UEPpX5mfnLlhOBTBTETu-PmRO_Y4L2SmjEiaq_U1Zf8';
+/* IndexNow の鍵（2026-11-24 に Claude が乱数で作った 32 桁）。site/<鍵>.txt に、中身も鍵そのものとして書き出す（IndexNow の決まり）。
+ * 鍵は秘密ではない。site/ は作るたびに消すので、鍵のファイルもここから作る。送るのは tools/indexnow.js。 */
+const INDEXNOW_KEY = 'f271a28aafc29ebd52adf40dfbc6f4f8';
 
 /* 頁の元。README がトップ、名簿、王の正誤表、規程。 */
 const POLICIES = ['terms', 'disclaimer', 'privacy', 'knighting', 'requests', 'names', 'design', 'legality', 'exchange'];
@@ -1003,6 +1006,7 @@ function build(out = OUT) {
   }
   files['404.html'] = notFound();
   files['robots.txt'] = 'User-agent: *\nAllow: /\n\nSitemap: ' + BASE + 'sitemap.xml\n';
+  files[INDEXNOW_KEY + '.txt'] = INDEXNOW_KEY;
   files['errata.xml'] = atom('errata');
   files['knights.xml'] = atom('knights');
   files['gazette.xml'] = gazetteAtom();
@@ -1055,7 +1059,7 @@ function build(out = OUT) {
   return Object.keys(files).length;
 }
 
-module.exports = { LEGALITY_SPLITS, legalityFile, legalityParts, NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, LATER, LATER_JA, LATER_EN, laterNote, ERRATA_LATER, ERRATA_LATER_JA, ERRATA_LATER_EN, errataLaterNote, errataLaterProblems, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
+module.exports = { LEGALITY_SPLITS, legalityFile, legalityParts, NAME, LABEL, LEDE, NAV, SEPARATE, SEPARATE_EN, page, STYLE, WITHDRAWN, withdrawnOn, population, MILESTONE, LEDGER, readLedger, ledgerWith, REDATED, redatedKey, timelineKey, LATER, LATER_JA, LATER_EN, laterNote, ERRATA_LATER, ERRATA_LATER_JA, ERRATA_LATER_EN, errataLaterNote, errataLaterProblems, GENERATED, gazetteMonths, gazetteMonthMd, storyChapters, flagGroups, emblemGroups, listIn, territoryYears, KINDS, roman, errataEntries, errataYears, calendarIcs, factsTable, censusTable, gazetteIssueMd, errataEntryMd, FOUNDED, SHORT, ROOT_EN, territorySvg, gazetteItems, timelineRows, DRAWN, tableRows, domain, DOMAIN_LINE, atom, GOOGLE_SITE_VERIFICATION, INDEXNOW_KEY, build, llmsTxt, llmsFull, section, SOURCES, POLICIES, EN, ASSETS, NOTICE, NOTICE_EN, HEADERS, STYLE_HASH, BASE, REPO };
 
 if (require.main === module) {
   const out = process.argv[2] ? path.resolve(process.argv[2]) : OUT;

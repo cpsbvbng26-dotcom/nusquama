@@ -1198,6 +1198,8 @@ console.log('\n45. ワークフローの権限は、要るものだけ');
     /* 本文の空の issue に答える（2026-11-19）：ラベルとコメントを付けるだけで、リポジトリの中身は読まない。閉じず、鍵も掛けず、消さない。
      * 15 のリポジトリで同じファイルで、cpsbvbng26-dotcom の check_ecosystem.js（13f）が中身を固めている。 */
     'empty-issue.yml': { issues: 'write' },
+    /* IndexNow に変わった頁を知らせる（2026-11-24）：リポジトリを読み、外へは api.indexnow.org にだけ送る。書く権限は持たない。 */
+    'indexnow.yml': { contents: 'read' },
     'knighting.yml': { contents: 'read', issues: 'write' },
     'labels.yml': { issues: 'write' },
     'live.yml': { contents: 'read', issues: 'write' },
@@ -3022,7 +3024,7 @@ console.log('\n73. GitHub Actions の規約：追加製品の規約を取り寄�
     ['新しいワークフローに行がない', Object.assign({}, real, { wf: WF.concat(['newsletter.yml']) })],
     ['消したワークフローの行が残る', Object.assign({}, real, { wf: WF.filter((f) => f !== 'labels.yml') })],
     ['表から行を外す', mut(AUD, /\n\| `\.github\/workflows\/review\.yml`[^\n]*/, '')],
-    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 14 件で、合わせて 17 件です。', '漏れ 2 件、表現 0 件、問題なし 14 件で、合わせて 17 件です。')],
+    ['判定の数を変える', mut(AUD, '漏れ 3 件、表現 0 件、問題なし 15 件で、合わせて 18 件です。', '漏れ 2 件、表現 0 件、問題なし 15 件で、合わせて 18 件です。')],
     ['記録の引用を外す', mut(AUD, '<!-- 原文 GitHub の追加製品の規約 Actions（目的） -->', '<!-- 原文 なし -->')],
     ['決めた理由を外す', mut(AUD, '新しいワークフローを、規約に照らさずに足せないようにするためです。', '新しいワークフローを、規約に照らさずに足せないようにする。')],
     ['記録から弁護士の文を外す', mut(AUD, '\n\nこの節も、弁護士の確認は受けていません。\n\n## 2026-11-12 の続き：十一度目の見落とし', '\n\n## 2026-11-12 の続き：十一度目の見落とし')],
@@ -4257,8 +4259,9 @@ console.log('\n82. 形を保って詰める：免責と責任の文、求めの�
     }
     return bad;
   }
-  /* 創作の断り。robots.txt と sitemap.xml と vercel.json は、機械が読む一覧と設定なので外す。 */
-  const MACHINE = ['robots.txt', 'sitemap.xml', 'vercel.json'];
+  /* 創作の断り。robots.txt と sitemap.xml と vercel.json は、機械が読む一覧と設定なので外す。
+   * IndexNow の鍵のファイル（2026-11-24）も外す。中身は鍵そのものでなければならない（IndexNow の決まり）。外すのは build.js の鍵の名の一つだけで、検査 97 が形を見る。 */
+  const MACHINE = ['robots.txt', 'sitemap.xml', 'vercel.json', B.INDEXNOW_KEY + '.txt'];
   function notice(x) {
     const bad = [];
     for (const k of Object.keys(x).filter((k) => k.startsWith('site/') && x[k] !== null && /\.(html|xml|txt|ics)$/.test(k))) {
@@ -4438,6 +4441,7 @@ const F = ${JSON.stringify(F)};
     ['正誤の頁から断りを外す', mut('site/errata/1.html', '<p class="notice">' + B.NOTICE + '</p>', '')],
     ['英語の頁から断りを外す', mut('site/errata/1.en.html', '<p class="notice">' + B.NOTICE_EN + '</p>', '')],
     ['官報の配信から断りを外す', mut('site/gazette.xml', '<subtitle>' + B.NOTICE + '</subtitle>', '<subtitle>官報</subtitle>')],
+    ['鍵でない 32 桁の名の文書を、断りなしで配る', add('site/' + '0'.repeat(32) + '.txt', '0'.repeat(32))],
     ['頁にヌスクァマを主権国家と書く', mut(pageJa, '</main>', '<p>ヌスクァマは、主権を持つ独立国です。</p>\n</main>')],
     ['英語の頁に公式に承認されたと書く', mut(pageEn, '</main>', '<p>Nusquama is an officially recognised state.</p>\n</main>')],
     ['打ち消した文は通る（壊していない見本）', mut(pageJa, '</main>', '<p>ヌスクァマは国家ではなく、主権も主張しません。</p>\n<p>The Kingdom of Nusquama is not a state.</p>\n</main>'), true],
@@ -6604,6 +6608,96 @@ console.log('\n96. 参加の条件を七つ厳しくする（2026-11-24 に示�
   ];
   const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
   ok('壊して確かめる：叙任の規程（条件・数の語・日数・年数・共著・場の表の行と数の語と名・例の日・区切り方・場所の決め・日時を書く・一覧・示した日・決めた者・断ること・願い出ることができる人）・道具（日数・効力の日・初めの日・場の一覧・場の形・印・年数・日時・停止・編集・2 年・題・users の答え・読む順）・様式・名簿・誤りの知らせ（日数・初めの日・ORCID・題・決まった文・ラベル・様式・求め）・利用規約（予告・数の語・示した日・年数・最終更新）・個人情報の取り扱い・頁・年表・記録（七つの案・判定の数・引用・理由・満の日数・細目・弁護士・調べた法令）・研究の系列・料金のどれでも落ちる（'
+    + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
+}
+
+console.log('\n97. IndexNow（2026-11-24）：鍵のファイル（32 桁の 16 進の名と同じ中身、配る根の site/ に一つ、build.js が作る）、ワークフロー（site/sitemap.xml を変えた main への push と手で起こすとき）、道具の所在がサイトマップの所在と同じこと、サイトマップのすべての頁を一度に送れること');
+{
+  /* 2026-11-24 に利用者が求め、Claude が書いた。IndexNow は鍵のファイルを、所在の根で、中身も鍵そのものとして読む。
+   * Vercel は site/ を根にして配る（tools/live.json の dir）。site/ は build.js が作るたびに消すので、鍵のファイルも build.js が作る。
+   * Google は IndexNow を読まず、robots.txt が示すサイトマップを読む。README にそう書く。 */
+  const I = require('../tools/indexnow.js');
+  const WF = '.github/workflows/indexnow.yml', JS = 'tools/indexnow.js';
+  const GOOGLE = 'Google は IndexNow を読まず、robots.txt が示すサイトマップを読みます。';
+  const top = fs.readdirSync(path.join(ROOT, 'site'), { withFileTypes: true });
+  const real = {
+    root: top.filter((e) => e.isFile()).map((e) => e.name).sort(),
+    nested: walk(path.join(ROOT, 'site')).filter((f) => f.includes('/') && /(^|\/)[0-9a-f]{32}\.txt$/.test(f)),
+    keys: Object.fromEntries(top.filter((e) => e.isFile() && /^[0-9a-f]{32}\.txt$/.test(e.name)).map((e) => [e.name, read('site/' + e.name)])),
+    build: B.INDEXNOW_KEY, wf: fs.existsSync(path.join(ROOT, WF)) ? read(WF) : null, js: read(JS),
+    robots: read('site/robots.txt'), sitemap: read('site/sitemap.xml'), live: read('tools/live.json'), readme: read('README.md'),
+  };
+  function verdict(x) {
+    const bad = [];
+    const names = x.root.filter((f) => /^[0-9a-f]{32}\.txt$/.test(f));
+    if (names.length !== 1) bad.push('site/ の根の 32 桁の名の鍵のファイルが ' + names.length + ' 件');
+    if (x.nested.length) bad.push('鍵の形のファイルが根の外にある：' + x.nested.join(', '));
+    const k = (names[0] || '').slice(0, -4);
+    if (names.length === 1 && x.keys[names[0]] !== k) bad.push('鍵のファイルの中身が名と違う');
+    if (k !== x.build) bad.push('鍵のファイルが build.js の INDEXNOW_KEY と違う');
+    let live = null;
+    try { live = JSON.parse(x.live); } catch (e) { live = null; }
+    if (!live || live.dir !== 'site' || (live.exclude || []).some((p) => p === names[0] || p === '*.txt')) bad.push('配る根（tools/live.json の dir）が site/ でないか、鍵のファイルを照合から外す');
+    const w = x.wf || '';
+    if (!x.wf) bad.push(WF + ' が無い');
+    else {
+      if (!/\non:\n {2}push:\n {4}branches: \[main\]\n {4}paths: \[site\/sitemap\.xml\]\n {2}workflow_dispatch:\n {4}inputs:\n {6}all:\n/.test(w)) bad.push('ワークフローが site/sitemap.xml を変えた main への push と、all を持つ手の起こしで動かない');
+      if (!/\n {6}- run: node tools\/indexnow\.js\n {8}env:\n {10}BEFORE: \$\{\{ github\.event\.before \}\}\n {10}ALL: \$\{\{ inputs\.all \}\}\n/.test(w)) bad.push('ワークフローが tools/indexnow.js を BEFORE と ALL で走らせない');
+      if (!/fetch-depth: 0/.test(w)) bad.push('ワークフローが前のサイトマップを履歴から読めない');
+    }
+    if (!/path\.join\(SITE, 'sitemap\.xml'\)/.test(x.js) || !/':site\/sitemap\.xml'/.test(x.js) || !/const SITE = path\.join\(ROOT, 'site'\);/.test(x.js)) bad.push('道具が site/sitemap.xml を読まない');
+    const base = (/\nconst BASE = '([^']+)';\n/.exec(x.js) || [])[1] || '';
+    const sm = (/^Sitemap: (\S+)$/m.exec(x.robots) || [])[1] || '';
+    const locs = [...x.sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    let host = null;
+    try { host = new URL(base).host; } catch (e) { host = null; }
+    if (!host || base !== new URL(base).origin + '/' || sm !== base + 'sitemap.xml' || !locs.length || locs.some((u) => !u.startsWith(base))) bad.push('道具の所在（' + base + '）が、robots.txt の示すサイトマップとその頁の所在と違う');
+    if (base !== B.BASE) bad.push('道具の所在が build.js の所在と違う');
+    if (!x.readme.includes(GOOGLE)) bad.push('README に Google のことが無い');
+    return bad;
+  }
+  const bad = verdict(real);
+  ok('鍵のファイル（site/' + real.build + '.txt）は 32 桁の 16 進の名と同じ中身で、配る根の site/ に一つだけあり、build.js が作る。' + WF + ' が site/sitemap.xml を見て、道具の所在がサイトマップの所在（' + I.BASE + '）と同じ。README が Google のことを書く',
+    bad.length === 0, bad.join(' / '));
+  /* すべての頁を送るとき、サイトマップの頁を一つも落とさず、一度の求めに収める。IndexNow が一度に受けるのは 10,000 件まで。 */
+  const locs = [...real.sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const all = I.urls(real.sitemap, '', true), reqs = I.requests(all, I.key());
+  ok('すべての頁を送るとき、サイトマップの ' + locs.length + ' 頁をそのまま、' + reqs.length + ' 度の求めで送る（一度に ' + I.MAX + ' 件まで）。鍵と所在は鍵のファイルを指す',
+    I.key() === real.build && JSON.stringify(all) === JSON.stringify(locs) && reqs.length === Math.ceil(locs.length / I.MAX) && reqs.length >= 1 && reqs.every((q) => q.urlList.length <= I.MAX && q.host === 'nusquama.vercel.app' && q.key === real.build && q.keyLocation === I.BASE + real.build + '.txt')
+    && JSON.stringify(reqs.flatMap((q) => q.urlList)) === JSON.stringify(locs));
+  const many = Array.from({ length: I.MAX * 2 + 1 }, (_, i) => I.BASE + 'p' + i + '.html');
+  const split = I.requests(many, real.build);
+  const was = real.sitemap.replace('  <url><loc>' + I.BASE + 'knights.html</loc></url>\n', '');
+  ok('送る頁の数え方：' + (I.MAX * 2 + 1) + ' 件は 3 度に分け、変わらなければ何も送らず、新しい頁と消えた頁だけを送る',
+    split.length === 3 && split.map((q) => q.urlList.length).join() === [I.MAX, I.MAX, 1].join() && I.urls(real.sitemap, real.sitemap, false).length === 0
+    && I.urls(real.sitemap, was, false).join() === I.BASE + 'knights.html' && I.urls(was, real.sitemap, false).join() === I.BASE + 'knights.html');
+  const K = real.build, keyName = K + '.txt';
+  const mut = (f, v) => Object.assign({}, real, { [f]: v });
+  const breaks = [
+    ['鍵のファイルの中身に改行を足す', mut('keys', { [keyName]: K + '\n' })],
+    ['鍵のファイルの中身を別の鍵にする', mut('keys', { [keyName]: 'f'.repeat(32) })],
+    ['鍵のファイルの名を 31 桁にする', Object.assign({}, real, { root: real.root.filter((f) => f !== keyName).concat([K.slice(1) + '.txt']), keys: {} })],
+    ['鍵のファイルを根の外に移す', Object.assign({}, real, { root: real.root.filter((f) => f !== keyName), nested: ['.well-known/' + keyName], keys: {} })],
+    ['鍵のファイルを二つ置く', Object.assign({}, real, { root: real.root.concat(['0'.repeat(32) + '.txt']), keys: Object.assign({}, real.keys, { ['0'.repeat(32) + '.txt']: '0'.repeat(32) }) })],
+    ['build.js の鍵を変える', mut('build', 'e'.repeat(32))],
+    ['配る根を変える', mut('live', real.live.replace('"dir": "site"', '"dir": "."'))],
+    ['鍵のファイルを照合から外す', mut('live', real.live.replace('"exclude": ["vercel.json"]', '"exclude": ["vercel.json", "*.txt"]'))],
+    ['ワークフローを消す', mut('wf', null)],
+    ['ワークフローが根のサイトマップを見る', mut('wf', (real.wf || '').replace('paths: [site/sitemap.xml]', 'paths: [sitemap.xml]'))],
+    ['ワークフローが main 以外の枝で動く', mut('wf', (real.wf || '').replace('branches: [main]', "branches: ['**']"))],
+    ['ワークフローが手の起こしの all を持たない', mut('wf', (real.wf || '').replace('      all:\n', '      every:\n'))],
+    ['ワークフローが別の道具を走らせる', mut('wf', (real.wf || '').replace('run: node tools/indexnow.js', 'run: node verification/indexnow.js'))],
+    ['ワークフローが ALL を渡さない', mut('wf', (real.wf || '').replace('          ALL: ${{ inputs.all }}\n', ''))],
+    ['道具が根のサイトマップを読む', mut('js', real.js.replace("path.join(SITE, 'sitemap.xml')", "path.join(ROOT, 'sitemap.xml')"))],
+    ['道具が履歴から根のサイトマップを読む', mut('js', real.js.replace("':site/sitemap.xml'", "':sitemap.xml'"))],
+    ['道具の所在を別のサイトにする', mut('js', real.js.replace("const BASE = 'https://nusquama.vercel.app/';", "const BASE = 'https://example.vercel.app/';"))],
+    ['道具の所在から終わりの / を外す', mut('js', real.js.replace("const BASE = 'https://nusquama.vercel.app/';", "const BASE = 'https://nusquama.vercel.app';"))],
+    ['サイトマップの所在を別のサイトにする', mut('sitemap', real.sitemap.replace('<loc>' + I.BASE + 'knights.html', '<loc>https://example.org/knights.html'))],
+    ['robots.txt が別のサイトマップを示す', mut('robots', real.robots.replace('Sitemap: ' + I.BASE + 'sitemap.xml', 'Sitemap: https://example.org/sitemap.xml'))],
+    ['README から Google のことを外す', mut('readme', real.readme.replace(GOOGLE, ''))],
+  ];
+  const missed = breaks.filter(([, y]) => verdict(y).length === 0).map(([k]) => k);
+  ok('壊して確かめる：鍵のファイル（中身・名・所在・数・build.js の鍵・配る根・照合）・ワークフロー（無い・サイトマップ・枝・all・道具・ALL）・道具（サイトマップ・履歴・所在・終わりの /）・サイトマップ・robots.txt・README のどれでも落ちる（'
     + (breaks.length - missed.length) + ' / ' + breaks.length + '）', missed.length === 0, missed.join(' / '));
 }
 
