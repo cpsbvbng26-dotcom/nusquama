@@ -13,7 +13,7 @@
  * read にあっても、次のどれかに当たる頁は頼まない：サイトマップに無い、robots.txt が閉じる、exclude にある、
  * 名簿の騎士の欄の名・names の名・運営者のほかの GitHub のアカウントへのリンク・メールアドレスの形を、見える文かリンクに持つ。
  * Save Page Now は、名を名乗らない求めを詰めると 429 で断る。断られたら 60 秒、180 秒と待って頼み直し、一件ごとに 20 秒あける。
- * 一度の実行は 45 分で新しい頁を頼むのをやめ、次の OFFSET を出す。検査 98 が形を見る。 */
+ * 一度の実行は 40 分で新しい頁を頼むのをやめ、次の OFFSET を出す。終わりに、見えなかった頁を三度見直す（一度は頼み直す）。検査 98 が形を見る。 */
 'use strict';
 
 const fs = require('fs');
@@ -29,7 +29,9 @@ const OWNER = 'cpsbvbng26-dotcom';
 const CONF = JSON.parse(fs.readFileSync(path.join(__dirname, 'wayback.json'), 'utf8'));
 const BACKOFF_S = [0, 60, 180];
 const GAP_S = 20;
-const BUDGET_MIN = 45;
+const BUDGET_MIN = 40;
+/* 写しが見えるまでには、頼んでから数分かかることがある。終わりに、見えなかった頁を 1 分・2 分・3 分あけて三度見直し、二度目の前に一度だけ頼み直す。 */
+const RECHECK_S = [60, 120, 180];
 
 /* 頁の見える文：style と head と札を除き、空白を一つにつめる。read の SHA-256 はこの文から取る。 */
 function text(html) {
@@ -128,19 +130,38 @@ async function run() {
   const day = new Date().toISOString().slice(0, 10).replace(/-/g, '');
   const start = Date.now(), done = [], missing = [];
   let next = off;
-  for (const p of batch) {
-    if (Date.now() - start > BUDGET_MIN * 60000) break;
+  const save = async (u) => {
+    let code = '答えなし';
     for (const w of BACKOFF_S) {
       await pause(w);
-      const r = await get(SAVE + p.url, 120).catch(() => null);
+      const r = await get(SAVE + u, 120).catch(() => null);
+      code = r ? 'HTTP ' + r.status : '答えなし';
       if (!r || r.status !== 429) break;
     }
+    return code;
+  };
+  let wait = [];
+  for (const p of batch) {
+    if (Date.now() - start > BUDGET_MIN * 60000) break;
+    const code = await save(p.url);
     await pause(GAP_S);
     const s = await snapshot(p.url, day);
-    (s ? done : missing).push([p.url, s]);
-    console.log((s ? '残った   ' : '見えない ') + p.url);
+    (s ? done : wait).push([p.url, s]);
+    console.log((s ? '残った   ' : 'まだ見えない ') + p.url + '（頼んだ答え ' + code + '）');
     next++;
   }
+  for (let i = 0; i < RECHECK_S.length && wait.length; i++) {
+    await pause(RECHECK_S[i]);
+    const still = [];
+    for (const [u] of wait) {
+      if (i === 1) console.log('頼み直す ' + u + '（答え ' + (await save(u)) + '）');
+      const s = await snapshot(u, day);
+      (s ? done : still).push([u, s]);
+      if (s) console.log('残った（見直し ' + (i + 1) + ' 度目） ' + u);
+    }
+    wait = still;
+  }
+  missing.push(...wait);
   const left = off + batch.length - next;
   const lines = ['残ったもの ' + done.length + ' / 頼んだもの ' + (done.length + missing.length) + '（頼める頁 ' + go.length + '、今回の範囲 ' + off + ' 番目から ' + batch.length + ' 件）', ''];
   for (const [u, s] of done) lines.push('- ' + u + '\n  ' + s);
@@ -154,4 +175,4 @@ async function run() {
 
 if (require.main === module) run().catch((e) => { console.error(e.message); process.exit(1); });
 
-module.exports = { BASE, SAVE, AVAILABLE, BACKOFF_S, GAP_S, BUDGET_MIN, text, sha, knights, disallowed, plan, real };
+module.exports = { BASE, SAVE, AVAILABLE, BACKOFF_S, GAP_S, BUDGET_MIN, RECHECK_S, text, sha, knights, disallowed, plan, real };
