@@ -608,6 +608,106 @@
       "quoted_in": "docs/legal-audit-2026-11-12.md",
       "window_sha256": "d9afcb107ab9e066cab915524c4dddbe3b269b3b695e89d60d0e3e156e7704ff",
       "sha256_full": "ef4642856d890adff4fc664a0c520f4ab749b5885683f010593354853af4e49d"
+    },
+    "イタリア 1981 年法律第689号 第32条": {
+      "from": "italy-689-art32",
+      "name": "イタリア 1981 年 11 月 24 日法律第 689 号 第 32 条第 1 項",
+      "name_en": "Italy, Law No. 689 of 24 November 1981, Article 32, first paragraph",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art32",
+      "lang": "it",
+      "quote": "Non costituiscono reato e sono soggette alla sanzione amministrativa del pagamento di una somma di denaro tutte le violazioni per le quali è prevista la sola pena della multa o dell'ammenda, salvo quanto disposto, per le violazioni finanziarie, dall'articolo 39.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "イタリア 1981 年法律第689号 第32条第2項・第3項": {
+      "from": "italy-689-art32",
+      "name": "イタリア 1981 年 11 月 24 日法律第 689 号 第 32 条第 2 項・第 3 項",
+      "name_en": "Italy, Law No. 689 of 24 November 1981, Article 32, second and third paragraphs",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art32",
+      "lang": "it",
+      "quote": "La disposizione del precedente comma non si applica ai reati in esso previsti che, nelle ipotesi aggravate, siano punibili con pena detentiva, anche se alternativa a quella pecuniaria. La disposizione del primo comma non si applica, infine, ai delitti in esso previsti che siano punibili a querela.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "イタリア 1981 年法律第689号 第34条": {
+      "from": "italy-689-art34",
+      "name": "イタリア 1981 年 11 月 24 日法律第 689 号 第 34 条（柱書き）",
+      "name_en": "Italy, Law No. 689 of 24 November 1981, Article 34, opening words",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art34",
+      "lang": "it",
+      "quote": "La disposizione del primo comma dell'articolo 32 non si applica ai reati previsti:",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "イタリア 破毀院検事総局 管轄の指針（インターネットの名誉毀損）": {
+      "from": "cassazione-pg-competenza",
+      "name": "イタリア破毀院検事総局「Orientamenti della Procura generale della Cassazione sulla competenza territoriale」（2024 年 9 月）14.3",
+      "name_en": "Procura generale of the Italian Court of Cassation, \"Orientamenti della Procura generale della Cassazione sulla competenza territoriale\" (September 2024), 14.3",
+      "url": "https://www.procuracassazione.it/resources/cms/documents/Orientamenti_della_Procura_generale_della_Cassazione_sulla_competenza_territoriale_settembre24.pdf",
+      "lang": "it",
+      "quote": "la condivisione e l ’ inserimento di frasi offensive o di immagini denigratorie nella rete telematica dà luogo ad un reato di evento che si consuma nel momento e nel luogo in cui i terzi percepiscono l ’ espressione ingiuriosa.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "イタリア 破毀院検事総局 管轄の指針（情報システムへの接続）": {
+      "from": "cassazione-pg-competenza",
+      "name": "イタリア破毀院検事総局「Orientamenti della Procura generale della Cassazione sulla competenza territoriale」（2024 年 9 月）14.1（電子版の新聞の名誉毀損）",
+      "name_en": "Procura generale of the Italian Court of Cassation, \"Orientamenti della Procura generale della Cassazione sulla competenza territoriale\" (September 2024), 14.1 (defamation in the digital edition of a newspaper)",
+      "url": "https://www.procuracassazione.it/resources/cms/documents/Orientamenti_della_Procura_generale_della_Cassazione_sulla_competenza_territoriale_settembre24.pdf",
+      "lang": "it",
+      "quote": "il luogo del fatto deve individuarsi non nel luogo di allocazione fisica del server host, bensì in quello dove il soggetto, dotato di un hardware in grado di collegarsi con la rete, effettua l ’ accesso in remoto",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "欧州逮捕状の枠組み決定 第2条第1項": {
+      "from": "eaw",
+      "name": "欧州連合 理事会枠組み決定 2002/584/JHA（欧州逮捕状）第 2 条第 1 項",
+      "name_en": "EU, Council Framework Decision 2002/584/JHA (European arrest warrant), Article 2(1)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002F0584",
+      "lang": "en",
+      "quote": "A European arrest warrant may be issued for acts punishable by the law of the issuing Member State by a custodial sentence or a detention order for a maximum period of at least 12 months or, where a sentence has been passed or a detention order has been made, for sentences of at least four months.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "欧州逮捕状の枠組み決定 第2条第4項": {
+      "from": "eaw",
+      "name": "欧州連合 理事会枠組み決定 2002/584/JHA（欧州逮捕状）第 2 条第 4 項",
+      "name_en": "EU, Council Framework Decision 2002/584/JHA (European arrest warrant), Article 2(4)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002F0584",
+      "lang": "en",
+      "quote": "For offences other than those covered by paragraph 2, surrender may be subject to the condition that the acts for which the European arrest warrant has been issued constitute an offence under the law of the executing Member State, whatever the constituent elements or however it is described.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "欧州逮捕状の枠組み決定 第4条第7号": {
+      "from": "eaw",
+      "name": "欧州連合 理事会枠組み決定 2002/584/JHA（欧州逮捕状）第 4 条第 7 号",
+      "name_en": "EU, Council Framework Decision 2002/584/JHA (European arrest warrant), Article 4(7)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002F0584",
+      "lang": "en",
+      "quote": "where the European arrest warrant relates to offences which: (a) are regarded by the law of the executing Member State as having been committed in whole or in part in the territory of the executing Member State or in a place treated as such; or (b) have been committed outside the territory of the issuing Member State and the law of the executing Member State does not allow prosecution for the same offences when committed outside its territory.",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "法務省 犯罪白書 逃亡犯罪人の引渡し": {
+      "from": "moj-hakusyo-extradition",
+      "name": "法務省「令和７年版 犯罪白書」第 2 編第 6 章第 2 節 2",
+      "name_en": "Ministry of Justice of Japan, White Paper on Crime 2025, Part 2, Chapter 6, Section 2, 2",
+      "url": "https://hakusyo1.moj.go.jp/jp/72/nfm/n72_2_2_6_2_2.html",
+      "lang": "ja",
+      "quote": "我が国は、アメリカ合衆国（昭和55年（1980年）発効）及び大韓民国（平成14年（2002年）発効）との間で、逃亡犯罪人引渡条約を締結している。",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
+    },
+    "警察庁 犯罪人引渡条約": {
+      "from": "npa-treaties",
+      "name": "警察庁「治安に関係する国際約束の締結」犯罪人引渡条約",
+      "name_en": "National Police Agency of Japan, \"Conclusion of international agreements related to public safety\", extradition treaties",
+      "url": "https://www.npa.go.jp/bureau/soumu/kokusai/yakusoku.html",
+      "lang": "ja",
+      "quote": "犯罪人引渡条約は、日本で犯罪を犯し国外に逃亡した犯罪人等を確実に追跡し、逮捕するため、一定の場合を除き、犯罪人の引渡しを相互に義務付けるものであり、これまでに米国及び韓国との間で締結しています。",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": ""
     }
   }
 }
