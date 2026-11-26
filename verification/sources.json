@@ -617,7 +617,8 @@
       "lang": "it",
       "quote": "Non costituiscono reato e sono soggette alla sanzione amministrativa del pagamento di una somma di denaro tutte le violazioni per le quali è prevista la sola pena della multa o dell'ammenda, salvo quanto disposto, per le violazioni finanziarie, dall'articolo 39.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "window_sha256": "c7de6412ccc985a042e82a9ac21b111c38a4c8edf97b73337792453d0154099f",
+      "sha256_full": "7251012abfb18b16b154be03ad279de25e0d0c6f3c055f1ae1f58b678422b542"
     },
     "イタリア 1981 年法律第689号 第32条第2項・第3項": {
       "from": "italy-689-art32",
@@ -627,7 +628,8 @@
       "lang": "it",
       "quote": "La disposizione del precedente comma non si applica ai reati in esso previsti che, nelle ipotesi aggravate, siano punibili con pena detentiva, anche se alternativa a quella pecuniaria. La disposizione del primo comma non si applica, infine, ai delitti in esso previsti che siano punibili a querela.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "window_sha256": "c7de6412ccc985a042e82a9ac21b111c38a4c8edf97b73337792453d0154099f",
+      "sha256_full": "7251012abfb18b16b154be03ad279de25e0d0c6f3c055f1ae1f58b678422b542"
     },
     "イタリア 1981 年法律第689号 第34条": {
       "from": "italy-689-art34",
@@ -637,7 +639,8 @@
       "lang": "it",
       "quote": "La disposizione del primo comma dell'articolo 32 non si applica ai reati previsti:",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "window_sha256": "7c1e3d38cc5fec2427b6bea1c19bdfa6ccda4e266c3db25866a340e51138ffa9",
+      "sha256_full": "c21ed7c2722f86a76f92a952063e5e0855d51f1f90d757e9da72ee95852f927a"
     },
     "イタリア 破毀院検事総局 管轄の指針（インターネットの名誉毀損）": {
       "from": "cassazione-pg-competenza",
@@ -647,7 +650,7 @@
       "lang": "it",
       "quote": "la condivisione e l ’ inserimento di frasi offensive o di immagini denigratorie nella rete telematica dà luogo ad un reato di evento che si consuma nel momento e nel luogo in cui i terzi percepiscono l ’ espressione ingiuriosa.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "sha256_full": "6d9ea7ee9d111e147a1aa492ad6ec708bc4f5e3ae9ba051cc09c723a006ee927"
     },
     "イタリア 破毀院検事総局 管轄の指針（情報システムへの接続）": {
       "from": "cassazione-pg-competenza",
@@ -657,7 +660,7 @@
       "lang": "it",
       "quote": "il luogo del fatto deve individuarsi non nel luogo di allocazione fisica del server host, bensì in quello dove il soggetto, dotato di un hardware in grado di collegarsi con la rete, effettua l ’ accesso in remoto",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "sha256_full": "6d9ea7ee9d111e147a1aa492ad6ec708bc4f5e3ae9ba051cc09c723a006ee927"
     },
     "欧州逮捕状の枠組み決定 第2条第1項": {
       "from": "eaw",
@@ -667,7 +670,8 @@
       "lang": "en",
       "quote": "A European arrest warrant may be issued for acts punishable by the law of the issuing Member State by a custodial sentence or a detention order for a maximum period of at least 12 months or, where a sentence has been passed or a detention order has been made, for sentences of at least four months.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "window_sha256": "eaf2055569b24d769dfcd9a9a6b0fd6493117726a33d94d704808ad85d45438a",
+      "sha256_full": "1f3aea493535bbdf750bd5780a52bf6bc9c91e1ac2352afc75f2c3cc2620b2dc"
     },
     "欧州逮捕状の枠組み決定 第2条第4項": {
       "from": "eaw",
@@ -677,7 +681,8 @@
       "lang": "en",
       "quote": "For offences other than those covered by paragraph 2, surrender may be subject to the condition that the acts for which the European arrest warrant has been issued constitute an offence under the law of the executing Member State, whatever the constituent elements or however it is described.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "window_sha256": "9d914d17c62ca232ca520a1d51aa5a4e4973325596f6503e4552047b02b31946",
+      "sha256_full": "1f3aea493535bbdf750bd5780a52bf6bc9c91e1ac2352afc75f2c3cc2620b2dc"
     },
     "欧州逮捕状の枠組み決定 第4条第7号": {
       "from": "eaw",
@@ -687,7 +692,8 @@
       "lang": "en",
       "quote": "where the European arrest warrant relates to offences which: (a) are regarded by the law of the executing Member State as having been committed in whole or in part in the territory of the executing Member State or in a place treated as such; or (b) have been committed outside the territory of the issuing Member State and the law of the executing Member State does not allow prosecution for the same offences when committed outside its territory.",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "window_sha256": "48c66718bf228255cc120b6d0502f0c097e616fb2bb3150dab09c21e5e8d9641",
+      "sha256_full": "1f3aea493535bbdf750bd5780a52bf6bc9c91e1ac2352afc75f2c3cc2620b2dc"
     },
     "法務省 犯罪白書 逃亡犯罪人の引渡し": {
       "from": "moj-hakusyo-extradition",
@@ -697,7 +703,7 @@
       "lang": "ja",
       "quote": "我が国は、アメリカ合衆国（昭和55年（1980年）発効）及び大韓民国（平成14年（2002年）発効）との間で、逃亡犯罪人引渡条約を締結している。",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "sha256_full": "a526f93e0ce0b6ff0c5077523f872aaee0c6fe3261b858f4f6dd07cada3a108e"
     },
     "警察庁 犯罪人引渡条約": {
       "from": "npa-treaties",
@@ -707,7 +713,7 @@
       "lang": "ja",
       "quote": "犯罪人引渡条約は、日本で犯罪を犯し国外に逃亡した犯罪人等を確実に追跡し、逮捕するため、一定の場合を除き、犯罪人の引渡しを相互に義務付けるものであり、これまでに米国及び韓国との間で締結しています。",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
-      "sha256_full": ""
+      "sha256_full": "88dd7d6763517d57891d4799f8a92ef9bc0bdba5bdb0e41ca76ca35ac5b224bc"
     }
   }
 }
