@@ -31,11 +31,13 @@ Once applications reopen, an application involves:
 - The tick that the applicant has never been outside Japan since birth (from 2026-11-24; [Rules on Knighting](./knighting.en.md), "Never having been outside Japan")
 - The day the correction was published, and the tick that the original text with the error is a text the applicant wrote (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)")
 - The tick that the applicant holds Japanese nationality (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Holding Japanese nationality")
+- The tick that the applicant accepts "Checking Japanese nationality by document" (after applications reopen; [Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
 About never having been outside Japan, only whether the box is ticked or not is handled. The tick stays as part of the application issue. No passport, document, date or country visited is asked for, and no history of travel outside Japan is collected or kept. The form also asks applicants not to write them.
-About holding Japanese nationality, only whether the box is ticked or not is handled. The tick stays as part of the application issue. No passport, family register, certificate of residence or other document, and no other nationality held, is asked for or kept. The form also asks applicants not to write them.
+In the application issue, about holding Japanese nationality, only whether the box is ticked or not is handled. The tick stays as part of the application issue. In the issue, no passport, family register, certificate of residence or other document, and no other nationality held, is asked for or kept. The form also asks applicants not to write them.
+What is handled when the operator checks by a document after applications reopen is set out in the next section.
 Nothing sensitive, such as illness, disability, belief or criminal record, is asked for either, and the form asks applicants not to write it.
 But if the linked correction gives a real name or affiliation, the roll and the issue publicly connect the account name with that person.
 Issues are also subject to GitHub's Terms of Service and Privacy Statement.
@@ -46,6 +48,35 @@ From 2026-12-15, to check whether 365 days have passed since the previous applic
 From 2026-12-15, to check whether there is a declined application, the automatic check also receives from GitHub's API the list of application issues for knighting opened by the same account that have the label 断った (declined). Likewise, only the issue number and the time of opening are used.
 From 2026-12-15, to check whether the account was created at least 2 years earlier, the automatic check receives from GitHub's public API the answer for the account that opened the application issue. The answer also contains the items of the profile, but only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is written neither in the comment nor in the log of the run. The applicant is asked nothing.
 All of these are public information, and are used for nothing but deciding on knighting.
+
+## What the document check of Japanese nationality involves
+
+After applications reopen, the operator checks that the applicant holds Japanese nationality by an image of a family register certificate ([Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document").
+It takes effect on the later of the day applications reopen and 2026-12-15.
+While applications are paused, this check is not done, and no document or image is received.
+What is handled is one image, which the applicant places in a private repository the operator creates.
+The image shows a personal record certificate of the family register (or an extract of a paper register), and a sheet of paper with the GitHub account name and the day of sending written by hand.
+On the certificate, the applicant masks the permanent domicile, the name of the head of the register, the applicant's name, date of birth, the names of the parents and adoptive parents, the relationship, what is written under the matters of status, and the serial number of the certificate.
+What the operator looks at is the title of the certificate, the statement by which the mayor certifies it, the day of issue, the mayor's title and name, whether there is a mark of removal, and the handwritten sheet.
+This check, too, asks for no real name, address, affiliation or contact details.
+Whether a person holds Japanese nationality is not handled as special care-required personal information. Nationality is not among the matters named in the text of Article 2(3) of the Act on the Protection of Personal Information. The general-rules guidelines of the Personal Information Protection Commission say that mere nationality is a legal status and is not in itself race ([guidelines (general rules)](https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/), 2-3, in Japanese).
+The image is used only to check that the applicant holds Japanese nationality.
+The operator only looks at the image in GitHub's web interface. The operator does not download, copy or store it.
+The operator gives the image neither to a language model nor to GitHub's AI features. Claude does not see the images.
+The operator deletes the private repository within 7 days of the day it was created. Once the operator has looked at the image, it is deleted on that day.
+What is recorded in the public application issue is only one line: "checked" or "not confirmed", with its date.
+No name, date of birth, permanent domicile, certificate number, issuing municipality or day of issue is recorded anywhere.
+The image is received neither by email nor through any other service. The operator does not ask for the applicant's contact details, and publishes none.
+No Individual Number (My Number) is received. Article 19 of the Number Use Act forbids any person to provide specific personal information except in the cases listed in its items. Article 20 of the same Act forbids any person to collect or keep specific personal information that includes another person's Individual Number, except in the same cases.
+If an Individual Number appears in an image, the operator does not read it and deletes the private repository on that day.
+The applicant places the image in the GitHub repository themselves. The operator gives the image to no one.
+The operator treats the image's being placed on the servers of GitHub (United States) as a provision to a third party in a foreign country (Article 28 of the Act on the Protection of Personal Information), and takes consent by a tick in the form. The system of the United States and GitHub's measures are set out in "Providing data to others, and businesses in other countries".
+GitHub's Terms of Service say that GitHub treats the contents of private repositories as confidential to the user (E.2).
+The same terms say that GitHub personnel will not access private repository content without consent except: for security purposes; for automated scanning or manual review for known vulnerabilities, active malware, or other content known to violate the terms; to assist the repository owner with a support matter; to maintain the integrity of the Service; or to comply with legal obligations if there is reason to believe the contents are in violation of the law (E.3). They also say that GitHub may be compelled by law to disclose the contents (E.3).
+The same terms say that, except where private repository content is provided as input to AI features, GitHub will not otherwise use private repository contents to develop or improve the Service (E.3). The operator does not give that repository to AI features.
+Section D.4 of the same terms grants a license to use users' content for training the AI and machine learning models of GitHub's affiliates. E.3 does not say that private repository contents are excluded from that license.
+GitHub's documentation says that a deleted repository can in some cases be restored within 90 days of deletion. It also says that deleting a private repository deletes all of its forks.
+The operator does not restore a deleted repository.
 
 ## What a report of a mistake involves
 
@@ -65,6 +96,7 @@ This limit does not apply to requests about removal, correction, withdrawal, rig
 ## Purposes of use
 
 To decide on knighting, to keep the roll, to answer requests, to check reported mistakes and record them in the King's errata, and, from 2026-12-01, to check that a person who reports a mistake is in Japan. Nothing else.
+The image seen in "Checking Japanese nationality by document" after applications reopen is used, as part of deciding on knighting, only to check that the applicant holds Japanese nationality.
 Article 21(1) of Japan's Act on the Protection of Personal Information reads: 「個人情報取扱事業者は、個人情報を取得した場合は、あらかじめその利用目的を公表している場合を除き、速やかに、その利用目的を、本人に通知し、又は公表しなければならない。」 This page publishes that purpose in advance.
 
 ## Providing data to others, and businesses in other countries
@@ -95,6 +127,7 @@ The earlier title and body remain in the edit history that GitHub keeps for the 
 The automatic check does not copy the body of an issue into the record of its run (the GitHub Actions log).
 On a request to delete, the operator deletes the issue, or empties its body and removes the earlier versions from its edit history too.
 The history of the repository, and copies already made by others, may still hold an entry.
+The image of the document check after applications reopen is deleted, with the whole private repository, within 7 days of the day the repository was created. That GitHub can in some cases restore it within 90 days after deletion is set out in "What the document check of Japanese nationality involves". The operator does not restore it.
 When an issue is opened or written to, GitHub sends a notification to the accounts set to receive that activity.
 Depending on the settings of the person who receives it, a notification also arrives by email. An email notification holds a copy of the content of the issue.
 The accounts that receive it may include the operator's.
@@ -107,6 +140,7 @@ The pages of GitHub's documentation that were fetched do not say that a notifica
 The only personal data handled is what is in the public issues and on the roll of knights.
 GitHub's notifications may carry a copy of the content of an issue to the holders of the accounts that receive them (see "How long data is kept" above). The operator may be one of them.
 Apart from this, the operator gathers the data nowhere else and makes no other copy.
+After applications reopen, the operator also looks at an image of a family register certificate for the document check. The image is placed in a private repository that admits only the operator and the invited account, and is deleted within 7 days of the day the repository was created. The operator does not download or copy the image, and gives it to no language model ("What the document check of Japanese nationality involves").
 Only the operator's GitHub account, which owns the repository, can change the roll and the site.
 That account uses two-factor authentication.
 Every change to the roll and the site is kept in the public history of the repository and goes in only after passing the checks.

@@ -23,6 +23,7 @@ Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
 From 2026-11-24, the condition in "Never having been outside Japan" is also one of the added conditions.
 From 2026-12-15, the condition in "Holding Japanese nationality" is also one of the added conditions.
+After applications reopen, the condition in "Checking Japanese nationality by document" is also one of the added conditions.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation (continued)" are also among the added conditions.
@@ -201,12 +202,95 @@ The owner decided this condition on 2026-11-26. Claude decided the details on th
 This condition does not look down on people who do not hold Japanese nationality, and does not rank anyone.
 This condition does not settle the point of Italian law ([Legality Statement](./legality.en.md), "How far conferring is a crime under Italian law"). Applications stay paused.
 The conditions in "Barriers to participation" and "Barriers to participation (continued)" still do not sort people by nationality. The rules on nationality are in this section, "Who may apply" and "Countries that restrict foreign titles".
-It is confirmed only by the applicant's own declaration, by a tick in the form. The text of the box begins "日本の国籍を持っています" (I hold Japanese nationality).
-No passport, family register, certificate of residence or other document is asked for. No other nationality the applicant holds is asked about.
-The operator handles only whether the box is ticked or not. The tick stays as part of the application issue ([Privacy](./privacy.en.md), "What an application for knighthood involves").
+It is confirmed by the applicant's own declaration, by a tick in the form. The text of the box begins "日本の国籍を持っています" (I hold Japanese nationality).
+After applications reopen, a check in which the operator looks at an image of a family register certificate is added to it ("Checking Japanese nationality by document").
+In the application issue, no passport, family register, certificate of residence or other document is asked for. No other nationality the applicant holds is asked about.
+As for the tick, the operator handles only whether the box is ticked or not. The tick stays as part of the application issue ([Privacy](./privacy.en.md), "What an application for knighthood involves").
 If a tick turns out to be untrue, it is handled like any other tick, under "What is not allowed" in the Terms of Use: the operator removes the name from the roll as soon as the operator learns of it, and may also refuse further applications from the same GitHub account.
 The roll of knights does not change. On 2026-11-26, there is no knight on the roll. The condition does not apply to a knight knighted before 2026-12-15. No knight is asked about nationality.
 Applications stay paused. When they reopen, this condition applies to every application.
+The content of the change and the date it takes effect were shown on 2026-11-26 under "Changes and ending" in the Terms of Use.
+
+## Checking Japanese nationality by document
+
+After applications reopen, the operator checks by a document, in addition to the tick in the form, that the applicant holds Japanese nationality.
+This check takes effect on the later of the day applications reopen and 2026-12-15.
+The day applications reopen is shown in advance in these rules and in the Terms of Use, as "Pause in receiving applications" says.
+While applications are paused, this check is not done. No document is asked for or received.
+This section does not decide to reopen. Reopening still requires the row of the check in "Pause in receiving applications".
+This check is in addition to the conditions in the other sections. The tick "日本の国籍を持っています" (I hold Japanese nationality) in the form is still required.
+The owner asked for this check on 2026-11-26, and Claude decided it, so that Japanese nationality is not accepted on the applicant's own declaration alone.
+
+### The documents accepted
+
+Only a personal record certificate of the applicant's family register (koseki), or an extract of a paper family register (koseki shohon), is accepted. Both certify part of what is recorded in a family register (Family Register Act, Articles 10 and 120).
+It must have been issued within 3 months. A loss of nationality after the day of issue does not appear on it.
+Article 23 of the Family Register Act provides that a person who loses nationality is removed from the family register they were in (joseki).
+The operator checks that there is no mark of removal in the applicant's entry on the certificate.
+A certificate of all matters of a family register, and a full copy of a family register (koseki tohon), are not accepted, because they carry other people's entries.
+A certificate of a removed family register (joseki) is not accepted either.
+A passport is not accepted. Article 18(1)(i) of the Passport Act provides that a passport loses its effect when its holder loses Japanese nationality. An image of a passport cannot show whether it has lost its effect that way. A passport also carries a photograph of the face.
+A copy of a certificate of residence (jūminhyō) is not accepted. Nationality is not among the matters that Article 7 of the Basic Resident Registration Act lists for a certificate of residence. Nationality and region are recorded on the certificate of residence of a foreign resident (Article 30-45 of the same Act). Article 7 of the same Act also lists the Individual Number among the matters recorded.
+An Individual Number Card (My Number card) is not accepted. Nationality is not among the matters that Article 2(7) of the Number Use Act lists for the card. The card carries the Individual Number.
+No other document is accepted.
+
+### The Individual Number is not received
+
+Article 19 of the Number Use Act (Act on the Use of Numbers to Identify a Specific Individual in Administrative Procedures) provides that no person may provide specific personal information except in the cases listed in its items.
+Article 20 of the same Act provides that no person may collect or keep specific personal information that includes another person's Individual Number, except in the same cases.
+Specific personal information is personal information that contains an Individual Number (Article 2(9) of the same Act).
+The operator relies on none of the items of Article 19. The operator does not receive, collect or keep any Individual Number.
+Neither side of an Individual Number Card, a copy of a certificate of residence that shows the Individual Number, nor anything else that shows the Individual Number is put in the image.
+If an Individual Number appears in an image, the operator does not read it, deletes the private repository on that day, and records the check as not confirmed.
+
+### What is masked and what is shown
+
+The permanent domicile (honseki), the name of the head of the register, the applicant's name, date of birth, the names of the parents and adoptive parents, the relationship, what is written under the matters of status, and the serial number of the certificate are masked.
+Nothing else is masked. The title of the certificate, the statement by which the mayor certifies it, the day of issue, and the mayor's title and name stay visible. If the applicant's entry has a mark of removal, that mark stays visible too.
+The name is masked because the check does not need it. The operator does not know the applicant's real name, so seeing the name would not tie it to the account. The rule that no real name is asked for is also kept ([Privacy](./privacy.en.md), "What an application for knighthood involves").
+The permanent domicile, the date of birth, the parents and the matters of status are not needed to check Japanese nationality either.
+Masking is done by laying paper over the parts or by painting over them on the image.
+The image is a single JPEG or PNG. A PDF is not accepted, because text under a painted area can remain in a PDF.
+The image keeps no location data of where it was taken.
+If a part that should be masked is visible, the operator does not read it and records the check as not confirmed.
+If a part that should be shown is hidden and the check cannot be decided, it is also recorded as not confirmed.
+
+### Tying it to the account
+
+In the same image, next to the certificate, a handwritten sheet of paper is shown.
+On the sheet are written the GitHub account name that opened the application issue and the day the image is sent (Japan time, in the form 2026-12-15).
+If the date on the sheet differs from the day (Japan time) the image is placed in the repository, the check is recorded as not confirmed.
+If the day of issue is more than 3 months before the date on the sheet, it is also recorded as not confirmed.
+
+### How the image is passed
+
+The image is received only in a private repository on GitHub. Neither email nor any other service is used.
+No contact details are asked for, and none are newly published.
+After checking the other conditions, and before deciding on knighting, the operator creates one private repository for each application.
+Only the GitHub account that opened the application issue is invited to that repository. The invitation is noted in the application issue.
+After accepting the invitation, the applicant places the image in that repository as a file.
+The image is not pasted into an issue, a comment or a pull request, because GitHub's notifications may carry a copy of the content of an issue ([Privacy](./privacy.en.md), "How long data is kept").
+The operator only looks at the image in GitHub's web interface. The operator does not download, copy or store it.
+The operator gives the image neither to a language model nor to GitHub's AI features.
+Claude does not see the images. Claude does not create, open or read these private repositories. Only the operator does this check.
+The operator deletes the private repository within 7 days of the day it was created. Once the operator has looked at the image, the repository is deleted on that day.
+If no image is placed within the 7 days, the check is recorded as not confirmed.
+The operator does not restore a deleted repository.
+
+### What is recorded
+
+The operator records only one line, in the public application issue.
+That line is "日本の国籍の書類による確かめ：確かめた（date）" (checked) or "日本の国籍の書類による確かめ：確かめられなかった（date）" (not confirmed).
+No copy of the certificate, no image, name, date of birth, permanent domicile, certificate number, issuing municipality or day of issue is recorded anywhere.
+What the roll of knights carries does not change.
+Knighting is not decided until that line is recorded.
+An application whose check was not confirmed is declined ("What is declined").
+
+### What this check shows
+
+This check shows only that an image of a certificate matching the declaration was shown next to a sheet with that account name.
+It cannot exclude a forged document or another person's certificate.
+So the handling of an untrue tick does not change. If a tick turns out to be untrue, or the applicant turns out to have shown a forged document or another person's document, it is handled under "What is not allowed" in the Terms of Use: the operator removes the name from the roll as soon as the operator learns of it, and may also refuse further applications from the same GitHub account.
 The content of the change and the date it takes effect were shown on 2026-11-26 under "Changes and ending" in the Terms of Use.
 
 ## Countries that restrict foreign titles
@@ -299,6 +383,8 @@ From 2026-12-15, also fill in the field "訂正を公開した日" (Day the corr
 
 From 2026-12-15, also tick the box that you hold Japanese nationality ("Holding Japanese nationality").
 
+After applications reopen, also tick the box that you accept "Checking Japanese nationality by document", and place an image of your family register certificate in the private repository the operator invites you to ("Checking Japanese nationality by document").
+
 ## What the operator checks
 
 - That the link is public and reads as a correction.
@@ -308,6 +394,7 @@ From 2026-12-15, also tick the box that you hold Japanese nationality ("Holding 
 - From 2026-12-15, that at the link the day of publication matches "訂正を公開した日" (Day the correction was published) in the form, that both the original text with the error and the corrected text can be seen, and that the original text reads as written by the applicant (for a co-authored text, one with the applicant among its authors) ("Barriers to participation (continued)").
 - That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality or the nationality of a country under "Countries that restrict foreign titles", or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
 - From 2026-12-15, that the linked correction does not state clearly that the applicant does not hold Japanese nationality. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they hold Japanese nationality ("Holding Japanese nationality").
+- After applications reopen, that the result of "Checking Japanese nationality by document" is "確かめた" (checked). The operator does not decide on knighting until that line is recorded in the application issue.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
 
@@ -318,15 +405,17 @@ From 2026-11-24, the automatic check also checks the tick that the applicant has
 From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
 From 2026-12-15, the automatic check also checks the tick that the original text with the error is a text the applicant wrote, the day the correction was published, whether the link to the correction has the form of a place that keeps the earlier version, the day the account was created, and declined applications from the same account ("Barriers to participation (continued)").
 From 2026-12-15, the automatic check also checks the tick that the applicant holds Japanese nationality ("Holding Japanese nationality").
+After applications reopen, the automatic check also checks the tick that the applicant accepts "Checking Japanese nationality by document", and writes that the document check is not done until the operator records its result. The automatic check does not see the image.
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
 
-The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
+The operator does not check country of residence, age or real name, and asks for no identity document with a photograph of the face.
+Nationality is checked only after applications reopen, and only in the form of "Checking Japanese nationality by document".
 Nusquama gives no nationality. Knights are not its people.
 Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality or the nationality of a country under "Countries that restrict foreign titles" are taken from the applicant's own declaration, by the ticks in the form.
 From 2026-11-24, never having been outside Japan since birth is also taken from the applicant's own declaration, by a tick in the form. No passport or other document is asked for ("Never having been outside Japan").
-From 2026-12-15, holding Japanese nationality is also taken from the applicant's own declaration, by a tick in the form. No passport, family register, certificate of residence or other document is asked for ("Holding Japanese nationality").
+From 2026-12-15, holding Japanese nationality is also taken from the applicant's own declaration, by a tick in the form. After applications reopen, "Checking Japanese nationality by document" is added to it. No passport, certificate of residence or Individual Number Card is asked for ("Holding Japanese nationality").
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
@@ -349,6 +438,7 @@ No knighthood is given for:
 - From 2026-11-29, an application where the linked correction clearly shows that "Countries and regions where knighting would not conform to the law" applies.
 - From 2026-12-15, an application that does not meet the conditions in "Barriers to participation (continued)".
 - From 2026-12-15, an application without the tick for "Holding Japanese nationality".
+- After applications reopen, an application whose "Checking Japanese nationality by document" was not confirmed.
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 From 2026-12-15, the issue of a declined application gets the label 断った (declined). No application for knighting is ever received again from that account ("Barriers to participation (continued)").
