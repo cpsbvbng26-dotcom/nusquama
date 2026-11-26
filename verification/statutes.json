@@ -1082,7 +1082,9 @@
       "name": "逃亡犯罪人引渡法",
       "label": "第2条",
       "law_id": "328AC0000000068",
-      "article": "2"
+      "article": "2",
+      "sha256": "9ba1490953e28ddce50f00c0468809dcc40c0df5f420ad8762812e75b43bd22f",
+      "title": "逃亡犯罪人引渡法"
     }
   ],
   "policies": [
@@ -1105,5 +1107,5 @@
       "commit": "166eb97e485b7de3cd5dbaf8c8d16e4310fda46c"
     }
   ],
-  "recorded": "2026-11-22"
+  "recorded": "2026-11-26"
 }
