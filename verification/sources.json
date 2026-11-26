@@ -714,6 +714,26 @@
       "quote": "犯罪人引渡条約は、日本で犯罪を犯し国外に逃亡した犯罪人等を確実に追跡し、逮捕するため、一定の場合を除き、犯罪人の引渡しを相互に義務付けるものであり、これまでに米国及び韓国との間で締結しています。",
       "quoted_in": "docs/legal-audit-2026-11-12.md",
       "sha256_full": "88dd7d6763517d57891d4799f8a92ef9bc0bdba5bdb0e41ca76ca35ac5b224bc"
+    },
+    "個人情報保護委員会 ガイドライン（通則編）2-3（人種と国籍）": {
+      "from": "ppc-guideline-general",
+      "name": "個人情報保護委員会「個人情報の保護に関する法律についてのガイドライン（通則編）」2-3（1）人種",
+      "name_en": "Personal Information Protection Commission, Guidelines (General Rules), 2-3 (1) race",
+      "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/",
+      "lang": "ja",
+      "quote": "なお、単純な国籍や「外国人」という情報は法的地位であり、それだけでは人種には含まない。",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "80787f355fc0b2ffd60dee377f4eb6061172c7781b63ad54f49862f2d94313d4"
+    },
+    "個人情報保護委員会 ガイドライン（通則編）3-2（国籍による違法な差別的取扱い）": {
+      "from": "ppc-guideline-general",
+      "name": "個人情報保護委員会「個人情報の保護に関する法律についてのガイドライン（通則編）」3-2 不適正利用の禁止の事例 5",
+      "name_en": "Personal Information Protection Commission, Guidelines (General Rules), 3-2 prohibition of improper use, example 5",
+      "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/",
+      "lang": "ja",
+      "quote": "採用選考を通じて個人情報を取得した事業者が、性別、国籍等の特定の属性のみにより、正当な理由なく本人に対する違法な差別的取扱いを行うために、個人情報を利用する場合",
+      "quoted_in": "docs/legal-audit-2026-11-12.md",
+      "sha256_full": "80787f355fc0b2ffd60dee377f4eb6061172c7781b63ad54f49862f2d94313d4"
     }
   }
 }
