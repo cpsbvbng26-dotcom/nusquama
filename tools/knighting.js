@@ -6,7 +6,7 @@
  * issue の番号・開いた時刻・本文は、出来事のファイル（GITHUB_EVENT_PATH）から読む。本文を環境変数で渡すと、
  * 実行の記録（Actions のログ）に本文が写るため（2026-11-13 に Claude が決めた。点検の記録「2026-11-13：十四度目の見落とし」）。
  *
- * 確かめるのは八つだけ：
+ * 確かめるのは九つだけ：
  *   - 様式の誓いのうち、必ず印を付けるものすべてに印があること
  *   - 2026-11-22 から（日本時間で issue を開いた日）、日本に住み、いま日本にいる印があること
  *   - 2026-11-22 から、イタリアの国籍を持っていない印があること（ほかの国籍と重ねて持つ場合も含む）
@@ -14,6 +14,8 @@
  *   - 2026-11-22 から、称号を遊びとして扱い、規程の禁じる使い方をしない印（良識の前提）があること
  *   - 2026-11-24 から、生まれてから一度も日本の外に出たことがない印があること（叙任の規程「日本の外に出たことがないこと」。
  *     2026-11-23 に運営者が決め、細かな定めは Claude が決めた）。見るのは印のあるなしだけで、旅券・日付・行った国は読まず、残さない
+ *   - 2026-12-15 から、日本の国籍を持つ印があること（叙任の規程「日本の国籍を持つこと」。2026-11-26 に利用者が決め、細かな定めは
+ *     Claude が決めた）。見るのは印のあるなしだけで、書類も、ほかに持つ国籍も読まず、残さない
  *   - 訂正へのリンクが https の URL で、受けない先（CLOSED）を指さないこと（文字の上だけで見る。リンクは開かない）
  *   - 何を誤り、どう正したかが書かれていること
  *
@@ -79,6 +81,9 @@ const PREMISE = '称号を遊びとして扱い、規程の禁じる使い方を
 /* 日本の外に出たことがないこと（2026-11-24 から）。2026-11-23 に運営者が決め、細かな定めは Claude が決めた。 */
 const ABROAD_FROM = '2026-11-24';
 const ABROAD = '生まれてから一度も、日本の外に出たことがありません';
+/* 日本の国籍を持つこと（2026-12-15 から）。2026-11-26 に利用者が決め、細かな定めは Claude が決めた。 */
+const JAPANESE_FROM = '2026-12-15';
+const JAPANESE = '日本の国籍を持っています';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
 /* 参加のハードル（2026-12-15 から）。2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選んだ。 */
 const HURDLE_FROM = '2026-12-15';
@@ -130,9 +135,109 @@ const PAUSE_TITLE = '叙任の願い出（受付の停止のあいだ） / Appli
 const PAUSE_BODY = '受付を止めているあいだに届いた叙任の願い出です（叙任の規程「受付の停止」）。受けていないので、自動の確認が題と本文をこの断りに替え、閉じました。運営者が残すのは、開いた人のアカウント名と開いた日だけです（個人情報の取り扱い「保存の期間」）。';
 const PAUSE_BODY_EN = 'This application for knighting arrived while applications are paused (Rules on Knighting, "Pause in receiving applications"). It was not accepted, so the automatic check replaced its title and body with this note and closed it. The operator keeps only the account name of the person who opened it and the date it was opened (Privacy, "How long data is kept").';
 
+/* 受付に戻すときの確かめ（2026-11-26 に Claude が決めた。点検の記録「2026-11-26：イタリアの法令で、授けることがどこまで罪になるか」）。
+ * 受付に戻す決めは、点検の記録の表に FINDING を「箇所」の欄に持つ行があるときだけ効く。その行は、判定が「問題なし」で、
+ * FINDING_POINTS のすべて（第 7 条第 5 号・第 7 条第 1 号・第 8 条・第 6 条と、オンラインで日本の国籍の人に授けること）を書き、
+ * 「法令と条」の欄に一次資料の表（verification/sources.json）の名を挙げる。挙げた名は表になければならず、そのうち一つ以上は
+ * READ_UNSETTLED（2026-11-26 までに読み、この点を決めなかった出典）にないものでなければならない。読んだ文がこの点を決めないことは、
+ * 点検の記録の 2026-11-13 と 2026-11-26 の節にある。名を替えても 1951 年法律第 178 号第 8 条の「con qualsiasi forma e denominazione」に
+ * 当たりうるので、呼び名や形を替えても、この確かめは要る。 */
+const FINDING = 'イタリアの法令が叙任に及ばないことの確かめ';
+const FINDING_POINTS = ['刑法典第7条第5号', '刑法典第7条第1号', '刑法典第8条', '刑法典第6条', 'オンライン', '日本の国籍'];
+const READ_UNSETTLED = [
+  'モンテビデオ条約 第1条',
+  'モンテビデオ条約 第3条',
+  'GDPR 第3条第2項',
+  'イタリア 1951 年法律第178号 第8条',
+  'CCPA 司法長官の説明',
+  'Vercel Fair Use Guidelines',
+  'Vercel Fair Use Guidelines（節の一覧）',
+  'GDPR 第27条',
+  'イタリア 2016 年委任立法第8号 第1条',
+  'Vercel 利用規約 第4条',
+  'イタリア 刑法典 第10条',
+  'イタリア 刑法典 第6条',
+  'イタリア 刑法典 第9条',
+  'イタリア 1951 年法律第178号 第7条',
+  'イタリア 2016 年委任立法第8号 第1条第3項',
+  'イタリア 2016 年委任立法第8号 別表',
+  'イタリア 首相府 勲章の使用の案内（使う者）',
+  'イタリア 首相府 勲章の使用の案内（授ける者）',
+  'モンテビデオ条約 当事国の一覧',
+  'CCPA 第1798.140条(d)',
+  'Vercel 利用規約 第8条',
+  'Vercel 利用規約 第10.1条',
+  'Vercel 許容される利用の方針（なりすまし）',
+  'Vercel 許容される利用の方針（好ましくない目的）',
+  '個人情報保護委員会 Q&A Q1-62',
+  '個人情報保護委員会 Q&A Q12-3',
+  '個人情報保護委員会 Q&A Q12-10',
+  '個人情報保護委員会 Q&A Q13-2',
+  '個人情報保護委員会 ガイドライン 通則編 2-5',
+  '個人情報保護委員会 ガイドライン 外国第三者提供編 5-1',
+  '個人情報保護委員会 ガイドライン 外国第三者提供編 5-2',
+  '個人情報保護委員会 ガイドライン 外国第三者提供編 5-3-2',
+  '個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-1',
+  '個人情報保護委員会 ガイドライン 確認記録義務編 2-2-1-3',
+  '個人情報保護委員会 ガイドライン 確認記録義務編 4-2-1-2',
+  '個人情報保護委員会 外国制度 米国（指標）',
+  '個人情報保護委員会 外国制度 米国（政府の情報収集）',
+  '個人情報保護委員会 外国制度 米国（時点）',
+  '総務省 電気通信事業参入マニュアル（事業）',
+  '総務省 電気通信事業参入マニュアル（Webサイト）',
+  '総務省 電気通信事業参入マニュアル（問合せの受付）',
+  '総務省 電気通信事業参入マニュアル（電子掲示板）',
+  '総務省 外部送信規律 FAQ 問1-8',
+  'GitHub の利用規約 I 節',
+  'GitHub の追加製品の規約 Actions（前置き）',
+  'GitHub の追加製品の規約 Actions（負荷）',
+  'GitHub の追加製品の規約 Actions（目的）',
+  'GitHub の追加製品の規約 Actions（誤用）',
+  'Internet Archive の利用規約（範囲）',
+  'Internet Archive の利用規約（目的）',
+  'Internet Archive の利用規約（負荷）',
+  'Internet Archive の利用規約（個人データ）',
+  'イタリア 刑法典 第7条（柱書き）',
+  'イタリア 刑法典 第7条第1号',
+  'イタリア 刑法典 第7条第5号',
+  'イタリア 刑法典 第8条第1項',
+  'イタリア 刑法典 第8条第3項',
+  'イタリア 刑法典 第10条第2項',
+  'イタリア 1951 年法律第178号 第8条第4段落',
+  'イタリア 1951 年法律第178号 第9条',
+  'イタリア 1981 年法律第689号 第32条',
+  'イタリア 1981 年法律第689号 第32条第2項・第3項',
+  'イタリア 1981 年法律第689号 第34条',
+  'イタリア 破毀院検事総局 管轄の指針（インターネットの名誉毀損）',
+  'イタリア 破毀院検事総局 管轄の指針（情報システムへの接続）',
+  '欧州逮捕状の枠組み決定 第2条第1項',
+  '欧州逮捕状の枠組み決定 第2条第4項',
+  '欧州逮捕状の枠組み決定 第4条第7号',
+  '法務省 犯罪白書 逃亡犯罪人の引渡し',
+  '警察庁 犯罪人引渡条約',
+  '個人情報保護委員会 ガイドライン（通則編）2-3（人種と国籍）',
+  '個人情報保護委員会 ガイドライン（通則編）3-2（国籍による違法な差別的取扱い）',
+];
+const SOURCES_FILE = path.join('verification', 'sources.json');
+
+/* 純：点検の記録に、受付に戻すための確かめの行があるか。あれば null、なければ理由。sources は一次資料の表の sources。 */
+function findingProblem(record, sources) {
+  const rows = String(record || '').split('\n').filter((l) => l.startsWith('| ' + FINDING + ' |')).map((l) => l.replace(/^\| | \|$/g, '').split(' | '));
+  if (!rows.length) return 'イタリアの法令が叙任に及ばないことを確かめた行が、記録にない';
+  const names = Object.keys(sources || {});
+  for (const r of rows) {
+    if (r.length !== 6 || r[4] !== '問題なし') continue;
+    if (!FINDING_POINTS.every((p) => r.join(' ').includes(p))) continue;
+    const cited = r[1].split('、').map((x) => x.trim()).filter((c) => names.includes(c));
+    if (!cited.some((c) => !READ_UNSETTLED.includes(c))) continue;
+    return null;
+  }
+  return '確かめの行が、問題なしの判定・確かめる点のすべて・まだ読んでいなかった一次資料のどれかを欠く';
+}
+
 /* 純：受付に戻す決めが、点検の記録の行に拠っているか。拠っていれば null、いなければ理由。
- * record は点検の記録の文（docs/legal-audit-2026-11-12.md）。 */
-function reopenProblem(reopen, record) {
+ * record は点検の記録の文（docs/legal-audit-2026-11-12.md）。sources は一次資料の表（既定は verification/sources.json）。 */
+function reopenProblem(reopen, record, sources = JSON.parse(fs.readFileSync(path.join(ROOT, SOURCES_FILE), 'utf8')).sources) {
   if (reopen === null) return null;
   if (!reopen || typeof reopen.at !== 'string' || typeof reopen.record !== 'string' || !reopen.record.trim()) return '決めの形が違う';
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+09:00$/.test(reopen.at) || !Number.isFinite(Date.parse(reopen.at))) return '時刻が日本時間の形でない';
@@ -140,6 +245,8 @@ function reopenProblem(reopen, record) {
   const row = String(record || '').split('\n').find((l) => l.startsWith('| ' + reopen.record + ' |'));
   if (!row) return '記録に行がない';
   if (!row.includes(reopen.at.slice(0, 10)) || !row.includes('受付に戻す')) return '記録の行が、その日に受付に戻すと書いていない';
+  const finding = findingProblem(record, sources);
+  if (finding) return finding;
   return null;
 }
 
@@ -181,6 +288,7 @@ const DATED = [
   { from: PREMISE_FROM, text: PREMISE, label: '称号を遊びとして扱う印（良識の前提）がある' },
   { from: FOREIGN_FROM, text: FOREIGN, label: '外国の称号を縛る国の国籍を持っていない印がある' },
   { from: ABROAD_FROM, text: ABROAD, label: '生まれてから一度も日本の外に出たことがない印がある' },
+  { from: JAPANESE_FROM, text: JAPANESE, label: '日本の国籍を持つ印がある' },
   { from: HURDLE_FROM, text: AGE, label: '18 歳以上の印がある' },
   { from: STRICT_FROM, text: OWN, label: '誤りの元の文が、自分が書いて公開した文である印がある' },
 ];
@@ -547,6 +655,6 @@ async function main() {
 }
 
 module.exports = { STRICT_FROM, OWN, PUBLISHED_FIELD, PUBLISHED_DAYS, ACCOUNT_YEARS, QUOTA_YEARS, REFUSED_LABEL, VENUES, venueOf, realDay, publishedProblem, yearsAfter, accountProblem, refusedProblem, lastKnighted, quotaEarliest,
-  ACCOUNT_LABEL, addAccount, REFUSED_ROW, addRefused, addQuota, refusedApplications, accountCreated, githubApi, ABROAD_FROM, ABROAD, HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
+  ACCOUNT_LABEL, addAccount, REFUSED_ROW, addRefused, addQuota, refusedApplications, accountCreated, githubApi, FINDING, FINDING_POINTS, READ_UNSETTLED, findingProblem, JAPANESE_FROM, JAPANESE, ABROAD_FROM, ABROAD, HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
