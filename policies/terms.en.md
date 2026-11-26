@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 2026-11-24.
+Last updated: 2026-11-26.
 
 This is an English translation. The [Japanese version](./terms.md) governs; if the two differ, the Japanese version applies.
 
@@ -37,6 +37,7 @@ Knighting does not confer a decoration, honour or rank of knighthood (including 
 The titles are used only inside the kingdom.
 Inside the kingdom means this repository, the site, and the articles and posts the operator wrote to introduce Nusquama (listed in the [README](../README.md), in Japanese, under "ほかの場所").
 Nusquama makes and hands out no physical decorations, insignia, uniforms or certificates.
+Knighting is done entirely online. There is no knighting ceremony and no conferral in person, and no letter or object is sent ([Rules on Knighting](./knighting.en.md), "What knighting is").
 The titles must not be used in a way that could be mistaken for an official post, court rank, decoration, academic degree or any other title set by law.
 Nusquama's titles must not be written on a CV, a paper, a business card, an official document, in commerce or in advertising.
 From 2026-11-22, the name of knight is used only in connection with Nusquama.
@@ -117,6 +118,9 @@ Notice: from 2026-12-15, once applications reopen, applications for knighting ar
 Notice: from 2026-12-15, once applications reopen, at most 1 person is knighted in 2 years. This replaces the 1 person a year of the notice above ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
 Notice: from 2026-12-15, no application for knighting is ever received again from a GitHub account whose application for knighting was declined. A withdrawn application counts, as before, only for 365 days ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
 Notice: from 2026-12-15, an error report opened on or after that day is not accepted until 30 days, not counting the day itself, have passed since the same GitHub account opened its previous error report; it gets the label "one per 30 days" and a fixed comment. The issue is not closed. Requests about removal, correction or withdrawal, notices from rights holders, and reports of security problems are not limited ([Privacy](./privacy.en.md), "What a report of a mistake involves").
+
+The notice below was shown on 2026-11-26. The owner decided this on 2026-11-26.
+Notice: from 2026-12-15, applications for knighting after reopening are limited to people who hold Japanese nationality. A person who also holds Italian nationality, or the nationality of a country that restricts foreign titles, still may not apply. Only the applicant's own declaration by a tick in the form is checked; no passport, family register, certificate of residence or other document, and no other nationality held, is asked for. When applications reopen, this condition applies to every application. The roll of knights does not change, and no knight is asked about nationality ([Rules on Knighting](./knighting.en.md), "Holding Japanese nationality"; shown on 2026-11-26).
 
 No change will ever create a fee.
 When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.

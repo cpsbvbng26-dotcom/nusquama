@@ -1,6 +1,6 @@
 # Rules on Knighting
 
-Last updated: 2026-11-24.
+Last updated: 2026-11-26.
 
 This is an English translation. The [Japanese version](./knighting.md) governs; if the two differ, the Japanese version applies.
 
@@ -11,6 +11,9 @@ It brings no legal effect, status, privilege or honour.
 Knighting does not confer a decoration, honour or rank of knighthood of any country.
 Knighting is free. It is never given in exchange for money, goods or services (Basic Law, Article 6).
 Knighting issues no document or object, such as a letter of appointment, a certificate or an insignia. It only puts an account name on the roll.
+Knighting is done entirely online. Applications are received as GitHub issues, and a knighting is recorded as a comment on that issue and on the roll of knights in the repository and on the site.
+There is no knighting ceremony and no conferral in person. No letter or object is sent either.
+What Nusquama gives to people is only the name of knight. No other title, rank, decoration, insignia, certificate or nationality is given, under whatever name or form.
 
 ## Relation to Article 6 of the Basic Law
 
@@ -19,6 +22,7 @@ The conditions of these rules apply in addition to the condition of Article 6.
 Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
 From 2026-11-24, the condition in "Never having been outside Japan" is also one of the added conditions.
+From 2026-12-15, the condition in "Holding Japanese nationality" is also one of the added conditions.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation (continued)" are also among the added conditions.
@@ -45,6 +49,7 @@ From 2026-11-29, people who hold the nationality of, live in, or are in when app
 From 2026-12-15, a person under 18 may not apply ("Barriers to participation").
 From 2026-12-15, the correction must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version, and have been published at least 180 days before the day the application issue was opened ("Barriers to participation (continued)").
 From 2026-12-15, applications are received only from GitHub accounts created at least 2 years before the day the issue was opened. No application is ever received again from an account whose application was declined ("Barriers to participation (continued)").
+From 2026-12-15, only people who hold Japanese nationality may apply. A person who holds Italian nationality, or the nationality of a country under "Countries that restrict foreign titles", together with Japanese nationality still may not apply ("Holding Japanese nationality").
 
 ## Pause in receiving applications
 
@@ -60,6 +65,18 @@ Once applications reopen, the revised rules are checked. An issue opened during 
 Claude decided on 2026-11-12 that whether an application is received depends on the time the issue was opened, how it is closed, and that a new issue is used.
 Claude decided on 2026-11-13 to tie reopening to a decision recorded in the legal review rather than to a date, so that applications do not reopen merely because a date arrives before the check is finished.
 On 2026-11-12, when the pause was decided, there were no open applications for knighting, and there was no knight on the roll. On 2026-11-13, when the pause was continued, there were still no application issues.
+From 2026-11-26, reopening requires a row "イタリアの法令が叙任に及ばないことの確かめ" (Check that Italian law does not reach knighting) in the table of the legal review.
+That row must have confirmed, for every one of the following four points, that the law does not reach knighting.
+
+1. That the penalty for conferring in Article 8 of Italy's Law No. 178 of 1951 does not reach, through Article 7, item 5 of the Penal Code, a conferral by the operator in Japan on a person of Japanese nationality in Japan.
+2. That Article 7, item 1 and Article 8 of the Penal Code (crimes against the personality of the State, and political crimes) do not reach conferral.
+3. That the rules on knighting, the application issues and the roll being online and readable from Italy is not part of the act, or its result, under Article 6 of the Penal Code.
+4. That the primary sources confirming 1 to 3 include at least one other than the sources read by 2026-11-26 that did not settle these points.
+
+While this row is absent, the intake tool (`tools/knighting.js`) does not reopen, and the checks (`verification/check.js`) fail if the form returns to the list of issue forms or the sentences of this section are weakened.
+The article says "con qualsiasi forma e denominazione", whatever the form and name. The row is required even if the name or the form of knighting is changed.
+Claude decided this on 2026-11-26. Setting out how far conferring is a crime ([Legality Statement](./legality.en.md), "How far conferring is a crime under Italian law") left these four points unsettled by the texts and the fetched documents.
+On 2026-11-26, the number of people ever knighted is 0, and there is no knight on the roll.
 
 ## Checking the place when applications reopen (the checked intake)
 
@@ -175,6 +192,23 @@ Applications stay paused. When they reopen, this condition applies to every appl
 The content of the change and the date it takes effect were shown on 2026-11-23 under "Changes and ending" in the Terms of Use.
 
 
+## Holding Japanese nationality
+
+From 2026-12-15, only people who hold Japanese nationality may apply.
+This condition is in addition to the conditions in the other sections. None of them is removed, such as living in Japan and being in Japan when applying, never having been outside Japan, age, the rules on Italian nationality and on "Countries that restrict foreign titles", and the check of the place when applications reopen.
+A person who holds Italian nationality, or the nationality of a country under "Countries that restrict foreign titles", together with Japanese nationality may not apply.
+The owner decided this condition on 2026-11-26. Claude decided the details on the same day. The aim is that knighting is a play done online for Japanese people in Japan.
+This condition does not look down on people who do not hold Japanese nationality, and does not rank anyone.
+This condition does not settle the point of Italian law ([Legality Statement](./legality.en.md), "How far conferring is a crime under Italian law"). Applications stay paused.
+The conditions in "Barriers to participation" and "Barriers to participation (continued)" still do not sort people by nationality. The rules on nationality are in this section, "Who may apply" and "Countries that restrict foreign titles".
+It is confirmed only by the applicant's own declaration, by a tick in the form. The text of the box begins "日本の国籍を持っています" (I hold Japanese nationality).
+No passport, family register, certificate of residence or other document is asked for. No other nationality the applicant holds is asked about.
+The operator handles only whether the box is ticked or not. The tick stays as part of the application issue ([Privacy](./privacy.en.md), "What an application for knighthood involves").
+If a tick turns out to be untrue, it is handled like any other tick, under "What is not allowed" in the Terms of Use: the operator removes the name from the roll as soon as the operator learns of it, and may also refuse further applications from the same GitHub account.
+The roll of knights does not change. On 2026-11-26, there is no knight on the roll. The condition does not apply to a knight knighted before 2026-12-15. No knight is asked about nationality.
+Applications stay paused. When they reopen, this condition applies to every application.
+The content of the change and the date it takes effect were shown on 2026-11-26 under "Changes and ending" in the Terms of Use.
+
 ## Countries that restrict foreign titles
 
 From 2026-11-22, a person who holds the nationality of any of the 18 countries in the table below may not apply, even if they live in Japan, and even if they also hold another nationality. Claude decided this on 2026-11-12.
@@ -263,6 +297,8 @@ From 2026-12-15, also fill in the field "称号を使わない場所" (Places wh
 
 From 2026-12-15, also fill in the field "訂正を公開した日" (Day the correction was published) in the form, and tick the box that the original text with the error is a text you wrote ("Barriers to participation (continued)").
 
+From 2026-12-15, also tick the box that you hold Japanese nationality ("Holding Japanese nationality").
+
 ## What the operator checks
 
 - That the link is public and reads as a correction.
@@ -271,6 +307,7 @@ From 2026-12-15, also fill in the field "訂正を公開した日" (Day the corr
 - That every pledge in the form is ticked.
 - From 2026-12-15, that at the link the day of publication matches "訂正を公開した日" (Day the correction was published) in the form, that both the original text with the error and the corrected text can be seen, and that the original text reads as written by the applicant (for a co-authored text, one with the applicant among its authors) ("Barriers to participation (continued)").
 - That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality or the nationality of a country under "Countries that restrict foreign titles", or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
+- From 2026-12-15, that the linked correction does not state clearly that the applicant does not hold Japanese nationality. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they hold Japanese nationality ("Holding Japanese nationality").
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
 
@@ -280,6 +317,7 @@ The refused destinations are localhost; names ending in .localhost, .local, .int
 From 2026-11-24, the automatic check also checks the tick that the applicant has never been outside Japan since birth ("Never having been outside Japan").
 From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
 From 2026-12-15, the automatic check also checks the tick that the original text with the error is a text the applicant wrote, the day the correction was published, whether the link to the correction has the form of a place that keeps the earlier version, the day the account was created, and declined applications from the same account ("Barriers to participation (continued)").
+From 2026-12-15, the automatic check also checks the tick that the applicant holds Japanese nationality ("Holding Japanese nationality").
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
@@ -288,6 +326,7 @@ The operator does not check nationality, country of residence, age or real name,
 Nusquama gives no nationality. Knights are not its people.
 Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality or the nationality of a country under "Countries that restrict foreign titles" are taken from the applicant's own declaration, by the ticks in the form.
 From 2026-11-24, never having been outside Japan since birth is also taken from the applicant's own declaration, by a tick in the form. No passport or other document is asked for ("Never having been outside Japan").
+From 2026-12-15, holding Japanese nationality is also taken from the applicant's own declaration, by a tick in the form. No passport, family register, certificate of residence or other document is asked for ("Holding Japanese nationality").
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
@@ -309,6 +348,7 @@ No knighthood is given for:
 - An application in which a pledge of the form that must be ticked is not ticked.
 - From 2026-11-29, an application where the linked correction clearly shows that "Countries and regions where knighting would not conform to the law" applies.
 - From 2026-12-15, an application that does not meet the conditions in "Barriers to participation (continued)".
+- From 2026-12-15, an application without the tick for "Holding Japanese nationality".
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 From 2026-12-15, the issue of a declined application gets the label 断った (declined). No application for knighting is ever received again from that account ("Barriers to participation (continued)").

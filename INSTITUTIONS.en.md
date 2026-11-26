@@ -44,6 +44,13 @@ It is the issue right after the one that records that entry. The gazette makes i
 No object, badge or certificate is made for it. No title is given and no day is added.
 On the day of a commemorative issue, the King reads again the mistakes so far, category by category.
 
+## The form of knighting
+
+Knighting is done entirely online. Applications are received as GitHub issues, and a knighting is recorded as a comment on that issue and on the [roll of knights](KNIGHTS.en.md).
+There is no knighting ceremony and no conferral in person. No letter, badge, certificate or other object is sent.
+What Nusquama gives to people is only the name of knight ([Rules on Knighting](policies/knighting.en.md), "What knighting is").
+From 2026-12-15, only people who hold Japanese nationality may apply for knighting (Rules on Knighting, "Holding Japanese nationality").
+
 ## Population and how people are called
 
 The population is the number of knights of the Ordo Erratorum.
@@ -220,6 +227,8 @@ Some things will not grow, even in ten years.
 - Requests from people who live outside Japan, or who are outside Japan when applying, will not be accepted until the laws of that country have been checked.
 - Applications from people who hold Italian nationality will not be accepted.
 - Applications from people who hold the nationality of a country that restricts accepting foreign titles will not be accepted.
+- From 2026-12-15, applications from people who do not hold Japanese nationality will not be accepted.
+- Knighting will not be done outside the online form.
 
 Some things will go on.
 
