@@ -87,6 +87,19 @@ const SOURCES = [
   { key: 'italy-178-art9', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art9', needles: ['Art. 9'] },
   { key: 'italy-178-art8-commi', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8', needles: ['Art. 8'] },
   { key: 'italy-cp-10-commi', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10', needles: ['Art. 10.'] },
+  /* 2026-11-26 (how far conferring is a crime): the general decriminalisation of 1981 (Law No. 689, Articles 32 and 34),
+   * the guidance of the Procura generale of the Court of Cassation on where an offence on the internet is committed (an
+   * explanation, so only the quoted passages are kept), the Framework Decision on the European arrest warrant, and the two
+   * Japanese official pages on Japan's extradition treaties (explanations, so only the quoted passages are kept). Article 2 of
+   * the Japanese Act of Extradition is watched with the other Japanese statutes (verification/statutes.json). Tried on
+   * 2026-11-26 and left out: the Presidency's PDF on honours (tools/pdftext.js read no text from it) and the Gazzetta
+   * Ufficiale's page of Article 8 of Law No. 178 (it answers only with a loading page). */
+  { key: 'italy-689-art32', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art32', needles: ['Art. 32'] },
+  { key: 'italy-689-art34', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art34', needles: ['Art. 34'] },
+  { key: 'cassazione-pg-competenza', pdf: true, url: 'https://www.procuracassazione.it/resources/cms/documents/Orientamenti_della_Procura_generale_della_Cassazione_sulla_competenza_territoriale_settembre24.pdf', needles: ['diffamazione via internet', 'diffamazione telematica'] },
+  { key: 'eaw', whole: true, url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002F0584', needles: ['Scope of the European arrest warrant', 'For offences other than those covered by paragraph 2', '7. where the European arrest warrant relates to offences which'] },
+  { key: 'moj-hakusyo-extradition', url: 'https://hakusyo1.moj.go.jp/jp/72/nfm/n72_2_2_6_2_2.html', needles: ['2 逃亡犯罪人の引渡し'] },
+  { key: 'npa-treaties', url: 'https://www.npa.go.jp/bureau/soumu/kokusai/yakusoku.html', needles: ['犯罪人引渡条約は'] },
 ];
 
 const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
