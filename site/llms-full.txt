@@ -134,6 +134,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 2026-11-22 から、叙任は、称号を遊びとして扱う良識ある人であることを前提とします（[叙任の規程](policies/knighting.md)「良識の前提」）。
 2026-11-24 から、願い出ることができるのは、生まれてから一度も日本の外に出たことがない人に限ります（[叙任の規程](policies/knighting.md)「日本の外に出たことがないこと」）。
 2026-12-15 から、願い出ることができるのは、日本の国籍を持つ人に限ります（[叙任の規程](policies/knighting.md)「日本の国籍を持つこと」）。
+受付に戻ったあとは、日本の国籍を、様式の印に加えて、運営者が戸籍の証明書の画像で確かめます。画像は非公開のリポジトリで受けて 7 日以内に削除し、個人番号は受け取りません（[叙任の規程](policies/knighting.md)「日本の国籍の書類による確かめ」）。
 叙任は、すべてオンラインで行います。叙任の式典や、会って授けることはせず、書状や物も送りません（[叙任の規程](policies/knighting.md)「叙任とは」）。
 2026-11-29 から、叙任することがその国や地域の法令に適合しないと運営者が判断した国と地域の国籍を持つ人、そこに住む人、願い出のときにそこにいる人も、願い出ることができません（[叙任の規程](policies/knighting.md)「法令に適合しない国と地域」）。
 ヌスクァマは個人で運営しているため、参加のハードルを極端に高くしています。
@@ -234,6 +235,7 @@ English: Because Nusquama is run by one individual, its barriers to participatio
 | 2026-11-24（日本時間） | 2026-12-15 から、参加の条件を七つ厳しくすると叙任の規程「参加のハードルの続き」と個人情報の取り扱いに書き、利用規約で予告する。叙任の訂正は、自分が書いて公開した文の誤りを前の版が残る場で正し、願い出の 180 日以上前に公開したものに限る。願い出の GitHub のアカウントは 2 年以上前に作られたものに限り、叙任は 2 年に 1 人までとし、断った願い出のアカウントからは二度と受けない。誤りの知らせは、同じアカウントから 30 日に一件までとする。削除・訂正・辞退の求め、権利者の知らせ、安全の問題の知らせは縛らない。受付は止めたまま。2026-11-23 に利用者が七つの条件を採ると決め、細かな定めは Claude が決めました | From 2026-12-15, seven conditions of participation become stricter; the Rules on Knighting ("Barriers to participation (continued)") and the Privacy Policy say so, and the Terms of Use give notice. The correction for knighting must fix an error in a text the applicant wrote and published, be made in a place that keeps the earlier version, and have been published at least 180 days before the application. The GitHub account must have been created at least 2 years earlier, at most 1 person is knighted in 2 years, and no application is ever received again from an account whose application was declined. An error report is received at most once in 30 days from the same account. Requests about removal, correction or withdrawal, notices from rights holders, and reports of security problems are not limited. Applications stay paused. The owner decided on 2026-11-23 to adopt the seven conditions, and Claude decided the details |
 | 2026-11-26（日本時間） | 叙任がイタリアの法令でどこまで罪になるかを、取り寄せた条文と公の文書から適法性の説明に並べる。授けることはいまも罪で、使うことは条文の上では 1981 年から行政上の違反である。受付に戻すには、刑法典第 7 条第 5 号・第 7 条第 1 号・第 8 条・第 6 条とオンラインで授けることが叙任に及ばないと、新しい一次の出典で確かめた行を点検の記録に記すことが要ると、叙任の規程に書く。受付は止めたまま。2026-11-26 に利用者が求め、Claude が書きました | Using the fetched texts and official documents, the Legality Statement sets out how far knighting is a crime under Italian law. Conferring is still a crime; use has been, on the texts, an administrative violation since 1981. The Rules on Knighting say that reopening requires a row in the legal review confirming, from new primary sources, that Article 7, item 5, Article 7, item 1, Article 8 and Article 6 of the Penal Code and conferring online do not reach knighting. Applications stay paused. The owner asked for this on 2026-11-26, and Claude wrote it |
 | 2026-11-26（日本時間） | 2026-12-15 から、叙任を願い出ることができるのは日本の国籍を持つ人に限ると叙任の規程に書き、利用規約で予告する。叙任はすべてオンラインで行い、式典も書状や物の送付もないと、叙任の規程・利用規約・適法性の説明・国の仕組みに書く。確かめるのは様式の印による本人の申告だけで、書類も、ほかに持つ国籍も尋ねない。騎士の名簿は変えない。受付は止めたまま。2026-11-26 に利用者が決め、細かな定めは Claude が決めました | From 2026-12-15, the Rules on Knighting limit applications to people who hold Japanese nationality, and the Terms of Use give notice of it. The Rules on Knighting, the Terms of Use, the Legality Statement and the Institutions say that knighting is done entirely online, with no ceremony and no letter or object sent. Only the applicant's own declaration by a tick in the form is checked; no document and no other nationality is asked for. The roll of knights does not change. Applications stay paused. The owner decided this on 2026-11-26, and Claude decided the details |
+| 2026-11-26（日本時間） | 受付に戻ったあと（受付に戻る日と 2026-12-15 の遅いほうから）、日本の国籍を、様式の印に加えて、運営者が戸籍の個人事項証明書の画像で確かめると叙任の規程に書き、利用規約で予告する。画像は願い出ごとに作る非公開のリポジトリで受け、7 日以内に削除し、issue には結果の一行だけを記す。氏名と本籍は隠したものだけを受け、旅券・住民票・個人番号カードは受けず、個人番号は受け取らない。電子メールは使わない。Claude は画像を見ない。受付は止めたまま。2026-11-26 に利用者が求め、Claude が決めました | After applications reopen (from the later of the day they reopen and 2026-12-15), the Rules on Knighting have the operator check Japanese nationality by an image of a personal record certificate of the family register, in addition to the tick in the form, and the Terms of Use give notice of it. The image is received in a private repository created for each application and deleted within 7 days, and only a one-line result is recorded in the issue. Only images with the name and permanent domicile masked are accepted; no passport, certificate of residence or Individual Number Card is accepted, and no Individual Number is received. Email is not used. Claude does not see the images. Applications stay paused. The owner asked for this on 2026-11-26, and Claude decided it |
 
 ---
 
@@ -804,6 +806,7 @@ Source: https://nusquama.vercel.app/institutions.html
 叙任の式典や、会って授けることはしません。書状・徽章・証書などの物も送りません。
 ヌスクァマが人に贈るのは、騎士の呼び名だけです（[叙任の規程](policies/knighting.md)「叙任とは」）。
 2026-12-15 から、叙任を願い出ることができるのは、日本の国籍を持つ人に限ります（叙任の規程「日本の国籍を持つこと」）。
+受付に戻ったあとは、日本の国籍を、様式の印に加えて、運営者が戸籍の証明書の画像で確かめます。画像は非公開のリポジトリで受け、7 日以内に削除します（叙任の規程「日本の国籍の書類による確かめ」）。
 
 ## 人口と呼び名
 
@@ -1366,10 +1369,11 @@ Source: https://nusquama.vercel.app/policies/terms.html
 - ヌスクァマの名で、金銭や物品を集めること。
 - サイトや様式を壊そうとすること。
 - 願い出の様式で、事実でないことに印を付けること。例として、年齢、住んでいる国、国籍、訂正が自分の誤りであること、日本の外に出たことがないことがあります。
+- 受付に戻ったあとの日本の国籍の書類による確かめで、偽った書類や、ほかの人の書類を見せること。
 
 運営者は、これらに当たる願い出を断り、issue を閉じ、名簿から名を外すことがあります。
 印が事実でないと分かったときは、運営者は、知った時点で名簿から名を外します。2026-11-22 からは、同じ GitHub アカウントからのその後の願い出を断ることもあります。
-運営者は、印を信頼して受け、確かめません。事実でない印で叙任された人がいても、ヌスクァマが願い出を受けないとする国に住む人や、受けないとする国籍を持つ人を受けたことにはなりません。
+運営者は、印を信頼して受け、確かめません。受付に戻ったあとは、日本の国籍に限り、印に加えて書類でも確かめます（[叙任の規程](./knighting.md)「日本の国籍の書類による確かめ」）。事実でない印で叙任された人がいても、ヌスクァマが願い出を受けないとする国に住む人や、受けないとする国籍を持つ人を受けたことにはなりません。
 印は、本人の求めで削除するまで、公開の issue に残るので、何にいつ印を付けたかを示せます。
 願い出た人に、違約金や、法令が定める以上の損害の賠償を求めることはありません。
 
@@ -1418,8 +1422,9 @@ Source: https://nusquama.vercel.app/policies/terms.html
 予告：2026-12-15 から、断った叙任の願い出の GitHub のアカウントからは、二度と叙任の願い出を受けません。取り下げた願い出は、これまでどおり 365 日のあいだだけ数えます（[叙任の規程](./knighting.md)「参加のハードルの続き」）。
 予告：2026-12-15 から、その日以後に開かれた誤りの知らせは、同じ GitHub のアカウントが前に誤りの知らせを開いた日を数えずに 30 日が過ぎるまで受け付けず、ラベル「one per 30 days」と決まった文のコメントを付けます。issue は閉じません。削除・訂正・辞退の求め、権利者の知らせ、安全の問題の知らせは縛りません（[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
 
-次の予告は、2026-11-26 に示したものです。2026-11-26 に利用者が決めました。
-予告：2026-12-15 から、受付に戻ったあとの叙任の願い出は、日本の国籍を持つ人に限ります。日本の国籍と重ねてイタリアや外国の称号を縛る国の国籍を持つ人は、これまでどおり願い出ることができません。確かめるのは様式の印による本人の申告だけで、旅券・戸籍・住民票などの書類と、ほかに持つ国籍は尋ねません。受付に戻ったときは、どの願い出にもこの条件を当てます。騎士の名簿は変えず、騎士に国籍を尋ねません（[叙任の規程](./knighting.md)「日本の国籍を持つこと」。2026-11-26 に示しました）。
+次の二つの予告は、2026-11-26 に示したものです。一つめは、2026-11-26 に利用者が決めました。二つめは、2026-11-26 に利用者が求め、Claude が決めました。
+予告：2026-12-15 から、受付に戻ったあとの叙任の願い出は、日本の国籍を持つ人に限ります。日本の国籍と重ねてイタリアや外国の称号を縛る国の国籍を持つ人は、これまでどおり願い出ることができません。願い出の issue で確かめるのは様式の印による本人の申告だけで、旅券・戸籍・住民票などの書類と、ほかに持つ国籍は尋ねません。受付に戻ったあとの書類の確かめは、次の予告のとおりです。受付に戻ったときは、どの願い出にもこの条件を当てます。騎士の名簿は変えず、騎士に国籍を尋ねません（[叙任の規程](./knighting.md)「日本の国籍を持つこと」。2026-11-26 に示しました）。
+予告：受付に戻ったあとの叙任の願い出では、日本の国籍を持つことを、様式の印に加えて、運営者が戸籍の個人事項証明書（紙の戸籍では戸籍抄本）の画像で確かめます。効力を生じるのは、受付に戻る日と 2026-12-15 の、遅いほうの日です。受付に戻る日は、その日より前に叙任の規程とこの頁で示します。受付を止めているあいだは、書類を求めず、受け取りません。画像は、運営者が願い出ごとに作り、願い出たアカウントだけを招く非公開のリポジトリで受け、作った日から 7 日以内に削除します。氏名・本籍などは隠したものだけを受け、旅券・住民票・個人番号カードは受けず、個人番号は受け取りません。電子メールは使わず、連絡先も尋ねません。願い出の issue に記すのは、確かめたかどうかと日付の一行だけです。確かめられなかった願い出は断ります。騎士の名簿は変えず、騎士に書類を求めません（[叙任の規程](./knighting.md)「日本の国籍の書類による確かめ」。2026-11-26 に示しました）。
 
 どの変更によっても、料金は生じません。
 王が国を続けられなくなったときは、予告なく国を凍結することがあります（[国の仕組み](../INSTITUTIONS.md)「凍結」）。凍結しても、名簿・正誤表・規程は公開に残し、削除・訂正・辞退の求めにはできる限り応えます。
@@ -1593,11 +1598,13 @@ Source: https://nusquama.vercel.app/policies/privacy.html
 - 生まれてから一度も日本の外に出たことがないことの印（2026-11-24 から。[叙任の規程](./knighting.md)「日本の外に出たことがないこと」）
 - 訂正を公開した日と、誤りの元の文が自分の書いた文であることの印（2026-12-15 から。[叙任の規程](./knighting.md)「参加のハードルの続き」）
 - 日本の国籍を持つことの印（2026-12-15 から。[叙任の規程](./knighting.md)「日本の国籍を持つこと」）
+- 「日本の国籍の書類による確かめ」を受けることの印（受付に戻ったあと。[叙任の規程](./knighting.md)「日本の国籍の書類による確かめ」）
 
 これらは issue で公開され、叙任された人については、GitHub のアカウント名・叙任の日・正した誤りの要約・願い出へのリンクを[騎士の名簿](../KNIGHTS.md)に載せます。
 本名・住所・所属・連絡先は求めません。様式でも、書かないよう求めています。
 日本の外に出たことがないことについて扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります。旅券・書類・日付・行った国は求めず、日本の外に出た経歴を集めず、残しません。様式でも、書かないよう求めています。
-日本の国籍を持つことについて扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります。旅券・戸籍・住民票などの書類と、ほかに持つ国籍は求めず、残しません。様式でも、書かないよう求めています。
+願い出の issue で日本の国籍を持つことについて扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります。issue では、旅券・戸籍・住民票などの書類と、ほかに持つ国籍は求めず、残しません。様式でも、書かないよう求めています。
+受付に戻ったあとに運営者が書類で確かめるときに扱うものは、次の節に書きます。
 病気・障害・信条・犯罪の経歴など、配慮の要る事柄も求めません。様式で、書かないよう求めています。
 ただし、訂正へのリンクの先に本名や所属が書かれている場合は、名簿と issue によって、アカウント名とその人が結び付いて公開されます。
 issue の扱いは、GitHub の利用規約とプライバシーステートメントにも従います。
@@ -1608,6 +1615,35 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 2026-12-15 から、自動の確認は、断った願い出があるかを確かめるために、GitHub の API から、同じアカウントが開き、ラベル「断った」の付いた叙任の願い出の issue の一覧も受け取ります。使うのは、同じく issue の番号と開いた時刻だけです。
 2026-12-15 から、自動の確認は、アカウントが 2 年以上前に作られたかを確かめるために、GitHub の公開の API から、願い出の issue を開いたアカウントの答えを受け取ります。答えにはプロフィールの項目も含まれますが、使うのはアカウントが作られた日時だけで、ほかは捨てます。作られた日時も残さず、コメントにも実行の記録にも書きません。本人には何も尋ねません。
 これらは、どれも公開されている情報で、叙任を判断することのほかには使いません。
+
+## 日本の国籍の書類による確かめで扱うもの
+
+受付に戻ったあと、運営者は、願い出た人が日本の国籍を持つことを、戸籍の証明書の画像で確かめます（[叙任の規程](./knighting.md)「日本の国籍の書類による確かめ」）。
+効力を生じるのは、受付に戻る日と 2026-12-15 の、遅いほうの日です。
+受付を止めているあいだは、この確かめを行わず、書類も画像も受け取りません。
+扱うのは、願い出た人が、運営者の作る非公開のリポジトリに置く画像一枚です。
+画像には、戸籍の個人事項証明書か戸籍抄本と、GitHub のアカウント名と送る日を手で書いた紙が写ります。
+証明書のうち、本籍、筆頭者の氏名、願い出た人の氏名、生年月日、父母と養父母の氏名、続柄、身分事項に書かれたこと、証明書の発行の番号は、願い出た人が隠します。
+運営者が見るのは、証明書の題、市区町村長が証明した文、交付の日、市区町村長の職名と氏名、除かれたことの記しがあるかどうかと、手書きの紙です。
+この確かめでも、本名・住所・所属・連絡先は求めません。
+日本の国籍を持つかどうかは、要配慮個人情報として扱いません。個人情報保護法第2条第3項が文で挙げる事柄に、国籍は入っていません。個人情報保護委員会のガイドライン（通則編）は、単純な国籍は法的地位で、それだけでは人種に含まないとしています（[ガイドライン（通則編）](https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/) 2-3）。
+画像は、願い出た人が日本の国籍を持つことを確かめることにだけ使います。
+運営者は、画像を GitHub の画面で見るだけです。手元に取り込まず、写さず、保存しません。
+運営者は、画像を言語モデルにも、GitHub の AI の機能にも渡しません。Claude は、画像を見ません。
+運営者は、非公開のリポジトリを、作った日から 7 日以内に削除します。画像を見たときは、見た日のうちに削除します。
+願い出の公開の issue に記すのは、「確かめた」か「確かめられなかった」と、その日付の一行だけです。
+氏名・生年月日・本籍・証明書の番号・交付した市区町村・交付の日は、どこにも記しません。
+画像は、電子メールでも、ほかのサービスでも受けません。運営者は、願い出た人の連絡先を尋ねず、新しく公開もしません。
+個人番号（マイナンバー）は受け取りません。番号利用法第19条は、同条の各号に当たる場合を除いて、何人にも特定個人情報の提供を禁じています。同法第20条は、同じ場合を除いて、何人にも他人の個人番号を含む特定個人情報の収集と保管を禁じています。
+画像に個人番号が写っていたときは、運営者はそこを読まず、その日のうちに非公開のリポジトリを削除します。
+画像は、願い出た人が自分で GitHub のリポジトリに置きます。運営者は、画像を誰にも渡しません。
+運営者は、画像が GitHub（米国）のサーバーに置かれることを、外国にある第三者への提供（個人情報保護法第28条）として扱い、様式の印で同意を受けます。米国の制度と GitHub の措置は、「第三者への提供と外国にある事業者」に書いてあります。
+GitHub の利用規約は、非公開のリポジトリの中身を、利用者の秘密として扱うとしています（E.2）。
+同じ規約は、GitHub の職員が許しなく非公開のリポジトリの中身を見るのを、次のときに限るとしています。安全のため、既知の脆弱性・マルウェア・規約に反すると分かっている中身の自動の走査や人による確認のため、リポジトリの持ち主の求めを手助けするため、サービスの保全のため、中身が法令に反すると信じる理由があって法的な義務に従うためです（E.3）。法令によって中身の開示を強いられることがあるとも書いています（E.3）。
+同じ規約は、非公開のリポジトリの中身を AI の機能への入力として渡したときのほかは、中身をサービスの開発や改善に使わないとしています（E.3）。運営者は、そのリポジトリを AI の機能に渡しません。
+同じ規約の D.4 は、利用者の内容を、関連会社の AI と機械学習のモデルの学習のために使う許しを定めています。E.3 は、この許しから非公開のリポジトリの中身を除くとは書いていません。
+GitHub の説明書は、削除したリポジトリを、削除から 90 日のあいだ戻せることがあると書いています。非公開のリポジトリを削除すると、その分岐（フォーク）もすべて削除されるとも書いています。
+運営者は、削除したリポジトリを戻しません。
 
 ## 誤りの知らせで扱うもの
 
@@ -1627,6 +1663,7 @@ issue の扱いは、GitHub の利用規約とプライバシーステートメ�
 ## 利用の目的
 
 叙任を判断すること、名簿を載せること、求めに応じること、知らされた誤りを確かめて王の正誤表に記すこと、2026-12-01 からは誤りを知らせる人が日本にいることを確かめること。これ以外には使いません。
+受付に戻ったあとの「日本の国籍の書類による確かめ」で見る画像は、叙任を判断することのうち、願い出た人が日本の国籍を持つことを確かめることにだけ使います。
 個人情報保護法第21条第1項は「個人情報取扱事業者は、個人情報を取得した場合は、あらかじめその利用目的を公表している場合を除き、速やかに、その利用目的を、本人に通知し、又は公表しなければならない。」と定めます。この頁は、その利用目的を前もって公表するものです。
 
 ## 第三者への提供と外国にある事業者
@@ -1657,6 +1694,7 @@ GitHub と Vercel は、運営者に代わって個人データを扱う委託�
 自動の確認は、issue の本文を実行の記録（GitHub Actions のログ）に写しません。
 issue は、削除の求めがあれば、運営者が issue を削除するか、本文を空にしたうえで編集の履歴からも前の版を消します。
 リポジトリの履歴と、ほかの者がすでに写したものには、記載が残ることがあります。
+受付に戻ったあとの書類の確かめの画像は、非公開のリポジトリを作った日から 7 日以内に、そのリポジトリごと削除します。GitHub が削除のあと 90 日のあいだ戻せることがあるのは、「日本の国籍の書類による確かめで扱うもの」のとおりです。運営者は戻しません。
 GitHub は、issue が開かれたときや書き込まれたときに、その動きを受け取る設定のアカウントへ通知を送ります。
 通知は、受け取る人の設定によって電子メールでも届きます。電子メールの通知は、issue の中身の写しを含みます。
 受け取るアカウントには、運営者のアカウントも含まれることがあります。
@@ -1669,6 +1707,7 @@ issue の題と本文を替えたり、issue を削除したりしたときに�
 扱う個人データは、公開の issue と騎士の名簿にあるものだけです。
 GitHub の通知は、issue の中身の写しを、通知を受け取るアカウントの持ち主に届けることがあります（上の「保存の期間」）。運営者もその一人であることがあります。
 運営者は、これとは別に、ほかの場所に集めず、写しも作りません。
+受付に戻ったあとは、このほかに、書類の確かめのために運営者が戸籍の証明書の画像を見ます。画像は、運営者と招いたアカウントだけを入れる非公開のリポジトリに置かれ、作った日から 7 日以内に削除されます。運営者は、画像を手元に取り込まず、写さず、言語モデルにも渡しません（「日本の国籍の書類による確かめで扱うもの」）。
 名簿とサイトを変えられるのは、リポジトリの持ち主である運営者の GitHub アカウントだけです。
 そのアカウントは、二段階認証を使っています。
 名簿やサイトの変更は、リポジトリの公開の履歴にすべて残り、検査を通してから入ります。
@@ -1734,6 +1773,7 @@ Source: https://nusquama.vercel.app/policies/knighting.html
 足した条件は、年齢、住む国、願い出のときにいる国、国籍、良識の前提と、受付の停止です。
 2026-11-24 からは、「日本の外に出たことがないこと」の条件も、足した条件に加わります。
 2026-12-15 からは、「日本の国籍を持つこと」の条件も、足した条件に加わります。
+受付に戻ったあとは、「日本の国籍の書類による確かめ」の条件も、足した条件に加わります。
 2026-11-29 からは、「法令に適合しない国と地域」の定めも、足した条件に加わります。
 2026-12-15 からは、「参加のハードル」の条件も、足した条件に加わります。
 2026-12-15 からは、「参加のハードルの続き」の条件も、足した条件に加わります。
@@ -1912,12 +1952,95 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 この条件は、日本の国籍を持たない人を低く見るものでも、人に順位を付けるものでもありません。
 この条件で、イタリアの法令の一点が決まるのではありません（[適法性の説明](./legality.md)「イタリアの法令で、授けることがどこまで罪になるか」）。受付は止めたままです。
 「参加のハードル」と「参加のハードルの続き」の条件が国籍で人を分けないことは、変わりません。国籍の定めは、この節と「願い出ることができる人」「外国の称号を縛る国」にあります。
-確かめ方は、様式の誓いの印による本人の申告だけです。印の文は「日本の国籍を持っています」で始まります。
-旅券・戸籍・住民票などの書類を求めず、尋ねません。ほかに持つ国籍も尋ねません。
-運営者が扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります（[個人情報の取り扱い](./privacy.md)「叙任の願い出で扱うもの」）。
+確かめ方は、様式の誓いの印による本人の申告です。印の文は「日本の国籍を持っています」で始まります。
+受付に戻ったあとは、これに、運営者が戸籍の証明書の画像を見る確かめが加わります（「日本の国籍の書類による確かめ」）。
+願い出の issue では、旅券・戸籍・住民票などの書類を求めず、尋ねません。ほかに持つ国籍も尋ねません。
+印について運営者が扱うのは、印があるかないかだけです。印は、願い出の issue の一部として残ります（[個人情報の取り扱い](./privacy.md)「叙任の願い出で扱うもの」）。
 印が事実でないと分かったときは、ほかの印と同じく、利用規約「してはいけないこと」の定めによります。運営者は、知った時点で名簿から名を外し、同じ GitHub アカウントからのその後の願い出を断ることもあります。
 騎士の名簿は変えません。2026-11-26 の時点で、名簿に騎士はいません。2026-12-15 の前に叙任された騎士には、この条件を当てません。どの騎士にも、国籍を尋ねません。
 受付は止めたままです。受付に戻ったときは、どの願い出にもこの条件を当てます。
+変える内容と効力の生じる日は、2026-11-26 に、利用規約「変更と終了」で示しました。
+
+## 日本の国籍の書類による確かめ
+
+受付に戻ったあとは、日本の国籍を持つことを、様式の印に加えて、運営者が書類で確かめます。
+この確かめが効力を生じるのは、受付に戻る日と 2026-12-15 の、遅いほうの日です。
+受付に戻る日は、「受付の停止」のとおり、その日より前にこの規程と利用規約で示します。
+受付を止めているあいだは、この確かめを行いません。書類を求めず、受け取りません。
+この節は、受付に戻すことを決めるものではありません。受付に戻すには、これまでどおり「受付の停止」の確かめの行が要ります。
+この確かめは、ほかの節の条件に加わります。様式の「日本の国籍を持っています」の印も、そのまま要ります。
+この確かめは、2026-11-26 に利用者が求め、Claude が決めました。日本の国籍を、本人の申告だけで受けないためです。
+
+### 受ける書類
+
+受けるのは、願い出た人の戸籍の個人事項証明書か、紙の戸籍の戸籍抄本だけです。どちらも、戸籍に記録された事項の一部を証明した書面です（戸籍法第10条・第120条）。
+交付の日から 3 か月以内のものに限ります。交付の日より後に国籍を失っても、その証明書には現れないためです。
+戸籍法第23条は、国籍を失った者を、それまでの戸籍から除くと定めています（除籍）。
+運営者は、証明書のその人の欄に、除かれたことの記しが無いことを見ます。
+戸籍の全部事項証明書と戸籍謄本は受けません。ほかの人の分が載るためです。
+除かれた戸籍の証明書（除籍証明書・除籍謄本）も受けません。
+旅券は受けません。旅券法第18条第1項第1号は、名義人が日本の国籍を失ったときに旅券が効力を失うと定めています。旅券の画像からは、旅券がそうして効力を失っていないかを確かめられません。旅券には顔の写真もあります。
+住民票の写しは受けません。住民基本台帳法第7条が定める住民票の記載事項に、国籍はありません。国籍等を記載するのは、外国人住民の住民票です（同法第30条の45）。同法第7条は、個人番号も住民票の記載事項としています。
+個人番号カードは受けません。番号利用法第2条第7項が定めるカードの記載事項に、国籍はありません。カードには個人番号が記載されます。
+ここに挙げたほかの書類も、どれも受けません。
+
+### 個人番号を受け取らないこと
+
+番号利用法（行政手続における特定の個人を識別するための番号の利用等に関する法律）第19条は、何人も、同条の各号のいずれかに当たる場合を除き、特定個人情報の提供をしてはならないと定めています。
+同法第20条は、何人も、同じ場合を除き、他人の個人番号を含む特定個人情報を収集し、又は保管してはならないと定めています。
+特定個人情報は、個人番号をその内容に含む個人情報です（同法第2条第9項）。
+運営者は、同法第19条の各号のどれにも拠りません。個人番号を受け取らず、集めず、残しません。
+個人番号カードの表と裏、個人番号の記載された住民票の写し、そのほか個人番号の見えるものは、画像に写しません。
+画像に個人番号が写っていたときは、運営者はそこを読まず、その日のうちに非公開のリポジトリを削除し、確かめられなかったとします。
+
+### 隠すところと、見せるところ
+
+隠すのは、本籍、筆頭者の氏名、願い出た人の氏名、生年月日、父母と養父母の氏名、続柄、身分事項に書かれたこと、証明書の発行の番号です。
+ほかは隠しません。証明書の題、市区町村長が証明した文、交付の日、市区町村長の職名と氏名は、見えるままにします。その人の欄に除かれたことの記しがあれば、その記しも見えるままにします。
+氏名を隠すのは、確かめに要らないためです。運営者は願い出た人の本名を知らないので、氏名を見ても、アカウントと結び付けられません。本名を求めないという定めも、そのまま保てます（[個人情報の取り扱い](./privacy.md)「叙任の願い出で扱うもの」）。
+本籍・生年月日・父母・身分事項も、日本の国籍を確かめるのに要りません。
+隠すのは、紙を重ねるか、画像の上を塗りつぶして行います。
+画像は、JPEG か PNG の一枚に限ります。PDF は受けません。塗りつぶした下の文字が、PDF には残ることがあるためです。
+画像には、撮った所の位置の情報を残しません。
+隠すべき所が見えているときは、運営者はそこを読まず、確かめられなかったとします。
+見せるべき所が隠れていて決められないときも、確かめられなかったとします。
+
+### アカウントとの結び付け
+
+同じ画像の中に、証明書と並べて、手書きの紙を写します。
+紙には、願い出の issue を開いた GitHub のアカウント名と、画像を送る日（日本時間、2026-12-15 の形）を書きます。
+紙の日付が、画像をリポジトリに置いた日（日本時間）と違うときは、確かめられなかったとします。
+交付の日が、紙の日付から 3 か月より前のときも、確かめられなかったとします。
+
+### 受け渡しの道
+
+画像は、GitHub の非公開のリポジトリでだけ受けます。電子メールも、ほかのサービスも使いません。
+連絡先は尋ねず、新しく公開もしません。
+運営者は、ほかの条件を確かめ終えたあと、叙任を決める前に、願い出ごとに非公開のリポジトリを一つ作ります。
+そのリポジトリに招くのは、願い出の issue を開いた GitHub のアカウントだけです。招いたことは、願い出の issue に書きます。
+願い出た人は、招きを受けてから、画像をそのリポジトリにファイルとして置きます。
+画像は、issue・コメント・プルリクエストには貼りません。GitHub の通知が、issue の中身の写しを届けることがあるためです（[個人情報の取り扱い](./privacy.md)「保存の期間」）。
+運営者は、画像を GitHub の画面で見るだけです。手元に取り込まず、写さず、保存しません。
+運営者は、画像を言語モデルにも、GitHub の AI の機能にも渡しません。
+Claude は、画像を見ません。Claude は、この非公開のリポジトリを作らず、開かず、読みません。この確かめは、運営者だけが行います。
+運営者は、非公開のリポジトリを、作った日から 7 日以内に削除します。画像を見たときは、見た日のうちに削除します。
+7 日のあいだに画像が置かれなかったときは、確かめられなかったとします。
+削除したリポジトリを、運営者は戻しません。
+
+### 記すもの
+
+運営者が記すのは、願い出の公開の issue への一行だけです。
+その一行は、「日本の国籍の書類による確かめ：確かめた（日付）」か「日本の国籍の書類による確かめ：確かめられなかった（日付）」です。
+証明書の写し、画像、氏名、生年月日、本籍、証明書の番号、交付した市区町村、交付の日は、どこにも記しません。
+騎士の名簿に載るものは、これまでと変わりません。
+その一行を記すまで、叙任を決めません。
+確かめられなかった願い出は、断ります（「断ること」）。
+
+### この確かめで分かること
+
+この確かめで分かるのは、申告に合う証明書の画像が、そのアカウント名を書いた紙と並べて見せられたことだけです。
+偽った書類や、ほかの人の証明書でないことは、この確かめでは除けません。
+そのため、事実でない印の扱いは変えません。印が事実でないと分かったときと、偽った書類やほかの人の書類を見せたと分かったときは、利用規約「してはいけないこと」の定めによります。運営者は、知った時点で名簿から名を外し、同じ GitHub アカウントからのその後の願い出を断ることもあります。
 変える内容と効力の生じる日は、2026-11-26 に、利用規約「変更と終了」で示しました。
 
 ## 外国の称号を縛る国
@@ -2010,6 +2133,8 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 
 2026-12-15 から、日本の国籍を持つ印も付けます（「日本の国籍を持つこと」）。
 
+受付に戻ったあとは、「日本の国籍の書類による確かめ」を受ける印も付けます。運営者が招く非公開のリポジトリに、戸籍の証明書の画像を置きます（「日本の国籍の書類による確かめ」）。
+
 ## 運営者が確かめること
 
 - リンク先が公開されていて、訂正であると読めること。
@@ -2019,6 +2144,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 - 2026-12-15 から、リンク先で、公開した日が様式の「訂正を公開した日」と合うこと、誤りの元の文と直した文の両方が見られること、元の文が願い出た人の書いた文（共著の文では、願い出た人が著者に入っているもの）であると読めること（「参加のハードルの続き」）。
 - 訂正のリンク先に、願い出た人が日本の外に住んでいることや、願い出のときに日本の外にいること、イタリアや「外国の称号を縛る国」の国籍を持つこと、16 歳未満であることが、はっきり書かれていないこと。書かれていれば、本人に尋ね、願い出の条件に当たると確かめられなければ叙任しません。
 - 2026-12-15 から、訂正のリンク先に、願い出た人が日本の国籍を持たないことが、はっきり書かれていないこと。書かれていれば、本人に尋ね、日本の国籍を持つと確かめられなければ叙任しません（「日本の国籍を持つこと」）。
+- 受付に戻ったあと、「日本の国籍の書類による確かめ」の結果が「確かめた」であること。運営者は、その一行を願い出の issue に記すまで、叙任を決めません。
 
 運営者は、訂正の中身が正しいかどうかを判断しません。判断するのは、訂正があったことだけです。
 
@@ -2029,15 +2155,17 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 2026-12-15 から、自動の確認は、18 歳以上の印、「称号を使わない場所」の答え、同じアカウントの前の願い出の日も確かめ、叙任を決められる最も早い日を書きます（「参加のハードル」）。
 2026-12-15 から、自動の確認は、誤りの元の文が自分の書いた文である印、訂正を公開した日、訂正へのリンクが前の版が残る場の形か、アカウントの作られた日、同じアカウントの断った願い出も確かめます（「参加のハードルの続き」）。
 2026-12-15 から、自動の確認は、日本の国籍を持つ印も確かめます（「日本の国籍を持つこと」）。
+受付に戻ったあと、自動の確認は、「日本の国籍の書類による確かめ」を受ける印も確かめ、書類の確かめは運営者が結果を記すまで済んでいないと書きます。自動の確認は、画像を見ません。
 自動の確認は何も決めません。叙任を決めるのは運営者です。
 
 ## 確かめないこと
 
-運営者は、国籍・住んでいる国・年齢・本名を確かめません。身分証も求めません。
+運営者は、住んでいる国・年齢・本名を確かめません。顔の写真の付いた身分証も求めません。
+国籍は、受付に戻ったあとに、「日本の国籍の書類による確かめ」の形でだけ確かめます。
 ヌスクァマは国籍を与えません。騎士は国民ではありません。
 年齢・住んでいる国・願い出のときにいる国・イタリアと「外国の称号を縛る国」の国籍を持たないことは、様式の誓いへの印による本人の申告で受けます。
 2026-11-24 から、生まれてから一度も日本の外に出たことがないことも、様式の誓いへの印による本人の申告で受けます。旅券などの書類は求めません（「日本の外に出たことがないこと」）。
-2026-12-15 から、日本の国籍を持つことも、様式の誓いへの印による本人の申告で受けます。旅券・戸籍・住民票などの書類は求めません（「日本の国籍を持つこと」）。
+2026-12-15 から、日本の国籍を持つことも、様式の誓いへの印による本人の申告で受けます。受付に戻ったあとは、これに「日本の国籍の書類による確かめ」が加わります。旅券・住民票・個人番号カードは求めません（「日本の国籍を持つこと」）。
 ただし、訂正のリンク先にはっきり書かれていることは、見落としません。
 本人として扱うのは、願い出た GitHub のアカウントです。
 願い出の条件に当たらなかったことが分かったときは、名簿から名を外します。
@@ -2060,6 +2188,7 @@ ORCID の記録を読むことは、受付に戻すときに、個人情報の�
 - 2026-11-29 から、「法令に適合しない国と地域」に当たることが、訂正のリンク先からはっきり読めるもの。
 - 2026-12-15 から、「参加のハードルの続き」の条件に当たらないもの。
 - 2026-12-15 から、「日本の国籍を持つこと」の印のないもの。
+- 受付に戻ったあと、「日本の国籍の書類による確かめ」で確かめられなかったもの。
 
 断るときは、決めた一文（「叙任の条件に当たりません。」）だけを issue に書き、人を評しません。本人の求めがあれば、その issue を削除します。
 2026-12-15 から、断った願い出の issue には、ラベル「断った」を付けます。そのアカウントからは、二度と叙任の願い出を受けません（「参加のハードルの続き」）。
@@ -2516,15 +2645,16 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - 勲章・徽章・制服などの物を作らず、配らない。
 - 称号は、創作の中の言葉として、リポジトリとサイトと、王がこの国を紹介するために自ら書いた記事や投稿（README「ほかの場所」に挙げたもの）の中でだけ使う。
 - 扱う個人情報は、GitHub のアカウント名と、本人が公開した訂正へのリンクと、本人が書いた説明だけ。リンクの先から本名や所属が分かることがあり、そのことを様式で知らせている。
+- 受付に戻ったあとは、このほかに、日本の国籍の書類による確かめのために、運営者だけが、氏名と本籍などを隠した戸籍の証明書の画像を見て、7 日以内に削除する（[叙任の規程](./knighting.md)「日本の国籍の書類による確かめ」）。
 - 誤りの知らせと求めの issue では、GitHub のアカウント名と、本人が書いたことを扱う。
 - 16 歳未満の人と、住んでいる国の法令が私人の授ける騎士の称号を禁じている人の願い出は受けない。
 - 2026-12-15 から、18 歳未満の人の願い出も受けない（[叙任の規程](./knighting.md)「参加のハードル」）。
 - 2026-11-24 から、生まれてから一度も日本の外に出たことがない人の願い出だけを受ける。日本の外に出たことがないことは、様式の印による本人の申告で受け、旅券・書類・日付・行った国を求めない（[叙任の規程](./knighting.md)「日本の外に出たことがないこと」）。
-- 2026-12-15 から、日本の国籍を持つ人の願い出だけを受ける。日本の国籍を持つことは、様式の印による本人の申告で受け、旅券・戸籍・住民票などの書類を求めない（[叙任の規程](./knighting.md)「日本の国籍を持つこと」）。
+- 2026-12-15 から、日本の国籍を持つ人の願い出だけを受ける。日本の国籍を持つことは、様式の印による本人の申告で受け、願い出の issue では旅券・戸籍・住民票などの書類を求めない（[叙任の規程](./knighting.md)「日本の国籍を持つこと」）。受付に戻ったあとは、これに、運営者が戸籍の証明書の画像を見る確かめが加わる（[叙任の規程](./knighting.md)「日本の国籍の書類による確かめ」）。
 - 叙任は、すべてオンラインで行う。叙任の式典や、会って授けることはせず、書状や物を送らない（[叙任の規程](./knighting.md)「叙任とは」）。
 - これまでに叙任した人は 0 人で、騎士の名簿に騎士はいない。
 - 2026-12-15 から、叙任の願い出では、訂正を公開した日も様式で受ける。GitHub の公開の API が示すアカウントの作られた日時と、同じアカウントの断った願い出の番号と開いた時刻は、確かめのためだけに使い、残さない。誤りの知らせでは、同じアカウントの前の知らせの番号と開いた時刻を、同じく使って残さない（[叙任の規程](./knighting.md)「参加のハードルの続き」、[個人情報の取り扱い](./privacy.md)「誤りの知らせで扱うもの」）。
-- 国籍・年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国・国籍は、様式の誓いによる本人の申告で受ける。
+- 年齢・住んでいる国・本名を確かめる書類を取らない。年齢・住んでいる国・願い出のときにいる国・国籍は、様式の誓いによる本人の申告で受ける。国籍は、受付に戻ったあと、日本の国籍の書類による確かめの形でだけ書類を見て、書類も画像も残さない。
 - どの頁も、創作であり、実在の何とも関係がないと断っている。
 
 ## 法令ごとの整理
@@ -2623,10 +2753,11 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **要件の要旨**：個人情報を扱う事業者は、利用の目的をできる限り特定し、その達成に必要な範囲を超えて扱わない。第三者に個人データを渡すとき、外国にある第三者に渡すときは、あらかじめ本人の同意を得るなどの決まりを守る。
 - **ヌスクァマの事実**：扱うのは、GitHub のアカウント名・訂正へのリンク・本人が書いた説明だけで、本名・住所・連絡先は求めない。利用の目的、公開されること、米国の GitHub と Vercel で扱われることを示し、願い出の様式で本人が同意する。名簿からの辞退と削除に、いつでも無償で応じる。
 - **当てはまらない理由**：法令が求める扱いを、規程と様式で満たしている。第32条の氏名と住所は、求めた人がプロフィールに公開した連絡先へ知らせ、連絡先のない人は一時的に公開すれば受け取れる。
-- **項ごとの対応**：個人情報保護法第17条・第18条・第20条〜第23条・第25条〜第28条・第32条〜第38条・第40条と、同法施行令第10条、同法施行規則第7条・第8条・第10条・第17条の義務を、項ごとに規程の文と結んだ表を `verification/duties.json` に置いた。検査が、文の実在と、条文の見張りとの対応を確かめる。
+- **項ごとの対応**：個人情報保護法第17条・第18条・第20条〜第23条・第25条〜第28条・第32条〜第38条・第40条と、同法施行令第10条、同法施行規則第7条・第8条・第10条・第17条、番号利用法第19条・第20条の義務を、項ごとに規程の文と結んだ表を `verification/duties.json` に置いた。検査が、文の実在と、条文の見張りとの対応を確かめる。
 - **点検で足したこと（2026-11-12）**：個人情報取扱事業者は、個人情報データベース等を事業の用に供している者で、国の機関などを除く（個人情報保護法第16条第2項）。営利かどうかは要件にない。名簿は、アカウント名を叙任の順に並べた表で、訂正へのリンクの先から本人が分かることがある（同法第2条第1項）。運営者は、自らを個人情報取扱事業者として扱う。従業者は置かず、名簿を変えられるのは運営者のアカウントだけである（同法第24条）。名簿に載せることは、不特定かつ多数の人への提供に当たると考える。その記録（同法第29条、同法施行規則第19条・第20条）は、名簿の行を足したリポジトリの履歴で作る。保存の期間は同法施行規則第21条による。名簿から外す求めに応じても、行を足した履歴は残る（[削除・訂正・辞退の求め](./requests.md)「外せないもの」）。第三者から個人データを受け取らないので、同法第30条の確認は起こらない。
 - **点検で足したこと（2026-11-23）**：2026-11-24 から様式で求める、生まれてから一度も日本の外に出たことがないことの印は、アカウントに結び付いた本人の申告で、ほかの印と同じく個人情報として扱う。利用の目的は、特定した叙任を判断することのままで変わらず、[個人情報の取り扱い](./privacy.md)が前もって公表している（同法第17条第1項・第21条第1項）。印は、本人が、目的を示した様式で付けるもので、偽りや不正の手段で取るものではない（同法第20条第1項）。旅券・書類・日付・行った国を求めず、日本の外に出た経歴を集めず残さないので、目的に要る範囲を超えて扱わない（同法第18条第1項）。同法第2条第3項が要配慮個人情報として文で挙げる事柄（人種、信条、社会的身分、病歴、犯罪の経歴、犯罪により害を被った事実）に、日本の外に出たことがあるかどうかは入っていない。同項が政令に委ねる記述等は、取り寄せていないので確かめていない。これらのほかは、これまでの点検を越えて確かめていない。
-- **点検で足したこと（2026-11-26）**：2026-12-15 から様式で求める、日本の国籍を持つことの印も、アカウントに結び付いた本人の申告で、ほかの印と同じく個人情報として扱う。利用の目的は、特定した叙任を判断することのままで変わらず、[個人情報の取り扱い](./privacy.md)が前もって公表している（同法第17条第1項・第21条第1項）。旅券・戸籍・住民票などの書類と、ほかに持つ国籍を求めず残さないので、目的に要る範囲を超えて扱わない（同法第18条第1項）。同法第2条第3項が文で挙げる事柄に、国籍は入っていない。個人情報保護委員会のガイドライン（通則編）は、単純な国籍は法的地位で、それだけでは人種に含まないとする（点検の記録「2026-11-26：イタリアの法令で、授けることがどこまで罪になるか」）。運営者は、国籍の印を、無償の遊びの条件を確かめることにだけ使う。
+- **点検で足したこと（2026-11-26）**：2026-12-15 から様式で求める、日本の国籍を持つことの印も、アカウントに結び付いた本人の申告で、ほかの印と同じく個人情報として扱う。利用の目的は、特定した叙任を判断することのままで変わらず、[個人情報の取り扱い](./privacy.md)が前もって公表している（同法第17条第1項・第21条第1項）。願い出の issue では、旅券・戸籍・住民票などの書類と、ほかに持つ国籍を求めず残さないので、目的に要る範囲を超えて扱わない（同法第18条第1項）。同法第2条第3項が文で挙げる事柄に、国籍は入っていない。個人情報保護委員会のガイドライン（通則編）は、単純な国籍は法的地位で、それだけでは人種に含まないとする（点検の記録「2026-11-26：イタリアの法令で、授けることがどこまで罪になるか」）。運営者は、国籍の印を、無償の遊びの条件を確かめることにだけ使う。
+- **点検で足したこと（2026-11-26、書類による確かめ）**：受付に戻ったあとの日本の国籍の書類による確かめで運営者が見る画像も、個人情報として扱う。利用の目的は、叙任を判断することのうち、日本の国籍を持つことを確かめることで、[個人情報の取り扱い](./privacy.md)が前もって公表している（同法第17条第1項・第21条第1項）。画像は、本人が、目的を示した様式に印を付けたうえで自ら置くもので、偽りや不正の手段で取るものではない（同法第20条第1項）。氏名・本籍・生年月日・父母・身分事項などを隠したものだけを受け、記すのは結果の一行だけなので、目的に要る範囲を超えて扱わない（同法第18条第1項）。画像は、招いたアカウントのほかを入れない非公開のリポジトリに置き、7 日以内に削除し、手元に取り込まず、言語モデルに渡さない（同法第23条）。運営者は画像を誰にも渡さない（同法第27条）。画像が GitHub（米国）のサーバーに置かれることは、外国にある第三者への提供（同法第28条）として扱い、様式の印で同意を受ける。同法第2条第3項が文で挙げる事柄に、国籍は入っていない。個人番号は受け取らない（番号利用法第19条・第20条。「日本の国籍の書類による確かめ」）。
 - **保つための決め**：[個人情報の取り扱い](./privacy.md)、[叙任の規程](./knighting.md)「辞退と取り消し」、叙任の願い出の様式の誓い。
 
 <!-- 条文 個人情報保護法 第17条、個人情報保護法 第18条、個人情報保護法 第27条、個人情報保護法 第28条 -->
@@ -2668,6 +2799,16 @@ Source: https://nusquama.vercel.app/policies/legality.html
 - **保つための決め**：[利用規約](./terms.md)「ヌスクァマとは何か」（国籍を持たない）、[叙任の規程](./knighting.md)「確かめないこと」（国籍を与えない）。
 
 <!-- 条文 国籍法 第11条 -->
+
+### 日本の国籍の書類による確かめ（戸籍法第23条・第120条、旅券法第18条、住民基本台帳法第7条・第30条の45、番号利用法第19条・第20条）
+
+- **要件の要旨**：戸籍法第23条は、国籍を失った者を、それまでの戸籍から除く（除籍）。同法第120条は、磁気ディスクの戸籍について、記録された事項の全部か一部を証明した書面（戸籍証明書）を定める。旅券法第18条第1項第1号は、名義人が日本の国籍を失ったときに旅券が効力を失うとする。住民基本台帳法第7条が定める住民票の記載事項に国籍はなく、個人番号はある（同条第8号の2）。国籍等を記載するのは、外国人住民の住民票である（同法第30条の45）。番号利用法第19条は、同条の各号の場合を除き、何人にも特定個人情報の提供を禁じる。同法第20条は、同じ場合を除き、何人にも他人の個人番号を含む特定個人情報の収集と保管を禁じる。
+- **ヌスクァマの事実**：受付に戻ったあと（受付に戻る日と 2026-12-15 の遅いほうから）、運営者は、交付から 3 か月以内の戸籍の個人事項証明書か戸籍抄本の画像で、願い出た人の欄に除かれた記しが無いことを見る。旅券・住民票の写し・個人番号カードは受けない。氏名・本籍・生年月日・身分事項などを隠したものだけを受ける。画像は、願い出ごとに作る非公開のリポジトリで受け、7 日以内に削除し、願い出の issue には結果の一行だけを記す。受付を止めているあいだは行わない。
+- **当てはまらない理由**：運営者は、番号利用法第19条の各号のどれにも拠らず、個人番号を受け取らず、集めず、残さない。個人番号の見えるものを画像に写さないことを、規程と様式で定める。写っていたときは、そこを読まず、その日のうちにリポジトリを削除する。戸籍の証明書は、戸籍に記載されている本人が交付を請求できる（戸籍法第10条第1項）。
+- **分かることの限り**：この確かめで分かるのは、申告に合う証明書の画像が、アカウント名を書いた紙と並べて見せられたことだけである。偽った書類や、ほかの人の書類でないことは除けない。事実でない印と偽った書類は、利用規約「してはいけないこと」で禁じている。
+- **保つための決め**：[叙任の規程](./knighting.md)「日本の国籍の書類による確かめ」、[個人情報の取り扱い](./privacy.md)「日本の国籍の書類による確かめで扱うもの」、[利用規約](./terms.md)「してはいけないこと」、叙任の願い出の様式の誓い。
+
+<!-- 条文 戸籍法 第23条、戸籍法 第120条、旅券法 第18条、住民基本台帳法 第7条、住民基本台帳法 第30条の45、番号利用法 第19条、番号利用法 第20条 -->
 
 ### 日本の外の法令
 
@@ -2940,10 +3081,11 @@ A passport, an identity card, a proof of nationality or status, a certificate of
 - Collecting money or goods in Nusquama's name.
 - Trying to break the site or the forms.
 - Ticking a box in the application form for something that is not true, such as your age, the country you live in, your nationality, that the correction is of your own error, or that you have never been outside Japan.
+- Showing a forged document, or another person's document, in the document check of Japanese nationality after applications reopen.
 
 The operator may refuse such applications, close the issues, and remove names from the roll.
 If a ticked box turns out to be untrue, the operator removes the name from the roll as soon as the operator learns of it. From 2026-11-22, the operator may also refuse further applications from the same GitHub account.
-The operator relies on the ticked boxes in good faith and does not check them. A person knighted on an untrue box does not mean that Nusquama accepts applications from a country, or from holders of a nationality, from which it says it does not.
+The operator relies on the ticked boxes in good faith and does not check them. After applications reopen, Japanese nationality alone is also checked by a document, in addition to the tick ([Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document"). A person knighted on an untrue box does not mean that Nusquama accepts applications from a country, or from holders of a nationality, from which it says it does not.
 The ticked boxes stay in the public issue until it is deleted at the person's request, so that what was ticked, and when, can be shown.
 Nothing here asks an applicant for a penalty, or for damages beyond what the law provides.
 
@@ -2992,8 +3134,9 @@ Notice: from 2026-12-15, once applications reopen, at most 1 person is knighted 
 Notice: from 2026-12-15, no application for knighting is ever received again from a GitHub account whose application for knighting was declined. A withdrawn application counts, as before, only for 365 days ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)").
 Notice: from 2026-12-15, an error report opened on or after that day is not accepted until 30 days, not counting the day itself, have passed since the same GitHub account opened its previous error report; it gets the label "one per 30 days" and a fixed comment. The issue is not closed. Requests about removal, correction or withdrawal, notices from rights holders, and reports of security problems are not limited ([Privacy](./privacy.en.md), "What a report of a mistake involves").
 
-The notice below was shown on 2026-11-26. The owner decided this on 2026-11-26.
-Notice: from 2026-12-15, applications for knighting after reopening are limited to people who hold Japanese nationality. A person who also holds Italian nationality, or the nationality of a country that restricts foreign titles, still may not apply. Only the applicant's own declaration by a tick in the form is checked; no passport, family register, certificate of residence or other document, and no other nationality held, is asked for. When applications reopen, this condition applies to every application. The roll of knights does not change, and no knight is asked about nationality ([Rules on Knighting](./knighting.en.md), "Holding Japanese nationality"; shown on 2026-11-26).
+The two notices below were shown on 2026-11-26. The owner decided the first on 2026-11-26. The owner asked for the second on 2026-11-26, and Claude decided it.
+Notice: from 2026-12-15, applications for knighting after reopening are limited to people who hold Japanese nationality. A person who also holds Italian nationality, or the nationality of a country that restricts foreign titles, still may not apply. In the application issue, only the applicant's own declaration by a tick in the form is checked; no passport, family register, certificate of residence or other document, and no other nationality held, is asked for. The document check after applications reopen is as in the next notice. When applications reopen, this condition applies to every application. The roll of knights does not change, and no knight is asked about nationality ([Rules on Knighting](./knighting.en.md), "Holding Japanese nationality"; shown on 2026-11-26).
+Notice: in applications for knighting after reopening, the operator checks that the applicant holds Japanese nationality by an image of a personal record certificate of the family register (or an extract of a paper register), in addition to the tick in the form. It takes effect on the later of the day applications reopen and 2026-12-15. The day applications reopen is shown in advance in the Rules on Knighting and on this page. While applications are paused, no document is asked for or received. The image is received in a private repository that the operator creates for each application and to which only the applicant's account is invited, and the repository is deleted within 7 days of the day it was created. Only images with the name, the permanent domicile and other parts masked are accepted; no passport, certificate of residence or Individual Number Card is accepted, and no Individual Number is received. Email is not used, and no contact details are asked for. Only one line, whether the check succeeded and its date, is recorded in the application issue. An application whose check was not confirmed is declined. The roll of knights does not change, and no knight is asked for a document ([Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document"; shown on 2026-11-26).
 
 No change will ever create a fee.
 When the King can no longer keep the country, the country may be frozen without notice ([Institutions](../INSTITUTIONS.en.md), "Freezing"). While it is frozen, the roll, the errata and the rules stay public, and requests for removal, correction and withdrawal are answered as far as possible.
@@ -3171,11 +3314,13 @@ Once applications reopen, an application involves:
 - The tick that the applicant has never been outside Japan since birth (from 2026-11-24; [Rules on Knighting](./knighting.en.md), "Never having been outside Japan")
 - The day the correction was published, and the tick that the original text with the error is a text the applicant wrote (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)")
 - The tick that the applicant holds Japanese nationality (from 2026-12-15; [Rules on Knighting](./knighting.en.md), "Holding Japanese nationality")
+- The tick that the applicant accepts "Checking Japanese nationality by document" (after applications reopen; [Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document")
 
 These are public in the issue. For those knighted, the GitHub account name, the day of knighting, a summary of the mistake corrected and a link to the application are put on the [roll of knights](../KNIGHTS.en.md).
 No real name, address, affiliation or contact details are asked for, and the form asks applicants not to write them.
 About never having been outside Japan, only whether the box is ticked or not is handled. The tick stays as part of the application issue. No passport, document, date or country visited is asked for, and no history of travel outside Japan is collected or kept. The form also asks applicants not to write them.
-About holding Japanese nationality, only whether the box is ticked or not is handled. The tick stays as part of the application issue. No passport, family register, certificate of residence or other document, and no other nationality held, is asked for or kept. The form also asks applicants not to write them.
+In the application issue, about holding Japanese nationality, only whether the box is ticked or not is handled. The tick stays as part of the application issue. In the issue, no passport, family register, certificate of residence or other document, and no other nationality held, is asked for or kept. The form also asks applicants not to write them.
+What is handled when the operator checks by a document after applications reopen is set out in the next section.
 Nothing sensitive, such as illness, disability, belief or criminal record, is asked for either, and the form asks applicants not to write it.
 But if the linked correction gives a real name or affiliation, the roll and the issue publicly connect the account name with that person.
 Issues are also subject to GitHub's Terms of Service and Privacy Statement.
@@ -3186,6 +3331,35 @@ From 2026-12-15, to check whether 365 days have passed since the previous applic
 From 2026-12-15, to check whether there is a declined application, the automatic check also receives from GitHub's API the list of application issues for knighting opened by the same account that have the label 断った (declined). Likewise, only the issue number and the time of opening are used.
 From 2026-12-15, to check whether the account was created at least 2 years earlier, the automatic check receives from GitHub's public API the answer for the account that opened the application issue. The answer also contains the items of the profile, but only the time the account was created is used; the rest is discarded. The time of creation is not kept either, and is written neither in the comment nor in the log of the run. The applicant is asked nothing.
 All of these are public information, and are used for nothing but deciding on knighting.
+
+## What the document check of Japanese nationality involves
+
+After applications reopen, the operator checks that the applicant holds Japanese nationality by an image of a family register certificate ([Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document").
+It takes effect on the later of the day applications reopen and 2026-12-15.
+While applications are paused, this check is not done, and no document or image is received.
+What is handled is one image, which the applicant places in a private repository the operator creates.
+The image shows a personal record certificate of the family register (or an extract of a paper register), and a sheet of paper with the GitHub account name and the day of sending written by hand.
+On the certificate, the applicant masks the permanent domicile, the name of the head of the register, the applicant's name, date of birth, the names of the parents and adoptive parents, the relationship, what is written under the matters of status, and the serial number of the certificate.
+What the operator looks at is the title of the certificate, the statement by which the mayor certifies it, the day of issue, the mayor's title and name, whether there is a mark of removal, and the handwritten sheet.
+This check, too, asks for no real name, address, affiliation or contact details.
+Whether a person holds Japanese nationality is not handled as special care-required personal information. Nationality is not among the matters named in the text of Article 2(3) of the Act on the Protection of Personal Information. The general-rules guidelines of the Personal Information Protection Commission say that mere nationality is a legal status and is not in itself race ([guidelines (general rules)](https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/), 2-3, in Japanese).
+The image is used only to check that the applicant holds Japanese nationality.
+The operator only looks at the image in GitHub's web interface. The operator does not download, copy or store it.
+The operator gives the image neither to a language model nor to GitHub's AI features. Claude does not see the images.
+The operator deletes the private repository within 7 days of the day it was created. Once the operator has looked at the image, it is deleted on that day.
+What is recorded in the public application issue is only one line: "checked" or "not confirmed", with its date.
+No name, date of birth, permanent domicile, certificate number, issuing municipality or day of issue is recorded anywhere.
+The image is received neither by email nor through any other service. The operator does not ask for the applicant's contact details, and publishes none.
+No Individual Number (My Number) is received. Article 19 of the Number Use Act forbids any person to provide specific personal information except in the cases listed in its items. Article 20 of the same Act forbids any person to collect or keep specific personal information that includes another person's Individual Number, except in the same cases.
+If an Individual Number appears in an image, the operator does not read it and deletes the private repository on that day.
+The applicant places the image in the GitHub repository themselves. The operator gives the image to no one.
+The operator treats the image's being placed on the servers of GitHub (United States) as a provision to a third party in a foreign country (Article 28 of the Act on the Protection of Personal Information), and takes consent by a tick in the form. The system of the United States and GitHub's measures are set out in "Providing data to others, and businesses in other countries".
+GitHub's Terms of Service say that GitHub treats the contents of private repositories as confidential to the user (E.2).
+The same terms say that GitHub personnel will not access private repository content without consent except: for security purposes; for automated scanning or manual review for known vulnerabilities, active malware, or other content known to violate the terms; to assist the repository owner with a support matter; to maintain the integrity of the Service; or to comply with legal obligations if there is reason to believe the contents are in violation of the law (E.3). They also say that GitHub may be compelled by law to disclose the contents (E.3).
+The same terms say that, except where private repository content is provided as input to AI features, GitHub will not otherwise use private repository contents to develop or improve the Service (E.3). The operator does not give that repository to AI features.
+Section D.4 of the same terms grants a license to use users' content for training the AI and machine learning models of GitHub's affiliates. E.3 does not say that private repository contents are excluded from that license.
+GitHub's documentation says that a deleted repository can in some cases be restored within 90 days of deletion. It also says that deleting a private repository deletes all of its forks.
+The operator does not restore a deleted repository.
 
 ## What a report of a mistake involves
 
@@ -3205,6 +3379,7 @@ This limit does not apply to requests about removal, correction, withdrawal, rig
 ## Purposes of use
 
 To decide on knighting, to keep the roll, to answer requests, to check reported mistakes and record them in the King's errata, and, from 2026-12-01, to check that a person who reports a mistake is in Japan. Nothing else.
+The image seen in "Checking Japanese nationality by document" after applications reopen is used, as part of deciding on knighting, only to check that the applicant holds Japanese nationality.
 Article 21(1) of Japan's Act on the Protection of Personal Information reads: 「個人情報取扱事業者は、個人情報を取得した場合は、あらかじめその利用目的を公表している場合を除き、速やかに、その利用目的を、本人に通知し、又は公表しなければならない。」 This page publishes that purpose in advance.
 
 ## Providing data to others, and businesses in other countries
@@ -3235,6 +3410,7 @@ The earlier title and body remain in the edit history that GitHub keeps for the 
 The automatic check does not copy the body of an issue into the record of its run (the GitHub Actions log).
 On a request to delete, the operator deletes the issue, or empties its body and removes the earlier versions from its edit history too.
 The history of the repository, and copies already made by others, may still hold an entry.
+The image of the document check after applications reopen is deleted, with the whole private repository, within 7 days of the day the repository was created. That GitHub can in some cases restore it within 90 days after deletion is set out in "What the document check of Japanese nationality involves". The operator does not restore it.
 When an issue is opened or written to, GitHub sends a notification to the accounts set to receive that activity.
 Depending on the settings of the person who receives it, a notification also arrives by email. An email notification holds a copy of the content of the issue.
 The accounts that receive it may include the operator's.
@@ -3247,6 +3423,7 @@ The pages of GitHub's documentation that were fetched do not say that a notifica
 The only personal data handled is what is in the public issues and on the roll of knights.
 GitHub's notifications may carry a copy of the content of an issue to the holders of the accounts that receive them (see "How long data is kept" above). The operator may be one of them.
 Apart from this, the operator gathers the data nowhere else and makes no other copy.
+After applications reopen, the operator also looks at an image of a family register certificate for the document check. The image is placed in a private repository that admits only the operator and the invited account, and is deleted within 7 days of the day the repository was created. The operator does not download or copy the image, and gives it to no language model ("What the document check of Japanese nationality involves").
 Only the operator's GitHub account, which owns the repository, can change the roll and the site.
 That account uses two-factor authentication.
 Every change to the roll and the site is kept in the public history of the repository and goes in only after passing the checks.
@@ -3314,6 +3491,7 @@ Where these rules add a condition, these rules prevail.
 The added conditions are age, the country of residence, the country where the applicant is when applying, nationality, the premise of good sense, and the pause in receiving applications.
 From 2026-11-24, the condition in "Never having been outside Japan" is also one of the added conditions.
 From 2026-12-15, the condition in "Holding Japanese nationality" is also one of the added conditions.
+After applications reopen, the condition in "Checking Japanese nationality by document" is also one of the added conditions.
 From 2026-11-29, the rule in "Countries and regions where knighting would not conform to the law" is also one of the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation" are also among the added conditions.
 From 2026-12-15, the conditions in "Barriers to participation (continued)" are also among the added conditions.
@@ -3492,12 +3670,95 @@ The owner decided this condition on 2026-11-26. Claude decided the details on th
 This condition does not look down on people who do not hold Japanese nationality, and does not rank anyone.
 This condition does not settle the point of Italian law ([Legality Statement](./legality.en.md), "How far conferring is a crime under Italian law"). Applications stay paused.
 The conditions in "Barriers to participation" and "Barriers to participation (continued)" still do not sort people by nationality. The rules on nationality are in this section, "Who may apply" and "Countries that restrict foreign titles".
-It is confirmed only by the applicant's own declaration, by a tick in the form. The text of the box begins "日本の国籍を持っています" (I hold Japanese nationality).
-No passport, family register, certificate of residence or other document is asked for. No other nationality the applicant holds is asked about.
-The operator handles only whether the box is ticked or not. The tick stays as part of the application issue ([Privacy](./privacy.en.md), "What an application for knighthood involves").
+It is confirmed by the applicant's own declaration, by a tick in the form. The text of the box begins "日本の国籍を持っています" (I hold Japanese nationality).
+After applications reopen, a check in which the operator looks at an image of a family register certificate is added to it ("Checking Japanese nationality by document").
+In the application issue, no passport, family register, certificate of residence or other document is asked for. No other nationality the applicant holds is asked about.
+As for the tick, the operator handles only whether the box is ticked or not. The tick stays as part of the application issue ([Privacy](./privacy.en.md), "What an application for knighthood involves").
 If a tick turns out to be untrue, it is handled like any other tick, under "What is not allowed" in the Terms of Use: the operator removes the name from the roll as soon as the operator learns of it, and may also refuse further applications from the same GitHub account.
 The roll of knights does not change. On 2026-11-26, there is no knight on the roll. The condition does not apply to a knight knighted before 2026-12-15. No knight is asked about nationality.
 Applications stay paused. When they reopen, this condition applies to every application.
+The content of the change and the date it takes effect were shown on 2026-11-26 under "Changes and ending" in the Terms of Use.
+
+## Checking Japanese nationality by document
+
+After applications reopen, the operator checks by a document, in addition to the tick in the form, that the applicant holds Japanese nationality.
+This check takes effect on the later of the day applications reopen and 2026-12-15.
+The day applications reopen is shown in advance in these rules and in the Terms of Use, as "Pause in receiving applications" says.
+While applications are paused, this check is not done. No document is asked for or received.
+This section does not decide to reopen. Reopening still requires the row of the check in "Pause in receiving applications".
+This check is in addition to the conditions in the other sections. The tick "日本の国籍を持っています" (I hold Japanese nationality) in the form is still required.
+The owner asked for this check on 2026-11-26, and Claude decided it, so that Japanese nationality is not accepted on the applicant's own declaration alone.
+
+### The documents accepted
+
+Only a personal record certificate of the applicant's family register (koseki), or an extract of a paper family register (koseki shohon), is accepted. Both certify part of what is recorded in a family register (Family Register Act, Articles 10 and 120).
+It must have been issued within 3 months. A loss of nationality after the day of issue does not appear on it.
+Article 23 of the Family Register Act provides that a person who loses nationality is removed from the family register they were in (joseki).
+The operator checks that there is no mark of removal in the applicant's entry on the certificate.
+A certificate of all matters of a family register, and a full copy of a family register (koseki tohon), are not accepted, because they carry other people's entries.
+A certificate of a removed family register (joseki) is not accepted either.
+A passport is not accepted. Article 18(1)(i) of the Passport Act provides that a passport loses its effect when its holder loses Japanese nationality. An image of a passport cannot show whether it has lost its effect that way. A passport also carries a photograph of the face.
+A copy of a certificate of residence (jūminhyō) is not accepted. Nationality is not among the matters that Article 7 of the Basic Resident Registration Act lists for a certificate of residence. Nationality and region are recorded on the certificate of residence of a foreign resident (Article 30-45 of the same Act). Article 7 of the same Act also lists the Individual Number among the matters recorded.
+An Individual Number Card (My Number card) is not accepted. Nationality is not among the matters that Article 2(7) of the Number Use Act lists for the card. The card carries the Individual Number.
+No other document is accepted.
+
+### The Individual Number is not received
+
+Article 19 of the Number Use Act (Act on the Use of Numbers to Identify a Specific Individual in Administrative Procedures) provides that no person may provide specific personal information except in the cases listed in its items.
+Article 20 of the same Act provides that no person may collect or keep specific personal information that includes another person's Individual Number, except in the same cases.
+Specific personal information is personal information that contains an Individual Number (Article 2(9) of the same Act).
+The operator relies on none of the items of Article 19. The operator does not receive, collect or keep any Individual Number.
+Neither side of an Individual Number Card, a copy of a certificate of residence that shows the Individual Number, nor anything else that shows the Individual Number is put in the image.
+If an Individual Number appears in an image, the operator does not read it, deletes the private repository on that day, and records the check as not confirmed.
+
+### What is masked and what is shown
+
+The permanent domicile (honseki), the name of the head of the register, the applicant's name, date of birth, the names of the parents and adoptive parents, the relationship, what is written under the matters of status, and the serial number of the certificate are masked.
+Nothing else is masked. The title of the certificate, the statement by which the mayor certifies it, the day of issue, and the mayor's title and name stay visible. If the applicant's entry has a mark of removal, that mark stays visible too.
+The name is masked because the check does not need it. The operator does not know the applicant's real name, so seeing the name would not tie it to the account. The rule that no real name is asked for is also kept ([Privacy](./privacy.en.md), "What an application for knighthood involves").
+The permanent domicile, the date of birth, the parents and the matters of status are not needed to check Japanese nationality either.
+Masking is done by laying paper over the parts or by painting over them on the image.
+The image is a single JPEG or PNG. A PDF is not accepted, because text under a painted area can remain in a PDF.
+The image keeps no location data of where it was taken.
+If a part that should be masked is visible, the operator does not read it and records the check as not confirmed.
+If a part that should be shown is hidden and the check cannot be decided, it is also recorded as not confirmed.
+
+### Tying it to the account
+
+In the same image, next to the certificate, a handwritten sheet of paper is shown.
+On the sheet are written the GitHub account name that opened the application issue and the day the image is sent (Japan time, in the form 2026-12-15).
+If the date on the sheet differs from the day (Japan time) the image is placed in the repository, the check is recorded as not confirmed.
+If the day of issue is more than 3 months before the date on the sheet, it is also recorded as not confirmed.
+
+### How the image is passed
+
+The image is received only in a private repository on GitHub. Neither email nor any other service is used.
+No contact details are asked for, and none are newly published.
+After checking the other conditions, and before deciding on knighting, the operator creates one private repository for each application.
+Only the GitHub account that opened the application issue is invited to that repository. The invitation is noted in the application issue.
+After accepting the invitation, the applicant places the image in that repository as a file.
+The image is not pasted into an issue, a comment or a pull request, because GitHub's notifications may carry a copy of the content of an issue ([Privacy](./privacy.en.md), "How long data is kept").
+The operator only looks at the image in GitHub's web interface. The operator does not download, copy or store it.
+The operator gives the image neither to a language model nor to GitHub's AI features.
+Claude does not see the images. Claude does not create, open or read these private repositories. Only the operator does this check.
+The operator deletes the private repository within 7 days of the day it was created. Once the operator has looked at the image, the repository is deleted on that day.
+If no image is placed within the 7 days, the check is recorded as not confirmed.
+The operator does not restore a deleted repository.
+
+### What is recorded
+
+The operator records only one line, in the public application issue.
+That line is "日本の国籍の書類による確かめ：確かめた（date）" (checked) or "日本の国籍の書類による確かめ：確かめられなかった（date）" (not confirmed).
+No copy of the certificate, no image, name, date of birth, permanent domicile, certificate number, issuing municipality or day of issue is recorded anywhere.
+What the roll of knights carries does not change.
+Knighting is not decided until that line is recorded.
+An application whose check was not confirmed is declined ("What is declined").
+
+### What this check shows
+
+This check shows only that an image of a certificate matching the declaration was shown next to a sheet with that account name.
+It cannot exclude a forged document or another person's certificate.
+So the handling of an untrue tick does not change. If a tick turns out to be untrue, or the applicant turns out to have shown a forged document or another person's document, it is handled under "What is not allowed" in the Terms of Use: the operator removes the name from the roll as soon as the operator learns of it, and may also refuse further applications from the same GitHub account.
 The content of the change and the date it takes effect were shown on 2026-11-26 under "Changes and ending" in the Terms of Use.
 
 ## Countries that restrict foreign titles
@@ -3590,6 +3851,8 @@ From 2026-12-15, also fill in the field "訂正を公開した日" (Day the corr
 
 From 2026-12-15, also tick the box that you hold Japanese nationality ("Holding Japanese nationality").
 
+After applications reopen, also tick the box that you accept "Checking Japanese nationality by document", and place an image of your family register certificate in the private repository the operator invites you to ("Checking Japanese nationality by document").
+
 ## What the operator checks
 
 - That the link is public and reads as a correction.
@@ -3599,6 +3862,7 @@ From 2026-12-15, also tick the box that you hold Japanese nationality ("Holding 
 - From 2026-12-15, that at the link the day of publication matches "訂正を公開した日" (Day the correction was published) in the form, that both the original text with the error and the corrected text can be seen, and that the original text reads as written by the applicant (for a co-authored text, one with the applicant among its authors) ("Barriers to participation (continued)").
 - That the linked correction does not state clearly that the applicant lives outside Japan, is outside Japan at the time of applying, holds Italian nationality or the nationality of a country under "Countries that restrict foreign titles", or is under 16. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they meet the conditions.
 - From 2026-12-15, that the linked correction does not state clearly that the applicant does not hold Japanese nationality. If it does, the operator asks the applicant, and does not knight them unless it is confirmed that they hold Japanese nationality ("Holding Japanese nationality").
+- After applications reopen, that the result of "Checking Japanese nationality by document" is "確かめた" (checked). The operator does not decide on knighting until that line is recorded in the application issue.
 
 The operator does not judge whether the correction itself is right. The operator judges only that a correction was made.
 
@@ -3609,15 +3873,17 @@ From 2026-11-24, the automatic check also checks the tick that the applicant has
 From 2026-12-15, the automatic check also checks the tick that the applicant is 18 or over, the answer under "称号を使わない場所" (Places where the title is not used) and the dates of the same account's earlier applications, and writes the earliest day on which knighting can be decided ("Barriers to participation").
 From 2026-12-15, the automatic check also checks the tick that the original text with the error is a text the applicant wrote, the day the correction was published, whether the link to the correction has the form of a place that keeps the earlier version, the day the account was created, and declined applications from the same account ("Barriers to participation (continued)").
 From 2026-12-15, the automatic check also checks the tick that the applicant holds Japanese nationality ("Holding Japanese nationality").
+After applications reopen, the automatic check also checks the tick that the applicant accepts "Checking Japanese nationality by document", and writes that the document check is not done until the operator records its result. The automatic check does not see the image.
 The automatic check decides nothing. The operator decides on knighting.
 
 ## What is not checked
 
-The operator does not check nationality, country of residence, age or real name, and asks for no identity document.
+The operator does not check country of residence, age or real name, and asks for no identity document with a photograph of the face.
+Nationality is checked only after applications reopen, and only in the form of "Checking Japanese nationality by document".
 Nusquama gives no nationality. Knights are not its people.
 Age, country of residence, the country where the applicant is when applying, and not holding Italian nationality or the nationality of a country under "Countries that restrict foreign titles" are taken from the applicant's own declaration, by the ticks in the form.
 From 2026-11-24, never having been outside Japan since birth is also taken from the applicant's own declaration, by a tick in the form. No passport or other document is asked for ("Never having been outside Japan").
-From 2026-12-15, holding Japanese nationality is also taken from the applicant's own declaration, by a tick in the form. No passport, family register, certificate of residence or other document is asked for ("Holding Japanese nationality").
+From 2026-12-15, holding Japanese nationality is also taken from the applicant's own declaration, by a tick in the form. After applications reopen, "Checking Japanese nationality by document" is added to it. No passport, certificate of residence or Individual Number Card is asked for ("Holding Japanese nationality").
 But what the linked correction clearly states is not overlooked.
 The person dealt with is the GitHub account that applied.
 If it turns out that an applicant did not meet the conditions, their name is taken off the roll.
@@ -3640,6 +3906,7 @@ No knighthood is given for:
 - From 2026-11-29, an application where the linked correction clearly shows that "Countries and regions where knighting would not conform to the law" applies.
 - From 2026-12-15, an application that does not meet the conditions in "Barriers to participation (continued)".
 - From 2026-12-15, an application without the tick for "Holding Japanese nationality".
+- After applications reopen, an application whose "Checking Japanese nationality by document" was not confirmed.
 
 When declining, the operator writes only one fixed sentence in the issue ("This does not meet the conditions for knighting."), and comments on no one. The issue is deleted if the applicant asks.
 From 2026-12-15, the issue of a declined application gets the label 断った (declined). No application for knighting is ever received again from that account ("Barriers to participation (continued)").
@@ -4104,15 +4371,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - It makes and hands out no physical decorations, badges or uniforms.
 - Its titles are words inside the fiction, used only in the repository, on the site, and in the articles and posts the King wrote to introduce Nusquama (listed in the README under "ほかの場所").
 - The only personal information it handles is a GitHub account name, a link to the public correction, and the description the person writes. The linked page may reveal a real name or affiliation, and the form says so.
+- After applications reopen, in addition, only the operator looks at an image of a family register certificate with the name, permanent domicile and other parts masked, for the document check of Japanese nationality, and deletes it within 7 days ([Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document").
 - Issues reporting mistakes and issues making requests handle the GitHub account name and what the person writes.
 - It accepts no applications from people under 16, or from people whose country of residence forbids receiving knightly titles conferred by private persons.
 - From 2026-12-15, it accepts no applications from people under 18 either ([Rules on Knighting](./knighting.en.md), "Barriers to participation").
 - From 2026-11-24, it accepts applications only from people who have never been outside Japan since birth. Never having been outside Japan is taken from the applicant's own declaration, by a tick in the form, and no passport, document, date or country visited is asked for ([Rules on Knighting](./knighting.en.md), "Never having been outside Japan").
-- From 2026-12-15, it accepts applications only from people who hold Japanese nationality. Holding Japanese nationality is taken from the applicant's own declaration, by a tick in the form, and no passport, family register, certificate of residence or other document is asked for ([Rules on Knighting](./knighting.en.md), "Holding Japanese nationality").
+- From 2026-12-15, it accepts applications only from people who hold Japanese nationality. Holding Japanese nationality is taken from the applicant's own declaration, by a tick in the form, and in the application issue no passport, family register, certificate of residence or other document is asked for ([Rules on Knighting](./knighting.en.md), "Holding Japanese nationality"). After applications reopen, a check in which the operator looks at an image of a family register certificate is added to it ([Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document").
 - Knighting is done entirely online. There is no knighting ceremony and no conferral in person, and no letter or object is sent ([Rules on Knighting](./knighting.en.md), "What knighting is").
 - The number of people ever knighted is 0, and there is no knight on the roll.
 - From 2026-12-15, an application for knighting also gives, in the form, the day the correction was published. The time the account was created, as shown by GitHub's public API, and the numbers and times of opening of declined applications from the same account are used only for the check, and are not kept. For an error report, the numbers and times of opening of earlier reports from the same account are likewise used and not kept ([Rules on Knighting](./knighting.en.md), "Barriers to participation (continued)"; [Privacy](./privacy.en.md), "What a report of a mistake involves").
-- It collects no documents to check nationality, age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form.
+- It collects no documents to check age, country of residence or real name. Age, country of residence, the country the applicant is in when applying, and nationality are taken from the applicant's own declaration, made by ticking the oaths in the form. For nationality, a document is looked at only after applications reopen, in the form of the document check of Japanese nationality, and neither the document nor the image is kept.
 - Every page states that it is fiction and unrelated to anything real.
 
 ## Law by law
@@ -4211,10 +4479,11 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Elements, in summary**: a business handling personal information must specify the purpose of use as far as possible and not handle the information beyond what that purpose needs. Before giving personal data to a third party, or to a third party in a foreign country, it must obtain the person's consent, among other rules.
 - **Nusquama's facts**: it handles only the GitHub account name, the link to the correction and the description the person writes, and asks for no real name, address or contact details. It states the purpose of use, that the information is public, and that it is handled by GitHub and Vercel in the United States, and the person consents in the application form. Withdrawal from the roll and removal are granted at any time, free of charge.
 - **Why the law does not apply**: the handling the law requires is met by the pages and the form. The name and address under Article 32 are given at a contact the person has made public on their profile; a person with none can receive them by making one public for a while.
-- **Duty by duty**: the duties of Articles 17, 18, 20–23, 25–28, 32–38 and 40 of the Act, Article 10 of its Cabinet Order and Articles 7, 8, 10 and 17 of its Rules are paired, paragraph by paragraph, with the sentences that meet them, in `verification/duties.json`. The check confirms that every sentence exists and that every article is watched.
+- **Duty by duty**: the duties of Articles 17, 18, 20–23, 25–28, 32–38 and 40 of the Act, Article 10 of its Cabinet Order, Articles 7, 8, 10 and 17 of its Rules, and Articles 19 and 20 of the Number Use Act are paired, paragraph by paragraph, with the sentences that meet them, in `verification/duties.json`. The check confirms that every sentence exists and that every article is watched.
 - **Added in the review (2026-11-12)**: a business handling personal information is anyone who uses a personal information database for a business, other than state organs and the like (Article 16(2) of the Act). Profit is not an element. The roll is a table of account names in the order of knighting, and the linked correction may reveal who the person is (Article 2(1) of the Act). The operator treats itself as a business handling personal information. There are no employees, and only the operator's account can change the roll (Article 24 of the Act). Listing on the roll is considered a provision to an unspecified large number of people. Its record (Article 29 of the Act; Articles 19 and 20 of its Rules) is the repository history in which the row was added. The retention period follows Article 21 of the Rules. When a name is removed from the roll on request, the history in which the row was added remains ([Requests](./requests.en.md), "What cannot be removed"). No personal data is received from third parties, so the confirmation of Article 30 of the Act does not arise.
 - **Added in the review (2026-11-23)**: the tick, required in the form from 2026-11-24, that the applicant has never been outside Japan since birth is the person's own declaration tied to an account, and is handled as personal information like the other ticks. The purpose of use stays the specified purpose of judging knighting, and [Privacy](./privacy.en.md) publishes it in advance (Articles 17(1) and 21(1) of the Act). The tick is made by the person in a form that states the purpose, and is not obtained by deception or other wrongful means (Article 20(1)). No passport, document, date or country visited is asked for, and no history of travel outside Japan is collected or kept, so nothing is handled beyond what the purpose needs (Article 18(1)). The matters that Article 2(3) names in its text as special care-required personal information (race, creed, social status, medical history, criminal record, and the fact of having suffered harm by a crime) do not include whether a person has been outside Japan. The descriptions that the paragraph leaves to a Cabinet Order have not been fetched, and so have not been checked. Beyond these, nothing has been checked beyond the earlier review.
-- **Added in the review (2026-11-26)**: the tick, required in the form from 2026-12-15, that the applicant holds Japanese nationality is also the person's own declaration tied to an account, and is handled as personal information like the other ticks. The purpose of use stays the specified purpose of judging knighting, and [Privacy](./privacy.en.md) publishes it in advance (Articles 17(1) and 21(1) of the Act). No passport, family register, certificate of residence or other document, and no other nationality held, is asked for or kept, so nothing is handled beyond what the purpose needs (Article 18(1)). The matters that Article 2(3) names in its text do not include nationality. The Guidelines (General Rules) of the Personal Information Protection Commission say that mere nationality is a legal status and is not in itself race (legal review, "2026-11-26：イタリアの法令で、授けることがどこまで罪になるか"). The operator uses the nationality tick only to check the conditions of a free game.
+- **Added in the review (2026-11-26)**: the tick, required in the form from 2026-12-15, that the applicant holds Japanese nationality is also the person's own declaration tied to an account, and is handled as personal information like the other ticks. The purpose of use stays the specified purpose of judging knighting, and [Privacy](./privacy.en.md) publishes it in advance (Articles 17(1) and 21(1) of the Act). In the application issue, no passport, family register, certificate of residence or other document, and no other nationality held, is asked for or kept, so nothing is handled beyond what the purpose needs (Article 18(1)). The matters that Article 2(3) names in its text do not include nationality. The Guidelines (General Rules) of the Personal Information Protection Commission say that mere nationality is a legal status and is not in itself race (legal review, "2026-11-26：イタリアの法令で、授けることがどこまで罪になるか"). The operator uses the nationality tick only to check the conditions of a free game.
+- **Added in the review (2026-11-26, document check)**: the image the operator looks at in the document check of Japanese nationality after applications reopen is also handled as personal information. The purpose of use is, as part of judging knighting, to check that the applicant holds Japanese nationality, and [Privacy](./privacy.en.md) publishes it in advance (Articles 17(1) and 21(1) of the Act). The person places the image themselves after ticking a form that states the purpose, so it is not obtained by deception or other wrongful means (Article 20(1)). Only images with the name, permanent domicile, date of birth, parents, matters of status and the like masked are accepted, and only a one-line result is recorded, so nothing is handled beyond what the purpose needs (Article 18(1)). The image is placed in a private repository that admits no one but the invited account, is deleted within 7 days, is not downloaded and is given to no language model (Article 23). The operator gives the image to no one (Article 27). The image's being placed on the servers of GitHub (United States) is treated as a provision to a third party in a foreign country (Article 28), and consent is taken by a tick in the form. The matters that Article 2(3) names in its text do not include nationality. No Individual Number is received (Number Use Act, Articles 19 and 20; "Checking Japanese nationality by document").
 - **Rules that keep this true**: [Privacy](./privacy.en.md); [Rules on Knighting](./knighting.en.md), "Withdrawal and revocation"; the pledges in the application form.
 
 <!-- 条文 個人情報保護法 第17条、個人情報保護法 第18条、個人情報保護法 第27条、個人情報保護法 第28条 -->
@@ -4256,6 +4525,16 @@ The analysis below rests on the following facts. Each can be checked in the publ
 - **Rules that keep this true**: Terms of Use, "What Nusquama is" (no nationality); [Rules on Knighting](./knighting.en.md), "What is not checked" (no nationality granted).
 
 <!-- 条文 国籍法 第11条 -->
+
+### Checking Japanese nationality by document (Family Register Act, Articles 23 and 120; Passport Act, Article 18; Basic Resident Registration Act, Articles 7 and 30-45; Number Use Act, Articles 19 and 20)
+
+- **Elements, in summary**: Article 23 of the Family Register Act removes a person who loses nationality from the family register they were in (joseki). Article 120 of the same Act provides for documents certifying all or part of what is recorded in a family register kept on magnetic disk (family register certificates). Article 18(1)(i) of the Passport Act provides that a passport loses its effect when its holder loses Japanese nationality. Nationality is not among the matters that Article 7 of the Basic Resident Registration Act lists for a certificate of residence, while the Individual Number is (item 8-2 of that Article). Nationality and region are recorded on the certificate of residence of a foreign resident (Article 30-45 of the same Act). Article 19 of the Number Use Act forbids any person to provide specific personal information except in the cases in its items. Article 20 of the same Act forbids any person to collect or keep specific personal information that includes another person's Individual Number, except in the same cases.
+- **Nusquama's facts**: after applications reopen (from the later of the day they reopen and 2026-12-15), the operator checks, in an image of a personal record certificate of the family register or an extract of a paper register issued within 3 months, that there is no mark of removal in the applicant's entry. No passport, copy of a certificate of residence or Individual Number Card is accepted. Only images with the name, permanent domicile, date of birth, matters of status and the like masked are accepted. The image is received in a private repository created for each application and deleted within 7 days, and only a one-line result is recorded in the application issue. While applications are paused, the check is not done.
+- **Why the law does not apply**: the operator relies on none of the items of Article 19 of the Number Use Act, and does not receive, collect or keep any Individual Number. The rules and the form provide that nothing showing an Individual Number is put in the image. If one appears, the operator does not read it and deletes the repository on that day. A person recorded in a family register can request its certificate (Family Register Act, Article 10(1)).
+- **Limits of what it shows**: this check shows only that an image of a certificate matching the declaration was shown next to a sheet with the account name. It cannot exclude a forged document or another person's document. Untrue ticks and forged documents are forbidden under "What is not allowed" in the Terms of Use.
+- **Rules that keep this true**: [Rules on Knighting](./knighting.en.md), "Checking Japanese nationality by document"; [Privacy](./privacy.en.md), "What the document check of Japanese nationality involves"; [Terms of Use](./terms.en.md), "What is not allowed"; the pledges in the application form.
+
+<!-- 条文 戸籍法 第23条、戸籍法 第120条、旅券法 第18条、住民基本台帳法 第7条、住民基本台帳法 第30条の45、番号利用法 第19条、番号利用法 第20条 -->
 
 ### Laws outside Japan
 
@@ -5074,6 +5353,7 @@ Knighting is done entirely online. Applications are received as GitHub issues, a
 There is no knighting ceremony and no conferral in person. No letter, badge, certificate or other object is sent.
 What Nusquama gives to people is only the name of knight ([Rules on Knighting](policies/knighting.en.md), "What knighting is").
 From 2026-12-15, only people who hold Japanese nationality may apply for knighting (Rules on Knighting, "Holding Japanese nationality").
+After applications reopen, the operator checks Japanese nationality by an image of a family register certificate, in addition to the tick in the form. The image is received in a private repository and deleted within 7 days (Rules on Knighting, "Checking Japanese nationality by document").
 
 ## Population and how people are called
 

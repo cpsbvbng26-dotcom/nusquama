@@ -50,6 +50,7 @@ Knighting is done entirely online. Applications are received as GitHub issues, a
 There is no knighting ceremony and no conferral in person. No letter, badge, certificate or other object is sent.
 What Nusquama gives to people is only the name of knight ([Rules on Knighting](policies/knighting.en.md), "What knighting is").
 From 2026-12-15, only people who hold Japanese nationality may apply for knighting (Rules on Knighting, "Holding Japanese nationality").
+After applications reopen, the operator checks Japanese nationality by an image of a family register certificate, in addition to the tick in the form. The image is received in a private repository and deleted within 7 days (Rules on Knighting, "Checking Japanese nationality by document").
 
 ## Population and how people are called
 

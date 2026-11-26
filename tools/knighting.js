@@ -16,6 +16,9 @@
  *     2026-11-23 に運営者が決め、細かな定めは Claude が決めた）。見るのは印のあるなしだけで、旅券・日付・行った国は読まず、残さない
  *   - 2026-12-15 から、日本の国籍を持つ印があること（叙任の規程「日本の国籍を持つこと」。2026-11-26 に利用者が決め、細かな定めは
  *     Claude が決めた）。見るのは印のあるなしだけで、書類も、ほかに持つ国籍も読まず、残さない
+ *     受付に戻ったあと（受付に戻る時刻と 2026-12-15 の遅いほうから）は、「日本の国籍の書類による確かめ」を受ける印（DOCUMENT）も見る。
+ *     2026-11-26 に利用者が求め、Claude が決めた。書類の確かめそのものは運営者が非公開のリポジトリで行い、ここは画像を見ない。
+ *     コメントには、運営者が結果の一行を記すまで、書類の確かめは済んでいないと書く（documentDue と addDocument）
  *   - 訂正へのリンクが https の URL で、受けない先（CLOSED）を指さないこと（文字の上だけで見る。リンクは開かない）
  *   - 何を誤り、どう正したかが書かれていること
  *
@@ -84,6 +87,13 @@ const ABROAD = '生まれてから一度も、日本の外に出たことがあ�
 /* 日本の国籍を持つこと（2026-12-15 から）。2026-11-26 に利用者が決め、細かな定めは Claude が決めた。 */
 const JAPANESE_FROM = '2026-12-15';
 const JAPANESE = '日本の国籍を持っています';
+/* 日本の国籍の書類による確かめ（受付に戻ったあと）。2026-11-26 に利用者が求め、Claude が決めた。効くのは、受付に戻る時刻（REOPEN.at）と
+ * JAPANESE_FROM の遅いほうからで、受付を止めているあいだ（REOPEN が null）は効かない。画像は運営者だけが非公開のリポジトリで見る。
+ * この確認は画像を見ず、印のあるなしと、結果が記されるまで済んでいないことだけを書く。 */
+const DOCUMENT = '受付に戻ったあとの「日本の国籍の書類による確かめ」を受けます';
+const DOCUMENT_LABEL = '日本の国籍の書類による確かめを受ける印がある';
+const DOCUMENT_DAYS = 7;
+const DOCUMENT_PENDING = '日本の国籍の書類による確かめは、まだ済んでいません。運営者が、願い出ごとに作る非公開のリポジトリにこの issue を開いたアカウントを招き、戸籍の証明書の画像を見て、結果の一行（確かめた／確かめられなかった）をこの issue に記すまで、叙任を決めません。画像はこの issue に貼りません。個人番号（マイナンバー）と、個人番号の見えるものは送りません。電子メールは使いません。非公開のリポジトリは、作った日から ' + DOCUMENT_DAYS + ' 日以内に削除します（叙任の規程「日本の国籍の書類による確かめ」）。';
 const PAUSE_FROM = '2026-11-12T00:00:00+09:00';
 /* 参加のハードル（2026-12-15 から）。2026-11-19 に利用者がハードルを最大限に上げると決め、Claude が条件を選んだ。 */
 const HURDLE_FROM = '2026-12-15';
@@ -464,6 +474,13 @@ function quotaEarliest(last) {
   return last ? yearsAfter(last, QUOTA_YEARS) : null;
 }
 
+/* 純：日本の国籍の書類による確かめが、この願い出に効くか。受付に戻る決め（reopen）があり、issue を開いた時刻がその時刻より後で、
+ * 開いた日が JAPANESE_FROM より前でないときだけ効く。受付を止めているあいだ（reopen が null）は効かない。 */
+function documentDue(opened, reopen = REOPEN) {
+  if (!reopen || !reopen.at) return false;
+  return Date.parse(opened) >= Date.parse(reopen.at) && jstDay(opened) >= JAPANESE_FROM;
+}
+
 /* 純：確かめた結果の行。訂正へのリンクは開かず、linkProblem で文字の上だけを見る。 */
 function check(form, opened, oaths = requiredOaths()) {
   const rows = [];
@@ -493,6 +510,18 @@ function check(form, opened, oaths = requiredOaths()) {
   const what = (form['何を誤り、どう正したか'] || '').trim();
   add('何を誤り、どう正したかが書かれている', what.length >= 10 && what !== '_No response_');
   return { ok: rows.every((r) => r[1]), rows, earliest: jstDay(opened) >= HURDLE_FROM ? earliestDecision(opened) : null };
+}
+
+/* 純：日本の国籍の書類による確かめの行を、確かめた結果に足す（documentDue のときだけ）。受付に戻る決めは main が記録に照らしてから渡すので、
+ * check とは分けてある。足すのは印のあるなしの行と、運営者が結果を記すまで済んでいないという印（result.document）だけで、画像は見ない。 */
+function addDocument(result, form, opened, reopen = REOPEN) {
+  if (!documentDue(opened, reopen)) return result;
+  const oath = (form && form['誓い']) || '';
+  const has = oath.split('\n').some((l) => /^- \[[xX]\] /.test(l) && l.includes(DOCUMENT));
+  result.rows.push([DOCUMENT_LABEL, has, has ? '' : '受付に戻ったあと、この印のない願い出は受けません']);
+  result.document = true;
+  result.ok = result.rows.every((r) => r[1]);
+  return result;
 }
 
 /* 純：前の願い出からの日数の行を、確かめた結果に足す（HURDLE_FROM から）。前の願い出の一覧は GitHub の API から読むので、check とは分けてある。 */
@@ -559,7 +588,7 @@ function comment(result) {
 ${rows}
 
 ${verdict}
-${result.earliest ? '叙任を決められるのは、早くて ' + result.earliest + '（日本時間）です。' + (result.quota ? '前の叙任の日を数えずに ' + QUOTA_YEARS + ' 年が過ぎるまで、次の叙任をしません（叙任の規程「参加のハードルの続き」）。\n' : '願い出の issue を開いた日を数えずに ' + WAIT_DAYS + ' 日が過ぎるまで、叙任を決めません（叙任の規程「参加のハードル」）。\n') : ''}この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
+${result.earliest ? '叙任を決められるのは、早くて ' + result.earliest + '（日本時間）です。' + (result.quota ? '前の叙任の日を数えずに ' + QUOTA_YEARS + ' 年が過ぎるまで、次の叙任をしません（叙任の規程「参加のハードルの続き」）。\n' : '願い出の issue を開いた日を数えずに ' + WAIT_DAYS + ' 日が過ぎるまで、叙任を決めません（叙任の規程「参加のハードル」）。\n') : ''}${result.document ? DOCUMENT_PENDING + '\n' : ''}この確認は何も決めません。叙任を決めるのは運営者です。この確認は、訂正へのリンクを開きません。運営者は、リンク先が願い出た人自身の誤りの訂正であると読めるかを確かめます（叙任の規程「運営者が確かめること」）。
 これは創作であり、遊びです。称号に法的な効力はありません。
 `;
 }
@@ -640,6 +669,7 @@ async function main() {
   }
   const form = parse(issue.body);
   const result = check(form, opened);
+  addDocument(result, form, opened, reopen);
   if (jstDay(opened) >= HURDLE_FROM) addInterval(result, await previousApplications(issue.user && issue.user.login), opened, n, reopen);
   if (jstDay(opened) >= STRICT_FROM) {
     const login = issue.user && issue.user.login;
@@ -654,7 +684,7 @@ async function main() {
   console.log(result.ok ? '整っている' : '整っていない');
 }
 
-module.exports = { STRICT_FROM, OWN, PUBLISHED_FIELD, PUBLISHED_DAYS, ACCOUNT_YEARS, QUOTA_YEARS, REFUSED_LABEL, VENUES, venueOf, realDay, publishedProblem, yearsAfter, accountProblem, refusedProblem, lastKnighted, quotaEarliest,
+module.exports = { DOCUMENT, DOCUMENT_LABEL, DOCUMENT_DAYS, DOCUMENT_PENDING, documentDue, addDocument, STRICT_FROM, OWN, PUBLISHED_FIELD, PUBLISHED_DAYS, ACCOUNT_YEARS, QUOTA_YEARS, REFUSED_LABEL, VENUES, venueOf, realDay, publishedProblem, yearsAfter, accountProblem, refusedProblem, lastKnighted, quotaEarliest,
   ACCOUNT_LABEL, addAccount, REFUSED_ROW, addRefused, addQuota, refusedApplications, accountCreated, githubApi, FINDING, FINDING_POINTS, READ_UNSETTLED, findingProblem, JAPANESE_FROM, JAPANESE, ABROAD_FROM, ABROAD, HURDLE_FROM, AGE, PLACES_FIELD, PLACE_WORDS, PLACES_MIN, INTERVAL_DAYS, WAIT_DAYS, placesNamed, intervalProblem, INTERVAL_LABEL, addInterval, earliestDecision, previousApplications, LABEL, formMarkers, formLike, target, PAUSE_FROM, REOPEN, reopenProblem, PAUSE_TEXT, PAUSE_TEXT_EN, paused, pauseComment, FORM, PAUSE_TITLE, PAUSE_BODY, PAUSE_BODY_EN, pauseBody, github, main, MARK, PRESENCE_FROM, PRESENCE, NATIONALITY_FROM, NATIONALITY, PREMISE_FROM, PREMISE, FOREIGN_FROM, FOREIGN, DATED, CLOSED, linkProblem, requiredOaths, parse, check, comment, jstDay };
 
 if (require.main === module) main().catch((e) => { console.error(e.message); process.exit(1); });
