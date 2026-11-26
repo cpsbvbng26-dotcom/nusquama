@@ -87,6 +87,22 @@ const SOURCES = [
   { key: 'italy-178-art9', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art9', needles: ['Art. 9'] },
   { key: 'italy-178-art8-commi', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1951-03-03;178~art8', needles: ['Art. 8'] },
   { key: 'italy-cp-10-commi', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art10', needles: ['Art. 10.'] },
+  /* 2026-11-26 (how far conferring is a crime): the general decriminalisation of 1981 (Law No. 689, Articles 32, 34 and 113),
+   * the publication of the Presidency of the Council of Ministers on honours that gives Article 8 of Law No. 178 with the notes
+   * on those changes, the Gazzetta Ufficiale's own text of Article 8 (its paragraphs), the guidance of the Procura generale of
+   * the Court of Cassation on where an offence on the internet is committed, the Framework Decision on the European arrest
+   * warrant, Article 2 of the Japanese Act of Extradition, and the two Japanese official pages on Japan's extradition treaties. */
+  { key: 'italy-689-art32', whole: true, breaks: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art32', needles: ['Art. 32'] },
+  { key: 'italy-689-art34', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art34', needles: ['Art. 34'] },
+  { key: 'italy-689-art113', whole: true, url: 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1981-11-24;689~art113', needles: ['Art. 113'] },
+  { key: 'italy-pcm-onorificenze', whole: true, pdf: true, url: 'https://www.bv.ipzs.it/bv-pdf/0021/MOD-VP-15-01-012_2183_1.pdf', needles: ['Chiunque fa uso, in qualsiasi forma', 'La sanzione originaria dell', 'La misura della multa'] },
+  { key: 'italy-178-gu', whole: true, breaks: true, url: 'https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=0&art.codiceRedazionale=051U0178&art.idArticolo=8&art.idSottoArticolo=1&art.idSottoArticolo1=0&art.dataPubblicazioneGazzetta=1951-03-30&art.progressivo=0', needles: ['Art. 8', 'trasgressori'] },
+  { key: 'cassazione-pg-competenza', whole: true, pdf: true, url: 'https://www.procuracassazione.it/resources/cms/documents/Orientamenti_della_Procura_generale_della_Cassazione_sulla_competenza_territoriale_settembre24.pdf', needles: ['diffamazione via internet', 'diffamazione telematica', 'server host'] },
+  { key: 'eaw', whole: true, url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002F0584', needles: ['Scope of the European arrest warrant', 'Grounds for optional non-execution'] },
+  { key: 'eaw-cellar', whole: true, url: 'https://publications.europa.eu/resource/celex/32002F0584', accept: 'application/xhtml+xml, text/html;q=0.9', lang: 'eng', needles: ['Scope of the European arrest warrant', 'Grounds for optional non-execution'] },
+  { key: 'egov-extradition', whole: true, url: 'https://laws.e-gov.go.jp/api/2/law_data/328AC0000000068?elm=MainProvision-Article_2&law_full_text_format=json', needles: ['（引渡しに関する制限）'] },
+  { key: 'moj-hakusyo-extradition', whole: true, url: 'https://hakusyo1.moj.go.jp/jp/72/nfm/n72_2_2_6_2_2.html', needles: ['2 逃亡犯罪人の引渡し'] },
+  { key: 'npa-treaties', whole: true, url: 'https://www.npa.go.jp/bureau/soumu/kokusai/yakusoku.html', needles: ['犯罪人引渡条約'] },
 ];
 
 const plain = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
