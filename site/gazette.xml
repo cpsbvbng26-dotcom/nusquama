@@ -5,8 +5,20 @@
   <id>https://nusquama.vercel.app/gazette.xml</id>
   <link rel="self" href="https://nusquama.vercel.app/gazette.xml"/>
   <link href="https://nusquama.vercel.app/gazette.html"/>
-  <updated>2026-11-24T00:00:00+09:00</updated>
+  <updated>2026-11-26T00:00:00+09:00</updated>
   <author><name>騎士王ネモ一世（創作の中の王）</name></author>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g116</id>
+    <title>官報（創作）第 116 号　年表：2026-12-15 から、叙任を願い出ることができるのは日本の国籍を持つ人に限ると叙任の規程に書き、利用規約で予告する。叙任はすべてオンラインで行い、式典も書状や物の送付もないと、叙任の規程・利用規約・適法性の説明・国の仕組みに書く。確かめるのは様式の印による本人の申告だけで、書類も、ほかに持つ国籍も尋ねない。騎士の名簿は変えない。受付は止めたまま。2026-11-26 に利用者が決め、細かな定めは Claude が決めました</title>
+    <link href="https://nusquama.vercel.app/gazette/116.html"/>
+    <updated>2026-11-26T00:00:00+09:00</updated>
+  </entry>
+  <entry>
+    <id>https://nusquama.vercel.app/gazette.html#g115</id>
+    <title>官報（創作）第 115 号　年表：叙任がイタリアの法令でどこまで罪になるかを、取り寄せた条文と公の文書から適法性の説明に並べる。授けることはいまも罪で、使うことは条文の上では 1981 年から行政上の違反である。受付に戻すには、刑法典第 7 条第 5 号・第 7 条第 1 号・第 8 条・第 6 条とオンラインで授けることが叙任に及ばないと、新しい一次の出典で確かめた行を点検の記録に記すことが要ると、叙任の規程に書く。受付は止めたまま。2026-11-26 に利用者が求め、Claude が書きました</title>
+    <link href="https://nusquama.vercel.app/gazette/115.html"/>
+    <updated>2026-11-26T00:00:00+09:00</updated>
+  </entry>
   <entry>
     <id>https://nusquama.vercel.app/gazette.html#g114</id>
     <title>官報（創作）第 114 号　年表：2026-12-15 から、参加の条件を七つ厳しくすると叙任の規程「参加のハードルの続き」と個人情報の取り扱いに書き、利用規約で予告する。叙任の訂正は、自分が書いて公開した文の誤りを前の版が残る場で正し、願い出の 180 日以上前に公開したものに限る。願い出の GitHub のアカウントは 2 年以上前に作られたものに限り、叙任は 2 年に 1 人までとし、断った願い出のアカウントからは二度と受けない。誤りの知らせは、同じアカウントから 30 日に一件までとする。削除・訂正・辞退の求め、権利者の知らせ、安全の問題の知らせは縛らない。受付は止めたまま。2026-11-23 に利用者が七つの条件を採ると決め、細かな定めは Claude が決めました</title>
