@@ -1090,55 +1090,73 @@
       "name": "番号利用法",
       "label": "第2条",
       "law_id": "425AC0000000027",
-      "article": "2"
+      "article": "2",
+      "sha256": "5c29c1b1afceec29a491e895b9c6dccc38bd305ad586f781916f898378074092",
+      "title": "行政手続における特定の個人を識別するための番号の利用等に関する法律"
     },
     {
       "name": "番号利用法",
       "label": "第19条",
       "law_id": "425AC0000000027",
-      "article": "19"
+      "article": "19",
+      "sha256": "7246eb76fb8dfba22914c9837d8bca6c23cb46639fb0e1639f9a8ced91c5ba6b",
+      "title": "行政手続における特定の個人を識別するための番号の利用等に関する法律"
     },
     {
       "name": "番号利用法",
       "label": "第20条",
       "law_id": "425AC0000000027",
-      "article": "20"
+      "article": "20",
+      "sha256": "58706339350df40b198f9191f02cfd00aa964659e9a907805d97665b8a15dcd3",
+      "title": "行政手続における特定の個人を識別するための番号の利用等に関する法律"
     },
     {
       "name": "住民基本台帳法",
       "label": "第7条",
       "law_id": "342AC0000000081",
-      "article": "7"
+      "article": "7",
+      "sha256": "25398909b9d60017f2592fcf250aa42034ba74387a2f085895053196a93993ca",
+      "title": "住民基本台帳法"
     },
     {
       "name": "住民基本台帳法",
       "label": "第30条の45",
       "law_id": "342AC0000000081",
-      "article": "30_45"
+      "article": "30_45",
+      "sha256": "1bb3a83de00f5524b160accca23bc493ad787c63557ee755f05a470fccd1b6bc",
+      "title": "住民基本台帳法"
     },
     {
       "name": "戸籍法",
       "label": "第10条",
       "law_id": "322AC0000000224",
-      "article": "10"
+      "article": "10",
+      "sha256": "b2feb875e7a52248bc82e44c04d317de272f9146d50d39b60d32f915c5e98944",
+      "title": "戸籍法"
     },
     {
       "name": "戸籍法",
       "label": "第23条",
       "law_id": "322AC0000000224",
-      "article": "23"
+      "article": "23",
+      "sha256": "1633eecc32331d7d4bce286d6577801f3b1f83764062a5f3896cdacf9cc40e61",
+      "title": "戸籍法"
     },
     {
       "name": "戸籍法",
       "label": "第120条",
       "law_id": "322AC0000000224",
-      "article": "120"
+      "article": "120",
+      "sha256": "1a733779cfa375f4d6814a588ccaa3c7e8659b00f8f3a64992fda0db61dd5f98",
+      "title": "戸籍法"
     },
     {
       "name": "旅券法",
       "label": "第18条",
       "law_id": "326AC0000000267",
-      "article": "18"
+      "article": "18",
+      "sha256": "d27ce9ee83b22307a8d97616bed1c67565ae6b1366480e4c2e7b66e4b42fd104",
+      "title": "旅券法"
     }
   ],
   "policies": [
